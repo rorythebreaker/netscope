@@ -145,7 +145,7 @@ public sealed class PseudoGenerator : IPseudoGenerator
 
     private static string FirstLine(string s)
     {
-        int nl = s.IndexOfAny(new[] { '\r', '\n' });
+        int nl = s.AsSpan().IndexOfAny('\r', '\n');
         return nl < 0 ? s : s.Substring(0, nl);
     }
 }

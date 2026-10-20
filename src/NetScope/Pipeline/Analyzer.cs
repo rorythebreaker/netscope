@@ -140,7 +140,7 @@ public sealed class Analyzer
                 var edges = index.GroupEdges(m => m.Selected).ToList();
                 sink.WriteCallGraph(edges, perMethod);
             }
-            sink.End();
+            sink.Finish();
         }
         finally
         {

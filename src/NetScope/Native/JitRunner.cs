@@ -190,7 +190,7 @@ public static class JitRunner
                 current = null;
                 continue;
             }
-            if (line.Length == 0 || line.StartsWith(";", StringComparison.Ordinal) && current.Lines.Count == 0) continue;
+            if (line.Length == 0 || line.StartsWith(';') && current.Lines.Count == 0) continue;
             current.Lines.Add(new NativeLine(0, "", line));
         }
         return map;
@@ -212,7 +212,7 @@ public static class JitRunner
 
     private static string FirstLine(string s)
     {
-        int nl = s.IndexOfAny(new[] { '\r', '\n' });
+        int nl = s.AsSpan().IndexOfAny('\r', '\n');
         return nl < 0 ? s : s.Substring(0, nl);
     }
 

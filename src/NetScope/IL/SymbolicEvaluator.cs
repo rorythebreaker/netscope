@@ -97,7 +97,7 @@ public sealed class SymbolicEvaluator
 
     // ---------------------------------------------------------------- stack helpers
 
-    private Expr Pop(List<Expr> stack)
+    private static Expr Pop(List<Expr> stack)
     {
         if (stack.Count == 0) return Expr.Name("s?");
         var e = stack[^1];
@@ -105,7 +105,7 @@ public sealed class SymbolicEvaluator
         return e;
     }
 
-    private List<Expr> PopN(List<Expr> stack, int n)
+    private static List<Expr> PopN(List<Expr> stack, int n)
     {
         var list = new Expr[n];
         for (int i = n - 1; i >= 0; i--) list[i] = Pop(stack);
@@ -616,7 +616,7 @@ public sealed class SymbolicEvaluator
         return _r.Metadata.GetMemberReference((MemberReferenceHandle)h).GetKind() == MemberReferenceKind.Method;
     }
 
-    private bool Branch(List<Expr> stack, Result res, string op)
+    private static bool Branch(List<Expr> stack, Result res, string op)
     {
         var b = Pop(stack);
         var a = Pop(stack);

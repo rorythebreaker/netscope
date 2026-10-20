@@ -29,7 +29,7 @@ public interface IAsmProvider
 {
     ILListing GetIL(MethodIL il);
     /// <summary>Native code for a batch of methods of one assembly (R2R from the image, JIT only with --allow-run).</summary>
-    Dictionary<MethodModel, NativeCode> GetNative(LoadedAssembly asm, IReadOnlyList<MethodModel> methods);
+    Dictionary<MethodModel, NativeCode> GetNative(LoadedAssembly assembly, IReadOnlyList<MethodModel> methods);
 }
 
 public sealed class AsmProvider : IAsmProvider
@@ -159,13 +159,13 @@ public sealed class AsmProvider : IAsmProvider
 
     // ------------------------------------------------------------------ native
 
-    public Dictionary<MethodModel, NativeCode> GetNative(LoadedAssembly asm, IReadOnlyList<MethodModel> methods)
+    public Dictionary<MethodModel, NativeCode> GetNative(LoadedAssembly assembly, IReadOnlyList<MethodModel> methods)
     {
         var result = new Dictionary<MethodModel, NativeCode>();
         var needJit = new List<MethodModel>();
         R2RReader? r2r = null;
         string? r2rError = null;
-        if (asm.IsReadyToRun) r2r = R2RReader.TryOpen(asm, out r2rError);
+        if (assembly.IsReadyToRun) r2r = R2RReader.TryOpen(assembly, out r2rError);
         Dictionary<MethodDefinitionHandle, List<R2RInstance>>? instances = null;
         RuntimeFunctionTable? pdata = null;
         bool pdataRead = false;
@@ -178,9 +178,9 @@ public sealed class AsmProvider : IAsmProvider
                 if (!pdataRead)
                 {
                     pdataRead = true;
-                    try { pdata = RuntimeFunctionTable.FromPdata(asm); } catch (Exception) { pdata = null; }
+                    try { pdata = RuntimeFunctionTable.FromPdata(assembly); } catch (Exception) { pdata = null; }
                 }
-                result[m] = MixedModeNative(asm, m, pdata);
+                result[m] = MixedModeNative(assembly, m, pdata);
                 continue;
             }
             if (!m.HasBody)
@@ -232,7 +232,7 @@ public sealed class AsmProvider : IAsmProvider
         {
             try
             {
-                foreach (var (m, code) in JitRunner.Run(asm.FilePath, needJit, _refPaths, _runTimeout)) result[m] = code;
+                foreach (var (m, code) in JitRunner.Run(assembly.FilePath, needJit, _refPaths, _runTimeout)) result[m] = code;
             }
             catch (Exception ex)
             {

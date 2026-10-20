@@ -23,7 +23,7 @@ public sealed class GenericContext
 public enum NameStyle
 {
     /// <summary>C#-like with short type names: List&lt;int&gt;.</summary>
-    Short,
+    Brief,
     /// <summary>C#-like with namespaces: System.Collections.Generic.List&lt;int&gt;.</summary>
     Full,
     /// <summary>Canonical form for matching methods across assemblies: metadata names, numbered generics.</summary>
@@ -33,7 +33,7 @@ public enum NameStyle
 /// <summary>C#-like rendering of signature types.</summary>
 public sealed class CSharpTypeProvider : ISignatureTypeProvider<string, GenericContext>
 {
-    public static readonly CSharpTypeProvider Short = new(NameStyle.Short);
+    public static readonly CSharpTypeProvider Brief = new(NameStyle.Brief);
     public static readonly CSharpTypeProvider Full = new(NameStyle.Full);
     public static readonly CSharpTypeProvider Key = new(NameStyle.Key);
 

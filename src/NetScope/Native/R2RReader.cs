@@ -535,7 +535,7 @@ internal ref struct R2RSignatureReader
                 Foreign = true;
                 var t = ReadType();
                 Foreign = saved;
-                return t.StartsWith("<", StringComparison.Ordinal) ? $"<module {module}>{t}" : t;
+                return t.StartsWith('<') ? $"<module {module}>{t}" : t;
             }
             default:
                 throw new BadImageFormatException($"unsupported element type 0x{et:X2} in R2R signature");
@@ -556,7 +556,7 @@ internal ref struct R2RSignatureReader
                 case 1:
                     return Short(Metadata.Names.TypeRefFullName(_md, MetadataTokens.TypeReferenceHandle(rid)));
                 default:
-                    return _md.GetTypeSpecification(MetadataTokens.TypeSpecificationHandle(rid)).DecodeSignature(Metadata.CSharpTypeProvider.Short, Metadata.GenericContext.Empty);
+                    return _md.GetTypeSpecification(MetadataTokens.TypeSpecificationHandle(rid)).DecodeSignature(Metadata.CSharpTypeProvider.Brief, Metadata.GenericContext.Empty);
             }
         }
         catch (Exception)
