@@ -117,7 +117,10 @@ public sealed class PseudoGenerator : IPseudoGenerator
         if (_decompiler != null || _initError != null) return _decompiler;
         try
         {
-            _decompiler = new CSharpDecompiler(_asm.DecompilerFile, _resolver, CreateSettings(_raw));
+            var settings = CreateSettings(_raw);
+            // With a PDB the decompiler names locals as in the source.
+            settings.UseDebugSymbols = _asm.Symbols != null;
+            _decompiler = new CSharpDecompiler(_asm.DecompilerFile, _resolver, settings) { DebugInfoProvider = _asm.Symbols };
         }
         catch (Exception ex)
         {

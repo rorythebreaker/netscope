@@ -22,6 +22,16 @@ public sealed class AnalysisOptions
     /// <summary>After this many decompilations time out, the remaining methods get the simplified pseudocode.</summary>
     public int MaxAbandoned { get; init; } = 4;
     public TimeSpan RunTimeout { get; init; } = TimeSpan.FromSeconds(30);
+    /// <summary>--no-pdb: do not read debug symbols.</summary>
+    public bool NoPdb { get; init; }
+    /// <summary>--pdb-path: directories searched for .pdb files after the assembly's own directory.</summary>
+    public IReadOnlyList<string> PdbPaths { get; init; } = Array.Empty<string>();
+    /// <summary>--source: show source lines next to IL (needs a PDB).</summary>
+    public bool ShowSource { get; init; }
+    /// <summary>--source-path: directories searched for source files not found at the PDB path.</summary>
+    public IReadOnlyList<string> SourcePaths { get; init; } = Array.Empty<string>();
+    /// <summary>--uses, --find-string, --field-refs (empty: no cross-reference filter).</summary>
+    public CrossRefs.CrossReferenceQuery Query { get; init; } = CrossRefs.CrossReferenceQuery.None;
     /// <summary>Restrictions for processes that run analyzed code (--allow-run).</summary>
     public SandboxOptions Sandbox { get; init; } = new();
 }

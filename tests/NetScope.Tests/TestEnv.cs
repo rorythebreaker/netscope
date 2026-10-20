@@ -48,6 +48,18 @@ internal static class TestEnv
         }
     }
 
+    /// <summary>Unoptimized assembly with a separate Portable PDB (symbol tests).</summary>
+    public static string PdbSamplePath
+    {
+        get
+        {
+            var config = AppContext.BaseDirectory.Contains($"{Path.DirectorySeparatorChar}Release{Path.DirectorySeparatorChar}") ? "Release" : "Debug";
+            var path = Path.Combine(RepoRoot, "tests", "NetScope.Samples.Pdb", "bin", config, "net8.0", "NetScope.Samples.Pdb.dll");
+            if (!File.Exists(path)) throw new FileNotFoundException("build tests/NetScope.Samples.Pdb first", path);
+            return path;
+        }
+    }
+
     public static string GoldenDir => Path.Combine(RepoRoot, "tests", "NetScope.Tests", "Golden");
 
     private static string FindRepoRoot()

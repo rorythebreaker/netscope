@@ -1,0 +1,25 @@
+Assembly : NetScope.Samples.dll
+Name     : NetScope.Samples, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 2
+
+Type     : MyApp.Marker
+
+Method   : void OnLoad()
+Kind     : static, internal
+RVA      : 0x2058   Size: 31 bytes   Token: 0x06000002
+
+[Matches]
+  IL_0000  ldstr     "NETSCOPE_SAMPLE_MARKER"
+  IL_0014  ldstr     "executed"
+
+Type     : MyApp.Flow.Branches
+
+Method   : string Switch(int code)
+Kind     : static, public
+RVA      : 0x20A9   Size: 54 bytes   Token: 0x06000004
+
+[Matches]
+  IL_0018  ldstr     "zero"
+  IL_001E  ldstr     "one"
+  IL_002A  ldstr     "three"

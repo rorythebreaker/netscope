@@ -9,16 +9,30 @@ using NetScope.Pseudo;
 namespace NetScope.Reporting;
 
 /// <summary>Which groups of data are present in the report.</summary>
-public sealed record OutputGroups(bool Methods, bool Calls, bool Cfg, bool Pseudo, bool IL, bool Native, bool CallGraph);
+public sealed record OutputGroups(bool Methods, bool Calls, bool Cfg, bool Pseudo, bool IL, bool Native, bool CallGraph)
+{
+    /// <summary>--fields: fields each method reads and writes.</summary>
+    public bool Fields { get; init; }
+    /// <summary>--strings: table of string literals per assembly.</summary>
+    public bool Strings { get; init; }
+}
 
 public sealed class AssemblyReport
 {
     public required LoadedAssembly Assembly { get; init; }
     public List<MethodReport> Methods { get; } = new();
     public List<string> Errors { get; } = new();
+    /// <summary>--strings: literals of the reported methods by value (filled only for that group).</summary>
+    public Dictionary<string, CrossRefs.StringLiteral> StringIndex { get; } = new(StringComparer.Ordinal);
 }
 
 public sealed record CallReport(CallSite Site, MethodModel? GroupTarget);
+
+/// <summary>Lines of one source file covered by a piece of IL.</summary>
+public sealed record SourceRange(string File, int StartLine, int EndLine)
+{
+    public string Label => StartLine == EndLine ? $"{File}:{StartLine}" : $"{File}:{StartLine}-{EndLine}";
+}
 
 public sealed class MethodReport
 {
@@ -38,6 +52,12 @@ public sealed class MethodReport
         return operand.Length == 0 ? ins.Name : $"{ins.Name,-10} {operand}";
     }
     public NativeCode? Native { get; set; }
+    /// <summary>Source lines of each CFG block (by block index), when the PDB has them.</summary>
+    public Dictionary<int, SourceRange>? BlockSources { get; set; }
+    /// <summary>What selected the method with --uses, --find-string, --field-refs.</summary>
+    public IReadOnlyList<CrossRefs.CrossReference>? Matches { get; set; }
+    /// <summary>--fields: field accesses in IL order.</summary>
+    public IReadOnlyList<CrossRefs.FieldAccess>? Fields { get; set; }
     public List<string> Errors { get; } = new();
 }
 

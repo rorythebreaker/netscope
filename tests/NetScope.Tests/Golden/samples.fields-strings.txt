@@ -1,0 +1,567 @@
+Assembly : NetScope.Samples.dll
+Name     : NetScope.Samples, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 70
+
+Type     : <Module>
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2050   Size: 6 bytes   Token: 0x06000001
+
+[Fields]
+  (none)
+
+Type     : MyApp.Marker
+
+Method   : void OnLoad()
+Kind     : static, internal
+RVA      : 0x2058   Size: 31 bytes   Token: 0x06000002
+
+[Fields]
+  (none)
+
+Type     : MyApp.Flow.Branches
+
+Method   : int Loop(int n)
+Kind     : static, public
+RVA      : 0x2084   Size: 25 bytes   Token: 0x06000003
+
+[Fields]
+  (none)
+
+Method   : string Switch(int code)
+Kind     : static, public
+RVA      : 0x20A9   Size: 54 bytes   Token: 0x06000004
+
+[Fields]
+  (none)
+
+Method   : int NestedTry(string s)
+Kind     : static, public
+RVA      : 0x20E0   Size: 63 bytes   Token: 0x06000005
+
+[Fields]
+  (none)
+
+Method   : void Throws(object o)
+Kind     : static, public
+RVA      : 0x2154   Size: 25 bytes   Token: 0x06000006
+
+[Fields]
+  (none)
+
+Type     : MyApp.Flow.Generic`1
+
+Method   : T get_Value()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x216E   Size: 7 bytes   Token: 0x06000007
+
+[Fields]
+  read     MyApp.Flow.Generic::<Value>k__BackingField  !0  IL_0001
+
+Method   : void set_Value(T value)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x2176   Size: 8 bytes   Token: 0x06000008
+
+[Fields]
+  write    MyApp.Flow.Generic::<Value>k__BackingField  !0  IL_0002
+
+Method   : TOut Map<TOut>(Func<T, TOut> map)
+Kind     : instance, public, generic
+RVA      : 0x217F   Size: 13 bytes   Token: 0x06000009
+
+[Fields]
+  (none)
+
+Method   : Generic<T> Create(T value)
+Kind     : static, public
+RVA      : 0x218D   Size: 13 bytes   Token: 0x0600000A
+
+[Fields]
+  (none)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x219B   Size: 7 bytes   Token: 0x0600000B
+
+[Fields]
+  (none)
+
+Type     : MyApp.Flow.GenericUse
+
+Method   : int Length(string s)
+Kind     : static, public
+RVA      : 0x21A3   Size: 43 bytes   Token: 0x0600000C
+
+[Fields]
+  read     MyApp.Flow.GenericUse.c::<>9__0_0  Func<string, int>  IL_0006
+  read     MyApp.Flow.GenericUse.c::<>9       <>c  IL_000F
+  write    MyApp.Flow.GenericUse.c::<>9__0_0  Func<string, int>  IL_0020
+
+Type     : MyApp.Flow.Features
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x21CF   Size: 7 bytes   Token: 0x0600000D
+
+[Fields]
+  (none)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x21D7   Size: 19 bytes   Token: 0x0600000E
+
+[Fields]
+  (none)
+
+Method   : void Finalize()
+Kind     : finalizer, instance, protected, override
+RVA      : 0x21EC   Size: 17 bytes   Token: 0x0600000F
+
+[Fields]
+  write    MyApp.Flow.Features::_count  int  IL_0002
+
+Method   : int get_Instances()
+Kind     : property-get, static, public, compiler-generated
+RVA      : 0x221C   Size: 6 bytes   Token: 0x06000010
+
+[Fields]
+  read     MyApp.Flow.Features::<Instances>k__BackingField  int  IL_0000
+
+Method   : void set_Instances(int value)
+Kind     : property-set, static, private, compiler-generated
+RVA      : 0x2223   Size: 7 bytes   Token: 0x06000011
+
+[Fields]
+  write    MyApp.Flow.Features::<Instances>k__BackingField  int  IL_0001
+
+Method   : void add_Changed(EventHandler value)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x222C   Size: 41 bytes   Token: 0x06000012
+
+[Fields]
+  read     MyApp.Flow.Features::Changed  EventHandler  IL_0001
+  address  MyApp.Flow.Features::Changed  EventHandler  IL_0017
+
+Method   : void remove_Changed(EventHandler value)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x2264   Size: 41 bytes   Token: 0x06000013
+
+[Fields]
+  read     MyApp.Flow.Features::Changed  EventHandler  IL_0001
+  address  MyApp.Flow.Features::Changed  EventHandler  IL_0017
+
+Method   : Features op_Addition(Features a, Features b)
+Kind     : operator, static, public
+RVA      : 0x2299   Size: 25 bytes   Token: 0x06000014
+
+[Fields]
+  read     MyApp.Flow.Features::_count  int  IL_0007 IL_000D
+  write    MyApp.Flow.Features::_count  int  IL_0013
+
+Method   : int op_Implicit(Features f)
+Kind     : conversion, static, public
+RVA      : 0x22B3   Size: 7 bytes   Token: 0x06000015
+
+[Fields]
+  read     MyApp.Flow.Features::_count  int  IL_0001
+
+Method   : Task<int> ComputeAsync(int x)
+Kind     : instance, public, async
+RVA      : 0x22BC   Size: 55 bytes   Token: 0x06000016
+
+[Fields]
+  write    MyApp.Flow.Features.d__13::<>t__builder  AsyncTaskMethodBuilder<int>  IL_0007
+  write    MyApp.Flow.Features.d__13::x             int  IL_000F
+  write    MyApp.Flow.Features.d__13::<>1__state    int  IL_0017
+  address  MyApp.Flow.Features.d__13::<>t__builder  AsyncTaskMethodBuilder<int>  IL_001E IL_002C
+
+Method   : IEnumerable<int> Range(int n)
+Kind     : instance, public, iterator
+RVA      : 0x22FF   Size: 15 bytes   Token: 0x06000017
+
+[Fields]
+  write    MyApp.Flow.Features.d__14::<>3__n  int  IL_0009
+
+Method   : int Lambdas(int[] values)
+Kind     : instance, public
+RVA      : 0x2310   Size: 83 bytes   Token: 0x06000018
+
+[Fields]
+  read     MyApp.Flow.Features::_count                      int  IL_0008
+  write    MyApp.Flow.Features.c__DisplayClass15_0::offset  int  IL_000D
+  read     MyApp.Flow.Features.c::<>9__15_1                 Func<int, bool>  IL_0024
+  read     MyApp.Flow.Features.c::<>9                       <>c  IL_002D
+  write    MyApp.Flow.Features.c::<>9__15_1                 Func<int, bool>  IL_003E
+
+Method   : void Raise()
+Kind     : instance, public
+RVA      : 0x236F   Size: 23 bytes   Token: 0x06000019
+
+[Fields]
+  read     MyApp.Flow.Features::Changed  EventHandler  IL_0001
+  read     System.EventArgs::Empty       EventArgs  IL_000C
+
+Method   : void Dispose()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x2387   Size: 7 bytes   Token: 0x0600001A
+
+[Fields]
+  (none)
+
+Method   : uint Ticks()
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x0600001B
+PInvoke  : kernel32.dll!GetTickCount
+
+Method   : int <Lambdas>g__Local|15_2(int v)
+Kind     : static, internal, local-function, compiler-generated
+RVA      : 0x238F   Size: 4 bytes   Token: 0x0600001C
+
+[Fields]
+  (none)
+
+Type     : MyApp.Flow.Overloaded
+
+Method   : int Foo(int x)
+Kind     : static, public
+RVA      : 0x2394   Size: 4 bytes   Token: 0x0600001D
+
+[Fields]
+  (none)
+
+Method   : int Foo(string s)
+Kind     : static, public
+RVA      : 0x239C   Size: 38 bytes   Token: 0x0600001E
+
+[Fields]
+  (none)
+
+Method   : int Foo<T>(T value)
+Kind     : static, public, generic
+RVA      : 0x23D0   Size: 98 bytes   Token: 0x0600001F
+
+[Fields]
+  (none)
+
+Type     : MyApp.Flow.Shape
+
+Method   : double Area()
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000020
+
+Method   : string Describe()
+Kind     : instance, public, virtual
+RVA      : 0x2440   Size: 36 bytes   Token: 0x06000021
+
+[Fields]
+  (none)
+
+Method   : void .ctor()
+Kind     : ctor, instance, protected
+RVA      : 0x2470   Size: 7 bytes   Token: 0x06000022
+
+[Fields]
+  (none)
+
+Type     : MyApp.Flow.Circle
+
+Method   : double get_R()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2478   Size: 7 bytes   Token: 0x06000023
+
+[Fields]
+  read     MyApp.Flow.Circle::<R>k__BackingField  double  IL_0001
+
+Method   : void set_R(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2480   Size: 8 bytes   Token: 0x06000024
+
+[Fields]
+  write    MyApp.Flow.Circle::<R>k__BackingField  double  IL_0002
+
+Method   : double Area()
+Kind     : instance, public, override
+RVA      : 0x2489   Size: 24 bytes   Token: 0x06000025
+
+[Fields]
+  (none)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x24A2   Size: 7 bytes   Token: 0x06000026
+
+[Fields]
+  (none)
+
+Type     : MyApp.Auth.ILoginService
+
+Method   : bool Login(string user, string pass)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000027
+
+Type     : MyApp.Auth.LoginService
+
+Method   : bool Login(string user, string pass)
+Kind     : instance, public, virtual
+RVA      : 0x24AC   Size: 36 bytes   Token: 0x06000028
+
+[Fields]
+  read     MyApp.Auth.LoginService::_users  Users  IL_0006
+
+Method   : string Hash(string s)
+Kind     : static, public
+RVA      : 0x24DC   Size: 15 bytes   Token: 0x06000029
+
+[Fields]
+  (none)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x24F7   Size: 18 bytes   Token: 0x0600002A
+
+[Fields]
+  write    MyApp.Auth.LoginService::_users  Users  IL_0006
+
+Type     : MyApp.Auth.AdminLoginService
+
+Method   : bool Login(string user, string pass)
+Kind     : instance, public, override
+RVA      : 0x250A   Size: 24 bytes   Token: 0x0600002B
+
+[Fields]
+  (none)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2523   Size: 7 bytes   Token: 0x0600002C
+
+[Fields]
+  (none)
+
+Type     : MyApp.Db.User
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x252B   Size: 7 bytes   Token: 0x0600002D
+
+[Fields]
+  read     MyApp.Db.User::<Name>k__BackingField  string  IL_0001
+
+Method   : void set_Name(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2533   Size: 8 bytes   Token: 0x0600002E
+
+[Fields]
+  write    MyApp.Db.User::<Name>k__BackingField  string  IL_0002
+
+Method   : string get_Hash()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x253C   Size: 7 bytes   Token: 0x0600002F
+
+[Fields]
+  read     MyApp.Db.User::<Hash>k__BackingField  string  IL_0001
+
+Method   : void set_Hash(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2544   Size: 8 bytes   Token: 0x06000030
+
+[Fields]
+  write    MyApp.Db.User::<Hash>k__BackingField  string  IL_0002
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x254D   Size: 29 bytes   Token: 0x06000031
+
+[Fields]
+  write    MyApp.Db.User::<Name>k__BackingField  string  IL_0006
+  write    MyApp.Db.User::<Hash>k__BackingField  string  IL_0011
+
+Type     : MyApp.Db.Users
+
+Method   : User Find(string name)
+Kind     : instance, public, virtual
+RVA      : 0x256C   Size: 20 bytes   Token: 0x06000032
+
+[Fields]
+  read     MyApp.Db.Users::_byName  Dictionary<string, User>  IL_0001
+
+Method   : void Add(User user)
+Kind     : instance, public
+RVA      : 0x258C   Size: 19 bytes   Token: 0x06000033
+
+[Fields]
+  read     MyApp.Db.Users::_byName  Dictionary<string, User>  IL_0001
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x25A0   Size: 18 bytes   Token: 0x06000034
+
+[Fields]
+  write    MyApp.Db.Users::_byName  Dictionary<string, User>  IL_0006
+
+Type     : MyApp.Flow.GenericUse+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x25B3   Size: 11 bytes   Token: 0x06000035
+
+[Fields]
+  write    MyApp.Flow.GenericUse.c::<>9  <>c  IL_0005
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x25BF   Size: 7 bytes   Token: 0x06000036
+
+[Fields]
+  (none)
+
+Method   : int <Length>b__0_0(string v)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x25C7   Size: 7 bytes   Token: 0x06000037
+
+[Fields]
+  (none)
+
+Type     : MyApp.Flow.Features+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x25CF   Size: 11 bytes   Token: 0x06000038
+
+[Fields]
+  write    MyApp.Flow.Features.c::<>9  <>c  IL_0005
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x25DB   Size: 7 bytes   Token: 0x06000039
+
+[Fields]
+  (none)
+
+Method   : bool <Lambdas>b__15_1(int v)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x25E3   Size: 5 bytes   Token: 0x0600003A
+
+[Fields]
+  (none)
+
+Type     : MyApp.Flow.Features+<>c__DisplayClass15_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x25E9   Size: 7 bytes   Token: 0x0600003B
+
+[Fields]
+  (none)
+
+Method   : int <Lambdas>b__0(int v)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x25F1   Size: 9 bytes   Token: 0x0600003C
+
+[Fields]
+  read     MyApp.Flow.Features.c__DisplayClass15_0::offset  int  IL_0002
+
+Type     : MyApp.Flow.Features+<ComputeAsync>d__13
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x25FC   Size: 153 bytes   Token: 0x0600003D
+
+[Fields]
+  read     MyApp.Flow.Features.d__13::<>1__state    int  IL_0001
+  write    MyApp.Flow.Features.d__13::<>1__state    int  IL_0023 IL_0056 IL_0071 IL_0087
+  write    MyApp.Flow.Features.d__13::<>u__1        TaskAwaiter  IL_002A
+  address  MyApp.Flow.Features.d__13::<>t__builder  AsyncTaskMethodBuilder<int>  IL_0030 IL_0077 IL_008D
+  read     MyApp.Flow.Features.d__13::<>u__1        TaskAwaiter  IL_0040
+  address  MyApp.Flow.Features.d__13::<>u__1        TaskAwaiter  IL_0047
+  read     MyApp.Flow.Features.d__13::x             int  IL_0063
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26B4   Size: 13 bytes   Token: 0x0600003E
+
+[Fields]
+  address  MyApp.Flow.Features.d__13::<>t__builder  AsyncTaskMethodBuilder<int>  IL_0001
+
+Type     : MyApp.Flow.Features+<Range>d__14
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x26C2   Size: 25 bytes   Token: 0x0600003F
+
+[Fields]
+  write    MyApp.Flow.Features.d__14::<>1__state            int  IL_0008
+  write    MyApp.Flow.Features.d__14::<>l__initialThreadId  int  IL_0013
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26DC   Size: 9 bytes   Token: 0x06000040
+
+[Fields]
+  write    MyApp.Flow.Features.d__14::<>1__state  int  IL_0003
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x26E8   Size: 92 bytes   Token: 0x06000041
+
+[Fields]
+  read     MyApp.Flow.Features.d__14::<>1__state    int  IL_0001
+  write    MyApp.Flow.Features.d__14::<>1__state    int  IL_0012 IL_002E IL_0037
+  write    MyApp.Flow.Features.d__14::<i>5__2       int  IL_0019 IL_0047
+  read     MyApp.Flow.Features.d__14::<i>5__2       int  IL_0022 IL_003D IL_004D
+  write    MyApp.Flow.Features.d__14::<>2__current  int  IL_0027
+  read     MyApp.Flow.Features.d__14::n             int  IL_0053
+
+Method   : int System.Collections.Generic.IEnumerator<System.Int32>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2750   Size: 7 bytes   Token: 0x06000042
+
+[Fields]
+  read     MyApp.Flow.Features.d__14::<>2__current  int  IL_0001
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2758   Size: 6 bytes   Token: 0x06000043
+
+[Fields]
+  (none)
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x275F   Size: 12 bytes   Token: 0x06000044
+
+[Fields]
+  read     MyApp.Flow.Features.d__14::<>2__current  int  IL_0001
+
+Method   : IEnumerator<int> System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x276C   Size: 55 bytes   Token: 0x06000045
+
+[Fields]
+  read     MyApp.Flow.Features.d__14::<>1__state            int  IL_0001
+  read     MyApp.Flow.Features.d__14::<>l__initialThreadId  int  IL_000B
+  write    MyApp.Flow.Features.d__14::<>1__state            int  IL_0019
+  read     MyApp.Flow.Features.d__14::<>3__n                int  IL_002B
+  write    MyApp.Flow.Features.d__14::n                     int  IL_0030
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x27AF   Size: 7 bytes   Token: 0x06000046
+
+[Fields]
+  (none)
+
+[Strings]  count=11
+  ""                        MyApp.Flow.Overloaded::Foo IL_0035, MyApp.Db.User::.ctor IL_0001, MyApp.Db.User::.ctor IL_000C
+  " "                       MyApp.Flow.Shape::Describe IL_000B
+  "NETSCOPE_SAMPLE_MARKER"  MyApp.Marker::OnLoad IL_0000
+  "admin"                   MyApp.Auth.AdminLoginService::Login IL_0001
+  "executed"                MyApp.Marker::OnLoad IL_0014
+  "many"                    MyApp.Flow.Branches::Switch IL_0030
+  "o"                       MyApp.Flow.Branches::Throws IL_0003
+  "one"                     MyApp.Flow.Branches::Switch IL_001E
+  "three"                   MyApp.Flow.Branches::Switch IL_002A
+  "two"                     MyApp.Flow.Branches::Switch IL_0024
+  "zero"                    MyApp.Flow.Branches::Switch IL_0018

@@ -1,6 +1,7 @@
 using System.Text;
 using NetScope.Calls;
 using NetScope.Cfg;
+using NetScope.Symbols;
 
 namespace NetScope.Reporting;
 
@@ -9,11 +10,13 @@ public sealed class TextReporter : IReporter
 {
     private readonly OutputGroups _groups;
     private readonly bool _color;
+    private readonly SourceFiles? _sources;
 
-    public TextReporter(OutputGroups groups, bool color)
+    public TextReporter(OutputGroups groups, bool color, SourceFiles? sources = null)
     {
         _groups = groups;
         _color = color;
+        _sources = sources;
     }
 
     public string Extension => "txt";
@@ -53,6 +56,7 @@ public sealed class TextReporter : IReporter
             sb.AppendLine();
             RenderMethod(sb, m);
         }
+        if (_groups.Strings) RenderStrings(sb, report);
         return sb.ToString();
     }
 
@@ -66,7 +70,9 @@ public sealed class TextReporter : IReporter
         if (m.PInvoke != null) sb.AppendLine($"PInvoke  : {m.PInvoke}");
         foreach (var e in r.Errors) sb.AppendLine(Bad($"Error    : {e}"));
 
+        if (r.Matches != null) RenderMatches(sb, r.Matches);
         if (r.Calls != null) RenderCalls(sb, r);
+        if (r.Fields != null) RenderFields(sb, r.Fields);
         if (r.Cfg != null) RenderCfg(sb, r);
         if (r.Pseudo != null)
         {
@@ -82,7 +88,10 @@ public sealed class TextReporter : IReporter
             if (r.IL.Locals.Count > 0)
                 sb.AppendLine(Dim($"  .locals{(r.IL.LocalsInit ? " init" : "")} ({string.Join(", ", r.IL.Locals)})"));
             foreach (var l in r.IL.Lines)
+            {
+                if (l.StartsSource && l.Source != null) RenderSource(sb, l.Source);
                 sb.AppendLine(l.Operand.Length == 0 ? $"  {l.Label}  {l.OpCode}" : $"  {l.Label}  {l.OpCode,-10} {l.Operand}");
+            }
             foreach (var c in r.IL.ExceptionClauses) sb.AppendLine(Dim("  " + c));
         }
         if (r.Native != null)
@@ -111,6 +120,60 @@ public sealed class TextReporter : IReporter
                     else sb.AppendLine($"  {l.Address:X8}  {l.Bytes,-20} {l.Text}");
                 }
             }
+        }
+    }
+
+    /// <summary>"// Program.cs:42" before the first instruction of a sequence point, then the source text with --source.</summary>
+    private void RenderSource(StringBuilder sb, SourcePoint p)
+    {
+        sb.AppendLine(Dim($"  // {p.File}:{p.StartLine}"));
+        var lines = _sources?.Lines(p.Document, p.StartLine, p.EndLine);
+        if (lines == null) return;
+        for (int i = 0; i < lines.Count; i++)
+            sb.AppendLine(Dim($"  // {p.StartLine + i,5} | {TextSafety.EscapeControl(lines[i].TrimEnd())}"));
+    }
+
+    /// <summary>Why --uses, --find-string or --field-refs selected the method.</summary>
+    private void RenderMatches(StringBuilder sb, IReadOnlyList<CrossRefs.CrossReference> matches)
+    {
+        sb.AppendLine();
+        sb.AppendLine(Header("[Matches]"));
+        var shown = matches.Select(x => (x, Target: x.Query == "string" ? Metadata.Names.EscapeString(x.Target) : x.Target)).ToList();
+        int width = shown.Max(x => x.Target.Length);
+        foreach (var (x, target) in shown)
+        {
+            var source = x.Source != null ? Dim("  // " + x.Source.File + ":" + x.Source.StartLine) : "";
+            sb.AppendLine(source.Length == 0 ? $"  IL_{x.Offset:X4}  {x.Kind,-9} {target}" : $"  IL_{x.Offset:X4}  {x.Kind,-9} {target.PadRight(width)}{source}");
+        }
+    }
+
+    /// <summary>Fields grouped by access kind, each with the offsets where it is used.</summary>
+    private void RenderFields(StringBuilder sb, IReadOnlyList<CrossRefs.FieldAccess> fields)
+    {
+        sb.AppendLine();
+        sb.AppendLine(Header("[Fields]"));
+        if (fields.Count == 0)
+        {
+            sb.AppendLine(Dim("  (none)"));
+            return;
+        }
+        var groups = fields.GroupBy(f => (f.Access, f.FullName, f.Field.FieldType)).ToList();
+        int width = groups.Max(g => g.Key.FullName.Length);
+        foreach (var g in groups)
+            sb.AppendLine($"  {g.Key.Access,-8} {g.Key.FullName.PadRight(width)}  {g.Key.FieldType}  " + Dim(string.Join(" ", g.Select(f => $"IL_{f.Offset:X4}"))));
+    }
+
+    private void RenderStrings(StringBuilder sb, AssemblyReport report)
+    {
+        sb.AppendLine();
+        sb.AppendLine(Header("[Strings]") + $"  count={report.StringIndex.Count}");
+        var rows = report.StringIndex.Values.OrderBy(v => v.Value, StringComparer.Ordinal)
+            .Select(s => (Text: Metadata.Names.EscapeString(CrossRefs.CrossReferenceQuery.Clip(s.Value)), s.Locations)).ToList();
+        int width = rows.Count == 0 ? 0 : Math.Min(60, rows.Max(r => r.Text.Length));
+        foreach (var (text, locations) in rows)
+        {
+            var where = string.Join(", ", locations.Select(l => $"{l.Method.FullName} IL_{l.Offset:X4}"));
+            sb.AppendLine($"  {text.PadRight(width)}  " + Dim(where));
         }
     }
 
@@ -148,7 +211,8 @@ public sealed class TextReporter : IReporter
             if (!b.Reachable) flags.Add("unreachable");
             if (b.Region != null) flags.Add(b.Region.Title);
             var flagText = flags.Count > 0 ? Dim("  [" + string.Join(", ", flags) + "]") : "";
-            sb.AppendLine($"  {b.Name} IL_{b.StartOffset:X4}..IL_{b.EndOffset:X4}  -> {Successors(b)}{flagText}");
+            var source = report.BlockSources != null && report.BlockSources.TryGetValue(b.Index, out var range) ? Dim("  // " + range.Label) : "";
+            sb.AppendLine($"  {b.Name} IL_{b.StartOffset:X4}..IL_{b.EndOffset:X4}  -> {Successors(b)}{flagText}{source}");
             foreach (var ins in b.Instructions)
                 sb.AppendLine(Dim($"       IL_{ins.Offset:X4}  {report.Instruction(ins)}"));
         }

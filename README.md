@@ -92,7 +92,26 @@ RVA      : 0x23A0   Size: 36 bytes   Token: 0x06000022
 | `--max-abandoned <n>` | After this many decompilations exceed the time limit, the remaining methods get the simplified pseudocode (default 4) |
 | `--run-memory <size>` | Memory limit of the `--allow-run` helper process, e.g. `512M`, `2G` (default `1G`) |
 | `--run-timeout <s>` | Time limit for the `--allow-run` helper process (default 30 s) |
+| `--no-pdb` | Do not read debug symbols |
+| `--pdb-path <dir>` | Directory searched for `.pdb` files after the assembly's own directory (repeatable) |
+| `--source`, `--source-path <dir>` | Print source lines next to the IL. Files are taken from the path in the PDB, or found by name under `--source-path` |
+| `--uses <mask>` | Select methods that call a method (`System.Diagnostics.Process::Start*`) or any member of a type (`System.Diagnostics.Process`) |
+| `--find-string <text>` | Select methods with a string literal containing the text (case-insensitive), or matching a mask with `*`/`?`; `--regex` makes it a regular expression |
+| `--field-refs <mask>` | Select methods that read, write or take the address of a field (`MyApp.Db.User::_name`) |
+| `--fields` | Fields each method reads and writes |
+| `--strings` | Table of all string literals of the assembly and where they are loaded |
 | `--no-color`, `--quiet`, `--verbose`, `--help`, `--version` | Presentation and message level |
+
+`--uses`, `--find-string` and `--field-refs` are filters, like `--filter`: they select the methods (in all input files) to which the other groups are then applied, and add a `[Matches]` group with the IL offset and source line of each match. Several values of one option are OR-ed; different options and `--filter`/`--type` are AND-ed.
+
+### Debug symbols
+
+NetScope reads Portable PDBs: embedded in the assembly, then `<name>.pdb` next to it, then in `--pdb-path`. Nothing is downloaded and no symbol server is used. A PDB is used only if its ID matches the CodeView record of the assembly; otherwise, or for a Windows PDB, NetScope prints a warning and continues without symbols. With symbols:
+
+- the IL listing has `// Program.cs:42` before the first instruction of each sequence point (and the source text with `--source`);
+- CFG blocks show their source lines;
+- pseudocode and IL use the real names of local variables;
+- JSON instructions and blocks have `source.file` and `source.line`.
 
 If you pass only `--callgraph`, NetScope prints only the graph. With `dot` and `mermaid`, it draws the CFGs of the selected methods by default. Mermaid output is Markdown with ` ```mermaid ` blocks.
 
@@ -109,7 +128,7 @@ Results go to stdout or to the `--out` target. Warnings and errors go only to st
 
 ### JSON
 
-Every method has `assembly`, `namespace`, `type`, `name`, `signature`, `token`, `access`, `kinds[]`, `rva`, `size` and `errors[]`. Each requested group adds its own fields: `calls[]`, `callers[]`, `complexity`, `blocks[]`, `loops[]`, `regions[]`, `pseudocode`, `pseudocodeSource`, `pseudocodeError`, `il[]`, `ilInfo`, `native[]` and `nativeInfo`. Fields of groups you did not request are left out. The call graph is in the root field `callgraph`.
+Every method has `assembly`, `namespace`, `type`, `name`, `signature`, `token`, `access`, `kinds[]`, `rva`, `size` and `errors[]`. Each requested group adds its own fields: `calls[]`, `callers[]`, `complexity`, `blocks[]`, `loops[]`, `regions[]`, `pseudocode`, `pseudocodeSource`, `pseudocodeError`, `il[]`, `ilInfo`, `native[]` and `nativeInfo`. Each requested group adds its own fields: also `matches[]` (`--uses`, `--find-string`, `--field-refs`) and `fields[]`; with symbols, instructions and blocks have `source`. The assembly gets `symbols` (`embedded` or the PDB path) and, with `--strings`, `strings[]`. Fields of groups you did not request are left out. The call graph is in the root field `callgraph`.
 
 ## Native code
 

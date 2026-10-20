@@ -15,6 +15,10 @@ namespace NetScope.Asm;
 public sealed record ILLine(int Offset, string OpCode, string Operand)
 {
     public string Label => $"IL_{Offset:X4}";
+    /// <summary>Source range of the instruction from the PDB (the sequence point that covers it).</summary>
+    public Symbols.SourcePoint? Source { get; init; }
+    /// <summary>The instruction is the first one of its sequence point (listings print the source line here).</summary>
+    public bool StartsSource { get; init; }
 }
 
 public sealed class ILListing
@@ -55,8 +59,18 @@ public sealed class AsmProvider : IAsmProvider
     public ILListing GetIL(MethodIL il)
     {
         var lines = new List<ILLine>(il.Instructions.Count);
+        var symbols = il.Method.Assembly.Symbols;
+        var points = symbols?.SequencePointsOf(il.Method.Handle) ?? Array.Empty<Symbols.SourcePoint>();
+        int next = 0;
+        Symbols.SourcePoint? current = null;
         foreach (var ins in il.Instructions)
         {
+            bool starts = false;
+            while (next < points.Count && points[next].Offset <= ins.Offset)
+            {
+                current = points[next++];
+                starts = true;
+            }
             string operand;
             try
             {
@@ -66,7 +80,7 @@ public sealed class AsmProvider : IAsmProvider
             {
                 operand = ins.Operand is int t ? $"0x{t:X8}" : "?";
             }
-            lines.Add(new ILLine(ins.Offset, ins.Name, operand));
+            lines.Add(new ILLine(ins.Offset, ins.Name, operand) { Source = current, StartsSource = starts });
         }
 
         var locals = new List<string>();

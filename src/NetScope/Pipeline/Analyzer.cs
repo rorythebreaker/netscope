@@ -2,6 +2,7 @@ using NetScope.Asm;
 using NetScope.Calls;
 using NetScope.Catalog;
 using NetScope.Cfg;
+using NetScope.CrossRefs;
 using NetScope.Diagnostics;
 using NetScope.IL;
 using NetScope.Input;
@@ -9,6 +10,7 @@ using NetScope.Loading;
 using NetScope.Metadata;
 using NetScope.Pseudo;
 using NetScope.Reporting;
+using NetScope.Symbols;
 
 namespace NetScope.Pipeline;
 
@@ -42,6 +44,8 @@ public sealed class Analyzer
         public MemberResolver Members { get; set; } = null!;
         public IReadOnlyList<MethodModel> Methods { get; set; } = Array.Empty<MethodModel>();
         public Dictionary<MethodModel, IReadOnlyList<CallSite>> Calls { get; } = new();
+        /// <summary>Matches of --uses, --find-string, --field-refs for the methods they selected.</summary>
+        public Dictionary<MethodModel, IReadOnlyList<CrossReference>> Matches { get; } = new();
         public string? Error { get; set; }
     }
 
@@ -75,7 +79,7 @@ public sealed class Analyzer
             return ExitNothingOpened;
         }
 
-        bool perMethod = groups.Methods || groups.Calls || groups.Cfg || groups.Pseudo || groups.IL || groups.Native;
+        bool perMethod = groups.Methods || groups.Calls || groups.Cfg || groups.Pseudo || groups.IL || groups.Native || groups.Fields || groups.Strings;
         bool needCalls = groups.Calls || groups.CallGraph;
         using var references = new ReferenceResolver(units.Select(u => u.Asm), o.RefPaths);
         try
@@ -84,6 +88,13 @@ public sealed class Analyzer
             Parallel.ForEach(units, parallel, u =>
             {
                 references.CheckReferences(u.Asm);
+                if (!o.NoPdb)
+                {
+                    var warnings = new List<string>();
+                    u.Asm.Symbols = SymbolLoader.Load(u.Asm, o.PdbPaths, warnings);
+                    foreach (var w in warnings) Log.Warning(u.Asm.FileName, w);
+                    if (u.Asm.Symbols != null) u.Asm.Notes.Add("symbols: " + (u.Asm.Symbols.Origin == "embedded" ? "embedded PDB" : Path.GetFileName(u.Asm.Symbols.Origin)));
+                }
                 u.Members = new MemberResolver(u.Asm.Metadata, u.Asm.Name);
                 try
                 {
@@ -95,6 +106,7 @@ public sealed class Analyzer
                     Log.Error(u.Asm.FileName, u.Error);
                     return;
                 }
+                if (!o.Query.IsEmpty) SelectByCrossReferences(u, o.Query);
                 if (!needCalls) return;
                 foreach (var m in u.Methods)
                 {
@@ -150,16 +162,85 @@ public sealed class Analyzer
         return Log.Failures > 0 ? ExitPartial : ExitOk;
     }
 
+    private static void CollectStrings(AssemblyReport report, MethodIL il, MemberResolver members)
+    {
+        foreach (var ins in il.Instructions)
+        {
+            if (ins.OpCode.Value != System.Reflection.Emit.OpCodes.Ldstr.Value) continue;
+            var value = CrossReferenceQuery.Literal(ins, members);
+            if (value == null) continue;
+            if (!report.StringIndex.TryGetValue(value, out var literal)) report.StringIndex[value] = literal = new StringLiteral(value);
+            literal.Locations.Add((il.Method, ins.Offset));
+        }
+    }
+
+    /// <summary>--uses, --find-string, --field-refs: keeps only the methods with matches (on top of --filter and --type).</summary>
+    private static void SelectByCrossReferences(Unit u, CrossReferenceQuery query)
+    {
+        foreach (var m in u.Methods)
+        {
+            if (!m.Selected) continue;
+            if (!m.HasBody)
+            {
+                m.Selected = false;
+                continue;
+            }
+            try
+            {
+                var il = MethodIL.Load(m, u.Members, out _, out _);
+                IReadOnlyList<CrossReference>? found = null;
+                if (il != null)
+                {
+                    var list = query.Find(il, u.Members, out bool selected);
+                    if (selected) found = list;
+                }
+                if (found != null) u.Matches[m] = found;
+                else m.Selected = false;
+            }
+            catch (Exception)
+            {
+                // Unreadable bodies cannot match; they are reported when selected by other means.
+                m.Selected = false;
+            }
+            finally
+            {
+                m.ReleaseBody();
+            }
+        }
+    }
+
+    /// <summary>For each block: the file and the lines of the sequence points of its instructions.</summary>
+    private static Dictionary<int, SourceRange> BlockSources(ControlFlowGraph cfg, DebugSymbols symbols, MethodModel m)
+    {
+        var map = new Dictionary<int, SourceRange>();
+        foreach (var b in cfg.Blocks)
+        {
+            string? file = null;
+            int start = int.MaxValue, end = 0;
+            foreach (var ins in b.Instructions)
+            {
+                var p = symbols.At(m.Handle, ins.Offset);
+                if (p == null || (file != null && p.File != file)) continue;
+                file = p.File;
+                start = Math.Min(start, p.StartLine);
+                end = Math.Max(end, p.EndLine);
+            }
+            if (file != null) map[b.Index] = new SourceRange(file, start, end);
+        }
+        return map;
+    }
+
     internal static IReporter CreateReporter(AnalysisOptions o)
     {
         var g = o.Groups;
         bool cfgGraphs = g.Cfg || !g.CallGraph;
+        var sources = o.ShowSource ? new SourceFiles(o.SourcePaths) : null;
         return o.Format switch
         {
-            "json" => new JsonReporter(g),
+            "json" => new JsonReporter(g, sources),
             "dot" => new DotReporter(cfgGraphs),
             "mermaid" => new MermaidReporter(cfgGraphs),
-            _ => new TextReporter(g, o.Color),
+            _ => new TextReporter(g, o.Color, sources),
         };
     }
 
@@ -190,7 +271,7 @@ public sealed class Analyzer
                     Log.Error(Log.At(file, m.FullName), bodyError!);
                 }
 
-                if (body != null && (needCfg || groups.IL || groups.Pseudo))
+                if (body != null && (needCfg || groups.IL || groups.Pseudo || groups.Fields || groups.Strings))
                 {
                     il = MethodIL.Load(m, u.Members, out var ilError, out var errorOffset);
                     if (il == null)
@@ -199,6 +280,10 @@ public sealed class Analyzer
                         Log.Error(Log.At(file, m.FullName, errorOffset), ilError!);
                     }
                 }
+
+                if (u.Matches.TryGetValue(m, out var matches)) r.Matches = matches;
+                if (il != null && groups.Fields) r.Fields = FieldAccessAnalyzer.Analyze(il, u.Members);
+                if (il != null && groups.Strings) CollectStrings(report, il, u.Members);
 
                 if (groups.Calls && index != null)
                 {
@@ -213,6 +298,7 @@ public sealed class Analyzer
                     try
                     {
                         r.Cfg = _cfg.Build(il, u.Members);
+                        if (u.Asm.Symbols != null) r.BlockSources = BlockSources(r.Cfg, u.Asm.Symbols, m);
                         foreach (var w in r.Cfg.Warnings) Log.Warning(Log.At(file, m.FullName), w);
                     }
                     catch (Exception ex)
