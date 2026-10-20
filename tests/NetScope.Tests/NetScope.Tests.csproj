@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <RollForward>Major</RollForward>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.11.0" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\NetScope\NetScope.csproj" />
+    <!-- Built first, but never loaded into the test process: it is analyzed as a file. -->
+    <ProjectReference Include="..\NetScope.Samples\NetScope.Samples.csproj" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Golden\**" CopyToOutputDirectory="Never" />
+  </ItemGroup>
+
+  <!-- ReadyToRun copy of the sample assembly for the native code tests (compiled for the build machine). -->
+  <PropertyGroup>
+    <SamplesR2RDir>$(MSBuildThisFileDirectory)..\NetScope.Samples\bin\r2r\$(Configuration)\</SamplesR2RDir>
+  </PropertyGroup>
+  <Target Name="PublishSamplesReadyToRun" BeforeTargets="Build"
+          Inputs="..\NetScope.Samples\Samples.cs;..\NetScope.Samples\NetScope.Samples.csproj"
+          Outputs="$(SamplesR2RDir)NetScope.Samples.dll">
+    <Exec Command="dotnet publish &quot;$(MSBuildThisFileDirectory)..\NetScope.Samples\NetScope.Samples.csproj&quot; -c $(Configuration) -r $(NETCoreSdkRuntimeIdentifier) --self-contained false -p:PublishReadyToRun=true -o &quot;$(SamplesR2RDir.TrimEnd('\'))&quot; -v q -nologo" />
+  </Target>
+
+</Project>

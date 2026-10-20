@@ -1,0 +1,55 @@
+﻿name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+          dotnet-version: 8.0.x
+      - name: Test (reference assemblies and golden output)
+        run: dotnet test NetScope.sln -c Release
+
+  publish:
+    needs: test
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            rid: win-x64
+          - os: ubuntu-latest
+            rid: linux-x64
+          - os: windows-latest
+            rid: win-arm64
+          - os: ubuntu-latest
+            rid: linux-arm64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Publish single-file
+        run: dotnet publish src/NetScope -c Release -r ${{ matrix.rid }} -o artifacts/${{ matrix.rid }}
+      - name: Smoke test
+        if: matrix.rid == 'win-x64' || matrix.rid == 'linux-x64'
+        shell: bash
+        run: |
+          exe=artifacts/${{ matrix.rid }}/netscope
+          [ -f "$exe.exe" ] && exe="$exe.exe"
+          "$exe" --version
+          "$exe" "$exe" --quiet || [ $? -eq 3 ]   # a native single-file host is not a managed assembly
+      - uses: actions/upload-artifact@v4
+        with:
+          name: netscope-${{ matrix.rid }}
+          path: artifacts/${{ matrix.rid }}

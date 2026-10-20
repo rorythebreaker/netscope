@@ -1,0 +1,1600 @@
+Assembly : NetScope.Samples.dll
+Name     : NetScope.Samples, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 67
+
+Type     : <Module>
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2050   Size: 6 bytes   Token: 0x06000001
+
+[Calls]
+  IL_0000  call      MyApp.Marker::OnLoad()  internal
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0005  -> exit
+       IL_0000  call       void MyApp.Marker::OnLoad()
+       IL_0005  ret
+  exits: B0 (return)
+
+Type     : MyApp.Marker
+
+Method   : void OnLoad()
+Kind     : static, internal
+RVA      : 0x2058   Size: 31 bytes   Token: 0x06000002
+
+[Calls]
+  IL_0005  call      System.Environment::GetEnvironmentVariable(string)  external System.Runtime
+  IL_000C  call      System.String::IsNullOrEmpty(string)                external System.Runtime
+  IL_0019  call      System.IO.File::WriteAllText(string, string)        external System.Runtime
+[Callers]
+  <Module>::.cctor  IL_0000  call  (NetScope.Samples.dll)
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0012  -> B1 (!String.IsNullOrEmpty(V_0)) | B2 (else)
+       IL_0000  ldstr      "NETSCOPE_SAMPLE_MARKER"
+       IL_0005  call       string [System.Runtime]System.Environment::GetEnvironmentVariable(string)
+       IL_000A  stloc.0
+       IL_000B  ldloc.0
+       IL_000C  call       bool [System.Runtime]System.String::IsNullOrEmpty(string)
+       IL_0011  brtrue.s   IL_001E
+  B1 IL_0013..IL_001D  -> B2
+       IL_0013  ldloc.0
+       IL_0014  ldstr      "executed"
+       IL_0019  call       void [System.Runtime]System.IO.File::WriteAllText(string, string)
+  B2 IL_001E..IL_001E  -> exit
+       IL_001E  ret
+  exits: B2 (return)
+
+Type     : MyApp.Flow.Branches
+
+Method   : int Loop(int n)
+Kind     : static, public
+RVA      : 0x2084   Size: 25 bytes   Token: 0x06000003
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=3  blocks=6  loops=1
+  B0 IL_0000..IL_0005  -> B4
+       IL_0000  ldc.i4.0
+       IL_0001  stloc.0
+       IL_0002  ldc.i4.0
+       IL_0003  stloc.1
+       IL_0004  br.s       IL_0013
+  B1 IL_0006..IL_000A  -> B2 (V_1 % 3 != 0) | B3 (else)
+       IL_0006  ldloc.1
+       IL_0007  ldc.i4.3
+       IL_0008  rem
+       IL_0009  brfalse.s  IL_000F
+  B2 IL_000B..IL_000E  -> B3
+       IL_000B  ldloc.0
+       IL_000C  ldloc.1
+       IL_000D  add
+       IL_000E  stloc.0
+  B3 IL_000F..IL_0012  -> B4 (loop)
+       IL_000F  ldloc.1
+       IL_0010  ldc.i4.1
+       IL_0011  add
+       IL_0012  stloc.1
+  B4 IL_0013..IL_0016  -> B1 (V_1 < n) | B5 (else)  [loop]
+       IL_0013  ldloc.1
+       IL_0014  ldarg.0
+       IL_0015  blt.s      IL_0006
+  B5 IL_0017..IL_0018  -> exit
+       IL_0017  ldloc.0
+       IL_0018  ret
+  loop: header B4, back edges from B3, body B1 B2 B3 B4
+  exits: B5 (return)
+
+Method   : string Switch(int code)
+Kind     : static, public
+RVA      : 0x20A9   Size: 54 bytes   Token: 0x06000004
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=5  blocks=7  loops=0
+  B0 IL_0000..IL_0015  -> B2 (case 0) | B3 (case 1) | B4 (case 2) | B5 (case 3) | B1 (default)
+       IL_0000  ldarg.0
+       IL_0001  switch     (IL_0018, IL_001E, IL_0024, IL_002A)
+  B1 IL_0016..IL_0017  -> B6
+       IL_0016  br.s       IL_0030
+  B2 IL_0018..IL_001D  -> exit
+       IL_0018  ldstr      "zero"
+       IL_001D  ret
+  B3 IL_001E..IL_0023  -> exit
+       IL_001E  ldstr      "one"
+       IL_0023  ret
+  B4 IL_0024..IL_0029  -> exit
+       IL_0024  ldstr      "two"
+       IL_0029  ret
+  B5 IL_002A..IL_002F  -> exit
+       IL_002A  ldstr      "three"
+       IL_002F  ret
+  B6 IL_0030..IL_0035  -> exit
+       IL_0030  ldstr      "many"
+       IL_0035  ret
+  exits: B2 (return), B3 (return), B4 (return), B5 (return), B6 (return)
+
+Method   : int NestedTry(string s)
+Kind     : static, public
+RVA      : 0x20E0   Size: 63 bytes   Token: 0x06000005
+
+[Calls]
+  IL_0003  call      System.Int32::Parse(string)      external System.Runtime
+  IL_0025  callvirt  System.Exception::get_Message()  external System.Runtime
+  IL_002A  callvirt  System.String::get_Length()      external System.Runtime
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=6  blocks=12  loops=0
+  B0 IL_0000..IL_0001  -> B1
+       IL_0000  ldc.i4.0
+       IL_0001  stloc.0
+  B1 IL_0002..IL_000A  -> B3 (leave) | B2 (catch FormatException) | B4 (finally) | B6 (filter) | B10 (catch when filter)  [try]
+       IL_0002  ldarg.0
+       IL_0003  call       int32 [System.Runtime]System.Int32::Parse(string)
+       IL_0008  stloc.0
+       IL_0009  leave.s    IL_0010
+  B2 IL_000B..IL_000F  -> B3 (leave)  [catch FormatException]
+       IL_000B  pop
+       IL_000C  ldc.i4.m1
+       IL_000D  stloc.0
+       IL_000E  leave.s    IL_0010
+  B3 IL_0010..IL_0011  -> B5 (leave)  [try]
+       IL_0010  leave.s    IL_0017
+  B4 IL_0012..IL_0016  -> endfinally  [finally]
+       IL_0012  ldloc.0
+       IL_0013  ldc.i4.1
+       IL_0014  add
+       IL_0015  stloc.0
+       IL_0016  endfinally
+  B5 IL_0017..IL_0018  -> B11 (leave)  [try]
+       IL_0017  leave.s    IL_003D
+  B6 IL_0019..IL_0020  -> B7 (!(ex is Exception)) | B8 (else)  [filter]
+       IL_0019  isinst     [System.Runtime]System.Exception
+       IL_001E  dup
+       IL_001F  brtrue.s   IL_0025
+  B7 IL_0021..IL_0024  -> B9  [filter]
+       IL_0021  pop
+       IL_0022  ldc.i4.0
+       IL_0023  br.s       IL_0035
+  B8 IL_0025..IL_0034  -> B9  [filter]
+       IL_0025  callvirt   instance string [System.Runtime]System.Exception::get_Message()
+       IL_002A  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+       IL_002F  ldc.i4.0
+       IL_0030  cgt
+       IL_0032  ldc.i4.0
+       IL_0033  cgt.un
+  B9 IL_0035..IL_0036  -> endfilter  [filter]
+       IL_0035  endfilter
+  B10 IL_0037..IL_003C  -> B11 (leave)  [catch when filter]
+       IL_0037  pop
+       IL_0038  ldc.i4.s   -2
+       IL_003A  stloc.0
+       IL_003B  leave.s    IL_003D
+  B11 IL_003D..IL_003E  -> exit
+       IL_003D  ldloc.0
+       IL_003E  ret
+  exits: B11 (return)
+  regions:
+    try IL_0002..IL_0018  [B5]
+      try IL_0002..IL_0011  [B3]
+        try IL_0002..IL_000A  [B1]
+        catch FormatException IL_000B..IL_000F  [B2]  (handler of try IL_0002)
+      finally IL_0012..IL_0016  [B4]  (handler of try IL_0002)
+    filter IL_0019..IL_0036  [B6 B7 B8 B9]  (handler of try IL_0002)
+    catch when filter IL_0037..IL_003C  [B10]  (handler of try IL_0002)
+
+Method   : void Throws(object o)
+Kind     : static, public
+RVA      : 0x2154   Size: 25 bytes   Token: 0x06000006
+
+[Calls]
+  IL_0008  newobj    System.ArgumentNullException::.ctor(string)  external System.Runtime
+  IL_000F  callvirt  System.Object::GetHashCode()                 external System.Runtime
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=3  blocks=4  loops=1
+  B0 IL_0000..IL_0002  -> B1 (o == null) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  brtrue.s   IL_000E
+  B1 IL_0003..IL_000D  -> throw
+       IL_0003  ldstr      "o"
+       IL_0008  newobj     instance void [System.Runtime]System.ArgumentNullException::.ctor(string)
+       IL_000D  throw
+  B2 IL_000E..IL_0017  -> B2 (o.GetHashCode() <= 10) | B3 (else)  [loop]
+       IL_000E  ldarg.0
+       IL_000F  callvirt   instance int32 [System.Runtime]System.Object::GetHashCode()
+       IL_0014  ldc.i4.s   10
+       IL_0016  ble.s      IL_000E
+  B3 IL_0018..IL_0018  -> exit
+       IL_0018  ret
+  loop: header B2, back edges from B2, body B2
+  exits: B1 (throw), B3 (return)
+
+Type     : MyApp.Flow.Generic`1
+
+Method   : T get_Value()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x216E   Size: 7 bytes   Token: 0x06000007
+
+[Calls]
+  (none)
+[Callers]
+  MyApp.Flow.Generic`1::Map  IL_0002  call  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      !0 class MyApp.Flow.Generic`1<!0>::'<Value>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_Value(T value)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x2176   Size: 8 bytes   Token: 0x06000008
+
+[Calls]
+  (none)
+[Callers]
+  MyApp.Flow.Generic`1::Create  IL_0007  callvirt  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      !0 class MyApp.Flow.Generic`1<!0>::'<Value>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : TOut Map<TOut>(Func<T, TOut> map)
+Kind     : instance, public, generic
+RVA      : 0x217F   Size: 13 bytes   Token: 0x06000009
+
+[Calls]
+  IL_0002  call      MyApp.Flow.Generic<!0>::get_Value()  internal
+  IL_0007  callvirt  System.Func<!0, !!0>::Invoke(!0)     external System.Runtime
+[Callers]
+  MyApp.Flow.GenericUse::Length  IL_0025  callvirt  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000C  -> exit
+       IL_0000  ldarg.1
+       IL_0001  ldarg.0
+       IL_0002  call       instance !0 class MyApp.Flow.Generic`1<!0>::get_Value()
+       IL_0007  callvirt   instance !1 class [System.Runtime]System.Func`2<!0, !!0>::Invoke(!0)
+       IL_000C  ret
+  exits: B0 (return)
+
+Method   : Generic<T> Create(T value)
+Kind     : static, public
+RVA      : 0x218D   Size: 13 bytes   Token: 0x0600000A
+
+[Calls]
+  IL_0000  newobj    MyApp.Flow.Generic<!0>::.ctor()        internal
+  IL_0007  callvirt  MyApp.Flow.Generic<!0>::set_Value(!0)  internal
+[Callers]
+  MyApp.Flow.GenericUse::Length  IL_0001  call  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000C  -> exit
+       IL_0000  newobj     instance void class MyApp.Flow.Generic`1<!0>::.ctor()
+       IL_0005  dup
+       IL_0006  ldarg.0
+       IL_0007  callvirt   instance void class MyApp.Flow.Generic`1<!0>::set_Value(!0)
+       IL_000C  ret
+  exits: B0 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x219B   Size: 7 bytes   Token: 0x0600000B
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  MyApp.Flow.Generic`1::Create  IL_0000  newobj  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  ret
+  exits: B0 (return)
+
+Type     : MyApp.Flow.GenericUse
+
+Method   : int Length(string s)
+Kind     : static, public
+RVA      : 0x21A3   Size: 43 bytes   Token: 0x0600000C
+
+[Calls]
+  IL_0001  call      MyApp.Flow.Generic<string>::Create(string)               internal
+  IL_0014  ldftn     MyApp.Flow.GenericUse.<>c::<Length>b__0_0(string)        internal
+  IL_001A  newobj    System.Func<string, int>::.ctor(object, nint)            external System.Runtime
+  IL_0025  callvirt  MyApp.Flow.Generic<string>::Map<int>(Func<string, int>)  internal
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_000D  -> B1 (<>c.<>9__0_0 == null) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  call       class MyApp.Flow.Generic`1<!0> class MyApp.Flow.Generic`1<string>::Create(!0)
+       IL_0006  ldsfld     class [System.Runtime]System.Func`2<string, int32> MyApp.Flow.GenericUse/<>c::'<>9__0_0'
+       IL_000B  dup
+       IL_000C  brtrue.s   IL_0025
+  B1 IL_000E..IL_0024  -> B2
+       IL_000E  pop
+       IL_000F  ldsfld     class MyApp.Flow.GenericUse/<>c MyApp.Flow.GenericUse/<>c::'<>9'
+       IL_0014  ldftn      instance int32 MyApp.Flow.GenericUse/<>c::'<Length>b__0_0'(string)
+       IL_001A  newobj     instance void class [System.Runtime]System.Func`2<string, int32>::.ctor(object, native int)
+       IL_001F  dup
+       IL_0020  stsfld     class [System.Runtime]System.Func`2<string, int32> MyApp.Flow.GenericUse/<>c::'<>9__0_0'
+  B2 IL_0025..IL_002A  -> exit
+       IL_0025  callvirt   instance !!0 class MyApp.Flow.Generic`1<string>::Map<int32>(class [System.Runtime]System.Func`2<!0, !!0>)
+       IL_002A  ret
+  exits: B2 (return)
+
+Type     : MyApp.Flow.Features
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x21CF   Size: 7 bytes   Token: 0x0600000D
+
+[Calls]
+  IL_0001  call      MyApp.Flow.Features::set_Instances(int)  internal
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldc.i4.0
+       IL_0001  call       void MyApp.Flow.Features::set_Instances(int32)
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x21D7   Size: 19 bytes   Token: 0x0600000E
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()                   external System.Runtime
+  IL_0006  call      MyApp.Flow.Features::get_Instances()     internal
+  IL_000D  call      MyApp.Flow.Features::set_Instances(int)  internal
+[Callers]
+  MyApp.Flow.Features::op_Addition  IL_0000  newobj  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0012  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  call       int32 MyApp.Flow.Features::get_Instances()
+       IL_000B  ldc.i4.1
+       IL_000C  add
+       IL_000D  call       void MyApp.Flow.Features::set_Instances(int32)
+       IL_0012  ret
+  exits: B0 (return)
+
+Method   : void Finalize()
+Kind     : finalizer, instance, protected, override
+RVA      : 0x21EC   Size: 17 bytes   Token: 0x0600000F
+
+[Calls]
+  IL_000A  call      System.Object::Finalize()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0008  -> B2 (leave) | B1 (finally)  [try]
+       IL_0000  ldarg.0
+       IL_0001  ldc.i4.m1
+       IL_0002  stfld      int32 MyApp.Flow.Features::_count
+       IL_0007  leave.s    IL_0010
+  B1 IL_0009..IL_000F  -> endfinally  [finally]
+       IL_0009  ldarg.0
+       IL_000A  call       instance void [System.Runtime]System.Object::Finalize()
+       IL_000F  endfinally
+  B2 IL_0010..IL_0010  -> exit
+       IL_0010  ret
+  exits: B2 (return)
+  regions:
+    try IL_0000..IL_0008  [B0]
+    finally IL_0009..IL_000F  [B1]  (handler of try IL_0000)
+
+Method   : int get_Instances()
+Kind     : property-get, static, public, compiler-generated
+RVA      : 0x221C   Size: 6 bytes   Token: 0x06000010
+
+[Calls]
+  (none)
+[Callers]
+  MyApp.Flow.Features::.ctor  IL_0006  call  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0005  -> exit
+       IL_0000  ldsfld     int32 MyApp.Flow.Features::'<Instances>k__BackingField'
+       IL_0005  ret
+  exits: B0 (return)
+
+Method   : void set_Instances(int value)
+Kind     : property-set, static, private, compiler-generated
+RVA      : 0x2223   Size: 7 bytes   Token: 0x06000011
+
+[Calls]
+  (none)
+[Callers]
+  MyApp.Flow.Features::.cctor  IL_0001  call  (NetScope.Samples.dll)
+  MyApp.Flow.Features::.ctor  IL_000D  call  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  stsfld     int32 MyApp.Flow.Features::'<Instances>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void add_Changed(EventHandler value)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x222C   Size: 41 bytes   Token: 0x06000012
+
+[Calls]
+  IL_000B  call      System.Delegate::Combine(Delegate, Delegate)                                                               external System.Runtime
+  IL_001E  call      System.Threading.Interlocked::CompareExchange<EventHandler>(ref EventHandler, EventHandler, EventHandler)  external System.Threading
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=2  blocks=3  loops=1
+  B0 IL_0000..IL_0006  -> B1
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class [System.Runtime]System.EventHandler MyApp.Flow.Features::Changed
+       IL_0006  stloc.0
+  B1 IL_0007..IL_0027  -> B1 (V_0 != V_1) | B2 (else)  [loop]
+       IL_0007  ldloc.0
+       IL_0008  stloc.1
+       IL_0009  ldloc.1
+       IL_000A  ldarg.1
+       IL_000B  call       class [System.Runtime]System.Delegate [System.Runtime]System.Delegate::Combine(class [System.Runtime]System.Delegate, class [System.Runtime]System.Delegate)
+       IL_0010  castclass  [System.Runtime]System.EventHandler
+       IL_0015  stloc.2
+       IL_0016  ldarg.0
+       IL_0017  ldflda     class [System.Runtime]System.EventHandler MyApp.Flow.Features::Changed
+       IL_001C  ldloc.2
+       IL_001D  ldloc.1
+       IL_001E  call       !!0 [System.Threading]System.Threading.Interlocked::CompareExchange<class [System.Runtime]System.EventHandler>(!!0&, !!0, !!0)
+       IL_0023  stloc.0
+       IL_0024  ldloc.0
+       IL_0025  ldloc.1
+       IL_0026  bne.un.s   IL_0007
+  B2 IL_0028..IL_0028  -> exit
+       IL_0028  ret
+  loop: header B1, back edges from B1, body B1
+  exits: B2 (return)
+
+Method   : void remove_Changed(EventHandler value)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x2264   Size: 41 bytes   Token: 0x06000013
+
+[Calls]
+  IL_000B  call      System.Delegate::Remove(Delegate, Delegate)                                                                external System.Runtime
+  IL_001E  call      System.Threading.Interlocked::CompareExchange<EventHandler>(ref EventHandler, EventHandler, EventHandler)  external System.Threading
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=2  blocks=3  loops=1
+  B0 IL_0000..IL_0006  -> B1
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class [System.Runtime]System.EventHandler MyApp.Flow.Features::Changed
+       IL_0006  stloc.0
+  B1 IL_0007..IL_0027  -> B1 (V_0 != V_1) | B2 (else)  [loop]
+       IL_0007  ldloc.0
+       IL_0008  stloc.1
+       IL_0009  ldloc.1
+       IL_000A  ldarg.1
+       IL_000B  call       class [System.Runtime]System.Delegate [System.Runtime]System.Delegate::Remove(class [System.Runtime]System.Delegate, class [System.Runtime]System.Delegate)
+       IL_0010  castclass  [System.Runtime]System.EventHandler
+       IL_0015  stloc.2
+       IL_0016  ldarg.0
+       IL_0017  ldflda     class [System.Runtime]System.EventHandler MyApp.Flow.Features::Changed
+       IL_001C  ldloc.2
+       IL_001D  ldloc.1
+       IL_001E  call       !!0 [System.Threading]System.Threading.Interlocked::CompareExchange<class [System.Runtime]System.EventHandler>(!!0&, !!0, !!0)
+       IL_0023  stloc.0
+       IL_0024  ldloc.0
+       IL_0025  ldloc.1
+       IL_0026  bne.un.s   IL_0007
+  B2 IL_0028..IL_0028  -> exit
+       IL_0028  ret
+  loop: header B1, back edges from B1, body B1
+  exits: B2 (return)
+
+Method   : Features op_Addition(Features a, Features b)
+Kind     : operator, static, public
+RVA      : 0x2299   Size: 25 bytes   Token: 0x06000014
+
+[Calls]
+  IL_0000  newobj    MyApp.Flow.Features::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0018  -> exit
+       IL_0000  newobj     instance void MyApp.Flow.Features::.ctor()
+       IL_0005  dup
+       IL_0006  ldarg.0
+       IL_0007  ldfld      int32 MyApp.Flow.Features::_count
+       IL_000C  ldarg.1
+       IL_000D  ldfld      int32 MyApp.Flow.Features::_count
+       IL_0012  add
+       IL_0013  stfld      int32 MyApp.Flow.Features::_count
+       IL_0018  ret
+  exits: B0 (return)
+
+Method   : int op_Implicit(Features f)
+Kind     : conversion, static, public
+RVA      : 0x22B3   Size: 7 bytes   Token: 0x06000015
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      int32 MyApp.Flow.Features::_count
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : Task<int> ComputeAsync(int x)
+Kind     : instance, public, async
+RVA      : 0x22BC   Size: 55 bytes   Token: 0x06000016
+
+[Calls]
+  IL_0002  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::Create()                                             external System.Runtime
+  IL_0025  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::Start<<ComputeAsync>d__13>(ref <ComputeAsync>d__13)  external System.Runtime
+  IL_0031  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::get_Task()                                           external System.Runtime
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0036  -> exit
+       IL_0000  ldloca.s   V_0
+       IL_0002  call       valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<!0> valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32>::Create()
+       IL_0007  stfld      valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32> MyApp.Flow.Features/<ComputeAsync>d__13::'<>t__builder'
+       IL_000C  ldloca.s   V_0
+       IL_000E  ldarg.1
+       IL_000F  stfld      int32 MyApp.Flow.Features/<ComputeAsync>d__13::x
+       IL_0014  ldloca.s   V_0
+       IL_0016  ldc.i4.m1
+       IL_0017  stfld      int32 MyApp.Flow.Features/<ComputeAsync>d__13::'<>1__state'
+       IL_001C  ldloca.s   V_0
+       IL_001E  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32> MyApp.Flow.Features/<ComputeAsync>d__13::'<>t__builder'
+       IL_0023  ldloca.s   V_0
+       IL_0025  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32>::Start<valuetype MyApp.Flow.Features/<ComputeAsync>d__13>(!!0&)
+       IL_002A  ldloca.s   V_0
+       IL_002C  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32> MyApp.Flow.Features/<ComputeAsync>d__13::'<>t__builder'
+       IL_0031  call       instance class [System.Runtime]System.Threading.Tasks.Task`1<!0> valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32>::get_Task()
+       IL_0036  ret
+  exits: B0 (return)
+
+Method   : IEnumerable<int> Range(int n)
+Kind     : instance, public, iterator
+RVA      : 0x22FF   Size: 15 bytes   Token: 0x06000017
+
+[Calls]
+  IL_0002  newobj    MyApp.Flow.Features.<Range>d__14::.ctor(int)  internal
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000E  -> exit
+       IL_0000  ldc.i4.s   -2
+       IL_0002  newobj     instance void MyApp.Flow.Features/<Range>d__14::.ctor(int32)
+       IL_0007  dup
+       IL_0008  ldarg.1
+       IL_0009  stfld      int32 MyApp.Flow.Features/<Range>d__14::'<>3__n'
+       IL_000E  ret
+  exits: B0 (return)
+
+Method   : int Lambdas(int[] values)
+Kind     : instance, public
+RVA      : 0x2310   Size: 83 bytes   Token: 0x06000018
+
+[Calls]
+  IL_0000  newobj    MyApp.Flow.Features.<>c__DisplayClass15_0::.ctor()                          internal
+  IL_0014  ldftn     MyApp.Flow.Features.<>c__DisplayClass15_0::<Lambdas>b__0(int)               internal
+  IL_001A  newobj    System.Func<int, int>::.ctor(object, nint)                                  external System.Runtime
+  IL_001F  call      System.Linq.Enumerable::Select<int, int>(IEnumerable<int>, Func<int, int>)  external System.Linq
+  IL_0032  ldftn     MyApp.Flow.Features.<>c::<Lambdas>b__15_1(int)                              internal
+  IL_0038  newobj    System.Func<int, bool>::.ctor(object, nint)                                 external System.Runtime
+  IL_0043  call      System.Linq.Enumerable::Where<int>(IEnumerable<int>, Func<int, bool>)       external System.Linq
+  IL_0048  call      System.Linq.Enumerable::Sum(IEnumerable<int>)                               external System.Linq
+  IL_004D  call      MyApp.Flow.Features::<Lambdas>g__Local|15_2(int)                            internal
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_002B  -> B1 (<>c.<>9__15_1 == null) | B2 (else)
+       IL_0000  newobj     instance void MyApp.Flow.Features/<>c__DisplayClass15_0::.ctor()
+       IL_0005  stloc.0
+       IL_0006  ldloc.0
+       IL_0007  ldarg.0
+       IL_0008  ldfld      int32 MyApp.Flow.Features::_count
+       IL_000D  stfld      int32 MyApp.Flow.Features/<>c__DisplayClass15_0::offset
+       IL_0012  ldarg.1
+       IL_0013  ldloc.0
+       IL_0014  ldftn      instance int32 MyApp.Flow.Features/<>c__DisplayClass15_0::'<Lambdas>b__0'(int32)
+       IL_001A  newobj     instance void class [System.Runtime]System.Func`2<int32, int32>::.ctor(object, native int)
+       IL_001F  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!1> [System.Linq]System.Linq.Enumerable::Select<int32, int32>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>)
+       IL_0024  ldsfld     class [System.Runtime]System.Func`2<int32, bool> MyApp.Flow.Features/<>c::'<>9__15_1'
+       IL_0029  dup
+       IL_002A  brtrue.s   IL_0043
+  B1 IL_002C..IL_0042  -> B2
+       IL_002C  pop
+       IL_002D  ldsfld     class MyApp.Flow.Features/<>c MyApp.Flow.Features/<>c::'<>9'
+       IL_0032  ldftn      instance bool MyApp.Flow.Features/<>c::'<Lambdas>b__15_1'(int32)
+       IL_0038  newobj     instance void class [System.Runtime]System.Func`2<int32, bool>::.ctor(object, native int)
+       IL_003D  dup
+       IL_003E  stsfld     class [System.Runtime]System.Func`2<int32, bool> MyApp.Flow.Features/<>c::'<>9__15_1'
+  B2 IL_0043..IL_0052  -> exit
+       IL_0043  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0> [System.Linq]System.Linq.Enumerable::Where<int32>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, bool>)
+       IL_0048  call       int32 [System.Linq]System.Linq.Enumerable::Sum(class [System.Runtime]System.Collections.Generic.IEnumerable`1<int32>)
+       IL_004D  call       int32 MyApp.Flow.Features::'<Lambdas>g__Local|15_2'(int32)
+       IL_0052  ret
+  exits: B2 (return)
+
+Method   : void Raise()
+Kind     : instance, public
+RVA      : 0x236F   Size: 23 bytes   Token: 0x06000019
+
+[Calls]
+  IL_0011  callvirt  System.EventHandler::Invoke(object, EventArgs)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0008  -> B1 (this.Changed == null) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class [System.Runtime]System.EventHandler MyApp.Flow.Features::Changed
+       IL_0006  dup
+       IL_0007  brtrue.s   IL_000B
+  B1 IL_0009..IL_000A  -> exit
+       IL_0009  pop
+       IL_000A  ret
+  B2 IL_000B..IL_0016  -> exit
+       IL_000B  ldarg.0
+       IL_000C  ldsfld     class [System.Runtime]System.EventArgs [System.Runtime]System.EventArgs::Empty
+       IL_0011  callvirt   instance void [System.Runtime]System.EventHandler::Invoke(object, class [System.Runtime]System.EventArgs)
+       IL_0016  ret
+  exits: B1 (return), B2 (return)
+
+Method   : void Dispose()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x2387   Size: 7 bytes   Token: 0x0600001A
+
+[Calls]
+  IL_0001  call      System.GC::SuppressFinalize(object)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       void [System.Runtime]System.GC::SuppressFinalize(object)
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : uint Ticks()
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x0600001B
+PInvoke  : kernel32.dll!GetTickCount
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : int <Lambdas>g__Local|15_2(int v)
+Kind     : static, internal, local-function, compiler-generated
+RVA      : 0x238F   Size: 4 bytes   Token: 0x0600001C
+
+[Calls]
+  (none)
+[Callers]
+  MyApp.Flow.Features::Lambdas  IL_004D  call  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0003  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldc.i4.1
+       IL_0002  add
+       IL_0003  ret
+  exits: B0 (return)
+
+Type     : MyApp.Flow.Shape
+
+Method   : double Area()
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x0600001D
+
+[Calls]
+  (none)
+[Callers]
+  MyApp.Flow.Shape::Describe  IL_0011  callvirt  (NetScope.Samples.dll)
+
+Method   : string Describe()
+Kind     : instance, public, virtual
+RVA      : 0x2394   Size: 36 bytes   Token: 0x0600001E
+
+[Calls]
+  IL_0001  call      System.Object::GetType()                       external System.Runtime
+  IL_0006  callvirt  System.Reflection.MemberInfo::get_Name()       external System.Runtime
+  IL_0011  callvirt  MyApp.Flow.Shape::Area()                       internal
+  IL_0019  call      System.Double::ToString()                      external System.Runtime
+  IL_001E  call      System.String::Concat(string, string, string)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0023  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance class [System.Runtime]System.Type [System.Runtime]System.Object::GetType()
+       IL_0006  callvirt   instance string [System.Runtime]System.Reflection.MemberInfo::get_Name()
+       IL_000B  ldstr      " "
+       IL_0010  ldarg.0
+       IL_0011  callvirt   instance float64 MyApp.Flow.Shape::Area()
+       IL_0016  stloc.0
+       IL_0017  ldloca.s   V_0
+       IL_0019  call       instance string [System.Runtime]System.Double::ToString()
+       IL_001E  call       string [System.Runtime]System.String::Concat(string, string, string)
+       IL_0023  ret
+  exits: B0 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, protected
+RVA      : 0x23C4   Size: 7 bytes   Token: 0x0600001F
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  MyApp.Flow.Circle::.ctor  IL_0001  call  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  ret
+  exits: B0 (return)
+
+Type     : MyApp.Flow.Circle
+
+Method   : double get_R()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x23CC   Size: 7 bytes   Token: 0x06000020
+
+[Calls]
+  (none)
+[Callers]
+  MyApp.Flow.Circle::Area  IL_000A  call  (NetScope.Samples.dll)
+  MyApp.Flow.Circle::Area  IL_0011  call  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      float64 MyApp.Flow.Circle::'<R>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_R(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x23D4   Size: 8 bytes   Token: 0x06000021
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      float64 MyApp.Flow.Circle::'<R>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : double Area()
+Kind     : instance, public, override
+RVA      : 0x23DD   Size: 24 bytes   Token: 0x06000022
+
+[Calls]
+  IL_000A  call      MyApp.Flow.Circle::get_R()  internal
+  IL_0011  call      MyApp.Flow.Circle::get_R()  internal
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0017  -> exit
+       IL_0000  ldc.r8     3.141592653589793
+       IL_0009  ldarg.0
+       IL_000A  call       instance float64 MyApp.Flow.Circle::get_R()
+       IL_000F  mul
+       IL_0010  ldarg.0
+       IL_0011  call       instance float64 MyApp.Flow.Circle::get_R()
+       IL_0016  mul
+       IL_0017  ret
+  exits: B0 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x23F6   Size: 7 bytes   Token: 0x06000023
+
+[Calls]
+  IL_0001  call      MyApp.Flow.Shape::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void MyApp.Flow.Shape::.ctor()
+       IL_0006  ret
+  exits: B0 (return)
+
+Type     : MyApp.Auth.ILoginService
+
+Method   : bool Login(string user, string pass)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000024
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : MyApp.Auth.LoginService
+
+Method   : bool Login(string user, string pass)
+Kind     : instance, public, virtual
+RVA      : 0x2400   Size: 36 bytes   Token: 0x06000025
+
+[Calls]
+  IL_000C  callvirt  MyApp.Db.Users::Find(string)                internal
+  IL_0013  call      MyApp.Auth.LoginService::Hash(string)       internal
+  IL_0019  callvirt  MyApp.Db.User::get_Hash()                   internal
+  IL_001E  call      System.String::op_Equality(string, string)  external System.Runtime
+[Callers]
+  MyApp.Auth.AdminLoginService::Login  IL_0010  call  (NetScope.Samples.dll)
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0002  -> B1 (user == null) | B2 (else)
+       IL_0000  ldarg.1
+       IL_0001  brtrue.s   IL_0005
+  B1 IL_0003..IL_0004  -> exit
+       IL_0003  ldc.i4.0
+       IL_0004  ret
+  B2 IL_0005..IL_0023  -> exit
+       IL_0005  ldarg.0
+       IL_0006  ldfld      class MyApp.Db.Users MyApp.Auth.LoginService::_users
+       IL_000B  ldarg.1
+       IL_000C  callvirt   instance class MyApp.Db.User MyApp.Db.Users::Find(string)
+       IL_0011  stloc.0
+       IL_0012  ldarg.2
+       IL_0013  call       string MyApp.Auth.LoginService::Hash(string)
+       IL_0018  ldloc.0
+       IL_0019  callvirt   instance string MyApp.Db.User::get_Hash()
+       IL_001E  call       bool [System.Runtime]System.String::op_Equality(string, string)
+       IL_0023  ret
+  exits: B1 (return), B2 (return)
+
+Method   : string Hash(string s)
+Kind     : static, public
+RVA      : 0x2430   Size: 15 bytes   Token: 0x06000026
+
+[Calls]
+  IL_0001  callvirt  System.String::get_Length()  external System.Runtime
+  IL_0009  call      System.Int32::ToString()     external System.Runtime
+[Callers]
+  MyApp.Auth.LoginService::Login  IL_0013  call  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000E  -> exit
+       IL_0000  ldarg.0
+       IL_0001  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+       IL_0006  stloc.0
+       IL_0007  ldloca.s   V_0
+       IL_0009  call       instance string [System.Runtime]System.Int32::ToString()
+       IL_000E  ret
+  exits: B0 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x244B   Size: 18 bytes   Token: 0x06000027
+
+[Calls]
+  IL_0001  newobj    MyApp.Db.Users::.ctor()  internal
+  IL_000C  call      System.Object::.ctor()   external System.Runtime
+[Callers]
+  MyApp.Auth.AdminLoginService::.ctor  IL_0001  call  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0011  -> exit
+       IL_0000  ldarg.0
+       IL_0001  newobj     instance void MyApp.Db.Users::.ctor()
+       IL_0006  stfld      class MyApp.Db.Users MyApp.Auth.LoginService::_users
+       IL_000B  ldarg.0
+       IL_000C  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0011  ret
+  exits: B0 (return)
+
+Type     : MyApp.Auth.AdminLoginService
+
+Method   : bool Login(string user, string pass)
+Kind     : instance, public, override
+RVA      : 0x245E   Size: 24 bytes   Token: 0x06000028
+
+[Calls]
+  IL_0006  call      System.String::op_Equality(string, string)      external System.Runtime
+  IL_0010  call      MyApp.Auth.LoginService::Login(string, string)  internal
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_000C  -> B1 (user == "admin") | B2 (else)
+       IL_0000  ldarg.1
+       IL_0001  ldstr      "admin"
+       IL_0006  call       bool [System.Runtime]System.String::op_Equality(string, string)
+       IL_000B  brfalse.s  IL_0016
+  B1 IL_000D..IL_0015  -> exit
+       IL_000D  ldarg.0
+       IL_000E  ldarg.1
+       IL_000F  ldarg.2
+       IL_0010  call       instance bool MyApp.Auth.LoginService::Login(string, string)
+       IL_0015  ret
+  B2 IL_0016..IL_0017  -> exit
+       IL_0016  ldc.i4.0
+       IL_0017  ret
+  exits: B1 (return), B2 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2477   Size: 7 bytes   Token: 0x06000029
+
+[Calls]
+  IL_0001  call      MyApp.Auth.LoginService::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void MyApp.Auth.LoginService::.ctor()
+       IL_0006  ret
+  exits: B0 (return)
+
+Type     : MyApp.Db.User
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x247F   Size: 7 bytes   Token: 0x0600002A
+
+[Calls]
+  (none)
+[Callers]
+  MyApp.Db.Users::Add  IL_0007  callvirt  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      string MyApp.Db.User::'<Name>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_Name(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2487   Size: 8 bytes   Token: 0x0600002B
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      string MyApp.Db.User::'<Name>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : string get_Hash()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2490   Size: 7 bytes   Token: 0x0600002C
+
+[Calls]
+  (none)
+[Callers]
+  MyApp.Auth.LoginService::Login  IL_0019  callvirt  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      string MyApp.Db.User::'<Hash>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_Hash(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2498   Size: 8 bytes   Token: 0x0600002D
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      string MyApp.Db.User::'<Hash>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x24A1   Size: 29 bytes   Token: 0x0600002E
+
+[Calls]
+  IL_0017  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_001C  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldstr      ""
+       IL_0006  stfld      string MyApp.Db.User::'<Name>k__BackingField'
+       IL_000B  ldarg.0
+       IL_000C  ldstr      ""
+       IL_0011  stfld      string MyApp.Db.User::'<Hash>k__BackingField'
+       IL_0016  ldarg.0
+       IL_0017  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_001C  ret
+  exits: B0 (return)
+
+Type     : MyApp.Db.Users
+
+Method   : User Find(string name)
+Kind     : instance, public, virtual
+RVA      : 0x24C0   Size: 20 bytes   Token: 0x0600002F
+
+[Calls]
+  IL_0009  callvirt  System.Collections.Generic.Dictionary<string, MyApp.Db.User>::TryGetValue(string, ref User)  external System.Collections
+[Callers]
+  MyApp.Auth.LoginService::Login  IL_000C  callvirt  (NetScope.Samples.dll)
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_000F  -> B1 (!this._byName.TryGetValue(name, ref V_0)) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class [System.Collections]System.Collections.Generic.Dictionary`2<string, class MyApp.Db.User> MyApp.Db.Users::_byName
+       IL_0006  ldarg.1
+       IL_0007  ldloca.s   V_0
+       IL_0009  callvirt   instance bool class [System.Collections]System.Collections.Generic.Dictionary`2<string, class MyApp.Db.User>::TryGetValue(!0, !1&)
+       IL_000E  brtrue.s   IL_0012
+  B1 IL_0010..IL_0011  -> exit
+       IL_0010  ldnull
+       IL_0011  ret
+  B2 IL_0012..IL_0013  -> exit
+       IL_0012  ldloc.0
+       IL_0013  ret
+  exits: B1 (return), B2 (return)
+
+Method   : void Add(User user)
+Kind     : instance, public
+RVA      : 0x24E0   Size: 19 bytes   Token: 0x06000030
+
+[Calls]
+  IL_0007  callvirt  MyApp.Db.User::get_Name()                                                             internal
+  IL_000D  callvirt  System.Collections.Generic.Dictionary<string, MyApp.Db.User>::set_Item(string, User)  external System.Collections
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0012  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class [System.Collections]System.Collections.Generic.Dictionary`2<string, class MyApp.Db.User> MyApp.Db.Users::_byName
+       IL_0006  ldarg.1
+       IL_0007  callvirt   instance string MyApp.Db.User::get_Name()
+       IL_000C  ldarg.1
+       IL_000D  callvirt   instance void class [System.Collections]System.Collections.Generic.Dictionary`2<string, class MyApp.Db.User>::set_Item(!0, !1)
+       IL_0012  ret
+  exits: B0 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x24F4   Size: 18 bytes   Token: 0x06000031
+
+[Calls]
+  IL_0001  newobj    System.Collections.Generic.Dictionary<string, MyApp.Db.User>::.ctor()  external System.Collections
+  IL_000C  call      System.Object::.ctor()                                                 external System.Runtime
+[Callers]
+  MyApp.Auth.LoginService::.ctor  IL_0001  newobj  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0011  -> exit
+       IL_0000  ldarg.0
+       IL_0001  newobj     instance void class [System.Collections]System.Collections.Generic.Dictionary`2<string, class MyApp.Db.User>::.ctor()
+       IL_0006  stfld      class [System.Collections]System.Collections.Generic.Dictionary`2<string, class MyApp.Db.User> MyApp.Db.Users::_byName
+       IL_000B  ldarg.0
+       IL_000C  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0011  ret
+  exits: B0 (return)
+
+Type     : MyApp.Flow.GenericUse+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2507   Size: 11 bytes   Token: 0x06000032
+
+[Calls]
+  IL_0000  newobj    MyApp.Flow.GenericUse.<>c::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000A  -> exit
+       IL_0000  newobj     instance void MyApp.Flow.GenericUse/<>c::.ctor()
+       IL_0005  stsfld     class MyApp.Flow.GenericUse/<>c MyApp.Flow.GenericUse/<>c::'<>9'
+       IL_000A  ret
+  exits: B0 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2513   Size: 7 bytes   Token: 0x06000033
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  MyApp.Flow.GenericUse+<>c::.cctor  IL_0000  newobj  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : int <Length>b__0_0(string v)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x251B   Size: 7 bytes   Token: 0x06000034
+
+[Calls]
+  IL_0001  callvirt  System.String::get_Length()  external System.Runtime
+[Callers]
+  MyApp.Flow.GenericUse::Length  IL_0014  ldftn  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.1
+       IL_0001  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+       IL_0006  ret
+  exits: B0 (return)
+
+Type     : MyApp.Flow.Features+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2523   Size: 11 bytes   Token: 0x06000035
+
+[Calls]
+  IL_0000  newobj    MyApp.Flow.Features.<>c::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000A  -> exit
+       IL_0000  newobj     instance void MyApp.Flow.Features/<>c::.ctor()
+       IL_0005  stsfld     class MyApp.Flow.Features/<>c MyApp.Flow.Features/<>c::'<>9'
+       IL_000A  ret
+  exits: B0 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x252F   Size: 7 bytes   Token: 0x06000036
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  MyApp.Flow.Features+<>c::.cctor  IL_0000  newobj  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : bool <Lambdas>b__15_1(int v)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2537   Size: 5 bytes   Token: 0x06000037
+
+[Calls]
+  (none)
+[Callers]
+  MyApp.Flow.Features::Lambdas  IL_0032  ldftn  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0004  -> exit
+       IL_0000  ldarg.1
+       IL_0001  ldc.i4.0
+       IL_0002  cgt
+       IL_0004  ret
+  exits: B0 (return)
+
+Type     : MyApp.Flow.Features+<>c__DisplayClass15_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x253D   Size: 7 bytes   Token: 0x06000038
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  MyApp.Flow.Features::Lambdas  IL_0000  newobj  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : int <Lambdas>b__0(int v)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2545   Size: 9 bytes   Token: 0x06000039
+
+[Calls]
+  (none)
+[Callers]
+  MyApp.Flow.Features::Lambdas  IL_0014  ldftn  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0008  -> exit
+       IL_0000  ldarg.1
+       IL_0001  ldarg.0
+       IL_0002  ldfld      int32 MyApp.Flow.Features/<>c__DisplayClass15_0::offset
+       IL_0007  add
+       IL_0008  ret
+  exits: B0 (return)
+
+Type     : MyApp.Flow.Features+<ComputeAsync>d__13
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2550   Size: 153 bytes   Token: 0x0600003A
+
+[Calls]
+  IL_000B  call      System.Threading.Tasks.Task::Delay(int)                                                                                                                          external System.Runtime
+  IL_0010  callvirt  System.Threading.Tasks.Task::GetAwaiter()                                                                                                                        external System.Runtime
+  IL_0018  call      System.Runtime.CompilerServices.TaskAwaiter::get_IsCompleted()                                                                                                   external System.Runtime
+  IL_0038  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::AwaitUnsafeOnCompleted<TaskAwaiter, <ComputeAsync>d__13>(ref TaskAwaiter, ref <ComputeAsync>d__13)  external System.Runtime
+  IL_005D  call      System.Runtime.CompilerServices.TaskAwaiter::GetResult()                                                                                                         external System.Runtime
+  IL_007D  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::SetException(Exception)                                                                             external System.Runtime
+  IL_0093  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::SetResult(int)                                                                                      external System.Runtime
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=4  blocks=9  loops=0
+  B0 IL_0000..IL_0006  -> B1
+       IL_0000  ldarg.0
+       IL_0001  ldfld      int32 MyApp.Flow.Features/<ComputeAsync>d__13::'<>1__state'
+       IL_0006  stloc.0
+  B1 IL_0007..IL_0009  -> B2 (V_0 != 0) | B4 (else) | B6 (catch Exception)  [try]
+       IL_0007  ldloc.0
+       IL_0008  brfalse.s  IL_003F
+  B2 IL_000A..IL_001E  -> B3 (!V_2.IsCompleted) | B5 (else)  [try]
+       IL_000A  ldc.i4.1
+       IL_000B  call       class [System.Runtime]System.Threading.Tasks.Task [System.Runtime]System.Threading.Tasks.Task::Delay(int32)
+       IL_0010  callvirt   instance valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter [System.Runtime]System.Threading.Tasks.Task::GetAwaiter()
+       IL_0015  stloc.2
+       IL_0016  ldloca.s   V_2
+       IL_0018  call       instance bool [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter::get_IsCompleted()
+       IL_001D  brtrue.s   IL_005B
+  B3 IL_001F..IL_003E  -> B8 (leave)  [try]
+       IL_001F  ldarg.0
+       IL_0020  ldc.i4.0
+       IL_0021  dup
+       IL_0022  stloc.0
+       IL_0023  stfld      int32 MyApp.Flow.Features/<ComputeAsync>d__13::'<>1__state'
+       IL_0028  ldarg.0
+       IL_0029  ldloc.2
+       IL_002A  stfld      valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter MyApp.Flow.Features/<ComputeAsync>d__13::'<>u__1'
+       IL_002F  ldarg.0
+       IL_0030  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32> MyApp.Flow.Features/<ComputeAsync>d__13::'<>t__builder'
+       IL_0035  ldloca.s   V_2
+       IL_0037  ldarg.0
+       IL_0038  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32>::AwaitUnsafeOnCompleted<valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter, valuetype MyApp.Flow.Features/<ComputeAsync>d__13>(!!0&, !!1&)
+       IL_003D  leave.s    IL_0098
+  B4 IL_003F..IL_005A  -> B5  [try]
+       IL_003F  ldarg.0
+       IL_0040  ldfld      valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter MyApp.Flow.Features/<ComputeAsync>d__13::'<>u__1'
+       IL_0045  stloc.2
+       IL_0046  ldarg.0
+       IL_0047  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter MyApp.Flow.Features/<ComputeAsync>d__13::'<>u__1'
+       IL_004C  initobj    [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter
+       IL_0052  ldarg.0
+       IL_0053  ldc.i4.m1
+       IL_0054  dup
+       IL_0055  stloc.0
+       IL_0056  stfld      int32 MyApp.Flow.Features/<ComputeAsync>d__13::'<>1__state'
+  B5 IL_005B..IL_006C  -> B7 (leave)  [try]
+       IL_005B  ldloca.s   V_2
+       IL_005D  call       instance void [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter::GetResult()
+       IL_0062  ldarg.0
+       IL_0063  ldfld      int32 MyApp.Flow.Features/<ComputeAsync>d__13::x
+       IL_0068  ldc.i4.2
+       IL_0069  mul
+       IL_006A  stloc.1
+       IL_006B  leave.s    IL_0084
+  B6 IL_006D..IL_0083  -> B8 (leave)  [catch Exception]
+       IL_006D  stloc.3
+       IL_006E  ldarg.0
+       IL_006F  ldc.i4.s   -2
+       IL_0071  stfld      int32 MyApp.Flow.Features/<ComputeAsync>d__13::'<>1__state'
+       IL_0076  ldarg.0
+       IL_0077  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32> MyApp.Flow.Features/<ComputeAsync>d__13::'<>t__builder'
+       IL_007C  ldloc.3
+       IL_007D  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32>::SetException(class [System.Runtime]System.Exception)
+       IL_0082  leave.s    IL_0098
+  B7 IL_0084..IL_0097  -> B8
+       IL_0084  ldarg.0
+       IL_0085  ldc.i4.s   -2
+       IL_0087  stfld      int32 MyApp.Flow.Features/<ComputeAsync>d__13::'<>1__state'
+       IL_008C  ldarg.0
+       IL_008D  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32> MyApp.Flow.Features/<ComputeAsync>d__13::'<>t__builder'
+       IL_0092  ldloc.1
+       IL_0093  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32>::SetResult(!0)
+  B8 IL_0098..IL_0098  -> exit
+       IL_0098  ret
+  exits: B8 (return)
+  regions:
+    try IL_0007..IL_006C  [B1 B2 B3 B4 B5]
+    catch Exception IL_006D..IL_0083  [B6]  (handler of try IL_0007)
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2608   Size: 13 bytes   Token: 0x0600003B
+
+[Calls]
+  IL_0007  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::SetStateMachine(IAsyncStateMachine)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000C  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32> MyApp.Flow.Features/<ComputeAsync>d__13::'<>t__builder'
+       IL_0006  ldarg.1
+       IL_0007  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32>::SetStateMachine(class [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine)
+       IL_000C  ret
+  exits: B0 (return)
+
+Type     : MyApp.Flow.Features+<Range>d__14
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2616   Size: 25 bytes   Token: 0x0600003C
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()                            external System.Runtime
+  IL_000E  call      System.Environment::get_CurrentManagedThreadId()  external System.Runtime
+[Callers]
+  MyApp.Flow.Features::Range  IL_0002  newobj  (NetScope.Samples.dll)
+  MyApp.Flow.Features+<Range>d__14::System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator  IL_0023  newobj  (NetScope.Samples.dll)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0018  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  ldarg.0
+       IL_0007  ldarg.1
+       IL_0008  stfld      int32 MyApp.Flow.Features/<Range>d__14::'<>1__state'
+       IL_000D  ldarg.0
+       IL_000E  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+       IL_0013  stfld      int32 MyApp.Flow.Features/<Range>d__14::'<>l__initialThreadId'
+       IL_0018  ret
+  exits: B0 (return)
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2630   Size: 9 bytes   Token: 0x0600003D
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0008  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldc.i4.s   -2
+       IL_0003  stfld      int32 MyApp.Flow.Features/<Range>d__14::'<>1__state'
+       IL_0008  ret
+  exits: B0 (return)
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x263C   Size: 92 bytes   Token: 0x0600003E
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=4  blocks=8  loops=0
+  B0 IL_0000..IL_0009  -> B1 (V_0 != 0) | B3 (else)
+       IL_0000  ldarg.0
+       IL_0001  ldfld      int32 MyApp.Flow.Features/<Range>d__14::'<>1__state'
+       IL_0006  stloc.0
+       IL_0007  ldloc.0
+       IL_0008  brfalse.s  IL_0010
+  B1 IL_000A..IL_000D  -> B2 (V_0 != 1) | B5 (else)
+       IL_000A  ldloc.0
+       IL_000B  ldc.i4.1
+       IL_000C  beq.s      IL_0035
+  B2 IL_000E..IL_000F  -> exit
+       IL_000E  ldc.i4.0
+       IL_000F  ret
+  B3 IL_0010..IL_001F  -> B6
+       IL_0010  ldarg.0
+       IL_0011  ldc.i4.m1
+       IL_0012  stfld      int32 MyApp.Flow.Features/<Range>d__14::'<>1__state'
+       IL_0017  ldarg.0
+       IL_0018  ldc.i4.0
+       IL_0019  stfld      int32 MyApp.Flow.Features/<Range>d__14::'<i>5__2'
+       IL_001E  br.s       IL_004C
+  B4 IL_0020..IL_0034  -> exit
+       IL_0020  ldarg.0
+       IL_0021  ldarg.0
+       IL_0022  ldfld      int32 MyApp.Flow.Features/<Range>d__14::'<i>5__2'
+       IL_0027  stfld      int32 MyApp.Flow.Features/<Range>d__14::'<>2__current'
+       IL_002C  ldarg.0
+       IL_002D  ldc.i4.1
+       IL_002E  stfld      int32 MyApp.Flow.Features/<Range>d__14::'<>1__state'
+       IL_0033  ldc.i4.1
+       IL_0034  ret
+  B5 IL_0035..IL_004B  -> B6
+       IL_0035  ldarg.0
+       IL_0036  ldc.i4.m1
+       IL_0037  stfld      int32 MyApp.Flow.Features/<Range>d__14::'<>1__state'
+       IL_003C  ldarg.0
+       IL_003D  ldfld      int32 MyApp.Flow.Features/<Range>d__14::'<i>5__2'
+       IL_0042  stloc.1
+       IL_0043  ldarg.0
+       IL_0044  ldloc.1
+       IL_0045  ldc.i4.1
+       IL_0046  add
+       IL_0047  stfld      int32 MyApp.Flow.Features/<Range>d__14::'<i>5__2'
+  B6 IL_004C..IL_0059  -> B4 (this.<i>5__2 < this.n) | B7 (else)
+       IL_004C  ldarg.0
+       IL_004D  ldfld      int32 MyApp.Flow.Features/<Range>d__14::'<i>5__2'
+       IL_0052  ldarg.0
+       IL_0053  ldfld      int32 MyApp.Flow.Features/<Range>d__14::n
+       IL_0058  blt.s      IL_0020
+  B7 IL_005A..IL_005B  -> exit
+       IL_005A  ldc.i4.0
+       IL_005B  ret
+  exits: B2 (return), B4 (return), B7 (return)
+
+Method   : int System.Collections.Generic.IEnumerator<System.Int32>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26A4   Size: 7 bytes   Token: 0x0600003F
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      int32 MyApp.Flow.Features/<Range>d__14::'<>2__current'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26AC   Size: 6 bytes   Token: 0x06000040
+
+[Calls]
+  IL_0000  newobj    System.NotSupportedException::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0005  -> throw
+       IL_0000  newobj     instance void [System.Runtime]System.NotSupportedException::.ctor()
+       IL_0005  throw
+  exits: B0 (throw)
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26B3   Size: 12 bytes   Token: 0x06000041
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000B  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      int32 MyApp.Flow.Features/<Range>d__14::'<>2__current'
+       IL_0006  box        [System.Runtime]System.Int32
+       IL_000B  ret
+  exits: B0 (return)
+
+Method   : IEnumerator<int> System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26C0   Size: 55 bytes   Token: 0x06000042
+
+[Calls]
+  IL_0010  call      System.Environment::get_CurrentManagedThreadId()  external System.Runtime
+  IL_0023  newobj    MyApp.Flow.Features.<Range>d__14::.ctor(int)      internal
+[Callers]
+  MyApp.Flow.Features+<Range>d__14::System.Collections.IEnumerable.GetEnumerator  IL_0001  call  (NetScope.Samples.dll)
+
+[Branches]  complexity=3  blocks=5  loops=0
+  B0 IL_0000..IL_0009  -> B1 (this.<>1__state == -2) | B3 (else)
+       IL_0000  ldarg.0
+       IL_0001  ldfld      int32 MyApp.Flow.Features/<Range>d__14::'<>1__state'
+       IL_0006  ldc.i4.s   -2
+       IL_0008  bne.un.s   IL_0022
+  B1 IL_000A..IL_0016  -> B2 (this.<>l__initialThreadId == Environment.CurrentManagedThreadId) | B3 (else)
+       IL_000A  ldarg.0
+       IL_000B  ldfld      int32 MyApp.Flow.Features/<Range>d__14::'<>l__initialThreadId'
+       IL_0010  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+       IL_0015  bne.un.s   IL_0022
+  B2 IL_0017..IL_0021  -> B4
+       IL_0017  ldarg.0
+       IL_0018  ldc.i4.0
+       IL_0019  stfld      int32 MyApp.Flow.Features/<Range>d__14::'<>1__state'
+       IL_001E  ldarg.0
+       IL_001F  stloc.0
+       IL_0020  br.s       IL_0029
+  B3 IL_0022..IL_0028  -> B4
+       IL_0022  ldc.i4.0
+       IL_0023  newobj     instance void MyApp.Flow.Features/<Range>d__14::.ctor(int32)
+       IL_0028  stloc.0
+  B4 IL_0029..IL_0036  -> exit
+       IL_0029  ldloc.0
+       IL_002A  ldarg.0
+       IL_002B  ldfld      int32 MyApp.Flow.Features/<Range>d__14::'<>3__n'
+       IL_0030  stfld      int32 MyApp.Flow.Features/<Range>d__14::n
+       IL_0035  ldloc.0
+       IL_0036  ret
+  exits: B4 (return)
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2703   Size: 7 bytes   Token: 0x06000043
+
+[Calls]
+  IL_0001  call      MyApp.Flow.Features.<Range>d__14::System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator()  internal
+[Callers]
+  (none in the input files)
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<int32> MyApp.Flow.Features/<Range>d__14::'System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator'()
+       IL_0006  ret
+  exits: B0 (return)

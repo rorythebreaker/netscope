@@ -1,0 +1,862 @@
+Assembly : NetScope.Samples.dll
+Name     : NetScope.Samples, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 67
+
+Type     : <Module>
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2050   Size: 6 bytes   Token: 0x06000001
+
+[Pseudocode]
+  static <Module>()
+  {
+      Marker.OnLoad();
+  }
+
+Type     : MyApp.Marker
+
+Method   : void OnLoad()
+Kind     : static, internal
+RVA      : 0x2058   Size: 31 bytes   Token: 0x06000002
+
+[Pseudocode]
+  [ModuleInitializer]
+  internal static void OnLoad()
+  {
+      string environmentVariable = Environment.GetEnvironmentVariable("NETSCOPE_SAMPLE_MARKER");
+      if (!string.IsNullOrEmpty(environmentVariable))
+      {
+          File.WriteAllText(environmentVariable, "executed");
+      }
+  }
+
+Type     : MyApp.Flow.Branches
+
+Method   : int Loop(int n)
+Kind     : static, public
+RVA      : 0x2084   Size: 25 bytes   Token: 0x06000003
+
+[Pseudocode]
+  public static int Loop(int n)
+  {
+      int num = 0;
+      for (int i = 0; i < n; i++)
+      {
+          if (i % 3 != 0)
+          {
+              num += i;
+          }
+      }
+      return num;
+  }
+
+Method   : string Switch(int code)
+Kind     : static, public
+RVA      : 0x20A9   Size: 54 bytes   Token: 0x06000004
+
+[Pseudocode]
+  public static string Switch(int code)
+  {
+      return code switch
+      {
+          0 => "zero",
+          1 => "one",
+          2 => "two",
+          3 => "three",
+          _ => "many",
+      };
+  }
+
+Method   : int NestedTry(string s)
+Kind     : static, public
+RVA      : 0x20E0   Size: 63 bytes   Token: 0x06000005
+
+[Pseudocode]
+  public static int NestedTry(string s)
+  {
+      int num = 0;
+      try
+      {
+          try
+          {
+              num = int.Parse(s);
+          }
+          catch (FormatException)
+          {
+              num = -1;
+          }
+          finally
+          {
+              num++;
+          }
+      }
+      catch (Exception ex2) when (ex2.Message.Length > 0)
+      {
+          num = -2;
+      }
+      return num;
+  }
+
+Method   : void Throws(object o)
+Kind     : static, public
+RVA      : 0x2154   Size: 25 bytes   Token: 0x06000006
+
+[Pseudocode]
+  public static void Throws(object? o)
+  {
+      if (o == null)
+      {
+          throw new ArgumentNullException("o");
+      }
+      while (o.GetHashCode() <= 10)
+      {
+      }
+  }
+
+Type     : MyApp.Flow.Generic`1
+
+Method   : T get_Value()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x216E   Size: 7 bytes   Token: 0x06000007
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Value>k__BackingField;
+  }
+
+Method   : void set_Value(T value)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x2176   Size: 8 bytes   Token: 0x06000008
+
+[Pseudocode]
+  [CompilerGenerated]
+  private
+  {
+      <Value>k__BackingField = value;
+  }
+
+Method   : TOut Map<TOut>(Func<T, TOut> map)
+Kind     : instance, public, generic
+RVA      : 0x217F   Size: 13 bytes   Token: 0x06000009
+
+[Pseudocode]
+  public TOut Map<TOut>(Func<T?, TOut> map)
+  {
+      return map(Value);
+  }
+
+Method   : Generic<T> Create(T value)
+Kind     : static, public
+RVA      : 0x218D   Size: 13 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  public static Generic<T> Create(T value)
+  {
+      return new Generic<T>
+      {
+          Value = value
+      };
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x219B   Size: 7 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  public Generic()
+  {
+  }
+
+Type     : MyApp.Flow.GenericUse
+
+Method   : int Length(string s)
+Kind     : static, public
+RVA      : 0x21A3   Size: 43 bytes   Token: 0x0600000C
+
+[Pseudocode]
+  public static int Length(string s)
+  {
+      return Generic<string>.Create(s).Map((string? v) => v.Length);
+  }
+
+Type     : MyApp.Flow.Features
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x21CF   Size: 7 bytes   Token: 0x0600000D
+
+[Pseudocode]
+  static Features()
+  {
+      Instances = 0;
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x21D7   Size: 19 bytes   Token: 0x0600000E
+
+[Pseudocode]
+  public Features()
+  {
+      Instances++;
+  }
+
+Method   : void Finalize()
+Kind     : finalizer, instance, protected, override
+RVA      : 0x21EC   Size: 17 bytes   Token: 0x0600000F
+
+[Pseudocode]
+  ~Features()
+  {
+      _count = -1;
+  }
+
+Method   : int get_Instances()
+Kind     : property-get, static, public, compiler-generated
+RVA      : 0x221C   Size: 6 bytes   Token: 0x06000010
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Instances>k__BackingField;
+  }
+
+Method   : void set_Instances(int value)
+Kind     : property-set, static, private, compiler-generated
+RVA      : 0x2223   Size: 7 bytes   Token: 0x06000011
+
+[Pseudocode]
+  [CompilerGenerated]
+  private
+  {
+      <Instances>k__BackingField = value;
+  }
+
+Method   : void add_Changed(EventHandler value)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x222C   Size: 41 bytes   Token: 0x06000012
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      EventHandler eventHandler = this.Changed;
+      EventHandler eventHandler2;
+      do
+      {
+          eventHandler2 = eventHandler;
+          EventHandler value2 = (EventHandler)Delegate.Combine(eventHandler2, value);
+          eventHandler = Interlocked.CompareExchange(ref this.Changed, value2, eventHandler2);
+      }
+      while ((object)eventHandler != eventHandler2);
+  }
+
+Method   : void remove_Changed(EventHandler value)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x2264   Size: 41 bytes   Token: 0x06000013
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      EventHandler eventHandler = this.Changed;
+      EventHandler eventHandler2;
+      do
+      {
+          eventHandler2 = eventHandler;
+          EventHandler value2 = (EventHandler)Delegate.Remove(eventHandler2, value);
+          eventHandler = Interlocked.CompareExchange(ref this.Changed, value2, eventHandler2);
+      }
+      while ((object)eventHandler != eventHandler2);
+  }
+
+Method   : Features op_Addition(Features a, Features b)
+Kind     : operator, static, public
+RVA      : 0x2299   Size: 25 bytes   Token: 0x06000014
+
+[Pseudocode]
+  public static Features operator +(Features a, Features b)
+  {
+      return new Features
+      {
+          _count = a._count + b._count
+      };
+  }
+
+Method   : int op_Implicit(Features f)
+Kind     : conversion, static, public
+RVA      : 0x22B3   Size: 7 bytes   Token: 0x06000015
+
+[Pseudocode]
+  public static implicit operator int(Features f)
+  {
+      return f._count;
+  }
+
+Method   : Task<int> ComputeAsync(int x)
+Kind     : instance, public, async
+RVA      : 0x22BC   Size: 55 bytes   Token: 0x06000016
+
+[Pseudocode]
+  public async Task<int> ComputeAsync(int x)
+  {
+      await Task.Delay(1);
+      return x * 2;
+  }
+
+Method   : IEnumerable<int> Range(int n)
+Kind     : instance, public, iterator
+RVA      : 0x22FF   Size: 15 bytes   Token: 0x06000017
+
+[Pseudocode]
+  public IEnumerable<int> Range(int n)
+  {
+      for (int i = 0; i < n; i++)
+      {
+          yield return i;
+      }
+  }
+
+Method   : int Lambdas(int[] values)
+Kind     : instance, public
+RVA      : 0x2310   Size: 83 bytes   Token: 0x06000018
+
+[Pseudocode]
+  public int Lambdas(int[] values)
+  {
+      int offset = _count;
+      return Local(values.Select((int v) => v + offset).Where((int v) => v > 0).Sum());
+      static int Local(int v)
+      {
+          return v + 1;
+      }
+  }
+
+Method   : void Raise()
+Kind     : instance, public
+RVA      : 0x236F   Size: 23 bytes   Token: 0x06000019
+
+[Pseudocode]
+  public void Raise()
+  {
+      Changed?.Invoke(this, EventArgs.Empty);
+  }
+
+Method   : void Dispose()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x2387   Size: 7 bytes   Token: 0x0600001A
+
+[Pseudocode]
+  public void Dispose()
+  {
+      GC.SuppressFinalize(this);
+  }
+
+Method   : uint Ticks()
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x0600001B
+PInvoke  : kernel32.dll!GetTickCount
+
+[Pseudocode]
+  [DllImport("kernel32.dll", EntryPoint = "GetTickCount")]
+  public static extern uint Ticks();
+
+Method   : int <Lambdas>g__Local|15_2(int v)
+Kind     : static, internal, local-function, compiler-generated
+RVA      : 0x238F   Size: 4 bytes   Token: 0x0600001C
+
+[Pseudocode]
+  [CompilerGenerated]
+  internal static int <Lambdas>g__Local|15_2(int v)
+  {
+      return v + 1;
+  }
+
+Type     : MyApp.Flow.Shape
+
+Method   : double Area()
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x0600001D
+
+[Pseudocode]
+  public abstract double Area();
+
+Method   : string Describe()
+Kind     : instance, public, virtual
+RVA      : 0x2394   Size: 36 bytes   Token: 0x0600001E
+
+[Pseudocode]
+  public virtual string Describe()
+  {
+      return GetType().Name + " " + Area();
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, protected
+RVA      : 0x23C4   Size: 7 bytes   Token: 0x0600001F
+
+[Pseudocode]
+  protected Shape()
+  {
+  }
+
+Type     : MyApp.Flow.Circle
+
+Method   : double get_R()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x23CC   Size: 7 bytes   Token: 0x06000020
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <R>k__BackingField;
+  }
+
+Method   : void set_R(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x23D4   Size: 8 bytes   Token: 0x06000021
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <R>k__BackingField = value;
+  }
+
+Method   : double Area()
+Kind     : instance, public, override
+RVA      : 0x23DD   Size: 24 bytes   Token: 0x06000022
+
+[Pseudocode]
+  public override double Area()
+  {
+      return Math.PI * R * R;
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x23F6   Size: 7 bytes   Token: 0x06000023
+
+[Pseudocode]
+  public Circle()
+  {
+  }
+
+Type     : MyApp.Auth.ILoginService
+
+Method   : bool Login(string user, string pass)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000024
+
+[Pseudocode]
+  bool Login(string user, string pass);
+
+Type     : MyApp.Auth.LoginService
+
+Method   : bool Login(string user, string pass)
+Kind     : instance, public, virtual
+RVA      : 0x2400   Size: 36 bytes   Token: 0x06000025
+
+[Pseudocode]
+  public virtual bool Login(string user, string pass)
+  {
+      if (user == null)
+      {
+          return false;
+      }
+      User user2 = _users.Find(user);
+      return Hash(pass) == user2.Hash;
+  }
+
+Method   : string Hash(string s)
+Kind     : static, public
+RVA      : 0x2430   Size: 15 bytes   Token: 0x06000026
+
+[Pseudocode]
+  public static string Hash(string s)
+  {
+      return s.Length.ToString();
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x244B   Size: 18 bytes   Token: 0x06000027
+
+[Pseudocode]
+  public LoginService()
+  {
+      _users = new Users();
+      base..ctor();
+  }
+
+Type     : MyApp.Auth.AdminLoginService
+
+Method   : bool Login(string user, string pass)
+Kind     : instance, public, override
+RVA      : 0x245E   Size: 24 bytes   Token: 0x06000028
+
+[Pseudocode]
+  public override bool Login(string user, string pass)
+  {
+      if (user == "admin")
+      {
+          return base.Login(user, pass);
+      }
+      return false;
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2477   Size: 7 bytes   Token: 0x06000029
+
+[Pseudocode]
+  public AdminLoginService()
+  {
+  }
+
+Type     : MyApp.Db.User
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x247F   Size: 7 bytes   Token: 0x0600002A
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Name>k__BackingField;
+  }
+
+Method   : void set_Name(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2487   Size: 8 bytes   Token: 0x0600002B
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Name>k__BackingField = value;
+  }
+
+Method   : string get_Hash()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2490   Size: 7 bytes   Token: 0x0600002C
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Hash>k__BackingField;
+  }
+
+Method   : void set_Hash(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2498   Size: 8 bytes   Token: 0x0600002D
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Hash>k__BackingField = value;
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x24A1   Size: 29 bytes   Token: 0x0600002E
+
+[Pseudocode]
+  public User()
+  {
+      Name = "";
+      Hash = "";
+      base..ctor();
+  }
+
+Type     : MyApp.Db.Users
+
+Method   : User Find(string name)
+Kind     : instance, public, virtual
+RVA      : 0x24C0   Size: 20 bytes   Token: 0x0600002F
+
+[Pseudocode]
+  public virtual User? Find(string name)
+  {
+      if (!_byName.TryGetValue(name, out User value))
+      {
+          return null;
+      }
+      return value;
+  }
+
+Method   : void Add(User user)
+Kind     : instance, public
+RVA      : 0x24E0   Size: 19 bytes   Token: 0x06000030
+
+[Pseudocode]
+  public void Add(User user)
+  {
+      _byName[user.Name] = user;
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x24F4   Size: 18 bytes   Token: 0x06000031
+
+[Pseudocode]
+  public Users()
+  {
+      _byName = new Dictionary<string, User>();
+      base..ctor();
+  }
+
+Type     : MyApp.Flow.GenericUse+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2507   Size: 11 bytes   Token: 0x06000032
+
+[Pseudocode]
+  static <>c()
+  {
+      <>9 = new <>c();
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2513   Size: 7 bytes   Token: 0x06000033
+
+[Pseudocode]
+  public <>c()
+  {
+  }
+
+Method   : int <Length>b__0_0(string v)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x251B   Size: 7 bytes   Token: 0x06000034
+
+[Pseudocode]
+  internal int <Length>b__0_0(string? v)
+  {
+      return v.Length;
+  }
+
+Type     : MyApp.Flow.Features+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2523   Size: 11 bytes   Token: 0x06000035
+
+[Pseudocode]
+  static <>c()
+  {
+      <>9 = new <>c();
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x252F   Size: 7 bytes   Token: 0x06000036
+
+[Pseudocode]
+  public <>c()
+  {
+  }
+
+Method   : bool <Lambdas>b__15_1(int v)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2537   Size: 5 bytes   Token: 0x06000037
+
+[Pseudocode]
+  internal bool <Lambdas>b__15_1(int v)
+  {
+      return v > 0;
+  }
+
+Type     : MyApp.Flow.Features+<>c__DisplayClass15_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x253D   Size: 7 bytes   Token: 0x06000038
+
+[Pseudocode]
+  public <>c__DisplayClass15_0()
+  {
+  }
+
+Method   : int <Lambdas>b__0(int v)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2545   Size: 9 bytes   Token: 0x06000039
+
+[Pseudocode]
+  internal int <Lambdas>b__0(int v)
+  {
+      return v + offset;
+  }
+
+Type     : MyApp.Flow.Features+<ComputeAsync>d__13
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2550   Size: 153 bytes   Token: 0x0600003A
+
+[Pseudocode]
+  private void MoveNext()
+  {
+      int num = <>1__state;
+      int result;
+      try
+      {
+          TaskAwaiter awaiter;
+          if (num != 0)
+          {
+              awaiter = Task.Delay(1).GetAwaiter();
+              if (!awaiter.IsCompleted)
+              {
+                  num = (<>1__state = 0);
+                  <>u__1 = awaiter;
+                  <>t__builder.AwaitUnsafeOnCompleted(ref awaiter, ref this);
+                  return;
+              }
+          }
+          else
+          {
+              awaiter = <>u__1;
+              <>u__1 = default;
+              num = (<>1__state = -1);
+          }
+          awaiter.GetResult();
+          result = x * 2;
+      }
+      catch (Exception exception)
+      {
+          <>1__state = -2;
+          <>t__builder.SetException(exception);
+          return;
+      }
+      <>1__state = -2;
+      <>t__builder.SetResult(result);
+  }
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2608   Size: 13 bytes   Token: 0x0600003B
+
+[Pseudocode]
+  [DebuggerHidden]
+  private void SetStateMachine(IAsyncStateMachine stateMachine)
+  {
+      <>t__builder.SetStateMachine(stateMachine);
+  }
+
+Type     : MyApp.Flow.Features+<Range>d__14
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2616   Size: 25 bytes   Token: 0x0600003C
+
+[Pseudocode]
+  [DebuggerHidden]
+  public <Range>d__14(int <>1__state)
+  {
+      this.<>1__state = <>1__state;
+      <>l__initialThreadId = Environment.CurrentManagedThreadId;
+  }
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2630   Size: 9 bytes   Token: 0x0600003D
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IDisposable.Dispose()
+  {
+      <>1__state = -2;
+  }
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x263C   Size: 92 bytes   Token: 0x0600003E
+
+[Pseudocode]
+  private bool MoveNext()
+  {
+      switch (<>1__state)
+      {
+      default:
+          return false;
+      case 0:
+          <>1__state = -1;
+          <i>5__2 = 0;
+          break;
+      case 1:
+          <>1__state = -1;
+          <i>5__2++;
+          break;
+      }
+      if (<i>5__2 < n)
+      {
+          <>2__current = <i>5__2;
+          <>1__state = 1;
+          return true;
+      }
+      return false;
+  }
+
+Method   : int System.Collections.Generic.IEnumerator<System.Int32>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26A4   Size: 7 bytes   Token: 0x0600003F
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26AC   Size: 6 bytes   Token: 0x06000040
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IEnumerator.Reset()
+  {
+      throw new NotSupportedException();
+  }
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26B3   Size: 12 bytes   Token: 0x06000041
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : IEnumerator<int> System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26C0   Size: 55 bytes   Token: 0x06000042
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator<int> IEnumerable<int>.GetEnumerator()
+  {
+      <Range>d__14 obj;
+      if (<>1__state == -2 && <>l__initialThreadId == Environment.CurrentManagedThreadId)
+      {
+          <>1__state = 0;
+          obj = this;
+      }
+      else
+      {
+          obj = new <Range>d__14(0);
+      }
+      obj.n = <>3__n;
+      return obj;
+  }
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2703   Size: 7 bytes   Token: 0x06000043
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator IEnumerable.GetEnumerator()
+  {
+      return ((IEnumerable<int>)this).GetEnumerator();
+  }

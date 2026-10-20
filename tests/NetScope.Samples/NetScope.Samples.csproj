@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <RootNamespace>MyApp</RootNamespace>
+    <!-- Reference sample: its compiled IL is the input of the tests. -->
+    <IsPackable>false</IsPackable>
+    <!-- The module initializer is intentional: tests use it to prove that analyzed code never runs. -->
+    <NoWarn>$(NoWarn);CA2255</NoWarn>
+  </PropertyGroup>
+
+</Project>
