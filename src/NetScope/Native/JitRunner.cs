@@ -72,7 +72,7 @@ public static class JitRunner
             if (!File.Exists(resultFile))
             {
                 var why = stderr.ToString().Trim();
-                foreach (var m in methods) result[m] = NativeCode.Unavailable("helper process failed" + (why.Length > 0 ? ": " + FirstLine(why) : $" (exit code {process.ExitCode})"));
+                foreach (var m in methods) result[m] = NativeCode.Unavailable("helper process failed" + (why.Length > 0 ? ": " + FirstLines(why, 2) : $" (exit code {process.ExitCode})"));
                 return result;
             }
 
@@ -228,6 +228,10 @@ public static class JitRunner
         }
         return sb.ToString();
     }
+
+    /// <summary>"Unhandled exception." alone says little: keep the line with the exception too.</summary>
+    private static string FirstLines(string s, int count) =>
+        string.Join(" ", s.Split('\n').Select(l => l.Trim()).Where(l => l.Length > 0).Take(count));
 
     private static string FirstLine(string s)
     {

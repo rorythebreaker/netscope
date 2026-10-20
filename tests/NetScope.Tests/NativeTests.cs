@@ -80,7 +80,7 @@ public class NativeTests
         var sizes = methods.Select(m =>
         {
             var info = m.GetProperty("nativeInfo");
-            Assert.True(info.GetProperty("available").GetBoolean(), m.GetProperty("signature").GetString());
+            Assert.True(info.GetProperty("available").GetBoolean(), m.GetProperty("signature").GetString() + ": " + info.GetProperty("reason").GetString());
             Assert.Equal("JIT", info.GetProperty("source").GetString());
             return info.GetProperty("size").GetInt32();
         }).ToList();

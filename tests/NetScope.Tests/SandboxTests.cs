@@ -22,10 +22,10 @@ public class SandboxTests
     public void JitHelperBlocksChildProcessesAndLargeAllocations()
     {
         var reason = NativeReason();
-        Assert.Contains("hostile:", reason);
-        Assert.Contains("child process blocked", reason);
-        Assert.DoesNotContain("STARTED", reason);
-        Assert.Contains("allocation of 4 GB failed", reason);
+        Assert.True(reason.Contains("hostile:", StringComparison.Ordinal), reason);
+        Assert.True(reason.Contains("child process blocked", StringComparison.Ordinal), reason);
+        Assert.False(reason.Contains("STARTED", StringComparison.Ordinal), reason);
+        Assert.True(reason.Contains("allocation of 4 GB failed", StringComparison.Ordinal), reason);
     }
 
     [Fact]

@@ -66,22 +66,28 @@ internal static class LinuxLimits
     }
 
     /// <summary>
-    /// BPF: verify the architecture, then return EPERM for the process-creation syscalls so the attempt
-    /// surfaces as an exception in the child rather than killing it. Unknown architectures disable the filter.
+    /// BPF: verify the architecture, then deny process creation while still allowing threads:
+    /// fork/vfork/execve/execveat return EPERM, clone returns EPERM unless it creates a thread (CLONE_THREAD),
+    /// and clone3 returns ENOSYS so that glibc falls back to clone (its flags are not visible to seccomp).
+    /// A denied attempt surfaces as an exception in the child instead of killing it.
+    /// Unknown architectures disable the filter.
     /// </summary>
     private static SockFilter[]? BuildFilter()
     {
         uint arch;
         int[] denied;
+        int clone, clone3 = 435;
         switch (RuntimeInformation.ProcessArchitecture)
         {
             case Architecture.X64:
                 arch = AUDIT_ARCH_X86_64;
-                denied = new[] { 57, 58, 56, 435, 59, 322 }; // fork, vfork, clone, clone3, execve, execveat
+                denied = new[] { 57, 58, 59, 322 }; // fork, vfork, execve, execveat
+                clone = 56;
                 break;
             case Architecture.Arm64:
                 arch = AUDIT_ARCH_AARCH64;
-                denied = new[] { 220, 435, 221, 281 }; // clone, clone3, execve, execveat
+                denied = new[] { 221, 281 }; // execve, execveat (no fork/vfork on arm64)
+                clone = 220;
                 break;
             default:
                 return null;
@@ -89,9 +95,8 @@ internal static class LinuxLimits
 
         var f = new List<SockFilter>
         {
-            // A[arch] = seccomp_data.arch
+            // A = seccomp_data.arch; a foreign ABI would reinterpret syscall numbers, so it is killed.
             new(BPF_LD | BPF_W | BPF_ABS, 0, 0, SeccompDataArchOffset),
-            // if arch != expected -> kill the process (prevents syscall-number confusion on a wrong ABI)
             new(BPF_JMP | BPF_JEQ | BPF_K, 1, 0, arch),
             new(BPF_RET | BPF_K, 0, 0, SECCOMP_RET_KILL_PROCESS),
             // A = seccomp_data.nr
@@ -99,10 +104,16 @@ internal static class LinuxLimits
         };
         foreach (var nr in denied)
         {
-            // if nr == denied -> return EPERM
             f.Add(new(BPF_JMP | BPF_JEQ | BPF_K, 0, 1, (uint)nr));
             f.Add(new(BPF_RET | BPF_K, 0, 0, SECCOMP_RET_ERRNO | EPERM));
         }
+        f.Add(new(BPF_JMP | BPF_JEQ | BPF_K, 0, 1, (uint)clone3));
+        f.Add(new(BPF_RET | BPF_K, 0, 0, SECCOMP_RET_ERRNO | ENOSYS));
+        // clone: allow only with CLONE_THREAD in the flags (low word of args[0]).
+        f.Add(new(BPF_JMP | BPF_JEQ | BPF_K, 0, 3, (uint)clone));
+        f.Add(new(BPF_LD | BPF_W | BPF_ABS, 0, 0, SeccompDataArg0Offset));
+        f.Add(new(BPF_JMP | BPF_JSET | BPF_K, 1, 0, CLONE_THREAD));
+        f.Add(new(BPF_RET | BPF_K, 0, 0, SECCOMP_RET_ERRNO | EPERM));
         f.Add(new(BPF_RET | BPF_K, 0, 0, SECCOMP_RET_ALLOW));
         return f.ToArray();
     }
@@ -157,16 +168,20 @@ internal static class LinuxLimits
     private const int SECCOMP_MODE_FILTER = 2;
     private const int SIGKILL = 9;
 
-    private const ushort BPF_LD = 0x00, BPF_W = 0x00, BPF_ABS = 0x20, BPF_JMP = 0x05, BPF_JEQ = 0x10, BPF_K = 0x00, BPF_RET = 0x06;
+    private const ushort BPF_LD = 0x00, BPF_W = 0x00, BPF_ABS = 0x20, BPF_JMP = 0x05, BPF_JEQ = 0x10, BPF_JSET = 0x40, BPF_K = 0x00, BPF_RET = 0x06;
     private const uint SECCOMP_RET_KILL_PROCESS = 0x80000000;
     private const uint SECCOMP_RET_ERRNO = 0x00050000;
     private const uint SECCOMP_RET_ALLOW = 0x7fff0000;
     private const uint EPERM = 1;
+    private const uint ENOSYS = 38;
+    private const uint CLONE_THREAD = 0x00010000;
     private const uint AUDIT_ARCH_X86_64 = 0xC000003E;
     private const uint AUDIT_ARCH_AARCH64 = 0xC00000B7;
     // offsetof(struct seccomp_data, nr) == 0, offsetof(..., arch) == 4
     private const uint SeccompDataNrOffset = 0;
     private const uint SeccompDataArchOffset = 4;
+    // offsetof(struct seccomp_data, args[0]); the low 32 bits come first on little-endian x64 and arm64.
+    private const uint SeccompDataArg0Offset = 16;
 
     [DllImport("libc", SetLastError = true)]
     private static extern int setrlimit(int resource, ref RLimit limit);
