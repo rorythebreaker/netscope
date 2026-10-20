@@ -2,7 +2,9 @@ using NetScope.Asm;
 using NetScope.Calls;
 using NetScope.Catalog;
 using NetScope.Cfg;
+using NetScope.Audit;
 using NetScope.CrossRefs;
+using NetScope.Obfuscation;
 using NetScope.Diagnostics;
 using NetScope.IL;
 using NetScope.Input;
@@ -20,7 +22,7 @@ namespace NetScope.Pipeline;
 /// </summary>
 public sealed class Analyzer
 {
-    public const int ExitOk = 0, ExitPartial = 1, ExitBadArguments = 2, ExitNothingOpened = 3;
+    public const int ExitOk = 0, ExitPartial = 1, ExitBadArguments = 2, ExitNothingOpened = 3, ExitFindings = 4;
 
     private readonly IInputResolver _inputs;
     private readonly IAssemblyLoader _loader;
@@ -46,6 +48,10 @@ public sealed class Analyzer
         public Dictionary<MethodModel, IReadOnlyList<CallSite>> Calls { get; } = new();
         /// <summary>Matches of --uses, --find-string, --field-refs for the methods they selected.</summary>
         public Dictionary<MethodModel, IReadOnlyList<CrossReference>> Matches { get; } = new();
+        /// <summary>--audit: findings of the methods that have any.</summary>
+        public Dictionary<MethodModel, IReadOnlyList<Finding>> Findings { get; } = new();
+        public int Suppressed { get; set; }
+        public ObfuscationReport? Obfuscation { get; set; }
         public string? Error { get; set; }
     }
 
@@ -79,9 +85,12 @@ public sealed class Analyzer
             return ExitNothingOpened;
         }
 
-        bool perMethod = groups.Methods || groups.Calls || groups.Cfg || groups.Pseudo || groups.IL || groups.Native || groups.Fields || groups.Strings;
+        bool methodGroups = groups.Methods || groups.Calls || groups.Cfg || groups.Pseudo || groups.IL || groups.Native || groups.Fields || groups.Strings;
+        bool perMethod = methodGroups || o.DetectObfuscation || o.AuditRules != null;
         bool needCalls = groups.Calls || groups.CallGraph;
         using var references = new ReferenceResolver(units.Select(u => u.Asm), o.RefPaths);
+        var auditor = o.AuditRules == null ? null
+            : new Auditor(o.AuditRules, o.MinLevel, Suppressions.Load(Auditor.SuppressionFiles(units.Select(u => u.Asm))));
         try
         {
             // MethodCatalog (+ CallAnalyzer over all methods, so that reverse references cover the whole group).
@@ -107,6 +116,8 @@ public sealed class Analyzer
                     return;
                 }
                 if (!o.Query.IsEmpty) SelectByCrossReferences(u, o.Query);
+                if (auditor != null) SelectByFindings(u, auditor);
+                if (o.DetectObfuscation) u.Obfuscation = ObfuscationDetector.Analyze(u.Asm, u.Members, u.Methods);
                 if (!needCalls) return;
                 foreach (var m in u.Methods)
                 {
@@ -159,6 +170,8 @@ public sealed class Analyzer
         {
             foreach (var u in units) u.Asm.Dispose();
         }
+        if (o.FailOn is Severity failOn && units.Any(u => u.Findings.Values.Any(list => list.Any(f => f.Level >= failOn))))
+            return ExitFindings;
         return Log.Failures > 0 ? ExitPartial : ExitOk;
     }
 
@@ -171,6 +184,31 @@ public sealed class Analyzer
             if (value == null) continue;
             if (!report.StringIndex.TryGetValue(value, out var literal)) report.StringIndex[value] = literal = new StringLiteral(value);
             literal.Locations.Add((il.Method, ins.Offset));
+        }
+    }
+
+    /// <summary>--audit: keeps only the selected methods that have findings.</summary>
+    private static void SelectByFindings(Unit u, Auditor auditor)
+    {
+        var definitions = u.Methods.ToDictionary(m => m.Handle);
+        foreach (var m in u.Methods)
+        {
+            if (!m.Selected) continue;
+            try
+            {
+                var findings = auditor.Check(m, u.Members, definitions, out int suppressed);
+                u.Suppressed += suppressed;
+                if (findings.Count > 0) u.Findings[m] = findings;
+                else m.Selected = false;
+            }
+            catch (Exception ex) when (ex is BadImageFormatException or InvalidOperationException)
+            {
+                m.Selected = false;
+            }
+            finally
+            {
+                m.ReleaseBody();
+            }
         }
     }
 
@@ -238,6 +276,7 @@ public sealed class Analyzer
         return o.Format switch
         {
             "json" => new JsonReporter(g, sources),
+            "sarif" => new SarifReporter(o.AuditRules ?? RuleSet.All),
             "dot" => new DotReporter(cfgGraphs),
             "mermaid" => new MermaidReporter(cfgGraphs),
             _ => new TextReporter(g, o.Color, sources),
@@ -247,7 +286,8 @@ public sealed class Analyzer
     private string RenderUnit(Unit u, AnalysisOptions o, CallIndex? index, ReferenceResolver references, AbandonedDecompilations abandoned, bool first, IReporter reporter)
     {
         var groups = o.Groups;
-        var report = new AssemblyReport { Assembly = u.Asm };
+        var report = new AssemblyReport { Assembly = u.Asm, Obfuscation = u.Obfuscation };
+        if (o.AuditRules != null) report.Audit = new AuditSummary(u.Findings.Values.SelectMany(f => f).ToList(), u.Suppressed);
         if (u.Error != null) report.Errors.Add(u.Error);
         var file = u.Asm.FileName;
         var pseudo = groups.Pseudo ? new PseudoGenerator(u.Asm, references.For(u.Asm), u.Members, o.Raw, o.DecompileTimeout, abandoned) : null;
@@ -255,7 +295,9 @@ public sealed class Analyzer
         bool graphs = o.Format is "dot" or "mermaid";
         bool needCfg = groups.Cfg || (graphs && !groups.CallGraph);
 
-        var selected = u.Methods.Where(m => m.Selected).ToList();
+        // --detect-obfuscation alone reports only the verdict, not the methods.
+        var selected = groups.Methods || groups.Calls || groups.Cfg || groups.Pseudo || groups.IL || groups.Native || groups.Fields || groups.Strings
+            ? u.Methods.Where(m => m.Selected).ToList() : new List<MethodModel>();
         foreach (var m in selected)
         {
             var r = new MethodReport { Method = m };
@@ -282,6 +324,7 @@ public sealed class Analyzer
                 }
 
                 if (u.Matches.TryGetValue(m, out var matches)) r.Matches = matches;
+                if (u.Findings.TryGetValue(m, out var findings)) r.Findings = findings;
                 if (il != null && groups.Fields) r.Fields = FieldAccessAnalyzer.Analyze(il, u.Members);
                 if (il != null && groups.Strings) CollectStrings(report, il, u.Members);
 

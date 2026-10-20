@@ -9,8 +9,9 @@
     <!-- Reference sample: its compiled IL is the input of the tests. -->
     <IsPackable>false</IsPackable>
     <!-- The module initializer is intentional: tests use it to prove that analyzed code never runs.
-         The other rules flag code shapes the samples exist to show (public P/Invoke, static members of generics, explicit throws). -->
-    <NoWarn>$(NoWarn);CA2255;CA1000;CA1401;CA1510;CA1822</NoWarn>
+         The other rules flag code shapes the samples exist to show (public P/Invoke, static members of generics, explicit throws),
+         and Audit.cs holds the insecure code the NetScope rules must find (BinaryFormatter, MD5, a TLS check that accepts anything). -->
+    <NoWarn>$(NoWarn);CA2255;CA1000;CA1401;CA1510;CA1822;SYSLIB0011;CA2263;CA5351;CA5359</NoWarn>
   </PropertyGroup>
 
 </Project>

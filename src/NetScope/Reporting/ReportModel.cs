@@ -24,6 +24,15 @@ public sealed class AssemblyReport
     public List<string> Errors { get; } = new();
     /// <summary>--strings: literals of the reported methods by value (filled only for that group).</summary>
     public Dictionary<string, CrossRefs.StringLiteral> StringIndex { get; } = new(StringComparer.Ordinal);
+    /// <summary>--audit: all findings of the assembly and the suppressed count.</summary>
+    public AuditSummary? Audit { get; set; }
+    /// <summary>--detect-obfuscation verdict.</summary>
+    public Obfuscation.ObfuscationReport? Obfuscation { get; init; }
+}
+
+public sealed record AuditSummary(IReadOnlyList<Audit.Finding> Findings, int Suppressed)
+{
+    public int Count(Audit.Severity level) => Findings.Count(f => f.Level == level);
 }
 
 public sealed record CallReport(CallSite Site, MethodModel? GroupTarget);
@@ -56,6 +65,8 @@ public sealed class MethodReport
     public Dictionary<int, SourceRange>? BlockSources { get; set; }
     /// <summary>What selected the method with --uses, --find-string, --field-refs.</summary>
     public IReadOnlyList<CrossRefs.CrossReference>? Matches { get; set; }
+    /// <summary>--audit: findings of the method.</summary>
+    public IReadOnlyList<Audit.Finding>? Findings { get; set; }
     /// <summary>--fields: field accesses in IL order.</summary>
     public IReadOnlyList<CrossRefs.FieldAccess>? Fields { get; set; }
     public List<string> Errors { get; } = new();

@@ -1,0 +1,5 @@
+﻿<project outputDir="../../../../out/normal" baseDir="src/bin/Release/net472" xmlns="http://confuser.codeplex.com">
+  <!-- ConfuserEx "normal" preset: renaming, control flow, constants, reference proxies, anti-tamper, watermark. -->
+  <rule pattern="true" preset="normal" inherit="false" />
+  <module path="ObfuscationSample.exe" />
+</project>

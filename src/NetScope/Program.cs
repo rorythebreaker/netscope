@@ -97,15 +97,21 @@ public static class Program
         private readonly Option<bool> _fields = new("--fields") { Description = "Fields each method reads and writes" };
         private readonly Option<string[]> _fieldRefs = new("--field-refs") { Description = "Select methods that read or write a field by mask, e.g. \"MyApp.Db.User::<Name>k__BackingField\" (repeatable)" };
         private readonly Option<bool> _strings = new("--strings") { Description = "Table of all string literals and where they occur" };
+        private readonly Option<bool> _audit = new("--audit") { Description = "Check methods against the security rules NS001-NS010 and report only methods with findings" };
+        private readonly Option<string[]> _rules = new("--rules") { Description = "With --audit: rule IDs to run, e.g. NS001,NS004 (default: all)" };
+        private readonly Option<string> _minLevel = new("--min-level") { Description = "With --audit: drop findings below this level (note, warning, error)", DefaultValueFactory = _ => "note" };
+        private readonly Option<string> _failOn = new("--fail-on") { Description = "With --audit: exit with code 4 if a finding of this level or higher remains (note, warning, error)" };
+        private readonly Option<bool> _detectObfuscation = new("--detect-obfuscation") { Description = "Verdict (no, possible, yes), signs and obfuscator name for each assembly" };
         private readonly Option<string> _runMemory = new("--run-memory") { Description = "Memory limit of processes that run analyzed code, e.g. 512M, 2G (number without a suffix: megabytes)", DefaultValueFactory = _ => "1G" };
         private readonly Option<int> _runTimeout = new("--run-timeout") { Description = "Time limit for the --allow-run helper process, seconds", DefaultValueFactory = _ => 30 };
 
         public Cli()
         {
-            _format.AcceptOnlyFromAmong("text", "json", "dot", "mermaid");
+            _format.AcceptOnlyFromAmong("text", "json", "dot", "mermaid", "sarif");
             Root.Arguments.Add(_files);
             foreach (var o in new Option[] { _dir, _recursive, _inputList, _refPath, _methods, _calls, _callgraph, _cfg, _pseudo, _il, _native, _allowRun, _all, _filter, _type, _format, _out, _raw, _noColor, _quiet, _verbose, _threads, _decompileTimeout, _maxAbandoned, _runMemory, _runTimeout,
-                                             _noPdb, _pdbPath, _source, _sourcePath, _uses, _findString, _regex, _fields, _fieldRefs, _strings })
+                                             _noPdb, _pdbPath, _source, _sourcePath, _uses, _findString, _regex, _fields, _fieldRefs, _strings,
+                                             _audit, _rules, _minLevel, _failOn, _detectObfuscation })
                 Root.Options.Add(o);
         }
 
@@ -144,8 +150,8 @@ public static class Program
             bool calls = all || p.GetValue(_calls), cfg = all || p.GetValue(_cfg), pseudo = all || p.GetValue(_pseudo);
             bool il = all || p.GetValue(_il), native = all || p.GetValue(_native), callgraph = all || p.GetValue(_callgraph);
             bool fields = all || p.GetValue(_fields), strings = p.GetValue(_strings);
-            bool anyGroup = calls || cfg || pseudo || il || native || callgraph || fields || strings;
-            bool methods = all || p.GetValue(_methods) || !anyGroup;
+            bool anyGroup = calls || cfg || pseudo || il || native || callgraph || fields || strings || p.GetValue(_detectObfuscation);
+            bool methods = all || p.GetValue(_methods) || !anyGroup || p.GetValue(_audit);
             var groups = new OutputGroups(methods, calls, cfg, pseudo, il, native, callgraph) { Fields = fields, Strings = strings };
 
             CrossReferenceQuery query;
@@ -184,6 +190,43 @@ public static class Program
 
             var format = p.GetValue(_format) ?? "text";
             var output = p.GetValue(_out);
+
+            // --format sarif reports findings, so it implies --audit.
+            bool audit = p.GetValue(_audit) || format == "sarif";
+            IReadOnlyList<Audit.IRule>? rules = null;
+            Audit.Severity minLevel = Audit.Severity.Note;
+            Audit.Severity? failOn = null;
+            if (audit)
+            {
+                try
+                {
+                    rules = Audit.RuleSet.Select(p.GetValue(_rules) ?? Array.Empty<string>());
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.Error.WriteLine("netscope: error: " + ex.Message);
+                    return Analyzer.ExitBadArguments;
+                }
+                if (!Audit.RuleSet.TryParseLevel(p.GetValue(_minLevel) ?? "note", out minLevel))
+                {
+                    Console.Error.WriteLine("netscope: error: --min-level expects note, warning or error");
+                    return Analyzer.ExitBadArguments;
+                }
+                if (p.GetValue(_failOn) is { } failText)
+                {
+                    if (!Audit.RuleSet.TryParseLevel(failText, out var level))
+                    {
+                        Console.Error.WriteLine("netscope: error: --fail-on expects note, warning or error");
+                        return Analyzer.ExitBadArguments;
+                    }
+                    failOn = level;
+                }
+            }
+            else if ((p.GetValue(_rules)?.Length ?? 0) > 0 || p.GetValue(_failOn) != null)
+            {
+                Console.Error.WriteLine("netscope: error: --rules and --fail-on apply to --audit");
+                return Analyzer.ExitBadArguments;
+            }
             bool color = format == "text" && output == null && !p.GetValue(_noColor) && !Console.IsOutputRedirected &&
                          Environment.GetEnvironmentVariable("NO_COLOR") == null && EnableAnsi();
 
@@ -210,6 +253,10 @@ public static class Program
                 ShowSource = p.GetValue(_source),
                 SourcePaths = (p.GetValue(_sourcePath) ?? Array.Empty<string>()).Select(Path.GetFullPath).ToList(),
                 Query = query,
+                AuditRules = rules,
+                MinLevel = minLevel,
+                FailOn = failOn,
+                DetectObfuscation = p.GetValue(_detectObfuscation),
             };
             if (options.ShowSource && options.NoPdb)
                 Log.Warning("--source", "has no effect with --no-pdb");
@@ -224,7 +271,7 @@ public static class Program
             var valueOptions = new HashSet<string>(StringComparer.Ordinal)
             {
                 "--dir", "--input-list", "--ref-path", "--filter", "--type", "--format", "--out", "--threads", "--decompile-timeout", "--max-abandoned", "--run-memory", "--run-timeout",
-                "--pdb-path", "--source-path", "--uses", "--find-string", "--field-refs",
+                "--pdb-path", "--source-path", "--uses", "--find-string", "--field-refs", "--rules", "--min-level", "--fail-on",
             };
             var items = new List<InputItem>();
             var pendingFiles = new Queue<string>(files);

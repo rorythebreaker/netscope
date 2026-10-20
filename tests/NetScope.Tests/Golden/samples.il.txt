@@ -1,7 +1,7 @@
 Assembly : NetScope.Samples.dll
 Name     : NetScope.Samples, Version=1.0.0.0
 Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
-Methods  : 70
+Methods  : 117
 
 Type     : <Module>
 
@@ -13,11 +13,86 @@ RVA      : 0x2050   Size: 6 bytes   Token: 0x06000001
   IL_0000  call       void MyApp.Marker::OnLoad()
   IL_0005  ret
 
+Type     : System.Data.SqlClient.SqlCommand
+
+Method   : void .ctor(string commandText, object connection)
+Kind     : ctor, instance, public
+RVA      : 0x2057   Size: 21 bytes   Token: 0x06000002
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  call       instance void System.Data.SqlClient.SqlCommand::set_CommandText(string)
+  IL_000D  ldarg.0
+  IL_000E  ldarg.2
+  IL_000F  stfld      object System.Data.SqlClient.SqlCommand::'<Connection>k__BackingField'
+  IL_0014  ret
+
+Method   : string get_CommandText()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x206D   Size: 7 bytes   Token: 0x06000003
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      string System.Data.SqlClient.SqlCommand::'<CommandText>k__BackingField'
+  IL_0006  ret
+
+Method   : void set_CommandText(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2075   Size: 8 bytes   Token: 0x06000004
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      string System.Data.SqlClient.SqlCommand::'<CommandText>k__BackingField'
+  IL_0007  ret
+
+Method   : object get_Connection()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x207E   Size: 7 bytes   Token: 0x06000005
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      object System.Data.SqlClient.SqlCommand::'<Connection>k__BackingField'
+  IL_0006  ret
+
+Type     : Newtonsoft.Json.JsonSerializerSettings
+
+Method   : TypeNameHandling get_TypeNameHandling()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2086   Size: 7 bytes   Token: 0x06000006
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      valuetype Newtonsoft.Json.TypeNameHandling Newtonsoft.Json.JsonSerializerSettings::'<TypeNameHandling>k__BackingField'
+  IL_0006  ret
+
+Method   : void set_TypeNameHandling(TypeNameHandling value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x208E   Size: 8 bytes   Token: 0x06000007
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      valuetype Newtonsoft.Json.TypeNameHandling Newtonsoft.Json.JsonSerializerSettings::'<TypeNameHandling>k__BackingField'
+  IL_0007  ret
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2097   Size: 7 bytes   Token: 0x06000008
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
 Type     : MyApp.Marker
 
 Method   : void OnLoad()
 Kind     : static, internal
-RVA      : 0x2058   Size: 31 bytes   Token: 0x06000002
+RVA      : 0x20A0   Size: 31 bytes   Token: 0x06000009
 
 [IL]  .maxstack 2
   .locals init ([0] string V_0)
@@ -36,7 +111,7 @@ Type     : MyApp.Flow.Branches
 
 Method   : int Loop(int n)
 Kind     : static, public
-RVA      : 0x2084   Size: 25 bytes   Token: 0x06000003
+RVA      : 0x20CC   Size: 25 bytes   Token: 0x0600000A
 
 [IL]  .maxstack 2
   .locals init ([0] int32 V_0, [1] int32 V_1)
@@ -65,7 +140,7 @@ RVA      : 0x2084   Size: 25 bytes   Token: 0x06000003
 
 Method   : string Switch(int code)
 Kind     : static, public
-RVA      : 0x20A9   Size: 54 bytes   Token: 0x06000004
+RVA      : 0x20F1   Size: 54 bytes   Token: 0x0600000B
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -84,7 +159,7 @@ RVA      : 0x20A9   Size: 54 bytes   Token: 0x06000004
 
 Method   : int NestedTry(string s)
 Kind     : static, public
-RVA      : 0x20E0   Size: 63 bytes   Token: 0x06000005
+RVA      : 0x2128   Size: 63 bytes   Token: 0x0600000C
 
 [IL]  .maxstack 2
   .locals init ([0] int32 V_0)
@@ -130,7 +205,7 @@ RVA      : 0x20E0   Size: 63 bytes   Token: 0x06000005
 
 Method   : void Throws(object o)
 Kind     : static, public
-RVA      : 0x2154   Size: 25 bytes   Token: 0x06000006
+RVA      : 0x219C   Size: 25 bytes   Token: 0x0600000D
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -148,7 +223,7 @@ Type     : MyApp.Flow.Generic`1
 
 Method   : T get_Value()
 Kind     : property-get, instance, public, compiler-generated
-RVA      : 0x216E   Size: 7 bytes   Token: 0x06000007
+RVA      : 0x21B6   Size: 7 bytes   Token: 0x0600000E
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -157,7 +232,7 @@ RVA      : 0x216E   Size: 7 bytes   Token: 0x06000007
 
 Method   : void set_Value(T value)
 Kind     : property-set, instance, private, compiler-generated
-RVA      : 0x2176   Size: 8 bytes   Token: 0x06000008
+RVA      : 0x21BE   Size: 8 bytes   Token: 0x0600000F
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -167,7 +242,7 @@ RVA      : 0x2176   Size: 8 bytes   Token: 0x06000008
 
 Method   : TOut Map<TOut>(Func<T, TOut> map)
 Kind     : instance, public, generic
-RVA      : 0x217F   Size: 13 bytes   Token: 0x06000009
+RVA      : 0x21C7   Size: 13 bytes   Token: 0x06000010
 
 [IL]  .maxstack 8
   IL_0000  ldarg.1
@@ -178,7 +253,7 @@ RVA      : 0x217F   Size: 13 bytes   Token: 0x06000009
 
 Method   : Generic<T> Create(T value)
 Kind     : static, public
-RVA      : 0x218D   Size: 13 bytes   Token: 0x0600000A
+RVA      : 0x21D5   Size: 13 bytes   Token: 0x06000011
 
 [IL]  .maxstack 8
   IL_0000  newobj     instance void class MyApp.Flow.Generic`1<!0>::.ctor()
@@ -189,7 +264,7 @@ RVA      : 0x218D   Size: 13 bytes   Token: 0x0600000A
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x219B   Size: 7 bytes   Token: 0x0600000B
+RVA      : 0x21E3   Size: 7 bytes   Token: 0x06000012
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -200,7 +275,7 @@ Type     : MyApp.Flow.GenericUse
 
 Method   : int Length(string s)
 Kind     : static, public
-RVA      : 0x21A3   Size: 43 bytes   Token: 0x0600000C
+RVA      : 0x21EB   Size: 43 bytes   Token: 0x06000013
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -221,7 +296,7 @@ Type     : MyApp.Flow.Features
 
 Method   : void .cctor()
 Kind     : cctor, static, private
-RVA      : 0x21CF   Size: 7 bytes   Token: 0x0600000D
+RVA      : 0x2217   Size: 7 bytes   Token: 0x06000014
 
 [IL]  .maxstack 8
   IL_0000  ldc.i4.0
@@ -230,7 +305,7 @@ RVA      : 0x21CF   Size: 7 bytes   Token: 0x0600000D
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x21D7   Size: 19 bytes   Token: 0x0600000E
+RVA      : 0x221F   Size: 19 bytes   Token: 0x06000015
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -243,7 +318,7 @@ RVA      : 0x21D7   Size: 19 bytes   Token: 0x0600000E
 
 Method   : void Finalize()
 Kind     : finalizer, instance, protected, override
-RVA      : 0x21EC   Size: 17 bytes   Token: 0x0600000F
+RVA      : 0x2234   Size: 17 bytes   Token: 0x06000016
 
 [IL]  .maxstack 2
   IL_0000  ldarg.0
@@ -258,7 +333,7 @@ RVA      : 0x21EC   Size: 17 bytes   Token: 0x0600000F
 
 Method   : int get_Instances()
 Kind     : property-get, static, public, compiler-generated
-RVA      : 0x221C   Size: 6 bytes   Token: 0x06000010
+RVA      : 0x2264   Size: 6 bytes   Token: 0x06000017
 
 [IL]  .maxstack 8
   IL_0000  ldsfld     int32 MyApp.Flow.Features::'<Instances>k__BackingField'
@@ -266,7 +341,7 @@ RVA      : 0x221C   Size: 6 bytes   Token: 0x06000010
 
 Method   : void set_Instances(int value)
 Kind     : property-set, static, private, compiler-generated
-RVA      : 0x2223   Size: 7 bytes   Token: 0x06000011
+RVA      : 0x226B   Size: 7 bytes   Token: 0x06000018
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -275,7 +350,7 @@ RVA      : 0x2223   Size: 7 bytes   Token: 0x06000011
 
 Method   : void add_Changed(EventHandler value)
 Kind     : event-add, instance, public, compiler-generated
-RVA      : 0x222C   Size: 41 bytes   Token: 0x06000012
+RVA      : 0x2274   Size: 41 bytes   Token: 0x06000019
 
 [IL]  .maxstack 3
   .locals init ([0] class [System.Runtime]System.EventHandler V_0, [1] class [System.Runtime]System.EventHandler V_1, [2] class [System.Runtime]System.EventHandler V_2)
@@ -302,7 +377,7 @@ RVA      : 0x222C   Size: 41 bytes   Token: 0x06000012
 
 Method   : void remove_Changed(EventHandler value)
 Kind     : event-remove, instance, public, compiler-generated
-RVA      : 0x2264   Size: 41 bytes   Token: 0x06000013
+RVA      : 0x22AC   Size: 41 bytes   Token: 0x0600001A
 
 [IL]  .maxstack 3
   .locals init ([0] class [System.Runtime]System.EventHandler V_0, [1] class [System.Runtime]System.EventHandler V_1, [2] class [System.Runtime]System.EventHandler V_2)
@@ -329,7 +404,7 @@ RVA      : 0x2264   Size: 41 bytes   Token: 0x06000013
 
 Method   : Features op_Addition(Features a, Features b)
 Kind     : operator, static, public
-RVA      : 0x2299   Size: 25 bytes   Token: 0x06000014
+RVA      : 0x22E1   Size: 25 bytes   Token: 0x0600001B
 
 [IL]  .maxstack 8
   IL_0000  newobj     instance void MyApp.Flow.Features::.ctor()
@@ -344,7 +419,7 @@ RVA      : 0x2299   Size: 25 bytes   Token: 0x06000014
 
 Method   : int op_Implicit(Features f)
 Kind     : conversion, static, public
-RVA      : 0x22B3   Size: 7 bytes   Token: 0x06000015
+RVA      : 0x22FB   Size: 7 bytes   Token: 0x0600001C
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -353,7 +428,7 @@ RVA      : 0x22B3   Size: 7 bytes   Token: 0x06000015
 
 Method   : Task<int> ComputeAsync(int x)
 Kind     : instance, public, async
-RVA      : 0x22BC   Size: 55 bytes   Token: 0x06000016
+RVA      : 0x2304   Size: 55 bytes   Token: 0x0600001D
 
 [IL]  .maxstack 2
   .locals init ([0] valuetype MyApp.Flow.Features/<ComputeAsync>d__13 V_0)
@@ -377,7 +452,7 @@ RVA      : 0x22BC   Size: 55 bytes   Token: 0x06000016
 
 Method   : IEnumerable<int> Range(int n)
 Kind     : instance, public, iterator
-RVA      : 0x22FF   Size: 15 bytes   Token: 0x06000017
+RVA      : 0x2347   Size: 15 bytes   Token: 0x0600001E
 
 [IL]  .maxstack 8
   IL_0000  ldc.i4.s   -2
@@ -389,7 +464,7 @@ RVA      : 0x22FF   Size: 15 bytes   Token: 0x06000017
 
 Method   : int Lambdas(int[] values)
 Kind     : instance, public
-RVA      : 0x2310   Size: 83 bytes   Token: 0x06000018
+RVA      : 0x2358   Size: 83 bytes   Token: 0x0600001F
 
 [IL]  .maxstack 3
   .locals init ([0] class MyApp.Flow.Features/<>c__DisplayClass15_0 V_0)
@@ -420,7 +495,7 @@ RVA      : 0x2310   Size: 83 bytes   Token: 0x06000018
 
 Method   : void Raise()
 Kind     : instance, public
-RVA      : 0x236F   Size: 23 bytes   Token: 0x06000019
+RVA      : 0x23B7   Size: 23 bytes   Token: 0x06000020
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -436,7 +511,7 @@ RVA      : 0x236F   Size: 23 bytes   Token: 0x06000019
 
 Method   : void Dispose()
 Kind     : instance, public, virtual, sealed
-RVA      : 0x2387   Size: 7 bytes   Token: 0x0600001A
+RVA      : 0x23CF   Size: 7 bytes   Token: 0x06000021
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -445,12 +520,12 @@ RVA      : 0x2387   Size: 7 bytes   Token: 0x0600001A
 
 Method   : uint Ticks()
 Kind     : static, public, pinvoke, no-body
-RVA      : 0x0000   Token: 0x0600001B
+RVA      : 0x0000   Token: 0x06000022
 PInvoke  : kernel32.dll!GetTickCount
 
 Method   : int <Lambdas>g__Local|15_2(int v)
 Kind     : static, internal, local-function, compiler-generated
-RVA      : 0x238F   Size: 4 bytes   Token: 0x0600001C
+RVA      : 0x23D7   Size: 4 bytes   Token: 0x06000023
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -462,7 +537,7 @@ Type     : MyApp.Flow.Overloaded
 
 Method   : int Foo(int x)
 Kind     : static, public
-RVA      : 0x2394   Size: 4 bytes   Token: 0x0600001D
+RVA      : 0x23DC   Size: 4 bytes   Token: 0x06000024
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -472,7 +547,7 @@ RVA      : 0x2394   Size: 4 bytes   Token: 0x0600001D
 
 Method   : int Foo(string s)
 Kind     : static, public
-RVA      : 0x239C   Size: 38 bytes   Token: 0x0600001E
+RVA      : 0x23E4   Size: 38 bytes   Token: 0x06000025
 
 [IL]  .maxstack 2
   .locals init ([0] int32 V_0, [1] string V_1, [2] int32 V_2, [3] char V_3)
@@ -506,7 +581,7 @@ RVA      : 0x239C   Size: 38 bytes   Token: 0x0600001E
 
 Method   : int Foo<T>(T value)
 Kind     : static, public, generic
-RVA      : 0x23D0   Size: 98 bytes   Token: 0x0600001F
+RVA      : 0x2418   Size: 98 bytes   Token: 0x06000026
 
 [IL]  .maxstack 2
   .locals init ([0] string V_0, [1] !!T V_1)
@@ -554,11 +629,11 @@ Type     : MyApp.Flow.Shape
 
 Method   : double Area()
 Kind     : instance, public, abstract, no-body
-RVA      : 0x0000   Token: 0x06000020
+RVA      : 0x0000   Token: 0x06000027
 
 Method   : string Describe()
 Kind     : instance, public, virtual
-RVA      : 0x2440   Size: 36 bytes   Token: 0x06000021
+RVA      : 0x2488   Size: 36 bytes   Token: 0x06000028
 
 [IL]  .maxstack 3
   .locals init ([0] float64 V_0)
@@ -576,7 +651,7 @@ RVA      : 0x2440   Size: 36 bytes   Token: 0x06000021
 
 Method   : void .ctor()
 Kind     : ctor, instance, protected
-RVA      : 0x2470   Size: 7 bytes   Token: 0x06000022
+RVA      : 0x24B8   Size: 7 bytes   Token: 0x06000029
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -587,7 +662,7 @@ Type     : MyApp.Flow.Circle
 
 Method   : double get_R()
 Kind     : property-get, instance, public, compiler-generated
-RVA      : 0x2478   Size: 7 bytes   Token: 0x06000023
+RVA      : 0x24C0   Size: 7 bytes   Token: 0x0600002A
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -596,7 +671,7 @@ RVA      : 0x2478   Size: 7 bytes   Token: 0x06000023
 
 Method   : void set_R(double value)
 Kind     : property-set, instance, public, compiler-generated
-RVA      : 0x2480   Size: 8 bytes   Token: 0x06000024
+RVA      : 0x24C8   Size: 8 bytes   Token: 0x0600002B
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -606,7 +681,7 @@ RVA      : 0x2480   Size: 8 bytes   Token: 0x06000024
 
 Method   : double Area()
 Kind     : instance, public, override
-RVA      : 0x2489   Size: 24 bytes   Token: 0x06000025
+RVA      : 0x24D1   Size: 24 bytes   Token: 0x0600002C
 
 [IL]  .maxstack 8
   IL_0000  ldc.r8     3.141592653589793
@@ -620,7 +695,7 @@ RVA      : 0x2489   Size: 24 bytes   Token: 0x06000025
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x24A2   Size: 7 bytes   Token: 0x06000026
+RVA      : 0x24EA   Size: 7 bytes   Token: 0x0600002D
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -631,13 +706,13 @@ Type     : MyApp.Auth.ILoginService
 
 Method   : bool Login(string user, string pass)
 Kind     : instance, public, abstract, no-body
-RVA      : 0x0000   Token: 0x06000027
+RVA      : 0x0000   Token: 0x0600002E
 
 Type     : MyApp.Auth.LoginService
 
 Method   : bool Login(string user, string pass)
 Kind     : instance, public, virtual
-RVA      : 0x24AC   Size: 36 bytes   Token: 0x06000028
+RVA      : 0x24F4   Size: 36 bytes   Token: 0x0600002F
 
 [IL]  .maxstack 2
   .locals init ([0] class MyApp.Db.User V_0)
@@ -659,7 +734,7 @@ RVA      : 0x24AC   Size: 36 bytes   Token: 0x06000028
 
 Method   : string Hash(string s)
 Kind     : static, public
-RVA      : 0x24DC   Size: 15 bytes   Token: 0x06000029
+RVA      : 0x2524   Size: 15 bytes   Token: 0x06000030
 
 [IL]  .maxstack 1
   .locals init ([0] int32 V_0)
@@ -672,7 +747,7 @@ RVA      : 0x24DC   Size: 15 bytes   Token: 0x06000029
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x24F7   Size: 18 bytes   Token: 0x0600002A
+RVA      : 0x253F   Size: 18 bytes   Token: 0x06000031
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -686,7 +761,7 @@ Type     : MyApp.Auth.AdminLoginService
 
 Method   : bool Login(string user, string pass)
 Kind     : instance, public, override
-RVA      : 0x250A   Size: 24 bytes   Token: 0x0600002B
+RVA      : 0x2552   Size: 24 bytes   Token: 0x06000032
 
 [IL]  .maxstack 8
   IL_0000  ldarg.1
@@ -703,7 +778,7 @@ RVA      : 0x250A   Size: 24 bytes   Token: 0x0600002B
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x2523   Size: 7 bytes   Token: 0x0600002C
+RVA      : 0x256B   Size: 7 bytes   Token: 0x06000033
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -714,7 +789,7 @@ Type     : MyApp.Db.User
 
 Method   : string get_Name()
 Kind     : property-get, instance, public, compiler-generated
-RVA      : 0x252B   Size: 7 bytes   Token: 0x0600002D
+RVA      : 0x2573   Size: 7 bytes   Token: 0x06000034
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -723,7 +798,7 @@ RVA      : 0x252B   Size: 7 bytes   Token: 0x0600002D
 
 Method   : void set_Name(string value)
 Kind     : property-set, instance, public, compiler-generated
-RVA      : 0x2533   Size: 8 bytes   Token: 0x0600002E
+RVA      : 0x257B   Size: 8 bytes   Token: 0x06000035
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -733,7 +808,7 @@ RVA      : 0x2533   Size: 8 bytes   Token: 0x0600002E
 
 Method   : string get_Hash()
 Kind     : property-get, instance, public, compiler-generated
-RVA      : 0x253C   Size: 7 bytes   Token: 0x0600002F
+RVA      : 0x2584   Size: 7 bytes   Token: 0x06000036
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -742,7 +817,7 @@ RVA      : 0x253C   Size: 7 bytes   Token: 0x0600002F
 
 Method   : void set_Hash(string value)
 Kind     : property-set, instance, public, compiler-generated
-RVA      : 0x2544   Size: 8 bytes   Token: 0x06000030
+RVA      : 0x258C   Size: 8 bytes   Token: 0x06000037
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -752,7 +827,7 @@ RVA      : 0x2544   Size: 8 bytes   Token: 0x06000030
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x254D   Size: 29 bytes   Token: 0x06000031
+RVA      : 0x2595   Size: 29 bytes   Token: 0x06000038
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -769,7 +844,7 @@ Type     : MyApp.Db.Users
 
 Method   : User Find(string name)
 Kind     : instance, public, virtual
-RVA      : 0x256C   Size: 20 bytes   Token: 0x06000032
+RVA      : 0x25B4   Size: 20 bytes   Token: 0x06000039
 
 [IL]  .maxstack 3
   .locals init ([0] class MyApp.Db.User V_0)
@@ -786,7 +861,7 @@ RVA      : 0x256C   Size: 20 bytes   Token: 0x06000032
 
 Method   : void Add(User user)
 Kind     : instance, public
-RVA      : 0x258C   Size: 19 bytes   Token: 0x06000033
+RVA      : 0x25D4   Size: 19 bytes   Token: 0x0600003A
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -799,7 +874,7 @@ RVA      : 0x258C   Size: 19 bytes   Token: 0x06000033
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x25A0   Size: 18 bytes   Token: 0x06000034
+RVA      : 0x25E8   Size: 18 bytes   Token: 0x0600003B
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -809,11 +884,419 @@ RVA      : 0x25A0   Size: 18 bytes   Token: 0x06000034
   IL_000C  call       instance void [System.Runtime]System.Object::.ctor()
   IL_0011  ret
 
+Type     : MyApp.Audit.Ns001
+
+Method   : void PositiveStartsShell()
+Kind     : static, public
+RVA      : 0x25FB   Size: 17 bytes   Token: 0x0600003C
+
+[IL]  .maxstack 8
+  IL_0000  ldstr      "cmd.exe"
+  IL_0005  ldstr      "/c dir"
+  IL_000A  call       class [System.Diagnostics.Process]System.Diagnostics.Process [System.Diagnostics.Process]System.Diagnostics.Process::Start(string, string)
+  IL_000F  pop
+  IL_0010  ret
+
+Method   : ProcessStartInfo PositiveBuildsStartInfo(string file)
+Kind     : static, public
+RVA      : 0x260D   Size: 14 bytes   Token: 0x0600003D
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  newobj     instance void [System.Diagnostics.Process]System.Diagnostics.ProcessStartInfo::.ctor(string)
+  IL_0006  dup
+  IL_0007  ldc.i4.0
+  IL_0008  callvirt   instance void [System.Diagnostics.Process]System.Diagnostics.ProcessStartInfo::set_UseShellExecute(bool)
+  IL_000D  ret
+
+Method   : int NegativeReadsOwnProcess()
+Kind     : static, public
+RVA      : 0x261C   Size: 22 bytes   Token: 0x0600003E
+
+[IL]  .maxstack 8
+  IL_0000  call       int32 [System.Runtime]System.Environment::get_ProcessId()
+  IL_0005  call       class [System.Diagnostics.Process]System.Diagnostics.Process [System.Diagnostics.Process]System.Diagnostics.Process::GetCurrentProcess()
+  IL_000A  callvirt   instance class [System.Diagnostics.Process]System.Diagnostics.ProcessThreadCollection [System.Diagnostics.Process]System.Diagnostics.Process::get_Threads()
+  IL_000F  callvirt   instance int32 [System.Collections.NonGeneric]System.Collections.ReadOnlyCollectionBase::get_Count()
+  IL_0014  add
+  IL_0015  ret
+
+Type     : MyApp.Audit.Ns002
+
+Method   : Assembly PositiveLoadsFromPath(string path)
+Kind     : static, public
+RVA      : 0x2633   Size: 7 bytes   Token: 0x0600003F
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       class [System.Runtime]System.Reflection.Assembly [System.Runtime]System.Reflection.Assembly::LoadFrom(string)
+  IL_0006  ret
+
+Method   : object PositiveCreatesByName(string assembly, string type)
+Kind     : static, public
+RVA      : 0x263B   Size: 8 bytes   Token: 0x06000040
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  call       class [System.Runtime]System.Runtime.Remoting.ObjectHandle [System.Runtime]System.Activator::CreateInstance(string, string)
+  IL_0007  ret
+
+Method   : object NegativeCreatesByType()
+Kind     : static, public
+RVA      : 0x2644   Size: 16 bytes   Token: 0x06000041
+
+[IL]  .maxstack 8
+  IL_0000  ldtoken    [System.Runtime]System.Text.StringBuilder
+  IL_0005  call       class [System.Runtime]System.Type [System.Runtime]System.Type::GetTypeFromHandle(valuetype [System.Runtime]System.RuntimeTypeHandle)
+  IL_000A  call       object [System.Runtime]System.Activator::CreateInstance(class [System.Runtime]System.Type)
+  IL_000F  ret
+
+Type     : MyApp.Audit.Ns003
+
+Method   : object PositiveInvokesByName(string typeName)
+Kind     : static, public
+RVA      : 0x2655   Size: 24 bytes   Token: 0x06000042
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       class [System.Runtime]System.Type [System.Runtime]System.Type::GetType(string)
+  IL_0006  ldstr      "Run"
+  IL_000B  callvirt   instance class [System.Runtime]System.Reflection.MethodInfo [System.Runtime]System.Type::GetMethod(string)
+  IL_0010  ldnull
+  IL_0011  ldnull
+  IL_0012  callvirt   instance object [System.Runtime]System.Reflection.MethodBase::Invoke(object, object[])
+  IL_0017  ret
+
+Method   : string NegativeLooksUpWithoutInvoke()
+Kind     : static, public
+RVA      : 0x266E   Size: 31 bytes   Token: 0x06000043
+
+[IL]  .maxstack 8
+  IL_0000  ldtoken    [System.Runtime]System.String
+  IL_0005  call       class [System.Runtime]System.Type [System.Runtime]System.Type::GetTypeFromHandle(valuetype [System.Runtime]System.RuntimeTypeHandle)
+  IL_000A  ldstr      "Trim"
+  IL_000F  ldsfld     class [System.Runtime]System.Type[] [System.Runtime]System.Type::EmptyTypes
+  IL_0014  call       instance class [System.Runtime]System.Reflection.MethodInfo [System.Runtime]System.Type::GetMethod(string, class [System.Runtime]System.Type[])
+  IL_0019  callvirt   instance string [System.Runtime]System.Reflection.MemberInfo::get_Name()
+  IL_001E  ret
+
+Type     : MyApp.Audit.Ns004
+
+Method   : object PositiveBinaryFormatter(Stream data)
+Kind     : static, public
+RVA      : 0x268E   Size: 12 bytes   Token: 0x06000044
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void [System.Runtime.Serialization.Formatters]System.Runtime.Serialization.Formatters.Binary.BinaryFormatter::.ctor()
+  IL_0005  ldarg.0
+  IL_0006  call       instance object [System.Runtime.Serialization.Formatters]System.Runtime.Serialization.Formatters.Binary.BinaryFormatter::Deserialize(class [System.Runtime]System.IO.Stream)
+  IL_000B  ret
+
+Method   : JsonSerializerSettings PositiveTypeNameHandling()
+Kind     : static, public
+RVA      : 0x269B   Size: 13 bytes   Token: 0x06000045
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void Newtonsoft.Json.JsonSerializerSettings::.ctor()
+  IL_0005  dup
+  IL_0006  ldc.i4.3
+  IL_0007  callvirt   instance void Newtonsoft.Json.JsonSerializerSettings::set_TypeNameHandling(valuetype Newtonsoft.Json.TypeNameHandling)
+  IL_000C  ret
+
+Method   : JsonSerializerSettings NegativeTypeNameHandlingNone()
+Kind     : static, public
+RVA      : 0x26A9   Size: 13 bytes   Token: 0x06000046
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void Newtonsoft.Json.JsonSerializerSettings::.ctor()
+  IL_0005  dup
+  IL_0006  ldc.i4.0
+  IL_0007  callvirt   instance void Newtonsoft.Json.JsonSerializerSettings::set_TypeNameHandling(valuetype Newtonsoft.Json.TypeNameHandling)
+  IL_000C  ret
+
+Method   : int[] NegativeSystemTextJson(string json)
+Kind     : static, public
+RVA      : 0x26B7   Size: 8 bytes   Token: 0x06000047
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldnull
+  IL_0002  call       !!0 [System.Text.Json]System.Text.Json.JsonSerializer::Deserialize<int32[]>(string, class [System.Text.Json]System.Text.Json.JsonSerializerOptions)
+  IL_0007  ret
+
+Type     : MyApp.Audit.Ns005
+
+Method   : byte[] PositiveMd5(byte[] data)
+Kind     : static, public
+RVA      : 0x26C0   Size: 7 bytes   Token: 0x06000048
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       uint8[] [System.Security.Cryptography]System.Security.Cryptography.MD5::HashData(uint8[])
+  IL_0006  ret
+
+Method   : void PositiveEcb(Aes aes)
+Kind     : static, public
+RVA      : 0x26C8   Size: 8 bytes   Token: 0x06000049
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.2
+  IL_0002  callvirt   instance void [System.Security.Cryptography]System.Security.Cryptography.SymmetricAlgorithm::set_Mode(valuetype [System.Security.Cryptography]System.Security.Cryptography.CipherMode)
+  IL_0007  ret
+
+Method   : string PositiveRandomToken()
+Kind     : static, public
+RVA      : 0x26D4   Size: 24 bytes   Token: 0x0600004A
+
+[IL]  .maxstack 2
+  .locals init ([0] int32 V_0)
+  IL_0000  newobj     instance void [System.Runtime]System.Random::.ctor()
+  IL_0005  callvirt   instance int32 [System.Runtime]System.Random::Next()
+  IL_000A  stloc.0
+  IL_000B  ldloca.s   V_0
+  IL_000D  ldstr      "x8"
+  IL_0012  call       instance string [System.Runtime]System.Int32::ToString(string)
+  IL_0017  ret
+
+Method   : byte[] NegativeSha256(byte[] data)
+Kind     : static, public
+RVA      : 0x26F8   Size: 7 bytes   Token: 0x0600004B
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       uint8[] [System.Security.Cryptography]System.Security.Cryptography.SHA256::HashData(uint8[])
+  IL_0006  ret
+
+Method   : void NegativeCbc(Aes aes)
+Kind     : static, public
+RVA      : 0x2700   Size: 8 bytes   Token: 0x0600004C
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.1
+  IL_0002  callvirt   instance void [System.Security.Cryptography]System.Security.Cryptography.SymmetricAlgorithm::set_Mode(valuetype [System.Security.Cryptography]System.Security.Cryptography.CipherMode)
+  IL_0007  ret
+
+Method   : int NegativeShuffleCards(int count)
+Kind     : static, public
+RVA      : 0x2709   Size: 12 bytes   Token: 0x0600004D
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void [System.Runtime]System.Random::.ctor()
+  IL_0005  ldarg.0
+  IL_0006  callvirt   instance int32 [System.Runtime]System.Random::Next(int32)
+  IL_000B  ret
+
+Type     : MyApp.Audit.Ns006
+
+Method   : void PositiveAcceptAnyCertificate()
+Kind     : static, public
+RVA      : 0x2716   Size: 37 bytes   Token: 0x0600004E
+
+[IL]  .maxstack 8
+  IL_0000  ldsfld     class [System.Net.Security]System.Net.Security.RemoteCertificateValidationCallback MyApp.Audit.Ns006/<>c::'<>9__0_0'
+  IL_0005  dup
+  IL_0006  brtrue.s   IL_001F
+  IL_0008  pop
+  IL_0009  ldsfld     class MyApp.Audit.Ns006/<>c MyApp.Audit.Ns006/<>c::'<>9'
+  IL_000E  ldftn      instance bool MyApp.Audit.Ns006/<>c::'<PositiveAcceptAnyCertificate>b__0_0'(object, class [System.Security.Cryptography]System.Security.Cryptography.X509Certificates.X509Certificate, class [System.Security.Cryptography]System.Security.Cryptography.X509Certificates.X509Chain, valuetype [System.Net.Primitives]System.Net.Security.SslPolicyErrors)
+  IL_0014  newobj     instance void [System.Net.Security]System.Net.Security.RemoteCertificateValidationCallback::.ctor(object, native int)
+  IL_0019  dup
+  IL_001A  stsfld     class [System.Net.Security]System.Net.Security.RemoteCertificateValidationCallback MyApp.Audit.Ns006/<>c::'<>9__0_0'
+  IL_001F  call       void [System.Net.ServicePoint]System.Net.ServicePointManager::set_ServerCertificateValidationCallback(class [System.Net.Security]System.Net.Security.RemoteCertificateValidationCallback)
+  IL_0024  ret
+
+Method   : void NegativeChecksErrors()
+Kind     : static, public
+RVA      : 0x273C   Size: 37 bytes   Token: 0x0600004F
+
+[IL]  .maxstack 8
+  IL_0000  ldsfld     class [System.Net.Security]System.Net.Security.RemoteCertificateValidationCallback MyApp.Audit.Ns006/<>c::'<>9__1_0'
+  IL_0005  dup
+  IL_0006  brtrue.s   IL_001F
+  IL_0008  pop
+  IL_0009  ldsfld     class MyApp.Audit.Ns006/<>c MyApp.Audit.Ns006/<>c::'<>9'
+  IL_000E  ldftn      instance bool MyApp.Audit.Ns006/<>c::'<NegativeChecksErrors>b__1_0'(object, class [System.Security.Cryptography]System.Security.Cryptography.X509Certificates.X509Certificate, class [System.Security.Cryptography]System.Security.Cryptography.X509Certificates.X509Chain, valuetype [System.Net.Primitives]System.Net.Security.SslPolicyErrors)
+  IL_0014  newobj     instance void [System.Net.Security]System.Net.Security.RemoteCertificateValidationCallback::.ctor(object, native int)
+  IL_0019  dup
+  IL_001A  stsfld     class [System.Net.Security]System.Net.Security.RemoteCertificateValidationCallback MyApp.Audit.Ns006/<>c::'<>9__1_0'
+  IL_001F  call       void [System.Net.ServicePoint]System.Net.ServicePointManager::set_ServerCertificateValidationCallback(class [System.Net.Security]System.Net.Security.RemoteCertificateValidationCallback)
+  IL_0024  ret
+
+Type     : MyApp.Audit.Ns007
+
+Method   : string PositiveConnectionString()
+Kind     : static, public
+RVA      : 0x2762   Size: 6 bytes   Token: 0x06000050
+
+[IL]  .maxstack 8
+  IL_0000  ldstr      "Server=db;User Id=app;Password=Example-1;"
+  IL_0005  ret
+
+Method   : string PositiveAwsKey()
+Kind     : static, public
+RVA      : 0x2769   Size: 6 bytes   Token: 0x06000051
+
+[IL]  .maxstack 8
+  IL_0000  ldstr      "AKIAEXAMPLEEXAMPLE12"
+  IL_0005  ret
+
+Method   : string PositivePrivateKey()
+Kind     : static, public
+RVA      : 0x2770   Size: 6 bytes   Token: 0x06000052
+
+[IL]  .maxstack 8
+  IL_0000  ldstr      "-----BEGIN PRIVATE KEY-----\nMIIB...\n"
+  IL_0005  ret
+
+Method   : string NegativeIntegratedSecurity()
+Kind     : static, public
+RVA      : 0x2777   Size: 6 bytes   Token: 0x06000053
+
+[IL]  .maxstack 8
+  IL_0000  ldstr      "Server=db;Integrated Security=true;"
+  IL_0005  ret
+
+Method   : string NegativePrompt()
+Kind     : static, public
+RVA      : 0x277E   Size: 6 bytes   Token: 0x06000054
+
+[IL]  .maxstack 8
+  IL_0000  ldstr      "Enter your password:"
+  IL_0005  ret
+
+Type     : MyApp.Audit.Ns008
+
+Method   : nint VirtualAlloc(nint address, nuint size, uint type, uint protect)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000055
+PInvoke  : kernel32.dll!VirtualAlloc
+
+Method   : nint LoadLibrary(string name)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000056
+PInvoke  : kernel32.dll!LoadLibraryW
+
+Method   : Action PositiveFunctionPointer(nint p)
+Kind     : static, public
+RVA      : 0x2785   Size: 7 bytes   Token: 0x06000057
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       !!0 [System.Runtime.InteropServices]System.Runtime.InteropServices.Marshal::GetDelegateForFunctionPointer<class [System.Runtime]System.Action>(native int)
+  IL_0006  ret
+
+Method   : uint GetCurrentThreadId()
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000058
+PInvoke  : kernel32.dll!GetCurrentThreadId
+
+Method   : int NegativeSizeOf()
+Kind     : static, public
+RVA      : 0x278D   Size: 6 bytes   Token: 0x06000059
+
+[IL]  .maxstack 8
+  IL_0000  call       int32 [System.Runtime.InteropServices]System.Runtime.InteropServices.Marshal::SizeOf<int64>()
+  IL_0005  ret
+
+Type     : MyApp.Audit.Ns009
+
+Method   : SqlCommand PositiveConcatenation(string name, object connection)
+Kind     : static, public
+RVA      : 0x2794   Size: 23 bytes   Token: 0x0600005A
+
+[IL]  .maxstack 8
+  IL_0000  ldstr      "SELECT * FROM Users WHERE Name = '"
+  IL_0005  ldarg.0
+  IL_0006  ldstr      "'"
+  IL_000B  call       string [System.Runtime]System.String::Concat(string, string, string)
+  IL_0010  ldarg.1
+  IL_0011  newobj     instance void System.Data.SqlClient.SqlCommand::.ctor(string, object)
+  IL_0016  ret
+
+Method   : void PositiveInterpolation(SqlCommand command, int id)
+Kind     : static, public
+RVA      : 0x27AC   Size: 44 bytes   Token: 0x0600005B
+
+[IL]  .maxstack 4
+  .locals init ([0] valuetype [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldloca.s   V_0
+  IL_0003  ldc.i4.s   30
+  IL_0005  ldc.i4.1
+  IL_0006  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int32, int32)
+  IL_000B  ldloca.s   V_0
+  IL_000D  ldstr      "DELETE FROM Orders WHERE Id = "
+  IL_0012  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)
+  IL_0017  ldloca.s   V_0
+  IL_0019  ldarg.1
+  IL_001A  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<int32>(!!0)
+  IL_001F  ldloca.s   V_0
+  IL_0021  call       instance string [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+  IL_0026  callvirt   instance void System.Data.SqlClient.SqlCommand::set_CommandText(string)
+  IL_002B  ret
+
+Method   : SqlCommand NegativeParameters(object connection)
+Kind     : static, public
+RVA      : 0x27E4   Size: 12 bytes   Token: 0x0600005C
+
+[IL]  .maxstack 8
+  IL_0000  ldstr      "SELECT * FROM Users WHERE Name = @name"
+  IL_0005  ldarg.0
+  IL_0006  newobj     instance void System.Data.SqlClient.SqlCommand::.ctor(string, object)
+  IL_000B  ret
+
+Type     : MyApp.Audit.Ns010
+
+Method   : void PositiveAutorun(string path)
+Kind     : static, public
+RVA      : 0x27F1   Size: 27 bytes   Token: 0x0600005D
+
+[IL]  .maxstack 8
+  IL_0000  ldsfld     class [Microsoft.Win32.Registry]Microsoft.Win32.RegistryKey [Microsoft.Win32.Registry]Microsoft.Win32.Registry::CurrentUser
+  IL_0005  ldstr      "Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+  IL_000A  callvirt   instance class [Microsoft.Win32.Registry]Microsoft.Win32.RegistryKey [Microsoft.Win32.Registry]Microsoft.Win32.RegistryKey::CreateSubKey(string)
+  IL_000F  ldstr      "app"
+  IL_0014  ldarg.0
+  IL_0015  callvirt   instance void [Microsoft.Win32.Registry]Microsoft.Win32.RegistryKey::SetValue(string, object)
+  IL_001A  ret
+
+Method   : object NegativeReadsSetting()
+Kind     : static, public
+RVA      : 0x280D   Size: 32 bytes   Token: 0x0600005E
+
+[IL]  .maxstack 8
+  IL_0000  ldsfld     class [Microsoft.Win32.Registry]Microsoft.Win32.RegistryKey [Microsoft.Win32.Registry]Microsoft.Win32.Registry::CurrentUser
+  IL_0005  ldstr      "Software\\MyApp"
+  IL_000A  callvirt   instance class [Microsoft.Win32.Registry]Microsoft.Win32.RegistryKey [Microsoft.Win32.Registry]Microsoft.Win32.RegistryKey::OpenSubKey(string)
+  IL_000F  dup
+  IL_0010  brtrue.s   IL_0015
+  IL_0012  pop
+  IL_0013  ldnull
+  IL_0014  ret
+  IL_0015  ldstr      "Theme"
+  IL_001A  call       instance object [Microsoft.Win32.Registry]Microsoft.Win32.RegistryKey::GetValue(string)
+  IL_001F  ret
+
+Type     : MyApp.Audit.Suppressed
+
+Method   : void StartsToolOnPurpose()
+Kind     : static, public
+RVA      : 0x282E   Size: 12 bytes   Token: 0x0600005F
+
+[IL]  .maxstack 8
+  IL_0000  ldstr      "notepad.exe"
+  IL_0005  call       class [System.Diagnostics.Process]System.Diagnostics.Process [System.Diagnostics.Process]System.Diagnostics.Process::Start(string)
+  IL_000A  pop
+  IL_000B  ret
+
 Type     : MyApp.Flow.GenericUse+<>c
 
 Method   : void .cctor()
 Kind     : cctor, static, private, compiler-generated
-RVA      : 0x25B3   Size: 11 bytes   Token: 0x06000035
+RVA      : 0x283B   Size: 11 bytes   Token: 0x06000060
 
 [IL]  .maxstack 8
   IL_0000  newobj     instance void MyApp.Flow.GenericUse/<>c::.ctor()
@@ -822,7 +1305,7 @@ RVA      : 0x25B3   Size: 11 bytes   Token: 0x06000035
 
 Method   : void .ctor()
 Kind     : ctor, instance, public, compiler-generated
-RVA      : 0x25BF   Size: 7 bytes   Token: 0x06000036
+RVA      : 0x2847   Size: 7 bytes   Token: 0x06000061
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -831,7 +1314,7 @@ RVA      : 0x25BF   Size: 7 bytes   Token: 0x06000036
 
 Method   : int <Length>b__0_0(string v)
 Kind     : instance, internal, lambda, compiler-generated
-RVA      : 0x25C7   Size: 7 bytes   Token: 0x06000037
+RVA      : 0x284F   Size: 7 bytes   Token: 0x06000062
 
 [IL]  .maxstack 8
   IL_0000  ldarg.1
@@ -842,7 +1325,7 @@ Type     : MyApp.Flow.Features+<>c
 
 Method   : void .cctor()
 Kind     : cctor, static, private, compiler-generated
-RVA      : 0x25CF   Size: 11 bytes   Token: 0x06000038
+RVA      : 0x2857   Size: 11 bytes   Token: 0x06000063
 
 [IL]  .maxstack 8
   IL_0000  newobj     instance void MyApp.Flow.Features/<>c::.ctor()
@@ -851,7 +1334,7 @@ RVA      : 0x25CF   Size: 11 bytes   Token: 0x06000038
 
 Method   : void .ctor()
 Kind     : ctor, instance, public, compiler-generated
-RVA      : 0x25DB   Size: 7 bytes   Token: 0x06000039
+RVA      : 0x2863   Size: 7 bytes   Token: 0x06000064
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -860,7 +1343,7 @@ RVA      : 0x25DB   Size: 7 bytes   Token: 0x06000039
 
 Method   : bool <Lambdas>b__15_1(int v)
 Kind     : instance, internal, lambda, compiler-generated
-RVA      : 0x25E3   Size: 5 bytes   Token: 0x0600003A
+RVA      : 0x286B   Size: 5 bytes   Token: 0x06000065
 
 [IL]  .maxstack 8
   IL_0000  ldarg.1
@@ -872,7 +1355,7 @@ Type     : MyApp.Flow.Features+<>c__DisplayClass15_0
 
 Method   : void .ctor()
 Kind     : ctor, instance, public, compiler-generated
-RVA      : 0x25E9   Size: 7 bytes   Token: 0x0600003B
+RVA      : 0x2871   Size: 7 bytes   Token: 0x06000066
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -881,7 +1364,7 @@ RVA      : 0x25E9   Size: 7 bytes   Token: 0x0600003B
 
 Method   : int <Lambdas>b__0(int v)
 Kind     : instance, internal, lambda, compiler-generated
-RVA      : 0x25F1   Size: 9 bytes   Token: 0x0600003C
+RVA      : 0x2879   Size: 9 bytes   Token: 0x06000067
 
 [IL]  .maxstack 8
   IL_0000  ldarg.1
@@ -894,7 +1377,7 @@ Type     : MyApp.Flow.Features+<ComputeAsync>d__13
 
 Method   : void MoveNext()
 Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
-RVA      : 0x25FC   Size: 153 bytes   Token: 0x0600003D
+RVA      : 0x2884   Size: 153 bytes   Token: 0x06000068
 
 [IL]  .maxstack 3
   .locals init ([0] int32 V_0, [1] int32 V_1, [2] valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter V_2, [3] class [System.Runtime]System.Exception V_3)
@@ -964,7 +1447,7 @@ RVA      : 0x25FC   Size: 153 bytes   Token: 0x0600003D
 
 Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
 Kind     : instance, private, virtual, sealed, compiler-generated
-RVA      : 0x26B4   Size: 13 bytes   Token: 0x0600003E
+RVA      : 0x293C   Size: 13 bytes   Token: 0x06000069
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -977,7 +1460,7 @@ Type     : MyApp.Flow.Features+<Range>d__14
 
 Method   : void .ctor(int <>1__state)
 Kind     : ctor, instance, public, compiler-generated
-RVA      : 0x26C2   Size: 25 bytes   Token: 0x0600003F
+RVA      : 0x294A   Size: 25 bytes   Token: 0x0600006A
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -992,7 +1475,7 @@ RVA      : 0x26C2   Size: 25 bytes   Token: 0x0600003F
 
 Method   : void System.IDisposable.Dispose()
 Kind     : instance, private, virtual, sealed, compiler-generated
-RVA      : 0x26DC   Size: 9 bytes   Token: 0x06000040
+RVA      : 0x2964   Size: 9 bytes   Token: 0x0600006B
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -1002,7 +1485,7 @@ RVA      : 0x26DC   Size: 9 bytes   Token: 0x06000040
 
 Method   : bool MoveNext()
 Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
-RVA      : 0x26E8   Size: 92 bytes   Token: 0x06000041
+RVA      : 0x2970   Size: 92 bytes   Token: 0x0600006C
 
 [IL]  .maxstack 3
   .locals init ([0] int32 V_0, [1] int32 V_1)
@@ -1053,7 +1536,7 @@ RVA      : 0x26E8   Size: 92 bytes   Token: 0x06000041
 
 Method   : int System.Collections.Generic.IEnumerator<System.Int32>.get_Current()
 Kind     : property-get, instance, private, virtual, sealed, compiler-generated
-RVA      : 0x2750   Size: 7 bytes   Token: 0x06000042
+RVA      : 0x29D8   Size: 7 bytes   Token: 0x0600006D
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -1062,7 +1545,7 @@ RVA      : 0x2750   Size: 7 bytes   Token: 0x06000042
 
 Method   : void System.Collections.IEnumerator.Reset()
 Kind     : instance, private, virtual, sealed, compiler-generated
-RVA      : 0x2758   Size: 6 bytes   Token: 0x06000043
+RVA      : 0x29E0   Size: 6 bytes   Token: 0x0600006E
 
 [IL]  .maxstack 8
   IL_0000  newobj     instance void [System.Runtime]System.NotSupportedException::.ctor()
@@ -1070,7 +1553,7 @@ RVA      : 0x2758   Size: 6 bytes   Token: 0x06000043
 
 Method   : object System.Collections.IEnumerator.get_Current()
 Kind     : property-get, instance, private, virtual, sealed, compiler-generated
-RVA      : 0x275F   Size: 12 bytes   Token: 0x06000044
+RVA      : 0x29E7   Size: 12 bytes   Token: 0x0600006F
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
@@ -1080,7 +1563,7 @@ RVA      : 0x275F   Size: 12 bytes   Token: 0x06000044
 
 Method   : IEnumerator<int> System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator()
 Kind     : instance, private, virtual, sealed, compiler-generated
-RVA      : 0x276C   Size: 55 bytes   Token: 0x06000045
+RVA      : 0x29F4   Size: 55 bytes   Token: 0x06000070
 
 [IL]  .maxstack 2
   .locals init ([0] class MyApp.Flow.Features/<Range>d__14 V_0)
@@ -1110,9 +1593,47 @@ RVA      : 0x276C   Size: 55 bytes   Token: 0x06000045
 
 Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
 Kind     : instance, private, virtual, sealed, compiler-generated
-RVA      : 0x27AF   Size: 7 bytes   Token: 0x06000046
+RVA      : 0x2A37   Size: 7 bytes   Token: 0x06000071
 
 [IL]  .maxstack 8
   IL_0000  ldarg.0
   IL_0001  call       instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<int32> MyApp.Flow.Features/<Range>d__14::'System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator'()
   IL_0006  ret
+
+Type     : MyApp.Audit.Ns006+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2A3F   Size: 11 bytes   Token: 0x06000072
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void MyApp.Audit.Ns006/<>c::.ctor()
+  IL_0005  stsfld     class MyApp.Audit.Ns006/<>c MyApp.Audit.Ns006/<>c::'<>9'
+  IL_000A  ret
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2A4B   Size: 7 bytes   Token: 0x06000073
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Method   : bool <PositiveAcceptAnyCertificate>b__0_0(object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors errors)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2A53   Size: 2 bytes   Token: 0x06000074
+
+[IL]  .maxstack 8
+  IL_0000  ldc.i4.1
+  IL_0001  ret
+
+Method   : bool <NegativeChecksErrors>b__1_0(object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors errors)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2A56   Size: 6 bytes   Token: 0x06000075
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.s    errors
+  IL_0002  ldc.i4.0
+  IL_0003  ceq
+  IL_0005  ret

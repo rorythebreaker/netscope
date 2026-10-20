@@ -12,17 +12,17 @@ Download a prebuilt single-file binary for `win-x64`, `linux-x64`, `win-arm64` o
 
 To publish a release, push a tag `vX.Y.Z`. CI builds the binaries from that commit, packages them with the license files and checksums, and creates the GitHub release. If `.github/release-notes/vX.Y.Z.md` exists, it becomes the release notes.
 
-To build from source you need the .NET 10 SDK (the version is pinned in `global.json`). The tool itself targets .NET 8.
+To build from source you need the .NET 10 SDK (the version is pinned in `global.| `--format text|json|dot|mermaid|sarif` | Output format |`). The tool itself targets .NET 8.
 
 ```
-dotnet build NetScope.sln
-dotnet test NetScope.sln
+| `--format text|json|dot|mermaid|sarif` | Output format |net build NetScope.sln
+| `--format text|json|dot|mermaid|sarif` | Output format |net test NetScope.sln
 
 # self-contained single-file executable
-dotnet publish src/NetScope -c Release -r win-x64     -o artifacts/win-x64
-dotnet publish src/NetScope -c Release -r linux-x64   -o artifacts/linux-x64
-dotnet publish src/NetScope -c Release -r win-arm64   -o artifacts/win-arm64
-dotnet publish src/NetScope -c Release -r linux-arm64 -o artifacts/linux-arm64
+| `--format text|json|dot|mermaid|sarif` | Output format |net publish src/NetScope -c Release -r win-x64     -o artifacts/win-x64
+| `--format text|json|dot|mermaid|sarif` | Output format |net publish src/NetScope -c Release -r linux-x64   -o artifacts/linux-x64
+| `--format text|json|dot|mermaid|sarif` | Output format |net publish src/NetScope -c Release -r win-arm64   -o artifacts/win-arm64
+| `--format text|json|dot|mermaid|sarif` | Output format |net publish src/NetScope -c Release -r linux-arm64 -o artifacts/linux-arm64
 ```
 
 ## Usage
@@ -31,9 +31,9 @@ dotnet publish src/NetScope -c Release -r linux-arm64 -o artifacts/linux-arm64
 netscope [options] <file|mask> [<file|mask> ...]
 
 netscope app.dll --methods --cfg
-netscope bin\*.dll --calls --filter "MyApp.Auth.*" --format json --out report.json
+netscope bin\*.dll --calls --filter "MyApp.Auth.*" --format | `--format text|json|dot|mermaid|sarif` | Output format | --out report.json
 netscope Service.exe --all --filter "*::Login" --allow-run
-netscope --dir C:\App --recursive --callgraph --format dot --out graph.dot
+netscope --dir C:\App --recursive --callgraph --format | `--format text|json|dot|mermaid|sarif` | Output format | --out graph.dot
 netscope --input-list files.txt --il --out reports\
 ```
 
@@ -84,7 +84,7 @@ RVA      : 0x23A0   Size: 36 bytes   Token: 0x06000022
 | `--all` | Enable all groups |
 | `--filter <mask>` | Select methods by full name `Namespace.Type::Method`. Supports `*` and `?`, case-insensitive, repeatable |
 | `--type <kind>` | Select methods by kind: `ctor`, `property`, `event`, `operator`, `async`, `iterator`, `lambda`, `local-function`, `pinvoke`, `generic`, `abstract`, `virtual`, `override`, `static`, `no-body` and more (see `--help`). Comma-separated or repeatable |
-| `--format text\|json\|dot\|mermaid` | Output format |
+| `--format text|json|dot|mermaid|sarif` | Output format |\|json\|dot\|mermaid` | Output format |
 | `--out <file\|dir>` | Write to a file, or to a directory if the path ends with `\` or `/` or already exists. In directory mode you get one report per assembly, plus `callgraph.<ext>` |
 | `--raw` | Show lambdas, async methods and iterators in pseudocode in the form the compiler generated |
 | `--threads <n>` | Number of files processed in parallel (default: number of cores) |
@@ -92,6 +92,9 @@ RVA      : 0x23A0   Size: 36 bytes   Token: 0x06000022
 | `--max-abandoned <n>` | After this many decompilations exceed the time limit, the remaining methods get the simplified pseudocode (default 4) |
 | `--run-memory <size>` | Memory limit of the `--allow-run` helper process, e.g. `512M`, `2G` (default `1G`) |
 | `--run-timeout <s>` | Time limit for the `--allow-run` helper process (default 30 s) |
+| `--audit`, `--rules <ids>`, `--min-level <level>`, `--fail-on <level>` | Security rules NS001-NS010, see [Security rules](#security-rules) |
+| `--format sarif` | SARIF 2.1.0 with the audit findings (implies `--audit`) |
+| `--detect-obfuscation` | Obfuscation verdict, signs and obfuscator name for each assembly, see [Obfuscation](#obfuscation) |
 | `--no-pdb` | Do not read debug symbols |
 | `--pdb-path <dir>` | Directory searched for `.pdb` files after the assembly's own directory (repeatable) |
 | `--source`, `--source-path <dir>` | Print source lines next to the IL. Files are taken from the path in the PDB, or found by name under `--source-path` |
@@ -113,7 +116,7 @@ NetScope reads Portable PDBs: embedded in the assembly, then `<name>.pdb` next t
 - pseudocode and IL use the real names of local variables;
 - JSON instructions and blocks have `source.file` and `source.line`.
 
-If you pass only `--callgraph`, NetScope prints only the graph. With `dot` and `mermaid`, it draws the CFGs of the selected methods by default. Mermaid output is Markdown with ` ```mermaid ` blocks.
+If you pass only `--callgraph`, NetScope prints only the graph. With `| `--format text|json|dot|mermaid|sarif` | Output format |` and `mermaid`, it draws the CFGs of the selected methods by default. Mermaid output is Markdown with ` ```mermaid ` blocks.
 
 ### Streams and exit codes
 
@@ -125,10 +128,47 @@ Results go to stdout or to the `--out` target. Warnings and errors go only to st
 | 1 | Some files or methods were skipped or had errors (for example, native or corrupted files in a group) |
 | 2 | Invalid arguments |
 | 3 | No input file could be opened |
+| 4 | `--audit --fail-on <level>`: a finding of that level or higher remains (takes precedence over 1) |
 
 ### JSON
 
-Every method has `assembly`, `namespace`, `type`, `name`, `signature`, `token`, `access`, `kinds[]`, `rva`, `size` and `errors[]`. Each requested group adds its own fields: `calls[]`, `callers[]`, `complexity`, `blocks[]`, `loops[]`, `regions[]`, `pseudocode`, `pseudocodeSource`, `pseudocodeError`, `il[]`, `ilInfo`, `native[]` and `nativeInfo`. Each requested group adds its own fields: also `matches[]` (`--uses`, `--find-string`, `--field-refs`) and `fields[]`; with symbols, instructions and blocks have `source`. The assembly gets `symbols` (`embedded` or the PDB path) and, with `--strings`, `strings[]`. Fields of groups you did not request are left out. The call graph is in the root field `callgraph`.
+Every method has `assembly`, `namespace`, `type`, `name`, `signature`, `token`, `access`, `kinds[]`, `rva`, `size` and `errors[]`. Each requested group adds its own fields: `calls[]`, `callers[]`, `complexity`, `blocks[]`, `loops[]`, `regions[]`, `pseudocode`, `pseudocodeSource`, `pseudocodeError`, `il[]`, `ilInfo`, `native[]` and `nativeInfo`. Each requested group adds its own fields: also `matches[]` (`--uses`, `--find-string`, `--field-refs`) and `fields[]`; with symbols, instructions and blocks have `source`. The assembly gets `symbols` (`embedded` or the PDB path) and, with `--strings`, `strings[]`. With `--audit`, methods have `findings[]` and the assembly has `audit` (counts by level and of suppressed findings); `--detect-obfuscation` adds `obfuscation` (`verdict`, `obfuscator`, `signs[]`, `hint`). Fields of groups you did not request are left out. The call graph is in the root field `callgraph`.
+
+## Security rules
+
+`--audit` checks the selected methods against the rules below and reports only the methods with findings, each with its level, IL offset and, with a PDB, its source line. The rules only read IL and metadata; nothing is executed. `--format sarif` writes SARIF 2.1.0 (and implies `--audit`); the file validates against the OASIS schema and loads into GitHub Code Scanning with `github/codeql-action/upload-sarif` (CI does this for the samples).
+
+| ID | Finds | Level |
+|---|---|---|
+| NS001 | Process start: `Process.Start`, `ProcessStartInfo` | warning |
+| NS002 | Dynamic code loading: `Assembly.Load*`, `AppDomain.Load`, `AssemblyLoadContext.LoadFrom*`, `Activator.CreateInstance(string, ...)` | warning |
+| NS003 | Reflection by string name (`Type.GetType(string)`, `GetMethod(string)`, ...) followed by `Invoke` | note |
+| NS004 | Unsafe deserialization: `BinaryFormatter`, `NetDataContractSerializer`, `LosFormatter`, `SoapFormatter`, Json.NET `TypeNameHandling` other than `None` | error |
+| NS005 | Weak cryptography: MD5, SHA-1, DES, 3DES, RC2, ECB mode, `new Random()` in methods that create tokens, passwords or keys | warning |
+| NS006 | TLS certificate validation callback that always returns `true` | error |
+| NS007 | Hard-coded secrets: connection strings with `Password=`, AWS access key IDs, PEM private keys. The secret itself is never printed | error |
+| NS008 | P/Invoke of sensitive `kernel32`, `advapi32`, `ntdll` functions (memory, processes, threads, tokens, services), `Marshal.GetDelegateForFunctionPointer` | note |
+| NS009 | SQL text of `SqlCommand`, `OleDbCommand`, `NpgsqlCommand` built by concatenation, `string.Format` or interpolation | warning |
+| NS010 | Registry writes, autorun keys, service installation | note |
+
+- `--rules NS001,NS004` selects rules. `--min-level warning` drops findings below a level. `--fail-on error` returns exit code 4 when a finding of that level or higher remains.
+- Suppression: `[SuppressMessage("...", "NS004")]` on the method, a containing type or the assembly. It is compiled only with `CODE_ANALYSIS` defined; `[UnconditionalSuppressMessage]` is always compiled. You can also use a `netscope.suppress` file in the current directory or next to the assembly, with lines such as `NS004 MyApp.Legacy.*` (rule, then a method mask; `#` starts a comment).
+- A rule is a class that implements `IRule` (`src/NetScope/Audit/Rules`). NetScope finds rules by reflection, so a new rule is one new file.
+
+## Obfuscation
+
+`--detect-obfuscation` prints a verdict for each assembly: `no`, `possible` (one sign) or `yes` (an obfuscator's attribute, or two or more signs). It also lists the signs and names the obfuscator when its attribute identifies it.
+
+| Sign | How it is detected |
+|---|---|
+| Obfuscator attributes | `ConfusedByAttribute`, `DotfuscatorAttribute`, `SmartAssembly.Attributes`, and others, on the assembly, the module or the types |
+| Unreadable names | More than 30% of type, method and field names are one character long or contain control, format, private-use or unassigned characters |
+| Flat CFG | A `switch` dispatcher with 10 or more cases inside a loop, whose case number is computed (`xor`/`rem`) |
+| String encryption | Few `ldstr` but many calls to one static method that takes a number |
+| Corrupted bodies | Bodies that cannot be decoded or that reference tokens that do not exist |
+| Proxy calls | Many static methods with unreadable names whose body is a single call |
+
+NetScope does not deobfuscate. For `yes`, it suggests processing the file with an external tool such as de4| `--format text|json|dot|mermaid|sarif` | Output format | first. It was checked against ConfuserEx output (`tests/Fixtures/Obfuscated`) and, for false positives, against NetScope's dependencies and large framework assemblies (`System.Private.CoreLib`, `System.Text.RegularExpressions`, `System.Private.Xml`).
 
 ## Native code
 
@@ -204,7 +244,7 @@ Metadata is read with `System.Reflection.Metadata`, the same layer the decompile
 After an intended change to the output format, regenerate the reference files and review the diff:
 
 ```
-NETSCOPE_UPDATE_GOLDEN=1 dotnet test NetScope.sln
+NETSCOPE_UPDATE_GOLDEN=1 | `--format text|json|dot|mermaid|sarif` | Output format |net test NetScope.sln
 ```
 
 CI (`.github/workflows/ci.yml`) runs the tests on Windows and Linux and publishes single-file binaries for win-x64, linux-x64, win-arm64 and linux-arm64.

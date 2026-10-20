@@ -84,6 +84,32 @@ public sealed class JsonReporter : IReporter
         w.WriteBoolean("mixedMode", asm.IsMixedMode);
         WriteStrings(w, "notes", asm.Notes);
         WriteStrings(w, "errors", report.Errors);
+        if (report.Audit is { } audit)
+        {
+            w.WriteStartObject("audit");
+            w.WriteNumber("errors", audit.Count(Audit.Severity.Error));
+            w.WriteNumber("warnings", audit.Count(Audit.Severity.Warning));
+            w.WriteNumber("notes", audit.Count(Audit.Severity.Note));
+            w.WriteNumber("suppressed", audit.Suppressed);
+            w.WriteEndObject();
+        }
+        if (report.Obfuscation is { } obf)
+        {
+            w.WriteStartObject("obfuscation");
+            w.WriteString("verdict", obf.VerdictText);
+            if (obf.Obfuscator != null) w.WriteString("obfuscator", obf.Obfuscator);
+            w.WriteStartArray("signs");
+            foreach (var s in obf.Signs)
+            {
+                w.WriteStartObject();
+                w.WriteString("kind", s.Kind);
+                w.WriteString("detail", s.Detail);
+                w.WriteEndObject();
+            }
+            w.WriteEndArray();
+            if (obf.Hint != null) w.WriteString("hint", obf.Hint);
+            w.WriteEndObject();
+        }
         w.WriteStartArray("methods");
         foreach (var m in report.Methods) WriteMethod(w, m, sources);
         w.WriteEndArray();
@@ -132,6 +158,21 @@ public sealed class JsonReporter : IReporter
             w.WriteEndObject();
         }
 
+        if (r.Findings != null)
+        {
+            w.WriteStartArray("findings");
+            foreach (var f in r.Findings)
+            {
+                w.WriteStartObject();
+                w.WriteString("rule", f.RuleId);
+                w.WriteString("level", f.Level.ToString().ToLowerInvariant());
+                w.WriteString("message", f.Message);
+                if (f.Offset is int off) w.WriteNumber("offset", off);
+                WriteSource(w, f.Source);
+                w.WriteEndObject();
+            }
+            w.WriteEndArray();
+        }
         if (r.Matches != null)
         {
             w.WriteStartArray("matches");

@@ -42,7 +42,16 @@ public sealed class TextReporter : IReporter
         sb.AppendLine($"Runtime  : {asm.TargetFramework ?? asm.MetadataVersion}   Machine: {asm.Architecture}");
         foreach (var n in asm.Notes) sb.AppendLine($"Note     : {n}");
         foreach (var e in report.Errors) sb.AppendLine(Bad($"Error    : {e}"));
-        sb.AppendLine($"Methods  : {report.Methods.Count}");
+        if (report.Audit is { } audit)
+            sb.AppendLine($"Audit    : {audit.Count(Audit.Severity.Error)} error(s), {audit.Count(Audit.Severity.Warning)} warning(s), {audit.Count(Audit.Severity.Note)} note(s), {audit.Suppressed} suppressed");
+        if (report.Obfuscation is { } obf)
+        {
+            var who = obf.Obfuscator != null ? $" ({obf.Obfuscator})" : "";
+            sb.AppendLine($"Obfuscated: {obf.VerdictText}{who}");
+            foreach (var s in obf.Signs) sb.AppendLine($"  sign: {s.Kind}: {TextSafety.EscapeControl(s.Detail)}");
+            if (obf.Hint != null) sb.AppendLine(Strong($"  hint: {obf.Hint}"));
+        }
+        if (report.Methods.Count > 0 || report.Obfuscation == null) sb.AppendLine($"Methods  : {report.Methods.Count}");
 
         string? currentType = null;
         foreach (var m in report.Methods)
@@ -70,6 +79,7 @@ public sealed class TextReporter : IReporter
         if (m.PInvoke != null) sb.AppendLine($"PInvoke  : {m.PInvoke}");
         foreach (var e in r.Errors) sb.AppendLine(Bad($"Error    : {e}"));
 
+        if (r.Findings != null) RenderFindings(sb, r.Findings);
         if (r.Matches != null) RenderMatches(sb, r.Matches);
         if (r.Calls != null) RenderCalls(sb, r);
         if (r.Fields != null) RenderFields(sb, r.Fields);
@@ -131,6 +141,20 @@ public sealed class TextReporter : IReporter
         if (lines == null) return;
         for (int i = 0; i < lines.Count; i++)
             sb.AppendLine(Dim($"  // {p.StartLine + i,5} | {TextSafety.EscapeControl(lines[i].TrimEnd())}"));
+    }
+
+    private void RenderFindings(StringBuilder sb, IReadOnlyList<Audit.Finding> findings)
+    {
+        sb.AppendLine();
+        sb.AppendLine(Header("[Audit]"));
+        foreach (var f in findings)
+        {
+            var level = f.Level.ToString().ToLowerInvariant();
+            var levelText = f.Level == Audit.Severity.Error ? Bad($"{level,-8}") : $"{level,-8}";
+            var at = f.Offset is int off ? $"IL_{off:X4}" : "decl.  ";
+            var source = f.Source != null ? Dim($"  // {f.Source.File}:{f.Source.StartLine}") : "";
+            sb.AppendLine($"  {f.RuleId}  {levelText} {at}  {f.Message}{source}");
+        }
     }
 
     /// <summary>Why --uses, --find-string or --field-refs selected the method.</summary>

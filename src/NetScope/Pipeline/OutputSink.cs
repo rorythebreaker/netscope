@@ -41,13 +41,22 @@ public abstract class OutputSink
         {
             _writer = writer;
             _owns = ownsWriter;
+            if (reporter is IDocumentReporter) _fragments = new List<string>();
         }
+
+        /// <summary>Fragments of a reporter that writes one document at the end (SARIF).</summary>
+        private readonly List<string>? _fragments;
 
         public override bool FirstFlag(int index) => index == 0;
         public override void Begin() => _writer.Write(Reporter.BeginDocument());
 
         public override void WriteAssembly(LoadedAssembly assembly, string text)
         {
+            if (_fragments != null)
+            {
+                _fragments.Add(text);
+                return;
+            }
             _writer.Write(text);
             _writer.Flush();
         }
@@ -57,6 +66,7 @@ public abstract class OutputSink
 
         public override void Finish()
         {
+            if (Reporter is IDocumentReporter document) _writer.Write(document.Document(_fragments!));
             _writer.Write(Reporter.EndDocument());
             _writer.Flush();
             if (_owns) _writer.Dispose();
@@ -91,7 +101,8 @@ public abstract class OutputSink
         {
             var reporter = _factory();
             var path = UniquePath($"{assembly.FileName}.{reporter.Extension}");
-            File.WriteAllText(path, reporter.BeginDocument() + text + reporter.EndDocument(), Utf8);
+            var body = reporter is IDocumentReporter document ? document.Document(new[] { text }) : text;
+            File.WriteAllText(path, reporter.BeginDocument() + body + reporter.EndDocument(), Utf8);
             Log.Info("written " + path);
         }
 
