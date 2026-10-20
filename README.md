@@ -8,7 +8,9 @@ A command-line static analyzer for .NET assemblies. For each method it shows the
 
 ## Getting it
 
-Prebuilt single-file binaries for `win-x64`, `linux-x64`, `win-arm64` and `linux-arm64` are attached to each CI run as artifacts (Actions → latest run → Artifacts).
+Download a prebuilt single-file binary for `win-x64`, `linux-x64`, `win-arm64` or `linux-arm64` from the [Releases](https://github.com/rorythebreaker/netscope/releases) page. Builds of every commit are also attached to its CI run as artifacts.
+
+To publish a release, push a tag `vX.Y.Z`. CI builds the binaries from that commit, packages them with the license files and checksums, and creates the GitHub release. If `.github/release-notes/vX.Y.Z.md` exists, it becomes the release notes.
 
 To build from source you need the .NET 10 SDK (the version is pinned in `global.json`). The tool itself targets .NET 8.
 
@@ -177,4 +179,4 @@ CI (`.github/workflows/ci.yml`) runs the tests on Windows and Linux and publishe
 
 ## License
 
-The project depends on ICSharpCode.Decompiler, Iced, Disarm and System.CommandLine, all MIT-licensed. The repository does not include a license file yet.
+NetScope is released under the [MIT License](LICENSE). The binaries include ICSharpCode.Decompiler, Iced, Disarm, System.CommandLine and the .NET runtime, all under the MIT License. Their notices are in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md), which is also included in every release archive.

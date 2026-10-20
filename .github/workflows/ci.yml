@@ -2,6 +2,8 @@
 
 on:
   push:
+    branches: ['**']
+    tags: ['v*']
   pull_request:
 
 jobs:
@@ -58,7 +60,47 @@ jobs:
           code=$?
           set -e
           [ "$code" -eq 3 ]
+      - name: Add license files
+        shell: bash
+        run: cp LICENSE THIRD-PARTY-NOTICES.md README.md artifacts/${{ matrix.rid }}/
       - uses: actions/upload-artifact@v7
         with:
           name: netscope-${{ matrix.rid }}
           path: artifacts/${{ matrix.rid }}
+
+  # On a version tag: package the binaries built above and publish a GitHub release.
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v8
+        with:
+          path: dist
+      - name: Package
+        shell: bash
+        run: |
+          cd dist
+          for d in netscope-*/; do
+            d=${d%/}
+            name="$d-$GITHUB_REF_NAME"
+            if [[ $d == *linux* ]]; then
+              chmod +x "$d/netscope"            # artifacts do not keep the executable bit
+              tar -czf "$name.tar.gz" -C "$d" .
+            else
+              (cd "$d" && zip -q -r "../$name.zip" .)
+            fi
+          done
+          sha256sum *.zip *.tar.gz > SHA256SUMS.txt
+          cat SHA256SUMS.txt
+      - name: Create release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          notes=.github/release-notes/$GITHUB_REF_NAME.md
+          if [ -f "$notes" ]; then args=(--notes-file "$notes"); else args=(--generate-notes); fi
+          gh release create "$GITHUB_REF_NAME" dist/*.zip dist/*.tar.gz dist/SHA256SUMS.txt --title "NetScope $GITHUB_REF_NAME" --verify-tag "${args[@]}"
