@@ -12,17 +12,17 @@ Download a prebuilt single-file binary for `win-x64`, `linux-x64`, `win-arm64` o
 
 To publish a release, push a tag `vX.Y.Z`. CI builds the binaries from that commit, packages them with the license files and checksums, and creates the GitHub release. If `.github/release-notes/vX.Y.Z.md` exists, it becomes the release notes.
 
-To build from source you need the .NET 10 SDK (the version is pinned in `global.| `--format text|json|dot|mermaid|sarif` | Output format |`). The tool itself targets .NET 8.
+To build from source you need the .NET 10 SDK (the version is pinned in `global.json`). The tool itself targets .NET 8.
 
 ```
-| `--format text|json|dot|mermaid|sarif` | Output format |net build NetScope.sln
-| `--format text|json|dot|mermaid|sarif` | Output format |net test NetScope.sln
+dotnet build NetScope.sln
+dotnet test NetScope.sln
 
 # self-contained single-file executable
-| `--format text|json|dot|mermaid|sarif` | Output format |net publish src/NetScope -c Release -r win-x64     -o artifacts/win-x64
-| `--format text|json|dot|mermaid|sarif` | Output format |net publish src/NetScope -c Release -r linux-x64   -o artifacts/linux-x64
-| `--format text|json|dot|mermaid|sarif` | Output format |net publish src/NetScope -c Release -r win-arm64   -o artifacts/win-arm64
-| `--format text|json|dot|mermaid|sarif` | Output format |net publish src/NetScope -c Release -r linux-arm64 -o artifacts/linux-arm64
+dotnet publish src/NetScope -c Release -r win-x64     -o artifacts/win-x64
+dotnet publish src/NetScope -c Release -r linux-x64   -o artifacts/linux-x64
+dotnet publish src/NetScope -c Release -r win-arm64   -o artifacts/win-arm64
+dotnet publish src/NetScope -c Release -r linux-arm64 -o artifacts/linux-arm64
 ```
 
 ## Usage
@@ -31,9 +31,9 @@ To build from source you need the .NET 10 SDK (the version is pinned in `global.
 netscope [options] <file|mask> [<file|mask> ...]
 
 netscope app.dll --methods --cfg
-netscope bin\*.dll --calls --filter "MyApp.Auth.*" --format | `--format text|json|dot|mermaid|sarif` | Output format | --out report.json
+netscope bin\*.dll --calls --filter "MyApp.Auth.*" --format json --out report.json
 netscope Service.exe --all --filter "*::Login" --allow-run
-netscope --dir C:\App --recursive --callgraph --format | `--format text|json|dot|mermaid|sarif` | Output format | --out graph.dot
+netscope --dir C:\App --recursive --callgraph --format dot --out graph.dot
 netscope --input-list files.txt --il --out reports\
 ```
 
@@ -84,7 +84,7 @@ RVA      : 0x23A0   Size: 36 bytes   Token: 0x06000022
 | `--all` | Enable all groups |
 | `--filter <mask>` | Select methods by full name `Namespace.Type::Method`. Supports `*` and `?`, case-insensitive, repeatable |
 | `--type <kind>` | Select methods by kind: `ctor`, `property`, `event`, `operator`, `async`, `iterator`, `lambda`, `local-function`, `pinvoke`, `generic`, `abstract`, `virtual`, `override`, `static`, `no-body` and more (see `--help`). Comma-separated or repeatable |
-| `--format text|json|dot|mermaid|sarif` | Output format |\|json\|dot\|mermaid` | Output format |
+| `--format text\|json\|dot\|mermaid\|sarif` | Output format |
 | `--out <file\|dir>` | Write to a file, or to a directory if the path ends with `\` or `/` or already exists. In directory mode you get one report per assembly, plus `callgraph.<ext>` |
 | `--raw` | Show lambdas, async methods and iterators in pseudocode in the form the compiler generated |
 | `--threads <n>` | Number of files processed in parallel (default: number of cores) |
@@ -116,7 +116,7 @@ NetScope reads Portable PDBs: embedded in the assembly, then `<name>.pdb` next t
 - pseudocode and IL use the real names of local variables;
 - JSON instructions and blocks have `source.file` and `source.line`.
 
-If you pass only `--callgraph`, NetScope prints only the graph. With `| `--format text|json|dot|mermaid|sarif` | Output format |` and `mermaid`, it draws the CFGs of the selected methods by default. Mermaid output is Markdown with ` ```mermaid ` blocks.
+If you pass only `--callgraph`, NetScope prints only the graph. With `dot` and `mermaid`, it draws the CFGs of the selected methods by default. Mermaid output is Markdown with ` ```mermaid ` blocks.
 
 ### Streams and exit codes
 
@@ -132,7 +132,7 @@ Results go to stdout or to the `--out` target. Warnings and errors go only to st
 
 ### JSON
 
-Every method has `assembly`, `namespace`, `type`, `name`, `signature`, `token`, `access`, `kinds[]`, `rva`, `size` and `errors[]`. Each requested group adds its own fields: `calls[]`, `callers[]`, `complexity`, `blocks[]`, `loops[]`, `regions[]`, `pseudocode`, `pseudocodeSource`, `pseudocodeError`, `il[]`, `ilInfo`, `native[]` and `nativeInfo`. Each requested group adds its own fields: also `matches[]` (`--uses`, `--find-string`, `--field-refs`) and `fields[]`; with symbols, instructions and blocks have `source`. The assembly gets `symbols` (`embedded` or the PDB path) and, with `--strings`, `strings[]`. With `--audit`, methods have `findings[]` and the assembly has `audit` (counts by level and of suppressed findings); `--detect-obfuscation` adds `obfuscation` (`verdict`, `obfuscator`, `signs[]`, `hint`). Fields of groups you did not request are left out. The call graph is in the root field `callgraph`.
+Every method has `assembly`, `namespace`, `type`, `name`, `signature`, `token`, `access`, `kinds[]`, `rva`, `size` and `errors[]`. Each requested group adds its own fields: `calls[]`, `callers[]`, `complexity`, `blocks[]`, `loops[]`, `regions[]`, `pseudocode`, `pseudocodeSource`, `pseudocodeError`, `il[]`, `ilInfo`, `native[]`, `nativeInfo`, `matches[]` (`--uses`, `--find-string`, `--field-refs`) and `fields[]`. With symbols, instructions and blocks have `source`. The assembly gets `symbols` (`embedded` or the PDB path) and, with `--strings`, `strings[]`. With `--audit`, methods have `findings[]` and the assembly has `audit` (counts by level and of suppressed findings); `--detect-obfuscation` adds `obfuscation` (`verdict`, `obfuscator`, `signs[]`, `hint`). Fields of groups you did not request are left out. The call graph is in the root field `callgraph`.
 
 ## Security rules
 
@@ -168,7 +168,7 @@ Every method has `assembly`, `namespace`, `type`, `name`, `signature`, `token`, 
 | Corrupted bodies | Bodies that cannot be decoded or that reference tokens that do not exist |
 | Proxy calls | Many static methods with unreadable names whose body is a single call |
 
-NetScope does not deobfuscate. For `yes`, it suggests processing the file with an external tool such as de4| `--format text|json|dot|mermaid|sarif` | Output format | first. It was checked against ConfuserEx output (`tests/Fixtures/Obfuscated`) and, for false positives, against NetScope's dependencies and large framework assemblies (`System.Private.CoreLib`, `System.Text.RegularExpressions`, `System.Private.Xml`).
+NetScope does not deobfuscate. For `yes`, it suggests processing the file with an external tool such as de4dot first. It was checked against ConfuserEx output (`tests/Fixtures/Obfuscated`) and, for false positives, against NetScope's dependencies and large framework assemblies (`System.Private.CoreLib`, `System.Text.RegularExpressions`, `System.Private.Xml`).
 
 ## Native code
 
@@ -244,7 +244,7 @@ Metadata is read with `System.Reflection.Metadata`, the same layer the decompile
 After an intended change to the output format, regenerate the reference files and review the diff:
 
 ```
-NETSCOPE_UPDATE_GOLDEN=1 | `--format text|json|dot|mermaid|sarif` | Output format |net test NetScope.sln
+NETSCOPE_UPDATE_GOLDEN=1 dotnet test NetScope.sln
 ```
 
 CI (`.github/workflows/ci.yml`) runs the tests on Windows and Linux and publishes single-file binaries for win-x64, linux-x64, win-arm64 and linux-arm64.
