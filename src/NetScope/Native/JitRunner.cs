@@ -74,7 +74,7 @@ public static class JitRunner
                 if (parts.Length == 2 && int.TryParse(parts[0], System.Globalization.NumberStyles.HexNumber, null, out int token)) status[token] = parts[1];
             }
 
-            var listings = ParseListings(stdout.ToString());
+            var listings = ParseListings(stdout.ToString(), methods.ToDictionary(m => m.Token, m => JitKey(m.TypeName, m.Name)));
             foreach (var m in methods)
             {
                 if (!status.TryGetValue(m.Token, out var s))
@@ -87,10 +87,10 @@ public static class JitRunner
                     result[m] = NativeCode.Unavailable(s);
                     continue;
                 }
-                var key = JitKey(m.TypeName, m.Name);
-                if (listings.TryGetValue(key, out var queue) && queue.Count > 0)
+                // The listing printed after the method's token marker; the name key is the fallback.
+                if (listings.ByToken.TryGetValue(m.Token, out var l) ||
+                    listings.ByName.TryGetValue(JitKey(m.TypeName, m.Name), out var queue) && queue.TryDequeue(out l))
                 {
-                    var l = queue.Dequeue();
                     result[m] = new NativeCode
                     {
                         Available = true,
@@ -114,10 +114,10 @@ public static class JitRunner
 
     private static ProcessStartInfo CreateStartInfo(string requestFile, string resultFile)
     {
-        var exe = Environment.ProcessPath ?? throw new InvalidOperationException("cannot locate the netscope executable");
+        var self = SelfCommand.Locate();
         var psi = new ProcessStartInfo
         {
-            FileName = exe,
+            FileName = self.FileName,
             UseShellExecute = false,
             CreateNoWindow = true,
             RedirectStandardOutput = true,
@@ -125,14 +125,7 @@ public static class JitRunner
             RedirectStandardInput = true,
             StandardOutputEncoding = Encoding.UTF8,
         };
-        var self = Path.GetFileNameWithoutExtension(exe);
-        if (self.Equals("dotnet", StringComparison.OrdinalIgnoreCase))
-        {
-            // Framework-dependent run: dotnet netscope.dll
-            var dll = Path.Combine(AppContext.BaseDirectory, (Assembly.GetEntryAssembly()?.GetName().Name ?? "netscope") + ".dll");
-            if (!File.Exists(dll)) throw new InvalidOperationException("cannot locate " + dll);
-            psi.ArgumentList.Add(dll);
-        }
+        foreach (var a in self.PrefixArguments) psi.ArgumentList.Add(a);
         psi.ArgumentList.Add(HelperCommand);
         psi.ArgumentList.Add(requestFile);
         psi.ArgumentList.Add(resultFile);
@@ -141,34 +134,61 @@ public static class JitRunner
 
     private static string JitKey(string typeName, string methodName) => typeName + ":" + methodName;
 
-    private sealed class Listing
+    internal sealed class Listing
     {
+        public int? Token;
         public string? Architecture;
         public string? Tier;
         public int Size;
         public List<NativeLine> Lines = new();
     }
 
-    /// <summary>Parses DOTNET_JitDisasm output into listings keyed by "Namespace.Type:Method".</summary>
-    private static Dictionary<string, Queue<Listing>> ParseListings(string text)
+    /// <summary>Printed by the helper before each method it compiles: "##NETSCOPE-TOKEN 06000012".</summary>
+    internal const string TokenMarker = "##NETSCOPE-TOKEN ";
+
+    internal sealed class ParsedListings
     {
-        var map = new Dictionary<string, Queue<Listing>>(StringComparer.Ordinal);
+        /// <summary>The first listing for the method's own name after its token marker.</summary>
+        public Dictionary<int, Listing> ByToken { get; } = new();
+        /// <summary>All listings by "Namespace.Type:Method", in output order (fallback when no marker matches).</summary>
+        public Dictionary<string, Queue<Listing>> ByName { get; } = new(StringComparer.Ordinal);
+    }
+
+    /// <summary>
+    /// Parses DOTNET_JitDisasm output. A listing belongs to the last token marker before it, provided the
+    /// listed method has the expected name (other methods JIT-ed meanwhile, e.g. by a type initializer, are skipped).
+    /// </summary>
+    internal static ParsedListings ParseListings(string text, IReadOnlyDictionary<int, string> expectedKeys)
+    {
+        var parsed = new ParsedListings();
         Listing? current = null;
+        int? token = null;
         const string Marker = "; Assembly listing for method ";
         foreach (var raw in text.Split('\n'))
         {
             var line = raw.TrimEnd('\r');
+            if (line.StartsWith(TokenMarker, StringComparison.Ordinal))
+            {
+                current = null;
+                token = int.TryParse(line.AsSpan(TokenMarker.Length).Trim(), System.Globalization.NumberStyles.HexNumber, null, out int t) ? t : null;
+                continue;
+            }
             if (line.StartsWith(Marker, StringComparison.Ordinal))
             {
                 current = new Listing();
                 var name = line.Substring(Marker.Length);
-                int paren = name.IndexOf('(');
+                int paren = name.IndexOf('(', StringComparison.Ordinal);
                 var head = paren < 0 ? name : name.Substring(0, paren);
                 int tierStart = name.LastIndexOf(" (", StringComparison.Ordinal);
                 if (tierStart > 0 && name.EndsWith(')')) current.Tier = name.Substring(tierStart + 2, name.Length - tierStart - 3);
                 var key = StripGenericArgs(head);
-                if (!map.TryGetValue(key, out var q)) map[key] = q = new Queue<Listing>();
+                if (!parsed.ByName.TryGetValue(key, out var q)) parsed.ByName[key] = q = new Queue<Listing>();
                 q.Enqueue(current);
+                if (token is int tk && expectedKeys.TryGetValue(tk, out var expected) && expected == key && !parsed.ByToken.ContainsKey(tk))
+                {
+                    parsed.ByToken[tk] = current;
+                    current.Token = tk;
+                }
                 continue;
             }
             if (current == null) continue;
@@ -193,7 +213,14 @@ public static class JitRunner
             if (line.Length == 0 || line.StartsWith(';') && current.Lines.Count == 0) continue;
             current.Lines.Add(new NativeLine(0, "", line));
         }
-        return map;
+        // A listing claimed by a token is not handed out again by the name fallback.
+        foreach (var q in parsed.ByName.Values)
+        {
+            var rest = q.Where(l => l.Token == null).ToList();
+            q.Clear();
+            foreach (var l in rest) q.Enqueue(l);
+        }
+        return parsed;
     }
 
     /// <summary>"List`1[System.__Canon]:Add[System.__Canon]" -> "List`1:Add".</summary>
@@ -251,6 +278,10 @@ public static class JitRunner
                 RuntimeMethodHandle handle = method.MethodHandle;
                 var typeArgs = method.DeclaringType is { IsGenericTypeDefinition: true } dt ? dt.GetGenericArguments().Length : 0;
                 var methodArgs = method.IsGenericMethodDefinition ? method.GetGenericArguments().Length : 0;
+                // Listings that follow belong to this token (the JIT and Console share the stdout pipe).
+                FlushNativeStdout();
+                Console.Out.Write(TokenMarker + tokenText + "\n");
+                Console.Out.Flush();
                 if (typeArgs + methodArgs > 0)
                 {
                     // Shared canonical code (System.__Canon) for reference-type instantiations.
@@ -270,6 +301,26 @@ public static class JitRunner
         File.WriteAllText(args[2], output.ToString());
         return 0;
     }
+
+    /// <summary>Flushes the C runtime's stdout buffer, where the JIT writes its listings.</summary>
+    private static void FlushNativeStdout()
+    {
+        try
+        {
+            if (OperatingSystem.IsWindows()) _ = WindowsFlush(IntPtr.Zero);
+            else _ = UnixFlush(IntPtr.Zero);
+        }
+        catch (Exception ex) when (ex is DllNotFoundException or EntryPointNotFoundException)
+        {
+            // Listings still arrive; only the token binding may fall back to names.
+        }
+    }
+
+    [DllImport("ucrtbase.dll", EntryPoint = "fflush")]
+    private static extern int WindowsFlush(IntPtr stream);
+
+    [DllImport("libc", EntryPoint = "fflush")]
+    private static extern int UnixFlush(IntPtr stream);
 
     private sealed class HelperLoadContext : AssemblyLoadContext
     {

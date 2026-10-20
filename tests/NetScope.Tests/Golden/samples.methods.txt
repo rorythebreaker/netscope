@@ -1,7 +1,7 @@
 Assembly : NetScope.Samples.dll
 Name     : NetScope.Samples, Version=1.0.0.0
 Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
-Methods  : 67
+Methods  : 70
 
 Type     : <Module>
 
@@ -128,182 +128,196 @@ Method   : int <Lambdas>g__Local|15_2(int v)
 Kind     : static, internal, local-function, compiler-generated
 RVA      : 0x238F   Size: 4 bytes   Token: 0x0600001C
 
+Type     : MyApp.Flow.Overloaded
+
+Method   : int Foo(int x)
+Kind     : static, public
+RVA      : 0x2394   Size: 4 bytes   Token: 0x0600001D
+
+Method   : int Foo(string s)
+Kind     : static, public
+RVA      : 0x239C   Size: 38 bytes   Token: 0x0600001E
+
+Method   : int Foo<T>(T value)
+Kind     : static, public, generic
+RVA      : 0x23D0   Size: 98 bytes   Token: 0x0600001F
+
 Type     : MyApp.Flow.Shape
 
 Method   : double Area()
 Kind     : instance, public, abstract, no-body
-RVA      : 0x0000   Token: 0x0600001D
+RVA      : 0x0000   Token: 0x06000020
 
 Method   : string Describe()
 Kind     : instance, public, virtual
-RVA      : 0x2394   Size: 36 bytes   Token: 0x0600001E
+RVA      : 0x2440   Size: 36 bytes   Token: 0x06000021
 
 Method   : void .ctor()
 Kind     : ctor, instance, protected
-RVA      : 0x23C4   Size: 7 bytes   Token: 0x0600001F
+RVA      : 0x2470   Size: 7 bytes   Token: 0x06000022
 
 Type     : MyApp.Flow.Circle
 
 Method   : double get_R()
 Kind     : property-get, instance, public, compiler-generated
-RVA      : 0x23CC   Size: 7 bytes   Token: 0x06000020
+RVA      : 0x2478   Size: 7 bytes   Token: 0x06000023
 
 Method   : void set_R(double value)
 Kind     : property-set, instance, public, compiler-generated
-RVA      : 0x23D4   Size: 8 bytes   Token: 0x06000021
+RVA      : 0x2480   Size: 8 bytes   Token: 0x06000024
 
 Method   : double Area()
 Kind     : instance, public, override
-RVA      : 0x23DD   Size: 24 bytes   Token: 0x06000022
+RVA      : 0x2489   Size: 24 bytes   Token: 0x06000025
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x23F6   Size: 7 bytes   Token: 0x06000023
+RVA      : 0x24A2   Size: 7 bytes   Token: 0x06000026
 
 Type     : MyApp.Auth.ILoginService
 
 Method   : bool Login(string user, string pass)
 Kind     : instance, public, abstract, no-body
-RVA      : 0x0000   Token: 0x06000024
+RVA      : 0x0000   Token: 0x06000027
 
 Type     : MyApp.Auth.LoginService
 
 Method   : bool Login(string user, string pass)
 Kind     : instance, public, virtual
-RVA      : 0x2400   Size: 36 bytes   Token: 0x06000025
+RVA      : 0x24AC   Size: 36 bytes   Token: 0x06000028
 
 Method   : string Hash(string s)
 Kind     : static, public
-RVA      : 0x2430   Size: 15 bytes   Token: 0x06000026
+RVA      : 0x24DC   Size: 15 bytes   Token: 0x06000029
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x244B   Size: 18 bytes   Token: 0x06000027
+RVA      : 0x24F7   Size: 18 bytes   Token: 0x0600002A
 
 Type     : MyApp.Auth.AdminLoginService
 
 Method   : bool Login(string user, string pass)
 Kind     : instance, public, override
-RVA      : 0x245E   Size: 24 bytes   Token: 0x06000028
+RVA      : 0x250A   Size: 24 bytes   Token: 0x0600002B
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x2477   Size: 7 bytes   Token: 0x06000029
+RVA      : 0x2523   Size: 7 bytes   Token: 0x0600002C
 
 Type     : MyApp.Db.User
 
 Method   : string get_Name()
 Kind     : property-get, instance, public, compiler-generated
-RVA      : 0x247F   Size: 7 bytes   Token: 0x0600002A
+RVA      : 0x252B   Size: 7 bytes   Token: 0x0600002D
 
 Method   : void set_Name(string value)
 Kind     : property-set, instance, public, compiler-generated
-RVA      : 0x2487   Size: 8 bytes   Token: 0x0600002B
+RVA      : 0x2533   Size: 8 bytes   Token: 0x0600002E
 
 Method   : string get_Hash()
 Kind     : property-get, instance, public, compiler-generated
-RVA      : 0x2490   Size: 7 bytes   Token: 0x0600002C
+RVA      : 0x253C   Size: 7 bytes   Token: 0x0600002F
 
 Method   : void set_Hash(string value)
 Kind     : property-set, instance, public, compiler-generated
-RVA      : 0x2498   Size: 8 bytes   Token: 0x0600002D
+RVA      : 0x2544   Size: 8 bytes   Token: 0x06000030
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x24A1   Size: 29 bytes   Token: 0x0600002E
+RVA      : 0x254D   Size: 29 bytes   Token: 0x06000031
 
 Type     : MyApp.Db.Users
 
 Method   : User Find(string name)
 Kind     : instance, public, virtual
-RVA      : 0x24C0   Size: 20 bytes   Token: 0x0600002F
+RVA      : 0x256C   Size: 20 bytes   Token: 0x06000032
 
 Method   : void Add(User user)
 Kind     : instance, public
-RVA      : 0x24E0   Size: 19 bytes   Token: 0x06000030
+RVA      : 0x258C   Size: 19 bytes   Token: 0x06000033
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x24F4   Size: 18 bytes   Token: 0x06000031
+RVA      : 0x25A0   Size: 18 bytes   Token: 0x06000034
 
 Type     : MyApp.Flow.GenericUse+<>c
 
 Method   : void .cctor()
 Kind     : cctor, static, private, compiler-generated
-RVA      : 0x2507   Size: 11 bytes   Token: 0x06000032
+RVA      : 0x25B3   Size: 11 bytes   Token: 0x06000035
 
 Method   : void .ctor()
 Kind     : ctor, instance, public, compiler-generated
-RVA      : 0x2513   Size: 7 bytes   Token: 0x06000033
+RVA      : 0x25BF   Size: 7 bytes   Token: 0x06000036
 
 Method   : int <Length>b__0_0(string v)
 Kind     : instance, internal, lambda, compiler-generated
-RVA      : 0x251B   Size: 7 bytes   Token: 0x06000034
+RVA      : 0x25C7   Size: 7 bytes   Token: 0x06000037
 
 Type     : MyApp.Flow.Features+<>c
 
 Method   : void .cctor()
 Kind     : cctor, static, private, compiler-generated
-RVA      : 0x2523   Size: 11 bytes   Token: 0x06000035
+RVA      : 0x25CF   Size: 11 bytes   Token: 0x06000038
 
 Method   : void .ctor()
 Kind     : ctor, instance, public, compiler-generated
-RVA      : 0x252F   Size: 7 bytes   Token: 0x06000036
+RVA      : 0x25DB   Size: 7 bytes   Token: 0x06000039
 
 Method   : bool <Lambdas>b__15_1(int v)
 Kind     : instance, internal, lambda, compiler-generated
-RVA      : 0x2537   Size: 5 bytes   Token: 0x06000037
+RVA      : 0x25E3   Size: 5 bytes   Token: 0x0600003A
 
 Type     : MyApp.Flow.Features+<>c__DisplayClass15_0
 
 Method   : void .ctor()
 Kind     : ctor, instance, public, compiler-generated
-RVA      : 0x253D   Size: 7 bytes   Token: 0x06000038
+RVA      : 0x25E9   Size: 7 bytes   Token: 0x0600003B
 
 Method   : int <Lambdas>b__0(int v)
 Kind     : instance, internal, lambda, compiler-generated
-RVA      : 0x2545   Size: 9 bytes   Token: 0x06000039
+RVA      : 0x25F1   Size: 9 bytes   Token: 0x0600003C
 
 Type     : MyApp.Flow.Features+<ComputeAsync>d__13
 
 Method   : void MoveNext()
 Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
-RVA      : 0x2550   Size: 153 bytes   Token: 0x0600003A
+RVA      : 0x25FC   Size: 153 bytes   Token: 0x0600003D
 
 Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
 Kind     : instance, private, virtual, sealed, compiler-generated
-RVA      : 0x2608   Size: 13 bytes   Token: 0x0600003B
+RVA      : 0x26B4   Size: 13 bytes   Token: 0x0600003E
 
 Type     : MyApp.Flow.Features+<Range>d__14
 
 Method   : void .ctor(int <>1__state)
 Kind     : ctor, instance, public, compiler-generated
-RVA      : 0x2616   Size: 25 bytes   Token: 0x0600003C
+RVA      : 0x26C2   Size: 25 bytes   Token: 0x0600003F
 
 Method   : void System.IDisposable.Dispose()
 Kind     : instance, private, virtual, sealed, compiler-generated
-RVA      : 0x2630   Size: 9 bytes   Token: 0x0600003D
+RVA      : 0x26DC   Size: 9 bytes   Token: 0x06000040
 
 Method   : bool MoveNext()
 Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
-RVA      : 0x263C   Size: 92 bytes   Token: 0x0600003E
+RVA      : 0x26E8   Size: 92 bytes   Token: 0x06000041
 
 Method   : int System.Collections.Generic.IEnumerator<System.Int32>.get_Current()
 Kind     : property-get, instance, private, virtual, sealed, compiler-generated
-RVA      : 0x26A4   Size: 7 bytes   Token: 0x0600003F
+RVA      : 0x2750   Size: 7 bytes   Token: 0x06000042
 
 Method   : void System.Collections.IEnumerator.Reset()
 Kind     : instance, private, virtual, sealed, compiler-generated
-RVA      : 0x26AC   Size: 6 bytes   Token: 0x06000040
+RVA      : 0x2758   Size: 6 bytes   Token: 0x06000043
 
 Method   : object System.Collections.IEnumerator.get_Current()
 Kind     : property-get, instance, private, virtual, sealed, compiler-generated
-RVA      : 0x26B3   Size: 12 bytes   Token: 0x06000041
+RVA      : 0x275F   Size: 12 bytes   Token: 0x06000044
 
 Method   : IEnumerator<int> System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator()
 Kind     : instance, private, virtual, sealed, compiler-generated
-RVA      : 0x26C0   Size: 55 bytes   Token: 0x06000042
+RVA      : 0x276C   Size: 55 bytes   Token: 0x06000045
 
 Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
 Kind     : instance, private, virtual, sealed, compiler-generated
-RVA      : 0x2703   Size: 7 bytes   Token: 0x06000043
+RVA      : 0x27AF   Size: 7 bytes   Token: 0x06000046
