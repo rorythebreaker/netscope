@@ -129,8 +129,8 @@ public static class JitRunner
         if (self.Equals("dotnet", StringComparison.OrdinalIgnoreCase))
         {
             // Framework-dependent run: dotnet netscope.dll
-            var dll = Assembly.GetEntryAssembly()?.Location;
-            if (string.IsNullOrEmpty(dll)) throw new InvalidOperationException("cannot locate netscope.dll");
+            var dll = Path.Combine(AppContext.BaseDirectory, (Assembly.GetEntryAssembly()?.GetName().Name ?? "netscope") + ".dll");
+            if (!File.Exists(dll)) throw new InvalidOperationException("cannot locate " + dll);
             psi.ArgumentList.Add(dll);
         }
         psi.ArgumentList.Add(HelperCommand);

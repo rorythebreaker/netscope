@@ -43,7 +43,9 @@ public static class Program
     {
         Log.Reset();
         var cli = new Cli();
-        var parse = cli.Root.Parse(args);
+        // The parser treats a first argument that looks like the tool itself (e.g. a file named "netscope")
+        // as the command name and drops it. Passing the command name explicitly keeps every argument.
+        var parse = cli.Root.Parse(new[] { cli.Root.Name }.Concat(args).ToArray());
         if (parse.Errors.Count > 0)
         {
             foreach (var e in parse.Errors) Console.Error.WriteLine("netscope: error: " + e.Message);

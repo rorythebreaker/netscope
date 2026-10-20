@@ -47,6 +47,17 @@ public class CliTests
         Assert.Equal(0, TestEnv.Run("--version").ExitCode);
     }
 
+    /// <summary>Regression: a first argument named like the tool ("netscope", the Linux binary) must not be dropped.</summary>
+    [Fact]
+    public void FileNamedLikeTheToolIsAnInput()
+    {
+        var path = Path.Combine(TestEnv.TempDir(), "netscope");
+        File.Copy(TestEnv.SamplesPath, path);
+        var r = TestEnv.Run(path, "--no-color");
+        Assert.Equal(0, r.ExitCode);
+        Assert.Contains("Assembly : netscope", r.Stdout);
+    }
+
     [Fact]
     public void JsonHasStableFields()
     {

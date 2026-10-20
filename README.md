@@ -1,26 +1,32 @@
 # NetScope
 
-Консольный статический анализатор .NET-сборок. Для каждого метода выводит тип метода, вызовы, ветвления (CFG), псевдокод, IL и нативный ассемблер. Код анализируемых сборок не выполняется, если явно не указан `--allow-run`.
+A command-line static analyzer for .NET assemblies. For each method it shows the method kind, the calls it makes, its control flow graph, C# pseudocode, the IL and the native code. NetScope does not run code from the assemblies it analyzes unless you pass `--allow-run`.
 
-## Сборка
+- Input: managed `.dll`/`.exe` files from .NET Framework 2.0–4.8, .NET Core 3.1, .NET 5–10 and .NET Standard. NetScope also reads ReadyToRun images and the managed part of C++/CLI images.
+- Output: text, JSON, Graphviz DOT, Mermaid.
+- Platforms: Windows and Linux, x64 and ARM64. Ships as a single self-contained executable, so .NET does not need to be installed.
 
-Нужен .NET SDK 10 (версия закреплена в `global.json`); целевая платформа утилиты — .NET 8.
+## Getting it
+
+Prebuilt single-file binaries for `win-x64`, `linux-x64`, `win-arm64` and `linux-arm64` are attached to each CI run as artifacts (Actions → latest run → Artifacts).
+
+To build from source you need the .NET 10 SDK (the version is pinned in `global.json`). The tool itself targets .NET 8.
 
 ```
 dotnet build NetScope.sln
 dotnet test NetScope.sln
 
-# один исполняемый файл без установки .NET (self-contained, single-file)
+# self-contained single-file executable
 dotnet publish src/NetScope -c Release -r win-x64     -o artifacts/win-x64
 dotnet publish src/NetScope -c Release -r linux-x64   -o artifacts/linux-x64
 dotnet publish src/NetScope -c Release -r win-arm64   -o artifacts/win-arm64
 dotnet publish src/NetScope -c Release -r linux-arm64 -o artifacts/linux-arm64
 ```
 
-## Использование
+## Usage
 
 ```
-netscope [ключи] <файл|маска> [<файл|маска> ...]
+netscope [options] <file|mask> [<file|mask> ...]
 
 netscope app.dll --methods --cfg
 netscope bin\*.dll --calls --filter "MyApp.Auth.*" --format json --out report.json
@@ -29,111 +35,146 @@ netscope --dir C:\App --recursive --callgraph --format dot --out graph.dot
 netscope --input-list files.txt --il --out reports\
 ```
 
-| Ключ | Назначение |
+Example (text output, one method):
+
+```
+Method   : bool Login(string user, string pass)
+Kind     : instance, public, virtual
+RVA      : 0x23A0   Size: 36 bytes   Token: 0x06000022
+
+[Calls]
+  IL_000C  callvirt  MyApp.Db.Users::Find(string)                internal
+  IL_0013  call      MyApp.Auth.LoginService::Hash(string)       internal
+  IL_001E  call      System.String::op_Equality(string, string)  external System.Runtime
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0002  -> B1 (user == null) | B2 (else)
+  B1 IL_0003..IL_0004  -> exit
+  B2 IL_0005..IL_0023  -> exit
+
+[Pseudocode]
+  public virtual bool Login(string user, string pass)
+  {
+      if (user == null)
+      {
+          return false;
+      }
+      User user2 = _users.Find(user);
+      return Hash(pass) == user2.Hash;
+  }
+```
+
+### Options
+
+| Option | Description |
 |---|---|
-| `--dir <путь>`, `--recursive` | Обход каталога (все `.dll` и `.exe`), с подкаталогами |
-| `--input-list <файл>` | Список путей или масок, по одному на строку; `#` — комментарий; относительные пути — от каталога списка |
-| `--ref-path <путь>` | Каталог с зависимостями, можно несколько раз |
-| `--methods` | Список методов с типом и сигнатурой (по умолчанию, если не выбрана другая группа) |
-| `--calls` | Вызовы из метода и обратный список «кто вызывает» по всем входным файлам |
-| `--callgraph` | Граф вызовов между методами всех файлов группы |
-| `--cfg` | Базовые блоки, переходы с условиями, циклы, недостижимые блоки, выходы, области try/catch/filter/finally/fault, цикломатическая сложность |
-| `--pseudo` | Псевдокод C# (ICSharpCode.Decompiler); при ошибке — упрощённый трёхадресный код по IL и CFG с причиной |
-| `--il` | IL-листинг в стиле ildasm |
-| `--native` | Нативный код: из образа ReadyToRun или, с `--allow-run`, после JIT |
-| `--allow-run` | Разрешить выполнение кода сборки в отдельном процессе-помощнике |
-| `--all` | Все группы |
-| `--filter <маска>` | Отбор по полному имени `Namespace.Type::Method`, `*` и `?`, без учёта регистра; можно несколько раз |
-| `--type <тип>` | Отбор по типу метода: `ctor`, `property`, `event`, `operator`, `async`, `iterator`, `lambda`, `local-function`, `pinvoke`, `generic`, `abstract`, `virtual`, `override`, `static`, `no-body` и др. (полный список — в `--help`); можно через запятую |
-| `--format text\|json\|dot\|mermaid` | Формат вывода |
-| `--out <файл\|каталог>` | Файл или каталог (путь заканчивается на `\` или `/` либо уже существует): по одному отчёту на сборку, граф вызовов — в `callgraph.<ext>` |
-| `--raw` | Не восстанавливать лямбды, async и итераторы в псевдокоде |
-| `--threads <n>` | Число параллельно обрабатываемых файлов (по умолчанию — число ядер) |
-| `--decompile-timeout <с>` | Лимит декомпиляции одного метода, по умолчанию 20 с |
-| `--run-timeout <с>` | Лимит процесса-помощника для `--allow-run`, по умолчанию 30 с |
-| `--no-color`, `--quiet`, `--verbose`, `--help`, `--version` | Оформление и уровень сообщений |
+| `--dir <path>`, `--recursive` | Analyze every `.dll` and `.exe` in a directory, optionally including subdirectories |
+| `--input-list <file>` | One path or mask per line; `#` starts a comment; relative paths are resolved against the list file |
+| `--ref-path <path>` | Directory with dependencies (repeatable) |
+| `--methods` | Methods with kind and signature. This is the default when no other group is selected |
+| `--calls` | Calls made by each method, plus a "called by" list across all input files |
+| `--callgraph` | Call graph between the methods of all input files |
+| `--cfg` | Basic blocks, edges with conditions, loops, unreachable blocks, exits, try/catch/filter/finally/fault regions, cyclomatic complexity |
+| `--pseudo` | C# pseudocode via ICSharpCode.Decompiler. If decompilation fails, falls back to three-address code built from the IL and CFG, and prints the reason |
+| `--il` | ildasm-style IL listing |
+| `--native` | Native code, read from a ReadyToRun image or, with `--allow-run`, taken from the JIT |
+| `--allow-run` | Allow running code of the analyzed assembly in a separate helper process |
+| `--all` | Enable all groups |
+| `--filter <mask>` | Select methods by full name `Namespace.Type::Method`. Supports `*` and `?`, case-insensitive, repeatable |
+| `--type <kind>` | Select methods by kind: `ctor`, `property`, `event`, `operator`, `async`, `iterator`, `lambda`, `local-function`, `pinvoke`, `generic`, `abstract`, `virtual`, `override`, `static`, `no-body` and more (see `--help`). Comma-separated or repeatable |
+| `--format text\|json\|dot\|mermaid` | Output format |
+| `--out <file\|dir>` | Write to a file, or to a directory if the path ends with `\` or `/` or already exists. In directory mode you get one report per assembly, plus `callgraph.<ext>` |
+| `--raw` | Show lambdas, async methods and iterators in pseudocode in the form the compiler generated |
+| `--threads <n>` | Number of files processed in parallel (default: number of cores) |
+| `--decompile-timeout <s>` | Time limit for decompiling one method (default 20 s) |
+| `--run-timeout <s>` | Time limit for the `--allow-run` helper process (default 30 s) |
+| `--no-color`, `--quiet`, `--verbose`, `--help`, `--version` | Presentation and message level |
 
-Если указан только `--callgraph`, выводится только граф. Для `dot`/`mermaid` по умолчанию строятся CFG выбранных методов; `mermaid` выдаётся как Markdown с блоками ` ```mermaid `.
+If you pass only `--callgraph`, NetScope prints only the graph. With `dot` and `mermaid`, it draws the CFGs of the selected methods by default. Mermaid output is Markdown with ` ```mermaid ` blocks.
 
-### Потоки и коды возврата
+### Streams and exit codes
 
-Результат пишется в stdout или в файл из `--out`, предупреждения и ошибки — только в stderr, с указанием файла, метода и смещения IL. Вывод в UTF-8 без BOM, переводы строк — системные, порядок файлов — как в аргументах (дубликаты убираются), порядок методов — как в метаданных.
+Results go to stdout or to the `--out` target. Warnings and errors go only to stderr and name the file, the method and the IL offset. Output is UTF-8 without BOM and uses the platform's line endings. Files are listed in argument order with duplicates removed, and methods in metadata order, so the output of two runs can be compared with `diff`.
 
-| Код | Значение |
+| Code | Meaning |
 |---|---|
-| 0 | Всё обработано |
-| 1 | Часть файлов или методов пропущена или обработана с ошибками (в том числе неуправляемые и повреждённые файлы в группе) |
-| 2 | Неверные аргументы |
-| 3 | Ни один файл не удалось открыть |
+| 0 | Everything was processed |
+| 1 | Some files or methods were skipped or had errors (for example, native or corrupted files in a group) |
+| 2 | Invalid arguments |
+| 3 | No input file could be opened |
 
 ### JSON
 
-У каждого метода есть поля `assembly`, `namespace`, `type`, `name`, `signature`, `token`, `access`, `kinds[]`, `rva`, `size` и `errors[]`. Если группа запрошена, добавляются её поля: `calls[]`, `callers[]`, `complexity`, `blocks[]`, `loops[]`, `regions[]`, `pseudocode`, `pseudocodeSource`, `pseudocodeError`, `il[]`, `ilInfo`, `native[]`, `nativeInfo`. Незапрошенные группы не выводятся. Граф вызовов — в корневом поле `callgraph`.
+Every method has `assembly`, `namespace`, `type`, `name`, `signature`, `token`, `access`, `kinds[]`, `rva`, `size` and `errors[]`. Each requested group adds its own fields: `calls[]`, `callers[]`, `complexity`, `blocks[]`, `loops[]`, `regions[]`, `pseudocode`, `pseudocodeSource`, `pseudocodeError`, `il[]`, `ilInfo`, `native[]` and `nativeInfo`. Fields of groups you did not request are left out. The call graph is in the root field `callgraph`.
 
-## Устройство
+## Native code
 
-Конвейер из ТЗ (раздел 8). Модули 3–7 подключаются только для запрошенных групп.
-
-| Модуль | Где | Что делает |
-|---|---|---|
-| InputResolver | `src/NetScope/Input` | Файлы, маски (в т. ч. `**`), каталоги и списки → упорядоченный список без дубликатов |
-| AssemblyLoader | `src/NetScope/Loading` | Memory-mapped чтение только на чтение; проверка PE и CLR-заголовка; распознавание R2R, C++/CLI, NativeAOT; поиск зависимостей: группа → рядом с файлом → `--ref-path` → установленный framework |
-| MethodCatalog | `src/NetScope/Catalog` | Обход типов и методов в порядке метаданных, классификация по таблице 4.2, `--filter`/`--type` |
-| CallAnalyzer | `src/NetScope/Calls` | `call`, `callvirt`, `newobj`, `calli`, `ldftn`, `ldvirtftn`; обратный индекс и граф вызовов по всей группе |
-| CfgBuilder | `src/NetScope/Cfg` | Блоки, рёбра с условиями (символьное вычисление стека, например `user != null`), циклы по обратным рёбрам, дерево областей исключений, сложность E − N + 2 |
-| PseudoGenerator | `src/NetScope/Pseudo` | ICSharpCode.Decompiler с лимитом времени; запасной трёхадресный псевдокод |
-| AsmProvider | `src/NetScope/Asm`, `src/NetScope/Native` | IL-листинг; разбор ReadyToRun-образа без запуска; Iced (x86/x64), Disarm (ARM64); JIT через `DOTNET_JitDisasm` в процессе-помощнике |
-| Reporter | `src/NetScope/Reporting` | text, json, dot, mermaid |
-
-Чтение метаданных идёт через `System.Reflection.Metadata` — тот же слой, что использует декомпилятор, поэтому образ открывается один раз.
-
-## Нативный код
-
-| Случай | Что выводится |
+| Case | Output |
 |---|---|
-| ReadyToRun, обычный метод | Основное тело и funclet-ы обработчиков `catch`/`filter`/`finally`/`fault`: записи RUNTIME_FUNCTION после точки входа до следующей точки входа |
-| ReadyToRun, generic-метод или метод generic-типа | Все скомпилированные в образ инстанциации из `InstanceMethodEntryPoints`, например `List<int>::Add`, `Generic<__Canon>::Map<__Canon>` (`__Canon` — разделяемый код для ссылочных типов) |
-| C++/CLI, нативный метод | Машинный код из образа. Размер берётся из таблицы исключений (`.pdata`); для листовых функций и переходников импорта (x86/x64) он оценивается линейным проходом до `ret`/`jmp`, это помечается в выводе |
-| IL-метод без R2R | С `--allow-run` — код после JIT, иначе причина недоступности |
+| ReadyToRun, ordinary method | Main body plus the funclets of its `catch`/`filter`/`finally`/`fault` handlers, that is, the RUNTIME_FUNCTION entries from the entry point up to the next entry point |
+| ReadyToRun, generic method or method of a generic type | Every instantiation precompiled into the image (`InstanceMethodEntryPoints`), e.g. `List<int>::Add` or `Generic<__Canon>::Map<__Canon>`. `__Canon` is the shared code used for reference types |
+| C++/CLI native method | Machine code from the image. The size comes from the exception directory (`.pdata`). For leaf functions and import thunks on x86/x64, the size is estimated by a linear sweep to `ret`/`jmp`, and the output says so |
+| IL method without ReadyToRun code | JIT output with `--allow-run`; otherwise the reason it is unavailable |
 
-В text-выводе части разделяются заголовками `; funclet 1 (адрес, размер)`; в JSON у строк есть поле `part`, а в `nativeInfo.parts` — список частей с адресами и размерами.
+In text output the parts are separated by headers such as `; funclet 1 (address, size)`. In JSON each line has a `part` field, and `nativeInfo.parts` lists the parts with their addresses and sizes.
 
-C++/CLI проверен на сборках .NET Framework из Windows: `System.EnterpriseServices.Wrapper.dll` и `System.Data.dll`. Управляемая часть анализируется полностью; все 73 нативных метода дизассемблированы; IJW-импорты (без DLL в метаданных) показаны как переходники `jmp [IAT]`.
+C++/CLI support was checked against .NET Framework images that ship with Windows: `System.EnterpriseServices.Wrapper.dll` and `System.Data.dll`. Their managed parts are fully analyzed, and all 73 native methods are disassembled. IJW imports, which have no DLL in metadata, show up as `jmp [IAT]` thunks.
 
-## Безопасность
+## Design
 
-- Без `--allow-run` сборки читаются только как файлы: ни загрузки в процесс, ни запуска. Это проверяет тест `AnalyzedCodeIsNeverExecutedWithoutAllowRun`: инициализатор модуля тестовой сборки оставляет файл-маркер, если его код выполнился.
-- С `--allow-run` утилита запускает саму себя в отдельном процессе (`__jit-helper`): он загружает сборку и JIT-компилирует выбранные методы через `RuntimeHelpers.PrepareMethod`, а при превышении `--run-timeout` завершается вместе с дочерними процессами. Загрузка сборки может выполнить её инициализаторы — запускайте этот режим в ВМ или контейнере.
-- Утилита не обращается к сети.
+Analysis runs as a pipeline. The analysis stages (catalog through native code) run only for the groups you request, and each stage sits behind an interface.
 
-## Ограничения версии 1.0
+| Stage | Location | Responsibility |
+|---|---|---|
+| InputResolver | `src/NetScope/Input` | Turns files, masks (including `**`), directories and list files into an ordered list without duplicates |
+| AssemblyLoader | `src/NetScope/Loading` | Opens files read-only through memory mapping, checks the PE and CLR headers, detects R2R, C++/CLI and NativeAOT images, and resolves dependencies: other input files, then the file's directory, then `--ref-path`, then the installed framework |
+| MethodCatalog | `src/NetScope/Catalog` | Walks types and methods in metadata order, classifies methods, applies `--filter` and `--type` |
+| CallAnalyzer | `src/NetScope/Calls` | Finds `call`, `callvirt`, `newobj`, `calli`, `ldftn` and `ldvirtftn`, and builds the reverse index and call graph across the group |
+| CfgBuilder | `src/NetScope/Cfg` | Builds blocks and edges with conditions recovered by symbolic stack evaluation (e.g. `user != null`), finds loops from back edges, builds the exception region tree, computes complexity as E − N + 2 |
+| PseudoGenerator | `src/NetScope/Pseudo` | Runs ICSharpCode.Decompiler with a time limit, with a three-address fallback |
+| AsmProvider | `src/NetScope/Asm`, `src/NetScope/Native` | Produces the IL listing; reads ReadyToRun images and `.pdata` without running anything; disassembles with Iced (x86/x64) and Disarm (ARM64); gets JIT code through `DOTNET_JitDisasm` in a helper process |
+| Reporter | `src/NetScope/Reporting` | Writes text, JSON, DOT and Mermaid |
 
-- **ReadyToRun:** composite-образы не поддерживаются, выводится причина. Не показываются cold-части методов, разделённых на hot/cold (это бывает только при сборке с профилем). Не показываются и инстанциации generic-методов этой сборки, скомпилированные в другие сборки version bubble. Для методов без R2R-кода можно добавить `--allow-run`.
-- **JIT:** код получается для архитектуры текущей машины, уровень — FullOpts (tiered compilation в помощнике отключена). Открытые generic-методы компилируются в разделяемой инстанциации над `object`. Сборки .NET Framework компилируются рантаймом .NET 8+, поэтому часть из них может не загрузиться.
-- **ARM64-дизассемблер:** Disarm (MIT) доступен только как prerelease-пакет. Он проверен на R2R-образах linux-arm64 из официального пакета рантайма, но перед релизом стоит прогнать его на большем наборе файлов.
-- **NativeAOT:** распознаётся, но не анализируется. Обфусцированные сборки выводятся как есть, деобфускации нет.
-- **Отсутствующие зависимости:** при запуске на машине без .NET framework-сборки не находятся. Типы выводятся по именам из метаданных, псевдокод может быть упрощён. Укажите `--ref-path`.
+Metadata is read with `System.Reflection.Metadata`, the same layer the decompiler uses, so each image is mapped only once.
 
-## Тесты
+## Safety
 
-`tests/NetScope.Samples` — тестовая сборка: классы, свойства, события, операторы, финализатор, async, итератор, generic, лямбды, локальные функции, P/Invoke, циклы, `switch`, вложенные `try/catch/finally` и `catch when`. Тесты (`tests/NetScope.Tests`):
+- Without `--allow-run`, assemblies are only read as files. They are never loaded into a process or executed. The test `AnalyzedCodeIsNeverExecutedWithoutAllowRun` checks this: the sample assembly has a module initializer that leaves a marker file if its code ever runs.
+- With `--allow-run`, NetScope starts itself as a separate process (`__jit-helper`). That process loads the assembly and JIT-compiles the selected methods through `RuntimeHelpers.PrepareMethod`. If it exceeds `--run-timeout`, NetScope kills it together with its child processes. Loading an assembly can run its initializers, so use this mode in a VM or container.
+- NetScope makes no network requests.
 
-- типы методов;
-- IL-листинг сверяется с независимым ildasm-подобным дизассемблером ILSpy по каждой инструкции и смещению;
-- CFG: циклы, `switch`, вложенные области;
-- доля декомпилированных методов — не меньше 95 %;
-- коды возврата и чистота stdout;
-- JSON, dot и mermaid;
-- детерминированность вывода при разном числе потоков;
-- R2R-код CoreLib и R2R-копии тестовой сборки (её публикует сборка тестов): funclet-ы и generic-инстанциации;
-- C++/CLI-сборка из .NET Framework (только Windows);
-- запрет выполнения кода без `--allow-run`;
-- эталонный вывод в `tests/NetScope.Tests/Golden`.
+## Limitations
 
-После намеренного изменения формата эталоны пересоздаются так (diff затем нужно просмотреть):
+- **ReadyToRun:** composite images are not supported, and NetScope reports the reason. Two things are not shown: the cold parts of hot/cold-split methods (these appear only in profile-guided builds), and instantiations of this assembly's generic methods that were compiled into other assemblies of the version bubble. For methods without R2R code, add `--allow-run`.
+- **JIT:** code is produced for the current machine's architecture at FullOpts, because the helper disables tiered compilation. Open generic methods are compiled as their shared instantiation over `object`. .NET Framework assemblies are compiled by the .NET 8+ runtime, so some of them may fail to load.
+- **ARM64 disassembler:** Disarm (MIT) is only available as a prerelease package. It has been checked against linux-arm64 R2R images from the official runtime package.
+- **NativeAOT** images are detected but not analyzed. Obfuscated assemblies are shown as they are; there is no deobfuscation.
+- **Missing dependencies:** on a machine without .NET installed, framework assemblies cannot be found. Types are then shown by their metadata names, and pseudocode may be simplified. Pass `--ref-path` to fix this.
+
+## Tests
+
+`tests/NetScope.Samples` is a sample assembly with classes, properties, events, operators, a finalizer, async methods, an iterator, generics, lambdas, local functions, P/Invoke, loops, `switch`, nested `try/catch/finally` and `catch when`. The tests in `tests/NetScope.Tests` cover:
+
+- method kinds;
+- the IL listing, compared instruction by instruction and offset by offset with ILSpy's independent ildasm-style disassembler;
+- the CFG: loops, `switch`, nested regions;
+- the decompiler, which must handle at least 95% of methods;
+- exit codes and clean stdout;
+- JSON, DOT and Mermaid output;
+- deterministic output with different thread counts;
+- ReadyToRun code in CoreLib and in an R2R copy of the sample assembly that the test build publishes: funclets and generic instantiations;
+- a C++/CLI image from .NET Framework (Windows only);
+- that no analyzed code runs without `--allow-run`;
+- reference output in `tests/NetScope.Tests/Golden`.
+
+After an intended change to the output format, regenerate the reference files and review the diff:
 
 ```
 NETSCOPE_UPDATE_GOLDEN=1 dotnet test NetScope.sln
 ```
 
-Набор из 20 эталонных сборок из критериев приёмки пока не собран: сейчас есть одна тестовая сборка, а R2R проверяется на CoreLib. CI (`.github/workflows/ci.yml`) гоняет тесты на Windows и Linux и публикует single-file для win-x64, linux-x64, win-arm64 и linux-arm64.
+CI (`.github/workflows/ci.yml`) runs the tests on Windows and Linux and publishes single-file binaries for win-x64, linux-x64, win-arm64 and linux-arm64.
+
+## License
+
+The project depends on ICSharpCode.Decompiler, Iced, Disarm and System.CommandLine, all MIT-licensed. The repository does not include a license file yet.

@@ -6,6 +6,8 @@
     <AssemblyName>netscope</AssemblyName>
     <RootNamespace>NetScope</RootNamespace>
     <Version>1.0.0</Version>
+    <!-- The version option prints "1.0.0", not "1.0.0+commit-hash". -->
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <Product>NetScope</Product>
     <Description>Console static analyzer for .NET assemblies</Description>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

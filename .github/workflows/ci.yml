@@ -12,8 +12,8 @@ jobs:
         os: [windows-latest, ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
         with:
           global-json-file: global.json
           dotnet-version: 8.0.x
@@ -23,6 +23,7 @@ jobs:
   publish:
     needs: test
     strategy:
+      fail-fast: false
       matrix:
         include:
           - os: windows-latest
@@ -35,8 +36,8 @@ jobs:
             rid: linux-arm64
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
         with:
           global-json-file: global.json
       - name: Publish single-file
@@ -48,8 +49,16 @@ jobs:
           exe=artifacts/${{ matrix.rid }}/netscope
           [ -f "$exe.exe" ] && exe="$exe.exe"
           "$exe" --version
-          "$exe" "$exe" --quiet || [ $? -eq 3 ]   # a native single-file host is not a managed assembly
-      - uses: actions/upload-artifact@v4
+          # A real framework assembly (ReadyToRun): methods, IL and native code must work.
+          linq=$(ls "$DOTNET_ROOT"/shared/Microsoft.NETCore.App/*/System.Linq.dll | head -n 1)
+          "$exe" "$linq" --filter "System.Linq.Enumerable::Range" --il --native --no-color
+          # A file that is not a PE image: exit code 3 (nothing could be opened).
+          set +e
+          "$exe" README.md --quiet
+          code=$?
+          set -e
+          [ "$code" -eq 3 ]
+      - uses: actions/upload-artifact@v5
         with:
           name: netscope-${{ matrix.rid }}
           path: artifacts/${{ matrix.rid }}
