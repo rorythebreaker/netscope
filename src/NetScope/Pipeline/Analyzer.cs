@@ -1,4 +1,4 @@
-﻿using NetScope.Asm;
+using NetScope.Asm;
 using NetScope.Calls;
 using NetScope.Catalog;
 using NetScope.Cfg;
@@ -51,6 +51,7 @@ public sealed class Analyzer
         var filter = new MethodFilter(o.Filters, o.Types);
         var parallel = new ParallelOptions { MaxDegreeOfParallelism = Math.Max(1, o.Threads) };
 
+        var abandoned = new AbandonedDecompilations(o.MaxAbandoned);
         var paths = _inputs.Resolve(o.Inputs, o.Recursive);
         if (paths.Count == 0)
         {
@@ -128,7 +129,7 @@ public sealed class Analyzer
                 var rendered = units
                     .Select((u, i) => (Unit: u, Index: i))
                     .AsParallel().AsOrdered().WithDegreeOfParallelism(parallel.MaxDegreeOfParallelism)
-                    .Select(x => (x.Unit, Text: RenderUnit(x.Unit, o, index, references, sink.FirstFlag(x.Index), sink.Reporter)));
+                    .Select(x => (x.Unit, Text: RenderUnit(x.Unit, o, index, references, abandoned, sink.FirstFlag(x.Index), sink.Reporter)));
                 foreach (var (u, text) in rendered)
                 {
                     sink.WriteAssembly(u.Asm, text);
@@ -162,13 +163,13 @@ public sealed class Analyzer
         };
     }
 
-    private string RenderUnit(Unit u, AnalysisOptions o, CallIndex? index, ReferenceResolver references, bool first, IReporter reporter)
+    private string RenderUnit(Unit u, AnalysisOptions o, CallIndex? index, ReferenceResolver references, AbandonedDecompilations abandoned, bool first, IReporter reporter)
     {
         var groups = o.Groups;
         var report = new AssemblyReport { Assembly = u.Asm };
         if (u.Error != null) report.Errors.Add(u.Error);
         var file = u.Asm.FileName;
-        var pseudo = groups.Pseudo ? new PseudoGenerator(u.Asm, references.For(u.Asm), u.Members, o.Raw, o.DecompileTimeout) : null;
+        var pseudo = groups.Pseudo ? new PseudoGenerator(u.Asm, references.For(u.Asm), u.Members, o.Raw, o.DecompileTimeout, abandoned) : null;
         var asmProvider = new AsmProvider(u.Members, o.AllowRun, o.RefPaths, o.RunTimeout);
         bool graphs = o.Format is "dot" or "mermaid";
         bool needCfg = groups.Cfg || (graphs && !groups.CallGraph);

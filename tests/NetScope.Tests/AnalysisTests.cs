@@ -20,6 +20,44 @@ public class AnalysisTests
         return (asm, resolver, il);
     }
 
+    /// <summary>2.2: a decompiler that ignores cancellation is abandoned at most --max-abandoned times.</summary>
+    [Fact]
+    public void AbandonedDecompilationsStayWithinTheLimit()
+    {
+        var (asm, resolver, methods) = TestEnv.LoadSamples();
+        using (asm)
+        using (var release = new ManualResetEventSlim(false))
+        {
+            int running = 0, peak = 0, started = 0;
+            string Slow(Catalog.MethodModel m, CancellationToken token)
+            {
+                Interlocked.Increment(ref started);
+                int now = Interlocked.Increment(ref running);
+                int seen;
+                while (now > (seen = Volatile.Read(ref peak)) && Interlocked.CompareExchange(ref peak, now, seen) != seen) { }
+                release.Wait(CancellationToken.None); // never checks the token
+                Interlocked.Decrement(ref running);
+                return "";
+            }
+
+            var abandoned = new AbandonedDecompilations(4);
+            var generator = new PseudoGenerator(resolver, TimeSpan.FromMilliseconds(20), abandoned, Slow, TimeSpan.FromMilliseconds(20));
+            var bodies = methods.Where(m => m.HasBody).Take(12).ToList();
+            var results = bodies.Select(m => generator.Generate(m, MethodIL.Load(m, resolver, out _, out _), null)).ToList();
+
+            Assert.All(results, r => Assert.Equal("fallback", r.Source));
+            Assert.Equal(4, started);
+            Assert.Equal(4, abandoned.Count);
+            Assert.True(peak <= 4, $"peak of {peak} concurrent decompilations");
+            Assert.All(results.Skip(4), r => Assert.Contains("--max-abandoned 4", r.Reason));
+            Assert.All(results.Skip(4), r => Assert.NotEqual("", r.Text));
+
+            release.Set();
+            SpinWait.SpinUntil(() => abandoned.Alive == 0, TimeSpan.FromSeconds(10));
+            Assert.Equal(0, abandoned.Alive);
+        }
+    }
+
     /// <summary>Offsets and opcodes must match an independent ildasm-style disassembler (ILSpy) for every method.</summary>
     [Fact]
     public void ILListingMatchesReferenceDisassembler()
@@ -192,7 +230,7 @@ public class AnalysisTests
         using (asm)
         using (var refs = new Loading.ReferenceResolver(new[] { asm }, Array.Empty<string>()))
         {
-            var gen = new PseudoGenerator(asm, refs.For(asm), resolver, raw: false, TimeSpan.FromSeconds(20));
+            var gen = new PseudoGenerator(asm, refs.For(asm), resolver, raw: false, TimeSpan.FromSeconds(20), new AbandonedDecompilations(4));
             int ok = 0;
             foreach (var m in methods)
             {
@@ -211,8 +249,8 @@ public class AnalysisTests
         using (var refs = new Loading.ReferenceResolver(new[] { asm }, Array.Empty<string>()))
         {
             var m = methods.First(x => x.FullName == "MyApp.Flow.Features::ComputeAsync");
-            var restored = new PseudoGenerator(asm, refs.For(asm), resolver, false, TimeSpan.FromSeconds(20)).Generate(m, null, null).Text;
-            var raw = new PseudoGenerator(asm, refs.For(asm), resolver, true, TimeSpan.FromSeconds(20)).Generate(m, null, null).Text;
+            var restored = new PseudoGenerator(asm, refs.For(asm), resolver, false, TimeSpan.FromSeconds(20), new AbandonedDecompilations(4)).Generate(m, null, null).Text;
+            var raw = new PseudoGenerator(asm, refs.For(asm), resolver, true, TimeSpan.FromSeconds(20), new AbandonedDecompilations(4)).Generate(m, null, null).Text;
             Assert.Contains("await", restored);
             Assert.DoesNotContain("await", raw);
             Assert.Contains("Start", raw);

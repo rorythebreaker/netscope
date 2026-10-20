@@ -84,13 +84,14 @@ public static class Program
         private readonly Option<bool> _verbose = new("--verbose", "-v") { Description = "Progress messages in stderr" };
         private readonly Option<int> _threads = new("--threads") { Description = "Number of files processed in parallel", DefaultValueFactory = _ => Environment.ProcessorCount };
         private readonly Option<int> _decompileTimeout = new("--decompile-timeout") { Description = "Time limit for decompiling one method, seconds", DefaultValueFactory = _ => 20 };
+        private readonly Option<int> _maxAbandoned = new("--max-abandoned") { Description = "After this many decompilations exceed the time limit, the remaining methods get simplified pseudocode", DefaultValueFactory = _ => 4 };
         private readonly Option<int> _runTimeout = new("--run-timeout") { Description = "Time limit for the --allow-run helper process, seconds", DefaultValueFactory = _ => 30 };
 
         public Cli()
         {
             _format.AcceptOnlyFromAmong("text", "json", "dot", "mermaid");
             Root.Arguments.Add(_files);
-            foreach (var o in new Option[] { _dir, _recursive, _inputList, _refPath, _methods, _calls, _callgraph, _cfg, _pseudo, _il, _native, _allowRun, _all, _filter, _type, _format, _out, _raw, _noColor, _quiet, _verbose, _threads, _decompileTimeout, _runTimeout })
+            foreach (var o in new Option[] { _dir, _recursive, _inputList, _refPath, _methods, _calls, _callgraph, _cfg, _pseudo, _il, _native, _allowRun, _all, _filter, _type, _format, _out, _raw, _noColor, _quiet, _verbose, _threads, _decompileTimeout, _maxAbandoned, _runTimeout })
                 Root.Options.Add(o);
         }
 
@@ -118,9 +119,10 @@ public static class Program
             int threads = p.GetValue(_threads);
             int decompileTimeout = p.GetValue(_decompileTimeout);
             int runTimeout = p.GetValue(_runTimeout);
-            if (threads < 1 || decompileTimeout < 1 || runTimeout < 1)
+            int maxAbandoned = p.GetValue(_maxAbandoned);
+            if (threads < 1 || decompileTimeout < 1 || runTimeout < 1 || maxAbandoned < 0)
             {
-                Console.Error.WriteLine("netscope: error: --threads and timeouts must be positive numbers");
+                Console.Error.WriteLine("netscope: error: --threads and timeouts must be positive numbers, --max-abandoned must not be negative");
                 return Analyzer.ExitBadArguments;
             }
 
@@ -162,6 +164,7 @@ public static class Program
                 Color = color,
                 Threads = threads,
                 DecompileTimeout = TimeSpan.FromSeconds(decompileTimeout),
+                MaxAbandoned = maxAbandoned,
                 RunTimeout = TimeSpan.FromSeconds(runTimeout),
             };
             if (options.Groups.Native && !options.AllowRun)
@@ -174,7 +177,7 @@ public static class Program
         {
             var valueOptions = new HashSet<string>(StringComparer.Ordinal)
             {
-                "--dir", "--input-list", "--ref-path", "--filter", "--type", "--format", "--out", "--threads", "--decompile-timeout", "--run-timeout",
+                "--dir", "--input-list", "--ref-path", "--filter", "--type", "--format", "--out", "--threads", "--decompile-timeout", "--max-abandoned", "--run-timeout",
             };
             var items = new List<InputItem>();
             var pendingFiles = new Queue<string>(files);

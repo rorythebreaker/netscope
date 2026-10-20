@@ -18,5 +18,7 @@ public sealed class AnalysisOptions
     public bool Color { get; init; }
     public int Threads { get; init; } = Environment.ProcessorCount;
     public TimeSpan DecompileTimeout { get; init; } = TimeSpan.FromSeconds(20);
+    /// <summary>After this many decompilations time out, the remaining methods get the simplified pseudocode.</summary>
+    public int MaxAbandoned { get; init; } = 4;
     public TimeSpan RunTimeout { get; init; } = TimeSpan.FromSeconds(30);
 }
