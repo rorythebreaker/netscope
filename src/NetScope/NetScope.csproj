@@ -5,7 +5,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>netscope</AssemblyName>
     <RootNamespace>NetScope</RootNamespace>
-    <Version>1.0.0</Version>
+    <!-- CI sets the version from the tag (v1.1.0 -> 1.1.0). -->
+    <Version>1.1.0</Version>
     <!-- The version option prints "1.0.0", not "1.0.0+commit-hash". -->
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <Product>NetScope</Product>
@@ -15,6 +16,24 @@
     <RollForward>Major</RollForward>
     <DebugType>embedded</DebugType>
   </PropertyGroup>
+
+  <!-- dotnet tool: dotnet pack -c Release, then dotnet tool install -g NetScope.Tool (framework-dependent, any OS). -->
+  <PropertyGroup>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>netscope</ToolCommandName>
+    <PackageId>NetScope.Tool</PackageId>
+    <Authors>rorythebreaker</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/rorythebreaker/netscope</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/rorythebreaker/netscope</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>dotnet;il;disassembler;decompiler;static-analysis;security;sarif;cli</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" Visible="false" />
+    <None Include="..\..\THIRD-PARTY-NOTICES.md" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
 
   <!-- Release distribution: dotnet publish -c Release -r win-x64 (or linux-x64, win-arm64, linux-arm64). -->
   <PropertyGroup Condition="'$(RuntimeIdentifier)' != ''">

@@ -91,13 +91,39 @@ jobs:
           name: netscope-${{ matrix.rid }}
           path: artifacts/${{ matrix.rid }}
 
-  # On a version tag: package the binaries built above and publish a GitHub release.
+  # dotnet tool (TZ 5.2): packed on every run and installed from the package as a smoke test.
+  pack:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+          dotnet-version: 8.0.x
+      - name: Pack NetScope.Tool
+        shell: bash
+        run: |
+          version=1.1.0-ci.${GITHUB_RUN_NUMBER}
+          if [[ $GITHUB_REF == refs/tags/v* ]]; then version=${GITHUB_REF_NAME#v}; fi
+          dotnet pack src/NetScope -c Release -p:Version="$version" -o nupkg
+          dotnet tool install NetScope.Tool --tool-path tool --add-source nupkg --version "$version"
+          [ "$(tool/netscope --version)" = "$version" ]
+          tool/netscope tests/Fixtures/Obfuscated/confuserex-normal.exe --detect-obfuscation --no-color | grep "Obfuscated: yes"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: nupkg
+          path: nupkg
+
+  # On a version tag: package the binaries built above, attest them and publish a GitHub release.
   release:
     if: startsWith(github.ref, 'refs/tags/v')
-    needs: publish
+    needs: [publish, pack]
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      id-token: write       # build provenance attestation
+      attestations: write
     steps:
       - uses: actions/checkout@v5
       - uses: actions/download-artifact@v8
@@ -117,8 +143,17 @@ jobs:
               (cd "$d" && zip -q -r "../$name.zip" .)
             fi
           done
-          sha256sum *.zip *.tar.gz > SHA256SUMS.txt
+          mv nupkg/*.nupkg .
+          sha256sum *.zip *.tar.gz *.nupkg > SHA256SUMS.txt
           cat SHA256SUMS.txt
+      # Lets anyone check that a binary was built by this workflow from this commit:
+      # gh attestation verify <file> -R rorythebreaker/netscope
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: |
+            dist/*.zip
+            dist/*.tar.gz
+            dist/*.nupkg
       - name: Create release
         shell: bash
         env:
@@ -126,4 +161,61 @@ jobs:
         run: |
           notes=.github/release-notes/$GITHUB_REF_NAME.md
           if [ -f "$notes" ]; then args=(--notes-file "$notes"); else args=(--generate-notes); fi
-          gh release create "$GITHUB_REF_NAME" dist/*.zip dist/*.tar.gz dist/SHA256SUMS.txt --title "NetScope $GITHUB_REF_NAME" --verify-tag "${args[@]}"
+          gh release create "$GITHUB_REF_NAME" dist/*.zip dist/*.tar.gz dist/*.nupkg dist/SHA256SUMS.txt --title "NetScope $GITHUB_REF_NAME" --verify-tag "${args[@]}"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-files
+          path: |
+            dist/*.nupkg
+            dist/SHA256SUMS.txt
+
+  # NuGet: only when the repository has the NUGET_API_KEY secret.
+  nuget:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 8.0.x
+      - uses: actions/download-artifact@v8
+        with:
+          name: release-files
+          path: release
+      - name: Push NetScope.Tool
+        shell: bash
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          if [ -z "$NUGET_API_KEY" ]; then echo "NUGET_API_KEY is not set: the package is not published"; exit 0; fi
+          dotnet nuget push release/*.nupkg --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+  # Scoop: updates bucket/netscope.json in rorythebreaker/scoop-bucket when SCOOP_BUCKET_TOKEN is set
+  # (a fine-grained token with "Contents: read and write" on that repository).
+  scoop:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v8
+        with:
+          name: release-files
+          path: release
+      - name: Update the manifest
+        shell: bash
+        env:
+          SCOOP_BUCKET_TOKEN: ${{ secrets.SCOOP_BUCKET_TOKEN }}
+        run: |
+          if [ -z "$SCOOP_BUCKET_TOKEN" ]; then echo "SCOOP_BUCKET_TOKEN is not set: the Scoop manifest is not updated"; exit 0; fi
+          version=${GITHUB_REF_NAME#v}
+          git clone --depth 1 "https://x-access-token:${SCOOP_BUCKET_TOKEN}@github.com/rorythebreaker/scoop-bucket.git" bucket
+          mkdir -p bucket/bucket
+          packaging/scoop/make-manifest.sh "$version" release/SHA256SUMS.txt > bucket/bucket/netscope.json
+          cd bucket
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bucket/netscope.json
+          if git diff --cached --quiet; then echo "manifest unchanged"; exit 0; fi
+          git commit -m "netscope $version"
+          git push

@@ -3,14 +3,22 @@
 A command-line static analyzer for .NET assemblies. For each method it shows the method kind, the calls it makes, its control flow graph, C# pseudocode, the IL and the native code. NetScope does not run code from the assemblies it analyzes unless you pass `--allow-run`.
 
 - Input: managed `.dll`/`.exe` files from .NET Framework 2.0–4.8, .NET Core 3.1, .NET 5–10 and .NET Standard. NetScope also reads ReadyToRun images and the managed part of C++/CLI images.
-- Output: text, JSON, Graphviz DOT, Mermaid.
+- Output: text, JSON, SARIF, Graphviz DOT, Mermaid.
 - Platforms: Windows and Linux, x64 and ARM64. Ships as a single self-contained executable, so .NET does not need to be installed.
 
 ## Getting it
 
-Download a prebuilt single-file binary for `win-x64`, `linux-x64`, `win-arm64` or `linux-arm64` from the [Releases](https://github.com/rorythebreaker/netscope/releases) page. Builds of every commit are also attached to its CI run as artifacts.
+- **Single-file binary** for `win-x64`, `linux-x64`, `win-arm64` or `linux-arm64` from the [Releases](https://github.com/rorythebreaker/netscope/releases) page. It is self-contained, so .NET does not need to be installed. Builds of every commit are also attached to its CI run as artifacts.
+- **dotnet tool** (needs the .NET 8 runtime or later): `dotnet tool install -g NetScope.Tool`.
+- **Scoop** (Windows): `scoop bucket add rorythebreaker https://github.com/rorythebreaker/scoop-bucket`, then `scoop install netscope`.
 
-To publish a release, push a tag `vX.Y.Z`. CI builds the binaries from that commit, packages them with the license files and checksums, and creates the GitHub release. If `.github/release-notes/vX.Y.Z.md` exists, it becomes the release notes.
+Every release file is listed with its hash in `SHA256SUMS.txt` and has a GitHub build provenance attestation. To check that a binary was built by this repository's CI from the tagged commit:
+
+```
+gh attestation verify netscope-win-x64-v1.1.0.zip -R rorythebreaker/netscope
+```
+
+To publish a release, push a tag `vX.Y.Z`. CI builds the binaries and the `NetScope.Tool` package from that commit, attests them, and creates the GitHub release with the license files and checksums. If `.github/release-notes/vX.Y.Z.md` exists, it becomes the release notes. If the repository has the `NUGET_API_KEY` secret, the package is pushed to NuGet. If it has `SCOOP_BUCKET_TOKEN` (write access to `rorythebreaker/scoop-bucket`), the Scoop manifest is updated (`packaging/scoop/make-manifest.sh`).
 
 To build from source you need the .NET 10 SDK (the version is pinned in `global.json`). The tool itself targets .NET 8.
 
@@ -133,6 +141,23 @@ Results go to stdout or to the `--out` target. Warnings and errors go only to st
 ### JSON
 
 Every method has `assembly`, `namespace`, `type`, `name`, `signature`, `token`, `access`, `kinds[]`, `rva`, `size` and `errors[]`. Each requested group adds its own fields: `calls[]`, `callers[]`, `complexity`, `blocks[]`, `loops[]`, `regions[]`, `pseudocode`, `pseudocodeSource`, `pseudocodeError`, `il[]`, `ilInfo`, `native[]`, `nativeInfo`, `matches[]` (`--uses`, `--find-string`, `--field-refs`) and `fields[]`. With symbols, instructions and blocks have `source`. The assembly gets `symbols` (`embedded` or the PDB path) and, with `--strings`, `strings[]`. With `--audit`, methods have `findings[]` and the assembly has `audit` (counts by level and of suppressed findings); `--detect-obfuscation` adds `obfuscation` (`verdict`, `obfuscator`, `signs[]`, `hint`). Fields of groups you did not request are left out. The call graph is in the root field `callgraph`.
+
+## Comparing versions
+
+```
+netscope diff old/App.dll new/App.dll
+netscope diff old-bin/ new-bin/ --pseudo --audit --format json --out diff.json
+netscope diff old/App.dll new/App.dll --exit-code   # 0: no differences, 5: differences (like git diff)
+```
+
+You can compare two files, or two directories whose files are matched by assembly name. Methods are matched by full name and signature, not by metadata token, because tokens change between builds. Each method is `added`, `removed`, `changed` or unchanged. A method counts as `changed` when the hash of its IL differs. The hash is taken over the IL with tokens replaced by full names and branch targets replaced by instruction numbers, so rebuilding the same code shows no differences. For a changed method the output has:
+
+- the IL difference in unified diff format;
+- the calls that were added and removed;
+- the change in cyclomatic complexity and in the number of blocks;
+- with `--pseudo`, the pseudocode difference.
+
+A separate `[Metadata]` section lists changed types, fields, attributes, assembly references and P/Invoke targets. With `--audit`, only the findings that are new in the second version are shown. `--filter` and `--type` restrict the comparison to some methods. Output formats: `text` and `json`. To analyze a file that is literally named `diff`, write `./diff`.
 
 ## Security rules
 

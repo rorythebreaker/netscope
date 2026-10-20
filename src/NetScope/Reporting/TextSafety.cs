@@ -29,4 +29,34 @@ public static class TextSafety
     }
 
     private static bool IsControl(char c) => c != '\t' && (c < 0x20 || c == 0x7F || (c >= 0x80 && c <= 0x9F));
+
+    /// <summary>
+    /// For metadata names in text output: also escapes invisible and direction-changing characters
+    /// (Unicode format, private use, separators, unassigned), which obfuscators use and which can make
+    /// one name look like another in a terminal.
+    /// </summary>
+    public static string EscapeName(string name)
+    {
+        int i = 0;
+        while (i < name.Length && !IsHidden(name[i])) i++;
+        if (i == name.Length) return name;
+
+        var sb = new StringBuilder(name.Length * 2);
+        sb.Append(name, 0, i);
+        for (; i < name.Length; i++)
+        {
+            char c = name[i];
+            if (IsHidden(c)) sb.Append("\\u").Append(((int)c).ToString("X4", CultureInfo.InvariantCulture));
+            else sb.Append(c);
+        }
+        return sb.ToString();
+    }
+
+    private static bool IsHidden(char c)
+    {
+        if (c < 0x20 || c == 0x7F || (c >= 0x80 && c <= 0x9F)) return true;
+        if (c == ' ') return false;
+        return CharUnicodeInfo.GetUnicodeCategory(c) is UnicodeCategory.Format or UnicodeCategory.PrivateUse or UnicodeCategory.OtherNotAssigned
+            or UnicodeCategory.SpaceSeparator or UnicodeCategory.LineSeparator or UnicodeCategory.ParagraphSeparator or UnicodeCategory.Surrogate;
+    }
 }
