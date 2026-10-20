@@ -36,6 +36,18 @@ internal static class TestEnv
         }
     }
 
+    /// <summary>Assembly whose module initializer tries to start a shell and allocate 4 GB (sandbox tests).</summary>
+    public static string HostilePath
+    {
+        get
+        {
+            var config = AppContext.BaseDirectory.Contains($"{Path.DirectorySeparatorChar}Release{Path.DirectorySeparatorChar}") ? "Release" : "Debug";
+            var path = Path.Combine(RepoRoot, "tests", "NetScope.Samples.Hostile", "bin", config, "net8.0", "NetScope.Samples.Hostile.dll");
+            if (!File.Exists(path)) throw new FileNotFoundException("build tests/NetScope.Samples.Hostile first", path);
+            return path;
+        }
+    }
+
     public static string GoldenDir => Path.Combine(RepoRoot, "tests", "NetScope.Tests", "Golden");
 
     private static string FindRepoRoot()

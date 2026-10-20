@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Hostile</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <!-- Test input for the sandbox: its module initializer misbehaves on purpose (only ever run with the allow-run option). -->
+    <NoWarn>$(NoWarn);CA2255</NoWarn>
+  </PropertyGroup>
+
+</Project>

@@ -8,6 +8,7 @@ using NetScope.IL;
 using NetScope.Loading;
 using NetScope.Metadata;
 using NetScope.Native;
+using NetScope.Sandboxing;
 
 namespace NetScope.Asm;
 
@@ -38,9 +39,11 @@ public sealed class AsmProvider : IAsmProvider
     private readonly bool _allowRun;
     private readonly IReadOnlyList<string> _refPaths;
     private readonly TimeSpan _runTimeout;
+    private readonly SandboxOptions _sandbox;
 
-    public AsmProvider(MemberResolver resolver, bool allowRun, IReadOnlyList<string> refPaths, TimeSpan runTimeout)
+    public AsmProvider(MemberResolver resolver, bool allowRun, IReadOnlyList<string> refPaths, TimeSpan runTimeout, SandboxOptions? sandbox = null)
     {
+        _sandbox = sandbox ?? new SandboxOptions();
         _resolver = resolver;
         _allowRun = allowRun;
         _refPaths = refPaths;
@@ -232,7 +235,7 @@ public sealed class AsmProvider : IAsmProvider
         {
             try
             {
-                foreach (var (m, code) in JitRunner.Run(assembly.FilePath, needJit, _refPaths, _runTimeout)) result[m] = code;
+                foreach (var (m, code) in JitRunner.Run(assembly.FilePath, needJit, _refPaths, _runTimeout, _sandbox)) result[m] = code;
             }
             catch (Exception ex)
             {

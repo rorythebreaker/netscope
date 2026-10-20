@@ -7,6 +7,7 @@ using NetScope.Input;
 using NetScope.Native;
 using NetScope.Pipeline;
 using NetScope.Reporting;
+using NetScope.Sandboxing;
 
 namespace NetScope;
 
@@ -85,13 +86,14 @@ public static class Program
         private readonly Option<int> _threads = new("--threads") { Description = "Number of files processed in parallel", DefaultValueFactory = _ => Environment.ProcessorCount };
         private readonly Option<int> _decompileTimeout = new("--decompile-timeout") { Description = "Time limit for decompiling one method, seconds", DefaultValueFactory = _ => 20 };
         private readonly Option<int> _maxAbandoned = new("--max-abandoned") { Description = "After this many decompilations exceed the time limit, the remaining methods get simplified pseudocode", DefaultValueFactory = _ => 4 };
+        private readonly Option<string> _runMemory = new("--run-memory") { Description = "Memory limit of processes that run analyzed code, e.g. 512M, 2G (number without a suffix: megabytes)", DefaultValueFactory = _ => "1G" };
         private readonly Option<int> _runTimeout = new("--run-timeout") { Description = "Time limit for the --allow-run helper process, seconds", DefaultValueFactory = _ => 30 };
 
         public Cli()
         {
             _format.AcceptOnlyFromAmong("text", "json", "dot", "mermaid");
             Root.Arguments.Add(_files);
-            foreach (var o in new Option[] { _dir, _recursive, _inputList, _refPath, _methods, _calls, _callgraph, _cfg, _pseudo, _il, _native, _allowRun, _all, _filter, _type, _format, _out, _raw, _noColor, _quiet, _verbose, _threads, _decompileTimeout, _maxAbandoned, _runTimeout })
+            foreach (var o in new Option[] { _dir, _recursive, _inputList, _refPath, _methods, _calls, _callgraph, _cfg, _pseudo, _il, _native, _allowRun, _all, _filter, _type, _format, _out, _raw, _noColor, _quiet, _verbose, _threads, _decompileTimeout, _maxAbandoned, _runMemory, _runTimeout })
                 Root.Options.Add(o);
         }
 
@@ -133,6 +135,12 @@ public static class Program
             bool methods = all || p.GetValue(_methods) || !anyGroup;
             var groups = new OutputGroups(methods, calls, cfg, pseudo, il, native, callgraph);
 
+            if (!TryParseSize(p.GetValue(_runMemory) ?? "1G", out long runMemory))
+            {
+                Console.Error.WriteLine("netscope: error: --run-memory expects a size such as 512M or 2G");
+                return Analyzer.ExitBadArguments;
+            }
+
             var types = p.GetValue(_type) ?? Array.Empty<string>();
             try
             {
@@ -166,6 +174,7 @@ public static class Program
                 DecompileTimeout = TimeSpan.FromSeconds(decompileTimeout),
                 MaxAbandoned = maxAbandoned,
                 RunTimeout = TimeSpan.FromSeconds(runTimeout),
+                Sandbox = new SandboxOptions { MemoryLimitBytes = runMemory },
             };
             if (options.Groups.Native && !options.AllowRun)
                 Log.Info("--native without --allow-run: only ReadyToRun code is shown");
@@ -177,7 +186,7 @@ public static class Program
         {
             var valueOptions = new HashSet<string>(StringComparer.Ordinal)
             {
-                "--dir", "--input-list", "--ref-path", "--filter", "--type", "--format", "--out", "--threads", "--decompile-timeout", "--max-abandoned", "--run-timeout",
+                "--dir", "--input-list", "--ref-path", "--filter", "--type", "--format", "--out", "--threads", "--decompile-timeout", "--max-abandoned", "--run-memory", "--run-timeout",
             };
             var items = new List<InputItem>();
             var pendingFiles = new Queue<string>(files);
@@ -202,6 +211,24 @@ public static class Program
             foreach (var l in lists.Where(l => !items.Any(x => x.Kind == InputKind.List && x.Value == l))) items.Add(new InputItem(InputKind.List, l));
             return items;
         }
+    }
+
+    /// <summary>"1G", "512M", "64K", "1024" (megabytes); 0 disables the limit.</summary>
+    internal static bool TryParseSize(string text, out long bytes)
+    {
+        bytes = 0;
+        text = text.Trim();
+        if (text.Length == 0) return false;
+        long unit = 1L << 20;
+        char last = char.ToUpperInvariant(text[^1]);
+        if (last is 'K' or 'M' or 'G')
+        {
+            unit = last switch { 'K' => 1L << 10, 'M' => 1L << 20, _ => 1L << 30 };
+            text = text[..^1];
+        }
+        if (!long.TryParse(text, System.Globalization.NumberStyles.None, System.Globalization.CultureInfo.InvariantCulture, out long n) || n > long.MaxValue / unit) return false;
+        bytes = n * unit;
+        return true;
     }
 
     /// <summary>Enables ANSI escape sequences on the Windows console; returns false if colors cannot be shown.</summary>

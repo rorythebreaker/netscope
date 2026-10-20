@@ -170,7 +170,7 @@ public sealed class Analyzer
         if (u.Error != null) report.Errors.Add(u.Error);
         var file = u.Asm.FileName;
         var pseudo = groups.Pseudo ? new PseudoGenerator(u.Asm, references.For(u.Asm), u.Members, o.Raw, o.DecompileTimeout, abandoned) : null;
-        var asmProvider = new AsmProvider(u.Members, o.AllowRun, o.RefPaths, o.RunTimeout);
+        var asmProvider = new AsmProvider(u.Members, o.AllowRun, o.RefPaths, o.RunTimeout, o.Sandbox);
         bool graphs = o.Format is "dot" or "mermaid";
         bool needCfg = groups.Cfg || (graphs && !groups.CallGraph);
 

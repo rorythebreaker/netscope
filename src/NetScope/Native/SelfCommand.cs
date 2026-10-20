@@ -1,5 +1,3 @@
-using System.Reflection;
-
 namespace NetScope.Native;
 
 /// <summary>
@@ -15,8 +13,8 @@ public sealed record SelfCommand(string FileName, IReadOnlyList<string> PrefixAr
         if (entry.Equals("netscope", StringComparison.OrdinalIgnoreCase)) return new SelfCommand(exe, Array.Empty<string>());
 
         // Framework-dependent: the current process is the dotnet host or a test host.
-        var dll = typeof(SelfCommand).Assembly.Location;
-        if (string.IsNullOrEmpty(dll)) dll = Path.Combine(AppContext.BaseDirectory, (Assembly.GetEntryAssembly()?.GetName().Name ?? "netscope") + ".dll");
+        // netscope.dll sits in the application directory (also when copied next to a test host).
+        var dll = Path.Combine(AppContext.BaseDirectory, (typeof(SelfCommand).Assembly.GetName().Name ?? "netscope") + ".dll");
         if (!File.Exists(dll)) throw new InvalidOperationException("cannot locate " + dll);
         return new SelfCommand(FindDotnetHost(exe), new[] { dll });
     }
@@ -29,9 +27,9 @@ public sealed record SelfCommand(string FileName, IReadOnlyList<string> PrefixAr
         var fromCli = Environment.GetEnvironmentVariable("DOTNET_HOST_PATH");
         if (!string.IsNullOrEmpty(fromCli) && File.Exists(fromCli)) return fromCli;
         // <root>/shared/Microsoft.NETCore.App/<version>/ -> <root>/dotnet
-        var runtimeDir = Path.GetDirectoryName(typeof(object).Assembly.Location);
-        var root = runtimeDir == null ? null : Path.GetFullPath(Path.Combine(runtimeDir, "..", "..", ".."));
-        if (root != null && File.Exists(Path.Combine(root, hostName))) return Path.Combine(root, hostName);
+        var runtimeDir = System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory();
+        var root = Path.GetFullPath(Path.Combine(runtimeDir, "..", "..", ".."));
+        if (File.Exists(Path.Combine(root, hostName))) return Path.Combine(root, hostName);
         var dotnetRoot = Environment.GetEnvironmentVariable("DOTNET_ROOT");
         if (!string.IsNullOrEmpty(dotnetRoot) && File.Exists(Path.Combine(dotnetRoot, hostName))) return Path.Combine(dotnetRoot, hostName);
         return hostName; // resolved through PATH

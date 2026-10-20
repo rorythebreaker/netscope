@@ -19,6 +19,7 @@
     <ProjectReference Include="..\..\src\NetScope\NetScope.csproj" />
     <!-- Built first, but never loaded into the test process: it is analyzed as a file. -->
     <ProjectReference Include="..\NetScope.Samples\NetScope.Samples.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\NetScope.Samples.Hostile\NetScope.Samples.Hostile.csproj" ReferenceOutputAssembly="false" />
   </ItemGroup>
 
   <ItemGroup>

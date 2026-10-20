@@ -1,4 +1,4 @@
-﻿name: ci
+name: ci
 
 on:
   push:
@@ -11,7 +11,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, ubuntu-latest]
+        # x64 and native ARM64 runners: the ARM64 builds are tested on ARM64 hardware.
+        os: [windows-latest, ubuntu-latest, windows-11-arm, ubuntu-24.04-arm]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v5
@@ -32,9 +33,9 @@ jobs:
             rid: win-x64
           - os: ubuntu-latest
             rid: linux-x64
-          - os: windows-latest
+          - os: windows-11-arm
             rid: win-arm64
-          - os: ubuntu-latest
+          - os: ubuntu-24.04-arm
             rid: linux-arm64
     runs-on: ${{ matrix.os }}
     steps:
@@ -45,7 +46,6 @@ jobs:
       - name: Publish single-file
         run: dotnet publish src/NetScope -c Release -r ${{ matrix.rid }} -o artifacts/${{ matrix.rid }}
       - name: Smoke test
-        if: matrix.rid == 'win-x64' || matrix.rid == 'linux-x64'
         shell: bash
         run: |
           exe=artifacts/${{ matrix.rid }}/netscope

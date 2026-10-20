@@ -1,5 +1,6 @@
 using NetScope.Input;
 using NetScope.Reporting;
+using NetScope.Sandboxing;
 
 namespace NetScope.Pipeline;
 
@@ -21,4 +22,6 @@ public sealed class AnalysisOptions
     /// <summary>After this many decompilations time out, the remaining methods get the simplified pseudocode.</summary>
     public int MaxAbandoned { get; init; } = 4;
     public TimeSpan RunTimeout { get; init; } = TimeSpan.FromSeconds(30);
+    /// <summary>Restrictions for processes that run analyzed code (--allow-run).</summary>
+    public SandboxOptions Sandbox { get; init; } = new();
 }

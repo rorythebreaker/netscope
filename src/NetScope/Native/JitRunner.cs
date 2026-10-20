@@ -5,25 +5,27 @@ using System.Runtime.InteropServices;
 using System.Runtime.Loader;
 using System.Text;
 using NetScope.Catalog;
+using NetScope.Sandboxing;
 
 namespace NetScope.Native;
 
 /// <summary>
 /// Obtains JIT-compiled code for IL methods. This EXECUTES code of the analyzed assembly
 /// (loading and compiling may run module initializers), so it is only used with --allow-run,
-/// always in a separate helper process with a timeout. The main process never loads the assembly.
+/// always in a separate helper process with a timeout, inside the <see cref="Sandbox"/> (memory limit,
+/// no child processes, killed with NetScope). The main process never loads the assembly.
 /// </summary>
 public static class JitRunner
 {
     public const string HelperCommand = "__jit-helper";
 
-    public static Dictionary<MethodModel, NativeCode> Run(string assemblyPath, IReadOnlyList<MethodModel> methods, IReadOnlyList<string> refPaths, TimeSpan timeout)
+    public static Dictionary<MethodModel, NativeCode> Run(string assemblyPath, IReadOnlyList<MethodModel> methods, IReadOnlyList<string> refPaths, TimeSpan timeout, SandboxOptions sandbox)
     {
         var result = new Dictionary<MethodModel, NativeCode>();
         if (methods.Count == 0) return result;
 
-        var tempDir = Path.Combine(Path.GetTempPath(), "netscope-" + Guid.NewGuid().ToString("N"));
-        Directory.CreateDirectory(tempDir);
+        var tempDir = Sandbox.CreateWorkingDirectory();
+        SandboxedProcess? helper = null;
         try
         {
             var requestFile = Path.Combine(tempDir, "request.txt");
@@ -34,7 +36,8 @@ public static class JitRunner
             foreach (var m in methods) request.AppendLine(m.Token.ToString("X8"));
             File.WriteAllText(requestFile, request.ToString());
 
-            var psi = CreateStartInfo(requestFile, resultFile);
+            var self = SelfCommand.Locate();
+            var psi = Sandbox.CreateStartInfo(self.FileName, self.PrefixArguments.Concat(new[] { HelperCommand, requestFile, resultFile }), sandbox, tempDir);
             // Only the target method names: other code JIT-ed in the helper is not listed.
             psi.Environment["DOTNET_JitDisasm"] = string.Join(" ", methods.Select(m => m.Name).Distinct(StringComparer.Ordinal));
             psi.Environment["DOTNET_JitDisasmDiffable"] = "0";
@@ -44,15 +47,23 @@ public static class JitRunner
 
             var stdout = new StringBuilder();
             var stderr = new StringBuilder();
-            using var process = new Process { StartInfo = psi };
+            try
+            {
+                helper = Sandbox.Start(psi, sandbox, tempDir);
+            }
+            catch (SandboxException ex)
+            {
+                foreach (var m in methods) result[m] = NativeCode.Unavailable($"sandbox restriction '{ex.Feature}' unavailable: {ex.Message}");
+                return result;
+            }
+            var process = helper.Process;
             process.OutputDataReceived += (_, e) => { if (e.Data != null) lock (stdout) stdout.AppendLine(e.Data); };
             process.ErrorDataReceived += (_, e) => { if (e.Data != null) lock (stderr) stderr.AppendLine(e.Data); };
-            process.Start();
             process.BeginOutputReadLine();
             process.BeginErrorReadLine();
             if (!process.WaitForExit((int)timeout.TotalMilliseconds))
             {
-                try { process.Kill(entireProcessTree: true); } catch { }
+                helper.Kill();
                 foreach (var m in methods) result[m] = NativeCode.Unavailable($"helper process exceeded the time limit of {timeout.TotalSeconds:0} s");
                 return result;
             }
@@ -108,28 +119,9 @@ public static class JitRunner
         }
         finally
         {
-            try { Directory.Delete(tempDir, true); } catch { }
+            if (helper != null) helper.Dispose(); // kills leftovers and deletes the working directory
+            else try { Directory.Delete(tempDir, true); } catch (IOException) { } catch (UnauthorizedAccessException) { }
         }
-    }
-
-    private static ProcessStartInfo CreateStartInfo(string requestFile, string resultFile)
-    {
-        var self = SelfCommand.Locate();
-        var psi = new ProcessStartInfo
-        {
-            FileName = self.FileName,
-            UseShellExecute = false,
-            CreateNoWindow = true,
-            RedirectStandardOutput = true,
-            RedirectStandardError = true,
-            RedirectStandardInput = true,
-            StandardOutputEncoding = Encoding.UTF8,
-        };
-        foreach (var a in self.PrefixArguments) psi.ArgumentList.Add(a);
-        psi.ArgumentList.Add(HelperCommand);
-        psi.ArgumentList.Add(requestFile);
-        psi.ArgumentList.Add(resultFile);
-        return psi;
     }
 
     private static string JitKey(string typeName, string methodName) => typeName + ":" + methodName;
@@ -248,6 +240,8 @@ public static class JitRunner
     /// <summary>Entry point of the helper process: loads the assembly and JIT-compiles the requested methods.</summary>
     public static int HelperMain(string[] args)
     {
+        // Restrictions first: nothing of the analyzed assembly may run before them.
+        Sandbox.EnterChild();
         if (args.Length < 3) return 2;
         var request = File.ReadAllLines(args[1]);
         var assemblyPath = request[0];
