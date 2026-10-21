@@ -46,7 +46,7 @@ next to it), so type names resolve the same way whatever framework the machine h
 | 17 | F# | 159 | 100% | match | match |
 | 18 | R2R win-x64 copy of 2 | 44 | 100% | match | match |
 | 19 | R2R linux-arm64 copy of 2 | 44 | 100% | match | match |
-| 20 | ConfuserEx | 93 | 100% | match with ILSpy's disassembler (see below) | match |
+| 20 | ConfuserEx | 93 | 100% | match (Linux); match with ILSpy's disassembler on Windows (see below) | match |
 
 "Match" means no difference other than the documented ones below. The kinds compared with ILSpy are those both tools
 define: `ctor`, `cctor`, `finalizer`, property and event accessors, `operator`, `conversion`, `static`/`instance`,
@@ -60,7 +60,7 @@ marks `lambda` or `local-function`, ILSpy must hide them in its C# output.
 | Kinds vs ILSpy | An implicit interface implementation is `virtual, sealed` in NetScope and not virtual in ILSpy | The metadata is `virtual final newslot`. NetScope reports the metadata, ILSpy reports the C# view. The test drops `virtual` and `sealed` for this attribute combination before comparing |
 | Kinds vs ILSpy | Lambdas of a closure class (`<>c`, `<>c__DisplayClass`) are not hidden by ILSpy individually | ILSpy hides the whole closure class. The test accepts a lambda when the method or one of its declaring types is hidden |
 | Method list vs ILSpy | ILSpy's type definitions contain members without a metadata row | ILSpy synthesizes them (nil token). They are not methods of the file and are not compared |
-| IL vs ildasm, assembly 20 | ildasm aborts on the ConfuserEx fixture ("class … is nested in missing class …", exit code `0xC0000409`) | ConfuserEx nests types in a type that does not exist, which is its protection against ildasm. For this file the IL is compared with ILSpy's independent disassembler (`ReflectionDisassembler`), and the test checks that ildasm still fails, so the comparison switches back once ildasm reads the file |
+| IL vs ildasm, assembly 20 | On Windows, ildasm aborts on the ConfuserEx fixture ("class … is nested in missing class …", exit code `0xC0000409`); the Linux build of the same ildasm reads it | ConfuserEx nests types in a type that does not exist, which is its protection against ildasm. Where ildasm fails, the IL is compared with ILSpy's independent disassembler (`ReflectionDisassembler`); on Linux it is compared with ildasm |
 | IL vs ildasm | `endfault` is shown as `endfinally` | It is the same opcode (`0xDC`). Both tools print `endfinally` |
 
 Found by the set and fixed: a `static virtual` interface member (`static virtual string Kind => …` in assembly 15) was
