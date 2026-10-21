@@ -182,6 +182,7 @@ public static class DebugCommand
         private readonly TextWriter _out;
         private readonly BlockingCollection<JsonElement> _events = new();
         private Process? _host;
+        private bool _quitSent;
 
         public DebugSession(string file, string sha, string[] args, long memory, bool allowChildren, string? script, string format, bool interactive, TimeSpan timeout, DebugAuditLog audit, TextWriter sink)
         {
@@ -256,7 +257,11 @@ public static class DebugCommand
             try { return _events.Take(); } catch (InvalidOperationException) { return null; }
         }
 
-        private void Send(string cmd) { try { _host!.StandardInput.WriteLine(DebugProtocol.Command(cmd)); _host.StandardInput.Flush(); } catch { } }
+        private void Send(string cmd)
+        {
+            if (cmd == "quit") _quitSent = true;
+            try { _host!.StandardInput.WriteLine(DebugProtocol.Command(cmd)); _host.StandardInput.Flush(); } catch { }
+        }
 
         private int Drive()
         {
@@ -267,7 +272,14 @@ public static class DebugCommand
             while (true)
             {
                 var ev = Wait();
-                if (ev == null) return Analyzer.ExitOk; // host closed without an explicit exit event
+                if (ev == null)
+                {
+                    // After quit the host may close without an exit event; otherwise it ended abnormally.
+                    if (_quitSent) return Analyzer.ExitOk;
+                    Console.Error.WriteLine("netscope debug: the debug host ended without reporting the program's exit");
+                    _audit.Line("error", "host ended without an exit event");
+                    return Analyzer.ExitPartial;
+                }
                 var e = ev.Value;
                 switch (e.Text("event"))
                 {

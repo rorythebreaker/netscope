@@ -90,23 +90,43 @@ public static class DebugHost
             // Confine the suspended target before it runs: memory limit, no child processes, killed with the host.
             ConfineTarget(launch.ProcessId);
 
-            CorDebug? cor = null;
+            // The runtime waits for this callback to return before it goes on starting up, so the attach must
+            // happen inside it. Attaching later from another thread races the target: under load it ran Main
+            // (or exited) before the entry breakpoint existed.
             var started = new ManualResetEventSlim();
-            PSTARTUP_CALLBACK cb = (pCordb, _, _) =>
+            Exception? attachError = null;
+            PSTARTUP_CALLBACK cb = (pCordb, _, hr) =>
             {
-                if (pCordb != IntPtr.Zero) cor = new CorDebug((ICorDebug)Marshal.GetObjectForIUnknown(pCordb));
-                started.Set();
+                try
+                {
+                    if (pCordb == IntPtr.Zero) throw new InvalidOperationException($"the runtime did not start (HRESULT 0x{(int)hr:X8})");
+                    Attach(new CorDebug((ICorDebug)Marshal.GetObjectForIUnknown(pCordb)), launch.ProcessId);
+                }
+                catch (Exception ex) { attachError = ex; }
+                finally { started.Set(); }
             };
             shim.RegisterForRuntimeStartup(launch.ProcessId, cb, IntPtr.Zero);
             shim.ResumeProcess(launch.ResumeHandle);
             shim.CloseResumeHandle(launch.ResumeHandle);
-            if (!started.Wait(TimeSpan.FromSeconds(30)) || cor == null)
+            if (!started.Wait(TimeSpan.FromSeconds(30)) || attachError != null || _process == null)
             {
                 _job?.Terminate();
-                Emit(DebugProtocol.ErrorEvent("the runtime did not start within 30s"));
+                Emit(DebugProtocol.ErrorEvent(attachError != null ? "cannot attach: " + attachError.Message : "the runtime did not start within 30s"));
                 return 1;
             }
+            GC.KeepAlive(cb);
 
+            Emit(DebugProtocol.Ready(launch.ProcessId));
+            CommandLoop();
+
+            _exited.Wait(TimeSpan.FromSeconds(5));
+            _job?.Dispose();
+            return _exitCode;
+        }
+
+        /// <summary>Runs on the runtime-startup callback, while the target's runtime is blocked.</summary>
+        private void Attach(CorDebug cor, int pid)
+        {
             cor.Initialize();
             var callback = new CorDebugManagedCallback();
             callback.OnLoadModule += OnLoadModule;
@@ -119,14 +139,7 @@ public static class DebugHost
                 try { e.Controller.Continue(false); } catch { /* process may be exiting */ }
             };
             cor.SetManagedHandler(callback);
-            _process = cor.DebugActiveProcess(launch.ProcessId, win32Attach: false);
-
-            Emit(DebugProtocol.Ready(launch.ProcessId));
-            CommandLoop();
-
-            _exited.Wait(TimeSpan.FromSeconds(5));
-            _job?.Dispose();
-            return _exitCode;
+            _process = cor.DebugActiveProcess(pid, win32Attach: false);
         }
 
         private void ConfineTarget(int pid)
