@@ -49,7 +49,9 @@ foreach ($line in $text) {
     # ILC's symbols are not always flagged 'f' (function), so the flag is optional.
     $m = [regex]::Match($line, '^\s*([0-9a-fA-F]{4}):[0-9a-fA-F]{8}\s+(\S+)\s+([0-9a-fA-F]{8,16})\s')
     if (-not $m.Success) { continue }
-    $rva = [int]([Convert]::ToUInt64($m.Groups[3].Value, 16) - $base)
+    $va = [Convert]::ToUInt64($m.Groups[3].Value, 16)
+    if ($va -lt $base -or ($va - $base) -gt [int]::MaxValue) { continue }   # absolute symbols, not in the image
+    $rva = [int]($va - $base)
     if (-not $symbols.ContainsKey($rva)) { $symbols[$rva] = New-Object System.Collections.Generic.List[string]; $sectionOf[$rva] = $m.Groups[1].Value }
     $symbols[$rva].Add($m.Groups[2].Value)
 }
