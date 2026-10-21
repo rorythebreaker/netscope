@@ -1,0 +1,381 @@
+Assembly : Ref05.NetFx35.dll
+Name     : Ref05.NetFx35, Version=1.0.0.0
+Runtime  : v2.0.50727   Machine: anycpu
+Methods  : 35
+
+Type     : Ref.NetFx35.Extensions
+
+Method   : bool IsBlank(string s)
+Kind     : static, public, extension
+RVA      : 0x2050   Size: 20 bytes   Token: 0x06000001
+
+[Calls]
+  IL_0004  callvirt  System.String::Trim()        external mscorlib
+  IL_0009  callvirt  System.String::get_Length()  external mscorlib
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerable<T> EveryOther<T>(IEnumerable<T> source)
+Kind     : static, public, generic, extension
+RVA      : 0x2065   Size: 15 bytes   Token: 0x06000002
+
+[Calls]
+  IL_0002  newobj    Ref.NetFx35.Extensions.<EveryOther>d__1<!!0>::.ctor(int)  internal
+[Callers]
+  (none in the input files)
+
+Method   : string Join(IEnumerable<string> parts, string separator)
+Kind     : static, public, extension
+RVA      : 0x2078   Size: 74 bytes   Token: 0x06000003
+
+[Calls]
+  IL_0000  newobj    System.Text.StringBuilder::.ctor()                               external mscorlib
+  IL_0007  callvirt  System.Collections.Generic.IEnumerable<string>::GetEnumerator()  external mscorlib
+  IL_0010  callvirt  System.Collections.Generic.IEnumerator<string>::get_Current()    external mscorlib
+  IL_0017  callvirt  System.Text.StringBuilder::get_Length()                          external mscorlib
+  IL_0021  callvirt  System.Text.StringBuilder::Append(string)                        external mscorlib
+  IL_0029  callvirt  System.Text.StringBuilder::Append(string)                        external mscorlib
+  IL_0030  callvirt  System.Collections.IEnumerator::MoveNext()                       external mscorlib
+  IL_003D  callvirt  System.IDisposable::Dispose()                                    external mscorlib
+  IL_0044  callvirt  System.Object::ToString()                                        external mscorlib
+[Callers]
+  (none in the input files)
+
+Type     : Ref.NetFx35.Customer
+
+Method   : string get_Name()
+Kind     : property-get, instance, public
+RVA      : 0x20E0   Size: 7 bytes   Token: 0x06000004
+
+[Calls]
+  (none)
+[Callers]
+  Ref.NetFx35.Ledger::Add  IL_0018  callvirt  (Ref05.NetFx35.dll)
+  Ref.NetFx35.Ledger+<>c__DisplayClass7_0::<FindByName>b__0  IL_0001  callvirt  (Ref05.NetFx35.dll)
+
+Method   : void set_Name(string value)
+Kind     : property-set, instance, public
+RVA      : 0x20E8   Size: 22 bytes   Token: 0x06000005
+
+[Calls]
+  IL_0008  newobj    System.ArgumentNullException::.ctor(string)  external mscorlib
+[Callers]
+  (none in the input files)
+
+Method   : string get_City()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20FF   Size: 7 bytes   Token: 0x06000006
+
+[Calls]
+  (none)
+[Callers]
+  Ref.NetFx35.Ledger+<>c::<CitiesWithDebt>b__3_1  IL_0001  callvirt  (Ref05.NetFx35.dll)
+
+Method   : void set_City(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2107   Size: 8 bytes   Token: 0x06000007
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : Decimal get_Balance()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2110   Size: 7 bytes   Token: 0x06000008
+
+[Calls]
+  (none)
+[Callers]
+  Ref.NetFx35.Ledger+<>c::<CitiesWithDebt>b__3_0  IL_0001  callvirt  (Ref05.NetFx35.dll)
+  Ref.NetFx35.Ledger+<>c::<Total>b__4_0  IL_0001  callvirt  (Ref05.NetFx35.dll)
+
+Method   : void set_Balance(Decimal value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2118   Size: 8 bytes   Token: 0x06000009
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2121   Size: 7 bytes   Token: 0x0600000A
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external mscorlib
+[Callers]
+  (none in the input files)
+
+Type     : Ref.NetFx35.Ledger
+
+Method   : void Add(Customer customer)
+Kind     : instance, public
+RVA      : 0x2129   Size: 41 bytes   Token: 0x0600000B
+
+[Calls]
+  IL_0007  callvirt  System.Collections.Generic.List<Ref.NetFx35.Customer>::Add(Customer)  external mscorlib
+  IL_0018  callvirt  Ref.NetFx35.Customer::get_Name()                                      internal
+  IL_001D  call      System.String::Concat(string, string)                                 external mscorlib
+  IL_0022  callvirt  System.Collections.ArrayList::Add(object)                             external mscorlib
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerable<string> CitiesWithDebt()
+Kind     : instance, public
+RVA      : 0x2154   Size: 156 bytes   Token: 0x0600000C
+
+[Calls]
+  IL_0014  ldftn     Ref.NetFx35.Ledger.<>c::<CitiesWithDebt>b__3_0(Customer)                                                                                                   internal
+  IL_001A  newobj    System.Func<Ref.NetFx35.Customer, bool>::.ctor(object, nint)                                                                                               external System.Core
+  IL_0025  call      System.Linq.Enumerable::Where<Customer>(IEnumerable<Customer>, Func<Customer, bool>)                                                                       external System.Core
+  IL_0038  ldftn     Ref.NetFx35.Ledger.<>c::<CitiesWithDebt>b__3_1(Customer)                                                                                                   internal
+  IL_003E  newobj    System.Func<Ref.NetFx35.Customer, string>::.ctor(object, nint)                                                                                             external System.Core
+  IL_0049  call      System.Linq.Enumerable::GroupBy<Customer, string>(IEnumerable<Customer>, Func<Customer, string>)                                                           external System.Core
+  IL_005C  ldftn     Ref.NetFx35.Ledger.<>c::<CitiesWithDebt>b__3_2(IGrouping<string, Customer>)                                                                                internal
+  IL_0062  newobj    System.Func<System.Linq.IGrouping<string, Ref.NetFx35.Customer>, string>::.ctor(object, nint)                                                              external System.Core
+  IL_006D  call      System.Linq.Enumerable::OrderBy<IGrouping<string, Customer>, string>(IEnumerable<IGrouping<string, Customer>>, Func<IGrouping<string, Customer>, string>)  external System.Core
+  IL_0080  ldftn     Ref.NetFx35.Ledger.<>c::<CitiesWithDebt>b__3_3(IGrouping<string, Customer>)                                                                                internal
+  IL_0086  newobj    System.Func<System.Linq.IGrouping<string, Ref.NetFx35.Customer>, string>::.ctor(object, nint)                                                              external System.Core
+  IL_0091  call      System.Linq.Enumerable::Select<IGrouping<string, Customer>, string>(IEnumerable<IGrouping<string, Customer>>, Func<IGrouping<string, Customer>, string>)   external System.Core
+  IL_0096  call      System.Linq.Enumerable::ToList<string>(IEnumerable<string>)                                                                                                external System.Core
+[Callers]
+  (none in the input files)
+
+Method   : Decimal Total()
+Kind     : instance, public
+RVA      : 0x21FC   Size: 43 bytes   Token: 0x0600000D
+
+[Calls]
+  IL_0014  ldftn     Ref.NetFx35.Ledger.<>c::<Total>b__4_0(Customer)                                        internal
+  IL_001A  newobj    System.Func<Ref.NetFx35.Customer, System.Decimal>::.ctor(object, nint)                 external System.Core
+  IL_0025  call      System.Linq.Enumerable::Sum<Customer>(IEnumerable<Customer>, Func<Customer, Decimal>)  external System.Core
+[Callers]
+  (none in the input files)
+
+Method   : string[] Log()
+Kind     : instance, public
+RVA      : 0x2228   Size: 61 bytes   Token: 0x0600000E
+
+[Calls]
+  IL_0006  callvirt  System.Collections.ArrayList::get_Count()    external mscorlib
+  IL_001E  callvirt  System.Collections.ArrayList::get_Item(int)  external mscorlib
+  IL_0034  callvirt  System.Collections.ArrayList::get_Count()    external mscorlib
+[Callers]
+  (none in the input files)
+
+Method   : Customer Find(Predicate<Customer> match)
+Kind     : instance, public
+RVA      : 0x2271   Size: 13 bytes   Token: 0x0600000F
+
+[Calls]
+  IL_0007  callvirt  System.Collections.Generic.List<Ref.NetFx35.Customer>::Find(Predicate<Customer>)  external mscorlib
+[Callers]
+  Ref.NetFx35.Ledger::FindByName  IL_001A  call  (Ref05.NetFx35.dll)
+
+Method   : Customer FindByName(string name)
+Kind     : instance, public
+RVA      : 0x2280   Size: 32 bytes   Token: 0x06000010
+
+[Calls]
+  IL_0000  newobj    Ref.NetFx35.Ledger.<>c__DisplayClass7_0::.ctor()                     internal
+  IL_000F  ldftn     Ref.NetFx35.Ledger.<>c__DisplayClass7_0::<FindByName>b__0(Customer)  internal
+  IL_0015  newobj    System.Predicate<Ref.NetFx35.Customer>::.ctor(object, nint)          external mscorlib
+  IL_001A  call      Ref.NetFx35.Ledger::Find(Predicate<Customer>)                        internal
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x22AC   Size: 29 bytes   Token: 0x06000011
+
+[Calls]
+  IL_0001  newobj    System.Collections.ArrayList::.ctor()                           external mscorlib
+  IL_000C  newobj    System.Collections.Generic.List<Ref.NetFx35.Customer>::.ctor()  external mscorlib
+  IL_0017  call      System.Object::.ctor()                                          external mscorlib
+[Callers]
+  (none in the input files)
+
+Type     : Ref.NetFx35.Extensions+<EveryOther>d__1`1
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x22CA   Size: 30 bytes   Token: 0x06000012
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()                          external mscorlib
+  IL_000E  call      System.Threading.Thread::get_CurrentThread()    external mscorlib
+  IL_0013  callvirt  System.Threading.Thread::get_ManagedThreadId()  external mscorlib
+[Callers]
+  Ref.NetFx35.Extensions::EveryOther  IL_0002  newobj  (Ref05.NetFx35.dll)
+  Ref.NetFx35.Extensions+<EveryOther>d__1`1::System.Collections.Generic.IEnumerable<T>.GetEnumerator  IL_0028  newobj  (Ref05.NetFx35.dll)
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x22EC   Size: 42 bytes   Token: 0x06000013
+
+[Calls]
+  IL_0014  call      Ref.NetFx35.Extensions.<EveryOther>d__1<!0>::<>m__Finally1()  internal
+[Callers]
+  Ref.NetFx35.Extensions+<EveryOther>d__1`1::MoveNext  IL_009A  call  (Ref05.NetFx35.dll)
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2334   Size: 162 bytes   Token: 0x06000014
+
+[Calls]
+  IL_002A  callvirt  System.Collections.Generic.IEnumerable<!0>::GetEnumerator()                external mscorlib
+  IL_0044  callvirt  System.Collections.Generic.IEnumerator<!0>::get_Current()                  external mscorlib
+  IL_0081  callvirt  System.Collections.IEnumerator::MoveNext()                                 external mscorlib
+  IL_0089  call      Ref.NetFx35.Extensions.<EveryOther>d__1<!0>::<>m__Finally1()               internal
+  IL_009A  call      Ref.NetFx35.Extensions.<EveryOther>d__1<!0>::System.IDisposable.Dispose()  internal
+[Callers]
+  (none in the input files)
+
+Method   : void <>m__Finally1()
+Kind     : instance, private, compiler-generated
+RVA      : 0x23F4   Size: 27 bytes   Token: 0x06000015
+
+[Calls]
+  IL_0015  callvirt  System.IDisposable::Dispose()  external mscorlib
+[Callers]
+  Ref.NetFx35.Extensions+<EveryOther>d__1`1::System.IDisposable.Dispose  IL_0014  call  (Ref05.NetFx35.dll)
+  Ref.NetFx35.Extensions+<EveryOther>d__1`1::MoveNext  IL_0089  call  (Ref05.NetFx35.dll)
+
+Method   : T System.Collections.Generic.IEnumerator<T>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2410   Size: 7 bytes   Token: 0x06000016
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2418   Size: 6 bytes   Token: 0x06000017
+
+[Calls]
+  IL_0000  newobj    System.NotSupportedException::.ctor()  external mscorlib
+[Callers]
+  (none in the input files)
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x241F   Size: 12 bytes   Token: 0x06000018
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerator<T> System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x242C   Size: 60 bytes   Token: 0x06000019
+
+[Calls]
+  IL_0010  call      System.Threading.Thread::get_CurrentThread()             external mscorlib
+  IL_0015  callvirt  System.Threading.Thread::get_ManagedThreadId()           external mscorlib
+  IL_0028  newobj    Ref.NetFx35.Extensions.<EveryOther>d__1<!0>::.ctor(int)  internal
+[Callers]
+  Ref.NetFx35.Extensions+<EveryOther>d__1`1::System.Collections.IEnumerable.GetEnumerator  IL_0001  call  (Ref05.NetFx35.dll)
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2474   Size: 7 bytes   Token: 0x0600001A
+
+[Calls]
+  IL_0001  call      Ref.NetFx35.Extensions.<EveryOther>d__1<!0>::System.Collections.Generic.IEnumerable<T>.GetEnumerator()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.NetFx35.Ledger+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x247C   Size: 11 bytes   Token: 0x0600001B
+
+[Calls]
+  IL_0000  newobj    Ref.NetFx35.Ledger.<>c::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2488   Size: 7 bytes   Token: 0x0600001C
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external mscorlib
+[Callers]
+  Ref.NetFx35.Ledger+<>c::.cctor  IL_0000  newobj  (Ref05.NetFx35.dll)
+
+Method   : bool <CitiesWithDebt>b__3_0(Customer c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2490   Size: 17 bytes   Token: 0x0600001D
+
+[Calls]
+  IL_0001  callvirt  Ref.NetFx35.Customer::get_Balance()            internal
+  IL_000B  call      System.Decimal::op_LessThan(Decimal, Decimal)  external mscorlib
+[Callers]
+  Ref.NetFx35.Ledger::CitiesWithDebt  IL_0014  ldftn  (Ref05.NetFx35.dll)
+
+Method   : string <CitiesWithDebt>b__3_1(Customer c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x24A2   Size: 7 bytes   Token: 0x0600001E
+
+[Calls]
+  IL_0001  callvirt  Ref.NetFx35.Customer::get_City()  internal
+[Callers]
+  Ref.NetFx35.Ledger::CitiesWithDebt  IL_0038  ldftn  (Ref05.NetFx35.dll)
+
+Method   : string <CitiesWithDebt>b__3_2(IGrouping<string, Customer> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x24AA   Size: 7 bytes   Token: 0x0600001F
+
+[Calls]
+  IL_0001  callvirt  System.Linq.IGrouping<string, Ref.NetFx35.Customer>::get_Key()  external System.Core
+[Callers]
+  Ref.NetFx35.Ledger::CitiesWithDebt  IL_005C  ldftn  (Ref05.NetFx35.dll)
+
+Method   : string <CitiesWithDebt>b__3_3(IGrouping<string, Customer> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x24B4   Size: 31 bytes   Token: 0x06000020
+
+[Calls]
+  IL_0001  callvirt  System.Linq.IGrouping<string, Ref.NetFx35.Customer>::get_Key()  external System.Core
+  IL_000C  call      System.Linq.Enumerable::Count<Customer>(IEnumerable<Customer>)  external System.Core
+  IL_0014  call      System.Int32::ToString()                                        external mscorlib
+  IL_0019  call      System.String::Concat(string, string, string)                   external mscorlib
+[Callers]
+  Ref.NetFx35.Ledger::CitiesWithDebt  IL_0080  ldftn  (Ref05.NetFx35.dll)
+
+Method   : Decimal <Total>b__4_0(Customer c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x24DF   Size: 7 bytes   Token: 0x06000021
+
+[Calls]
+  IL_0001  callvirt  Ref.NetFx35.Customer::get_Balance()  internal
+[Callers]
+  Ref.NetFx35.Ledger::Total  IL_0014  ldftn  (Ref05.NetFx35.dll)
+
+Type     : Ref.NetFx35.Ledger+<>c__DisplayClass7_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x24E7   Size: 7 bytes   Token: 0x06000022
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external mscorlib
+[Callers]
+  Ref.NetFx35.Ledger::FindByName  IL_0000  newobj  (Ref05.NetFx35.dll)
+
+Method   : bool <FindByName>b__0(Customer c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x24EF   Size: 19 bytes   Token: 0x06000023
+
+[Calls]
+  IL_0001  callvirt  Ref.NetFx35.Customer::get_Name()                         internal
+  IL_000D  call      System.String::Equals(string, string, StringComparison)  external mscorlib
+[Callers]
+  Ref.NetFx35.Ledger::FindByName  IL_000F  ldftn  (Ref05.NetFx35.dll)

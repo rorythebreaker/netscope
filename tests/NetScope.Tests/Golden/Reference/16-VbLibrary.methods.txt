@@ -1,0 +1,218 @@
+Assembly : Ref16.VbLibrary.dll
+Name     : Ref16.VbLibrary, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 49
+
+Type     : Ref.VbLibrary.Accounts.InsufficientFundsException
+
+Method   : void .ctor(Decimal needed)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 31 bytes   Token: 0x06000001
+
+Method   : Decimal get_Needed()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2070   Size: 7 bytes   Token: 0x06000002
+
+Type     : Ref.VbLibrary.Accounts.Account
+
+Method   : void add_BalanceChanged(BalanceChangedEventHandler obj)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x2078   Size: 41 bytes   Token: 0x06000003
+
+Method   : void remove_BalanceChanged(BalanceChangedEventHandler obj)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x20B0   Size: 41 bytes   Token: 0x06000004
+
+Method   : void .ctor(string owner, AccountKind kind)
+Kind     : ctor, instance, public
+RVA      : 0x20E5   Size: 32 bytes   Token: 0x06000005
+
+Method   : string get_Owner()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2106   Size: 7 bytes   Token: 0x06000006
+
+Method   : AccountKind get_Kind()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x210E   Size: 7 bytes   Token: 0x06000007
+
+Method   : Decimal get_Balance()
+Kind     : property-get, instance, public
+RVA      : 0x2116   Size: 7 bytes   Token: 0x06000008
+
+Method   : void Deposit(Decimal amount)
+Kind     : instance, public, virtual
+RVA      : 0x2120   Size: 102 bytes   Token: 0x06000009
+
+Method   : void Withdraw(Decimal amount)
+Kind     : instance, public, virtual
+RVA      : 0x2194   Size: 110 bytes   Token: 0x0600000A
+
+Method   : IEnumerable<string> History()
+Kind     : instance, public
+RVA      : 0x220E   Size: 12 bytes   Token: 0x0600000B
+
+Method   : Account op_Addition(Account a, Decimal amount)
+Kind     : operator, static, public
+RVA      : 0x221B   Size: 9 bytes   Token: 0x0600000C
+
+Type     : Ref.VbLibrary.Accounts.SavingsAccount
+
+Method   : void .ctor(string owner)
+Kind     : ctor, instance, public
+RVA      : 0x2225   Size: 25 bytes   Token: 0x0600000D
+
+Method   : Decimal get_Rate()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x223F   Size: 7 bytes   Token: 0x0600000E
+
+Method   : void set_Rate(Decimal AutoPropertyValue)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2247   Size: 8 bytes   Token: 0x0600000F
+
+Method   : void Withdraw(Decimal amount)
+Kind     : instance, public, override
+RVA      : 0x2250   Size: 39 bytes   Token: 0x06000010
+
+Method   : void AddInterest()
+Kind     : instance, public
+RVA      : 0x2278   Size: 30 bytes   Token: 0x06000011
+
+Type     : Ref.VbLibrary.Accounts.Bank
+
+Method   : string Describe(AccountKind kind)
+Kind     : static, public
+RVA      : 0x2298   Size: 35 bytes   Token: 0x06000012
+
+Method   : string Grade(int score)
+Kind     : static, public
+RVA      : 0x22C8   Size: 59 bytes   Token: 0x06000013
+
+Method   : List<string> RichOwners(IEnumerable<Account> accounts, Decimal limit)
+Kind     : static, public
+RVA      : 0x2310   Size: 119 bytes   Token: 0x06000014
+
+Method   : Dictionary<AccountKind, Decimal> TotalBy(IEnumerable<Account> accounts)
+Kind     : static, public
+RVA      : 0x2394   Size: 120 bytes   Token: 0x06000015
+
+Method   : IEnumerable<string> Statements(Account account)
+Kind     : static, public, iterator
+RVA      : 0x2418   Size: 15 bytes   Token: 0x06000016
+
+Method   : Task<bool> TransferAsync(Account source, Account target, Decimal amount)
+Kind     : static, public, async
+RVA      : 0x2428   Size: 79 bytes   Token: 0x06000017
+
+Method   : string LegacyText(object value)
+Kind     : static, public
+RVA      : 0x2484   Size: 50 bytes   Token: 0x06000018
+
+Method   : int SafeDivide(int a, int b)
+Kind     : static, public
+RVA      : 0x24C4   Size: 35 bytes   Token: 0x06000019
+
+Type     : Ref.VbLibrary.Accounts.Account+BalanceChangedEventHandler
+
+Method   : void .ctor(object TargetObject, nint TargetMethod)
+Kind     : ctor, instance, public, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001A
+
+Method   : IAsyncResult BeginInvoke(object sender, Decimal newBalance, AsyncCallback DelegateCallback, object DelegateAsyncState)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001B
+
+Method   : void EndInvoke(IAsyncResult DelegateAsyncResult)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001C
+
+Method   : void Invoke(object sender, Decimal newBalance)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001D
+
+Type     : Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements
+
+Method   : void .ctor(int $State)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2510   Size: 25 bytes   Token: 0x0600001E
+
+Method   : void Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x252C   Size: 44 bytes   Token: 0x0600001F
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2564   Size: 201 bytes   Token: 0x06000020
+
+Method   : IEnumerator<string> GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x264C   Size: 55 bytes   Token: 0x06000021
+
+Method   : IEnumerator IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x268F   Size: 7 bytes   Token: 0x06000022
+
+Method   : string get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2697   Size: 7 bytes   Token: 0x06000023
+
+Method   : void Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x269F   Size: 6 bytes   Token: 0x06000024
+
+Method   : object IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26A6   Size: 7 bytes   Token: 0x06000025
+
+Type     : Ref.VbLibrary.Accounts.Bank+VB$StateMachine_5_TransferAsync
+
+Method   : void MoveNext()
+Kind     : instance, internal, virtual, sealed, compiler-generated
+RVA      : 0x26B0   Size: 266 bytes   Token: 0x06000026
+
+Method   : void System.Runtime.CompilerServices.IAsyncStateMachine.SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x27E4   Size: 13 bytes   Token: 0x06000027
+
+Type     : Ref.VbLibrary.Accounts.Bank+_Closure$__
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x27F2   Size: 7 bytes   Token: 0x06000028
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x27FA   Size: 11 bytes   Token: 0x06000029
+
+Method   : string _Lambda$__2-1(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2806   Size: 7 bytes   Token: 0x0600002A
+
+Method   : string _Lambda$__2-2(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x280E   Size: 7 bytes   Token: 0x0600002B
+
+Method   : AccountKind _Lambda$__3-0(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2816   Size: 7 bytes   Token: 0x0600002C
+
+Method   : AccountKind _Lambda$__3-1(IGrouping<AccountKind, Account> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x281E   Size: 7 bytes   Token: 0x0600002D
+
+Method   : Decimal _Lambda$__3-2(IGrouping<AccountKind, Account> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2826   Size: 43 bytes   Token: 0x0600002E
+
+Method   : Decimal _Lambda$__3-3(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2852   Size: 7 bytes   Token: 0x0600002F
+
+Type     : Ref.VbLibrary.Accounts.Bank+_Closure$__2-0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x285A   Size: 7 bytes   Token: 0x06000030
+
+Method   : bool _Lambda$__0(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2862   Size: 21 bytes   Token: 0x06000031

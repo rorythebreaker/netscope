@@ -1,0 +1,929 @@
+Assembly : Ref02.Library.dll
+Name     : Ref02.Library, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: x64
+Note     : ReadyToRun image: precompiled native code is present
+Methods  : 44
+
+Type     : Ref.Library.Quantity
+
+Method   : void .ctor(Decimal amount, Unit unit)
+Kind     : ctor, instance, public
+RVA      : 0x358C   Size: 39 bytes   Token: 0x06000001
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  ldsfld     valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::Zero
+  IL_0006  call       bool [System.Runtime]System.Decimal::op_LessThan(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+  IL_000B  brfalse.s  IL_0018
+  IL_000D  ldstr      "amount"
+  IL_0012  newobj     instance void [System.Runtime]System.ArgumentOutOfRangeException::.ctor(string)
+  IL_0017  throw
+  IL_0018  ldarg.0
+  IL_0019  ldarg.1
+  IL_001A  stfld      valuetype [System.Runtime]System.Decimal Ref.Library.Quantity::'<Amount>k__BackingField'
+  IL_001F  ldarg.0
+  IL_0020  ldarg.2
+  IL_0021  stfld      valuetype Ref.Library.Unit Ref.Library.Quantity::'<Unit>k__BackingField'
+  IL_0026  ret
+
+Method   : Decimal get_Amount()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x35B4   Size: 7 bytes   Token: 0x06000002
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      valuetype [System.Runtime]System.Decimal Ref.Library.Quantity::'<Amount>k__BackingField'
+  IL_0006  ret
+
+Method   : Unit get_Unit()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x35BC   Size: 7 bytes   Token: 0x06000003
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      valuetype Ref.Library.Unit Ref.Library.Quantity::'<Unit>k__BackingField'
+  IL_0006  ret
+
+Method   : Quantity op_Addition(Quantity a, Quantity b)
+Kind     : operator, static, public
+RVA      : 0x35C4   Size: 59 bytes   Token: 0x06000004
+
+[IL]  .maxstack 8
+  IL_0000  ldarga.s   a
+  IL_0002  call       instance valuetype Ref.Library.Unit Ref.Library.Quantity::get_Unit()
+  IL_0007  ldarga.s   b
+  IL_0009  call       instance valuetype Ref.Library.Unit Ref.Library.Quantity::get_Unit()
+  IL_000E  beq.s      IL_001B
+  IL_0010  ldstr      "units differ"
+  IL_0015  newobj     instance void [System.Runtime]System.InvalidOperationException::.ctor(string)
+  IL_001A  throw
+  IL_001B  ldarga.s   a
+  IL_001D  call       instance valuetype [System.Runtime]System.Decimal Ref.Library.Quantity::get_Amount()
+  IL_0022  ldarga.s   b
+  IL_0024  call       instance valuetype [System.Runtime]System.Decimal Ref.Library.Quantity::get_Amount()
+  IL_0029  call       valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::op_Addition(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+  IL_002E  ldarga.s   a
+  IL_0030  call       instance valuetype Ref.Library.Unit Ref.Library.Quantity::get_Unit()
+  IL_0035  newobj     instance void Ref.Library.Quantity::.ctor(valuetype [System.Runtime]System.Decimal, valuetype Ref.Library.Unit)
+  IL_003A  ret
+
+Method   : bool op_Equality(Quantity a, Quantity b)
+Kind     : operator, static, public
+RVA      : 0x3600   Size: 9 bytes   Token: 0x06000005
+
+[IL]  .maxstack 8
+  IL_0000  ldarga.s   a
+  IL_0002  ldarg.1
+  IL_0003  call       instance bool Ref.Library.Quantity::Equals(valuetype Ref.Library.Quantity)
+  IL_0008  ret
+
+Method   : bool op_Inequality(Quantity a, Quantity b)
+Kind     : operator, static, public
+RVA      : 0x360C   Size: 12 bytes   Token: 0x06000006
+
+[IL]  .maxstack 8
+  IL_0000  ldarga.s   a
+  IL_0002  ldarg.1
+  IL_0003  call       instance bool Ref.Library.Quantity::Equals(valuetype Ref.Library.Quantity)
+  IL_0008  ldc.i4.0
+  IL_0009  ceq
+  IL_000B  ret
+
+Method   : bool Equals(Quantity other)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x361C   Size: 38 bytes   Token: 0x06000007
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance valuetype [System.Runtime]System.Decimal Ref.Library.Quantity::get_Amount()
+  IL_0006  ldarga.s   other
+  IL_0008  call       instance valuetype [System.Runtime]System.Decimal Ref.Library.Quantity::get_Amount()
+  IL_000D  call       bool [System.Runtime]System.Decimal::op_Equality(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+  IL_0012  brfalse.s  IL_0024
+  IL_0014  ldarg.0
+  IL_0015  call       instance valuetype Ref.Library.Unit Ref.Library.Quantity::get_Unit()
+  IL_001A  ldarga.s   other
+  IL_001C  call       instance valuetype Ref.Library.Unit Ref.Library.Quantity::get_Unit()
+  IL_0021  ceq
+  IL_0023  ret
+  IL_0024  ldc.i4.0
+  IL_0025  ret
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override
+RVA      : 0x3644   Size: 25 bytes   Token: 0x06000008
+
+[IL]  .maxstack 2
+  .locals init ([0] valuetype Ref.Library.Quantity V_0)
+  IL_0000  ldarg.1
+  IL_0001  isinst     Ref.Library.Quantity
+  IL_0006  brfalse.s  IL_0017
+  IL_0008  ldarg.1
+  IL_0009  unbox.any  Ref.Library.Quantity
+  IL_000E  stloc.0
+  IL_000F  ldarg.0
+  IL_0010  ldloc.0
+  IL_0011  call       instance bool Ref.Library.Quantity::Equals(valuetype Ref.Library.Quantity)
+  IL_0016  ret
+  IL_0017  ldc.i4.0
+  IL_0018  ret
+
+Method   : int GetHashCode()
+Kind     : instance, public, override
+RVA      : 0x366C   Size: 18 bytes   Token: 0x06000009
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance valuetype [System.Runtime]System.Decimal Ref.Library.Quantity::get_Amount()
+  IL_0006  ldarg.0
+  IL_0007  call       instance valuetype Ref.Library.Unit Ref.Library.Quantity::get_Unit()
+  IL_000C  call       int32 [System.Runtime]System.HashCode::Combine<valuetype [System.Runtime]System.Decimal, valuetype Ref.Library.Unit>(!!0, !!1)
+  IL_0011  ret
+
+Method   : int CompareTo(Quantity other)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x3680   Size: 70 bytes   Token: 0x0600000A
+
+[IL]  .maxstack 2
+  .locals init ([0] valuetype [System.Runtime]System.Decimal V_0, [1] valuetype Ref.Library.Unit V_1)
+  IL_0000  ldarg.0
+  IL_0001  call       instance valuetype Ref.Library.Unit Ref.Library.Quantity::get_Unit()
+  IL_0006  ldarga.s   other
+  IL_0008  call       instance valuetype Ref.Library.Unit Ref.Library.Quantity::get_Unit()
+  IL_000D  bne.un.s   IL_0025
+  IL_000F  ldarg.0
+  IL_0010  call       instance valuetype [System.Runtime]System.Decimal Ref.Library.Quantity::get_Amount()
+  IL_0015  stloc.0
+  IL_0016  ldloca.s   V_0
+  IL_0018  ldarga.s   other
+  IL_001A  call       instance valuetype [System.Runtime]System.Decimal Ref.Library.Quantity::get_Amount()
+  IL_001F  call       instance int32 [System.Runtime]System.Decimal::CompareTo(valuetype [System.Runtime]System.Decimal)
+  IL_0024  ret
+  IL_0025  ldarg.0
+  IL_0026  call       instance valuetype Ref.Library.Unit Ref.Library.Quantity::get_Unit()
+  IL_002B  stloc.1
+  IL_002C  ldloca.s   V_1
+  IL_002E  ldarga.s   other
+  IL_0030  call       instance valuetype Ref.Library.Unit Ref.Library.Quantity::get_Unit()
+  IL_0035  box        Ref.Library.Unit
+  IL_003A  constrained. Ref.Library.Unit
+  IL_0040  callvirt   instance int32 [System.Runtime]System.Enum::CompareTo(object)
+  IL_0045  ret
+
+Method   : string ToString()
+Kind     : instance, public, override
+RVA      : 0x36D4   Size: 72 bytes   Token: 0x0600000B
+
+[IL]  .maxstack 3
+  .locals init ([0] string V_0, [1] string V_1, [2] valuetype Ref.Library.Unit V_2, [3] valuetype [System.Runtime]System.Decimal V_3)
+  IL_0000  ldarg.0
+  IL_0001  call       instance valuetype [System.Runtime]System.Decimal Ref.Library.Quantity::get_Amount()
+  IL_0006  stloc.3
+  IL_0007  ldloca.s   V_3
+  IL_0009  call       class [System.Runtime]System.Globalization.CultureInfo [System.Runtime]System.Globalization.CultureInfo::get_InvariantCulture()
+  IL_000E  call       instance string [System.Runtime]System.Decimal::ToString(class [System.Runtime]System.IFormatProvider)
+  IL_0013  stloc.0
+  IL_0014  ldarg.0
+  IL_0015  call       instance valuetype Ref.Library.Unit Ref.Library.Quantity::get_Unit()
+  IL_001A  stloc.2
+  IL_001B  ldloc.2
+  IL_001C  ldc.i4.1
+  IL_001D  beq.s      IL_0025
+  IL_001F  ldloc.2
+  IL_0020  ldc.i4.2
+  IL_0021  beq.s      IL_002D
+  IL_0023  br.s       IL_0035
+  IL_0025  ldstr      "kg"
+  IL_002A  stloc.1
+  IL_002B  br.s       IL_003B
+  IL_002D  ldstr      "l"
+  IL_0032  stloc.1
+  IL_0033  br.s       IL_003B
+  IL_0035  ldstr      "pcs"
+  IL_003A  stloc.1
+  IL_003B  ldloc.0
+  IL_003C  ldstr      " "
+  IL_0041  ldloc.1
+  IL_0042  call       string [System.Runtime]System.String::Concat(string, string, string)
+  IL_0047  ret
+
+Type     : Ref.Library.Item
+
+Method   : void .ctor(string sku, string name, Quantity stock)
+Kind     : ctor, instance, public
+RVA      : 0x3728   Size: 43 bytes   Token: 0x0600000C
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  dup
+  IL_0009  brtrue.s   IL_0017
+  IL_000B  pop
+  IL_000C  ldstr      "sku"
+  IL_0011  newobj     instance void [System.Runtime]System.ArgumentNullException::.ctor(string)
+  IL_0016  throw
+  IL_0017  stfld      string Ref.Library.Item::'<Sku>k__BackingField'
+  IL_001C  ldarg.0
+  IL_001D  ldarg.2
+  IL_001E  call       instance void Ref.Library.Item::set_Name(string)
+  IL_0023  ldarg.0
+  IL_0024  ldarg.3
+  IL_0025  call       instance void Ref.Library.Item::set_Stock(valuetype Ref.Library.Quantity)
+  IL_002A  ret
+
+Method   : string get_Sku()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x3754   Size: 7 bytes   Token: 0x0600000D
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      string Ref.Library.Item::'<Sku>k__BackingField'
+  IL_0006  ret
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x375C   Size: 7 bytes   Token: 0x0600000E
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      string Ref.Library.Item::'<Name>k__BackingField'
+  IL_0006  ret
+
+Method   : void set_Name(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x3764   Size: 8 bytes   Token: 0x0600000F
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      string Ref.Library.Item::'<Name>k__BackingField'
+  IL_0007  ret
+
+Method   : Quantity get_Stock()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x3770   Size: 7 bytes   Token: 0x06000010
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      valuetype Ref.Library.Quantity Ref.Library.Item::'<Stock>k__BackingField'
+  IL_0006  ret
+
+Method   : void set_Stock(Quantity value)
+Kind     : property-set, instance, internal, compiler-generated
+RVA      : 0x3778   Size: 8 bytes   Token: 0x06000011
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      valuetype Ref.Library.Quantity Ref.Library.Item::'<Stock>k__BackingField'
+  IL_0007  ret
+
+Method   : Decimal get_Price()
+Kind     : property-get, instance, public, virtual
+RVA      : 0x3784   Size: 6 bytes   Token: 0x06000012
+
+[IL]  .maxstack 8
+  IL_0000  ldsfld     valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::Zero
+  IL_0005  ret
+
+Type     : Ref.Library.PricedItem
+
+Method   : void .ctor(string sku, string name, Quantity stock, Decimal price)
+Kind     : ctor, instance, public
+RVA      : 0x378C   Size: 18 bytes   Token: 0x06000013
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  ldarg.2
+  IL_0003  ldarg.3
+  IL_0004  call       instance void Ref.Library.Item::.ctor(string, string, valuetype Ref.Library.Quantity)
+  IL_0009  ldarg.0
+  IL_000A  ldarg.s    price
+  IL_000C  stfld      valuetype [System.Runtime]System.Decimal Ref.Library.PricedItem::_price
+  IL_0011  ret
+
+Method   : Decimal get_Price()
+Kind     : property-get, instance, public, override
+RVA      : 0x37A0   Size: 7 bytes   Token: 0x06000014
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      valuetype [System.Runtime]System.Decimal Ref.Library.PricedItem::_price
+  IL_0006  ret
+
+Type     : Ref.Library.IRepository`1
+
+Method   : T Find(string key)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000015
+
+Method   : void Save(T item)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000016
+
+Method   : IReadOnlyCollection<T> get_All()
+Kind     : property-get, instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000017
+
+Type     : Ref.Library.MemoryRepository`1
+
+Method   : void .ctor(Func<T, string> key)
+Kind     : ctor, instance, public
+RVA      : 0x37A8   Size: 30 bytes   Token: 0x06000018
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       class [System.Runtime]System.StringComparer [System.Runtime]System.StringComparer::get_Ordinal()
+  IL_0006  newobj     instance void class [System.Collections]System.Collections.Generic.Dictionary`2<string, !0>::.ctor(class [System.Runtime]System.Collections.Generic.IEqualityComparer`1<!0>)
+  IL_000B  stfld      class [System.Collections]System.Collections.Generic.Dictionary`2<string, !0> class Ref.Library.MemoryRepository`1<!0>::_items
+  IL_0010  ldarg.0
+  IL_0011  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0016  ldarg.0
+  IL_0017  ldarg.1
+  IL_0018  stfld      class [System.Runtime]System.Func`2<!0, string> class Ref.Library.MemoryRepository`1<!0>::_key
+  IL_001D  ret
+
+Method   : void add_Saved(EventHandler<T> value)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x37C8   Size: 41 bytes   Token: 0x06000019
+
+[IL]  .maxstack 3
+  .locals init ([0] class [System.Runtime]System.EventHandler`1<!T> V_0, [1] class [System.Runtime]System.EventHandler`1<!T> V_1, [2] class [System.Runtime]System.EventHandler`1<!T> V_2)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Runtime]System.EventHandler`1<!0> class Ref.Library.MemoryRepository`1<!0>::Saved
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  stloc.1
+  IL_0009  ldloc.1
+  IL_000A  ldarg.1
+  IL_000B  call       class [System.Runtime]System.Delegate [System.Runtime]System.Delegate::Combine(class [System.Runtime]System.Delegate, class [System.Runtime]System.Delegate)
+  IL_0010  castclass  class [System.Runtime]System.EventHandler`1<!T>
+  IL_0015  stloc.2
+  IL_0016  ldarg.0
+  IL_0017  ldflda     class [System.Runtime]System.EventHandler`1<!0> class Ref.Library.MemoryRepository`1<!0>::Saved
+  IL_001C  ldloc.2
+  IL_001D  ldloc.1
+  IL_001E  call       !!0 [System.Threading]System.Threading.Interlocked::CompareExchange<class [System.Runtime]System.EventHandler`1<!0>>(!!0&, !!0, !!0)
+  IL_0023  stloc.0
+  IL_0024  ldloc.0
+  IL_0025  ldloc.1
+  IL_0026  bne.un.s   IL_0007
+  IL_0028  ret
+
+Method   : void remove_Saved(EventHandler<T> value)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x3800   Size: 41 bytes   Token: 0x0600001A
+
+[IL]  .maxstack 3
+  .locals init ([0] class [System.Runtime]System.EventHandler`1<!T> V_0, [1] class [System.Runtime]System.EventHandler`1<!T> V_1, [2] class [System.Runtime]System.EventHandler`1<!T> V_2)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Runtime]System.EventHandler`1<!0> class Ref.Library.MemoryRepository`1<!0>::Saved
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  stloc.1
+  IL_0009  ldloc.1
+  IL_000A  ldarg.1
+  IL_000B  call       class [System.Runtime]System.Delegate [System.Runtime]System.Delegate::Remove(class [System.Runtime]System.Delegate, class [System.Runtime]System.Delegate)
+  IL_0010  castclass  class [System.Runtime]System.EventHandler`1<!T>
+  IL_0015  stloc.2
+  IL_0016  ldarg.0
+  IL_0017  ldflda     class [System.Runtime]System.EventHandler`1<!0> class Ref.Library.MemoryRepository`1<!0>::Saved
+  IL_001C  ldloc.2
+  IL_001D  ldloc.1
+  IL_001E  call       !!0 [System.Threading]System.Threading.Interlocked::CompareExchange<class [System.Runtime]System.EventHandler`1<!0>>(!!0&, !!0, !!0)
+  IL_0023  stloc.0
+  IL_0024  ldloc.0
+  IL_0025  ldloc.1
+  IL_0026  bne.un.s   IL_0007
+  IL_0028  ret
+
+Method   : T Find(string key)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x3838   Size: 28 bytes   Token: 0x0600001B
+
+[IL]  .maxstack 3
+  .locals init ([0] !T V_0, [1] !T V_1)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Collections]System.Collections.Generic.Dictionary`2<string, !0> class Ref.Library.MemoryRepository`1<!0>::_items
+  IL_0006  ldarg.1
+  IL_0007  ldloca.s   V_0
+  IL_0009  callvirt   instance bool class [System.Collections]System.Collections.Generic.Dictionary`2<string, !0>::TryGetValue(!0, !1&)
+  IL_000E  brtrue.s   IL_001A
+  IL_0010  ldloca.s   V_1
+  IL_0012  initobj    !T
+  IL_0018  ldloc.1
+  IL_0019  ret
+  IL_001A  ldloc.0
+  IL_001B  ret
+
+Method   : void Save(T item)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x3860   Size: 43 bytes   Token: 0x0600001C
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Collections]System.Collections.Generic.Dictionary`2<string, !0> class Ref.Library.MemoryRepository`1<!0>::_items
+  IL_0006  ldarg.0
+  IL_0007  ldfld      class [System.Runtime]System.Func`2<!0, string> class Ref.Library.MemoryRepository`1<!0>::_key
+  IL_000C  ldarg.1
+  IL_000D  callvirt   instance !1 class [System.Runtime]System.Func`2<!0, string>::Invoke(!0)
+  IL_0012  ldarg.1
+  IL_0013  callvirt   instance void class [System.Collections]System.Collections.Generic.Dictionary`2<string, !0>::set_Item(!0, !1)
+  IL_0018  ldarg.0
+  IL_0019  ldfld      class [System.Runtime]System.EventHandler`1<!0> class Ref.Library.MemoryRepository`1<!0>::Saved
+  IL_001E  dup
+  IL_001F  brtrue.s   IL_0023
+  IL_0021  pop
+  IL_0022  ret
+  IL_0023  ldarg.0
+  IL_0024  ldarg.1
+  IL_0025  callvirt   instance void class [System.Runtime]System.EventHandler`1<!0>::Invoke(object, !0)
+  IL_002A  ret
+
+Method   : IReadOnlyCollection<T> get_All()
+Kind     : property-get, instance, public, virtual, sealed
+RVA      : 0x388C   Size: 12 bytes   Token: 0x0600001D
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Collections]System.Collections.Generic.Dictionary`2<string, !0> class Ref.Library.MemoryRepository`1<!0>::_items
+  IL_0006  callvirt   instance class [System.Collections]System.Collections.Generic.Dictionary`2/ValueCollection<!0, !1> class [System.Collections]System.Collections.Generic.Dictionary`2<string, !0>::get_Values()
+  IL_000B  ret
+
+Type     : Ref.Library.Inventory
+
+Method   : int get_Changes()
+Kind     : property-get, instance, public
+RVA      : 0x389C   Size: 12 bytes   Token: 0x0600001E
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Collections]System.Collections.Generic.List`1<int32> Ref.Library.Inventory::_history
+  IL_0006  callvirt   instance int32 class [System.Collections]System.Collections.Generic.List`1<int32>::get_Count()
+  IL_000B  ret
+
+Method   : void Receive(Item item)
+Kind     : instance, public
+RVA      : 0x38AC   Size: 71 bytes   Token: 0x0600001F
+
+[IL]  .maxstack 3
+  .locals init ([0] class Ref.Library.Item V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class Ref.Library.MemoryRepository`1<class Ref.Library.Item> Ref.Library.Inventory::_items
+  IL_0006  ldarg.1
+  IL_0007  callvirt   instance string Ref.Library.Item::get_Sku()
+  IL_000C  callvirt   instance !0 class Ref.Library.MemoryRepository`1<class Ref.Library.Item>::Find(string)
+  IL_0011  stloc.0
+  IL_0012  ldloc.0
+  IL_0013  brtrue.s   IL_0023
+  IL_0015  ldarg.0
+  IL_0016  ldfld      class Ref.Library.MemoryRepository`1<class Ref.Library.Item> Ref.Library.Inventory::_items
+  IL_001B  ldarg.1
+  IL_001C  callvirt   instance void class Ref.Library.MemoryRepository`1<class Ref.Library.Item>::Save(!0)
+  IL_0021  br.s       IL_003A
+  IL_0023  ldloc.0
+  IL_0024  dup
+  IL_0025  callvirt   instance valuetype Ref.Library.Quantity Ref.Library.Item::get_Stock()
+  IL_002A  ldarg.1
+  IL_002B  callvirt   instance valuetype Ref.Library.Quantity Ref.Library.Item::get_Stock()
+  IL_0030  call       valuetype Ref.Library.Quantity Ref.Library.Quantity::op_Addition(valuetype Ref.Library.Quantity, valuetype Ref.Library.Quantity)
+  IL_0035  callvirt   instance void Ref.Library.Item::set_Stock(valuetype Ref.Library.Quantity)
+  IL_003A  ldarg.0
+  IL_003B  ldfld      class [System.Collections]System.Collections.Generic.List`1<int32> Ref.Library.Inventory::_history
+  IL_0040  ldc.i4.1
+  IL_0041  callvirt   instance void class [System.Collections]System.Collections.Generic.List`1<int32>::Add(!0)
+  IL_0046  ret
+
+Method   : bool TryShip(string sku, Quantity amount, out string error)
+Kind     : instance, public
+RVA      : 0x3900   Size: 152 bytes   Token: 0x06000020
+
+[IL]  .maxstack 3
+  .locals init ([0] class Ref.Library.Item V_0, [1] valuetype Ref.Library.Quantity V_1, [2] bool V_2, [3] class [System.Runtime]System.InvalidOperationException V_3)
+  IL_0000  ldarg.3
+  IL_0001  ldnull
+  IL_0002  stind.ref
+  IL_0003  ldarg.0
+  IL_0004  ldfld      class Ref.Library.MemoryRepository`1<class Ref.Library.Item> Ref.Library.Inventory::_items
+  IL_0009  ldarg.1
+  IL_000A  callvirt   instance !0 class Ref.Library.MemoryRepository`1<class Ref.Library.Item>::Find(string)
+  IL_000F  stloc.0
+  IL_0010  ldloc.0
+  IL_0011  brtrue.s   IL_0022
+  IL_0013  ldarg.3
+  IL_0014  ldstr      "unknown item "
+  IL_0019  ldarg.1
+  IL_001A  call       string [System.Runtime]System.String::Concat(string, string)
+  IL_001F  stind.ref
+  IL_0020  ldc.i4.0
+  IL_0021  ret
+  IL_0022  nop
+  IL_0023  ldloc.0
+  IL_0024  callvirt   instance valuetype Ref.Library.Quantity Ref.Library.Item::get_Stock()
+  IL_0029  stloc.1
+  IL_002A  ldloca.s   V_1
+  IL_002C  ldarg.2
+  IL_002D  call       instance int32 Ref.Library.Quantity::CompareTo(valuetype Ref.Library.Quantity)
+  IL_0032  ldc.i4.0
+  IL_0033  bge.s      IL_0040
+  IL_0035  ldstr      "not enough stock"
+  IL_003A  newobj     instance void [System.Runtime]System.InvalidOperationException::.ctor(string)
+  IL_003F  throw
+  IL_0040  ldloc.0
+  IL_0041  ldloc.0
+  IL_0042  callvirt   instance valuetype Ref.Library.Quantity Ref.Library.Item::get_Stock()
+  IL_0047  stloc.1
+  IL_0048  ldloca.s   V_1
+  IL_004A  call       instance valuetype [System.Runtime]System.Decimal Ref.Library.Quantity::get_Amount()
+  IL_004F  ldarga.s   amount
+  IL_0051  call       instance valuetype [System.Runtime]System.Decimal Ref.Library.Quantity::get_Amount()
+  IL_0056  call       valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::op_Subtraction(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+  IL_005B  ldarga.s   amount
+  IL_005D  call       instance valuetype Ref.Library.Unit Ref.Library.Quantity::get_Unit()
+  IL_0062  newobj     instance void Ref.Library.Quantity::.ctor(valuetype [System.Runtime]System.Decimal, valuetype Ref.Library.Unit)
+  IL_0067  callvirt   instance void Ref.Library.Item::set_Stock(valuetype Ref.Library.Quantity)
+  IL_006C  ldarg.0
+  IL_006D  ldfld      class [System.Collections]System.Collections.Generic.List`1<int32> Ref.Library.Inventory::_history
+  IL_0072  ldc.i4.m1
+  IL_0073  callvirt   instance void class [System.Collections]System.Collections.Generic.List`1<int32>::Add(!0)
+  IL_0078  ldc.i4.1
+  IL_0079  stloc.2
+  IL_007A  leave.s    IL_0096
+  IL_007C  stloc.3
+  IL_007D  ldarg.3
+  IL_007E  ldloc.3
+  IL_007F  callvirt   instance string [System.Runtime]System.Exception::get_Message()
+  IL_0084  stind.ref
+  IL_0085  ldc.i4.0
+  IL_0086  stloc.2
+  IL_0087  leave.s    IL_0096
+  IL_0089  ldarg.0
+  IL_008A  ldfld      class [System.Collections]System.Collections.Generic.List`1<int32> Ref.Library.Inventory::_history
+  IL_008F  ldc.i4.0
+  IL_0090  callvirt   instance void class [System.Collections]System.Collections.Generic.List`1<int32>::Add(!0)
+  IL_0095  endfinally
+  IL_0096  ldloc.2
+  IL_0097  ret
+  .try IL_0023 to IL_007C catch [System.Runtime]System.InvalidOperationException handler IL_007C to IL_0089
+  .try IL_0023 to IL_0089 finally handler IL_0089 to IL_0096
+
+Method   : Decimal TotalValue()
+Kind     : instance, public
+RVA      : 0x39C0   Size: 88 bytes   Token: 0x06000021
+
+[IL]  .maxstack 3
+  .locals init ([0] valuetype [System.Runtime]System.Decimal V_0, [1] class [System.Runtime]System.Collections.Generic.IEnumerator`1<class Ref.Library.Item> V_1, [2] class Ref.Library.Item V_2, [3] valuetype Ref.Library.Quantity V_3)
+  IL_0000  ldloca.s   V_0
+  IL_0002  initobj    [System.Runtime]System.Decimal
+  IL_0008  ldarg.0
+  IL_0009  ldfld      class Ref.Library.MemoryRepository`1<class Ref.Library.Item> Ref.Library.Inventory::_items
+  IL_000E  callvirt   instance class [System.Runtime]System.Collections.Generic.IReadOnlyCollection`1<!0> class Ref.Library.MemoryRepository`1<class Ref.Library.Item>::get_All()
+  IL_0013  callvirt   instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class [System.Runtime]System.Collections.Generic.IEnumerable`1<class Ref.Library.Item>::GetEnumerator()
+  IL_0018  stloc.1
+  IL_0019  br.s       IL_0042
+  IL_001B  ldloc.1
+  IL_001C  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IEnumerator`1<class Ref.Library.Item>::get_Current()
+  IL_0021  stloc.2
+  IL_0022  ldloc.0
+  IL_0023  ldloc.2
+  IL_0024  callvirt   instance valuetype [System.Runtime]System.Decimal Ref.Library.Item::get_Price()
+  IL_0029  ldloc.2
+  IL_002A  callvirt   instance valuetype Ref.Library.Quantity Ref.Library.Item::get_Stock()
+  IL_002F  stloc.3
+  IL_0030  ldloca.s   V_3
+  IL_0032  call       instance valuetype [System.Runtime]System.Decimal Ref.Library.Quantity::get_Amount()
+  IL_0037  call       valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::op_Multiply(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+  IL_003C  call       valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::op_Addition(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+  IL_0041  stloc.0
+  IL_0042  ldloc.1
+  IL_0043  callvirt   instance bool [System.Runtime]System.Collections.IEnumerator::MoveNext()
+  IL_0048  brtrue.s   IL_001B
+  IL_004A  leave.s    IL_0056
+  IL_004C  ldloc.1
+  IL_004D  brfalse.s  IL_0055
+  IL_004F  ldloc.1
+  IL_0050  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  IL_0055  endfinally
+  IL_0056  ldloc.0
+  IL_0057  ret
+  .try IL_0019 to IL_004C finally handler IL_004C to IL_0056
+
+Method   : string Export()
+Kind     : instance, public
+RVA      : 0x3A34   Size: 115 bytes   Token: 0x06000022
+
+[IL]  .maxstack 5
+  .locals init ([0] class [System.Runtime]System.Text.StringBuilder V_0, [1] class [System.Runtime]System.IO.StringWriter V_1, [2] class [System.Runtime]System.Collections.Generic.IEnumerator`1<class Ref.Library.Item> V_2, [3] class Ref.Library.Item V_3)
+  IL_0000  newobj     instance void [System.Runtime]System.Text.StringBuilder::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldloc.0
+  IL_0007  call       class [System.Runtime]System.Globalization.CultureInfo [System.Runtime]System.Globalization.CultureInfo::get_InvariantCulture()
+  IL_000C  newobj     instance void [System.Runtime]System.IO.StringWriter::.ctor(class [System.Runtime]System.Text.StringBuilder, class [System.Runtime]System.IFormatProvider)
+  IL_0011  stloc.1
+  IL_0012  ldarg.0
+  IL_0013  ldfld      class Ref.Library.MemoryRepository`1<class Ref.Library.Item> Ref.Library.Inventory::_items
+  IL_0018  callvirt   instance class [System.Runtime]System.Collections.Generic.IReadOnlyCollection`1<!0> class Ref.Library.MemoryRepository`1<class Ref.Library.Item>::get_All()
+  IL_001D  callvirt   instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class [System.Runtime]System.Collections.Generic.IEnumerable`1<class Ref.Library.Item>::GetEnumerator()
+  IL_0022  stloc.2
+  IL_0023  br.s       IL_004E
+  IL_0025  ldloc.2
+  IL_0026  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IEnumerator`1<class Ref.Library.Item>::get_Current()
+  IL_002B  stloc.3
+  IL_002C  ldloc.1
+  IL_002D  ldstr      "{0};{1};{2}"
+  IL_0032  ldloc.3
+  IL_0033  callvirt   instance string Ref.Library.Item::get_Sku()
+  IL_0038  ldloc.3
+  IL_0039  callvirt   instance string Ref.Library.Item::get_Name()
+  IL_003E  ldloc.3
+  IL_003F  callvirt   instance valuetype Ref.Library.Quantity Ref.Library.Item::get_Stock()
+  IL_0044  box        Ref.Library.Quantity
+  IL_0049  callvirt   instance void [System.Runtime]System.IO.TextWriter::WriteLine(string, object, object, object)
+  IL_004E  ldloc.2
+  IL_004F  callvirt   instance bool [System.Runtime]System.Collections.IEnumerator::MoveNext()
+  IL_0054  brtrue.s   IL_0025
+  IL_0056  leave.s    IL_006C
+  IL_0058  ldloc.2
+  IL_0059  brfalse.s  IL_0061
+  IL_005B  ldloc.2
+  IL_005C  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  IL_0061  endfinally
+  IL_0062  ldloc.1
+  IL_0063  brfalse.s  IL_006B
+  IL_0065  ldloc.1
+  IL_0066  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  IL_006B  endfinally
+  IL_006C  ldloc.0
+  IL_006D  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_0072  ret
+  .try IL_0023 to IL_0058 finally handler IL_0058 to IL_0062
+  .try IL_0012 to IL_0062 finally handler IL_0062 to IL_006C
+
+Method   : Inventory Import(TextReader reader)
+Kind     : static, public
+RVA      : 0x3AD0   Size: 206 bytes   Token: 0x06000023
+
+[IL]  .maxstack 5
+  .locals init ([0] class Ref.Library.Inventory V_0, [1] string V_1, [2] int32 V_2, [3] string[] V_3, [4] valuetype [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler V_4, [5] valuetype [System.Runtime]System.Decimal V_5)
+  IL_0000  newobj     instance void Ref.Library.Inventory::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldc.i4.0
+  IL_0007  stloc.2
+  IL_0008  br         IL_00BF
+  IL_000D  ldloc.2
+  IL_000E  ldc.i4.1
+  IL_000F  add
+  IL_0010  stloc.2
+  IL_0011  ldloc.1
+  IL_0012  ldc.i4.s   59
+  IL_0014  ldc.i4.0
+  IL_0015  callvirt   instance string[] [System.Runtime]System.String::Split(char, valuetype [System.Runtime]System.StringSplitOptions)
+  IL_001A  stloc.3
+  IL_001B  ldloc.3
+  IL_001C  ldlen
+  IL_001D  conv.i4
+  IL_001E  ldc.i4.3
+  IL_001F  beq.s      IL_0058
+  IL_0021  ldloca.s   V_4
+  IL_0023  ldc.i4.s   24
+  IL_0025  ldc.i4.1
+  IL_0026  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int32, int32)
+  IL_002B  ldloca.s   V_4
+  IL_002D  ldstr      "line "
+  IL_0032  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)
+  IL_0037  ldloca.s   V_4
+  IL_0039  ldloc.2
+  IL_003A  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<int32>(!!0)
+  IL_003F  ldloca.s   V_4
+  IL_0041  ldstr      ": expected 3 fields"
+  IL_0046  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)
+  IL_004B  ldloca.s   V_4
+  IL_004D  call       instance string [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+  IL_0052  newobj     instance void [System.Runtime]System.FormatException::.ctor(string)
+  IL_0057  throw
+  IL_0058  nop
+  IL_0059  ldloc.3
+  IL_005A  ldc.i4.2
+  IL_005B  ldelem.ref
+  IL_005C  call       class [System.Runtime]System.Globalization.CultureInfo [System.Runtime]System.Globalization.CultureInfo::get_InvariantCulture()
+  IL_0061  call       valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::Parse(string, class [System.Runtime]System.IFormatProvider)
+  IL_0066  stloc.s    V_5
+  IL_0068  ldloc.0
+  IL_0069  ldloc.3
+  IL_006A  ldc.i4.0
+  IL_006B  ldelem.ref
+  IL_006C  ldloc.3
+  IL_006D  ldc.i4.1
+  IL_006E  ldelem.ref
+  IL_006F  ldloc.s    V_5
+  IL_0071  ldc.i4.0
+  IL_0072  newobj     instance void Ref.Library.Quantity::.ctor(valuetype [System.Runtime]System.Decimal, valuetype Ref.Library.Unit)
+  IL_0077  newobj     instance void Ref.Library.Item::.ctor(string, string, valuetype Ref.Library.Quantity)
+  IL_007C  callvirt   instance void Ref.Library.Inventory::Receive(class Ref.Library.Item)
+  IL_0081  leave.s    IL_00BF
+  IL_0083  isinst     [System.Runtime]System.FormatException
+  IL_0088  dup
+  IL_0089  brtrue.s   IL_008F
+  IL_008B  pop
+  IL_008C  ldc.i4.0
+  IL_008D  br.s       IL_009E
+  IL_008F  pop
+  IL_0090  ldloc.3
+  IL_0091  ldc.i4.2
+  IL_0092  ldelem.ref
+  IL_0093  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+  IL_0098  ldc.i4.0
+  IL_0099  ceq
+  IL_009B  ldc.i4.0
+  IL_009C  cgt.un
+  IL_009E  endfilter
+  IL_00A0  pop
+  IL_00A1  ldloc.0
+  IL_00A2  ldloc.3
+  IL_00A3  ldc.i4.0
+  IL_00A4  ldelem.ref
+  IL_00A5  ldloc.3
+  IL_00A6  ldc.i4.1
+  IL_00A7  ldelem.ref
+  IL_00A8  ldsfld     valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::Zero
+  IL_00AD  ldc.i4.0
+  IL_00AE  newobj     instance void Ref.Library.Quantity::.ctor(valuetype [System.Runtime]System.Decimal, valuetype Ref.Library.Unit)
+  IL_00B3  newobj     instance void Ref.Library.Item::.ctor(string, string, valuetype Ref.Library.Quantity)
+  IL_00B8  callvirt   instance void Ref.Library.Inventory::Receive(class Ref.Library.Item)
+  IL_00BD  leave.s    IL_00BF
+  IL_00BF  ldarg.0
+  IL_00C0  callvirt   instance string [System.Runtime]System.IO.TextReader::ReadLine()
+  IL_00C5  dup
+  IL_00C6  stloc.1
+  IL_00C7  brtrue     IL_000D
+  IL_00CC  ldloc.0
+  IL_00CD  ret
+  .try IL_0059 to IL_0083 filter IL_0083 handler IL_00A0 to IL_00BF
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x3BBC   Size: 60 bytes   Token: 0x06000024
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldsfld     class [System.Runtime]System.Func`2<class Ref.Library.Item, string> Ref.Library.Inventory/<>c::'<>9__9_0'
+  IL_0006  dup
+  IL_0007  brtrue.s   IL_0020
+  IL_0009  pop
+  IL_000A  ldsfld     class Ref.Library.Inventory/<>c Ref.Library.Inventory/<>c::'<>9'
+  IL_000F  ldftn      instance string Ref.Library.Inventory/<>c::'<.ctor>b__9_0'(class Ref.Library.Item)
+  IL_0015  newobj     instance void class [System.Runtime]System.Func`2<class Ref.Library.Item, string>::.ctor(object, native int)
+  IL_001A  dup
+  IL_001B  stsfld     class [System.Runtime]System.Func`2<class Ref.Library.Item, string> Ref.Library.Inventory/<>c::'<>9__9_0'
+  IL_0020  newobj     instance void class Ref.Library.MemoryRepository`1<class Ref.Library.Item>::.ctor(class [System.Runtime]System.Func`2<!0, string>)
+  IL_0025  stfld      class Ref.Library.MemoryRepository`1<class Ref.Library.Item> Ref.Library.Inventory::_items
+  IL_002A  ldarg.0
+  IL_002B  newobj     instance void class [System.Collections]System.Collections.Generic.List`1<int32>::.ctor()
+  IL_0030  stfld      class [System.Collections]System.Collections.Generic.List`1<int32> Ref.Library.Inventory::_history
+  IL_0035  ldarg.0
+  IL_0036  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_003B  ret
+
+Type     : Ref.Library.Statistics
+
+Method   : T Max<T>(IEnumerable<T> values)
+Kind     : static, public, generic
+RVA      : 0x3BFC   Size: 90 bytes   Token: 0x06000025
+
+[IL]  .maxstack 2
+  .locals init ([0] class [System.Runtime]System.Collections.Generic.IEnumerator`1<!!T> V_0, [1] !!T V_1, [2] !!T V_2)
+  IL_0000  ldarg.0
+  IL_0001  callvirt   instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>::GetEnumerator()
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  callvirt   instance bool [System.Runtime]System.Collections.IEnumerator::MoveNext()
+  IL_000D  brtrue.s   IL_001A
+  IL_000F  ldstr      "empty"
+  IL_0014  newobj     instance void [System.Runtime]System.InvalidOperationException::.ctor(string)
+  IL_0019  throw
+  IL_001A  ldloc.0
+  IL_001B  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IEnumerator`1<!!0>::get_Current()
+  IL_0020  stloc.1
+  IL_0021  br.s       IL_0042
+  IL_0023  ldloc.0
+  IL_0024  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IEnumerator`1<!!0>::get_Current()
+  IL_0029  stloc.2
+  IL_002A  ldloca.s   V_2
+  IL_002C  ldloc.1
+  IL_002D  constrained. !!T
+  IL_0033  callvirt   instance int32 class [System.Runtime]System.IComparable`1<!!0>::CompareTo(!0)
+  IL_0038  ldc.i4.0
+  IL_0039  ble.s      IL_0042
+  IL_003B  ldloc.0
+  IL_003C  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IEnumerator`1<!!0>::get_Current()
+  IL_0041  stloc.1
+  IL_0042  ldloc.0
+  IL_0043  callvirt   instance bool [System.Runtime]System.Collections.IEnumerator::MoveNext()
+  IL_0048  brtrue.s   IL_0023
+  IL_004A  ldloc.1
+  IL_004B  stloc.2
+  IL_004C  leave.s    IL_0058
+  IL_004E  ldloc.0
+  IL_004F  brfalse.s  IL_0057
+  IL_0051  ldloc.0
+  IL_0052  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  IL_0057  endfinally
+  IL_0058  ldloc.2
+  IL_0059  ret
+  .try IL_0007 to IL_004E finally handler IL_004E to IL_0058
+
+Method   : int MaxInt(List<int> values)
+Kind     : static, public
+RVA      : 0x3C74   Size: 7 bytes   Token: 0x06000026
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       !!T Ref.Library.Statistics::Max<int32>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!T>)
+  IL_0006  ret
+
+Method   : Quantity MaxQuantity(Quantity[] values)
+Kind     : static, public
+RVA      : 0x3C7C   Size: 7 bytes   Token: 0x06000027
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       !!T Ref.Library.Statistics::Max<valuetype Ref.Library.Quantity>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!T>)
+  IL_0006  ret
+
+Method   : string MaxString(List<string> values)
+Kind     : static, public
+RVA      : 0x3C84   Size: 7 bytes   Token: 0x06000028
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       !!T Ref.Library.Statistics::Max<string>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!T>)
+  IL_0006  ret
+
+Method   : double Mean(IReadOnlyList<double> values)
+Kind     : static, public
+RVA      : 0x3C8C   Size: 65 bytes   Token: 0x06000029
+
+[IL]  .maxstack 3
+  .locals init ([0] float64 V_0, [1] int32 V_1)
+  IL_0000  ldarg.0
+  IL_0001  callvirt   instance int32 class [System.Runtime]System.Collections.Generic.IReadOnlyCollection`1<float64>::get_Count()
+  IL_0006  brtrue.s   IL_0012
+  IL_0008  ldc.r8     NaN
+  IL_0011  ret
+  IL_0012  ldc.r8     0
+  IL_001B  stloc.0
+  IL_001C  ldc.i4.0
+  IL_001D  stloc.1
+  IL_001E  br.s       IL_002E
+  IL_0020  ldloc.0
+  IL_0021  ldarg.0
+  IL_0022  ldloc.1
+  IL_0023  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<float64>::get_Item(int32)
+  IL_0028  add
+  IL_0029  stloc.0
+  IL_002A  ldloc.1
+  IL_002B  ldc.i4.1
+  IL_002C  add
+  IL_002D  stloc.1
+  IL_002E  ldloc.1
+  IL_002F  ldarg.0
+  IL_0030  callvirt   instance int32 class [System.Runtime]System.Collections.Generic.IReadOnlyCollection`1<float64>::get_Count()
+  IL_0035  blt.s      IL_0020
+  IL_0037  ldloc.0
+  IL_0038  ldarg.0
+  IL_0039  callvirt   instance int32 class [System.Runtime]System.Collections.Generic.IReadOnlyCollection`1<float64>::get_Count()
+  IL_003E  conv.r8
+  IL_003F  div
+  IL_0040  ret
+
+Type     : Ref.Library.Inventory+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x3CDC   Size: 11 bytes   Token: 0x0600002A
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void Ref.Library.Inventory/<>c::.ctor()
+  IL_0005  stsfld     class Ref.Library.Inventory/<>c Ref.Library.Inventory/<>c::'<>9'
+  IL_000A  ret
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x3CE8   Size: 7 bytes   Token: 0x0600002B
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Method   : string <.ctor>b__9_0(Item i)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x3CF0   Size: 7 bytes   Token: 0x0600002C
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  callvirt   instance string Ref.Library.Item::get_Sku()
+  IL_0006  ret

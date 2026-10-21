@@ -1,0 +1,418 @@
+Assembly : Ref15.Modern.dll
+Name     : Ref15.Modern, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 97
+
+Type     : Ref.Modern.Person
+
+Method   : void .ctor(string First, string Last)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 21 bytes   Token: 0x06000001
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, virtual, compiler-generated
+RVA      : 0x2066   Size: 11 bytes   Token: 0x06000002
+
+Method   : string get_First()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2072   Size: 7 bytes   Token: 0x06000003
+
+Method   : void set_First(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x207A   Size: 8 bytes   Token: 0x06000004
+
+Method   : string get_Last()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2083   Size: 7 bytes   Token: 0x06000005
+
+Method   : void set_Last(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x208B   Size: 8 bytes   Token: 0x06000006
+
+Method   : string get_Full()
+Kind     : property-get, instance, public
+RVA      : 0x2094   Size: 23 bytes   Token: 0x06000007
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20AC   Size: 64 bytes   Token: 0x06000008
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, virtual, compiler-generated
+RVA      : 0x20F8   Size: 82 bytes   Token: 0x06000009
+
+Method   : bool op_Inequality(Person left, Person right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2156   Size: 11 bytes   Token: 0x0600000A
+
+Method   : bool op_Equality(Person left, Person right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2162   Size: 19 bytes   Token: 0x0600000B
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2176   Size: 63 bytes   Token: 0x0600000C
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x21B6   Size: 13 bytes   Token: 0x0600000D
+
+Method   : bool Equals(Person other)
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x21C4   Size: 77 bytes   Token: 0x0600000E
+
+Method   : Person <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x221D   Size: 7 bytes   Token: 0x0600000F
+
+Method   : void .ctor(Person original)
+Kind     : ctor, instance, protected, compiler-generated
+RVA      : 0x2225   Size: 31 bytes   Token: 0x06000010
+
+Method   : void Deconstruct(out string First, out string Last)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2245   Size: 17 bytes   Token: 0x06000011
+
+Type     : Ref.Modern.Employee
+
+Method   : void .ctor(string First, string Last, Decimal Salary)
+Kind     : ctor, instance, public
+RVA      : 0x2257   Size: 16 bytes   Token: 0x06000012
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x2268   Size: 11 bytes   Token: 0x06000013
+
+Method   : Decimal get_Salary()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2274   Size: 7 bytes   Token: 0x06000014
+
+Method   : void set_Salary(Decimal value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x227C   Size: 8 bytes   Token: 0x06000015
+
+Method   : Employee Raise(Decimal percent)
+Kind     : instance, public
+RVA      : 0x2285   Size: 47 bytes   Token: 0x06000016
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x22B8   Size: 64 bytes   Token: 0x06000017
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x2304   Size: 62 bytes   Token: 0x06000018
+
+Method   : bool op_Inequality(Employee left, Employee right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x234E   Size: 11 bytes   Token: 0x06000019
+
+Method   : bool op_Equality(Employee left, Employee right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x235A   Size: 19 bytes   Token: 0x0600001A
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x236E   Size: 30 bytes   Token: 0x0600001B
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x238D   Size: 13 bytes   Token: 0x0600001C
+
+Method   : bool Equals(Person other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x239B   Size: 8 bytes   Token: 0x0600001D
+
+Method   : bool Equals(Employee other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x23A4   Size: 40 bytes   Token: 0x0600001E
+
+Method   : Employee <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x23CD   Size: 7 bytes   Token: 0x0600001F
+
+Method   : void .ctor(Employee original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x23D5   Size: 20 bytes   Token: 0x06000020
+
+Method   : void Deconstruct(out string First, out string Last, out Decimal Salary)
+Kind     : instance, public, compiler-generated
+RVA      : 0x23EA   Size: 29 bytes   Token: 0x06000021
+
+Type     : Ref.Modern.Point
+
+Method   : void .ctor(double X, double Y)
+Kind     : ctor, instance, public
+RVA      : 0x2408   Size: 15 bytes   Token: 0x06000022
+
+Method   : double get_X()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2418   Size: 7 bytes   Token: 0x06000023
+
+Method   : void set_X(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2420   Size: 8 bytes   Token: 0x06000024
+
+Method   : double get_Y()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2429   Size: 7 bytes   Token: 0x06000025
+
+Method   : void set_Y(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2431   Size: 8 bytes   Token: 0x06000026
+
+Method   : double get_Length()
+Kind     : property-get, instance, public
+RVA      : 0x243A   Size: 33 bytes   Token: 0x06000027
+
+Method   : Point op_Addition(Point a, Point b)
+Kind     : operator, static, public
+RVA      : 0x245C   Size: 36 bytes   Token: 0x06000028
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2484   Size: 64 bytes   Token: 0x06000029
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, private, compiler-generated
+RVA      : 0x24D0   Size: 119 bytes   Token: 0x0600002A
+
+Method   : bool op_Inequality(Point left, Point right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2553   Size: 11 bytes   Token: 0x0600002B
+
+Method   : bool op_Equality(Point left, Point right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x255F   Size: 9 bytes   Token: 0x0600002C
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2569   Size: 40 bytes   Token: 0x0600002D
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2592   Size: 23 bytes   Token: 0x0600002E
+
+Method   : bool Equals(Point other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x25AA   Size: 49 bytes   Token: 0x0600002F
+
+Method   : void Deconstruct(out double X, out double Y)
+Kind     : instance, public, compiler-generated
+RVA      : 0x25DC   Size: 17 bytes   Token: 0x06000030
+
+Type     : Ref.Modern.Counter
+
+Method   : int get_Value()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x25EE   Size: 7 bytes   Token: 0x06000031
+
+Method   : void set_Value(int value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x25F6   Size: 8 bytes   Token: 0x06000032
+
+Method   : void Increment()
+Kind     : instance, public
+RVA      : 0x2600   Size: 17 bytes   Token: 0x06000033
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2620   Size: 64 bytes   Token: 0x06000034
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, private, compiler-generated
+RVA      : 0x266C   Size: 41 bytes   Token: 0x06000035
+
+Method   : bool op_Inequality(Counter left, Counter right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x26A1   Size: 11 bytes   Token: 0x06000036
+
+Method   : bool op_Equality(Counter left, Counter right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x26AD   Size: 9 bytes   Token: 0x06000037
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x26B7   Size: 17 bytes   Token: 0x06000038
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x26C9   Size: 23 bytes   Token: 0x06000039
+
+Method   : bool Equals(Counter other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x26E1   Size: 23 bytes   Token: 0x0600003A
+
+Type     : Ref.Modern.Settings
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x26F9   Size: 7 bytes   Token: 0x0600003B
+
+Method   : void set_Name(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2701   Size: 8 bytes   Token: 0x0600003C
+
+Method   : int get_Retries()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x270A   Size: 7 bytes   Token: 0x0600003D
+
+Method   : void set_Retries(int value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2712   Size: 8 bytes   Token: 0x0600003E
+
+Method   : TimeSpan get_Timeout()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x271B   Size: 7 bytes   Token: 0x0600003F
+
+Method   : void set_Timeout(TimeSpan value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2723   Size: 8 bytes   Token: 0x06000040
+
+Method   : IReadOnlyList<string> get_Tags()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x272C   Size: 7 bytes   Token: 0x06000041
+
+Method   : void set_Tags(IReadOnlyList<string> value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2734   Size: 8 bytes   Token: 0x06000042
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x273D   Size: 45 bytes   Token: 0x06000043
+
+Type     : Ref.Modern.IGreeter
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000044
+
+Method   : string Greet()
+Kind     : instance, public, virtual
+RVA      : 0x276B   Size: 18 bytes   Token: 0x06000045
+
+Method   : string GreetLoudly()
+Kind     : instance, public, virtual
+RVA      : 0x277E   Size: 22 bytes   Token: 0x06000046
+
+Method   : string Prefix()
+Kind     : instance, private
+RVA      : 0x2795   Size: 6 bytes   Token: 0x06000047
+
+Method   : string get_Anonymous()
+Kind     : property-get, static, public
+RVA      : 0x279C   Size: 6 bytes   Token: 0x06000048
+
+Type     : Ref.Modern.Greeter
+
+Method   : void .ctor(string name)
+Kind     : ctor, instance, public
+RVA      : 0x27A3   Size: 14 bytes   Token: 0x06000049
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, virtual, sealed, compiler-generated
+RVA      : 0x27B2   Size: 7 bytes   Token: 0x0600004A
+
+Type     : Ref.Modern.PoliteGreeter
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, virtual, sealed
+RVA      : 0x27BA   Size: 6 bytes   Token: 0x0600004B
+
+Method   : string Greet()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x27C1   Size: 17 bytes   Token: 0x0600004C
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x27D3   Size: 7 bytes   Token: 0x0600004D
+
+Type     : Ref.Modern.IShape`1
+
+Method   : TSelf get_Unit()
+Kind     : property-get, static, public, abstract, no-body
+RVA      : 0x0000   Token: 0x0600004E
+
+Method   : TSelf op_Multiply(TSelf shape, double factor)
+Kind     : operator, static, public, abstract, no-body
+RVA      : 0x0000   Token: 0x0600004F
+
+Method   : double get_Area()
+Kind     : property-get, instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000050
+
+Method   : string get_Kind()
+Kind     : property-get, static, public, virtual
+RVA      : 0x27DB   Size: 16 bytes   Token: 0x06000051
+
+Type     : Ref.Modern.Square
+
+Method   : void .ctor(double side)
+Kind     : ctor, instance, public
+RVA      : 0x27EC   Size: 8 bytes   Token: 0x06000052
+
+Method   : double get_Side()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27F5   Size: 7 bytes   Token: 0x06000053
+
+Method   : double get_Area()
+Kind     : property-get, instance, public, virtual, sealed
+RVA      : 0x27FD   Size: 14 bytes   Token: 0x06000054
+
+Method   : Square get_Unit()
+Kind     : property-get, static, public
+RVA      : 0x280C   Size: 15 bytes   Token: 0x06000055
+
+Method   : Square op_Multiply(Square s, double factor)
+Kind     : operator, static, public
+RVA      : 0x281C   Size: 15 bytes   Token: 0x06000056
+
+Method   : string Ref.Modern.IShape<Ref.Modern.Square>.get_Kind()
+Kind     : property-get, static, private
+RVA      : 0x282C   Size: 6 bytes   Token: 0x06000057
+
+Type     : Ref.Modern.Shapes
+
+Method   : T Scale<T>(double factor)
+Kind     : static, public, generic
+RVA      : 0x2833   Size: 24 bytes   Token: 0x06000058
+
+Method   : string KindOf<T>()
+Kind     : static, public, generic
+RVA      : 0x284C   Size: 12 bytes   Token: 0x06000059
+
+Method   : T Add<T>(T a, T b)
+Kind     : static, public, generic
+RVA      : 0x2859   Size: 14 bytes   Token: 0x0600005A
+
+Type     : Ref.Modern.Catalog
+
+Method   : void .ctor(string name, IEnumerable<string> items)
+Kind     : ctor, instance, public
+RVA      : 0x2868   Size: 26 bytes   Token: 0x0600005B
+
+Method   : string get_Name()
+Kind     : property-get, instance, public
+RVA      : 0x2883   Size: 7 bytes   Token: 0x0600005C
+
+Method   : int get_Count()
+Kind     : property-get, instance, public
+RVA      : 0x288B   Size: 12 bytes   Token: 0x0600005D
+
+Method   : string[] Sorted()
+Kind     : instance, public
+RVA      : 0x2898   Size: 23 bytes   Token: 0x0600005E
+
+Method   : bool Contains(string item)
+Kind     : instance, public
+RVA      : 0x28B0   Size: 23 bytes   Token: 0x0600005F
+
+Type     : Ref.Modern.Helper
+
+Method   : string Normalize(string s)
+Kind     : static, public
+RVA      : 0x28C8   Size: 12 bytes   Token: 0x06000060
+
+Method   : HashSet<string> Normalize(IEnumerable<string> items)
+Kind     : static, public
+RVA      : 0x28D8   Size: 62 bytes   Token: 0x06000061

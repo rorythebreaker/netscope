@@ -1,0 +1,1344 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref09.Generics.dll",
+      "assembly": "Ref09.Generics",
+      "version": "1.0.0.0",
+      "targetFramework": ".NETCoreApp,Version=v8.0",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.IProducer`1",
+          "name": "Produce",
+          "signature": "T Produce()",
+          "token": 100663297,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "abstract",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.IConsumer`1",
+          "name": "Consume",
+          "signature": "void Consume(T item)",
+          "token": 100663298,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "abstract",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.IConverter`2",
+          "name": "Convert",
+          "signature": "TOut Convert(TIn value)",
+          "token": 100663299,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "abstract",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Algorithms::Apply",
+              "signature": "TResult Apply<TIn, TResult>(IConverter<TIn, TResult> converter, TIn value)",
+              "offset": 2,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Constant`1",
+          "name": ".ctor",
+          "signature": "void .ctor(T value)",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8272,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Constant`1",
+          "name": "Produce",
+          "signature": "T Produce()",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed"
+          ],
+          "rva": 8287,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Collector`1",
+          "name": "get_Items",
+          "signature": "List<T> get_Items()",
+          "token": 100663302,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8295,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Collector`1::Consume",
+              "signature": "void Consume(T item)",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Collector`1",
+          "name": "Consume",
+          "signature": "void Consume(T item)",
+          "token": 100663303,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed"
+          ],
+          "rva": 8303,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Generics.Collector<!0>::get_Items()",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663302
+            },
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<!0>::Add(!0)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Collector`1",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8317,
+          "size": 18,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.List<!0>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Entity`1",
+          "name": "get_Id",
+          "signature": "TKey get_Id()",
+          "token": 100663305,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8336,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Entity`1::SameAs",
+              "signature": "bool SameAs(Entity<TKey> other)",
+              "offset": 4,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Entity`1::SameAs",
+              "signature": "bool SameAs(Entity<TKey> other)",
+              "offset": 13,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Entity`1",
+          "name": "set_Id",
+          "signature": "void set_Id(TKey value)",
+          "token": 100663306,
+          "access": "protected",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8344,
+          "size": 8,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.User::.ctor",
+              "signature": "void .ctor(int id, string name)",
+              "offset": 8,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Entity`1",
+          "name": "SameAs",
+          "signature": "bool SameAs(Entity<TKey> other)",
+          "token": 100663307,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8356,
+          "size": 32,
+          "calls": [
+            {
+              "offset": 4,
+              "opcode": "call",
+              "target": "Ref.Generics.Entity<!0>::get_Id()",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663305
+            },
+            {
+              "offset": 13,
+              "opcode": "callvirt",
+              "target": "Ref.Generics.Entity<!0>::get_Id()",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663305
+            },
+            {
+              "offset": 24,
+              "opcode": "callvirt",
+              "target": "System.IEquatable<!0>::Equals(!0)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Entity`1",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663308,
+          "access": "protected",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8400,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.User::.ctor",
+              "signature": "void .ctor(int id, string name)",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.User",
+          "name": ".ctor",
+          "signature": "void .ctor(int id, string name)",
+          "token": 100663309,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8408,
+          "size": 21,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Generics.Entity<int>::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 8,
+              "opcode": "call",
+              "target": "Ref.Generics.Entity<int>::set_Id(int)",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663306
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.User",
+          "name": "get_Name",
+          "signature": "string get_Name()",
+          "token": 100663310,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8430,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Pool`1",
+          "name": "Rent",
+          "signature": "T Rent()",
+          "token": 100663311,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8438,
+          "size": 32,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Stack<!0>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "System.Activator::CreateInstance<!0>()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 26,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Stack<!0>::Pop()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Algorithms::UseMany",
+              "signature": "int UseMany()",
+              "offset": 146,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Pool`1",
+          "name": "Return",
+          "signature": "void Return(T item)",
+          "token": 100663312,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8472,
+          "size": 33,
+          "calls": [
+            {
+              "offset": 21,
+              "opcode": "newobj",
+              "target": "System.ArgumentNullException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 27,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Stack<!0>::Push(!0)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Algorithms::UseMany",
+              "signature": "int UseMany()",
+              "offset": 151,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Pool`1",
+          "name": "get_Free",
+          "signature": "int get_Free()",
+          "token": 100663313,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance"
+          ],
+          "rva": 8517,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Stack<!0>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Algorithms::UseMany",
+              "signature": "int UseMany()",
+              "offset": 174,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Pool`1",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663314,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8530,
+          "size": 18,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.Stack<!0>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Algorithms::UseMany",
+              "signature": "int UseMany()",
+              "offset": 135,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Pair`2",
+          "name": ".ctor",
+          "signature": "void .ctor(TFirst first, TSecond second)",
+          "token": 100663315,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8549,
+          "size": 15,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Pair`2::Swap",
+              "signature": "Pair<TSecond, TFirst> Swap()",
+              "offset": 12,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Algorithms::UseMany",
+              "signature": "int UseMany()",
+              "offset": 119,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Pair`2",
+          "name": "Swap",
+          "signature": "Pair<TSecond, TFirst> Swap()",
+          "token": 100663316,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8565,
+          "size": 18,
+          "calls": [
+            {
+              "offset": 12,
+              "opcode": "newobj",
+              "target": "Ref.Generics.Pair<!1, !0>::.ctor(!1, !0)",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663315
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Algorithms::UseMany",
+              "signature": "int UseMany()",
+              "offset": 128,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Pair`2",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663317,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 8584,
+          "size": 79,
+          "calls": [
+            {
+              "offset": 4,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 16,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 29,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<!0>(!0)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 41,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 54,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<!1>(!1)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 66,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 73,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Node`1",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663318,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8675,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Algorithms",
+          "name": "Swap",
+          "signature": "void Swap<T>(ref T a, ref T b)",
+          "token": 100663319,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 8684,
+          "size": 27,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Algorithms::UseMany",
+              "signature": "int UseMany()",
+              "offset": 8,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Algorithms",
+          "name": "Map",
+          "signature": "TOut[] Map<TIn, TOut>(TIn[] source, Func<TIn, TOut> f)",
+          "token": 100663320,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 8724,
+          "size": 45,
+          "calls": [
+            {
+              "offset": 23,
+              "opcode": "callvirt",
+              "target": "System.Func<!!0, !!1>::Invoke(!!0)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Algorithms::UseMany",
+              "signature": "int UseMany()",
+              "offset": 66,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Algorithms",
+          "name": "Sum",
+          "signature": "T Sum<T>(IEnumerable<T> values)",
+          "token": 100663321,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 8784,
+          "size": 64,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "System.Numerics.INumberBase<!!0>::get_Zero()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 13,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<!!0>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 22,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<!!0>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 36,
+              "opcode": "call",
+              "target": "System.Numerics.IAdditionOperators<!!0, !!0, !!0>::op_Addition(!!0, !!0)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 43,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 56,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Algorithms::UseMany",
+              "signature": "int UseMany()",
+              "offset": 107,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Algorithms",
+          "name": "Apply",
+          "signature": "TResult Apply<TIn, TResult>(IConverter<TIn, TResult> converter, TIn value)",
+          "token": 100663322,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 8876,
+          "size": 8,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "callvirt",
+              "target": "Ref.Generics.IConverter<!!0, !!1>::Convert(!!0)",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663299
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Algorithms",
+          "name": "Widen",
+          "signature": "IProducer<object> Widen(IProducer<string> producer)",
+          "token": 100663323,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8885,
+          "size": 2,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Algorithms",
+          "name": "Narrow",
+          "signature": "IConsumer<string> Narrow(IConsumer<object> consumer)",
+          "token": 100663324,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8888,
+          "size": 2,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Algorithms",
+          "name": "GroupBy",
+          "signature": "Dictionary<TKey, List<TValue>> GroupBy<TKey, TValue>(IEnumerable<TValue> values, Func<TValue, TKey> key)",
+          "token": 100663325,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 8892,
+          "size": 86,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.Dictionary<!!0, System.Collections.Generic.List<!!1>>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<!!1>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 16,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<!!1>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 24,
+              "opcode": "callvirt",
+              "target": "System.Func<!!1, !!0>::Invoke(!!1)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 34,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Dictionary<!!0, System.Collections.Generic.List<!!1>>::TryGetValue(!!0, ref List<!!1>)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 43,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.List<!!1>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 51,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Dictionary<!!0, System.Collections.Generic.List<!!1>>::set_Item(!!0, List<!!1>)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 59,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<!!1>::Add(!!1)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 65,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 78,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Algorithms",
+          "name": "Max",
+          "signature": "T Max<T>(T a, T b)",
+          "token": 100663326,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 9008,
+          "size": 21,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "System.IComparable<!!0>::CompareTo(!!0)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Algorithms::UseMany",
+              "signature": "int UseMany()",
+              "offset": 182,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Algorithms::UseMany",
+              "signature": "int UseMany()",
+              "offset": 198,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Algorithms",
+          "name": "UseMany",
+          "signature": "int UseMany()",
+          "token": 100663327,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 9032,
+          "size": 210,
+          "calls": [
+            {
+              "offset": 8,
+              "opcode": "call",
+              "target": "Ref.Generics.Algorithms::Swap<int>(ref int, ref int)",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663319
+            },
+            {
+              "offset": 49,
+              "opcode": "ldftn",
+              "target": "Ref.Generics.Algorithms.<>c::<UseMany>b__8_0(string)",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663332
+            },
+            {
+              "offset": 55,
+              "opcode": "newobj",
+              "target": "System.Func<string, int>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 66,
+              "opcode": "call",
+              "target": "Ref.Generics.Algorithms::Map<string, int>(string[], Func<string, int>)",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663320
+            },
+            {
+              "offset": 72,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.List<double>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 87,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<double>::Add(double)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 102,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<double>::Add(double)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 107,
+              "opcode": "call",
+              "target": "Ref.Generics.Algorithms::Sum<double>(IEnumerable<double>)",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663321
+            },
+            {
+              "offset": 119,
+              "opcode": "newobj",
+              "target": "Ref.Generics.Pair<int, string>::.ctor(int, string)",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663315
+            },
+            {
+              "offset": 128,
+              "opcode": "call",
+              "target": "Ref.Generics.Pair<int, string>::Swap()",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663316
+            },
+            {
+              "offset": 135,
+              "opcode": "newobj",
+              "target": "Ref.Generics.Pool<System.Collections.Generic.List<int>>::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663314
+            },
+            {
+              "offset": 146,
+              "opcode": "callvirt",
+              "target": "Ref.Generics.Pool<System.Collections.Generic.List<int>>::Rent()",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663311
+            },
+            {
+              "offset": 151,
+              "opcode": "callvirt",
+              "target": "Ref.Generics.Pool<System.Collections.Generic.List<int>>::Return(List<int>)",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663312
+            },
+            {
+              "offset": 174,
+              "opcode": "callvirt",
+              "target": "Ref.Generics.Pool<System.Collections.Generic.List<int>>::get_Free()",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663313
+            },
+            {
+              "offset": 182,
+              "opcode": "call",
+              "target": "Ref.Generics.Algorithms::Max<int>(int, int)",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663326
+            },
+            {
+              "offset": 198,
+              "opcode": "call",
+              "target": "Ref.Generics.Algorithms::Max<string>(string, string)",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663326
+            },
+            {
+              "offset": 203,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Node`1+Enumerator",
+          "name": ".ctor",
+          "signature": "void .ctor(Node<T> head)",
+          "token": 100663328,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 9254,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Node`1+Enumerator",
+          "name": "Next",
+          "signature": "bool Next(out T value)",
+          "token": 100663329,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 9269,
+          "size": 53,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Algorithms+<>c",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663330,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9323,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.Generics.Algorithms.<>c::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref09.Generics.dll",
+              "groupToken": 100663331
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Algorithms+<>c",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663331,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9335,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Algorithms+<>c::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref09.Generics",
+          "namespace": "Ref.Generics",
+          "type": "Ref.Generics.Algorithms+<>c",
+          "name": "<UseMany>b__8_0",
+          "signature": "int <UseMany>b__8_0(string s)",
+          "token": 100663332,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 9343,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref09.Generics",
+              "method": "Ref.Generics.Algorithms::UseMany",
+              "signature": "int UseMany()",
+              "offset": 49,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

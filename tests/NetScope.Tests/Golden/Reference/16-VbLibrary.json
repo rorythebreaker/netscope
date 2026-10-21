@@ -1,0 +1,2056 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref16.VbLibrary.dll",
+      "assembly": "Ref16.VbLibrary",
+      "version": "1.0.0.0",
+      "targetFramework": ".NETCoreApp,Version=v8.0",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.InsufficientFundsException",
+          "name": ".ctor",
+          "signature": "void .ctor(Decimal needed)",
+          "token": 100663297,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8272,
+          "size": 31,
+          "calls": [
+            {
+              "offset": 8,
+              "opcode": "call",
+              "target": "System.Decimal::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 13,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 18,
+              "opcode": "call",
+              "target": "System.Exception::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Account::Withdraw",
+              "signature": "void Withdraw(Decimal amount)",
+              "offset": 27,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.InsufficientFundsException",
+          "name": "get_Needed",
+          "signature": "Decimal get_Needed()",
+          "token": 100663298,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8304,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_5_TransferAsync::MoveNext",
+              "signature": "void MoveNext()",
+              "offset": 171,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Account",
+          "name": "add_BalanceChanged",
+          "signature": "void add_BalanceChanged(BalanceChangedEventHandler obj)",
+          "token": 100663299,
+          "access": "public",
+          "kinds": [
+            "event-add",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8312,
+          "size": 41,
+          "calls": [
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.Delegate::Combine(Delegate, Delegate)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 30,
+              "opcode": "call",
+              "target": "System.Threading.Interlocked::CompareExchange<BalanceChangedEventHandler>(ref BalanceChangedEventHandler, BalanceChangedEventHandler, BalanceChangedEventHandler)",
+              "scope": "external",
+              "targetAssembly": "System.Threading"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Account",
+          "name": "remove_BalanceChanged",
+          "signature": "void remove_BalanceChanged(BalanceChangedEventHandler obj)",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "event-remove",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8368,
+          "size": 41,
+          "calls": [
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.Delegate::Remove(Delegate, Delegate)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 30,
+              "opcode": "call",
+              "target": "System.Threading.Interlocked::CompareExchange<BalanceChangedEventHandler>(ref BalanceChangedEventHandler, BalanceChangedEventHandler, BalanceChangedEventHandler)",
+              "scope": "external",
+              "targetAssembly": "System.Threading"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Account",
+          "name": ".ctor",
+          "signature": "void .ctor(string owner, AccountKind kind)",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8421,
+          "size": 32,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 7,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.List<string>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.SavingsAccount::.ctor",
+              "signature": "void .ctor(string owner)",
+              "offset": 3,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Account",
+          "name": "get_Owner",
+          "signature": "string get_Owner()",
+          "token": 100663302,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8454,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements::MoveNext",
+              "signature": "bool MoveNext()",
+              "offset": 115,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank+_Closure$__::_Lambda$__2-1",
+              "signature": "string _Lambda$__2-1(Account a)",
+              "offset": 1,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank+_Closure$__::_Lambda$__2-2",
+              "signature": "string _Lambda$__2-2(Account a)",
+              "offset": 1,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Account",
+          "name": "get_Kind",
+          "signature": "AccountKind get_Kind()",
+          "token": 100663303,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8462,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank+_Closure$__::_Lambda$__3-0",
+              "signature": "AccountKind _Lambda$__3-0(Account a)",
+              "offset": 1,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Account",
+          "name": "get_Balance",
+          "signature": "Decimal get_Balance()",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance"
+          ],
+          "rva": 8470,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.SavingsAccount::AddInterest",
+              "signature": "void AddInterest()",
+              "offset": 2,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank+_Closure$__::_Lambda$__3-3",
+              "signature": "Decimal _Lambda$__3-3(Account a)",
+              "offset": 1,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank+_Closure$__2-0::_Lambda$__0",
+              "signature": "bool _Lambda$__0(Account a)",
+              "offset": 1,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Account",
+          "name": "Deposit",
+          "signature": "void Deposit(Decimal amount)",
+          "token": 100663305,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual"
+          ],
+          "rva": 8480,
+          "size": 102,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "System.Decimal::Compare(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 19,
+              "opcode": "newobj",
+              "target": "System.ArgumentOutOfRangeException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 40,
+              "opcode": "call",
+              "target": "System.Decimal::Add(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 63,
+              "opcode": "call",
+              "target": "System.Decimal::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 68,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 73,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<string>::Add(string)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 96,
+              "opcode": "callvirt",
+              "target": "Ref.VbLibrary.Accounts.Account.BalanceChangedEventHandler::Invoke(object, Decimal)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663325
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Account::op_Addition",
+              "signature": "Account op_Addition(Account a, Decimal amount)",
+              "offset": 2,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.SavingsAccount::AddInterest",
+              "signature": "void AddInterest()",
+              "offset": 24,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_5_TransferAsync::MoveNext",
+              "signature": "void MoveNext()",
+              "offset": 140,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Account",
+          "name": "Withdraw",
+          "signature": "void Withdraw(Decimal amount)",
+          "token": 100663306,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual"
+          ],
+          "rva": 8596,
+          "size": 110,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Decimal::Compare(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 22,
+              "opcode": "call",
+              "target": "System.Decimal::Subtract(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 27,
+              "opcode": "newobj",
+              "target": "Ref.VbLibrary.Accounts.InsufficientFundsException::.ctor(Decimal)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663297
+            },
+            {
+              "offset": 48,
+              "opcode": "call",
+              "target": "System.Decimal::Subtract(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 71,
+              "opcode": "call",
+              "target": "System.Decimal::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 76,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 81,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<string>::Add(string)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 104,
+              "opcode": "callvirt",
+              "target": "Ref.VbLibrary.Accounts.Account.BalanceChangedEventHandler::Invoke(object, Decimal)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663325
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.SavingsAccount::Withdraw",
+              "signature": "void Withdraw(Decimal amount)",
+              "offset": 33,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_5_TransferAsync::MoveNext",
+              "signature": "void MoveNext()",
+              "offset": 123,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Account",
+          "name": "History",
+          "signature": "IEnumerable<string> History()",
+          "token": 100663307,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8718,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<string>::AsReadOnly()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements::MoveNext",
+              "signature": "bool MoveNext()",
+              "offset": 79,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Account",
+          "name": "op_Addition",
+          "signature": "Account op_Addition(Account a, Decimal amount)",
+          "token": 100663308,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static"
+          ],
+          "rva": 8731,
+          "size": 9,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "callvirt",
+              "target": "Ref.VbLibrary.Accounts.Account::Deposit(Decimal)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663305
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.SavingsAccount",
+          "name": ".ctor",
+          "signature": "void .ctor(string owner)",
+          "token": 100663309,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8741,
+          "size": 25,
+          "calls": [
+            {
+              "offset": 3,
+              "opcode": "call",
+              "target": "Ref.VbLibrary.Accounts.Account::.ctor(string, AccountKind)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663301
+            },
+            {
+              "offset": 14,
+              "opcode": "newobj",
+              "target": "System.Decimal::.ctor(int, int, int, bool, byte)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 19,
+              "opcode": "call",
+              "target": "Ref.VbLibrary.Accounts.SavingsAccount::set_Rate(Decimal)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663311
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.SavingsAccount",
+          "name": "get_Rate",
+          "signature": "Decimal get_Rate()",
+          "token": 100663310,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8767,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.SavingsAccount::AddInterest",
+              "signature": "void AddInterest()",
+              "offset": 8,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.SavingsAccount",
+          "name": "set_Rate",
+          "signature": "void set_Rate(Decimal AutoPropertyValue)",
+          "token": 100663311,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8775,
+          "size": 8,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.SavingsAccount::.ctor",
+              "signature": "void .ctor(string owner)",
+              "offset": 19,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.SavingsAccount",
+          "name": "Withdraw",
+          "signature": "void Withdraw(Decimal amount)",
+          "token": 100663312,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 8784,
+          "size": 39,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "newobj",
+              "target": "System.Decimal::.ctor(long)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.Decimal::Compare(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 25,
+              "opcode": "newobj",
+              "target": "System.InvalidOperationException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 33,
+              "opcode": "call",
+              "target": "Ref.VbLibrary.Accounts.Account::Withdraw(Decimal)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663306
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.SavingsAccount",
+          "name": "AddInterest",
+          "signature": "void AddInterest()",
+          "token": 100663313,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8824,
+          "size": 30,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.VbLibrary.Accounts.Account::get_Balance()",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663304
+            },
+            {
+              "offset": 8,
+              "opcode": "call",
+              "target": "Ref.VbLibrary.Accounts.SavingsAccount::get_Rate()",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663310
+            },
+            {
+              "offset": 13,
+              "opcode": "call",
+              "target": "System.Decimal::Multiply(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 19,
+              "opcode": "call",
+              "target": "System.Math::Round(Decimal, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 24,
+              "opcode": "callvirt",
+              "target": "Ref.VbLibrary.Accounts.Account::Deposit(Decimal)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663305
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank",
+          "name": "Describe",
+          "signature": "string Describe(AccountKind kind)",
+          "token": 100663314,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8856,
+          "size": 35,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank",
+          "name": "Grade",
+          "signature": "string Grade(int score)",
+          "token": 100663315,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8904,
+          "size": 59,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank",
+          "name": "RichOwners",
+          "signature": "List<string> RichOwners(IEnumerable<Account> accounts, Decimal limit)",
+          "token": 100663316,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8976,
+          "size": 119,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.VbLibrary.Accounts.Bank._Closure$__2-0::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663344
+            },
+            {
+              "offset": 15,
+              "opcode": "ldftn",
+              "target": "Ref.VbLibrary.Accounts.Bank._Closure$__2-0::_Lambda$__0(Account)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663345
+            },
+            {
+              "offset": 21,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.VbLibrary.Accounts.Account, bool>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 26,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Where<Account>(IEnumerable<Account>, Func<Account, bool>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 50,
+              "opcode": "ldftn",
+              "target": "Ref.VbLibrary.Accounts.Bank._Closure$__::_Lambda$__2-1(Account)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663338
+            },
+            {
+              "offset": 56,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.VbLibrary.Accounts.Account, string>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 67,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::OrderBy<Account, string>(IEnumerable<Account>, Func<Account, string>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 91,
+              "opcode": "ldftn",
+              "target": "Ref.VbLibrary.Accounts.Bank._Closure$__::_Lambda$__2-2(Account)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663339
+            },
+            {
+              "offset": 97,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.VbLibrary.Accounts.Account, string>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 108,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Select<Account, string>(IEnumerable<Account>, Func<Account, string>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 113,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::ToList<string>(IEnumerable<string>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank",
+          "name": "TotalBy",
+          "signature": "Dictionary<AccountKind, Decimal> TotalBy(IEnumerable<Account> accounts)",
+          "token": 100663317,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 9108,
+          "size": 120,
+          "calls": [
+            {
+              "offset": 20,
+              "opcode": "ldftn",
+              "target": "Ref.VbLibrary.Accounts.Bank._Closure$__::_Lambda$__3-0(Account)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663340
+            },
+            {
+              "offset": 26,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.VbLibrary.Accounts.Account, Ref.VbLibrary.Accounts.AccountKind>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 37,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::GroupBy<Account, AccountKind>(IEnumerable<Account>, Func<Account, AccountKind>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 61,
+              "opcode": "ldftn",
+              "target": "Ref.VbLibrary.Accounts.Bank._Closure$__::_Lambda$__3-1(IGrouping<AccountKind, Account>)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663341
+            },
+            {
+              "offset": 67,
+              "opcode": "newobj",
+              "target": "System.Func<System.Linq.IGrouping<Ref.VbLibrary.Accounts.AccountKind, Ref.VbLibrary.Accounts.Account>, Ref.VbLibrary.Accounts.AccountKind>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 97,
+              "opcode": "ldftn",
+              "target": "Ref.VbLibrary.Accounts.Bank._Closure$__::_Lambda$__3-2(IGrouping<AccountKind, Account>)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663342
+            },
+            {
+              "offset": 103,
+              "opcode": "newobj",
+              "target": "System.Func<System.Linq.IGrouping<Ref.VbLibrary.Accounts.AccountKind, Ref.VbLibrary.Accounts.Account>, System.Decimal>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 114,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::ToDictionary<IGrouping<AccountKind, Account>, AccountKind, Decimal>(IEnumerable<IGrouping<AccountKind, Account>>, Func<IGrouping<AccountKind, Account>, AccountKind>, Func<IGrouping<AccountKind, Account>, Decimal>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank",
+          "name": "Statements",
+          "signature": "IEnumerable<string> Statements(Account account)",
+          "token": 100663318,
+          "access": "public",
+          "kinds": [
+            "static",
+            "iterator"
+          ],
+          "rva": 9240,
+          "size": 15,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "newobj",
+              "target": "Ref.VbLibrary.Accounts.Bank.VB$StateMachine_4_Statements::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663326
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank",
+          "name": "TransferAsync",
+          "signature": "Task<bool> TransferAsync(Account source, Account target, Decimal amount)",
+          "token": 100663319,
+          "access": "public",
+          "kinds": [
+            "static",
+            "async"
+          ],
+          "rva": 9256,
+          "size": 79,
+          "calls": [
+            {
+              "offset": 42,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<bool>::Create()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 61,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<bool>::Start<VB$StateMachine_5_TransferAsync>(ref VB$StateMachine_5_TransferAsync)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 73,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<bool>::get_Task()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank",
+          "name": "LegacyText",
+          "signature": "string LegacyText(object value)",
+          "token": 100663320,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 9348,
+          "size": 50,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.VisualBasic.CompilerServices.Conversions::ToString(object)",
+              "scope": "external",
+              "targetAssembly": "Microsoft.VisualBasic.Core"
+            },
+            {
+              "offset": 8,
+              "opcode": "call",
+              "target": "Microsoft.VisualBasic.Strings::Len(string)",
+              "scope": "external",
+              "targetAssembly": "Microsoft.VisualBasic.Core"
+            },
+            {
+              "offset": 25,
+              "opcode": "call",
+              "target": "Microsoft.VisualBasic.Strings::Left(string, int)",
+              "scope": "external",
+              "targetAssembly": "Microsoft.VisualBasic.Core"
+            },
+            {
+              "offset": 30,
+              "opcode": "call",
+              "target": "Microsoft.VisualBasic.Strings::UCase(string)",
+              "scope": "external",
+              "targetAssembly": "Microsoft.VisualBasic.Core"
+            },
+            {
+              "offset": 37,
+              "opcode": "call",
+              "target": "Microsoft.VisualBasic.Strings::Mid(string, int)",
+              "scope": "external",
+              "targetAssembly": "Microsoft.VisualBasic.Core"
+            },
+            {
+              "offset": 42,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank",
+          "name": "SafeDivide",
+          "signature": "int SafeDivide(int a, int b)",
+          "token": 100663321,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 9412,
+          "size": 35,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "Microsoft.VisualBasic.CompilerServices.ProjectData::SetProjectError(Exception)",
+              "scope": "external",
+              "targetAssembly": "Microsoft.VisualBasic.Core"
+            },
+            {
+              "offset": 15,
+              "opcode": "call",
+              "target": "Microsoft.VisualBasic.CompilerServices.ProjectData::ClearProjectError()",
+              "scope": "external",
+              "targetAssembly": "Microsoft.VisualBasic.Core"
+            },
+            {
+              "offset": 27,
+              "opcode": "call",
+              "target": "System.Console::WriteLine(string)",
+              "scope": "external",
+              "targetAssembly": "System.Console"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Account+BalanceChangedEventHandler",
+          "name": ".ctor",
+          "signature": "void .ctor(object TargetObject, nint TargetMethod)",
+          "token": 100663322,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "runtime",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Account+BalanceChangedEventHandler",
+          "name": "BeginInvoke",
+          "signature": "IAsyncResult BeginInvoke(object sender, Decimal newBalance, AsyncCallback DelegateCallback, object DelegateAsyncState)",
+          "token": 100663323,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "runtime",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Account+BalanceChangedEventHandler",
+          "name": "EndInvoke",
+          "signature": "void EndInvoke(IAsyncResult DelegateAsyncResult)",
+          "token": 100663324,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "runtime",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Account+BalanceChangedEventHandler",
+          "name": "Invoke",
+          "signature": "void Invoke(object sender, Decimal newBalance)",
+          "token": 100663325,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "runtime",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Account::Deposit",
+              "signature": "void Deposit(Decimal amount)",
+              "offset": 96,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Account::Withdraw",
+              "signature": "void Withdraw(Decimal amount)",
+              "offset": 104,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements",
+          "name": ".ctor",
+          "signature": "void .ctor(int $State)",
+          "token": 100663326,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9488,
+          "size": 25,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank::Statements",
+              "signature": "IEnumerable<string> Statements(Account account)",
+              "offset": 2,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements::GetEnumerator",
+              "signature": "IEnumerator<string> GetEnumerator()",
+              "offset": 35,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements",
+          "name": "Dispose",
+          "signature": "void Dispose()",
+          "token": 100663327,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9516,
+          "size": 44,
+          "calls": [
+            {
+              "offset": 29,
+              "opcode": "call",
+              "target": "Ref.VbLibrary.Accounts.Bank.VB$StateMachine_4_Statements::MoveNext()",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663328
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements",
+          "name": "MoveNext",
+          "signature": "bool MoveNext()",
+          "token": 100663328,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9572,
+          "size": 201,
+          "calls": [
+            {
+              "offset": 79,
+              "opcode": "callvirt",
+              "target": "Ref.VbLibrary.Accounts.Account::History()",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663307
+            },
+            {
+              "offset": 84,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<string>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 102,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<string>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 115,
+              "opcode": "callvirt",
+              "target": "Ref.VbLibrary.Accounts.Account::get_Owner()",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663302
+            },
+            {
+              "offset": 126,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 164,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 191,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements::Dispose",
+              "signature": "void Dispose()",
+              "offset": 29,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements",
+          "name": "GetEnumerator",
+          "signature": "IEnumerator<string> GetEnumerator()",
+          "token": 100663329,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9804,
+          "size": 55,
+          "calls": [
+            {
+              "offset": 16,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 35,
+              "opcode": "newobj",
+              "target": "Ref.VbLibrary.Accounts.Bank.VB$StateMachine_4_Statements::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663326
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements::IEnumerable.GetEnumerator",
+              "signature": "IEnumerator IEnumerable.GetEnumerator()",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements",
+          "name": "IEnumerable.GetEnumerator",
+          "signature": "IEnumerator IEnumerable.GetEnumerator()",
+          "token": 100663330,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9871,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.VbLibrary.Accounts.Bank.VB$StateMachine_4_Statements::GetEnumerator()",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663329
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements",
+          "name": "get_Current",
+          "signature": "string get_Current()",
+          "token": 100663331,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9879,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements",
+          "name": "Reset",
+          "signature": "void Reset()",
+          "token": 100663332,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9887,
+          "size": 6,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.NotSupportedException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements",
+          "name": "IEnumerator.get_Current",
+          "signature": "object IEnumerator.get_Current()",
+          "token": 100663333,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9894,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_5_TransferAsync",
+          "name": "MoveNext",
+          "signature": "void MoveNext()",
+          "token": 100663334,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9904,
+          "size": 266,
+          "calls": [
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Task::Yield()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 18,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.YieldAwaitable::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 26,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.YieldAwaitable.YieldAwaiter::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 58,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<bool>::AwaitUnsafeOnCompleted<YieldAwaiter, VB$StateMachine_5_TransferAsync>(ref YieldAwaiter, ref VB$StateMachine_5_TransferAsync)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 98,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.YieldAwaitable.YieldAwaiter::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 123,
+              "opcode": "callvirt",
+              "target": "Ref.VbLibrary.Accounts.Account::Withdraw(Decimal)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663306
+            },
+            {
+              "offset": 140,
+              "opcode": "callvirt",
+              "target": "Ref.VbLibrary.Accounts.Account::Deposit(Decimal)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663305
+            },
+            {
+              "offset": 162,
+              "opcode": "call",
+              "target": "Microsoft.VisualBasic.CompilerServices.ProjectData::SetProjectError(Exception)",
+              "scope": "external",
+              "targetAssembly": "Microsoft.VisualBasic.Core"
+            },
+            {
+              "offset": 171,
+              "opcode": "callvirt",
+              "target": "Ref.VbLibrary.Accounts.InsufficientFundsException::get_Needed()",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 179,
+              "opcode": "newobj",
+              "target": "System.Decimal::.ctor(long)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 184,
+              "opcode": "call",
+              "target": "System.Decimal::Compare(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 200,
+              "opcode": "call",
+              "target": "Microsoft.VisualBasic.CompilerServices.ProjectData::ClearProjectError()",
+              "scope": "external",
+              "targetAssembly": "Microsoft.VisualBasic.Core"
+            },
+            {
+              "offset": 208,
+              "opcode": "call",
+              "target": "Microsoft.VisualBasic.CompilerServices.ProjectData::SetProjectError(Exception)",
+              "scope": "external",
+              "targetAssembly": "Microsoft.VisualBasic.Core"
+            },
+            {
+              "offset": 231,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<bool>::SetException(Exception)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 236,
+              "opcode": "call",
+              "target": "Microsoft.VisualBasic.CompilerServices.ProjectData::ClearProjectError()",
+              "scope": "external",
+              "targetAssembly": "Microsoft.VisualBasic.Core"
+            },
+            {
+              "offset": 260,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<bool>::SetResult(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+VB$StateMachine_5_TransferAsync",
+          "name": "System.Runtime.CompilerServices.IAsyncStateMachine.SetStateMachine",
+          "signature": "void System.Runtime.CompilerServices.IAsyncStateMachine.SetStateMachine(IAsyncStateMachine stateMachine)",
+          "token": 100663335,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10212,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<bool>::SetStateMachine(IAsyncStateMachine)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+_Closure$__",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663336,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10226,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank+_Closure$__::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+_Closure$__",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663337,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 10234,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.VbLibrary.Accounts.Bank._Closure$__::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663336
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+_Closure$__",
+          "name": "_Lambda$__2-1",
+          "signature": "string _Lambda$__2-1(Account a)",
+          "token": 100663338,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 10246,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.VbLibrary.Accounts.Account::get_Owner()",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663302
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank::RichOwners",
+              "signature": "List<string> RichOwners(IEnumerable<Account> accounts, Decimal limit)",
+              "offset": 50,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+_Closure$__",
+          "name": "_Lambda$__2-2",
+          "signature": "string _Lambda$__2-2(Account a)",
+          "token": 100663339,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 10254,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.VbLibrary.Accounts.Account::get_Owner()",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663302
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank::RichOwners",
+              "signature": "List<string> RichOwners(IEnumerable<Account> accounts, Decimal limit)",
+              "offset": 91,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+_Closure$__",
+          "name": "_Lambda$__3-0",
+          "signature": "AccountKind _Lambda$__3-0(Account a)",
+          "token": 100663340,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 10262,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.VbLibrary.Accounts.Account::get_Kind()",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663303
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank::TotalBy",
+              "signature": "Dictionary<AccountKind, Decimal> TotalBy(IEnumerable<Account> accounts)",
+              "offset": 20,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+_Closure$__",
+          "name": "_Lambda$__3-1",
+          "signature": "AccountKind _Lambda$__3-1(IGrouping<AccountKind, Account> g)",
+          "token": 100663341,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 10270,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "System.Linq.IGrouping<Ref.VbLibrary.Accounts.AccountKind, Ref.VbLibrary.Accounts.Account>::get_Key()",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank::TotalBy",
+              "signature": "Dictionary<AccountKind, Decimal> TotalBy(IEnumerable<Account> accounts)",
+              "offset": 61,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+_Closure$__",
+          "name": "_Lambda$__3-2",
+          "signature": "Decimal _Lambda$__3-2(IGrouping<AccountKind, Account> g)",
+          "token": 100663342,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 10278,
+          "size": 43,
+          "calls": [
+            {
+              "offset": 20,
+              "opcode": "ldftn",
+              "target": "Ref.VbLibrary.Accounts.Bank._Closure$__::_Lambda$__3-3(Account)",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663343
+            },
+            {
+              "offset": 26,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.VbLibrary.Accounts.Account, System.Decimal>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 37,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Sum<Account>(IEnumerable<Account>, Func<Account, Decimal>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank::TotalBy",
+              "signature": "Dictionary<AccountKind, Decimal> TotalBy(IEnumerable<Account> accounts)",
+              "offset": 97,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+_Closure$__",
+          "name": "_Lambda$__3-3",
+          "signature": "Decimal _Lambda$__3-3(Account a)",
+          "token": 100663343,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 10322,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.VbLibrary.Accounts.Account::get_Balance()",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663304
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank+_Closure$__::_Lambda$__3-2",
+              "signature": "Decimal _Lambda$__3-2(IGrouping<AccountKind, Account> g)",
+              "offset": 20,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+_Closure$__2-0",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663344,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10330,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank::RichOwners",
+              "signature": "List<string> RichOwners(IEnumerable<Account> accounts, Decimal limit)",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref16.VbLibrary",
+          "namespace": "Ref.VbLibrary.Accounts",
+          "type": "Ref.VbLibrary.Accounts.Bank+_Closure$__2-0",
+          "name": "_Lambda$__0",
+          "signature": "bool _Lambda$__0(Account a)",
+          "token": 100663345,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 10338,
+          "size": 21,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.VbLibrary.Accounts.Account::get_Balance()",
+              "scope": "internal",
+              "groupFile": "Ref16.VbLibrary.dll",
+              "groupToken": 100663304
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.Decimal::Compare(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref16.VbLibrary",
+              "method": "Ref.VbLibrary.Accounts.Bank::RichOwners",
+              "signature": "List<string> RichOwners(IEnumerable<Account> accounts, Decimal limit)",
+              "offset": 15,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

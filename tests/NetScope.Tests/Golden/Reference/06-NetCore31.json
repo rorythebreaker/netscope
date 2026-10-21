@@ -1,0 +1,1048 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref06.NetCore31.dll",
+      "assembly": "Ref06.NetCore31",
+      "version": "1.0.0.0",
+      "targetFramework": ".NETCoreApp,Version=v3.1",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "Microsoft.CodeAnalysis",
+          "type": "Microsoft.CodeAnalysis.EmbeddedAttribute",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663297,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8272,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Attribute::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "System.Runtime.CompilerServices",
+          "type": "System.Runtime.CompilerServices.NullableAttribute",
+          "name": ".ctor",
+          "signature": "void .ctor(byte arg1)",
+          "token": 100663298,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8280,
+          "size": 23,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Attribute::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "System.Runtime.CompilerServices",
+          "type": "System.Runtime.CompilerServices.NullableAttribute",
+          "name": ".ctor",
+          "signature": "void .ctor(byte[] arg1)",
+          "token": 100663299,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8304,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Attribute::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "System.Runtime.CompilerServices",
+          "type": "System.Runtime.CompilerServices.NullableContextAttribute",
+          "name": ".ctor",
+          "signature": "void .ctor(byte arg1)",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8319,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Attribute::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "Ref.NetCore31",
+          "type": "Ref.NetCore31.Measurement",
+          "name": ".ctor",
+          "signature": "void .ctor(string name, double value, string unit)",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8334,
+          "size": 28,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref06.NetCore31",
+              "method": "Ref.NetCore31.JsonExport::Read",
+              "signature": "List<Measurement> Read(string json)",
+              "offset": 140,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "Ref.NetCore31",
+          "type": "Ref.NetCore31.Measurement",
+          "name": "get_Name",
+          "signature": "string get_Name()",
+          "token": 100663302,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8363,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref06.NetCore31",
+              "method": "Ref.NetCore31.Measurement::Describe",
+              "signature": "string Describe()",
+              "offset": 14,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref06.NetCore31",
+              "method": "Ref.NetCore31.Measurement::Describe",
+              "signature": "string Describe()",
+              "offset": 48,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref06.NetCore31",
+              "method": "Ref.NetCore31.JsonExport::Write",
+              "signature": "string Write(IEnumerable<Measurement> items)",
+              "offset": 59,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "Ref.NetCore31",
+          "type": "Ref.NetCore31.Measurement",
+          "name": "get_Value",
+          "signature": "double get_Value()",
+          "token": 100663303,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8371,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref06.NetCore31",
+              "method": "Ref.NetCore31.Measurement::Describe",
+              "signature": "string Describe()",
+              "offset": 20,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref06.NetCore31",
+              "method": "Ref.NetCore31.Measurement::Describe",
+              "signature": "string Describe()",
+              "offset": 54,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref06.NetCore31",
+              "method": "Ref.NetCore31.JsonExport::Write",
+              "signature": "string Write(IEnumerable<Measurement> items)",
+              "offset": 77,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "Ref.NetCore31",
+          "type": "Ref.NetCore31.Measurement",
+          "name": "get_Unit",
+          "signature": "string get_Unit()",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8379,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref06.NetCore31",
+              "method": "Ref.NetCore31.Measurement::Describe",
+              "signature": "string Describe()",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref06.NetCore31",
+              "method": "Ref.NetCore31.Measurement::Describe",
+              "signature": "string Describe()",
+              "offset": 31,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref06.NetCore31",
+              "method": "Ref.NetCore31.JsonExport::Write",
+              "signature": "string Write(IEnumerable<Measurement> items)",
+              "offset": 89,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref06.NetCore31",
+              "method": "Ref.NetCore31.JsonExport::Write",
+              "signature": "string Write(IEnumerable<Measurement> items)",
+              "offset": 104,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "Ref.NetCore31",
+          "type": "Ref.NetCore31.Measurement",
+          "name": "Describe",
+          "signature": "string Describe()",
+          "token": 100663305,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8388,
+          "size": 70,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.NetCore31.Measurement::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref06.NetCore31.dll",
+              "groupToken": 100663304
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "Ref.NetCore31.Measurement::get_Name()",
+              "scope": "internal",
+              "groupFile": "Ref06.NetCore31.dll",
+              "groupToken": 100663302
+            },
+            {
+              "offset": 20,
+              "opcode": "call",
+              "target": "Ref.NetCore31.Measurement::get_Value()",
+              "scope": "internal",
+              "groupFile": "Ref06.NetCore31.dll",
+              "groupToken": 100663303
+            },
+            {
+              "offset": 31,
+              "opcode": "call",
+              "target": "Ref.NetCore31.Measurement::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref06.NetCore31.dll",
+              "groupToken": 100663304
+            },
+            {
+              "offset": 36,
+              "opcode": "call",
+              "target": "System.String::Format(string, object, object, object)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 48,
+              "opcode": "call",
+              "target": "Ref.NetCore31.Measurement::get_Name()",
+              "scope": "internal",
+              "groupFile": "Ref06.NetCore31.dll",
+              "groupToken": 100663302
+            },
+            {
+              "offset": 54,
+              "opcode": "call",
+              "target": "Ref.NetCore31.Measurement::get_Value()",
+              "scope": "internal",
+              "groupFile": "Ref06.NetCore31.dll",
+              "groupToken": 100663303
+            },
+            {
+              "offset": 64,
+              "opcode": "call",
+              "target": "System.String::Format(string, object, object)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "Ref.NetCore31",
+          "type": "Ref.NetCore31.Geometry",
+          "name": "Area",
+          "signature": "double Area(Shape shape, double size)",
+          "token": 100663306,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8472,
+          "size": 86,
+          "calls": [
+            {
+              "offset": 51,
+              "opcode": "call",
+              "target": "System.Math::Sqrt(double)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime.Extensions"
+            },
+            {
+              "offset": 78,
+              "opcode": "newobj",
+              "target": "System.ArgumentOutOfRangeException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "Ref.NetCore31",
+          "type": "Ref.NetCore31.Geometry",
+          "name": "Classify",
+          "signature": "string Classify(object value)",
+          "token": 100663307,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8572,
+          "size": 252,
+          "calls": [
+            {
+              "offset": 41,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 71,
+              "opcode": "callvirt",
+              "target": "System.Runtime.CompilerServices.ITuple::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 85,
+              "opcode": "callvirt",
+              "target": "System.Runtime.CompilerServices.ITuple::get_Item(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 115,
+              "opcode": "callvirt",
+              "target": "System.Runtime.CompilerServices.ITuple::get_Item(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 187,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 196,
+              "opcode": "call",
+              "target": "System.Int32::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 201,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 227,
+              "opcode": "call",
+              "target": "System.String::Format(string, object, object)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 237,
+              "opcode": "callvirt",
+              "target": "System.Object::GetType()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 242,
+              "opcode": "callvirt",
+              "target": "System.Reflection.MemberInfo::get_Name()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "Ref.NetCore31",
+          "type": "Ref.NetCore31.Binary",
+          "name": "ReadHeader",
+          "signature": "int ReadHeader(ReadOnlySpan<byte> data, out ushort version)",
+          "token": 100663308,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8836,
+          "size": 57,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.ReadOnlySpan<byte>::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 20,
+              "opcode": "newobj",
+              "target": "System.ArgumentException::.ctor(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 30,
+              "opcode": "call",
+              "target": "System.ReadOnlySpan<byte>::Slice(int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 35,
+              "opcode": "call",
+              "target": "System.Buffers.Binary.BinaryPrimitives::ReadInt32LittleEndian(ReadOnlySpan<byte>)",
+              "scope": "external",
+              "targetAssembly": "System.Memory"
+            },
+            {
+              "offset": 45,
+              "opcode": "call",
+              "target": "System.ReadOnlySpan<byte>::Slice(int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 50,
+              "opcode": "call",
+              "target": "System.Buffers.Binary.BinaryPrimitives::ReadUInt16LittleEndian(ReadOnlySpan<byte>)",
+              "scope": "external",
+              "targetAssembly": "System.Memory"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "Ref.NetCore31",
+          "type": "Ref.NetCore31.Binary",
+          "name": "Hex",
+          "signature": "string Hex(ReadOnlySpan<byte> data)",
+          "token": 100663309,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8896,
+          "size": 155,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.ReadOnlySpan<byte>::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 13,
+              "opcode": "call",
+              "target": "System.ReadOnlySpan<byte>::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 28,
+              "opcode": "newobj",
+              "target": "System.Span<char>::.ctor(void*, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 38,
+              "opcode": "call",
+              "target": "System.ReadOnlySpan<byte>::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 50,
+              "opcode": "call",
+              "target": "System.Span<char>::op_Implicit(char[])",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 67,
+              "opcode": "call",
+              "target": "System.Span<char>::get_Item(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 80,
+              "opcode": "call",
+              "target": "System.ReadOnlySpan<byte>::get_Item(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 88,
+              "opcode": "call",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 101,
+              "opcode": "call",
+              "target": "System.Span<char>::get_Item(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 114,
+              "opcode": "call",
+              "target": "System.ReadOnlySpan<byte>::get_Item(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 123,
+              "opcode": "call",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 136,
+              "opcode": "call",
+              "target": "System.ReadOnlySpan<byte>::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 144,
+              "opcode": "call",
+              "target": "System.Span<char>::op_Implicit(Span<char>)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 149,
+              "opcode": "newobj",
+              "target": "System.String::.ctor(ReadOnlySpan<char>)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "Ref.NetCore31",
+          "type": "Ref.NetCore31.JsonExport",
+          "name": "Write",
+          "signature": "string Write(IEnumerable<Measurement> items)",
+          "token": 100663310,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 9064,
+          "size": 191,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.IO.MemoryStream::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime.Extensions"
+            },
+            {
+              "offset": 16,
+              "opcode": "newobj",
+              "target": "System.Text.Json.Utf8JsonWriter::.ctor(Stream, JsonWriterOptions)",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 23,
+              "opcode": "callvirt",
+              "target": "System.Text.Json.Utf8JsonWriter::WriteStartArray()",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 29,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<Ref.NetCore31.Measurement>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 38,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<Ref.NetCore31.Measurement>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 46,
+              "opcode": "callvirt",
+              "target": "System.Text.Json.Utf8JsonWriter::WriteStartObject()",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 59,
+              "opcode": "callvirt",
+              "target": "Ref.NetCore31.Measurement::get_Name()",
+              "scope": "internal",
+              "groupFile": "Ref06.NetCore31.dll",
+              "groupToken": 100663302
+            },
+            {
+              "offset": 64,
+              "opcode": "callvirt",
+              "target": "System.Text.Json.Utf8JsonWriter::WriteString(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 77,
+              "opcode": "callvirt",
+              "target": "Ref.NetCore31.Measurement::get_Value()",
+              "scope": "internal",
+              "groupFile": "Ref06.NetCore31.dll",
+              "groupToken": 100663303
+            },
+            {
+              "offset": 82,
+              "opcode": "callvirt",
+              "target": "System.Text.Json.Utf8JsonWriter::WriteNumber(string, double)",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 89,
+              "opcode": "callvirt",
+              "target": "Ref.NetCore31.Measurement::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref06.NetCore31.dll",
+              "groupToken": 100663304
+            },
+            {
+              "offset": 104,
+              "opcode": "callvirt",
+              "target": "Ref.NetCore31.Measurement::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref06.NetCore31.dll",
+              "groupToken": 100663304
+            },
+            {
+              "offset": 109,
+              "opcode": "callvirt",
+              "target": "System.Text.Json.Utf8JsonWriter::WriteString(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 115,
+              "opcode": "callvirt",
+              "target": "System.Text.Json.Utf8JsonWriter::WriteEndObject()",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 121,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 134,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 141,
+              "opcode": "callvirt",
+              "target": "System.Text.Json.Utf8JsonWriter::WriteEndArray()",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 152,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 158,
+              "opcode": "call",
+              "target": "System.Text.Encoding::get_UTF8()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 164,
+              "opcode": "callvirt",
+              "target": "System.IO.MemoryStream::ToArray()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime.Extensions"
+            },
+            {
+              "offset": 169,
+              "opcode": "callvirt",
+              "target": "System.Text.Encoding::GetString(byte[])",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 182,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "Ref.NetCore31",
+          "type": "Ref.NetCore31.JsonExport",
+          "name": "Read",
+          "signature": "List<Measurement> Read(string json)",
+          "token": 100663311,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 9308,
+          "size": 193,
+          "calls": [
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "System.Text.Json.JsonDocument::Parse(string, JsonDocumentOptions)",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 16,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.List<Ref.NetCore31.Measurement>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 23,
+              "opcode": "callvirt",
+              "target": "System.Text.Json.JsonDocument::get_RootElement()",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 32,
+              "opcode": "call",
+              "target": "System.Text.Json.JsonElement::EnumerateArray()",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 41,
+              "opcode": "call",
+              "target": "System.Text.Json.JsonElement.ArrayEnumerator::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 51,
+              "opcode": "call",
+              "target": "System.Text.Json.JsonElement.ArrayEnumerator::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 67,
+              "opcode": "call",
+              "target": "System.Text.Json.JsonElement::TryGetProperty(string, ref JsonElement)",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 79,
+              "opcode": "call",
+              "target": "System.Text.Json.JsonElement::GetString()",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 94,
+              "opcode": "call",
+              "target": "System.Text.Json.JsonElement::GetProperty(string)",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 103,
+              "opcode": "call",
+              "target": "System.Text.Json.JsonElement::GetString()",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 124,
+              "opcode": "call",
+              "target": "System.Text.Json.JsonElement::GetProperty(string)",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 133,
+              "opcode": "call",
+              "target": "System.Text.Json.JsonElement::GetDouble()",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 140,
+              "opcode": "newobj",
+              "target": "Ref.NetCore31.Measurement::.ctor(string, double, string)",
+              "scope": "internal",
+              "groupFile": "Ref06.NetCore31.dll",
+              "groupToken": 100663301
+            },
+            {
+              "offset": 145,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<Ref.NetCore31.Measurement>::Add(Measurement)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 152,
+              "opcode": "call",
+              "target": "System.Text.Json.JsonElement.ArrayEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Text.Json"
+            },
+            {
+              "offset": 169,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 184,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "Ref.NetCore31",
+          "type": "Ref.NetCore31.ILogger",
+          "name": "Log",
+          "signature": "void Log(string message)",
+          "token": 100663312,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "abstract",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref06.NetCore31",
+              "method": "Ref.NetCore31.ILogger::LogError",
+              "signature": "void LogError(Exception ex)",
+              "offset": 17,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref06.NetCore31",
+          "namespace": "Ref.NetCore31",
+          "type": "Ref.NetCore31.ILogger",
+          "name": "LogError",
+          "signature": "void LogError(Exception ex)",
+          "token": 100663313,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual"
+          ],
+          "rva": 9544,
+          "size": 23,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "System.Exception::get_Message()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 17,
+              "opcode": "callvirt",
+              "target": "Ref.NetCore31.ILogger::Log(string)",
+              "scope": "internal",
+              "groupFile": "Ref06.NetCore31.dll",
+              "groupToken": 100663312
+            }
+          ],
+          "callers": [],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

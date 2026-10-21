@@ -1,0 +1,1218 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref01.ConsoleApp.dll",
+      "assembly": "Ref01.ConsoleApp",
+      "version": "1.0.0.0",
+      "targetFramework": ".NETCoreApp,Version=v8.0",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.Program",
+          "name": "Main",
+          "signature": "int Main(string[] args)",
+          "token": 100663297,
+          "access": "private",
+          "kinds": [
+            "static",
+            "entry-point"
+          ],
+          "rva": 8272,
+          "size": 284,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.ConsoleApp.Options::Parse(string[])",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663307
+            },
+            {
+              "offset": 8,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.Options::get_ShowHelp()",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 20,
+              "opcode": "call",
+              "target": "System.Console::WriteLine(string)",
+              "scope": "external",
+              "targetAssembly": "System.Console"
+            },
+            {
+              "offset": 28,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.Options::get_Error()",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663304
+            },
+            {
+              "offset": 35,
+              "opcode": "call",
+              "target": "System.Console::get_Error()",
+              "scope": "external",
+              "targetAssembly": "System.Console"
+            },
+            {
+              "offset": 41,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.Options::get_Error()",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663304
+            },
+            {
+              "offset": 46,
+              "opcode": "callvirt",
+              "target": "System.IO.TextWriter::WriteLine(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 54,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.Options::get_IgnoreCase()",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663300
+            },
+            {
+              "offset": 59,
+              "opcode": "newobj",
+              "target": "Ref.ConsoleApp.WordCounter::.ctor(bool)",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663309
+            },
+            {
+              "offset": 66,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.Options::get_Files()",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663306
+            },
+            {
+              "offset": 71,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<string>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 81,
+              "opcode": "call",
+              "target": "System.Collections.Generic.List.Enumerator<string>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 88,
+              "opcode": "call",
+              "target": "System.IO.File::Exists(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 95,
+              "opcode": "call",
+              "target": "System.Console::get_Error()",
+              "scope": "external",
+              "targetAssembly": "System.Console"
+            },
+            {
+              "offset": 106,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 111,
+              "opcode": "callvirt",
+              "target": "System.IO.TextWriter::WriteLine(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 126,
+              "opcode": "call",
+              "target": "System.IO.File::ReadAllText(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 131,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.WordCounter::Add(string)",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663311
+            },
+            {
+              "offset": 138,
+              "opcode": "call",
+              "target": "System.Collections.Generic.List.Enumerator<string>::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 155,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 163,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.Options::get_Top()",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663302
+            },
+            {
+              "offset": 168,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.WordCounter::Top(int)",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663312
+            },
+            {
+              "offset": 173,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<System.ValueTuple<string, int>>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 184,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<System.ValueTuple<string, int>>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 206,
+              "opcode": "newobj",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 218,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<int>(int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 230,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 239,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 246,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 251,
+              "opcode": "call",
+              "target": "System.Console::WriteLine(string)",
+              "scope": "external",
+              "targetAssembly": "System.Console"
+            },
+            {
+              "offset": 258,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 273,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.Options",
+          "name": "get_ShowHelp",
+          "signature": "bool get_ShowHelp()",
+          "token": 100663298,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8596,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Program::Main",
+              "signature": "int Main(string[] args)",
+              "offset": 8,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Options::Parse",
+              "signature": "Options Parse(string[] args)",
+              "offset": 230,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.Options",
+          "name": "set_ShowHelp",
+          "signature": "void set_ShowHelp(bool value)",
+          "token": 100663299,
+          "access": "private",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8604,
+          "size": 8,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Options::Parse",
+              "signature": "Options Parse(string[] args)",
+              "offset": 86,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.Options",
+          "name": "get_IgnoreCase",
+          "signature": "bool get_IgnoreCase()",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8613,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Program::Main",
+              "signature": "int Main(string[] args)",
+              "offset": 54,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.Options",
+          "name": "set_IgnoreCase",
+          "signature": "void set_IgnoreCase(bool value)",
+          "token": 100663301,
+          "access": "private",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8621,
+          "size": 8,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Options::Parse",
+              "signature": "Options Parse(string[] args)",
+              "offset": 95,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.Options",
+          "name": "get_Top",
+          "signature": "int get_Top()",
+          "token": 100663302,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8630,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Program::Main",
+              "signature": "int Main(string[] args)",
+              "offset": 163,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.Options",
+          "name": "set_Top",
+          "signature": "void set_Top(int value)",
+          "token": 100663303,
+          "access": "private",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8638,
+          "size": 8,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Options::Parse",
+              "signature": "Options Parse(string[] args)",
+              "offset": 145,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.Options",
+          "name": "get_Error",
+          "signature": "string get_Error()",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8647,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Program::Main",
+              "signature": "int Main(string[] args)",
+              "offset": 28,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Program::Main",
+              "signature": "int Main(string[] args)",
+              "offset": 41,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.Options",
+          "name": "set_Error",
+          "signature": "void set_Error(string value)",
+          "token": 100663305,
+          "access": "private",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8655,
+          "size": 8,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Options::Parse",
+              "signature": "Options Parse(string[] args)",
+              "offset": 136,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Options::Parse",
+              "signature": "Options Parse(string[] args)",
+              "offset": 182,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Options::Parse",
+              "signature": "Options Parse(string[] args)",
+              "offset": 243,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.Options",
+          "name": "get_Files",
+          "signature": "List<string> get_Files()",
+          "token": 100663306,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8664,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Program::Main",
+              "signature": "int Main(string[] args)",
+              "offset": 66,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Options::Parse",
+              "signature": "Options Parse(string[] args)",
+              "offset": 190,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Options::Parse",
+              "signature": "Options Parse(string[] args)",
+              "offset": 217,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.Options",
+          "name": "Parse",
+          "signature": "Options Parse(string[] args)",
+          "token": 100663307,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8672,
+          "size": 250,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.ConsoleApp.Options::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 23,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 36,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 49,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 62,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 75,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 86,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.Options::set_ShowHelp(bool)",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 95,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.Options::set_IgnoreCase(bool)",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663301
+            },
+            {
+              "offset": 119,
+              "opcode": "call",
+              "target": "System.Int32::TryParse(string, ref int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 136,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.Options::set_Error(string)",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663305
+            },
+            {
+              "offset": 145,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.Options::set_Top(int)",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663303
+            },
+            {
+              "offset": 161,
+              "opcode": "callvirt",
+              "target": "System.String::StartsWith(string, StringComparison)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 177,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 182,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.Options::set_Error(string)",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663305
+            },
+            {
+              "offset": 190,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.Options::get_Files()",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663306
+            },
+            {
+              "offset": 198,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<string>::Add(string)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 217,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.Options::get_Files()",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663306
+            },
+            {
+              "offset": 222,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<string>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 230,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.Options::get_ShowHelp()",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 243,
+              "opcode": "callvirt",
+              "target": "Ref.ConsoleApp.Options::set_Error(string)",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663305
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Program::Main",
+              "signature": "int Main(string[] args)",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.Options",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663308,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8934,
+          "size": 26,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.List<string>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 20,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Options::Parse",
+              "signature": "Options Parse(string[] args)",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.WordCounter",
+          "name": ".ctor",
+          "signature": "void .ctor(bool ignoreCase)",
+          "token": 100663309,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8961,
+          "size": 33,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "System.StringComparer::get_Ordinal()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 17,
+              "opcode": "call",
+              "target": "System.StringComparer::get_OrdinalIgnoreCase()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 22,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.Dictionary<string, int>::.ctor(IEqualityComparer<string>)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Program::Main",
+              "signature": "int Main(string[] args)",
+              "offset": 59,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.WordCounter",
+          "name": "get_Distinct",
+          "signature": "int get_Distinct()",
+          "token": 100663310,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance"
+          ],
+          "rva": 8995,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Dictionary<string, int>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.WordCounter",
+          "name": "Add",
+          "signature": "void Add(string text)",
+          "token": 100663311,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 9008,
+          "size": 111,
+          "calls": [
+            {
+              "offset": 8,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 17,
+              "opcode": "callvirt",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 22,
+              "opcode": "call",
+              "target": "System.Char::IsLetter(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 54,
+              "opcode": "callvirt",
+              "target": "System.String::Substring(int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 76,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Dictionary<string, int>::TryGetValue(string, ref int)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 90,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Dictionary<string, int>::set_Item(string, int)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 103,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Program::Main",
+              "signature": "int Main(string[] args)",
+              "offset": 131,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.WordCounter",
+          "name": "Top",
+          "signature": "IEnumerable<ValueTuple<string, int>> Top(int n)",
+          "token": 100663312,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 9132,
+          "size": 126,
+          "calls": [
+            {
+              "offset": 20,
+              "opcode": "ldftn",
+              "target": "Ref.ConsoleApp.WordCounter.<>c::<Top>b__5_0(KeyValuePair<string, int>)",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663315
+            },
+            {
+              "offset": 26,
+              "opcode": "newobj",
+              "target": "System.Func<System.Collections.Generic.KeyValuePair<string, int>, int>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 37,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::OrderByDescending<KeyValuePair<string, int>, int>(IEnumerable<KeyValuePair<string, int>>, Func<KeyValuePair<string, int>, int>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 56,
+              "opcode": "ldftn",
+              "target": "Ref.ConsoleApp.WordCounter.<>c::<Top>b__5_1(KeyValuePair<string, int>)",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663316
+            },
+            {
+              "offset": 62,
+              "opcode": "newobj",
+              "target": "System.Func<System.Collections.Generic.KeyValuePair<string, int>, string>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 73,
+              "opcode": "call",
+              "target": "System.StringComparer::get_Ordinal()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 78,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::ThenBy<KeyValuePair<string, int>, string>(IOrderedEnumerable<KeyValuePair<string, int>>, Func<KeyValuePair<string, int>, string>, IComparer<string>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 84,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Take<KeyValuePair<string, int>>(IEnumerable<KeyValuePair<string, int>>, int)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 103,
+              "opcode": "ldftn",
+              "target": "Ref.ConsoleApp.WordCounter.<>c::<Top>b__5_2(KeyValuePair<string, int>)",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663317
+            },
+            {
+              "offset": 109,
+              "opcode": "newobj",
+              "target": "System.Func<System.Collections.Generic.KeyValuePair<string, int>, System.ValueTuple<string, int>>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 120,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Select<KeyValuePair<string, int>, ValueTuple<string, int>>(IEnumerable<KeyValuePair<string, int>>, Func<KeyValuePair<string, int>, ValueTuple<string, int>>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.Program::Main",
+              "signature": "int Main(string[] args)",
+              "offset": 168,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.WordCounter+<>c",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663313,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9270,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.ConsoleApp.WordCounter.<>c::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref01.ConsoleApp.dll",
+              "groupToken": 100663314
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.WordCounter+<>c",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663314,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9282,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.WordCounter+<>c::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.WordCounter+<>c",
+          "name": "<Top>b__5_0",
+          "signature": "int <Top>b__5_0(KeyValuePair<string, int> p)",
+          "token": 100663315,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 9290,
+          "size": 8,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Collections.Generic.KeyValuePair<string, int>::get_Value()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.WordCounter::Top",
+              "signature": "IEnumerable<ValueTuple<string, int>> Top(int n)",
+              "offset": 20,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.WordCounter+<>c",
+          "name": "<Top>b__5_1",
+          "signature": "string <Top>b__5_1(KeyValuePair<string, int> p)",
+          "token": 100663316,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 9299,
+          "size": 8,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Collections.Generic.KeyValuePair<string, int>::get_Key()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.WordCounter::Top",
+              "signature": "IEnumerable<ValueTuple<string, int>> Top(int n)",
+              "offset": 56,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref01.ConsoleApp",
+          "namespace": "Ref.ConsoleApp",
+          "type": "Ref.ConsoleApp.WordCounter+<>c",
+          "name": "<Top>b__5_2",
+          "signature": "ValueTuple<string, int> <Top>b__5_2(KeyValuePair<string, int> p)",
+          "token": 100663317,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 9308,
+          "size": 20,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Collections.Generic.KeyValuePair<string, int>::get_Key()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 9,
+              "opcode": "call",
+              "target": "System.Collections.Generic.KeyValuePair<string, int>::get_Value()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 14,
+              "opcode": "newobj",
+              "target": "System.ValueTuple<string, int>::.ctor(string, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref01.ConsoleApp",
+              "method": "Ref.ConsoleApp.WordCounter::Top",
+              "signature": "IEnumerable<ValueTuple<string, int>> Top(int n)",
+              "offset": 103,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

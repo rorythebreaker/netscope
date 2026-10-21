@@ -1,0 +1,410 @@
+Assembly : Ref11.Unsafe.dll
+Name     : Ref11.Unsafe, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 16
+
+Type     : Ref.Unsafe.FixedHeader
+
+Method   : bool HasMagic(byte a, byte b, byte c, byte d)
+Kind     : instance, public
+RVA      : 0x2050   Size: 70 bytes   Token: 0x06000001
+
+[IL]  .maxstack 2
+  IL_0000  ldarg.0
+  IL_0001  ldflda     valuetype Ref.Unsafe.FixedHeader/<Magic>e__FixedBuffer Ref.Unsafe.FixedHeader::Magic
+  IL_0006  ldflda     uint8 Ref.Unsafe.FixedHeader/<Magic>e__FixedBuffer::FixedElementField
+  IL_000B  ldind.u1
+  IL_000C  ldarg.1
+  IL_000D  bne.un.s   IL_0044
+  IL_000F  ldarg.0
+  IL_0010  ldflda     valuetype Ref.Unsafe.FixedHeader/<Magic>e__FixedBuffer Ref.Unsafe.FixedHeader::Magic
+  IL_0015  ldflda     uint8 Ref.Unsafe.FixedHeader/<Magic>e__FixedBuffer::FixedElementField
+  IL_001A  ldc.i4.1
+  IL_001B  add
+  IL_001C  ldind.u1
+  IL_001D  ldarg.2
+  IL_001E  bne.un.s   IL_0044
+  IL_0020  ldarg.0
+  IL_0021  ldflda     valuetype Ref.Unsafe.FixedHeader/<Magic>e__FixedBuffer Ref.Unsafe.FixedHeader::Magic
+  IL_0026  ldflda     uint8 Ref.Unsafe.FixedHeader/<Magic>e__FixedBuffer::FixedElementField
+  IL_002B  ldc.i4.2
+  IL_002C  add
+  IL_002D  ldind.u1
+  IL_002E  ldarg.3
+  IL_002F  bne.un.s   IL_0044
+  IL_0031  ldarg.0
+  IL_0032  ldflda     valuetype Ref.Unsafe.FixedHeader/<Magic>e__FixedBuffer Ref.Unsafe.FixedHeader::Magic
+  IL_0037  ldflda     uint8 Ref.Unsafe.FixedHeader/<Magic>e__FixedBuffer::FixedElementField
+  IL_003C  ldc.i4.3
+  IL_003D  add
+  IL_003E  ldind.u1
+  IL_003F  ldarg.s    d
+  IL_0041  ceq
+  IL_0043  ret
+  IL_0044  ldc.i4.0
+  IL_0045  ret
+
+Type     : Ref.Unsafe.Vector3
+
+Method   : float Dot(Vector3* a, Vector3* b)
+Kind     : static, public
+RVA      : 0x20A2   Size: 42 bytes   Token: 0x06000002
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      float32 Ref.Unsafe.Vector3::X
+  IL_0006  ldarg.1
+  IL_0007  ldfld      float32 Ref.Unsafe.Vector3::X
+  IL_000C  mul
+  IL_000D  ldarg.0
+  IL_000E  ldfld      float32 Ref.Unsafe.Vector3::Y
+  IL_0013  ldarg.1
+  IL_0014  ldfld      float32 Ref.Unsafe.Vector3::Y
+  IL_0019  mul
+  IL_001A  add
+  IL_001B  ldarg.0
+  IL_001C  ldfld      float32 Ref.Unsafe.Vector3::Z
+  IL_0021  ldarg.1
+  IL_0022  ldfld      float32 Ref.Unsafe.Vector3::Z
+  IL_0027  mul
+  IL_0028  add
+  IL_0029  ret
+
+Type     : Ref.Unsafe.Memory
+
+Method   : int Sum(int[] values)
+Kind     : static, public
+RVA      : 0x20D0   Size: 61 bytes   Token: 0x06000003
+
+[IL]  .maxstack 3
+  .locals init ([0] int32 V_0, [1] int32* V_1, [2] int32[] pinned V_2, [3] int32* V_3, [4] int32* V_4)
+  IL_0000  ldc.i4.0
+  IL_0001  stloc.0
+  IL_0002  ldarg.0
+  IL_0003  dup
+  IL_0004  stloc.2
+  IL_0005  brfalse.s  IL_000C
+  IL_0007  ldloc.2
+  IL_0008  ldlen
+  IL_0009  conv.i4
+  IL_000A  brtrue.s   IL_0011
+  IL_000C  ldc.i4.0
+  IL_000D  conv.u
+  IL_000E  stloc.1
+  IL_000F  br.s       IL_001A
+  IL_0011  ldloc.2
+  IL_0012  ldc.i4.0
+  IL_0013  ldelema    [System.Runtime]System.Int32
+  IL_0018  conv.u
+  IL_0019  stloc.1
+  IL_001A  ldloc.1
+  IL_001B  ldarg.0
+  IL_001C  ldlen
+  IL_001D  conv.i4
+  IL_001E  conv.i
+  IL_001F  ldc.i4.4
+  IL_0020  mul
+  IL_0021  add
+  IL_0022  stloc.3
+  IL_0023  ldloc.1
+  IL_0024  stloc.s    V_4
+  IL_0026  br.s       IL_0034
+  IL_0028  ldloc.0
+  IL_0029  ldloc.s    V_4
+  IL_002B  ldind.i4
+  IL_002C  add
+  IL_002D  stloc.0
+  IL_002E  ldloc.s    V_4
+  IL_0030  ldc.i4.4
+  IL_0031  add
+  IL_0032  stloc.s    V_4
+  IL_0034  ldloc.s    V_4
+  IL_0036  ldloc.3
+  IL_0037  blt.un.s   IL_0028
+  IL_0039  ldnull
+  IL_003A  stloc.2
+  IL_003B  ldloc.0
+  IL_003C  ret
+
+Method   : void Fill(byte* destination, int length, byte value)
+Kind     : static, public
+RVA      : 0x211C   Size: 18 bytes   Token: 0x06000004
+
+[IL]  .maxstack 2
+  .locals init ([0] int32 V_0)
+  IL_0000  ldc.i4.0
+  IL_0001  stloc.0
+  IL_0002  br.s       IL_000D
+  IL_0004  ldarg.0
+  IL_0005  ldloc.0
+  IL_0006  add
+  IL_0007  ldarg.2
+  IL_0008  stind.i1
+  IL_0009  ldloc.0
+  IL_000A  ldc.i4.1
+  IL_000B  add
+  IL_000C  stloc.0
+  IL_000D  ldloc.0
+  IL_000E  ldarg.1
+  IL_000F  blt.s      IL_0004
+  IL_0011  ret
+
+Method   : string Reverse(string s)
+Kind     : static, public
+RVA      : 0x213C   Size: 79 bytes   Token: 0x06000005
+
+[IL]  .maxstack 4
+  .locals init ([0] int32 V_0, [1] char* V_1, [2] char* V_2, [3] char& pinned V_3, [4] int32 V_4)
+  IL_0000  ldarg.0
+  IL_0001  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  conv.u
+  IL_0009  ldc.i4.2
+  IL_000A  mul.ovf.un
+  IL_000B  localloc
+  IL_000D  stloc.1
+  IL_000E  ldarg.0
+  IL_000F  brtrue.s   IL_0015
+  IL_0011  ldc.i4.0
+  IL_0012  conv.u
+  IL_0013  br.s       IL_001E
+  IL_0015  ldarg.0
+  IL_0016  call       instance char& modreq([System.Runtime]System.Runtime.InteropServices.InAttribute) [System.Runtime]System.String::GetPinnableReference()
+  IL_001B  stloc.3
+  IL_001C  ldloc.3
+  IL_001D  conv.u
+  IL_001E  stloc.2
+  IL_001F  ldc.i4.0
+  IL_0020  stloc.s    V_4
+  IL_0022  br.s       IL_003E
+  IL_0024  ldloc.1
+  IL_0025  ldloc.s    V_4
+  IL_0027  conv.i
+  IL_0028  ldc.i4.2
+  IL_0029  mul
+  IL_002A  add
+  IL_002B  ldloc.2
+  IL_002C  ldloc.0
+  IL_002D  ldc.i4.1
+  IL_002E  sub
+  IL_002F  ldloc.s    V_4
+  IL_0031  sub
+  IL_0032  conv.i
+  IL_0033  ldc.i4.2
+  IL_0034  mul
+  IL_0035  add
+  IL_0036  ldind.u2
+  IL_0037  stind.i2
+  IL_0038  ldloc.s    V_4
+  IL_003A  ldc.i4.1
+  IL_003B  add
+  IL_003C  stloc.s    V_4
+  IL_003E  ldloc.s    V_4
+  IL_0040  ldloc.0
+  IL_0041  blt.s      IL_0024
+  IL_0043  ldc.i4.0
+  IL_0044  conv.u
+  IL_0045  stloc.3
+  IL_0046  ldloc.1
+  IL_0047  ldc.i4.0
+  IL_0048  ldloc.0
+  IL_0049  newobj     instance void [System.Runtime]System.String::.ctor(char*, int32, int32)
+  IL_004E  ret
+
+Method   : long Checksum(ReadOnlySpan<byte> data)
+Kind     : static, public
+RVA      : 0x2198   Size: 94 bytes   Token: 0x06000006
+
+[IL]  .maxstack 4
+  .locals init ([0] int64 V_0, [1] uint8* V_1, [2] uint8& pinned V_2, [3] int64* V_3, [4] int32 V_4, [5] int32 V_5, [6] int32 V_6)
+  IL_0000  ldc.i4.0
+  IL_0001  conv.i8
+  IL_0002  stloc.0
+  IL_0003  ldarga.s   data
+  IL_0005  call       instance !0& modreq([System.Runtime]System.Runtime.InteropServices.InAttribute) valuetype [System.Runtime]System.ReadOnlySpan`1<uint8>::GetPinnableReference()
+  IL_000A  stloc.2
+  IL_000B  ldloc.2
+  IL_000C  conv.u
+  IL_000D  stloc.1
+  IL_000E  ldloc.1
+  IL_000F  stloc.3
+  IL_0010  ldarga.s   data
+  IL_0012  call       instance int32 valuetype [System.Runtime]System.ReadOnlySpan`1<uint8>::get_Length()
+  IL_0017  ldc.i4.8
+  IL_0018  div
+  IL_0019  stloc.s    V_4
+  IL_001B  ldc.i4.0
+  IL_001C  stloc.s    V_5
+  IL_001E  br.s       IL_0031
+  IL_0020  ldloc.0
+  IL_0021  ldloc.3
+  IL_0022  ldloc.s    V_5
+  IL_0024  conv.i
+  IL_0025  ldc.i4.8
+  IL_0026  mul
+  IL_0027  add
+  IL_0028  ldind.i8
+  IL_0029  xor
+  IL_002A  stloc.0
+  IL_002B  ldloc.s    V_5
+  IL_002D  ldc.i4.1
+  IL_002E  add
+  IL_002F  stloc.s    V_5
+  IL_0031  ldloc.s    V_5
+  IL_0033  ldloc.s    V_4
+  IL_0035  blt.s      IL_0020
+  IL_0037  ldloc.s    V_4
+  IL_0039  ldc.i4.8
+  IL_003A  mul
+  IL_003B  stloc.s    V_6
+  IL_003D  br.s       IL_004E
+  IL_003F  ldloc.0
+  IL_0040  ldloc.1
+  IL_0041  ldloc.s    V_6
+  IL_0043  add
+  IL_0044  ldind.u1
+  IL_0045  conv.u8
+  IL_0046  xor
+  IL_0047  stloc.0
+  IL_0048  ldloc.s    V_6
+  IL_004A  ldc.i4.1
+  IL_004B  add
+  IL_004C  stloc.s    V_6
+  IL_004E  ldloc.s    V_6
+  IL_0050  ldarga.s   data
+  IL_0052  call       instance int32 valuetype [System.Runtime]System.ReadOnlySpan`1<uint8>::get_Length()
+  IL_0057  blt.s      IL_003F
+  IL_0059  ldc.i4.0
+  IL_005A  conv.u
+  IL_005B  stloc.2
+  IL_005C  ldloc.0
+  IL_005D  ret
+
+Method   : void Copy(void* from, void* to, int bytes)
+Kind     : static, public
+RVA      : 0x2202   Size: 12 bytes   Token: 0x06000007
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  ldarg.2
+  IL_0003  conv.i8
+  IL_0004  ldarg.2
+  IL_0005  conv.i8
+  IL_0006  call       void [System.Runtime]System.Buffer::MemoryCopy(void*, void*, int64, int64)
+  IL_000B  ret
+
+Method   : int ReadInt(byte[] data, int offset)
+Kind     : static, public
+RVA      : 0x2210   Size: 12 bytes   Token: 0x06000008
+
+[IL]  .maxstack 2
+  .locals init ([0] uint8& pinned V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  ldelema    [System.Runtime]System.Byte
+  IL_0007  stloc.0
+  IL_0008  ldloc.0
+  IL_0009  conv.u
+  IL_000A  ldind.i4
+  IL_000B  ret
+
+Method   : void Write(ref int target, int value)
+Kind     : static, public
+RVA      : 0x2228   Size: 4 bytes   Token: 0x06000009
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stind.i4
+  IL_0003  ret
+
+Method   : ref int Element(int[] array, int index)
+Kind     : static, public
+RVA      : 0x222D   Size: 8 bytes   Token: 0x0600000A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  ldelema    [System.Runtime]System.Int32
+  IL_0007  ret
+
+Method   : void Increment(int* p)
+Kind     : static, public
+RVA      : 0x2236   Size: 7 bytes   Token: 0x0600000B
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  dup
+  IL_0002  ldind.i4
+  IL_0003  ldc.i4.1
+  IL_0004  add
+  IL_0005  stind.i4
+  IL_0006  ret
+
+Method   : nint Allocate(int bytes)
+Kind     : static, public
+RVA      : 0x223E   Size: 19 bytes   Token: 0x0600000C
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  conv.i
+  IL_0002  call       void* [System.Runtime.InteropServices]System.Runtime.InteropServices.NativeMemory::AllocZeroed(native uint)
+  IL_0007  dup
+  IL_0008  ldc.i4.0
+  IL_0009  conv.u
+  IL_000A  bne.un.s   IL_0012
+  IL_000C  newobj     instance void [System.Runtime]System.OutOfMemoryException::.ctor()
+  IL_0011  throw
+  IL_0012  ret
+
+Method   : void Release(nint p)
+Kind     : static, public
+RVA      : 0x2252   Size: 7 bytes   Token: 0x0600000D
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       void [System.Runtime.InteropServices]System.Runtime.InteropServices.NativeMemory::Free(void*)
+  IL_0006  ret
+
+Method   : int SizeOfHeader()
+Kind     : static, public
+RVA      : 0x225A   Size: 7 bytes   Token: 0x0600000E
+
+[IL]  .maxstack 8
+  IL_0000  sizeof     Ref.Unsafe.FixedHeader
+  IL_0006  ret
+
+Method   : T ReadUnaligned<T>(byte* p)
+Kind     : static, public, generic
+RVA      : 0x2262   Size: 7 bytes   Token: 0x0600000F
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       !!0 [System.Runtime]System.Runtime.CompilerServices.Unsafe::ReadUnaligned<!!0>(void*)
+  IL_0006  ret
+
+Method   : int Pinned(string text)
+Kind     : static, public
+RVA      : 0x226C   Size: 31 bytes   Token: 0x06000010
+
+[IL]  .maxstack 2
+  .locals init ([0] valuetype [System.Runtime]System.Runtime.InteropServices.GCHandle V_0, [1] char* V_1, [2] int32 V_2)
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.3
+  IL_0002  call       valuetype [System.Runtime]System.Runtime.InteropServices.GCHandle [System.Runtime]System.Runtime.InteropServices.GCHandle::Alloc(object, valuetype [System.Runtime]System.Runtime.InteropServices.GCHandleType)
+  IL_0007  stloc.0
+  IL_0008  ldloca.s   V_0
+  IL_000A  call       instance native int [System.Runtime]System.Runtime.InteropServices.GCHandle::AddrOfPinnedObject()
+  IL_000F  stloc.1
+  IL_0010  ldloc.1
+  IL_0011  ldind.u2
+  IL_0012  stloc.2
+  IL_0013  leave.s    IL_001D
+  IL_0015  ldloca.s   V_0
+  IL_0017  call       instance void [System.Runtime]System.Runtime.InteropServices.GCHandle::Free()
+  IL_001C  endfinally
+  IL_001D  ldloc.2
+  IL_001E  ret
+  .try IL_0008 to IL_0015 finally handler IL_0015 to IL_001D

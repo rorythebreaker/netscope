@@ -1,0 +1,1057 @@
+Assembly : Ref15.Modern.dll
+Name     : Ref15.Modern, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 97
+
+Type     : Ref.Modern.Person
+
+Method   : void .ctor(string First, string Last)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 21 bytes   Token: 0x06000001
+
+[Calls]
+  IL_000F  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  Ref.Modern.Employee::.ctor  IL_000A  call  (Ref15.Modern.dll)
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, virtual, compiler-generated
+RVA      : 0x2066   Size: 11 bytes   Token: 0x06000002
+
+[Calls]
+  IL_0005  call      System.Type::GetTypeFromHandle(RuntimeTypeHandle)  external System.Runtime
+[Callers]
+  Ref.Modern.Person::GetHashCode  IL_0006  callvirt  (Ref15.Modern.dll)
+  Ref.Modern.Person::Equals  IL_0008  callvirt  (Ref15.Modern.dll)
+  Ref.Modern.Person::Equals  IL_000E  callvirt  (Ref15.Modern.dll)
+
+Method   : string get_First()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2072   Size: 7 bytes   Token: 0x06000003
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.Person::get_Full  IL_0001  call  (Ref15.Modern.dll)
+  Ref.Modern.Person::PrintMembers  IL_0013  call  (Ref15.Modern.dll)
+  Ref.Modern.Person::Deconstruct  IL_0002  call  (Ref15.Modern.dll)
+  Ref.Modern.Employee::Deconstruct  IL_0002  call  (Ref15.Modern.dll)
+
+Method   : void set_First(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x207A   Size: 8 bytes   Token: 0x06000004
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : string get_Last()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2083   Size: 7 bytes   Token: 0x06000005
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.Person::get_Full  IL_000C  call  (Ref15.Modern.dll)
+  Ref.Modern.Person::PrintMembers  IL_002C  call  (Ref15.Modern.dll)
+  Ref.Modern.Person::Deconstruct  IL_000A  call  (Ref15.Modern.dll)
+  Ref.Modern.Employee::Deconstruct  IL_000A  call  (Ref15.Modern.dll)
+
+Method   : void set_Last(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x208B   Size: 8 bytes   Token: 0x06000006
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : string get_Full()
+Kind     : property-get, instance, public
+RVA      : 0x2094   Size: 23 bytes   Token: 0x06000007
+
+[Calls]
+  IL_0001  call      Ref.Modern.Person::get_First()                 internal
+  IL_000C  call      Ref.Modern.Person::get_Last()                  internal
+  IL_0011  call      System.String::Concat(string, string, string)  external System.Runtime
+[Callers]
+  Ref.Modern.Person::PrintMembers  IL_0045  call  (Ref15.Modern.dll)
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20AC   Size: 64 bytes   Token: 0x06000008
+
+[Calls]
+  IL_0000  newobj    System.Text.StringBuilder::.ctor()              external System.Runtime
+  IL_000C  callvirt  System.Text.StringBuilder::Append(string)       external System.Runtime
+  IL_0018  callvirt  System.Text.StringBuilder::Append(string)       external System.Runtime
+  IL_0020  callvirt  Ref.Modern.Person::PrintMembers(StringBuilder)  internal
+  IL_002A  callvirt  System.Text.StringBuilder::Append(char)         external System.Runtime
+  IL_0033  callvirt  System.Text.StringBuilder::Append(char)         external System.Runtime
+  IL_003A  callvirt  System.Object::ToString()                       external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, virtual, compiler-generated
+RVA      : 0x20F8   Size: 82 bytes   Token: 0x06000009
+
+[Calls]
+  IL_0000  call      System.Runtime.CompilerServices.RuntimeHelpers::EnsureSufficientExecutionStack()  external System.Runtime
+  IL_000B  callvirt  System.Text.StringBuilder::Append(string)                                         external System.Runtime
+  IL_0013  call      Ref.Modern.Person::get_First()                                                    internal
+  IL_0018  callvirt  System.Text.StringBuilder::Append(object)                                         external System.Runtime
+  IL_0024  callvirt  System.Text.StringBuilder::Append(string)                                         external System.Runtime
+  IL_002C  call      Ref.Modern.Person::get_Last()                                                     internal
+  IL_0031  callvirt  System.Text.StringBuilder::Append(object)                                         external System.Runtime
+  IL_003D  callvirt  System.Text.StringBuilder::Append(string)                                         external System.Runtime
+  IL_0045  call      Ref.Modern.Person::get_Full()                                                     internal
+  IL_004A  callvirt  System.Text.StringBuilder::Append(object)                                         external System.Runtime
+[Callers]
+  Ref.Modern.Person::ToString  IL_0020  callvirt  (Ref15.Modern.dll)
+  Ref.Modern.Employee::ToString  IL_0020  callvirt  (Ref15.Modern.dll)
+  Ref.Modern.Employee::PrintMembers  IL_0002  call  (Ref15.Modern.dll)
+
+Method   : bool op_Inequality(Person left, Person right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2156   Size: 11 bytes   Token: 0x0600000A
+
+[Calls]
+  IL_0002  call      Ref.Modern.Person::op_Equality(Person, Person)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool op_Equality(Person left, Person right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2162   Size: 19 bytes   Token: 0x0600000B
+
+[Calls]
+  IL_0009  callvirt  Ref.Modern.Person::Equals(Person)  internal
+[Callers]
+  Ref.Modern.Person::op_Inequality  IL_0002  call  (Ref15.Modern.dll)
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2176   Size: 63 bytes   Token: 0x0600000C
+
+[Calls]
+  IL_0000  call      System.Collections.Generic.EqualityComparer<System.Type>::get_Default()      external System.Collections
+  IL_0006  callvirt  Ref.Modern.Person::get_EqualityContract()                                    internal
+  IL_000B  callvirt  System.Collections.Generic.EqualityComparer<System.Type>::GetHashCode(Type)  external System.Collections
+  IL_0016  call      System.Collections.Generic.EqualityComparer<string>::get_Default()           external System.Collections
+  IL_0021  callvirt  System.Collections.Generic.EqualityComparer<string>::GetHashCode(string)     external System.Collections
+  IL_002D  call      System.Collections.Generic.EqualityComparer<string>::get_Default()           external System.Collections
+  IL_0038  callvirt  System.Collections.Generic.EqualityComparer<string>::GetHashCode(string)     external System.Collections
+[Callers]
+  Ref.Modern.Employee::GetHashCode  IL_0001  call  (Ref15.Modern.dll)
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x21B6   Size: 13 bytes   Token: 0x0600000D
+
+[Calls]
+  IL_0007  callvirt  Ref.Modern.Person::Equals(Person)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Person other)
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x21C4   Size: 77 bytes   Token: 0x0600000E
+
+[Calls]
+  IL_0008  callvirt  Ref.Modern.Person::get_EqualityContract()                                    internal
+  IL_000E  callvirt  Ref.Modern.Person::get_EqualityContract()                                    internal
+  IL_0013  call      System.Type::op_Equality(Type, Type)                                         external System.Runtime
+  IL_001A  call      System.Collections.Generic.EqualityComparer<string>::get_Default()           external System.Collections
+  IL_002B  callvirt  System.Collections.Generic.EqualityComparer<string>::Equals(string, string)  external System.Collections
+  IL_0032  call      System.Collections.Generic.EqualityComparer<string>::get_Default()           external System.Collections
+  IL_0043  callvirt  System.Collections.Generic.EqualityComparer<string>::Equals(string, string)  external System.Collections
+[Callers]
+  Ref.Modern.Person::op_Equality  IL_0009  callvirt  (Ref15.Modern.dll)
+  Ref.Modern.Person::Equals  IL_0007  callvirt  (Ref15.Modern.dll)
+  Ref.Modern.Employee::Equals  IL_0006  call  (Ref15.Modern.dll)
+
+Method   : Person <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x221D   Size: 7 bytes   Token: 0x0600000F
+
+[Calls]
+  IL_0001  newobj    Ref.Modern.Person::.ctor(Person)  internal
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor(Person original)
+Kind     : ctor, instance, protected, compiler-generated
+RVA      : 0x2225   Size: 31 bytes   Token: 0x06000010
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  Ref.Modern.Person::<Clone>$  IL_0001  newobj  (Ref15.Modern.dll)
+  Ref.Modern.Employee::.ctor  IL_0002  call  (Ref15.Modern.dll)
+
+Method   : void Deconstruct(out string First, out string Last)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2245   Size: 17 bytes   Token: 0x06000011
+
+[Calls]
+  IL_0002  call      Ref.Modern.Person::get_First()  internal
+  IL_000A  call      Ref.Modern.Person::get_Last()   internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Modern.Employee
+
+Method   : void .ctor(string First, string Last, Decimal Salary)
+Kind     : ctor, instance, public
+RVA      : 0x2257   Size: 16 bytes   Token: 0x06000012
+
+[Calls]
+  IL_000A  call      Ref.Modern.Person::.ctor(string, string)  internal
+[Callers]
+  (none in the input files)
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x2268   Size: 11 bytes   Token: 0x06000013
+
+[Calls]
+  IL_0005  call      System.Type::GetTypeFromHandle(RuntimeTypeHandle)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : Decimal get_Salary()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2274   Size: 7 bytes   Token: 0x06000014
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.Employee::Raise  IL_0008  call  (Ref15.Modern.dll)
+  Ref.Modern.Employee::PrintMembers  IL_0023  call  (Ref15.Modern.dll)
+  Ref.Modern.Employee::Deconstruct  IL_0012  call  (Ref15.Modern.dll)
+
+Method   : void set_Salary(Decimal value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x227C   Size: 8 bytes   Token: 0x06000015
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.Employee::Raise  IL_0029  callvirt  (Ref15.Modern.dll)
+
+Method   : Employee Raise(Decimal percent)
+Kind     : instance, public
+RVA      : 0x2285   Size: 47 bytes   Token: 0x06000016
+
+[Calls]
+  IL_0001  call      Ref.Modern.Employee::<Clone>$()                internal
+  IL_0008  call      Ref.Modern.Employee::get_Salary()              internal
+  IL_0015  newobj    System.Decimal::.ctor(int)                     external System.Runtime
+  IL_001A  call      System.Decimal::op_Division(Decimal, Decimal)  external System.Runtime
+  IL_001F  call      System.Decimal::op_Addition(Decimal, Decimal)  external System.Runtime
+  IL_0024  call      System.Decimal::op_Multiply(Decimal, Decimal)  external System.Runtime
+  IL_0029  callvirt  Ref.Modern.Employee::set_Salary(Decimal)       internal
+[Callers]
+  (none in the input files)
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x22B8   Size: 64 bytes   Token: 0x06000017
+
+[Calls]
+  IL_0000  newobj    System.Text.StringBuilder::.ctor()              external System.Runtime
+  IL_000C  callvirt  System.Text.StringBuilder::Append(string)       external System.Runtime
+  IL_0018  callvirt  System.Text.StringBuilder::Append(string)       external System.Runtime
+  IL_0020  callvirt  Ref.Modern.Person::PrintMembers(StringBuilder)  internal
+  IL_002A  callvirt  System.Text.StringBuilder::Append(char)         external System.Runtime
+  IL_0033  callvirt  System.Text.StringBuilder::Append(char)         external System.Runtime
+  IL_003A  callvirt  System.Object::ToString()                       external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x2304   Size: 62 bytes   Token: 0x06000018
+
+[Calls]
+  IL_0002  call      Ref.Modern.Person::PrintMembers(StringBuilder)  internal
+  IL_000F  callvirt  System.Text.StringBuilder::Append(string)       external System.Runtime
+  IL_001B  callvirt  System.Text.StringBuilder::Append(string)       external System.Runtime
+  IL_0023  call      Ref.Modern.Employee::get_Salary()               internal
+  IL_0031  callvirt  System.Object::ToString()                       external System.Runtime
+  IL_0036  callvirt  System.Text.StringBuilder::Append(string)       external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool op_Inequality(Employee left, Employee right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x234E   Size: 11 bytes   Token: 0x06000019
+
+[Calls]
+  IL_0002  call      Ref.Modern.Employee::op_Equality(Employee, Employee)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool op_Equality(Employee left, Employee right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x235A   Size: 19 bytes   Token: 0x0600001A
+
+[Calls]
+  IL_0009  callvirt  Ref.Modern.Employee::Equals(Employee)  internal
+[Callers]
+  Ref.Modern.Employee::op_Inequality  IL_0002  call  (Ref15.Modern.dll)
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x236E   Size: 30 bytes   Token: 0x0600001B
+
+[Calls]
+  IL_0001  call      Ref.Modern.Person::GetHashCode()                                                   internal
+  IL_000C  call      System.Collections.Generic.EqualityComparer<System.Decimal>::get_Default()         external System.Collections
+  IL_0017  callvirt  System.Collections.Generic.EqualityComparer<System.Decimal>::GetHashCode(Decimal)  external System.Collections
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x238D   Size: 13 bytes   Token: 0x0600001C
+
+[Calls]
+  IL_0007  call      Ref.Modern.Employee::Equals(Employee)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Person other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x239B   Size: 8 bytes   Token: 0x0600001D
+
+[Calls]
+  IL_0002  callvirt  System.Object::Equals(object)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Employee other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x23A4   Size: 40 bytes   Token: 0x0600001E
+
+[Calls]
+  IL_0006  call      Ref.Modern.Person::Equals(Person)                                                      internal
+  IL_000D  call      System.Collections.Generic.EqualityComparer<System.Decimal>::get_Default()             external System.Collections
+  IL_001E  callvirt  System.Collections.Generic.EqualityComparer<System.Decimal>::Equals(Decimal, Decimal)  external System.Collections
+[Callers]
+  Ref.Modern.Employee::op_Equality  IL_0009  callvirt  (Ref15.Modern.dll)
+  Ref.Modern.Employee::Equals  IL_0007  call  (Ref15.Modern.dll)
+
+Method   : Employee <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x23CD   Size: 7 bytes   Token: 0x0600001F
+
+[Calls]
+  IL_0001  newobj    Ref.Modern.Employee::.ctor(Employee)  internal
+[Callers]
+  Ref.Modern.Employee::Raise  IL_0001  call  (Ref15.Modern.dll)
+
+Method   : void .ctor(Employee original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x23D5   Size: 20 bytes   Token: 0x06000020
+
+[Calls]
+  IL_0002  call      Ref.Modern.Person::.ctor(Person)  internal
+[Callers]
+  Ref.Modern.Employee::<Clone>$  IL_0001  newobj  (Ref15.Modern.dll)
+
+Method   : void Deconstruct(out string First, out string Last, out Decimal Salary)
+Kind     : instance, public, compiler-generated
+RVA      : 0x23EA   Size: 29 bytes   Token: 0x06000021
+
+[Calls]
+  IL_0002  call      Ref.Modern.Person::get_First()     internal
+  IL_000A  call      Ref.Modern.Person::get_Last()      internal
+  IL_0012  call      Ref.Modern.Employee::get_Salary()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Modern.Point
+
+Method   : void .ctor(double X, double Y)
+Kind     : ctor, instance, public
+RVA      : 0x2408   Size: 15 bytes   Token: 0x06000022
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.Point::op_Addition  IL_001E  newobj  (Ref15.Modern.dll)
+
+Method   : double get_X()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2418   Size: 7 bytes   Token: 0x06000023
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.Point::get_Length  IL_0001  call  (Ref15.Modern.dll)
+  Ref.Modern.Point::get_Length  IL_0007  call  (Ref15.Modern.dll)
+  Ref.Modern.Point::op_Addition  IL_0002  call  (Ref15.Modern.dll)
+  Ref.Modern.Point::op_Addition  IL_0009  call  (Ref15.Modern.dll)
+  Ref.Modern.Point::PrintMembers  IL_000E  call  (Ref15.Modern.dll)
+  Ref.Modern.Point::Deconstruct  IL_0002  call  (Ref15.Modern.dll)
+
+Method   : void set_X(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2420   Size: 8 bytes   Token: 0x06000024
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : double get_Y()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2429   Size: 7 bytes   Token: 0x06000025
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.Point::get_Length  IL_000E  call  (Ref15.Modern.dll)
+  Ref.Modern.Point::get_Length  IL_0014  call  (Ref15.Modern.dll)
+  Ref.Modern.Point::op_Addition  IL_0011  call  (Ref15.Modern.dll)
+  Ref.Modern.Point::op_Addition  IL_0018  call  (Ref15.Modern.dll)
+  Ref.Modern.Point::PrintMembers  IL_0035  call  (Ref15.Modern.dll)
+  Ref.Modern.Point::Deconstruct  IL_000A  call  (Ref15.Modern.dll)
+
+Method   : void set_Y(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2431   Size: 8 bytes   Token: 0x06000026
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : double get_Length()
+Kind     : property-get, instance, public
+RVA      : 0x243A   Size: 33 bytes   Token: 0x06000027
+
+[Calls]
+  IL_0001  call      Ref.Modern.Point::get_X()  internal
+  IL_0007  call      Ref.Modern.Point::get_X()  internal
+  IL_000E  call      Ref.Modern.Point::get_Y()  internal
+  IL_0014  call      Ref.Modern.Point::get_Y()  internal
+  IL_001B  call      System.Math::Sqrt(double)  external System.Runtime
+[Callers]
+  Ref.Modern.Point::PrintMembers  IL_005C  call  (Ref15.Modern.dll)
+
+Method   : Point op_Addition(Point a, Point b)
+Kind     : operator, static, public
+RVA      : 0x245C   Size: 36 bytes   Token: 0x06000028
+
+[Calls]
+  IL_0002  call      Ref.Modern.Point::get_X()                internal
+  IL_0009  call      Ref.Modern.Point::get_X()                internal
+  IL_0011  call      Ref.Modern.Point::get_Y()                internal
+  IL_0018  call      Ref.Modern.Point::get_Y()                internal
+  IL_001E  newobj    Ref.Modern.Point::.ctor(double, double)  internal
+[Callers]
+  (none in the input files)
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2484   Size: 64 bytes   Token: 0x06000029
+
+[Calls]
+  IL_0000  newobj    System.Text.StringBuilder::.ctor()             external System.Runtime
+  IL_000C  callvirt  System.Text.StringBuilder::Append(string)      external System.Runtime
+  IL_0018  callvirt  System.Text.StringBuilder::Append(string)      external System.Runtime
+  IL_0020  call      Ref.Modern.Point::PrintMembers(StringBuilder)  internal
+  IL_002A  callvirt  System.Text.StringBuilder::Append(char)        external System.Runtime
+  IL_0033  callvirt  System.Text.StringBuilder::Append(char)        external System.Runtime
+  IL_003A  callvirt  System.Object::ToString()                      external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, private, compiler-generated
+RVA      : 0x24D0   Size: 119 bytes   Token: 0x0600002A
+
+[Calls]
+  IL_0006  callvirt  System.Text.StringBuilder::Append(string)  external System.Runtime
+  IL_000E  call      Ref.Modern.Point::get_X()                  internal
+  IL_001C  callvirt  System.Object::ToString()                  external System.Runtime
+  IL_0021  callvirt  System.Text.StringBuilder::Append(string)  external System.Runtime
+  IL_002D  callvirt  System.Text.StringBuilder::Append(string)  external System.Runtime
+  IL_0035  call      Ref.Modern.Point::get_Y()                  internal
+  IL_0043  callvirt  System.Object::ToString()                  external System.Runtime
+  IL_0048  callvirt  System.Text.StringBuilder::Append(string)  external System.Runtime
+  IL_0054  callvirt  System.Text.StringBuilder::Append(string)  external System.Runtime
+  IL_005C  call      Ref.Modern.Point::get_Length()             internal
+  IL_006A  callvirt  System.Object::ToString()                  external System.Runtime
+  IL_006F  callvirt  System.Text.StringBuilder::Append(string)  external System.Runtime
+[Callers]
+  Ref.Modern.Point::ToString  IL_0020  call  (Ref15.Modern.dll)
+
+Method   : bool op_Inequality(Point left, Point right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2553   Size: 11 bytes   Token: 0x0600002B
+
+[Calls]
+  IL_0002  call      Ref.Modern.Point::op_Equality(Point, Point)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool op_Equality(Point left, Point right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x255F   Size: 9 bytes   Token: 0x0600002C
+
+[Calls]
+  IL_0003  call      Ref.Modern.Point::Equals(Point)  internal
+[Callers]
+  Ref.Modern.Point::op_Inequality  IL_0002  call  (Ref15.Modern.dll)
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2569   Size: 40 bytes   Token: 0x0600002D
+
+[Calls]
+  IL_0000  call      System.Collections.Generic.EqualityComparer<double>::get_Default()        external System.Collections
+  IL_000B  callvirt  System.Collections.Generic.EqualityComparer<double>::GetHashCode(double)  external System.Collections
+  IL_0016  call      System.Collections.Generic.EqualityComparer<double>::get_Default()        external System.Collections
+  IL_0021  callvirt  System.Collections.Generic.EqualityComparer<double>::GetHashCode(double)  external System.Collections
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2592   Size: 23 bytes   Token: 0x0600002E
+
+[Calls]
+  IL_000F  call      Ref.Modern.Point::Equals(Point)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Point other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x25AA   Size: 49 bytes   Token: 0x0600002F
+
+[Calls]
+  IL_0000  call      System.Collections.Generic.EqualityComparer<double>::get_Default()           external System.Collections
+  IL_0011  callvirt  System.Collections.Generic.EqualityComparer<double>::Equals(double, double)  external System.Collections
+  IL_0018  call      System.Collections.Generic.EqualityComparer<double>::get_Default()           external System.Collections
+  IL_0029  callvirt  System.Collections.Generic.EqualityComparer<double>::Equals(double, double)  external System.Collections
+[Callers]
+  Ref.Modern.Point::op_Equality  IL_0003  call  (Ref15.Modern.dll)
+  Ref.Modern.Point::Equals  IL_000F  call  (Ref15.Modern.dll)
+
+Method   : void Deconstruct(out double X, out double Y)
+Kind     : instance, public, compiler-generated
+RVA      : 0x25DC   Size: 17 bytes   Token: 0x06000030
+
+[Calls]
+  IL_0002  call      Ref.Modern.Point::get_X()  internal
+  IL_000A  call      Ref.Modern.Point::get_Y()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Modern.Counter
+
+Method   : int get_Value()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x25EE   Size: 7 bytes   Token: 0x06000031
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.Counter::Increment  IL_0001  call  (Ref15.Modern.dll)
+  Ref.Modern.Counter::PrintMembers  IL_000E  call  (Ref15.Modern.dll)
+
+Method   : void set_Value(int value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x25F6   Size: 8 bytes   Token: 0x06000032
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.Counter::Increment  IL_000B  call  (Ref15.Modern.dll)
+
+Method   : void Increment()
+Kind     : instance, public
+RVA      : 0x2600   Size: 17 bytes   Token: 0x06000033
+
+[Calls]
+  IL_0001  call      Ref.Modern.Counter::get_Value()     internal
+  IL_000B  call      Ref.Modern.Counter::set_Value(int)  internal
+[Callers]
+  (none in the input files)
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2620   Size: 64 bytes   Token: 0x06000034
+
+[Calls]
+  IL_0000  newobj    System.Text.StringBuilder::.ctor()               external System.Runtime
+  IL_000C  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_0018  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_0020  call      Ref.Modern.Counter::PrintMembers(StringBuilder)  internal
+  IL_002A  callvirt  System.Text.StringBuilder::Append(char)          external System.Runtime
+  IL_0033  callvirt  System.Text.StringBuilder::Append(char)          external System.Runtime
+  IL_003A  callvirt  System.Object::ToString()                        external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, private, compiler-generated
+RVA      : 0x266C   Size: 41 bytes   Token: 0x06000035
+
+[Calls]
+  IL_0006  callvirt  System.Text.StringBuilder::Append(string)  external System.Runtime
+  IL_000E  call      Ref.Modern.Counter::get_Value()            internal
+  IL_001C  callvirt  System.Object::ToString()                  external System.Runtime
+  IL_0021  callvirt  System.Text.StringBuilder::Append(string)  external System.Runtime
+[Callers]
+  Ref.Modern.Counter::ToString  IL_0020  call  (Ref15.Modern.dll)
+
+Method   : bool op_Inequality(Counter left, Counter right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x26A1   Size: 11 bytes   Token: 0x06000036
+
+[Calls]
+  IL_0002  call      Ref.Modern.Counter::op_Equality(Counter, Counter)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool op_Equality(Counter left, Counter right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x26AD   Size: 9 bytes   Token: 0x06000037
+
+[Calls]
+  IL_0003  call      Ref.Modern.Counter::Equals(Counter)  internal
+[Callers]
+  Ref.Modern.Counter::op_Inequality  IL_0002  call  (Ref15.Modern.dll)
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x26B7   Size: 17 bytes   Token: 0x06000038
+
+[Calls]
+  IL_0000  call      System.Collections.Generic.EqualityComparer<int>::get_Default()     external System.Collections
+  IL_000B  callvirt  System.Collections.Generic.EqualityComparer<int>::GetHashCode(int)  external System.Collections
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x26C9   Size: 23 bytes   Token: 0x06000039
+
+[Calls]
+  IL_000F  call      Ref.Modern.Counter::Equals(Counter)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Counter other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x26E1   Size: 23 bytes   Token: 0x0600003A
+
+[Calls]
+  IL_0000  call      System.Collections.Generic.EqualityComparer<int>::get_Default()     external System.Collections
+  IL_0011  callvirt  System.Collections.Generic.EqualityComparer<int>::Equals(int, int)  external System.Collections
+[Callers]
+  Ref.Modern.Counter::op_Equality  IL_0003  call  (Ref15.Modern.dll)
+  Ref.Modern.Counter::Equals  IL_000F  call  (Ref15.Modern.dll)
+
+Type     : Ref.Modern.Settings
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x26F9   Size: 7 bytes   Token: 0x0600003B
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void set_Name(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2701   Size: 8 bytes   Token: 0x0600003C
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : int get_Retries()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x270A   Size: 7 bytes   Token: 0x0600003D
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void set_Retries(int value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2712   Size: 8 bytes   Token: 0x0600003E
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : TimeSpan get_Timeout()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x271B   Size: 7 bytes   Token: 0x0600003F
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void set_Timeout(TimeSpan value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2723   Size: 8 bytes   Token: 0x06000040
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : IReadOnlyList<string> get_Tags()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x272C   Size: 7 bytes   Token: 0x06000041
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void set_Tags(IReadOnlyList<string> value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2734   Size: 8 bytes   Token: 0x06000042
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x273D   Size: 45 bytes   Token: 0x06000043
+
+[Calls]
+  IL_0011  call      System.TimeSpan::FromSeconds(double)  external System.Runtime
+  IL_001C  call      System.Array::Empty<string>()         external System.Runtime
+  IL_0027  call      System.Object::.ctor()                external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Modern.IGreeter
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000044
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.IGreeter::Greet  IL_0007  callvirt  (Ref15.Modern.dll)
+
+Method   : string Greet()
+Kind     : instance, public, virtual
+RVA      : 0x276B   Size: 18 bytes   Token: 0x06000045
+
+[Calls]
+  IL_0001  call      Ref.Modern.IGreeter::Prefix()          internal
+  IL_0007  callvirt  Ref.Modern.IGreeter::get_Name()        internal
+  IL_000C  call      System.String::Concat(string, string)  external System.Runtime
+[Callers]
+  Ref.Modern.IGreeter::GreetLoudly  IL_0001  callvirt  (Ref15.Modern.dll)
+
+Method   : string GreetLoudly()
+Kind     : instance, public, virtual
+RVA      : 0x277E   Size: 22 bytes   Token: 0x06000046
+
+[Calls]
+  IL_0001  callvirt  Ref.Modern.IGreeter::Greet()           internal
+  IL_0006  callvirt  System.String::ToUpperInvariant()      external System.Runtime
+  IL_0010  call      System.String::Concat(string, string)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : string Prefix()
+Kind     : instance, private
+RVA      : 0x2795   Size: 6 bytes   Token: 0x06000047
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.IGreeter::Greet  IL_0001  call  (Ref15.Modern.dll)
+
+Method   : string get_Anonymous()
+Kind     : property-get, static, public
+RVA      : 0x279C   Size: 6 bytes   Token: 0x06000048
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Modern.Greeter
+
+Method   : void .ctor(string name)
+Kind     : ctor, instance, public
+RVA      : 0x27A3   Size: 14 bytes   Token: 0x06000049
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, virtual, sealed, compiler-generated
+RVA      : 0x27B2   Size: 7 bytes   Token: 0x0600004A
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Modern.PoliteGreeter
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, virtual, sealed
+RVA      : 0x27BA   Size: 6 bytes   Token: 0x0600004B
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.PoliteGreeter::Greet  IL_0006  call  (Ref15.Modern.dll)
+
+Method   : string Greet()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x27C1   Size: 17 bytes   Token: 0x0600004C
+
+[Calls]
+  IL_0006  call      Ref.Modern.PoliteGreeter::get_Name()   internal
+  IL_000B  call      System.String::Concat(string, string)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x27D3   Size: 7 bytes   Token: 0x0600004D
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Modern.IShape`1
+
+Method   : TSelf get_Unit()
+Kind     : property-get, static, public, abstract, no-body
+RVA      : 0x0000   Token: 0x0600004E
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.Shapes::Scale  IL_0006  call  (Ref15.Modern.dll)
+
+Method   : TSelf op_Multiply(TSelf shape, double factor)
+Kind     : operator, static, public, abstract, no-body
+RVA      : 0x0000   Token: 0x0600004F
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.Shapes::Scale  IL_0012  call  (Ref15.Modern.dll)
+
+Method   : double get_Area()
+Kind     : property-get, instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000050
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : string get_Kind()
+Kind     : property-get, static, public, virtual
+RVA      : 0x27DB   Size: 16 bytes   Token: 0x06000051
+
+[Calls]
+  IL_0005  call      System.Type::GetTypeFromHandle(RuntimeTypeHandle)  external System.Runtime
+  IL_000A  callvirt  System.Reflection.MemberInfo::get_Name()           external System.Runtime
+[Callers]
+  Ref.Modern.Shapes::KindOf  IL_0006  call  (Ref15.Modern.dll)
+
+Type     : Ref.Modern.Square
+
+Method   : void .ctor(double side)
+Kind     : ctor, instance, public
+RVA      : 0x27EC   Size: 8 bytes   Token: 0x06000052
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.Square::get_Unit  IL_0009  newobj  (Ref15.Modern.dll)
+  Ref.Modern.Square::op_Multiply  IL_0009  newobj  (Ref15.Modern.dll)
+
+Method   : double get_Side()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27F5   Size: 7 bytes   Token: 0x06000053
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Modern.Square::get_Area  IL_0001  call  (Ref15.Modern.dll)
+  Ref.Modern.Square::get_Area  IL_0007  call  (Ref15.Modern.dll)
+  Ref.Modern.Square::op_Multiply  IL_0002  call  (Ref15.Modern.dll)
+
+Method   : double get_Area()
+Kind     : property-get, instance, public, virtual, sealed
+RVA      : 0x27FD   Size: 14 bytes   Token: 0x06000054
+
+[Calls]
+  IL_0001  call      Ref.Modern.Square::get_Side()  internal
+  IL_0007  call      Ref.Modern.Square::get_Side()  internal
+[Callers]
+  (none in the input files)
+
+Method   : Square get_Unit()
+Kind     : property-get, static, public
+RVA      : 0x280C   Size: 15 bytes   Token: 0x06000055
+
+[Calls]
+  IL_0009  newobj    Ref.Modern.Square::.ctor(double)  internal
+[Callers]
+  (none in the input files)
+
+Method   : Square op_Multiply(Square s, double factor)
+Kind     : operator, static, public
+RVA      : 0x281C   Size: 15 bytes   Token: 0x06000056
+
+[Calls]
+  IL_0002  call      Ref.Modern.Square::get_Side()     internal
+  IL_0009  newobj    Ref.Modern.Square::.ctor(double)  internal
+[Callers]
+  (none in the input files)
+
+Method   : string Ref.Modern.IShape<Ref.Modern.Square>.get_Kind()
+Kind     : property-get, static, private
+RVA      : 0x282C   Size: 6 bytes   Token: 0x06000057
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Modern.Shapes
+
+Method   : T Scale<T>(double factor)
+Kind     : static, public, generic
+RVA      : 0x2833   Size: 24 bytes   Token: 0x06000058
+
+[Calls]
+  IL_0006  call      Ref.Modern.IShape<!!0>::get_Unit()                internal
+  IL_0012  call      Ref.Modern.IShape<!!0>::op_Multiply(!!0, double)  internal
+[Callers]
+  (none in the input files)
+
+Method   : string KindOf<T>()
+Kind     : static, public, generic
+RVA      : 0x284C   Size: 12 bytes   Token: 0x06000059
+
+[Calls]
+  IL_0006  call      Ref.Modern.IShape<!!0>::get_Kind()  internal
+[Callers]
+  (none in the input files)
+
+Method   : T Add<T>(T a, T b)
+Kind     : static, public, generic
+RVA      : 0x2859   Size: 14 bytes   Token: 0x0600005A
+
+[Calls]
+  IL_0008  call      System.Numerics.IAdditionOperators<!!0, !!0, !!0>::op_Addition(!!0, !!0)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Modern.Catalog
+
+Method   : void .ctor(string name, IEnumerable<string> items)
+Kind     : ctor, instance, public
+RVA      : 0x2868   Size: 26 bytes   Token: 0x0600005B
+
+[Calls]
+  IL_0009  call      System.Linq.Enumerable::ToList<string>(IEnumerable<string>)  external System.Linq
+  IL_0014  call      System.Object::.ctor()                                       external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : string get_Name()
+Kind     : property-get, instance, public
+RVA      : 0x2883   Size: 7 bytes   Token: 0x0600005C
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : int get_Count()
+Kind     : property-get, instance, public
+RVA      : 0x288B   Size: 12 bytes   Token: 0x0600005D
+
+[Calls]
+  IL_0006  callvirt  System.Collections.Generic.List<string>::get_Count()  external System.Collections
+[Callers]
+  (none in the input files)
+
+Method   : string[] Sorted()
+Kind     : instance, public
+RVA      : 0x2898   Size: 23 bytes   Token: 0x0600005E
+
+[Calls]
+  IL_0006  callvirt  System.Collections.Generic.List<string>::ToArray()       external System.Collections
+  IL_000C  call      System.StringComparer::get_Ordinal()                     external System.Runtime
+  IL_0011  call      System.Array::Sort<string>(string[], IComparer<string>)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool Contains(string item)
+Kind     : instance, public
+RVA      : 0x28B0   Size: 23 bytes   Token: 0x0600005F
+
+[Calls]
+  IL_0006  call      Ref.Modern.Helper::Normalize(IEnumerable<string>)             internal
+  IL_000C  call      Ref.Modern.Helper::Normalize(string)                          internal
+  IL_0011  callvirt  System.Collections.Generic.HashSet<string>::Contains(string)  external System.Collections
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Modern.Helper
+
+Method   : string Normalize(string s)
+Kind     : static, public
+RVA      : 0x28C8   Size: 12 bytes   Token: 0x06000060
+
+[Calls]
+  IL_0001  callvirt  System.String::Trim()              external System.Runtime
+  IL_0006  callvirt  System.String::ToLowerInvariant()  external System.Runtime
+[Callers]
+  Ref.Modern.Catalog::Contains  IL_000C  call  (Ref15.Modern.dll)
+  Ref.Modern.Helper::Normalize  IL_001D  call  (Ref15.Modern.dll)
+
+Method   : HashSet<string> Normalize(IEnumerable<string> items)
+Kind     : static, public
+RVA      : 0x28D8   Size: 62 bytes   Token: 0x06000061
+
+[Calls]
+  IL_0000  call      System.StringComparer::get_Ordinal()                                          external System.Runtime
+  IL_0005  newobj    System.Collections.Generic.HashSet<string>::.ctor(IEqualityComparer<string>)  external System.Collections
+  IL_000C  callvirt  System.Collections.Generic.IEnumerable<string>::GetEnumerator()               external System.Runtime
+  IL_0015  callvirt  System.Collections.Generic.IEnumerator<string>::get_Current()                 external System.Runtime
+  IL_001D  call      Ref.Modern.Helper::Normalize(string)                                          internal
+  IL_0022  callvirt  System.Collections.Generic.HashSet<string>::Add(string)                       external System.Collections
+  IL_0029  callvirt  System.Collections.IEnumerator::MoveNext()                                    external System.Runtime
+  IL_0036  callvirt  System.IDisposable::Dispose()                                                 external System.Runtime
+[Callers]
+  Ref.Modern.Catalog::Contains  IL_0006  call  (Ref15.Modern.dll)

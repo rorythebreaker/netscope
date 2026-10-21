@@ -1,0 +1,1043 @@
+Assembly : Ref13.Switches.dll
+Name     : Ref13.Switches, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 67
+
+Type     : Ref.Switches.Shape
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, virtual, compiler-generated
+RVA      : 0x2050   Size: 11 bytes   Token: 0x06000001
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return typeof(Shape);
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x205C   Size: 64 bytes   Token: 0x06000002
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override string ToString()
+  {
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.Append("Shape");
+      stringBuilder.Append(" { ");
+      if (PrintMembers(stringBuilder))
+      {
+          stringBuilder.Append(' ');
+      }
+      stringBuilder.Append('}');
+      return stringBuilder.ToString();
+  }
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, virtual, compiler-generated
+RVA      : 0x20A8   Size: 2 bytes   Token: 0x06000003
+
+[Pseudocode]
+  [CompilerGenerated]
+  protected virtual bool PrintMembers(StringBuilder builder)
+  {
+      return false;
+  }
+
+Method   : bool op_Inequality(Shape left, Shape right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x20AB   Size: 11 bytes   Token: 0x06000004
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator !=(Shape? left, Shape? right)
+  {
+      return !(left == right);
+  }
+
+Method   : bool op_Equality(Shape left, Shape right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x20B7   Size: 19 bytes   Token: 0x06000005
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator ==(Shape? left, Shape? right)
+  {
+      if ((object)left != right)
+      {
+          return left?.Equals(right) ?? false;
+      }
+      return true;
+  }
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20CB   Size: 17 bytes   Token: 0x06000006
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override int GetHashCode()
+  {
+      return EqualityComparer<Type>.Default.GetHashCode(EqualityContract);
+  }
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20DD   Size: 13 bytes   Token: 0x06000007
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override bool Equals(object? obj)
+  {
+      return Equals(obj as Shape);
+  }
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x20EB   Size: 29 bytes   Token: 0x06000008
+
+[Pseudocode]
+  [CompilerGenerated]
+  public virtual bool Equals(Shape? other)
+  {
+      if ((object)this != other)
+      {
+          if ((object)other != null)
+          {
+              return EqualityContract == other.EqualityContract;
+          }
+          return false;
+      }
+      return true;
+  }
+
+Method   : Shape <Clone>$()
+Kind     : instance, public, abstract, compiler-generated, no-body
+RVA      : 0x0000   Token: 0x06000009
+
+[Pseudocode]
+  [CompilerGenerated]
+  public abstract Shape <Clone>$();
+
+Method   : void .ctor(Shape original)
+Kind     : ctor, instance, protected, compiler-generated
+RVA      : 0x2109   Size: 7 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  [CompilerGenerated]
+  protected Shape(Shape original)
+  {
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, protected
+RVA      : 0x2111   Size: 7 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  protected Shape()
+  {
+  }
+
+Type     : Ref.Switches.Circle
+
+Method   : void .ctor(double Radius)
+Kind     : ctor, instance, public
+RVA      : 0x2119   Size: 14 bytes   Token: 0x0600000C
+
+[Pseudocode]
+  public Circle(double Radius)
+  {
+  }
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x2128   Size: 11 bytes   Token: 0x0600000D
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return typeof(Circle);
+  }
+
+Method   : double get_Radius()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2134   Size: 7 bytes   Token: 0x0600000E
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Radius>k__BackingField;
+  }
+
+Method   : void set_Radius(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x213C   Size: 8 bytes   Token: 0x0600000F
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Radius>k__BackingField = value;
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2148   Size: 64 bytes   Token: 0x06000010
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override string ToString()
+  {
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.Append("Circle");
+      stringBuilder.Append(" { ");
+      if (PrintMembers(stringBuilder))
+      {
+          stringBuilder.Append(' ');
+      }
+      stringBuilder.Append('}');
+      return stringBuilder.ToString();
+  }
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x2194   Size: 62 bytes   Token: 0x06000011
+
+[Pseudocode]
+  [CompilerGenerated]
+  protected override bool PrintMembers(StringBuilder builder)
+  {
+      if (base.PrintMembers(builder))
+      {
+          builder.Append(", ");
+      }
+      builder.Append("Radius = ");
+      builder.Append(Radius.ToString());
+      return true;
+  }
+
+Method   : bool op_Inequality(Circle left, Circle right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x21DE   Size: 11 bytes   Token: 0x06000012
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator !=(Circle? left, Circle? right)
+  {
+      return !(left == right);
+  }
+
+Method   : bool op_Equality(Circle left, Circle right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x21EA   Size: 19 bytes   Token: 0x06000013
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator ==(Circle? left, Circle? right)
+  {
+      if ((object)left != right)
+      {
+          return left?.Equals(right) ?? false;
+      }
+      return true;
+  }
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x21FE   Size: 30 bytes   Token: 0x06000014
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override int GetHashCode()
+  {
+      return base.GetHashCode() * -1521134295 + EqualityComparer<double>.Default.GetHashCode(<Radius>k__BackingField);
+  }
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x221D   Size: 13 bytes   Token: 0x06000015
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override bool Equals(object? obj)
+  {
+      return Equals(obj as Circle);
+  }
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x222B   Size: 8 bytes   Token: 0x06000016
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed override bool Equals(Shape? other)
+  {
+      return Equals((object?)other);
+  }
+
+Method   : bool Equals(Circle other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x2234   Size: 40 bytes   Token: 0x06000017
+
+[Pseudocode]
+  [CompilerGenerated]
+  public bool Equals(Circle? other)
+  {
+      if ((object)this != other)
+      {
+          if (base.Equals(other))
+          {
+              return EqualityComparer<double>.Default.Equals(<Radius>k__BackingField, other.<Radius>k__BackingField);
+          }
+          return false;
+      }
+      return true;
+  }
+
+Method   : Circle <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x225D   Size: 7 bytes   Token: 0x06000018
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override Circle <Clone>$()
+  {
+      return new Circle(this);
+  }
+
+Method   : void .ctor(Circle original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x2265   Size: 20 bytes   Token: 0x06000019
+
+[Pseudocode]
+  [CompilerGenerated]
+  private Circle(Circle original)
+      : base(original)
+  {
+      <Radius>k__BackingField = original.<Radius>k__BackingField;
+  }
+
+Method   : void Deconstruct(out double Radius)
+Kind     : instance, public, compiler-generated
+RVA      : 0x227A   Size: 9 bytes   Token: 0x0600001A
+
+[Pseudocode]
+  [CompilerGenerated]
+  public void Deconstruct(out double Radius)
+  {
+      Radius = this.Radius;
+  }
+
+Type     : Ref.Switches.Rect
+
+Method   : void .ctor(double Width, double Height)
+Kind     : ctor, instance, public
+RVA      : 0x2284   Size: 21 bytes   Token: 0x0600001B
+
+[Pseudocode]
+  public Rect(double Width, double Height)
+  {
+  }
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x229A   Size: 11 bytes   Token: 0x0600001C
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return typeof(Rect);
+  }
+
+Method   : double get_Width()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22A6   Size: 7 bytes   Token: 0x0600001D
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Width>k__BackingField;
+  }
+
+Method   : void set_Width(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22AE   Size: 8 bytes   Token: 0x0600001E
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Width>k__BackingField = value;
+  }
+
+Method   : double get_Height()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22B7   Size: 7 bytes   Token: 0x0600001F
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Height>k__BackingField;
+  }
+
+Method   : void set_Height(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22BF   Size: 8 bytes   Token: 0x06000020
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Height>k__BackingField = value;
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x22C8   Size: 64 bytes   Token: 0x06000021
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override string ToString()
+  {
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.Append("Rect");
+      stringBuilder.Append(" { ");
+      if (PrintMembers(stringBuilder))
+      {
+          stringBuilder.Append(' ');
+      }
+      stringBuilder.Append('}');
+      return stringBuilder.ToString();
+  }
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x2314   Size: 101 bytes   Token: 0x06000022
+
+[Pseudocode]
+  [CompilerGenerated]
+  protected override bool PrintMembers(StringBuilder builder)
+  {
+      if (base.PrintMembers(builder))
+      {
+          builder.Append(", ");
+      }
+      builder.Append("Width = ");
+      builder.Append(Width.ToString());
+      builder.Append(", Height = ");
+      builder.Append(Height.ToString());
+      return true;
+  }
+
+Method   : bool op_Inequality(Rect left, Rect right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2385   Size: 11 bytes   Token: 0x06000023
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator !=(Rect? left, Rect? right)
+  {
+      return !(left == right);
+  }
+
+Method   : bool op_Equality(Rect left, Rect right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2391   Size: 19 bytes   Token: 0x06000024
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator ==(Rect? left, Rect? right)
+  {
+      if ((object)left != right)
+      {
+          return left?.Equals(right) ?? false;
+      }
+      return true;
+  }
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x23A5   Size: 53 bytes   Token: 0x06000025
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override int GetHashCode()
+  {
+      return (base.GetHashCode() * -1521134295 + EqualityComparer<double>.Default.GetHashCode(<Width>k__BackingField)) * -1521134295 + EqualityComparer<double>.Default.GetHashCode(<Height>k__BackingField);
+  }
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x23DB   Size: 13 bytes   Token: 0x06000026
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override bool Equals(object? obj)
+  {
+      return Equals(obj as Rect);
+  }
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x23E9   Size: 8 bytes   Token: 0x06000027
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed override bool Equals(Shape? other)
+  {
+      return Equals((object?)other);
+  }
+
+Method   : bool Equals(Rect other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x23F4   Size: 64 bytes   Token: 0x06000028
+
+[Pseudocode]
+  [CompilerGenerated]
+  public bool Equals(Rect? other)
+  {
+      if ((object)this != other)
+      {
+          if (base.Equals(other) && EqualityComparer<double>.Default.Equals(<Width>k__BackingField, other.<Width>k__BackingField))
+          {
+              return EqualityComparer<double>.Default.Equals(<Height>k__BackingField, other.<Height>k__BackingField);
+          }
+          return false;
+      }
+      return true;
+  }
+
+Method   : Rect <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x2440   Size: 7 bytes   Token: 0x06000029
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override Rect <Clone>$()
+  {
+      return new Rect(this);
+  }
+
+Method   : void .ctor(Rect original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x2448   Size: 32 bytes   Token: 0x0600002A
+
+[Pseudocode]
+  [CompilerGenerated]
+  private Rect(Rect original)
+      : base(original)
+  {
+      <Width>k__BackingField = original.<Width>k__BackingField;
+      <Height>k__BackingField = original.<Height>k__BackingField;
+  }
+
+Method   : void Deconstruct(out double Width, out double Height)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2469   Size: 17 bytes   Token: 0x0600002B
+
+[Pseudocode]
+  [CompilerGenerated]
+  public void Deconstruct(out double Width, out double Height)
+  {
+      Width = this.Width;
+      Height = this.Height;
+  }
+
+Type     : Ref.Switches.Polygon
+
+Method   : void .ctor(IReadOnlyList<ValueTuple<double, double>> Points)
+Kind     : ctor, instance, public
+RVA      : 0x247B   Size: 14 bytes   Token: 0x0600002C
+
+[Pseudocode]
+  public Polygon(IReadOnlyList<(double X, double Y)> Points)
+  {
+  }
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x248A   Size: 11 bytes   Token: 0x0600002D
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return typeof(Polygon);
+  }
+
+Method   : IReadOnlyList<ValueTuple<double, double>> get_Points()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2496   Size: 7 bytes   Token: 0x0600002E
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Points>k__BackingField;
+  }
+
+Method   : void set_Points(IReadOnlyList<ValueTuple<double, double>> value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x249E   Size: 8 bytes   Token: 0x0600002F
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Points>k__BackingField = value;
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x24A8   Size: 64 bytes   Token: 0x06000030
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override string ToString()
+  {
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.Append("Polygon");
+      stringBuilder.Append(" { ");
+      if (PrintMembers(stringBuilder))
+      {
+          stringBuilder.Append(' ');
+      }
+      stringBuilder.Append('}');
+      return stringBuilder.ToString();
+  }
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x24F4   Size: 48 bytes   Token: 0x06000031
+
+[Pseudocode]
+  [CompilerGenerated]
+  protected override bool PrintMembers(StringBuilder builder)
+  {
+      if (base.PrintMembers(builder))
+      {
+          builder.Append(", ");
+      }
+      builder.Append("Points = ");
+      builder.Append(Points);
+      return true;
+  }
+
+Method   : bool op_Inequality(Polygon left, Polygon right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2525   Size: 11 bytes   Token: 0x06000032
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator !=(Polygon? left, Polygon? right)
+  {
+      return !(left == right);
+  }
+
+Method   : bool op_Equality(Polygon left, Polygon right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2531   Size: 19 bytes   Token: 0x06000033
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator ==(Polygon? left, Polygon? right)
+  {
+      if ((object)left != right)
+      {
+          return left?.Equals(right) ?? false;
+      }
+      return true;
+  }
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2545   Size: 30 bytes   Token: 0x06000034
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override int GetHashCode()
+  {
+      return base.GetHashCode() * -1521134295 + EqualityComparer<IReadOnlyList<(double, double)>>.Default.GetHashCode(<Points>k__BackingField);
+  }
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2564   Size: 13 bytes   Token: 0x06000035
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override bool Equals(object? obj)
+  {
+      return Equals(obj as Polygon);
+  }
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2572   Size: 8 bytes   Token: 0x06000036
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed override bool Equals(Shape? other)
+  {
+      return Equals((object?)other);
+  }
+
+Method   : bool Equals(Polygon other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x257B   Size: 40 bytes   Token: 0x06000037
+
+[Pseudocode]
+  [CompilerGenerated]
+  public bool Equals(Polygon? other)
+  {
+      if ((object)this != other)
+      {
+          if (base.Equals(other))
+          {
+              return EqualityComparer<IReadOnlyList<(double, double)>>.Default.Equals(<Points>k__BackingField, other.<Points>k__BackingField);
+          }
+          return false;
+      }
+      return true;
+  }
+
+Method   : Polygon <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x25A4   Size: 7 bytes   Token: 0x06000038
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override Polygon <Clone>$()
+  {
+      return new Polygon(this);
+  }
+
+Method   : void .ctor(Polygon original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x25AC   Size: 20 bytes   Token: 0x06000039
+
+[Pseudocode]
+  [CompilerGenerated]
+  private Polygon(Polygon original)
+      : base(original)
+  {
+      <Points>k__BackingField = original.<Points>k__BackingField;
+  }
+
+Method   : void Deconstruct(out IReadOnlyList<ValueTuple<double, double>> Points)
+Kind     : instance, public, compiler-generated
+RVA      : 0x25C1   Size: 9 bytes   Token: 0x0600003A
+
+[Pseudocode]
+  [CompilerGenerated]
+  public void Deconstruct(out IReadOnlyList<(double X, double Y)> Points)
+  {
+      Points = this.Points;
+  }
+
+Type     : Ref.Switches.Dispatch
+
+Method   : string HttpStatus(int code)
+Kind     : static, public
+RVA      : 0x25CC   Size: 394 bytes   Token: 0x0600003B
+
+[Pseudocode]
+  public static string HttpStatus(int code)
+  {
+      return code switch
+      {
+          200 => "OK",
+          201 => "Created",
+          202 => "Accepted",
+          203 => "Non-Authoritative Information",
+          204 => "No Content",
+          205 => "Reset Content",
+          206 => "Partial Content",
+          207 => "Multi-Status",
+          208 => "Already Reported",
+          300 => "Multiple Choices",
+          301 => "Moved Permanently",
+          302 => "Found",
+          303 => "See Other",
+          304 => "Not Modified",
+          307 => "Temporary Redirect",
+          308 => "Permanent Redirect",
+          400 => "Bad Request",
+          401 => "Unauthorized",
+          402 => "Payment Required",
+          403 => "Forbidden",
+          404 => "Not Found",
+          405 => "Method Not Allowed",
+          406 => "Not Acceptable",
+          408 => "Request Timeout",
+          409 => "Conflict",
+          410 => "Gone",
+          500 => "Internal Server Error",
+          501 => "Not Implemented",
+          502 => "Bad Gateway",
+          503 => "Service Unavailable",
+          504 => "Gateway Timeout",
+          _ => "Unknown",
+      };
+  }
+
+Method   : int Keyword(string word)
+Kind     : static, public
+RVA      : 0x2764   Size: 710 bytes   Token: 0x0600003C
+
+[Pseudocode]
+  public static int Keyword(string word)
+  {
+      return word switch
+      {
+          "abstract" => 1,
+          "as" => 2,
+          "base" => 3,
+          "bool" => 4,
+          "break" => 5,
+          "byte" => 6,
+          "case" => 7,
+          "catch" => 8,
+          "char" => 9,
+          "checked" => 10,
+          "class" => 11,
+          "const" => 12,
+          "continue" => 13,
+          "decimal" => 14,
+          "default" => 15,
+          "delegate" => 16,
+          "do" => 17,
+          "double" => 18,
+          "else" => 19,
+          "enum" => 20,
+          null => -2,
+          _ => -1,
+      };
+  }
+
+Method   : ConsoleColor Color(string name)
+Kind     : static, public
+RVA      : 0x2A38   Size: 60 bytes   Token: 0x0600003D
+
+[Pseudocode]
+  public static ConsoleColor Color(string name)
+  {
+      return name switch
+      {
+          "red" => ConsoleColor.Red,
+          "green" => ConsoleColor.Green,
+          "blue" => ConsoleColor.Blue,
+          _ => ConsoleColor.Gray,
+      };
+  }
+
+Method   : double Area(Shape shape)
+Kind     : static, public
+RVA      : 0x2A80   Size: 232 bytes   Token: 0x0600003E
+
+[Pseudocode]
+  public static double Area(Shape shape)
+  {
+      if (shape is Circle circle)
+      {
+          if (circle.Radius <= 0.0)
+          {
+              return 0.0;
+          }
+          return Math.PI * circle.Radius * circle.Radius;
+      }
+      if (shape is Rect { Width: var width, Height: var height } rect)
+      {
+          if (width == height)
+          {
+              return width * width;
+          }
+          return rect.Width * rect.Height;
+      }
+      if (shape is Polygon polygon)
+      {
+          IReadOnlyList<(double, double)> points = polygon.Points;
+          if (points != null && points.Count < 3)
+          {
+              return 0.0;
+          }
+          return Shoelace(polygon.Points);
+      }
+      if ((object)shape == null)
+      {
+          throw new ArgumentNullException("shape");
+      }
+      throw new NotSupportedException(shape.GetType().Name);
+  }
+
+Method   : double Shoelace(IReadOnlyList<ValueTuple<double, double>> points)
+Kind     : static, private
+RVA      : 0x2B74   Size: 107 bytes   Token: 0x0600003F
+
+[Pseudocode]
+  private static double Shoelace(IReadOnlyList<(double X, double Y)> points)
+  {
+      double num = 0.0;
+      for (int i = 0; i < points.Count; i++)
+      {
+          (double X, double Y) tuple = points[i];
+          double item = tuple.X;
+          double item2 = tuple.Y;
+          (double X, double Y) tuple2 = points[(i + 1) % points.Count];
+          double item3 = tuple2.X;
+          double item4 = tuple2.Y;
+          num += item * item4 - item3 * item2;
+      }
+      return Math.Abs(num) / 2.0;
+  }
+
+Method   : string Quadrant(int x, int y)
+Kind     : static, public
+RVA      : 0x2BEC   Size: 80 bytes   Token: 0x06000040
+
+[Pseudocode]
+  public static string Quadrant(int x, int y)
+  {
+      if (x <= 0)
+      {
+          if (x == 0)
+          {
+              if (y == 0)
+              {
+                  return "origin";
+              }
+          }
+          else
+          {
+              if (y > 0)
+              {
+                  return "II";
+              }
+              if (y < 0)
+              {
+                  return "III";
+              }
+          }
+      }
+      else
+      {
+          if (y > 0)
+          {
+              return "I";
+          }
+          if (y < 0)
+          {
+              return "IV";
+          }
+      }
+      return "axis";
+  }
+
+Method   : string Describe(object o)
+Kind     : static, public
+RVA      : 0x2C48   Size: 338 bytes   Token: 0x06000041
+
+[Pseudocode]
+  public static string Describe(object o)
+  {
+      if (o is int num)
+      {
+          if (num >= 0 && num < 10)
+          {
+              return "digit " + num;
+          }
+          int num2 = num;
+          return "int " + num2;
+      }
+      if (!(o is long) && !(o is ulong))
+      {
+          if (o is string text)
+          {
+              if (text.Length > 10)
+              {
+                  return "long string " + text.Substring(0, 10);
+              }
+              string text2 = text;
+              return "string " + text2;
+          }
+          if (o is int[] array)
+          {
+              int num3 = array.Length;
+              if (num3 >= 2)
+              {
+                  int value = array[0];
+                  int value2 = array[num3 - 1];
+                  return $"array {value}..{value2}";
+              }
+              if (num3 == 0)
+              {
+                  return "empty array";
+              }
+          }
+          else if (o == null)
+          {
+              return "null";
+          }
+          return o.ToString();
+      }
+      return "64-bit";
+  }
+
+Method   : char Grade(int score)
+Kind     : static, public
+RVA      : 0x2DA8   Size: 78 bytes   Token: 0x06000042
+
+[Pseudocode]
+  public static char Grade(int score)
+  {
+      if ((score < 0 || score > 100) ? true : false)
+      {
+          throw new ArgumentOutOfRangeException("score");
+      }
+      if (score >= 70)
+      {
+          if (score < 90)
+          {
+              if (score >= 80)
+              {
+                  return 'B';
+              }
+              return 'C';
+          }
+          return 'A';
+      }
+      if (score >= 60)
+      {
+          return 'D';
+      }
+      return 'F';
+  }
+
+Method   : int CountTokens(string text)
+Kind     : static, public
+RVA      : 0x2E04   Size: 101 bytes   Token: 0x06000043
+
+[Pseudocode]
+  public static int CountTokens(string text)
+  {
+      int num = 0;
+      bool flag = false;
+      for (int i = 0; i < text.Length; i++)
+      {
+          switch (text[i])
+          {
+          case '\t':
+          case '\n':
+          case ' ':
+              flag = false;
+              continue;
+          case '(':
+          case ')':
+          case ';':
+              num++;
+              flag = false;
+              continue;
+          }
+          if (!flag)
+          {
+              num++;
+          }
+          flag = true;
+      }
+      return num;
+  }

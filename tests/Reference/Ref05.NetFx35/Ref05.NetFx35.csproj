@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 5. .NET Framework 3.5 library: CLR 2.0 (metadata version v2.0.50727). Built from reference assemblies. -->
+  <PropertyGroup>
+    <TargetFramework>net35</TargetFramework>
+    <RootNamespace>Ref.NetFx35</RootNamespace>
+    <LangVersion>3</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+</Project>

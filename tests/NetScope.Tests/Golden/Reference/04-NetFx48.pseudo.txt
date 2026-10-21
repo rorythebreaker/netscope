@@ -1,0 +1,306 @@
+Assembly : Ref04.NetFx48.dll
+Name     : Ref04.NetFx48, Version=1.0.0.0
+Runtime  : .NETFramework,Version=v4.8   Machine: anycpu
+Methods  : 22
+
+Type     : Ref.NetFx48.SettingsException
+
+Method   : void .ctor(string key)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 25 bytes   Token: 0x06000001
+
+[Pseudocode]
+  public SettingsException(string key)
+      : base("missing setting: " + key)
+  {
+      Key = key;
+  }
+
+Method   : void .ctor(SerializationInfo info, StreamingContext context)
+Kind     : ctor, instance, protected
+RVA      : 0x206A   Size: 26 bytes   Token: 0x06000002
+
+[Pseudocode]
+  protected SettingsException(SerializationInfo info, StreamingContext context)
+      : base(info, context)
+  {
+      Key = info.GetString("Key");
+  }
+
+Method   : string get_Key()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2085   Size: 7 bytes   Token: 0x06000003
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Key>k__BackingField;
+  }
+
+Method   : void GetObjectData(SerializationInfo info, StreamingContext context)
+Kind     : instance, public, override
+RVA      : 0x208D   Size: 26 bytes   Token: 0x06000004
+
+[Pseudocode]
+  public override void GetObjectData(SerializationInfo info, StreamingContext context)
+  {
+      base.GetObjectData(info, context);
+      info.AddValue("Key", Key);
+  }
+
+Type     : Ref.NetFx48.AppSettings
+
+Method   : AppSettings FromConfiguration()
+Kind     : static, public
+RVA      : 0x20A8   Size: 60 bytes   Token: 0x06000005
+
+[Pseudocode]
+  public static AppSettings FromConfiguration()
+  {
+      AppSettings appSettings = new AppSettings();
+      string[] allKeys = ConfigurationManager.AppSettings.AllKeys;
+      foreach (string text in allKeys)
+      {
+          appSettings._values[text] = ConfigurationManager.AppSettings[text];
+      }
+      return appSettings;
+  }
+
+Method   : AppSettings FromXml(string xml)
+Kind     : static, public
+RVA      : 0x20F0   Size: 161 bytes   Token: 0x06000006
+
+[Pseudocode]
+  public static AppSettings FromXml(string xml)
+  {
+      XmlDocument xmlDocument = new XmlDocument();
+      xmlDocument.LoadXml(xml);
+      AppSettings appSettings = new AppSettings();
+      foreach (XmlNode item in xmlDocument.SelectNodes("/settings/add"))
+      {
+          string text = item.Attributes["key"]?.Value;
+          if (text != null)
+          {
+              appSettings._values[text] = item.Attributes["value"]?.Value ?? string.Empty;
+          }
+      }
+      return appSettings;
+  }
+
+Method   : string get_Item(string key)
+Kind     : property-get, instance, public
+RVA      : 0x21B0   Size: 28 bytes   Token: 0x06000007
+
+[Pseudocode]
+  {
+      return (_values[key] as string) ?? throw new SettingsException(key);
+  }
+
+Method   : void set_Item(string key, string value)
+Kind     : property-set, instance, public
+RVA      : 0x21CD   Size: 14 bytes   Token: 0x06000008
+
+[Pseudocode]
+  {
+      _values[key] = value;
+  }
+
+Method   : int GetInt(string key, int fallback)
+Kind     : instance, public
+RVA      : 0x21DC   Size: 44 bytes   Token: 0x06000009
+
+[Pseudocode]
+  public int GetInt(string key, int fallback)
+  {
+      if (!_values.ContainsKey(key) || !int.TryParse((string)_values[key], out var result))
+      {
+          return fallback;
+      }
+      return result;
+  }
+
+Method   : object Clone()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x2214   Size: 86 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  public object Clone()
+  {
+      AppSettings appSettings = new AppSettings();
+      foreach (DictionaryEntry value in _values)
+      {
+          appSettings._values[value.Key] = value.Value;
+      }
+      return appSettings;
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2288   Size: 23 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  public AppSettings()
+  {
+      _values = new Hashtable(StringComparer.OrdinalIgnoreCase);
+      base..ctor();
+  }
+
+Type     : Ref.NetFx48.WorkCompleted
+
+Method   : void .ctor(object object, nint method)
+Kind     : ctor, instance, public, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000C
+
+[Pseudocode]
+  public extern WorkCompleted(object @object, IntPtr method);
+
+Method   : void Invoke(object sender, int processed)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000D
+
+[Pseudocode]
+  public virtual extern void Invoke(object sender, int processed);
+
+Method   : IAsyncResult BeginInvoke(object sender, int processed, AsyncCallback callback, object object)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000E
+
+[Pseudocode]
+  public virtual extern IAsyncResult BeginInvoke(object sender, int processed, AsyncCallback callback, object @object);
+
+Method   : void EndInvoke(IAsyncResult result)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000F
+
+[Pseudocode]
+  public virtual extern void EndInvoke(IAsyncResult result);
+
+Type     : Ref.NetFx48.BackgroundCounter
+
+Method   : void add_Completed(WorkCompleted value)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x22A0   Size: 41 bytes   Token: 0x06000010
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      WorkCompleted workCompleted = this.Completed;
+      WorkCompleted workCompleted2;
+      do
+      {
+          workCompleted2 = workCompleted;
+          WorkCompleted value2 = (WorkCompleted)Delegate.Combine(workCompleted2, value);
+          workCompleted = Interlocked.CompareExchange(ref this.Completed, value2, workCompleted2);
+      }
+      while ((object)workCompleted != workCompleted2);
+  }
+
+Method   : void remove_Completed(WorkCompleted value)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x22D8   Size: 41 bytes   Token: 0x06000011
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      WorkCompleted workCompleted = this.Completed;
+      WorkCompleted workCompleted2;
+      do
+      {
+          workCompleted2 = workCompleted;
+          WorkCompleted value2 = (WorkCompleted)Delegate.Remove(workCompleted2, value);
+          workCompleted = Interlocked.CompareExchange(ref this.Completed, value2, workCompleted2);
+      }
+      while ((object)workCompleted != workCompleted2);
+  }
+
+Method   : void Run(IList<string> items)
+Kind     : instance, public
+RVA      : 0x2310   Size: 166 bytes   Token: 0x06000012
+
+[Pseudocode]
+  public void Run(IList<string> items)
+  {
+      int pending = items.Count;
+      ManualResetEvent done = new ManualResetEvent(pending == 0);
+      try
+      {
+          foreach (string item in items)
+          {
+              ThreadPool.QueueUserWorkItem((object state) =>
+              {
+                  lock (_gate)
+                  {
+                      if (!string.IsNullOrEmpty((string)state))
+                      {
+                          _processed++;
+                      }
+                  }
+                  if (Interlocked.Decrement(ref pending) == 0)
+                  {
+                      done.Set();
+                  }
+              }, item);
+          }
+          done.WaitOne();
+      }
+      finally
+      {
+          if (done != null)
+          {
+              ((IDisposable)done).Dispose();
+          }
+      }
+      OnCompleted(_processed);
+  }
+
+Method   : void OnCompleted(int processed)
+Kind     : instance, protected, virtual
+RVA      : 0x23E0   Size: 19 bytes   Token: 0x06000013
+
+[Pseudocode]
+  protected virtual void OnCompleted(int processed)
+  {
+      Completed?.Invoke(this, processed);
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x23FF   Size: 18 bytes   Token: 0x06000014
+
+[Pseudocode]
+  public BackgroundCounter()
+  {
+      _gate = new object();
+      base..ctor();
+  }
+
+Type     : Ref.NetFx48.BackgroundCounter+<>c__DisplayClass5_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2412   Size: 7 bytes   Token: 0x06000015
+
+[Pseudocode]
+  public <>c__DisplayClass5_0()
+  {
+  }
+
+Method   : void <Run>b__0(object state)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x241C   Size: 97 bytes   Token: 0x06000016
+
+[Pseudocode]
+  internal void <Run>b__0(object state)
+  {
+      lock (<>4__this._gate)
+      {
+          if (!string.IsNullOrEmpty((string)state))
+          {
+              <>4__this._processed++;
+          }
+      }
+      if (Interlocked.Decrement(ref pending) == 0)
+      {
+          done.Set();
+      }
+  }

@@ -1,0 +1,3039 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref13.Switches.dll",
+      "assembly": "Ref13.Switches",
+      "version": "1.0.0.0",
+      "targetFramework": ".NETCoreApp,Version=v8.0",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Shape",
+          "name": "get_EqualityContract",
+          "signature": "Type get_EqualityContract()",
+          "token": 100663297,
+          "access": "protected",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "compiler-generated"
+          ],
+          "rva": 8272,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 5,
+              "opcode": "call",
+              "target": "System.Type::GetTypeFromHandle(RuntimeTypeHandle)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Shape::GetHashCode",
+              "signature": "int GetHashCode()",
+              "offset": 6,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Shape::Equals",
+              "signature": "bool Equals(Shape other)",
+              "offset": 8,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Shape::Equals",
+              "signature": "bool Equals(Shape other)",
+              "offset": 14,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Shape",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663298,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8284,
+          "size": 64,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.Text.StringBuilder::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 24,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 32,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Shape::PrintMembers(StringBuilder)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 42,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 51,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 58,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Shape",
+          "name": "PrintMembers",
+          "signature": "bool PrintMembers(StringBuilder builder)",
+          "token": 100663299,
+          "access": "protected",
+          "kinds": [
+            "instance",
+            "virtual",
+            "compiler-generated"
+          ],
+          "rva": 8360,
+          "size": 2,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Shape::ToString",
+              "signature": "string ToString()",
+              "offset": 32,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Circle::ToString",
+              "signature": "string ToString()",
+              "offset": 32,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Circle::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 2,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Rect::ToString",
+              "signature": "string ToString()",
+              "offset": 32,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Rect::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 2,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Polygon::ToString",
+              "signature": "string ToString()",
+              "offset": 32,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Polygon::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Shape",
+          "name": "op_Inequality",
+          "signature": "bool op_Inequality(Shape left, Shape right)",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 8363,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::op_Equality(Shape, Shape)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663301
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Shape",
+          "name": "op_Equality",
+          "signature": "bool op_Equality(Shape left, Shape right)",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 8375,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Shape::Equals(Shape)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663304
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Shape::op_Inequality",
+              "signature": "bool op_Inequality(Shape left, Shape right)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Shape",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode()",
+          "token": 100663302,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8395,
+          "size": 17,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<System.Type>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Shape::get_EqualityContract()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663297
+            },
+            {
+              "offset": 11,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<System.Type>::GetHashCode(Type)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Circle::GetHashCode",
+              "signature": "int GetHashCode()",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Rect::GetHashCode",
+              "signature": "int GetHashCode()",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Polygon::GetHashCode",
+              "signature": "int GetHashCode()",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Shape",
+          "name": "Equals",
+          "signature": "bool Equals(object obj)",
+          "token": 100663303,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8413,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Shape::Equals(Shape)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663304
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Shape",
+          "name": "Equals",
+          "signature": "bool Equals(Shape other)",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "compiler-generated"
+          ],
+          "rva": 8427,
+          "size": 29,
+          "calls": [
+            {
+              "offset": 8,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Shape::get_EqualityContract()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663297
+            },
+            {
+              "offset": 14,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Shape::get_EqualityContract()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663297
+            },
+            {
+              "offset": 19,
+              "opcode": "call",
+              "target": "System.Type::op_Equality(Type, Type)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Shape::op_Equality",
+              "signature": "bool op_Equality(Shape left, Shape right)",
+              "offset": 9,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Shape::Equals",
+              "signature": "bool Equals(object obj)",
+              "offset": 7,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Circle::Equals",
+              "signature": "bool Equals(Circle other)",
+              "offset": 6,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Rect::Equals",
+              "signature": "bool Equals(Rect other)",
+              "offset": 6,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Polygon::Equals",
+              "signature": "bool Equals(Polygon other)",
+              "offset": 6,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Shape",
+          "name": "<Clone>$",
+          "signature": "Shape <Clone>$()",
+          "token": 100663305,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "abstract",
+            "compiler-generated",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Shape",
+          "name": ".ctor",
+          "signature": "void .ctor(Shape original)",
+          "token": 100663306,
+          "access": "protected",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8457,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Circle::.ctor",
+              "signature": "void .ctor(Circle original)",
+              "offset": 2,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Rect::.ctor",
+              "signature": "void .ctor(Rect original)",
+              "offset": 2,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Polygon::.ctor",
+              "signature": "void .ctor(Polygon original)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Shape",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663307,
+          "access": "protected",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8465,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Circle::.ctor",
+              "signature": "void .ctor(double Radius)",
+              "offset": 8,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Rect::.ctor",
+              "signature": "void .ctor(double Width, double Height)",
+              "offset": 15,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Polygon::.ctor",
+              "signature": "void .ctor(IReadOnlyList<ValueTuple<double, double>> Points)",
+              "offset": 8,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Circle",
+          "name": ".ctor",
+          "signature": "void .ctor(double Radius)",
+          "token": 100663308,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8473,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 8,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663307
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Circle",
+          "name": "get_EqualityContract",
+          "signature": "Type get_EqualityContract()",
+          "token": 100663309,
+          "access": "protected",
+          "kinds": [
+            "property-get",
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8488,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 5,
+              "opcode": "call",
+              "target": "System.Type::GetTypeFromHandle(RuntimeTypeHandle)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Circle",
+          "name": "get_Radius",
+          "signature": "double get_Radius()",
+          "token": 100663310,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8500,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Circle::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 35,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Circle::Deconstruct",
+              "signature": "void Deconstruct(out double Radius)",
+              "offset": 2,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Dispatch::Area",
+              "signature": "double Area(Shape shape)",
+              "offset": 15,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Dispatch::Area",
+              "signature": "double Area(Shape shape)",
+              "offset": 127,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Dispatch::Area",
+              "signature": "double Area(Shape shape)",
+              "offset": 134,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Circle",
+          "name": "set_Radius",
+          "signature": "void set_Radius(double value)",
+          "token": 100663311,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8508,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Circle",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663312,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8520,
+          "size": 64,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.Text.StringBuilder::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 24,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 32,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Shape::PrintMembers(StringBuilder)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 42,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 51,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 58,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Circle",
+          "name": "PrintMembers",
+          "signature": "bool PrintMembers(StringBuilder builder)",
+          "token": 100663313,
+          "access": "protected",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8596,
+          "size": 62,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::PrintMembers(StringBuilder)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 15,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 27,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 35,
+              "opcode": "call",
+              "target": "Ref.Switches.Circle::get_Radius()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663310
+            },
+            {
+              "offset": 49,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 54,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Circle",
+          "name": "op_Inequality",
+          "signature": "bool op_Inequality(Circle left, Circle right)",
+          "token": 100663314,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 8670,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Switches.Circle::op_Equality(Circle, Circle)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663315
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Circle",
+          "name": "op_Equality",
+          "signature": "bool op_Equality(Circle left, Circle right)",
+          "token": 100663315,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 8682,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Circle::Equals(Circle)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663319
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Circle::op_Inequality",
+              "signature": "bool op_Inequality(Circle left, Circle right)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Circle",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode()",
+          "token": 100663316,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8702,
+          "size": 30,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::GetHashCode()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663302
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<double>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 23,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<double>::GetHashCode(double)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Circle",
+          "name": "Equals",
+          "signature": "bool Equals(object obj)",
+          "token": 100663317,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8733,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "Ref.Switches.Circle::Equals(Circle)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663319
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Circle",
+          "name": "Equals",
+          "signature": "bool Equals(Shape other)",
+          "token": 100663318,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 8747,
+          "size": 8,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "callvirt",
+              "target": "System.Object::Equals(object)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Circle",
+          "name": "Equals",
+          "signature": "bool Equals(Circle other)",
+          "token": 100663319,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 8756,
+          "size": 40,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::Equals(Shape)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663304
+            },
+            {
+              "offset": 13,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<double>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 30,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<double>::Equals(double, double)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Circle::op_Equality",
+              "signature": "bool op_Equality(Circle left, Circle right)",
+              "offset": 9,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Circle::Equals",
+              "signature": "bool Equals(object obj)",
+              "offset": 7,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Circle",
+          "name": "<Clone>$",
+          "signature": "Circle <Clone>$()",
+          "token": 100663320,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "compiler-generated"
+          ],
+          "rva": 8797,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "Ref.Switches.Circle::.ctor(Circle)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663321
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Circle",
+          "name": ".ctor",
+          "signature": "void .ctor(Circle original)",
+          "token": 100663321,
+          "access": "private",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8805,
+          "size": 20,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::.ctor(Shape)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663306
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Circle::<Clone>$",
+              "signature": "Circle <Clone>$()",
+              "offset": 1,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Circle",
+          "name": "Deconstruct",
+          "signature": "void Deconstruct(out double Radius)",
+          "token": 100663322,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8826,
+          "size": 9,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Switches.Circle::get_Radius()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663310
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": ".ctor",
+          "signature": "void .ctor(double Width, double Height)",
+          "token": 100663323,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8836,
+          "size": 21,
+          "calls": [
+            {
+              "offset": 15,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663307
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": "get_EqualityContract",
+          "signature": "Type get_EqualityContract()",
+          "token": 100663324,
+          "access": "protected",
+          "kinds": [
+            "property-get",
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8858,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 5,
+              "opcode": "call",
+              "target": "System.Type::GetTypeFromHandle(RuntimeTypeHandle)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": "get_Width",
+          "signature": "double get_Width()",
+          "token": 100663325,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8870,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Rect::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 35,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Rect::Deconstruct",
+              "signature": "void Deconstruct(out double Width, out double Height)",
+              "offset": 2,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Dispatch::Area",
+              "signature": "double Area(Shape shape)",
+              "offset": 45,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Dispatch::Area",
+              "signature": "double Area(Shape shape)",
+              "offset": 156,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": "set_Width",
+          "signature": "void set_Width(double value)",
+          "token": 100663326,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8878,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": "get_Height",
+          "signature": "double get_Height()",
+          "token": 100663327,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8887,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Rect::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 74,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Rect::Deconstruct",
+              "signature": "void Deconstruct(out double Width, out double Height)",
+              "offset": 10,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Dispatch::Area",
+              "signature": "double Area(Shape shape)",
+              "offset": 52,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Dispatch::Area",
+              "signature": "double Area(Shape shape)",
+              "offset": 162,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": "set_Height",
+          "signature": "void set_Height(double value)",
+          "token": 100663328,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8895,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663329,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8904,
+          "size": 64,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.Text.StringBuilder::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 24,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 32,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Shape::PrintMembers(StringBuilder)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 42,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 51,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 58,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": "PrintMembers",
+          "signature": "bool PrintMembers(StringBuilder builder)",
+          "token": 100663330,
+          "access": "protected",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8980,
+          "size": 101,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::PrintMembers(StringBuilder)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 15,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 27,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 35,
+              "opcode": "call",
+              "target": "Ref.Switches.Rect::get_Width()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663325
+            },
+            {
+              "offset": 49,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 54,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 66,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 74,
+              "opcode": "call",
+              "target": "Ref.Switches.Rect::get_Height()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663327
+            },
+            {
+              "offset": 88,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 93,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": "op_Inequality",
+          "signature": "bool op_Inequality(Rect left, Rect right)",
+          "token": 100663331,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9093,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Switches.Rect::op_Equality(Rect, Rect)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663332
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": "op_Equality",
+          "signature": "bool op_Equality(Rect left, Rect right)",
+          "token": 100663332,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9105,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Rect::Equals(Rect)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663336
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Rect::op_Inequality",
+              "signature": "bool op_Inequality(Rect left, Rect right)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode()",
+          "token": 100663333,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9125,
+          "size": 53,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::GetHashCode()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663302
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<double>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 23,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<double>::GetHashCode(double)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 35,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<double>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 46,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<double>::GetHashCode(double)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": "Equals",
+          "signature": "bool Equals(object obj)",
+          "token": 100663334,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9179,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "Ref.Switches.Rect::Equals(Rect)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663336
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": "Equals",
+          "signature": "bool Equals(Shape other)",
+          "token": 100663335,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9193,
+          "size": 8,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "callvirt",
+              "target": "System.Object::Equals(object)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": "Equals",
+          "signature": "bool Equals(Rect other)",
+          "token": 100663336,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9204,
+          "size": 64,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::Equals(Shape)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663304
+            },
+            {
+              "offset": 13,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<double>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 30,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<double>::Equals(double, double)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 37,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<double>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 54,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<double>::Equals(double, double)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Rect::op_Equality",
+              "signature": "bool op_Equality(Rect left, Rect right)",
+              "offset": 9,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Rect::Equals",
+              "signature": "bool Equals(object obj)",
+              "offset": 7,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": "<Clone>$",
+          "signature": "Rect <Clone>$()",
+          "token": 100663337,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "compiler-generated"
+          ],
+          "rva": 9280,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "Ref.Switches.Rect::.ctor(Rect)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663338
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": ".ctor",
+          "signature": "void .ctor(Rect original)",
+          "token": 100663338,
+          "access": "private",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9288,
+          "size": 32,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::.ctor(Shape)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663306
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Rect::<Clone>$",
+              "signature": "Rect <Clone>$()",
+              "offset": 1,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Rect",
+          "name": "Deconstruct",
+          "signature": "void Deconstruct(out double Width, out double Height)",
+          "token": 100663339,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9321,
+          "size": 17,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Switches.Rect::get_Width()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663325
+            },
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "Ref.Switches.Rect::get_Height()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663327
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Polygon",
+          "name": ".ctor",
+          "signature": "void .ctor(IReadOnlyList<ValueTuple<double, double>> Points)",
+          "token": 100663340,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 9339,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 8,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663307
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Polygon",
+          "name": "get_EqualityContract",
+          "signature": "Type get_EqualityContract()",
+          "token": 100663341,
+          "access": "protected",
+          "kinds": [
+            "property-get",
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9354,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 5,
+              "opcode": "call",
+              "target": "System.Type::GetTypeFromHandle(RuntimeTypeHandle)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Polygon",
+          "name": "get_Points",
+          "signature": "IReadOnlyList<ValueTuple<double, double>> get_Points()",
+          "token": 100663342,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9366,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Polygon::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 35,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Polygon::Deconstruct",
+              "signature": "void Deconstruct(out IReadOnlyList<ValueTuple<double, double>> Points)",
+              "offset": 2,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Dispatch::Area",
+              "signature": "double Area(Shape shape)",
+              "offset": 75,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Dispatch::Area",
+              "signature": "double Area(Shape shape)",
+              "offset": 187,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Polygon",
+          "name": "set_Points",
+          "signature": "void set_Points(IReadOnlyList<ValueTuple<double, double>> value)",
+          "token": 100663343,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9374,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Polygon",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663344,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9384,
+          "size": 64,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.Text.StringBuilder::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 24,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 32,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Shape::PrintMembers(StringBuilder)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 42,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 51,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 58,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Polygon",
+          "name": "PrintMembers",
+          "signature": "bool PrintMembers(StringBuilder builder)",
+          "token": 100663345,
+          "access": "protected",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9460,
+          "size": 48,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::PrintMembers(StringBuilder)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 15,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 27,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 35,
+              "opcode": "call",
+              "target": "Ref.Switches.Polygon::get_Points()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663342
+            },
+            {
+              "offset": 40,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(object)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Polygon",
+          "name": "op_Inequality",
+          "signature": "bool op_Inequality(Polygon left, Polygon right)",
+          "token": 100663346,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9509,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Switches.Polygon::op_Equality(Polygon, Polygon)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663347
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Polygon",
+          "name": "op_Equality",
+          "signature": "bool op_Equality(Polygon left, Polygon right)",
+          "token": 100663347,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9521,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Polygon::Equals(Polygon)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663351
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Polygon::op_Inequality",
+              "signature": "bool op_Inequality(Polygon left, Polygon right)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Polygon",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode()",
+          "token": 100663348,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9541,
+          "size": 30,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::GetHashCode()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663302
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<System.Collections.Generic.IReadOnlyList<System.ValueTuple<double, double>>>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 23,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<System.Collections.Generic.IReadOnlyList<System.ValueTuple<double, double>>>::GetHashCode(IReadOnlyList<ValueTuple<double, double>>)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Polygon",
+          "name": "Equals",
+          "signature": "bool Equals(object obj)",
+          "token": 100663349,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9572,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "Ref.Switches.Polygon::Equals(Polygon)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663351
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Polygon",
+          "name": "Equals",
+          "signature": "bool Equals(Shape other)",
+          "token": 100663350,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9586,
+          "size": 8,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "callvirt",
+              "target": "System.Object::Equals(object)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Polygon",
+          "name": "Equals",
+          "signature": "bool Equals(Polygon other)",
+          "token": 100663351,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9595,
+          "size": 40,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::Equals(Shape)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663304
+            },
+            {
+              "offset": 13,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<System.Collections.Generic.IReadOnlyList<System.ValueTuple<double, double>>>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 30,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<System.Collections.Generic.IReadOnlyList<System.ValueTuple<double, double>>>::Equals(IReadOnlyList<ValueTuple<double, double>>, IReadOnlyList<ValueTuple<double, double>>)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Polygon::op_Equality",
+              "signature": "bool op_Equality(Polygon left, Polygon right)",
+              "offset": 9,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Polygon::Equals",
+              "signature": "bool Equals(object obj)",
+              "offset": 7,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Polygon",
+          "name": "<Clone>$",
+          "signature": "Polygon <Clone>$()",
+          "token": 100663352,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "compiler-generated"
+          ],
+          "rva": 9636,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "Ref.Switches.Polygon::.ctor(Polygon)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663353
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Polygon",
+          "name": ".ctor",
+          "signature": "void .ctor(Polygon original)",
+          "token": 100663353,
+          "access": "private",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9644,
+          "size": 20,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Switches.Shape::.ctor(Shape)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663306
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Polygon::<Clone>$",
+              "signature": "Polygon <Clone>$()",
+              "offset": 1,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Polygon",
+          "name": "Deconstruct",
+          "signature": "void Deconstruct(out IReadOnlyList<ValueTuple<double, double>> Points)",
+          "token": 100663354,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9665,
+          "size": 9,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Switches.Polygon::get_Points()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663342
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Dispatch",
+          "name": "HttpStatus",
+          "signature": "string HttpStatus(int code)",
+          "token": 100663355,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 9676,
+          "size": 394,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Dispatch",
+          "name": "Keyword",
+          "signature": "int Keyword(string word)",
+          "token": 100663356,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 10084,
+          "size": 710,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 56,
+              "opcode": "call",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 94,
+              "opcode": "call",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 123,
+              "opcode": "call",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 195,
+              "opcode": "call",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 250,
+              "opcode": "call",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 292,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 313,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 334,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 355,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 376,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 397,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 413,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 434,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 455,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 476,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 497,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 518,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 536,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 551,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 566,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 581,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 596,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 611,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 626,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 641,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Dispatch",
+          "name": "Color",
+          "signature": "ConsoleColor Color(string name)",
+          "token": 100663357,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 10808,
+          "size": 60,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 19,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 32,
+              "opcode": "call",
+              "target": "System.String::op_Equality(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Dispatch",
+          "name": "Area",
+          "signature": "double Area(Shape shape)",
+          "token": 100663358,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 10880,
+          "size": 232,
+          "calls": [
+            {
+              "offset": 15,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Circle::get_Radius()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663310
+            },
+            {
+              "offset": 45,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Rect::get_Width()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663325
+            },
+            {
+              "offset": 52,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Rect::get_Height()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663327
+            },
+            {
+              "offset": 75,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Polygon::get_Points()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663342
+            },
+            {
+              "offset": 88,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IReadOnlyCollection<System.ValueTuple<double, double>>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 127,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Circle::get_Radius()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663310
+            },
+            {
+              "offset": 134,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Circle::get_Radius()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663310
+            },
+            {
+              "offset": 156,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Rect::get_Width()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663325
+            },
+            {
+              "offset": 162,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Rect::get_Height()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663327
+            },
+            {
+              "offset": 187,
+              "opcode": "callvirt",
+              "target": "Ref.Switches.Polygon::get_Points()",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663342
+            },
+            {
+              "offset": 192,
+              "opcode": "call",
+              "target": "Ref.Switches.Dispatch::Shoelace(IReadOnlyList<ValueTuple<double, double>>)",
+              "scope": "internal",
+              "groupFile": "Ref13.Switches.dll",
+              "groupToken": 100663359
+            },
+            {
+              "offset": 206,
+              "opcode": "newobj",
+              "target": "System.ArgumentNullException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 213,
+              "opcode": "callvirt",
+              "target": "System.Object::GetType()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 218,
+              "opcode": "callvirt",
+              "target": "System.Reflection.MemberInfo::get_Name()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 223,
+              "opcode": "newobj",
+              "target": "System.NotSupportedException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Dispatch",
+          "name": "Shoelace",
+          "signature": "double Shoelace(IReadOnlyList<ValueTuple<double, double>> points)",
+          "token": 100663359,
+          "access": "private",
+          "kinds": [
+            "static"
+          ],
+          "rva": 11124,
+          "size": 107,
+          "calls": [
+            {
+              "offset": 16,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IReadOnlyList<System.ValueTuple<double, double>>::get_Item(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 39,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IReadOnlyCollection<System.ValueTuple<double, double>>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 45,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IReadOnlyList<System.ValueTuple<double, double>>::get_Item(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 83,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IReadOnlyCollection<System.ValueTuple<double, double>>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 91,
+              "opcode": "call",
+              "target": "System.Math::Abs(double)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref13.Switches",
+              "method": "Ref.Switches.Dispatch::Area",
+              "signature": "double Area(Shape shape)",
+              "offset": 192,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Dispatch",
+          "name": "Quadrant",
+          "signature": "string Quadrant(int x, int y)",
+          "token": 100663360,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 11244,
+          "size": 80,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Dispatch",
+          "name": "Describe",
+          "signature": "string Describe(object o)",
+          "token": 100663361,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 11336,
+          "size": 338,
+          "calls": [
+            {
+              "offset": 65,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 152,
+              "opcode": "call",
+              "target": "System.Int32::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 157,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 178,
+              "opcode": "call",
+              "target": "System.Int32::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 183,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 216,
+              "opcode": "callvirt",
+              "target": "System.String::Substring(int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 221,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 238,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 260,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 272,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 281,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<int>(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 293,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 302,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<int>(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 309,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 319,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Dispatch",
+          "name": "Grade",
+          "signature": "char Grade(int score)",
+          "token": 100663362,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 11688,
+          "size": 78,
+          "calls": [
+            {
+              "offset": 23,
+              "opcode": "newobj",
+              "target": "System.ArgumentOutOfRangeException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref13.Switches",
+          "namespace": "Ref.Switches",
+          "type": "Ref.Switches.Dispatch",
+          "name": "CountTokens",
+          "signature": "int CountTokens(string text)",
+          "token": 100663363,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 11780,
+          "size": 101,
+          "calls": [
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 92,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

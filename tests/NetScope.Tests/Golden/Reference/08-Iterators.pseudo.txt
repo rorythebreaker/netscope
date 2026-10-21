@@ -1,0 +1,1819 @@
+Assembly : Ref08.Iterators.dll
+Name     : Ref08.Iterators, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 100
+
+Type     : Ref.Iterators.Sequences
+
+Method   : IEnumerable<int> Range(int start, int count)
+Kind     : static, public
+RVA      : 0x2050   Size: 23 bytes   Token: 0x06000001
+
+[Pseudocode]
+  public static IEnumerable<int> Range(int start, int count)
+  {
+      if (count < 0)
+      {
+          throw new ArgumentOutOfRangeException("count");
+      }
+      return RangeIterator(start, count);
+  }
+
+Method   : IEnumerable<int> RangeIterator(int start, int count)
+Kind     : static, private, iterator
+RVA      : 0x2068   Size: 22 bytes   Token: 0x06000002
+
+[Pseudocode]
+  private static IEnumerable<int> RangeIterator(int start, int count)
+  {
+      for (int i = 0; i < count; i++)
+      {
+          yield return start + i;
+      }
+  }
+
+Method   : IEnumerable<long> Fibonacci()
+Kind     : static, public, iterator
+RVA      : 0x207F   Size: 8 bytes   Token: 0x06000003
+
+[Pseudocode]
+  public static IEnumerable<long> Fibonacci()
+  {
+      long a = 0L;
+      long b = 1L;
+      while (true)
+      {
+          yield return a;
+          long num = b;
+          long num2 = a + b;
+          b = num2;
+          a = num;
+      }
+  }
+
+Method   : IEnumerable<T[]> Chunk<T>(IEnumerable<T> source, int size)
+Kind     : static, public, iterator, generic
+RVA      : 0x2088   Size: 22 bytes   Token: 0x06000004
+
+[Pseudocode]
+  public static IEnumerable<T[]> Chunk<T>(IEnumerable<T> source, int size)
+  {
+      List<T> chunk = new List<T>(size);
+      foreach (T item in source)
+      {
+          chunk.Add(item);
+          if (chunk.Count == size)
+          {
+              yield return chunk.ToArray();
+              chunk.Clear();
+          }
+      }
+      if (chunk.Count > 0)
+      {
+          yield return chunk.ToArray();
+      }
+  }
+
+Method   : IEnumerable<string> Lines(TextReader reader)
+Kind     : static, public, iterator
+RVA      : 0x209F   Size: 15 bytes   Token: 0x06000005
+
+[Pseudocode]
+  public static IEnumerable<string> Lines(TextReader reader)
+  {
+      try
+      {
+          string text;
+          while ((text = reader.ReadLine()) != null && text.Length != 0)
+          {
+              yield return text;
+          }
+      }
+      finally
+      {
+          reader.Dispose();
+      }
+  }
+
+Method   : IEnumerator<char> Letters(string s)
+Kind     : static, public, iterator
+RVA      : 0x20AF   Size: 14 bytes   Token: 0x06000006
+
+[Pseudocode]
+  public static IEnumerator<char> Letters(string s)
+  {
+      foreach (char c in s)
+      {
+          if (char.IsLetter(c))
+          {
+              yield return c;
+          }
+      }
+  }
+
+Method   : IAsyncEnumerable<int> TicksAsync(int count, TimeSpan interval, CancellationToken token)
+Kind     : static, public, async, iterator
+RVA      : 0x20BE   Size: 29 bytes   Token: 0x06000007
+
+[Pseudocode]
+  public static async IAsyncEnumerable<int> TicksAsync(int count, TimeSpan interval, [EnumeratorCancellation] CancellationToken token = default(CancellationToken))
+  {
+      for (int i = 0; i < count; i++)
+      {
+          await Task.Delay(interval, token).ConfigureAwait(continueOnCapturedContext: false);
+          yield return i;
+      }
+  }
+
+Method   : IAsyncEnumerable<string> ReadLinesAsync(Stream stream, CancellationToken token)
+Kind     : static, public, async, iterator
+RVA      : 0x20DC   Size: 22 bytes   Token: 0x06000008
+
+[Pseudocode]
+  public static async IAsyncEnumerable<string> ReadLinesAsync(Stream stream, [EnumeratorCancellation] CancellationToken token = default(CancellationToken))
+  {
+      using StreamReader reader = new StreamReader(stream);
+      string text;
+      while ((text = await reader.ReadLineAsync(token)) != null)
+      {
+          yield return text;
+      }
+  }
+
+Method   : Task<int> SumAsync(IAsyncEnumerable<int> source, CancellationToken token)
+Kind     : static, public, async
+RVA      : 0x20F4   Size: 63 bytes   Token: 0x06000009
+
+[Pseudocode]
+  public static async Task<int> SumAsync(IAsyncEnumerable<int> source, CancellationToken token = default(CancellationToken))
+  {
+      int sum = 0;
+      await foreach (int item in source.WithCancellation(token).ConfigureAwait(continueOnCapturedContext: false))
+      {
+          sum += item;
+      }
+      return sum;
+  }
+
+Type     : Ref.Iterators.Countdown
+
+Method   : void .ctor(int from)
+Kind     : ctor, instance, public
+RVA      : 0x213F   Size: 14 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  public Countdown(int from)
+  {
+      _from = from;
+  }
+
+Method   : IEnumerator<int> GetEnumerator()
+Kind     : instance, public, virtual, sealed, iterator
+RVA      : 0x214E   Size: 14 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  public IEnumerator<int> GetEnumerator()
+  {
+      for (int i = _from; i >= 0; i--)
+      {
+          yield return i;
+      }
+  }
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed
+RVA      : 0x215D   Size: 7 bytes   Token: 0x0600000C
+
+[Pseudocode]
+  IEnumerator IEnumerable.GetEnumerator()
+  {
+      return GetEnumerator();
+  }
+
+Type     : Ref.Iterators.Tree`1
+
+Method   : void .ctor(T value, params Tree<T>[] children)
+Kind     : ctor, instance, public
+RVA      : 0x2165   Size: 21 bytes   Token: 0x0600000D
+
+[Pseudocode]
+  public Tree(T value, params Tree<T>[] children)
+  {
+      Value = value;
+      Children = children;
+  }
+
+Method   : T get_Value()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x217B   Size: 7 bytes   Token: 0x0600000E
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Value>k__BackingField;
+  }
+
+Method   : Tree<T>[] get_Children()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2183   Size: 7 bytes   Token: 0x0600000F
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Children>k__BackingField;
+  }
+
+Method   : IEnumerable<T> DepthFirst()
+Kind     : instance, public, iterator
+RVA      : 0x218B   Size: 15 bytes   Token: 0x06000010
+
+[Pseudocode]
+  public IEnumerable<T> DepthFirst()
+  {
+      Stack<Tree<T>> stack = new Stack<Tree<T>>();
+      stack.Push(this);
+      while (stack.Count > 0)
+      {
+          Tree<T> node = stack.Pop();
+          yield return node.Value;
+          for (int num = node.Children.Length - 1; num >= 0; num--)
+          {
+              stack.Push(node.Children[num]);
+          }
+      }
+  }
+
+Method   : IEnumerator<T> GetEnumerator()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x219B   Size: 12 bytes   Token: 0x06000011
+
+[Pseudocode]
+  public IEnumerator<T> GetEnumerator()
+  {
+      return DepthFirst().GetEnumerator();
+  }
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed
+RVA      : 0x21A8   Size: 7 bytes   Token: 0x06000012
+
+[Pseudocode]
+  IEnumerator IEnumerable.GetEnumerator()
+  {
+      return GetEnumerator();
+  }
+
+Type     : Ref.Iterators.Sequences+<Chunk>d__3`1
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x21B0   Size: 25 bytes   Token: 0x06000013
+
+[Pseudocode]
+  [DebuggerHidden]
+  public <Chunk>d__3(int <>1__state)
+  {
+      this.<>1__state = <>1__state;
+      <>l__initialThreadId = Environment.CurrentManagedThreadId;
+  }
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x21CC   Size: 49 bytes   Token: 0x06000014
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IDisposable.Dispose()
+  {
+      int num = <>1__state;
+      if (num == -3 || num == 1)
+      {
+          try
+          {
+          }
+          finally
+          {
+              <>m__Finally1();
+          }
+      }
+      <chunk>5__2 = null;
+      <>7__wrap2 = null;
+      <>1__state = -2;
+  }
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x221C   Size: 261 bytes   Token: 0x06000015
+
+[Pseudocode]
+  private bool MoveNext()
+  {
+      try
+      {
+          switch (<>1__state)
+          {
+          default:
+              return false;
+          case 0:
+              <>1__state = -1;
+              <chunk>5__2 = new List<T>(size);
+              <>7__wrap2 = source.GetEnumerator();
+              <>1__state = -3;
+              goto IL_00ad;
+          case 1:
+              <>1__state = -3;
+              <chunk>5__2.Clear();
+              goto IL_00ad;
+          case 2:
+              {
+                  <>1__state = -1;
+                  break;
+              }
+              IL_00ad:
+              while (<>7__wrap2.MoveNext())
+              {
+                  T current = <>7__wrap2.Current;
+                  <chunk>5__2.Add(current);
+                  if (<chunk>5__2.Count == size)
+                  {
+                      <>2__current = <chunk>5__2.ToArray();
+                      <>1__state = 1;
+                      return true;
+                  }
+              }
+              <>m__Finally1();
+              <>7__wrap2 = null;
+              if (<chunk>5__2.Count > 0)
+              {
+                  <>2__current = <chunk>5__2.ToArray();
+                  <>1__state = 2;
+                  return true;
+              }
+              break;
+          }
+          return false;
+      }
+      catch
+      {
+          //try-fault
+          ((IDisposable)this).Dispose();
+          throw;
+      }
+  }
+
+Method   : void <>m__Finally1()
+Kind     : instance, private, compiler-generated
+RVA      : 0x2340   Size: 27 bytes   Token: 0x06000016
+
+[Pseudocode]
+  private void <>m__Finally1()
+  {
+      <>1__state = -1;
+      if (<>7__wrap2 != null)
+      {
+          <>7__wrap2.Dispose();
+      }
+  }
+
+Method   : T[] System.Collections.Generic.IEnumerator<T[]>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x235C   Size: 7 bytes   Token: 0x06000017
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2364   Size: 6 bytes   Token: 0x06000018
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IEnumerator.Reset()
+  {
+      throw new NotSupportedException();
+  }
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x236B   Size: 7 bytes   Token: 0x06000019
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : IEnumerator<T[]> System.Collections.Generic.IEnumerable<T[]>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2374   Size: 67 bytes   Token: 0x0600001A
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator<T[]> IEnumerable<T[]>.GetEnumerator()
+  {
+      <Chunk>d__3<T> obj;
+      if (<>1__state == -2 && <>l__initialThreadId == Environment.CurrentManagedThreadId)
+      {
+          <>1__state = 0;
+          obj = this;
+      }
+      else
+      {
+          obj = new <Chunk>d__3<T>(0);
+      }
+      obj.source = <>3__source;
+      obj.size = <>3__size;
+      return obj;
+  }
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x23C3   Size: 7 bytes   Token: 0x0600001B
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator IEnumerable.GetEnumerator()
+  {
+      return ((IEnumerable<T[]>)this).GetEnumerator();
+  }
+
+Type     : Ref.Iterators.Sequences+<Fibonacci>d__2
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x23CB   Size: 25 bytes   Token: 0x0600001C
+
+[Pseudocode]
+  [DebuggerHidden]
+  public <Fibonacci>d__2(int <>1__state)
+  {
+      this.<>1__state = <>1__state;
+      <>l__initialThreadId = Environment.CurrentManagedThreadId;
+  }
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x23E5   Size: 9 bytes   Token: 0x0600001D
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IDisposable.Dispose()
+  {
+      <>1__state = -2;
+  }
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x23F0   Size: 104 bytes   Token: 0x0600001E
+
+[Pseudocode]
+  private bool MoveNext()
+  {
+      int num = <>1__state;
+      if (num != 0)
+      {
+          if (num != 1)
+          {
+              return false;
+          }
+          <>1__state = -1;
+          long num2 = <b>5__3;
+          long num3 = <a>5__2 + <b>5__3;
+          <b>5__3 = num3;
+          <a>5__2 = num2;
+      }
+      else
+      {
+          <>1__state = -1;
+          <a>5__2 = 0L;
+          <b>5__3 = 1L;
+      }
+      <>2__current = <a>5__2;
+      <>1__state = 1;
+      return true;
+  }
+
+Method   : long System.Collections.Generic.IEnumerator<System.Int64>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2464   Size: 7 bytes   Token: 0x0600001F
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x246C   Size: 6 bytes   Token: 0x06000020
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IEnumerator.Reset()
+  {
+      throw new NotSupportedException();
+  }
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2473   Size: 12 bytes   Token: 0x06000021
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : IEnumerator<long> System.Collections.Generic.IEnumerable<System.Int64>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2480   Size: 43 bytes   Token: 0x06000022
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator<long> IEnumerable<long>.GetEnumerator()
+  {
+      if (<>1__state == -2 && <>l__initialThreadId == Environment.CurrentManagedThreadId)
+      {
+          <>1__state = 0;
+          return this;
+      }
+      return new <Fibonacci>d__2(0);
+  }
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x24B7   Size: 7 bytes   Token: 0x06000023
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator IEnumerable.GetEnumerator()
+  {
+      return ((IEnumerable<long>)this).GetEnumerator();
+  }
+
+Type     : Ref.Iterators.Sequences+<Letters>d__5
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x24BF   Size: 14 bytes   Token: 0x06000024
+
+[Pseudocode]
+  [DebuggerHidden]
+  public <Letters>d__5(int <>1__state)
+  {
+      this.<>1__state = <>1__state;
+  }
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x24CE   Size: 16 bytes   Token: 0x06000025
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IDisposable.Dispose()
+  {
+      <>7__wrap1 = null;
+      <>1__state = -2;
+  }
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x24E0   Size: 135 bytes   Token: 0x06000026
+
+[Pseudocode]
+  private bool MoveNext()
+  {
+      int num = <>1__state;
+      if (num != 0)
+      {
+          if (num != 1)
+          {
+              return false;
+          }
+          <>1__state = -1;
+          goto IL_005d;
+      }
+      <>1__state = -1;
+      <>7__wrap1 = s;
+      <>7__wrap2 = 0;
+      goto IL_006b;
+      IL_005d:
+      <>7__wrap2++;
+      goto IL_006b;
+      IL_006b:
+      if (<>7__wrap2 < <>7__wrap1.Length)
+      {
+          char c = <>7__wrap1[<>7__wrap2];
+          if (char.IsLetter(c))
+          {
+              <>2__current = c;
+              <>1__state = 1;
+              return true;
+          }
+          goto IL_005d;
+      }
+      <>7__wrap1 = null;
+      return false;
+  }
+
+Method   : char System.Collections.Generic.IEnumerator<System.Char>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2573   Size: 7 bytes   Token: 0x06000027
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x257B   Size: 6 bytes   Token: 0x06000028
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IEnumerator.Reset()
+  {
+      throw new NotSupportedException();
+  }
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2582   Size: 12 bytes   Token: 0x06000029
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Type     : Ref.Iterators.Sequences+<Lines>d__4
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x258F   Size: 25 bytes   Token: 0x0600002A
+
+[Pseudocode]
+  [DebuggerHidden]
+  public <Lines>d__4(int <>1__state)
+  {
+      this.<>1__state = <>1__state;
+      <>l__initialThreadId = Environment.CurrentManagedThreadId;
+  }
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x25AC   Size: 35 bytes   Token: 0x0600002B
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IDisposable.Dispose()
+  {
+      int num = <>1__state;
+      if (num == -3 || num == 1)
+      {
+          try
+          {
+          }
+          finally
+          {
+              <>m__Finally1();
+          }
+      }
+      <>1__state = -2;
+  }
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x25EC   Size: 117 bytes   Token: 0x0600002C
+
+[Pseudocode]
+  private bool MoveNext()
+  {
+      bool result;
+      try
+      {
+          switch (<>1__state)
+          {
+          default:
+              result = false;
+              goto end_IL_0000;
+          case 0:
+              <>1__state = -1;
+              <>1__state = -3;
+              break;
+          case 1:
+              <>1__state = -3;
+              break;
+          }
+          string text;
+          if ((text = reader.ReadLine()) != null)
+          {
+              if (text.Length == 0)
+              {
+                  result = false;
+                  <>m__Finally1();
+              }
+              else
+              {
+                  <>2__current = text;
+                  <>1__state = 1;
+                  result = true;
+              }
+          }
+          else
+          {
+              <>m__Finally1();
+              result = false;
+          }
+          end_IL_0000:;
+      }
+      catch
+      {
+          //try-fault
+          ((IDisposable)this).Dispose();
+          throw;
+      }
+      return result;
+  }
+
+Method   : void <>m__Finally1()
+Kind     : instance, private, compiler-generated
+RVA      : 0x2680   Size: 19 bytes   Token: 0x0600002D
+
+[Pseudocode]
+  private void <>m__Finally1()
+  {
+      <>1__state = -1;
+      reader.Dispose();
+  }
+
+Method   : string System.Collections.Generic.IEnumerator<System.String>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2694   Size: 7 bytes   Token: 0x0600002E
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x269C   Size: 6 bytes   Token: 0x0600002F
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IEnumerator.Reset()
+  {
+      throw new NotSupportedException();
+  }
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26A3   Size: 7 bytes   Token: 0x06000030
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : IEnumerator<string> System.Collections.Generic.IEnumerable<System.String>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26AC   Size: 55 bytes   Token: 0x06000031
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator<string> IEnumerable<string>.GetEnumerator()
+  {
+      <Lines>d__4 obj;
+      if (<>1__state == -2 && <>l__initialThreadId == Environment.CurrentManagedThreadId)
+      {
+          <>1__state = 0;
+          obj = this;
+      }
+      else
+      {
+          obj = new <Lines>d__4(0);
+      }
+      obj.reader = <>3__reader;
+      return obj;
+  }
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26EF   Size: 7 bytes   Token: 0x06000032
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator IEnumerable.GetEnumerator()
+  {
+      return ((IEnumerable<string>)this).GetEnumerator();
+  }
+
+Type     : Ref.Iterators.Sequences+<RangeIterator>d__1
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x26F7   Size: 25 bytes   Token: 0x06000033
+
+[Pseudocode]
+  [DebuggerHidden]
+  public <RangeIterator>d__1(int <>1__state)
+  {
+      this.<>1__state = <>1__state;
+      <>l__initialThreadId = Environment.CurrentManagedThreadId;
+  }
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2711   Size: 9 bytes   Token: 0x06000034
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IDisposable.Dispose()
+  {
+      <>1__state = -2;
+  }
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x271C   Size: 99 bytes   Token: 0x06000035
+
+[Pseudocode]
+  private bool MoveNext()
+  {
+      switch (<>1__state)
+      {
+      default:
+          return false;
+      case 0:
+          <>1__state = -1;
+          <i>5__2 = 0;
+          break;
+      case 1:
+          <>1__state = -1;
+          <i>5__2++;
+          break;
+      }
+      if (<i>5__2 < count)
+      {
+          <>2__current = start + <i>5__2;
+          <>1__state = 1;
+          return true;
+      }
+      return false;
+  }
+
+Method   : int System.Collections.Generic.IEnumerator<System.Int32>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x278B   Size: 7 bytes   Token: 0x06000036
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2793   Size: 6 bytes   Token: 0x06000037
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IEnumerator.Reset()
+  {
+      throw new NotSupportedException();
+  }
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x279A   Size: 12 bytes   Token: 0x06000038
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : IEnumerator<int> System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x27A8   Size: 67 bytes   Token: 0x06000039
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator<int> IEnumerable<int>.GetEnumerator()
+  {
+      <RangeIterator>d__1 obj;
+      if (<>1__state == -2 && <>l__initialThreadId == Environment.CurrentManagedThreadId)
+      {
+          <>1__state = 0;
+          obj = this;
+      }
+      else
+      {
+          obj = new <RangeIterator>d__1(0);
+      }
+      obj.start = <>3__start;
+      obj.count = <>3__count;
+      return obj;
+  }
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x27F7   Size: 7 bytes   Token: 0x0600003A
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator IEnumerable.GetEnumerator()
+  {
+      return ((IEnumerable<int>)this).GetEnumerator();
+  }
+
+Type     : Ref.Iterators.Sequences+<ReadLinesAsync>d__7
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x27FF   Size: 36 bytes   Token: 0x0600003B
+
+[Pseudocode]
+  [DebuggerHidden]
+  public <ReadLinesAsync>d__7(int <>1__state)
+  {
+      <>t__builder = AsyncIteratorMethodBuilder.Create();
+      this.<>1__state = <>1__state;
+      <>l__initialThreadId = Environment.CurrentManagedThreadId;
+  }
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2824   Size: 459 bytes   Token: 0x0600003C
+
+[Pseudocode]
+  private void MoveNext()
+  {
+      int num = <>1__state;
+      try
+      {
+          switch (num)
+          {
+          default:
+              if (!<>w__disposeMode)
+              {
+                  num = (<>1__state = -1);
+                  <reader>5__2 = new StreamReader(stream);
+                  break;
+              }
+              goto end_IL_0007;
+          case -4:
+          case 0:
+              break;
+          }
+          try
+          {
+              ValueTaskAwaiter<string> awaiter;
+              if (num != -4)
+              {
+                  if (num != 0)
+                  {
+                      goto IL_0082;
+                  }
+                  awaiter = <>u__1;
+                  <>u__1 = default;
+                  num = (<>1__state = -1);
+                  goto IL_00ef;
+              }
+              num = (<>1__state = -1);
+              if (!<>w__disposeMode)
+              {
+                  goto IL_0082;
+              }
+              goto end_IL_004c;
+              IL_0082:
+              <>2__current = null;
+              awaiter = <reader>5__2.ReadLineAsync(token).GetAwaiter();
+              if (!awaiter.IsCompleted)
+              {
+                  num = (<>1__state = 0);
+                  <>u__1 = awaiter;
+                  <ReadLinesAsync>d__7 stateMachine = this;
+                  <>t__builder.AwaitUnsafeOnCompleted(ref awaiter, ref stateMachine);
+                  return;
+              }
+              goto IL_00ef;
+              IL_00ef:
+              string result;
+              if ((result = awaiter.GetResult()) != null)
+              {
+                  <>2__current = result;
+                  num = (<>1__state = -4);
+                  goto IL_01be;
+              }
+              goto end_IL_0007;
+              end_IL_004c:;
+          }
+          finally
+          {
+              if (num == -1 && <reader>5__2 != null)
+              {
+                  ((IDisposable)<reader>5__2).Dispose();
+              }
+          }
+          if (!<>w__disposeMode)
+          {
+              <reader>5__2 = null;
+          }
+          end_IL_0007:;
+      }
+      catch (Exception exception)
+      {
+          <>1__state = -2;
+          <reader>5__2 = null;
+          if (<>x__combinedTokens != null)
+          {
+              <>x__combinedTokens.Dispose();
+              <>x__combinedTokens = null;
+          }
+          <>2__current = null;
+          <>t__builder.Complete();
+          <>v__promiseOfValueOrEnd.SetException(exception);
+          return;
+      }
+      <>1__state = -2;
+      <reader>5__2 = null;
+      if (<>x__combinedTokens != null)
+      {
+          <>x__combinedTokens.Dispose();
+          <>x__combinedTokens = null;
+      }
+      <>2__current = null;
+      <>t__builder.Complete();
+      <>v__promiseOfValueOrEnd.SetResult(result: false);
+      return;
+      IL_01be:
+      <>v__promiseOfValueOrEnd.SetResult(result: true);
+  }
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2A30   Size: 1 bytes   Token: 0x0600003D
+
+[Pseudocode]
+  [DebuggerHidden]
+  private void SetStateMachine(IAsyncStateMachine stateMachine)
+  {
+  }
+
+Method   : IAsyncEnumerator<string> System.Collections.Generic.IAsyncEnumerable<System.String>.GetAsyncEnumerator(CancellationToken cancellationToken)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2A34   Size: 188 bytes   Token: 0x0600003E
+
+[Pseudocode]
+  [DebuggerHidden]
+  IAsyncEnumerator<string> IAsyncEnumerable<string>.GetAsyncEnumerator(CancellationToken cancellationToken = default(CancellationToken))
+  {
+      <ReadLinesAsync>d__7 obj;
+      if (<>1__state == -2 && <>l__initialThreadId == Environment.CurrentManagedThreadId)
+      {
+          <>1__state = -3;
+          <>t__builder = AsyncIteratorMethodBuilder.Create();
+          <>w__disposeMode = false;
+          obj = this;
+      }
+      else
+      {
+          obj = new <ReadLinesAsync>d__7(-3);
+      }
+      obj.stream = <>3__stream;
+      if (<>3__token.Equals(default))
+      {
+          obj.token = cancellationToken;
+      }
+      else if (cancellationToken.Equals(<>3__token) || cancellationToken.Equals(default))
+      {
+          obj.token = <>3__token;
+      }
+      else
+      {
+          <>x__combinedTokens = CancellationTokenSource.CreateLinkedTokenSource(<>3__token, cancellationToken);
+          obj.token = <>x__combinedTokens.Token;
+      }
+      return obj;
+  }
+
+Method   : ValueTask<bool> System.Collections.Generic.IAsyncEnumerator<System.String>.MoveNextAsync()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2AFC   Size: 99 bytes   Token: 0x0600003F
+
+[Pseudocode]
+  [DebuggerHidden]
+  ValueTask<bool> IAsyncEnumerator<string>.MoveNextAsync()
+  {
+      if (<>1__state == -2)
+      {
+          return default;
+      }
+      <>v__promiseOfValueOrEnd.Reset();
+      <ReadLinesAsync>d__7 stateMachine = this;
+      <>t__builder.MoveNext(ref stateMachine);
+      short version = <>v__promiseOfValueOrEnd.Version;
+      if (<>v__promiseOfValueOrEnd.GetStatus(version) == ValueTaskSourceStatus.Succeeded)
+      {
+          return new ValueTask<bool>(<>v__promiseOfValueOrEnd.GetResult(version));
+      }
+      return new ValueTask<bool>(this, version);
+  }
+
+Method   : string System.Collections.Generic.IAsyncEnumerator<System.String>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2B6B   Size: 7 bytes   Token: 0x06000040
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : bool System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetResult(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2B73   Size: 13 bytes   Token: 0x06000041
+
+[Pseudocode]
+  [DebuggerHidden]
+  bool IValueTaskSource<bool>.GetResult(short token)
+  {
+      return <>v__promiseOfValueOrEnd.GetResult(token);
+  }
+
+Method   : ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetStatus(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2B81   Size: 13 bytes   Token: 0x06000042
+
+[Pseudocode]
+  [DebuggerHidden]
+  ValueTaskSourceStatus IValueTaskSource<bool>.GetStatus(short token)
+  {
+      return <>v__promiseOfValueOrEnd.GetStatus(token);
+  }
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2B8F   Size: 17 bytes   Token: 0x06000043
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IValueTaskSource<bool>.OnCompleted(Action<object?> continuation, object? state, short token, ValueTaskSourceOnCompletedFlags flags)
+  {
+      <>v__promiseOfValueOrEnd.OnCompleted(continuation, state, token, flags);
+  }
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource.GetResult(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2BA1   Size: 14 bytes   Token: 0x06000044
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IValueTaskSource.GetResult(short token)
+  {
+      <>v__promiseOfValueOrEnd.GetResult(token);
+  }
+
+Method   : ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource.GetStatus(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2BB0   Size: 13 bytes   Token: 0x06000045
+
+[Pseudocode]
+  [DebuggerHidden]
+  ValueTaskSourceStatus IValueTaskSource.GetStatus(short token)
+  {
+      return <>v__promiseOfValueOrEnd.GetStatus(token);
+  }
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2BBE   Size: 17 bytes   Token: 0x06000046
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IValueTaskSource.OnCompleted(Action<object?> continuation, object? state, short token, ValueTaskSourceOnCompletedFlags flags)
+  {
+      <>v__promiseOfValueOrEnd.OnCompleted(continuation, state, token, flags);
+  }
+
+Method   : ValueTask System.IAsyncDisposable.DisposeAsync()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2BD0   Size: 86 bytes   Token: 0x06000047
+
+[Pseudocode]
+  [DebuggerHidden]
+  ValueTask IAsyncDisposable.DisposeAsync()
+  {
+      if (<>1__state >= -1)
+      {
+          throw new NotSupportedException();
+      }
+      if (<>1__state == -2)
+      {
+          return default;
+      }
+      <>w__disposeMode = true;
+      <>v__promiseOfValueOrEnd.Reset();
+      <ReadLinesAsync>d__7 stateMachine = this;
+      <>t__builder.MoveNext(ref stateMachine);
+      return new ValueTask(this, <>v__promiseOfValueOrEnd.Version);
+  }
+
+Type     : Ref.Iterators.Sequences+<SumAsync>d__8
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2C34   Size: 444 bytes   Token: 0x06000048
+
+[Pseudocode]
+  private void MoveNext()
+  {
+      int num = <>1__state;
+      int result;
+      try
+      {
+          ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter awaiter;
+          if (num != 0)
+          {
+              if (num == 1)
+              {
+                  awaiter = <>u__2;
+                  <>u__2 = default;
+                  num = (<>1__state = -1);
+                  goto IL_0148;
+              }
+              <sum>5__2 = 0;
+              <>7__wrap2 = source.WithCancellation(token).ConfigureAwait(continueOnCapturedContext: false).GetAsyncEnumerator();
+              <>7__wrap3 = null;
+              <>7__wrap4 = 0;
+          }
+          try
+          {
+              if (num != 0)
+              {
+                  goto IL_006e;
+              }
+              ConfiguredValueTaskAwaitable<bool>.ConfiguredValueTaskAwaiter awaiter2 = <>u__1;
+              <>u__1 = default;
+              num = (<>1__state = -1);
+              goto IL_00ce;
+              IL_00ce:
+              if (awaiter2.GetResult())
+              {
+                  int current = <>7__wrap2.Current;
+                  <sum>5__2 += current;
+                  goto IL_006e;
+              }
+              goto end_IL_004f;
+              IL_006e:
+              awaiter2 = <>7__wrap2.MoveNextAsync().GetAwaiter();
+              if (!awaiter2.IsCompleted)
+              {
+                  num = (<>1__state = 0);
+                  <>u__1 = awaiter2;
+                  <>t__builder.AwaitUnsafeOnCompleted(ref awaiter2, ref this);
+                  return;
+              }
+              goto IL_00ce;
+              end_IL_004f:;
+          }
+          catch (object obj)
+          {
+              <>7__wrap3 = obj;
+          }
+          awaiter = <>7__wrap2.DisposeAsync().GetAwaiter();
+          if (!awaiter.IsCompleted)
+          {
+              num = (<>1__state = 1);
+              <>u__2 = awaiter;
+              <>t__builder.AwaitUnsafeOnCompleted(ref awaiter, ref this);
+              return;
+          }
+          goto IL_0148;
+          IL_0148:
+          awaiter.GetResult();
+          object obj2 = <>7__wrap3;
+          if (obj2 != null)
+          {
+              ExceptionDispatchInfo.Capture((obj2 as Exception) ?? throw obj2).Throw();
+          }
+          <>7__wrap3 = null;
+          <>7__wrap2 = default;
+          result = <sum>5__2;
+      }
+      catch (Exception exception)
+      {
+          <>1__state = -2;
+          <>t__builder.SetException(exception);
+          return;
+      }
+      <>1__state = -2;
+      <>t__builder.SetResult(result);
+  }
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2E30   Size: 13 bytes   Token: 0x06000049
+
+[Pseudocode]
+  [DebuggerHidden]
+  private void SetStateMachine(IAsyncStateMachine stateMachine)
+  {
+      <>t__builder.SetStateMachine(stateMachine);
+  }
+
+Type     : Ref.Iterators.Sequences+<TicksAsync>d__6
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2E3E   Size: 36 bytes   Token: 0x0600004A
+
+[Pseudocode]
+  [DebuggerHidden]
+  public <TicksAsync>d__6(int <>1__state)
+  {
+      <>t__builder = AsyncIteratorMethodBuilder.Create();
+      this.<>1__state = <>1__state;
+      <>l__initialThreadId = Environment.CurrentManagedThreadId;
+  }
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2E64   Size: 414 bytes   Token: 0x0600004B
+
+[Pseudocode]
+  private void MoveNext()
+  {
+      int num = <>1__state;
+      try
+      {
+          ConfiguredTaskAwaitable.ConfiguredTaskAwaiter awaiter;
+          switch (num)
+          {
+          default:
+              if (!<>w__disposeMode)
+              {
+                  num = (<>1__state = -1);
+                  <i>5__2 = 0;
+                  goto IL_00f8;
+              }
+              goto end_IL_0007;
+          case 0:
+              awaiter = <>u__1;
+              <>u__1 = default;
+              num = (<>1__state = -1);
+              break;
+          case -4:
+              {
+                  num = (<>1__state = -1);
+                  if (!<>w__disposeMode)
+                  {
+                      <i>5__2++;
+                      goto IL_00f8;
+                  }
+                  goto end_IL_0007;
+              }
+              IL_00f8:
+              if (<i>5__2 < count)
+              {
+                  awaiter = Task.Delay(interval, token).ConfigureAwait(continueOnCapturedContext: false).GetAwaiter();
+                  if (!awaiter.IsCompleted)
+                  {
+                      num = (<>1__state = 0);
+                      <>u__1 = awaiter;
+                      <TicksAsync>d__6 stateMachine = this;
+                      <>t__builder.AwaitUnsafeOnCompleted(ref awaiter, ref stateMachine);
+                      return;
+                  }
+                  break;
+              }
+              goto end_IL_0007;
+          }
+          awaiter.GetResult();
+          <>2__current = <i>5__2;
+          num = (<>1__state = -4);
+          goto IL_0191;
+          end_IL_0007:;
+      }
+      catch (Exception exception)
+      {
+          <>1__state = -2;
+          if (<>x__combinedTokens != null)
+          {
+              <>x__combinedTokens.Dispose();
+              <>x__combinedTokens = null;
+          }
+          <>2__current = 0;
+          <>t__builder.Complete();
+          <>v__promiseOfValueOrEnd.SetException(exception);
+          return;
+      }
+      <>1__state = -2;
+      if (<>x__combinedTokens != null)
+      {
+          <>x__combinedTokens.Dispose();
+          <>x__combinedTokens = null;
+      }
+      <>2__current = 0;
+      <>t__builder.Complete();
+      <>v__promiseOfValueOrEnd.SetResult(result: false);
+      return;
+      IL_0191:
+      <>v__promiseOfValueOrEnd.SetResult(result: true);
+  }
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x302C   Size: 1 bytes   Token: 0x0600004C
+
+[Pseudocode]
+  [DebuggerHidden]
+  private void SetStateMachine(IAsyncStateMachine stateMachine)
+  {
+  }
+
+Method   : IAsyncEnumerator<int> System.Collections.Generic.IAsyncEnumerable<System.Int32>.GetAsyncEnumerator(CancellationToken cancellationToken)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3030   Size: 200 bytes   Token: 0x0600004D
+
+[Pseudocode]
+  [DebuggerHidden]
+  IAsyncEnumerator<int> IAsyncEnumerable<int>.GetAsyncEnumerator(CancellationToken cancellationToken = default(CancellationToken))
+  {
+      <TicksAsync>d__6 obj;
+      if (<>1__state == -2 && <>l__initialThreadId == Environment.CurrentManagedThreadId)
+      {
+          <>1__state = -3;
+          <>t__builder = AsyncIteratorMethodBuilder.Create();
+          <>w__disposeMode = false;
+          obj = this;
+      }
+      else
+      {
+          obj = new <TicksAsync>d__6(-3);
+      }
+      obj.count = <>3__count;
+      obj.interval = <>3__interval;
+      if (<>3__token.Equals(default))
+      {
+          obj.token = cancellationToken;
+      }
+      else if (cancellationToken.Equals(<>3__token) || cancellationToken.Equals(default))
+      {
+          obj.token = <>3__token;
+      }
+      else
+      {
+          <>x__combinedTokens = CancellationTokenSource.CreateLinkedTokenSource(<>3__token, cancellationToken);
+          obj.token = <>x__combinedTokens.Token;
+      }
+      return obj;
+  }
+
+Method   : ValueTask<bool> System.Collections.Generic.IAsyncEnumerator<System.Int32>.MoveNextAsync()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3104   Size: 99 bytes   Token: 0x0600004E
+
+[Pseudocode]
+  [DebuggerHidden]
+  ValueTask<bool> IAsyncEnumerator<int>.MoveNextAsync()
+  {
+      if (<>1__state == -2)
+      {
+          return default;
+      }
+      <>v__promiseOfValueOrEnd.Reset();
+      <TicksAsync>d__6 stateMachine = this;
+      <>t__builder.MoveNext(ref stateMachine);
+      short version = <>v__promiseOfValueOrEnd.Version;
+      if (<>v__promiseOfValueOrEnd.GetStatus(version) == ValueTaskSourceStatus.Succeeded)
+      {
+          return new ValueTask<bool>(<>v__promiseOfValueOrEnd.GetResult(version));
+      }
+      return new ValueTask<bool>(this, version);
+  }
+
+Method   : int System.Collections.Generic.IAsyncEnumerator<System.Int32>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3173   Size: 7 bytes   Token: 0x0600004F
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : bool System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetResult(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x317B   Size: 13 bytes   Token: 0x06000050
+
+[Pseudocode]
+  [DebuggerHidden]
+  bool IValueTaskSource<bool>.GetResult(short token)
+  {
+      return <>v__promiseOfValueOrEnd.GetResult(token);
+  }
+
+Method   : ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetStatus(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3189   Size: 13 bytes   Token: 0x06000051
+
+[Pseudocode]
+  [DebuggerHidden]
+  ValueTaskSourceStatus IValueTaskSource<bool>.GetStatus(short token)
+  {
+      return <>v__promiseOfValueOrEnd.GetStatus(token);
+  }
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3197   Size: 17 bytes   Token: 0x06000052
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IValueTaskSource<bool>.OnCompleted(Action<object?> continuation, object? state, short token, ValueTaskSourceOnCompletedFlags flags)
+  {
+      <>v__promiseOfValueOrEnd.OnCompleted(continuation, state, token, flags);
+  }
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource.GetResult(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x31A9   Size: 14 bytes   Token: 0x06000053
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IValueTaskSource.GetResult(short token)
+  {
+      <>v__promiseOfValueOrEnd.GetResult(token);
+  }
+
+Method   : ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource.GetStatus(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x31B8   Size: 13 bytes   Token: 0x06000054
+
+[Pseudocode]
+  [DebuggerHidden]
+  ValueTaskSourceStatus IValueTaskSource.GetStatus(short token)
+  {
+      return <>v__promiseOfValueOrEnd.GetStatus(token);
+  }
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x31C6   Size: 17 bytes   Token: 0x06000055
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IValueTaskSource.OnCompleted(Action<object?> continuation, object? state, short token, ValueTaskSourceOnCompletedFlags flags)
+  {
+      <>v__promiseOfValueOrEnd.OnCompleted(continuation, state, token, flags);
+  }
+
+Method   : ValueTask System.IAsyncDisposable.DisposeAsync()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x31D8   Size: 86 bytes   Token: 0x06000056
+
+[Pseudocode]
+  [DebuggerHidden]
+  ValueTask IAsyncDisposable.DisposeAsync()
+  {
+      if (<>1__state >= -1)
+      {
+          throw new NotSupportedException();
+      }
+      if (<>1__state == -2)
+      {
+          return default;
+      }
+      <>w__disposeMode = true;
+      <>v__promiseOfValueOrEnd.Reset();
+      <TicksAsync>d__6 stateMachine = this;
+      <>t__builder.MoveNext(ref stateMachine);
+      return new ValueTask(this, <>v__promiseOfValueOrEnd.Version);
+  }
+
+Type     : Ref.Iterators.Countdown+<GetEnumerator>d__2
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x323A   Size: 14 bytes   Token: 0x06000057
+
+[Pseudocode]
+  [DebuggerHidden]
+  public <GetEnumerator>d__2(int <>1__state)
+  {
+      this.<>1__state = <>1__state;
+  }
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3249   Size: 9 bytes   Token: 0x06000058
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IDisposable.Dispose()
+  {
+      <>1__state = -2;
+  }
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x3254   Size: 99 bytes   Token: 0x06000059
+
+[Pseudocode]
+  private bool MoveNext()
+  {
+      int num = <>1__state;
+      Countdown countdown = <>4__this;
+      switch (num)
+      {
+      default:
+          return false;
+      case 0:
+          <>1__state = -1;
+          <i>5__2 = countdown._from;
+          break;
+      case 1:
+          <>1__state = -1;
+          <i>5__2--;
+          break;
+      }
+      if (<i>5__2 >= 0)
+      {
+          <>2__current = <i>5__2;
+          <>1__state = 1;
+          return true;
+      }
+      return false;
+  }
+
+Method   : int System.Collections.Generic.IEnumerator<System.Int32>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x32C3   Size: 7 bytes   Token: 0x0600005A
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x32CB   Size: 6 bytes   Token: 0x0600005B
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IEnumerator.Reset()
+  {
+      throw new NotSupportedException();
+  }
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x32D2   Size: 12 bytes   Token: 0x0600005C
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Type     : Ref.Iterators.Tree`1+<DepthFirst>d__7
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x32DF   Size: 25 bytes   Token: 0x0600005D
+
+[Pseudocode]
+  [DebuggerHidden]
+  public <DepthFirst>d__7(int <>1__state)
+  {
+      this.<>1__state = <>1__state;
+      <>l__initialThreadId = Environment.CurrentManagedThreadId;
+  }
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x32F9   Size: 23 bytes   Token: 0x0600005E
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IDisposable.Dispose()
+  {
+      <stack>5__2 = null;
+      <node>5__3 = null;
+      <>1__state = -2;
+  }
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x3314   Size: 178 bytes   Token: 0x0600005F
+
+[Pseudocode]
+  private bool MoveNext()
+  {
+      int num = <>1__state;
+      Tree<T> item = <>4__this;
+      switch (num)
+      {
+      default:
+          return false;
+      case 0:
+          <>1__state = -1;
+          <stack>5__2 = new Stack<Tree<T>>();
+          <stack>5__2.Push(item);
+          break;
+      case 1:
+      {
+          <>1__state = -1;
+          for (int num2 = <node>5__3.Children.Length - 1; num2 >= 0; num2--)
+          {
+              <stack>5__2.Push(<node>5__3.Children[num2]);
+          }
+          <node>5__3 = null;
+          break;
+      }
+      }
+      if (<stack>5__2.Count > 0)
+      {
+          <node>5__3 = <stack>5__2.Pop();
+          <>2__current = <node>5__3.Value;
+          <>1__state = 1;
+          return true;
+      }
+      return false;
+  }
+
+Method   : T System.Collections.Generic.IEnumerator<T>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x33D2   Size: 7 bytes   Token: 0x06000060
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x33DA   Size: 6 bytes   Token: 0x06000061
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IEnumerator.Reset()
+  {
+      throw new NotSupportedException();
+  }
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x33E1   Size: 12 bytes   Token: 0x06000062
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : IEnumerator<T> System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x33F0   Size: 55 bytes   Token: 0x06000063
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator<T> IEnumerable<T>.GetEnumerator()
+  {
+      <DepthFirst>d__7 result;
+      if (<>1__state == -2 && <>l__initialThreadId == Environment.CurrentManagedThreadId)
+      {
+          <>1__state = 0;
+          result = this;
+      }
+      else
+      {
+          result = new <DepthFirst>d__7(0)
+          {
+              <>4__this = <>4__this
+          };
+      }
+      return result;
+  }
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3433   Size: 7 bytes   Token: 0x06000064
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator IEnumerable.GetEnumerator()
+  {
+      return ((IEnumerable<T>)this).GetEnumerator();
+  }

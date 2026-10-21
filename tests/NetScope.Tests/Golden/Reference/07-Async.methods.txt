@@ -1,0 +1,142 @@
+Assembly : Ref07.Async.dll
+Name     : Ref07.Async, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 29
+
+Type     : Ref.Async.ISource
+
+Method   : Task<byte[]> FetchAsync(string key, CancellationToken token)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000001
+
+Type     : Ref.Async.CachedSource
+
+Method   : void .ctor(ISource inner)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 37 bytes   Token: 0x06000002
+
+Method   : int get_Misses()
+Kind     : property-get, instance, public
+RVA      : 0x2076   Size: 12 bytes   Token: 0x06000003
+
+Method   : Task<byte[]> FetchAsync(string key, CancellationToken token)
+Kind     : instance, public, virtual, sealed, async
+RVA      : 0x2084   Size: 71 bytes   Token: 0x06000004
+
+Method   : ValueTask<int> SizeAsync(string key, CancellationToken token)
+Kind     : instance, public
+RVA      : 0x20D8   Size: 34 bytes   Token: 0x06000005
+
+Method   : ValueTask<int> SlowSizeAsync(string key, CancellationToken token)
+Kind     : instance, private, async
+RVA      : 0x2108   Size: 71 bytes   Token: 0x06000006
+
+Method   : ValueTask DisposeAsync()
+Kind     : instance, public, virtual, sealed, async
+RVA      : 0x215C   Size: 55 bytes   Token: 0x06000007
+
+Type     : Ref.Async.Batch
+
+Method   : Task<IReadOnlyList<int>> SizesAsync(ISource source, IEnumerable<string> keys, CancellationToken token)
+Kind     : static, public, async
+RVA      : 0x21A0   Size: 71 bytes   Token: 0x06000008
+
+Method   : Task<T> RetryAsync<T>(Func<CancellationToken, Task<T>> action, int attempts, TimeSpan delay, CancellationToken token)
+Kind     : static, public, async, generic
+RVA      : 0x21F4   Size: 79 bytes   Token: 0x06000009
+
+Method   : Task CopyAsync(Stream from, Stream to, IProgress<long> progress, CancellationToken token)
+Kind     : static, public, async
+RVA      : 0x2250   Size: 79 bytes   Token: 0x0600000A
+
+Method   : void FireAndForget(Task task, Action<Exception> onError)
+Kind     : static, public, async
+RVA      : 0x22AC   Size: 51 bytes   Token: 0x0600000B
+
+Method   : Task<int> AlreadyDone()
+Kind     : static, public
+RVA      : 0x22EB   Size: 8 bytes   Token: 0x0600000C
+
+Method   : Task<string> WithTimeoutAsync(Task<string> task, TimeSpan timeout)
+Kind     : static, public, async
+RVA      : 0x22F4   Size: 63 bytes   Token: 0x0600000D
+
+Type     : Ref.Async.CachedSource+<DisposeAsync>d__10
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2340   Size: 176 bytes   Token: 0x0600000E
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x240C   Size: 13 bytes   Token: 0x0600000F
+
+Type     : Ref.Async.CachedSource+<FetchAsync>d__7
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x241C   Size: 419 bytes   Token: 0x06000010
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2600   Size: 13 bytes   Token: 0x06000011
+
+Type     : Ref.Async.CachedSource+<SlowSizeAsync>d__9
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2610   Size: 178 bytes   Token: 0x06000012
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26E0   Size: 13 bytes   Token: 0x06000013
+
+Type     : Ref.Async.Batch+<CopyAsync>d__2
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x26F0   Size: 438 bytes   Token: 0x06000014
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x28D0   Size: 13 bytes   Token: 0x06000015
+
+Type     : Ref.Async.Batch+<FireAndForget>d__3
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x28E0   Size: 163 bytes   Token: 0x06000016
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x29AC   Size: 13 bytes   Token: 0x06000017
+
+Type     : Ref.Async.Batch+<RetryAsync>d__1`1
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x29BC   Size: 381 bytes   Token: 0x06000018
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2B7C   Size: 13 bytes   Token: 0x06000019
+
+Type     : Ref.Async.Batch+<SizesAsync>d__0
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2B8C   Size: 287 bytes   Token: 0x0600001A
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2CD4   Size: 13 bytes   Token: 0x0600001B
+
+Type     : Ref.Async.Batch+<WithTimeoutAsync>d__5
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2CE4   Size: 351 bytes   Token: 0x0600001C
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2E84   Size: 13 bytes   Token: 0x0600001D

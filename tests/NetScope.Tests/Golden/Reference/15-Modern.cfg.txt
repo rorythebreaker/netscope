@@ -1,0 +1,1615 @@
+Assembly : Ref15.Modern.dll
+Name     : Ref15.Modern, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 97
+
+Type     : Ref.Modern.Person
+
+Method   : void .ctor(string First, string Last)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 21 bytes   Token: 0x06000001
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0014  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      string Ref.Modern.Person::'<First>k__BackingField'
+       IL_0007  ldarg.0
+       IL_0008  ldarg.2
+       IL_0009  stfld      string Ref.Modern.Person::'<Last>k__BackingField'
+       IL_000E  ldarg.0
+       IL_000F  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0014  ret
+  exits: B0 (return)
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, virtual, compiler-generated
+RVA      : 0x2066   Size: 11 bytes   Token: 0x06000002
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000A  -> exit
+       IL_0000  ldtoken    Ref.Modern.Person
+       IL_0005  call       class [System.Runtime]System.Type [System.Runtime]System.Type::GetTypeFromHandle(valuetype [System.Runtime]System.RuntimeTypeHandle)
+       IL_000A  ret
+  exits: B0 (return)
+
+Method   : string get_First()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2072   Size: 7 bytes   Token: 0x06000003
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      string Ref.Modern.Person::'<First>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_First(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x207A   Size: 8 bytes   Token: 0x06000004
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      string Ref.Modern.Person::'<First>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : string get_Last()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2083   Size: 7 bytes   Token: 0x06000005
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      string Ref.Modern.Person::'<Last>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_Last(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x208B   Size: 8 bytes   Token: 0x06000006
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      string Ref.Modern.Person::'<Last>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : string get_Full()
+Kind     : property-get, instance, public
+RVA      : 0x2094   Size: 23 bytes   Token: 0x06000007
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0016  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance string Ref.Modern.Person::get_First()
+       IL_0006  ldstr      " "
+       IL_000B  ldarg.0
+       IL_000C  call       instance string Ref.Modern.Person::get_Last()
+       IL_0011  call       string [System.Runtime]System.String::Concat(string, string, string)
+       IL_0016  ret
+  exits: B0 (return)
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20AC   Size: 64 bytes   Token: 0x06000008
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0026  -> B1 (this.PrintMembers(V_0)) | B2 (else)
+       IL_0000  newobj     instance void [System.Runtime]System.Text.StringBuilder::.ctor()
+       IL_0005  stloc.0
+       IL_0006  ldloc.0
+       IL_0007  ldstr      "Person"
+       IL_000C  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_0011  pop
+       IL_0012  ldloc.0
+       IL_0013  ldstr      " { "
+       IL_0018  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_001D  pop
+       IL_001E  ldarg.0
+       IL_001F  ldloc.0
+       IL_0020  callvirt   instance bool Ref.Modern.Person::PrintMembers(class [System.Runtime]System.Text.StringBuilder)
+       IL_0025  brfalse.s  IL_0030
+  B1 IL_0027..IL_002F  -> B2
+       IL_0027  ldloc.0
+       IL_0028  ldc.i4.s   32
+       IL_002A  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+       IL_002F  pop
+  B2 IL_0030..IL_003F  -> exit
+       IL_0030  ldloc.0
+       IL_0031  ldc.i4.s   125
+       IL_0033  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+       IL_0038  pop
+       IL_0039  ldloc.0
+       IL_003A  callvirt   instance string [System.Runtime]System.Object::ToString()
+       IL_003F  ret
+  exits: B2 (return)
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, virtual, compiler-generated
+RVA      : 0x20F8   Size: 82 bytes   Token: 0x06000009
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0051  -> exit
+       IL_0000  call       void [System.Runtime]System.Runtime.CompilerServices.RuntimeHelpers::EnsureSufficientExecutionStack()
+       IL_0005  ldarg.1
+       IL_0006  ldstr      "First = "
+       IL_000B  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_0010  pop
+       IL_0011  ldarg.1
+       IL_0012  ldarg.0
+       IL_0013  call       instance string Ref.Modern.Person::get_First()
+       IL_0018  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(object)
+       IL_001D  pop
+       IL_001E  ldarg.1
+       IL_001F  ldstr      ", Last = "
+       IL_0024  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_0029  pop
+       IL_002A  ldarg.1
+       IL_002B  ldarg.0
+       IL_002C  call       instance string Ref.Modern.Person::get_Last()
+       IL_0031  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(object)
+       IL_0036  pop
+       IL_0037  ldarg.1
+       IL_0038  ldstr      ", Full = "
+       IL_003D  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_0042  pop
+       IL_0043  ldarg.1
+       IL_0044  ldarg.0
+       IL_0045  call       instance string Ref.Modern.Person::get_Full()
+       IL_004A  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(object)
+       IL_004F  pop
+       IL_0050  ldc.i4.1
+       IL_0051  ret
+  exits: B0 (return)
+
+Method   : bool op_Inequality(Person left, Person right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2156   Size: 11 bytes   Token: 0x0600000A
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000A  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  call       bool Ref.Modern.Person::op_Equality(class Ref.Modern.Person, class Ref.Modern.Person)
+       IL_0007  ldc.i4.0
+       IL_0008  ceq
+       IL_000A  ret
+  exits: B0 (return)
+
+Method   : bool op_Equality(Person left, Person right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2162   Size: 19 bytes   Token: 0x0600000B
+
+[Branches]  complexity=3  blocks=5  loops=0
+  B0 IL_0000..IL_0003  -> B1 (left != right) | B4 (else)
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  beq.s      IL_0011
+  B1 IL_0004..IL_0006  -> B2 (left != null) | B3 (else)
+       IL_0004  ldarg.0
+       IL_0005  brfalse.s  IL_000F
+  B2 IL_0007..IL_000E  -> exit
+       IL_0007  ldarg.0
+       IL_0008  ldarg.1
+       IL_0009  callvirt   instance bool Ref.Modern.Person::Equals(class Ref.Modern.Person)
+       IL_000E  ret
+  B3 IL_000F..IL_0010  -> exit
+       IL_000F  ldc.i4.0
+       IL_0010  ret
+  B4 IL_0011..IL_0012  -> exit
+       IL_0011  ldc.i4.1
+       IL_0012  ret
+  exits: B2 (return), B3 (return), B4 (return)
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2176   Size: 63 bytes   Token: 0x0600000C
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_003E  -> exit
+       IL_0000  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<class [System.Runtime]System.Type>::get_Default()
+       IL_0005  ldarg.0
+       IL_0006  callvirt   instance class [System.Runtime]System.Type Ref.Modern.Person::get_EqualityContract()
+       IL_000B  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<class [System.Runtime]System.Type>::GetHashCode(!0)
+       IL_0010  ldc.i4     0xa5555529
+       IL_0015  mul
+       IL_0016  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<string>::get_Default()
+       IL_001B  ldarg.0
+       IL_001C  ldfld      string Ref.Modern.Person::'<First>k__BackingField'
+       IL_0021  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<string>::GetHashCode(!0)
+       IL_0026  add
+       IL_0027  ldc.i4     0xa5555529
+       IL_002C  mul
+       IL_002D  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<string>::get_Default()
+       IL_0032  ldarg.0
+       IL_0033  ldfld      string Ref.Modern.Person::'<Last>k__BackingField'
+       IL_0038  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<string>::GetHashCode(!0)
+       IL_003D  add
+       IL_003E  ret
+  exits: B0 (return)
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x21B6   Size: 13 bytes   Token: 0x0600000D
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000C  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  isinst     Ref.Modern.Person
+       IL_0007  callvirt   instance bool Ref.Modern.Person::Equals(class Ref.Modern.Person)
+       IL_000C  ret
+  exits: B0 (return)
+
+Method   : bool Equals(Person other)
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x21C4   Size: 77 bytes   Token: 0x0600000E
+
+[Branches]  complexity=5  blocks=7  loops=0
+  B0 IL_0000..IL_0003  -> B1 (this != other) | B6 (else)
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  beq.s      IL_004B
+  B1 IL_0004..IL_0006  -> B2 (other != null) | B5 (else)
+       IL_0004  ldarg.1
+       IL_0005  brfalse.s  IL_0049
+  B2 IL_0007..IL_0019  -> B3 (this.EqualityContract == other.EqualityContract) | B5 (else)
+       IL_0007  ldarg.0
+       IL_0008  callvirt   instance class [System.Runtime]System.Type Ref.Modern.Person::get_EqualityContract()
+       IL_000D  ldarg.1
+       IL_000E  callvirt   instance class [System.Runtime]System.Type Ref.Modern.Person::get_EqualityContract()
+       IL_0013  call       bool [System.Runtime]System.Type::op_Equality(class [System.Runtime]System.Type, class [System.Runtime]System.Type)
+       IL_0018  brfalse.s  IL_0049
+  B3 IL_001A..IL_0031  -> B4 (EqualityComparer<string>.Default.Equals(this.<First>k__BackingField, other.<F...) | B5 (else)
+       IL_001A  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<string>::get_Default()
+       IL_001F  ldarg.0
+       IL_0020  ldfld      string Ref.Modern.Person::'<First>k__BackingField'
+       IL_0025  ldarg.1
+       IL_0026  ldfld      string Ref.Modern.Person::'<First>k__BackingField'
+       IL_002B  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<string>::Equals(!0, !0)
+       IL_0030  brfalse.s  IL_0049
+  B4 IL_0032..IL_0048  -> exit
+       IL_0032  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<string>::get_Default()
+       IL_0037  ldarg.0
+       IL_0038  ldfld      string Ref.Modern.Person::'<Last>k__BackingField'
+       IL_003D  ldarg.1
+       IL_003E  ldfld      string Ref.Modern.Person::'<Last>k__BackingField'
+       IL_0043  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<string>::Equals(!0, !0)
+       IL_0048  ret
+  B5 IL_0049..IL_004A  -> exit
+       IL_0049  ldc.i4.0
+       IL_004A  ret
+  B6 IL_004B..IL_004C  -> exit
+       IL_004B  ldc.i4.1
+       IL_004C  ret
+  exits: B4 (return), B5 (return), B6 (return)
+
+Method   : Person <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x221D   Size: 7 bytes   Token: 0x0600000F
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  newobj     instance void Ref.Modern.Person::.ctor(class Ref.Modern.Person)
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void .ctor(Person original)
+Kind     : ctor, instance, protected, compiler-generated
+RVA      : 0x2225   Size: 31 bytes   Token: 0x06000010
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_001E  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  ldarg.0
+       IL_0007  ldarg.1
+       IL_0008  ldfld      string Ref.Modern.Person::'<First>k__BackingField'
+       IL_000D  stfld      string Ref.Modern.Person::'<First>k__BackingField'
+       IL_0012  ldarg.0
+       IL_0013  ldarg.1
+       IL_0014  ldfld      string Ref.Modern.Person::'<Last>k__BackingField'
+       IL_0019  stfld      string Ref.Modern.Person::'<Last>k__BackingField'
+       IL_001E  ret
+  exits: B0 (return)
+
+Method   : void Deconstruct(out string First, out string Last)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2245   Size: 17 bytes   Token: 0x06000011
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0010  -> exit
+       IL_0000  ldarg.1
+       IL_0001  ldarg.0
+       IL_0002  call       instance string Ref.Modern.Person::get_First()
+       IL_0007  stind.ref
+       IL_0008  ldarg.2
+       IL_0009  ldarg.0
+       IL_000A  call       instance string Ref.Modern.Person::get_Last()
+       IL_000F  stind.ref
+       IL_0010  ret
+  exits: B0 (return)
+
+Type     : Ref.Modern.Employee
+
+Method   : void .ctor(string First, string Last, Decimal Salary)
+Kind     : ctor, instance, public
+RVA      : 0x2257   Size: 16 bytes   Token: 0x06000012
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000F  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.3
+       IL_0002  stfld      valuetype [System.Runtime]System.Decimal Ref.Modern.Employee::'<Salary>k__BackingField'
+       IL_0007  ldarg.0
+       IL_0008  ldarg.1
+       IL_0009  ldarg.2
+       IL_000A  call       instance void Ref.Modern.Person::.ctor(string, string)
+       IL_000F  ret
+  exits: B0 (return)
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x2268   Size: 11 bytes   Token: 0x06000013
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000A  -> exit
+       IL_0000  ldtoken    Ref.Modern.Employee
+       IL_0005  call       class [System.Runtime]System.Type [System.Runtime]System.Type::GetTypeFromHandle(valuetype [System.Runtime]System.RuntimeTypeHandle)
+       IL_000A  ret
+  exits: B0 (return)
+
+Method   : Decimal get_Salary()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2274   Size: 7 bytes   Token: 0x06000014
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      valuetype [System.Runtime]System.Decimal Ref.Modern.Employee::'<Salary>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_Salary(Decimal value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x227C   Size: 8 bytes   Token: 0x06000015
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      valuetype [System.Runtime]System.Decimal Ref.Modern.Employee::'<Salary>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : Employee Raise(Decimal percent)
+Kind     : instance, public
+RVA      : 0x2285   Size: 47 bytes   Token: 0x06000016
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_002E  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance class Ref.Modern.Employee Ref.Modern.Employee::'<Clone>$'()
+       IL_0006  dup
+       IL_0007  ldarg.0
+       IL_0008  call       instance valuetype [System.Runtime]System.Decimal Ref.Modern.Employee::get_Salary()
+       IL_000D  ldsfld     valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::One
+       IL_0012  ldarg.1
+       IL_0013  ldc.i4.s   100
+       IL_0015  newobj     instance void [System.Runtime]System.Decimal::.ctor(int32)
+       IL_001A  call       valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::op_Division(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+       IL_001F  call       valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::op_Addition(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+       IL_0024  call       valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::op_Multiply(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+       IL_0029  callvirt   instance void modreq([System.Runtime]System.Runtime.CompilerServices.IsExternalInit) Ref.Modern.Employee::set_Salary(valuetype [System.Runtime]System.Decimal)
+       IL_002E  ret
+  exits: B0 (return)
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x22B8   Size: 64 bytes   Token: 0x06000017
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0026  -> B1 (this.PrintMembers(V_0)) | B2 (else)
+       IL_0000  newobj     instance void [System.Runtime]System.Text.StringBuilder::.ctor()
+       IL_0005  stloc.0
+       IL_0006  ldloc.0
+       IL_0007  ldstr      "Employee"
+       IL_000C  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_0011  pop
+       IL_0012  ldloc.0
+       IL_0013  ldstr      " { "
+       IL_0018  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_001D  pop
+       IL_001E  ldarg.0
+       IL_001F  ldloc.0
+       IL_0020  callvirt   instance bool Ref.Modern.Person::PrintMembers(class [System.Runtime]System.Text.StringBuilder)
+       IL_0025  brfalse.s  IL_0030
+  B1 IL_0027..IL_002F  -> B2
+       IL_0027  ldloc.0
+       IL_0028  ldc.i4.s   32
+       IL_002A  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+       IL_002F  pop
+  B2 IL_0030..IL_003F  -> exit
+       IL_0030  ldloc.0
+       IL_0031  ldc.i4.s   125
+       IL_0033  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+       IL_0038  pop
+       IL_0039  ldloc.0
+       IL_003A  callvirt   instance string [System.Runtime]System.Object::ToString()
+       IL_003F  ret
+  exits: B2 (return)
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x2304   Size: 62 bytes   Token: 0x06000018
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0008  -> B1 (this.PrintMembers(builder)) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  call       instance bool Ref.Modern.Person::PrintMembers(class [System.Runtime]System.Text.StringBuilder)
+       IL_0007  brfalse.s  IL_0015
+  B1 IL_0009..IL_0014  -> B2
+       IL_0009  ldarg.1
+       IL_000A  ldstr      ", "
+       IL_000F  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_0014  pop
+  B2 IL_0015..IL_003D  -> exit
+       IL_0015  ldarg.1
+       IL_0016  ldstr      "Salary = "
+       IL_001B  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_0020  pop
+       IL_0021  ldarg.1
+       IL_0022  ldarg.0
+       IL_0023  call       instance valuetype [System.Runtime]System.Decimal Ref.Modern.Employee::get_Salary()
+       IL_0028  stloc.0
+       IL_0029  ldloca.s   V_0
+       IL_002B  constrained. [System.Runtime]System.Decimal
+       IL_0031  callvirt   instance string [System.Runtime]System.Object::ToString()
+       IL_0036  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_003B  pop
+       IL_003C  ldc.i4.1
+       IL_003D  ret
+  exits: B2 (return)
+
+Method   : bool op_Inequality(Employee left, Employee right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x234E   Size: 11 bytes   Token: 0x06000019
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000A  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  call       bool Ref.Modern.Employee::op_Equality(class Ref.Modern.Employee, class Ref.Modern.Employee)
+       IL_0007  ldc.i4.0
+       IL_0008  ceq
+       IL_000A  ret
+  exits: B0 (return)
+
+Method   : bool op_Equality(Employee left, Employee right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x235A   Size: 19 bytes   Token: 0x0600001A
+
+[Branches]  complexity=3  blocks=5  loops=0
+  B0 IL_0000..IL_0003  -> B1 (left != right) | B4 (else)
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  beq.s      IL_0011
+  B1 IL_0004..IL_0006  -> B2 (left != null) | B3 (else)
+       IL_0004  ldarg.0
+       IL_0005  brfalse.s  IL_000F
+  B2 IL_0007..IL_000E  -> exit
+       IL_0007  ldarg.0
+       IL_0008  ldarg.1
+       IL_0009  callvirt   instance bool Ref.Modern.Employee::Equals(class Ref.Modern.Employee)
+       IL_000E  ret
+  B3 IL_000F..IL_0010  -> exit
+       IL_000F  ldc.i4.0
+       IL_0010  ret
+  B4 IL_0011..IL_0012  -> exit
+       IL_0011  ldc.i4.1
+       IL_0012  ret
+  exits: B2 (return), B3 (return), B4 (return)
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x236E   Size: 30 bytes   Token: 0x0600001B
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_001D  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance int32 Ref.Modern.Person::GetHashCode()
+       IL_0006  ldc.i4     0xa5555529
+       IL_000B  mul
+       IL_000C  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<valuetype [System.Runtime]System.Decimal>::get_Default()
+       IL_0011  ldarg.0
+       IL_0012  ldfld      valuetype [System.Runtime]System.Decimal Ref.Modern.Employee::'<Salary>k__BackingField'
+       IL_0017  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<valuetype [System.Runtime]System.Decimal>::GetHashCode(!0)
+       IL_001C  add
+       IL_001D  ret
+  exits: B0 (return)
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x238D   Size: 13 bytes   Token: 0x0600001C
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000C  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  isinst     Ref.Modern.Employee
+       IL_0007  call       instance bool Ref.Modern.Employee::Equals(class Ref.Modern.Employee)
+       IL_000C  ret
+  exits: B0 (return)
+
+Method   : bool Equals(Person other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x239B   Size: 8 bytes   Token: 0x0600001D
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  callvirt   instance bool [System.Runtime]System.Object::Equals(object)
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : bool Equals(Employee other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x23A4   Size: 40 bytes   Token: 0x0600001E
+
+[Branches]  complexity=3  blocks=5  loops=0
+  B0 IL_0000..IL_0003  -> B1 (this != other) | B4 (else)
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  beq.s      IL_0026
+  B1 IL_0004..IL_000C  -> B2 (this.Equals(other)) | B3 (else)
+       IL_0004  ldarg.0
+       IL_0005  ldarg.1
+       IL_0006  call       instance bool Ref.Modern.Person::Equals(class Ref.Modern.Person)
+       IL_000B  brfalse.s  IL_0024
+  B2 IL_000D..IL_0023  -> exit
+       IL_000D  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<valuetype [System.Runtime]System.Decimal>::get_Default()
+       IL_0012  ldarg.0
+       IL_0013  ldfld      valuetype [System.Runtime]System.Decimal Ref.Modern.Employee::'<Salary>k__BackingField'
+       IL_0018  ldarg.1
+       IL_0019  ldfld      valuetype [System.Runtime]System.Decimal Ref.Modern.Employee::'<Salary>k__BackingField'
+       IL_001E  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<valuetype [System.Runtime]System.Decimal>::Equals(!0, !0)
+       IL_0023  ret
+  B3 IL_0024..IL_0025  -> exit
+       IL_0024  ldc.i4.0
+       IL_0025  ret
+  B4 IL_0026..IL_0027  -> exit
+       IL_0026  ldc.i4.1
+       IL_0027  ret
+  exits: B2 (return), B3 (return), B4 (return)
+
+Method   : Employee <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x23CD   Size: 7 bytes   Token: 0x0600001F
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  newobj     instance void Ref.Modern.Employee::.ctor(class Ref.Modern.Employee)
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void .ctor(Employee original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x23D5   Size: 20 bytes   Token: 0x06000020
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0013  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  call       instance void Ref.Modern.Person::.ctor(class Ref.Modern.Person)
+       IL_0007  ldarg.0
+       IL_0008  ldarg.1
+       IL_0009  ldfld      valuetype [System.Runtime]System.Decimal Ref.Modern.Employee::'<Salary>k__BackingField'
+       IL_000E  stfld      valuetype [System.Runtime]System.Decimal Ref.Modern.Employee::'<Salary>k__BackingField'
+       IL_0013  ret
+  exits: B0 (return)
+
+Method   : void Deconstruct(out string First, out string Last, out Decimal Salary)
+Kind     : instance, public, compiler-generated
+RVA      : 0x23EA   Size: 29 bytes   Token: 0x06000021
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_001C  -> exit
+       IL_0000  ldarg.1
+       IL_0001  ldarg.0
+       IL_0002  call       instance string Ref.Modern.Person::get_First()
+       IL_0007  stind.ref
+       IL_0008  ldarg.2
+       IL_0009  ldarg.0
+       IL_000A  call       instance string Ref.Modern.Person::get_Last()
+       IL_000F  stind.ref
+       IL_0010  ldarg.3
+       IL_0011  ldarg.0
+       IL_0012  call       instance valuetype [System.Runtime]System.Decimal Ref.Modern.Employee::get_Salary()
+       IL_0017  stobj      [System.Runtime]System.Decimal
+       IL_001C  ret
+  exits: B0 (return)
+
+Type     : Ref.Modern.Point
+
+Method   : void .ctor(double X, double Y)
+Kind     : ctor, instance, public
+RVA      : 0x2408   Size: 15 bytes   Token: 0x06000022
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000E  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      float64 Ref.Modern.Point::'<X>k__BackingField'
+       IL_0007  ldarg.0
+       IL_0008  ldarg.2
+       IL_0009  stfld      float64 Ref.Modern.Point::'<Y>k__BackingField'
+       IL_000E  ret
+  exits: B0 (return)
+
+Method   : double get_X()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2418   Size: 7 bytes   Token: 0x06000023
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      float64 Ref.Modern.Point::'<X>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_X(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2420   Size: 8 bytes   Token: 0x06000024
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      float64 Ref.Modern.Point::'<X>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : double get_Y()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2429   Size: 7 bytes   Token: 0x06000025
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      float64 Ref.Modern.Point::'<Y>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_Y(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2431   Size: 8 bytes   Token: 0x06000026
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      float64 Ref.Modern.Point::'<Y>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : double get_Length()
+Kind     : property-get, instance, public
+RVA      : 0x243A   Size: 33 bytes   Token: 0x06000027
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0020  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance float64 Ref.Modern.Point::get_X()
+       IL_0006  ldarg.0
+       IL_0007  call       instance float64 Ref.Modern.Point::get_X()
+       IL_000C  mul
+       IL_000D  ldarg.0
+       IL_000E  call       instance float64 Ref.Modern.Point::get_Y()
+       IL_0013  ldarg.0
+       IL_0014  call       instance float64 Ref.Modern.Point::get_Y()
+       IL_0019  mul
+       IL_001A  add
+       IL_001B  call       float64 [System.Runtime]System.Math::Sqrt(float64)
+       IL_0020  ret
+  exits: B0 (return)
+
+Method   : Point op_Addition(Point a, Point b)
+Kind     : operator, static, public
+RVA      : 0x245C   Size: 36 bytes   Token: 0x06000028
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0023  -> exit
+       IL_0000  ldarga.s   a
+       IL_0002  call       instance float64 Ref.Modern.Point::get_X()
+       IL_0007  ldarga.s   b
+       IL_0009  call       instance float64 Ref.Modern.Point::get_X()
+       IL_000E  add
+       IL_000F  ldarga.s   a
+       IL_0011  call       instance float64 Ref.Modern.Point::get_Y()
+       IL_0016  ldarga.s   b
+       IL_0018  call       instance float64 Ref.Modern.Point::get_Y()
+       IL_001D  add
+       IL_001E  newobj     instance void Ref.Modern.Point::.ctor(float64, float64)
+       IL_0023  ret
+  exits: B0 (return)
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2484   Size: 64 bytes   Token: 0x06000029
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0026  -> B1 (this.PrintMembers(V_0)) | B2 (else)
+       IL_0000  newobj     instance void [System.Runtime]System.Text.StringBuilder::.ctor()
+       IL_0005  stloc.0
+       IL_0006  ldloc.0
+       IL_0007  ldstr      "Point"
+       IL_000C  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_0011  pop
+       IL_0012  ldloc.0
+       IL_0013  ldstr      " { "
+       IL_0018  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_001D  pop
+       IL_001E  ldarg.0
+       IL_001F  ldloc.0
+       IL_0020  call       instance bool Ref.Modern.Point::PrintMembers(class [System.Runtime]System.Text.StringBuilder)
+       IL_0025  brfalse.s  IL_0030
+  B1 IL_0027..IL_002F  -> B2
+       IL_0027  ldloc.0
+       IL_0028  ldc.i4.s   32
+       IL_002A  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+       IL_002F  pop
+  B2 IL_0030..IL_003F  -> exit
+       IL_0030  ldloc.0
+       IL_0031  ldc.i4.s   125
+       IL_0033  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+       IL_0038  pop
+       IL_0039  ldloc.0
+       IL_003A  callvirt   instance string [System.Runtime]System.Object::ToString()
+       IL_003F  ret
+  exits: B2 (return)
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, private, compiler-generated
+RVA      : 0x24D0   Size: 119 bytes   Token: 0x0600002A
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0076  -> exit
+       IL_0000  ldarg.1
+       IL_0001  ldstr      "X = "
+       IL_0006  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_000B  pop
+       IL_000C  ldarg.1
+       IL_000D  ldarg.0
+       IL_000E  call       instance float64 Ref.Modern.Point::get_X()
+       IL_0013  stloc.0
+       IL_0014  ldloca.s   V_0
+       IL_0016  constrained. [System.Runtime]System.Double
+       IL_001C  callvirt   instance string [System.Runtime]System.Object::ToString()
+       IL_0021  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_0026  pop
+       IL_0027  ldarg.1
+       IL_0028  ldstr      ", Y = "
+       IL_002D  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_0032  pop
+       IL_0033  ldarg.1
+       IL_0034  ldarg.0
+       IL_0035  call       instance float64 Ref.Modern.Point::get_Y()
+       IL_003A  stloc.0
+       IL_003B  ldloca.s   V_0
+       IL_003D  constrained. [System.Runtime]System.Double
+       IL_0043  callvirt   instance string [System.Runtime]System.Object::ToString()
+       IL_0048  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_004D  pop
+       IL_004E  ldarg.1
+       IL_004F  ldstr      ", Length = "
+       IL_0054  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_0059  pop
+       IL_005A  ldarg.1
+       IL_005B  ldarg.0
+       IL_005C  call       instance float64 Ref.Modern.Point::get_Length()
+       IL_0061  stloc.0
+       IL_0062  ldloca.s   V_0
+       IL_0064  constrained. [System.Runtime]System.Double
+       IL_006A  callvirt   instance string [System.Runtime]System.Object::ToString()
+       IL_006F  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_0074  pop
+       IL_0075  ldc.i4.1
+       IL_0076  ret
+  exits: B0 (return)
+
+Method   : bool op_Inequality(Point left, Point right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2553   Size: 11 bytes   Token: 0x0600002B
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000A  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  call       bool Ref.Modern.Point::op_Equality(valuetype Ref.Modern.Point, valuetype Ref.Modern.Point)
+       IL_0007  ldc.i4.0
+       IL_0008  ceq
+       IL_000A  ret
+  exits: B0 (return)
+
+Method   : bool op_Equality(Point left, Point right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x255F   Size: 9 bytes   Token: 0x0600002C
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0008  -> exit
+       IL_0000  ldarga.s   left
+       IL_0002  ldarg.1
+       IL_0003  call       instance bool Ref.Modern.Point::Equals(valuetype Ref.Modern.Point)
+       IL_0008  ret
+  exits: B0 (return)
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2569   Size: 40 bytes   Token: 0x0600002D
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0027  -> exit
+       IL_0000  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::get_Default()
+       IL_0005  ldarg.0
+       IL_0006  ldfld      float64 Ref.Modern.Point::'<X>k__BackingField'
+       IL_000B  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::GetHashCode(!0)
+       IL_0010  ldc.i4     0xa5555529
+       IL_0015  mul
+       IL_0016  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::get_Default()
+       IL_001B  ldarg.0
+       IL_001C  ldfld      float64 Ref.Modern.Point::'<Y>k__BackingField'
+       IL_0021  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::GetHashCode(!0)
+       IL_0026  add
+       IL_0027  ret
+  exits: B0 (return)
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2592   Size: 23 bytes   Token: 0x0600002E
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0007  -> B1 (obj is Point) | B2 (else)
+       IL_0000  ldarg.1
+       IL_0001  isinst     Ref.Modern.Point
+       IL_0006  brfalse.s  IL_0015
+  B1 IL_0008..IL_0014  -> exit
+       IL_0008  ldarg.0
+       IL_0009  ldarg.1
+       IL_000A  unbox.any  Ref.Modern.Point
+       IL_000F  call       instance bool Ref.Modern.Point::Equals(valuetype Ref.Modern.Point)
+       IL_0014  ret
+  B2 IL_0015..IL_0016  -> exit
+       IL_0015  ldc.i4.0
+       IL_0016  ret
+  exits: B1 (return), B2 (return)
+
+Method   : bool Equals(Point other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x25AA   Size: 49 bytes   Token: 0x0600002F
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0017  -> B1 (EqualityComparer<double>.Default.Equals(this.<X>k__BackingField, other.<X>k__...) | B2 (else)
+       IL_0000  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::get_Default()
+       IL_0005  ldarg.0
+       IL_0006  ldfld      float64 Ref.Modern.Point::'<X>k__BackingField'
+       IL_000B  ldarg.1
+       IL_000C  ldfld      float64 Ref.Modern.Point::'<X>k__BackingField'
+       IL_0011  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::Equals(!0, !0)
+       IL_0016  brfalse.s  IL_002F
+  B1 IL_0018..IL_002E  -> exit
+       IL_0018  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::get_Default()
+       IL_001D  ldarg.0
+       IL_001E  ldfld      float64 Ref.Modern.Point::'<Y>k__BackingField'
+       IL_0023  ldarg.1
+       IL_0024  ldfld      float64 Ref.Modern.Point::'<Y>k__BackingField'
+       IL_0029  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::Equals(!0, !0)
+       IL_002E  ret
+  B2 IL_002F..IL_0030  -> exit
+       IL_002F  ldc.i4.0
+       IL_0030  ret
+  exits: B1 (return), B2 (return)
+
+Method   : void Deconstruct(out double X, out double Y)
+Kind     : instance, public, compiler-generated
+RVA      : 0x25DC   Size: 17 bytes   Token: 0x06000030
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0010  -> exit
+       IL_0000  ldarg.1
+       IL_0001  ldarg.0
+       IL_0002  call       instance float64 Ref.Modern.Point::get_X()
+       IL_0007  stind.r8
+       IL_0008  ldarg.2
+       IL_0009  ldarg.0
+       IL_000A  call       instance float64 Ref.Modern.Point::get_Y()
+       IL_000F  stind.r8
+       IL_0010  ret
+  exits: B0 (return)
+
+Type     : Ref.Modern.Counter
+
+Method   : int get_Value()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x25EE   Size: 7 bytes   Token: 0x06000031
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      int32 Ref.Modern.Counter::'<Value>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_Value(int value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x25F6   Size: 8 bytes   Token: 0x06000032
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      int32 Ref.Modern.Counter::'<Value>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : void Increment()
+Kind     : instance, public
+RVA      : 0x2600   Size: 17 bytes   Token: 0x06000033
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0010  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance int32 Ref.Modern.Counter::get_Value()
+       IL_0006  stloc.0
+       IL_0007  ldarg.0
+       IL_0008  ldloc.0
+       IL_0009  ldc.i4.1
+       IL_000A  add
+       IL_000B  call       instance void Ref.Modern.Counter::set_Value(int32)
+       IL_0010  ret
+  exits: B0 (return)
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2620   Size: 64 bytes   Token: 0x06000034
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0026  -> B1 (this.PrintMembers(V_0)) | B2 (else)
+       IL_0000  newobj     instance void [System.Runtime]System.Text.StringBuilder::.ctor()
+       IL_0005  stloc.0
+       IL_0006  ldloc.0
+       IL_0007  ldstr      "Counter"
+       IL_000C  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_0011  pop
+       IL_0012  ldloc.0
+       IL_0013  ldstr      " { "
+       IL_0018  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_001D  pop
+       IL_001E  ldarg.0
+       IL_001F  ldloc.0
+       IL_0020  call       instance bool Ref.Modern.Counter::PrintMembers(class [System.Runtime]System.Text.StringBuilder)
+       IL_0025  brfalse.s  IL_0030
+  B1 IL_0027..IL_002F  -> B2
+       IL_0027  ldloc.0
+       IL_0028  ldc.i4.s   32
+       IL_002A  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+       IL_002F  pop
+  B2 IL_0030..IL_003F  -> exit
+       IL_0030  ldloc.0
+       IL_0031  ldc.i4.s   125
+       IL_0033  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+       IL_0038  pop
+       IL_0039  ldloc.0
+       IL_003A  callvirt   instance string [System.Runtime]System.Object::ToString()
+       IL_003F  ret
+  exits: B2 (return)
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, private, compiler-generated
+RVA      : 0x266C   Size: 41 bytes   Token: 0x06000035
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0028  -> exit
+       IL_0000  ldarg.1
+       IL_0001  ldstr      "Value = "
+       IL_0006  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_000B  pop
+       IL_000C  ldarg.1
+       IL_000D  ldarg.0
+       IL_000E  call       instance int32 Ref.Modern.Counter::get_Value()
+       IL_0013  stloc.0
+       IL_0014  ldloca.s   V_0
+       IL_0016  constrained. [System.Runtime]System.Int32
+       IL_001C  callvirt   instance string [System.Runtime]System.Object::ToString()
+       IL_0021  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+       IL_0026  pop
+       IL_0027  ldc.i4.1
+       IL_0028  ret
+  exits: B0 (return)
+
+Method   : bool op_Inequality(Counter left, Counter right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x26A1   Size: 11 bytes   Token: 0x06000036
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000A  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  call       bool Ref.Modern.Counter::op_Equality(valuetype Ref.Modern.Counter, valuetype Ref.Modern.Counter)
+       IL_0007  ldc.i4.0
+       IL_0008  ceq
+       IL_000A  ret
+  exits: B0 (return)
+
+Method   : bool op_Equality(Counter left, Counter right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x26AD   Size: 9 bytes   Token: 0x06000037
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0008  -> exit
+       IL_0000  ldarga.s   left
+       IL_0002  ldarg.1
+       IL_0003  call       instance bool Ref.Modern.Counter::Equals(valuetype Ref.Modern.Counter)
+       IL_0008  ret
+  exits: B0 (return)
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x26B7   Size: 17 bytes   Token: 0x06000038
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0010  -> exit
+       IL_0000  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<int32>::get_Default()
+       IL_0005  ldarg.0
+       IL_0006  ldfld      int32 Ref.Modern.Counter::'<Value>k__BackingField'
+       IL_000B  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<int32>::GetHashCode(!0)
+       IL_0010  ret
+  exits: B0 (return)
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x26C9   Size: 23 bytes   Token: 0x06000039
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0007  -> B1 (obj is Counter) | B2 (else)
+       IL_0000  ldarg.1
+       IL_0001  isinst     Ref.Modern.Counter
+       IL_0006  brfalse.s  IL_0015
+  B1 IL_0008..IL_0014  -> exit
+       IL_0008  ldarg.0
+       IL_0009  ldarg.1
+       IL_000A  unbox.any  Ref.Modern.Counter
+       IL_000F  call       instance bool Ref.Modern.Counter::Equals(valuetype Ref.Modern.Counter)
+       IL_0014  ret
+  B2 IL_0015..IL_0016  -> exit
+       IL_0015  ldc.i4.0
+       IL_0016  ret
+  exits: B1 (return), B2 (return)
+
+Method   : bool Equals(Counter other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x26E1   Size: 23 bytes   Token: 0x0600003A
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0016  -> exit
+       IL_0000  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<int32>::get_Default()
+       IL_0005  ldarg.0
+       IL_0006  ldfld      int32 Ref.Modern.Counter::'<Value>k__BackingField'
+       IL_000B  ldarg.1
+       IL_000C  ldfld      int32 Ref.Modern.Counter::'<Value>k__BackingField'
+       IL_0011  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<int32>::Equals(!0, !0)
+       IL_0016  ret
+  exits: B0 (return)
+
+Type     : Ref.Modern.Settings
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x26F9   Size: 7 bytes   Token: 0x0600003B
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      string Ref.Modern.Settings::'<Name>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_Name(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2701   Size: 8 bytes   Token: 0x0600003C
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      string Ref.Modern.Settings::'<Name>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : int get_Retries()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x270A   Size: 7 bytes   Token: 0x0600003D
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      int32 Ref.Modern.Settings::'<Retries>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_Retries(int value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2712   Size: 8 bytes   Token: 0x0600003E
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      int32 Ref.Modern.Settings::'<Retries>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : TimeSpan get_Timeout()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x271B   Size: 7 bytes   Token: 0x0600003F
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      valuetype [System.Runtime]System.TimeSpan Ref.Modern.Settings::'<Timeout>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_Timeout(TimeSpan value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2723   Size: 8 bytes   Token: 0x06000040
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      valuetype [System.Runtime]System.TimeSpan Ref.Modern.Settings::'<Timeout>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : IReadOnlyList<string> get_Tags()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x272C   Size: 7 bytes   Token: 0x06000041
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<string> Ref.Modern.Settings::'<Tags>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_Tags(IReadOnlyList<string> value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2734   Size: 8 bytes   Token: 0x06000042
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<string> Ref.Modern.Settings::'<Tags>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x273D   Size: 45 bytes   Token: 0x06000043
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_002C  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldc.i4.3
+       IL_0002  stfld      int32 Ref.Modern.Settings::'<Retries>k__BackingField'
+       IL_0007  ldarg.0
+       IL_0008  ldc.r8     30
+       IL_0011  call       valuetype [System.Runtime]System.TimeSpan [System.Runtime]System.TimeSpan::FromSeconds(float64)
+       IL_0016  stfld      valuetype [System.Runtime]System.TimeSpan Ref.Modern.Settings::'<Timeout>k__BackingField'
+       IL_001B  ldarg.0
+       IL_001C  call       !!0[] [System.Runtime]System.Array::Empty<string>()
+       IL_0021  stfld      class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<string> Ref.Modern.Settings::'<Tags>k__BackingField'
+       IL_0026  ldarg.0
+       IL_0027  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_002C  ret
+  exits: B0 (return)
+
+Type     : Ref.Modern.IGreeter
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000044
+
+Method   : string Greet()
+Kind     : instance, public, virtual
+RVA      : 0x276B   Size: 18 bytes   Token: 0x06000045
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0011  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance string Ref.Modern.IGreeter::Prefix()
+       IL_0006  ldarg.0
+       IL_0007  callvirt   instance string Ref.Modern.IGreeter::get_Name()
+       IL_000C  call       string [System.Runtime]System.String::Concat(string, string)
+       IL_0011  ret
+  exits: B0 (return)
+
+Method   : string GreetLoudly()
+Kind     : instance, public, virtual
+RVA      : 0x277E   Size: 22 bytes   Token: 0x06000046
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0015  -> exit
+       IL_0000  ldarg.0
+       IL_0001  callvirt   instance string Ref.Modern.IGreeter::Greet()
+       IL_0006  callvirt   instance string [System.Runtime]System.String::ToUpperInvariant()
+       IL_000B  ldstr      "!"
+       IL_0010  call       string [System.Runtime]System.String::Concat(string, string)
+       IL_0015  ret
+  exits: B0 (return)
+
+Method   : string Prefix()
+Kind     : instance, private
+RVA      : 0x2795   Size: 6 bytes   Token: 0x06000047
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0005  -> exit
+       IL_0000  ldstr      "Hello, "
+       IL_0005  ret
+  exits: B0 (return)
+
+Method   : string get_Anonymous()
+Kind     : property-get, static, public
+RVA      : 0x279C   Size: 6 bytes   Token: 0x06000048
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0005  -> exit
+       IL_0000  ldstr      "stranger"
+       IL_0005  ret
+  exits: B0 (return)
+
+Type     : Ref.Modern.Greeter
+
+Method   : void .ctor(string name)
+Kind     : ctor, instance, public
+RVA      : 0x27A3   Size: 14 bytes   Token: 0x06000049
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000D  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  ldarg.0
+       IL_0007  ldarg.1
+       IL_0008  stfld      string Ref.Modern.Greeter::'<Name>k__BackingField'
+       IL_000D  ret
+  exits: B0 (return)
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, virtual, sealed, compiler-generated
+RVA      : 0x27B2   Size: 7 bytes   Token: 0x0600004A
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      string Ref.Modern.Greeter::'<Name>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Type     : Ref.Modern.PoliteGreeter
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, virtual, sealed
+RVA      : 0x27BA   Size: 6 bytes   Token: 0x0600004B
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0005  -> exit
+       IL_0000  ldstr      "sir"
+       IL_0005  ret
+  exits: B0 (return)
+
+Method   : string Greet()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x27C1   Size: 17 bytes   Token: 0x0600004C
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0010  -> exit
+       IL_0000  ldstr      "Good day, "
+       IL_0005  ldarg.0
+       IL_0006  call       instance string Ref.Modern.PoliteGreeter::get_Name()
+       IL_000B  call       string [System.Runtime]System.String::Concat(string, string)
+       IL_0010  ret
+  exits: B0 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x27D3   Size: 7 bytes   Token: 0x0600004D
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  ret
+  exits: B0 (return)
+
+Type     : Ref.Modern.IShape`1
+
+Method   : TSelf get_Unit()
+Kind     : property-get, static, public, abstract, no-body
+RVA      : 0x0000   Token: 0x0600004E
+
+Method   : TSelf op_Multiply(TSelf shape, double factor)
+Kind     : operator, static, public, abstract, no-body
+RVA      : 0x0000   Token: 0x0600004F
+
+Method   : double get_Area()
+Kind     : property-get, instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000050
+
+Method   : string get_Kind()
+Kind     : property-get, static, public, virtual
+RVA      : 0x27DB   Size: 16 bytes   Token: 0x06000051
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000F  -> exit
+       IL_0000  ldtoken    !TSelf
+       IL_0005  call       class [System.Runtime]System.Type [System.Runtime]System.Type::GetTypeFromHandle(valuetype [System.Runtime]System.RuntimeTypeHandle)
+       IL_000A  callvirt   instance string [System.Runtime]System.Reflection.MemberInfo::get_Name()
+       IL_000F  ret
+  exits: B0 (return)
+
+Type     : Ref.Modern.Square
+
+Method   : void .ctor(double side)
+Kind     : ctor, instance, public
+RVA      : 0x27EC   Size: 8 bytes   Token: 0x06000052
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      float64 Ref.Modern.Square::'<Side>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : double get_Side()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27F5   Size: 7 bytes   Token: 0x06000053
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      float64 Ref.Modern.Square::'<Side>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : double get_Area()
+Kind     : property-get, instance, public, virtual, sealed
+RVA      : 0x27FD   Size: 14 bytes   Token: 0x06000054
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000D  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance float64 Ref.Modern.Square::get_Side()
+       IL_0006  ldarg.0
+       IL_0007  call       instance float64 Ref.Modern.Square::get_Side()
+       IL_000C  mul
+       IL_000D  ret
+  exits: B0 (return)
+
+Method   : Square get_Unit()
+Kind     : property-get, static, public
+RVA      : 0x280C   Size: 15 bytes   Token: 0x06000055
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000E  -> exit
+       IL_0000  ldc.r8     1
+       IL_0009  newobj     instance void Ref.Modern.Square::.ctor(float64)
+       IL_000E  ret
+  exits: B0 (return)
+
+Method   : Square op_Multiply(Square s, double factor)
+Kind     : operator, static, public
+RVA      : 0x281C   Size: 15 bytes   Token: 0x06000056
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000E  -> exit
+       IL_0000  ldarga.s   s
+       IL_0002  call       instance float64 Ref.Modern.Square::get_Side()
+       IL_0007  ldarg.1
+       IL_0008  mul
+       IL_0009  newobj     instance void Ref.Modern.Square::.ctor(float64)
+       IL_000E  ret
+  exits: B0 (return)
+
+Method   : string Ref.Modern.IShape<Ref.Modern.Square>.get_Kind()
+Kind     : property-get, static, private
+RVA      : 0x282C   Size: 6 bytes   Token: 0x06000057
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0005  -> exit
+       IL_0000  ldstr      "square"
+       IL_0005  ret
+  exits: B0 (return)
+
+Type     : Ref.Modern.Shapes
+
+Method   : T Scale<T>(double factor)
+Kind     : static, public, generic
+RVA      : 0x2833   Size: 24 bytes   Token: 0x06000058
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0017  -> exit
+       IL_0000  constrained. !!T
+       IL_0006  call       !0 class Ref.Modern.IShape`1<!!0>::get_Unit()
+       IL_000B  ldarg.0
+       IL_000C  constrained. !!T
+       IL_0012  call       !0 class Ref.Modern.IShape`1<!!0>::op_Multiply(!0, float64)
+       IL_0017  ret
+  exits: B0 (return)
+
+Method   : string KindOf<T>()
+Kind     : static, public, generic
+RVA      : 0x284C   Size: 12 bytes   Token: 0x06000059
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000B  -> exit
+       IL_0000  constrained. !!T
+       IL_0006  call       string class Ref.Modern.IShape`1<!!0>::get_Kind()
+       IL_000B  ret
+  exits: B0 (return)
+
+Method   : T Add<T>(T a, T b)
+Kind     : static, public, generic
+RVA      : 0x2859   Size: 14 bytes   Token: 0x0600005A
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000D  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  constrained. !!T
+       IL_0008  call       !2 class [System.Runtime]System.Numerics.IAdditionOperators`3<!!0, !!0, !!0>::op_Addition(!0, !1)
+       IL_000D  ret
+  exits: B0 (return)
+
+Type     : Ref.Modern.Catalog
+
+Method   : void .ctor(string name, IEnumerable<string> items)
+Kind     : ctor, instance, public
+RVA      : 0x2868   Size: 26 bytes   Token: 0x0600005B
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0019  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      string Ref.Modern.Catalog::'<name>P'
+       IL_0007  ldarg.0
+       IL_0008  ldarg.2
+       IL_0009  call       class [System.Collections]System.Collections.Generic.List`1<!!0> [System.Linq]System.Linq.Enumerable::ToList<string>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>)
+       IL_000E  stfld      class [System.Collections]System.Collections.Generic.List`1<string> Ref.Modern.Catalog::_items
+       IL_0013  ldarg.0
+       IL_0014  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0019  ret
+  exits: B0 (return)
+
+Method   : string get_Name()
+Kind     : property-get, instance, public
+RVA      : 0x2883   Size: 7 bytes   Token: 0x0600005C
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      string Ref.Modern.Catalog::'<name>P'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : int get_Count()
+Kind     : property-get, instance, public
+RVA      : 0x288B   Size: 12 bytes   Token: 0x0600005D
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000B  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class [System.Collections]System.Collections.Generic.List`1<string> Ref.Modern.Catalog::_items
+       IL_0006  callvirt   instance int32 class [System.Collections]System.Collections.Generic.List`1<string>::get_Count()
+       IL_000B  ret
+  exits: B0 (return)
+
+Method   : string[] Sorted()
+Kind     : instance, public
+RVA      : 0x2898   Size: 23 bytes   Token: 0x0600005E
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0016  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class [System.Collections]System.Collections.Generic.List`1<string> Ref.Modern.Catalog::_items
+       IL_0006  callvirt   instance !0[] class [System.Collections]System.Collections.Generic.List`1<string>::ToArray()
+       IL_000B  dup
+       IL_000C  call       class [System.Runtime]System.StringComparer [System.Runtime]System.StringComparer::get_Ordinal()
+       IL_0011  call       void [System.Runtime]System.Array::Sort<string>(!!0[], class [System.Runtime]System.Collections.Generic.IComparer`1<!!0>)
+       IL_0016  ret
+  exits: B0 (return)
+
+Method   : bool Contains(string item)
+Kind     : instance, public
+RVA      : 0x28B0   Size: 23 bytes   Token: 0x0600005F
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0016  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class [System.Collections]System.Collections.Generic.List`1<string> Ref.Modern.Catalog::_items
+       IL_0006  call       class [System.Collections]System.Collections.Generic.HashSet`1<string> Ref.Modern.Helper::Normalize(class [System.Runtime]System.Collections.Generic.IEnumerable`1<string>)
+       IL_000B  ldarg.1
+       IL_000C  call       string Ref.Modern.Helper::Normalize(string)
+       IL_0011  callvirt   instance bool class [System.Collections]System.Collections.Generic.HashSet`1<string>::Contains(!0)
+       IL_0016  ret
+  exits: B0 (return)
+
+Type     : Ref.Modern.Helper
+
+Method   : string Normalize(string s)
+Kind     : static, public
+RVA      : 0x28C8   Size: 12 bytes   Token: 0x06000060
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000B  -> exit
+       IL_0000  ldarg.0
+       IL_0001  callvirt   instance string [System.Runtime]System.String::Trim()
+       IL_0006  callvirt   instance string [System.Runtime]System.String::ToLowerInvariant()
+       IL_000B  ret
+  exits: B0 (return)
+
+Method   : HashSet<string> Normalize(IEnumerable<string> items)
+Kind     : static, public
+RVA      : 0x28D8   Size: 62 bytes   Token: 0x06000061
+
+[Branches]  complexity=4  blocks=9  loops=1
+  B0 IL_0000..IL_0011  -> B1
+       IL_0000  call       class [System.Runtime]System.StringComparer [System.Runtime]System.StringComparer::get_Ordinal()
+       IL_0005  newobj     instance void class [System.Collections]System.Collections.Generic.HashSet`1<string>::.ctor(class [System.Runtime]System.Collections.Generic.IEqualityComparer`1<!0>)
+       IL_000A  stloc.0
+       IL_000B  ldarg.0
+       IL_000C  callvirt   instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class [System.Runtime]System.Collections.Generic.IEnumerable`1<string>::GetEnumerator()
+       IL_0011  stloc.1
+  B1 IL_0012..IL_0013  -> B3 | B5 (finally)  [try]
+       IL_0012  br.s       IL_0028
+  B2 IL_0014..IL_0027  -> B3 (loop)  [try]
+       IL_0014  ldloc.1
+       IL_0015  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IEnumerator`1<string>::get_Current()
+       IL_001A  stloc.2
+       IL_001B  ldloc.0
+       IL_001C  ldloc.2
+       IL_001D  call       string Ref.Modern.Helper::Normalize(string)
+       IL_0022  callvirt   instance bool class [System.Collections]System.Collections.Generic.HashSet`1<string>::Add(!0)
+       IL_0027  pop
+  B3 IL_0028..IL_002F  -> B2 (V_1.MoveNext()) | B4 (else)  [loop, try]
+       IL_0028  ldloc.1
+       IL_0029  callvirt   instance bool [System.Runtime]System.Collections.IEnumerator::MoveNext()
+       IL_002E  brtrue.s   IL_0014
+  B4 IL_0030..IL_0031  -> B8 (leave)  [try]
+       IL_0030  leave.s    IL_003C
+  B5 IL_0032..IL_0034  -> B6 (V_1 != null) | B7 (else)  [finally]
+       IL_0032  ldloc.1
+       IL_0033  brfalse.s  IL_003B
+  B6 IL_0035..IL_003A  -> B7  [finally]
+       IL_0035  ldloc.1
+       IL_0036  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  B7 IL_003B..IL_003B  -> endfinally  [finally]
+       IL_003B  endfinally
+  B8 IL_003C..IL_003D  -> exit
+       IL_003C  ldloc.0
+       IL_003D  ret
+  loop: header B3, back edges from B2, body B2 B3
+  exits: B8 (return)
+  regions:
+    try IL_0012..IL_0031  [B1 B2 B3 B4]
+    finally IL_0032..IL_003B  [B5 B6 B7]  (handler of try IL_0012)

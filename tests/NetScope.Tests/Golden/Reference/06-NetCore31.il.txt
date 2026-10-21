@@ -1,0 +1,554 @@
+Assembly : Ref06.NetCore31.dll
+Name     : Ref06.NetCore31, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v3.1   Machine: anycpu
+Methods  : 17
+
+Type     : Microsoft.CodeAnalysis.EmbeddedAttribute
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2050   Size: 7 bytes   Token: 0x06000001
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Attribute::.ctor()
+  IL_0006  ret
+
+Type     : System.Runtime.CompilerServices.NullableAttribute
+
+Method   : void .ctor(byte arg1)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2058   Size: 23 bytes   Token: 0x06000002
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Attribute::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldc.i4.1
+  IL_0008  newarr     [System.Runtime]System.Byte
+  IL_000D  dup
+  IL_000E  ldc.i4.0
+  IL_000F  ldarg.1
+  IL_0010  stelem.i1
+  IL_0011  stfld      uint8[] System.Runtime.CompilerServices.NullableAttribute::NullableFlags
+  IL_0016  ret
+
+Method   : void .ctor(byte[] arg1)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2070   Size: 14 bytes   Token: 0x06000003
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Attribute::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      uint8[] System.Runtime.CompilerServices.NullableAttribute::NullableFlags
+  IL_000D  ret
+
+Type     : System.Runtime.CompilerServices.NullableContextAttribute
+
+Method   : void .ctor(byte arg1)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x207F   Size: 14 bytes   Token: 0x06000004
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Attribute::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      uint8 System.Runtime.CompilerServices.NullableContextAttribute::Flag
+  IL_000D  ret
+
+Type     : Ref.NetCore31.Measurement
+
+Method   : void .ctor(string name, double value, string unit)
+Kind     : ctor, instance, public
+RVA      : 0x208E   Size: 28 bytes   Token: 0x06000005
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      string Ref.NetCore31.Measurement::'<Name>k__BackingField'
+  IL_000D  ldarg.0
+  IL_000E  ldarg.2
+  IL_000F  stfld      float64 Ref.NetCore31.Measurement::'<Value>k__BackingField'
+  IL_0014  ldarg.0
+  IL_0015  ldarg.3
+  IL_0016  stfld      string Ref.NetCore31.Measurement::'<Unit>k__BackingField'
+  IL_001B  ret
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20AB   Size: 7 bytes   Token: 0x06000006
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      string Ref.NetCore31.Measurement::'<Name>k__BackingField'
+  IL_0006  ret
+
+Method   : double get_Value()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20B3   Size: 7 bytes   Token: 0x06000007
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      float64 Ref.NetCore31.Measurement::'<Value>k__BackingField'
+  IL_0006  ret
+
+Method   : string get_Unit()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20BB   Size: 7 bytes   Token: 0x06000008
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      string Ref.NetCore31.Measurement::'<Unit>k__BackingField'
+  IL_0006  ret
+
+Method   : string Describe()
+Kind     : instance, public
+RVA      : 0x20C4   Size: 70 bytes   Token: 0x06000009
+
+[IL]  .maxstack 4
+  IL_0000  ldarg.0
+  IL_0001  call       instance string Ref.NetCore31.Measurement::get_Unit()
+  IL_0006  brfalse.s  IL_002A
+  IL_0008  ldstr      "{0}={1} {2}"
+  IL_000D  ldarg.0
+  IL_000E  call       instance string Ref.NetCore31.Measurement::get_Name()
+  IL_0013  ldarg.0
+  IL_0014  call       instance float64 Ref.NetCore31.Measurement::get_Value()
+  IL_0019  box        [System.Runtime]System.Double
+  IL_001E  ldarg.0
+  IL_001F  call       instance string Ref.NetCore31.Measurement::get_Unit()
+  IL_0024  call       string [System.Runtime]System.String::Format(string, object, object, object)
+  IL_0029  ret
+  IL_002A  ldstr      "{0}={1}"
+  IL_002F  ldarg.0
+  IL_0030  call       instance string Ref.NetCore31.Measurement::get_Name()
+  IL_0035  ldarg.0
+  IL_0036  call       instance float64 Ref.NetCore31.Measurement::get_Value()
+  IL_003B  box        [System.Runtime]System.Double
+  IL_0040  call       string [System.Runtime]System.String::Format(string, object, object)
+  IL_0045  ret
+
+Type     : Ref.NetCore31.Geometry
+
+Method   : double Area(Shape shape, double size)
+Kind     : static, public
+RVA      : 0x2118   Size: 86 bytes   Token: 0x0600000A
+
+[IL]  .maxstack 2
+  .locals init ([0] float64 V_0)
+  IL_0000  ldarg.0
+  IL_0001  switch     (IL_0014, IL_0024, IL_002A)
+  IL_0012  br.s       IL_0049
+  IL_0014  ldc.r8     3.141592653589793
+  IL_001D  ldarg.1
+  IL_001E  mul
+  IL_001F  ldarg.1
+  IL_0020  mul
+  IL_0021  stloc.0
+  IL_0022  br.s       IL_0054
+  IL_0024  ldarg.1
+  IL_0025  ldarg.1
+  IL_0026  mul
+  IL_0027  stloc.0
+  IL_0028  br.s       IL_0054
+  IL_002A  ldc.r8     3
+  IL_0033  call       float64 [System.Runtime.Extensions]System.Math::Sqrt(float64)
+  IL_0038  ldc.r8     4
+  IL_0041  div
+  IL_0042  ldarg.1
+  IL_0043  mul
+  IL_0044  ldarg.1
+  IL_0045  mul
+  IL_0046  stloc.0
+  IL_0047  br.s       IL_0054
+  IL_0049  ldstr      "shape"
+  IL_004E  newobj     instance void [System.Runtime]System.ArgumentOutOfRangeException::.ctor(string)
+  IL_0053  throw
+  IL_0054  ldloc.0
+  IL_0055  ret
+
+Method   : string Classify(object value)
+Kind     : static, public
+RVA      : 0x217C   Size: 252 bytes   Token: 0x0600000B
+
+[IL]  .maxstack 3
+  .locals init ([0] int32 V_0, [1] string V_1, [2] float64 V_2, [3] float64 V_3, [4] string V_4, [5] object V_5, [6] class [System.Runtime]System.Runtime.CompilerServices.ITuple V_6, [7] object V_7, [8] object V_8, [9] int32 V_9)
+  IL_0000  ldarg.0
+  IL_0001  stloc.s    V_5
+  IL_0003  ldloc.s    V_5
+  IL_0005  brfalse    IL_008D
+  IL_000A  ldloc.s    V_5
+  IL_000C  isinst     [System.Runtime]System.Int32
+  IL_0011  brfalse.s  IL_001D
+  IL_0013  ldloc.s    V_5
+  IL_0015  unbox.any  [System.Runtime]System.Int32
+  IL_001A  stloc.0
+  IL_001B  br.s       IL_0096
+  IL_001D  ldloc.s    V_5
+  IL_001F  isinst     [System.Runtime]System.String
+  IL_0024  stloc.1
+  IL_0025  ldloc.1
+  IL_0026  brfalse.s  IL_0035
+  IL_0028  ldloc.1
+  IL_0029  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+  IL_002E  brfalse.s  IL_00AC
+  IL_0030  br         IL_00B5
+  IL_0035  ldloc.s    V_5
+  IL_0037  isinst     [System.Runtime]System.Runtime.CompilerServices.ITuple
+  IL_003C  stloc.s    V_6
+  IL_003E  ldloc.s    V_6
+  IL_0040  brfalse    IL_00EC
+  IL_0045  ldloc.s    V_6
+  IL_0047  callvirt   instance int32 [System.Runtime]System.Runtime.CompilerServices.ITuple::get_Length()
+  IL_004C  ldc.i4.2
+  IL_004D  bne.un     IL_00EC
+  IL_0052  ldloc.s    V_6
+  IL_0054  ldc.i4.0
+  IL_0055  callvirt   instance object [System.Runtime]System.Runtime.CompilerServices.ITuple::get_Item(int32)
+  IL_005A  stloc.s    V_7
+  IL_005C  ldloc.s    V_7
+  IL_005E  isinst     [System.Runtime]System.Double
+  IL_0063  brfalse    IL_00EC
+  IL_0068  ldloc.s    V_7
+  IL_006A  unbox.any  [System.Runtime]System.Double
+  IL_006F  stloc.2
+  IL_0070  ldloc.s    V_6
+  IL_0072  ldc.i4.1
+  IL_0073  callvirt   instance object [System.Runtime]System.Runtime.CompilerServices.ITuple::get_Item(int32)
+  IL_0078  stloc.s    V_8
+  IL_007A  ldloc.s    V_8
+  IL_007C  isinst     [System.Runtime]System.Double
+  IL_0081  brfalse.s  IL_00EC
+  IL_0083  ldloc.s    V_8
+  IL_0085  unbox.any  [System.Runtime]System.Double
+  IL_008A  stloc.3
+  IL_008B  br.s       IL_00D2
+  IL_008D  ldstr      "null"
+  IL_0092  stloc.s    V_4
+  IL_0094  br.s       IL_00F9
+  IL_0096  ldloc.0
+  IL_0097  ldc.i4.0
+  IL_0098  bge.s      IL_00A3
+  IL_009A  ldstr      "negative int"
+  IL_009F  stloc.s    V_4
+  IL_00A1  br.s       IL_00F9
+  IL_00A3  ldstr      "int"
+  IL_00A8  stloc.s    V_4
+  IL_00AA  br.s       IL_00F9
+  IL_00AC  ldstr      "empty string"
+  IL_00B1  stloc.s    V_4
+  IL_00B3  br.s       IL_00F9
+  IL_00B5  ldstr      "string of "
+  IL_00BA  ldloc.1
+  IL_00BB  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+  IL_00C0  stloc.s    V_9
+  IL_00C2  ldloca.s   V_9
+  IL_00C4  call       instance string [System.Runtime]System.Int32::ToString()
+  IL_00C9  call       string [System.Runtime]System.String::Concat(string, string)
+  IL_00CE  stloc.s    V_4
+  IL_00D0  br.s       IL_00F9
+  IL_00D2  ldstr      "point {0},{1}"
+  IL_00D7  ldloc.2
+  IL_00D8  box        [System.Runtime]System.Double
+  IL_00DD  ldloc.3
+  IL_00DE  box        [System.Runtime]System.Double
+  IL_00E3  call       string [System.Runtime]System.String::Format(string, object, object)
+  IL_00E8  stloc.s    V_4
+  IL_00EA  br.s       IL_00F9
+  IL_00EC  ldarg.0
+  IL_00ED  callvirt   instance class [System.Runtime]System.Type [System.Runtime]System.Object::GetType()
+  IL_00F2  callvirt   instance string [System.Runtime]System.Reflection.MemberInfo::get_Name()
+  IL_00F7  stloc.s    V_4
+  IL_00F9  ldloc.s    V_4
+  IL_00FB  ret
+
+Type     : Ref.NetCore31.Binary
+
+Method   : int ReadHeader(ReadOnlySpan<byte> data, out ushort version)
+Kind     : static, public
+RVA      : 0x2284   Size: 57 bytes   Token: 0x0600000C
+
+[IL]  .maxstack 8
+  IL_0000  ldarga.s   data
+  IL_0002  call       instance int32 valuetype [System.Runtime]System.ReadOnlySpan`1<uint8>::get_Length()
+  IL_0007  ldc.i4.6
+  IL_0008  bge.s      IL_001A
+  IL_000A  ldstr      "header is 6 bytes"
+  IL_000F  ldstr      "data"
+  IL_0014  newobj     instance void [System.Runtime]System.ArgumentException::.ctor(string, string)
+  IL_0019  throw
+  IL_001A  ldarga.s   data
+  IL_001C  ldc.i4.0
+  IL_001D  ldc.i4.4
+  IL_001E  call       instance valuetype [System.Runtime]System.ReadOnlySpan`1<!0> valuetype [System.Runtime]System.ReadOnlySpan`1<uint8>::Slice(int32, int32)
+  IL_0023  call       int32 [System.Memory]System.Buffers.Binary.BinaryPrimitives::ReadInt32LittleEndian(valuetype [System.Runtime]System.ReadOnlySpan`1<uint8>)
+  IL_0028  ldarg.1
+  IL_0029  ldarga.s   data
+  IL_002B  ldc.i4.4
+  IL_002C  ldc.i4.2
+  IL_002D  call       instance valuetype [System.Runtime]System.ReadOnlySpan`1<!0> valuetype [System.Runtime]System.ReadOnlySpan`1<uint8>::Slice(int32, int32)
+  IL_0032  call       uint16 [System.Memory]System.Buffers.Binary.BinaryPrimitives::ReadUInt16LittleEndian(valuetype [System.Runtime]System.ReadOnlySpan`1<uint8>)
+  IL_0037  stind.i2
+  IL_0038  ret
+
+Method   : string Hex(ReadOnlySpan<byte> data)
+Kind     : static, public
+RVA      : 0x22C0   Size: 155 bytes   Token: 0x0600000D
+
+[IL]  .maxstack 4
+  .locals init ([0] valuetype [System.Runtime]System.Span`1<char> V_0, [1] valuetype [System.Runtime]System.Span`1<char> V_1, [2] int32 V_2, [3] int32 V_3)
+  IL_0000  ldarga.s   data
+  IL_0002  call       instance int32 valuetype [System.Runtime]System.ReadOnlySpan`1<uint8>::get_Length()
+  IL_0007  ldc.i4.s   64
+  IL_0009  bgt.s      IL_0024
+  IL_000B  ldarga.s   data
+  IL_000D  call       instance int32 valuetype [System.Runtime]System.ReadOnlySpan`1<uint8>::get_Length()
+  IL_0012  ldc.i4.2
+  IL_0013  mul
+  IL_0014  stloc.2
+  IL_0015  ldloc.2
+  IL_0016  conv.u
+  IL_0017  ldc.i4.2
+  IL_0018  mul.ovf.un
+  IL_0019  localloc
+  IL_001B  ldloc.2
+  IL_001C  newobj     instance void valuetype [System.Runtime]System.Span`1<char>::.ctor(void*, int32)
+  IL_0021  stloc.1
+  IL_0022  br.s       IL_0038
+  IL_0024  ldarga.s   data
+  IL_0026  call       instance int32 valuetype [System.Runtime]System.ReadOnlySpan`1<uint8>::get_Length()
+  IL_002B  ldc.i4.2
+  IL_002C  mul
+  IL_002D  newarr     [System.Runtime]System.Char
+  IL_0032  call       valuetype [System.Runtime]System.Span`1<!0> valuetype [System.Runtime]System.Span`1<char>::op_Implicit(!0[])
+  IL_0037  stloc.1
+  IL_0038  ldloc.1
+  IL_0039  stloc.0
+  IL_003A  ldc.i4.0
+  IL_003B  stloc.3
+  IL_003C  br.s       IL_0085
+  IL_003E  ldloca.s   V_0
+  IL_0040  ldc.i4.2
+  IL_0041  ldloc.3
+  IL_0042  mul
+  IL_0043  call       instance !0& valuetype [System.Runtime]System.Span`1<char>::get_Item(int32)
+  IL_0048  ldstr      "0123456789abcdef"
+  IL_004D  ldarga.s   data
+  IL_004F  ldloc.3
+  IL_0050  call       instance !0& modreq([System.Runtime]System.Runtime.InteropServices.InAttribute) valuetype [System.Runtime]System.ReadOnlySpan`1<uint8>::get_Item(int32)
+  IL_0055  ldind.u1
+  IL_0056  ldc.i4.4
+  IL_0057  shr
+  IL_0058  call       instance char [System.Runtime]System.String::get_Chars(int32)
+  IL_005D  stind.i2
+  IL_005E  ldloca.s   V_0
+  IL_0060  ldc.i4.2
+  IL_0061  ldloc.3
+  IL_0062  mul
+  IL_0063  ldc.i4.1
+  IL_0064  add
+  IL_0065  call       instance !0& valuetype [System.Runtime]System.Span`1<char>::get_Item(int32)
+  IL_006A  ldstr      "0123456789abcdef"
+  IL_006F  ldarga.s   data
+  IL_0071  ldloc.3
+  IL_0072  call       instance !0& modreq([System.Runtime]System.Runtime.InteropServices.InAttribute) valuetype [System.Runtime]System.ReadOnlySpan`1<uint8>::get_Item(int32)
+  IL_0077  ldind.u1
+  IL_0078  ldc.i4.s   15
+  IL_007A  and
+  IL_007B  call       instance char [System.Runtime]System.String::get_Chars(int32)
+  IL_0080  stind.i2
+  IL_0081  ldloc.3
+  IL_0082  ldc.i4.1
+  IL_0083  add
+  IL_0084  stloc.3
+  IL_0085  ldloc.3
+  IL_0086  ldarga.s   data
+  IL_0088  call       instance int32 valuetype [System.Runtime]System.ReadOnlySpan`1<uint8>::get_Length()
+  IL_008D  blt.s      IL_003E
+  IL_008F  ldloc.0
+  IL_0090  call       valuetype [System.Runtime]System.ReadOnlySpan`1<!0> valuetype [System.Runtime]System.Span`1<char>::op_Implicit(valuetype [System.Runtime]System.Span`1<!0>)
+  IL_0095  newobj     instance void [System.Runtime]System.String::.ctor(valuetype [System.Runtime]System.ReadOnlySpan`1<char>)
+  IL_009A  ret
+
+Type     : Ref.NetCore31.JsonExport
+
+Method   : string Write(IEnumerable<Measurement> items)
+Kind     : static, public
+RVA      : 0x2368   Size: 191 bytes   Token: 0x0600000E
+
+[IL]  .maxstack 3
+  .locals init ([0] class [System.Runtime.Extensions]System.IO.MemoryStream V_0, [1] class [System.Text.Json]System.Text.Json.Utf8JsonWriter V_1, [2] valuetype [System.Text.Json]System.Text.Json.JsonWriterOptions V_2, [3] class [System.Runtime]System.Collections.Generic.IEnumerator`1<class Ref.NetCore31.Measurement> V_3, [4] class Ref.NetCore31.Measurement V_4, [5] string V_5)
+  IL_0000  newobj     instance void [System.Runtime.Extensions]System.IO.MemoryStream::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldloc.0
+  IL_0007  ldloca.s   V_2
+  IL_0009  initobj    [System.Text.Json]System.Text.Json.JsonWriterOptions
+  IL_000F  ldloc.2
+  IL_0010  newobj     instance void [System.Text.Json]System.Text.Json.Utf8JsonWriter::.ctor(class [System.Runtime]System.IO.Stream, valuetype [System.Text.Json]System.Text.Json.JsonWriterOptions)
+  IL_0015  stloc.1
+  IL_0016  ldloc.1
+  IL_0017  callvirt   instance void [System.Text.Json]System.Text.Json.Utf8JsonWriter::WriteStartArray()
+  IL_001C  ldarg.0
+  IL_001D  callvirt   instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class [System.Runtime]System.Collections.Generic.IEnumerable`1<class Ref.NetCore31.Measurement>::GetEnumerator()
+  IL_0022  stloc.3
+  IL_0023  br.s       IL_0078
+  IL_0025  ldloc.3
+  IL_0026  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IEnumerator`1<class Ref.NetCore31.Measurement>::get_Current()
+  IL_002B  stloc.s    V_4
+  IL_002D  ldloc.1
+  IL_002E  callvirt   instance void [System.Text.Json]System.Text.Json.Utf8JsonWriter::WriteStartObject()
+  IL_0033  ldloc.1
+  IL_0034  ldstr      "name"
+  IL_0039  ldloc.s    V_4
+  IL_003B  callvirt   instance string Ref.NetCore31.Measurement::get_Name()
+  IL_0040  callvirt   instance void [System.Text.Json]System.Text.Json.Utf8JsonWriter::WriteString(string, string)
+  IL_0045  ldloc.1
+  IL_0046  ldstr      "value"
+  IL_004B  ldloc.s    V_4
+  IL_004D  callvirt   instance float64 Ref.NetCore31.Measurement::get_Value()
+  IL_0052  callvirt   instance void [System.Text.Json]System.Text.Json.Utf8JsonWriter::WriteNumber(string, float64)
+  IL_0057  ldloc.s    V_4
+  IL_0059  callvirt   instance string Ref.NetCore31.Measurement::get_Unit()
+  IL_005E  brfalse.s  IL_0072
+  IL_0060  ldloc.1
+  IL_0061  ldstr      "unit"
+  IL_0066  ldloc.s    V_4
+  IL_0068  callvirt   instance string Ref.NetCore31.Measurement::get_Unit()
+  IL_006D  callvirt   instance void [System.Text.Json]System.Text.Json.Utf8JsonWriter::WriteString(string, string)
+  IL_0072  ldloc.1
+  IL_0073  callvirt   instance void [System.Text.Json]System.Text.Json.Utf8JsonWriter::WriteEndObject()
+  IL_0078  ldloc.3
+  IL_0079  callvirt   instance bool [System.Runtime]System.Collections.IEnumerator::MoveNext()
+  IL_007E  brtrue.s   IL_0025
+  IL_0080  leave.s    IL_008C
+  IL_0082  ldloc.3
+  IL_0083  brfalse.s  IL_008B
+  IL_0085  ldloc.3
+  IL_0086  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  IL_008B  endfinally
+  IL_008C  ldloc.1
+  IL_008D  callvirt   instance void [System.Text.Json]System.Text.Json.Utf8JsonWriter::WriteEndArray()
+  IL_0092  leave.s    IL_009E
+  IL_0094  ldloc.1
+  IL_0095  brfalse.s  IL_009D
+  IL_0097  ldloc.1
+  IL_0098  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  IL_009D  endfinally
+  IL_009E  call       class [System.Runtime]System.Text.Encoding [System.Runtime]System.Text.Encoding::get_UTF8()
+  IL_00A3  ldloc.0
+  IL_00A4  callvirt   instance uint8[] [System.Runtime.Extensions]System.IO.MemoryStream::ToArray()
+  IL_00A9  callvirt   instance string [System.Runtime]System.Text.Encoding::GetString(uint8[])
+  IL_00AE  stloc.s    V_5
+  IL_00B0  leave.s    IL_00BC
+  IL_00B2  ldloc.0
+  IL_00B3  brfalse.s  IL_00BB
+  IL_00B5  ldloc.0
+  IL_00B6  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  IL_00BB  endfinally
+  IL_00BC  ldloc.s    V_5
+  IL_00BE  ret
+  .try IL_0023 to IL_0082 finally handler IL_0082 to IL_008C
+  .try IL_0016 to IL_0094 finally handler IL_0094 to IL_009E
+  .try IL_0006 to IL_00B2 finally handler IL_00B2 to IL_00BC
+
+Method   : List<Measurement> Read(string json)
+Kind     : static, public
+RVA      : 0x245C   Size: 193 bytes   Token: 0x0600000F
+
+[IL]  .maxstack 4
+  .locals init ([0] class [System.Text.Json]System.Text.Json.JsonDocument V_0, [1] class [System.Collections]System.Collections.Generic.List`1<class Ref.NetCore31.Measurement> V_1, [2] valuetype [System.Text.Json]System.Text.Json.JsonDocumentOptions V_2, [3] valuetype [System.Text.Json]System.Text.Json.JsonElement/ArrayEnumerator V_3, [4] valuetype [System.Text.Json]System.Text.Json.JsonElement V_4, [5] valuetype [System.Text.Json]System.Text.Json.JsonElement/ArrayEnumerator V_5, [6] valuetype [System.Text.Json]System.Text.Json.JsonElement V_6, [7] string V_7, [8] valuetype [System.Text.Json]System.Text.Json.JsonElement V_8, [9] class [System.Collections]System.Collections.Generic.List`1<class Ref.NetCore31.Measurement> V_9)
+  IL_0000  ldarg.0
+  IL_0001  ldloca.s   V_2
+  IL_0003  initobj    [System.Text.Json]System.Text.Json.JsonDocumentOptions
+  IL_0009  ldloc.2
+  IL_000A  call       class [System.Text.Json]System.Text.Json.JsonDocument [System.Text.Json]System.Text.Json.JsonDocument::Parse(string, valuetype [System.Text.Json]System.Text.Json.JsonDocumentOptions)
+  IL_000F  stloc.0
+  IL_0010  newobj     instance void class [System.Collections]System.Collections.Generic.List`1<class Ref.NetCore31.Measurement>::.ctor()
+  IL_0015  stloc.1
+  IL_0016  ldloc.0
+  IL_0017  callvirt   instance valuetype [System.Text.Json]System.Text.Json.JsonElement [System.Text.Json]System.Text.Json.JsonDocument::get_RootElement()
+  IL_001C  stloc.s    V_4
+  IL_001E  ldloca.s   V_4
+  IL_0020  call       instance valuetype [System.Text.Json]System.Text.Json.JsonElement/ArrayEnumerator [System.Text.Json]System.Text.Json.JsonElement::EnumerateArray()
+  IL_0025  stloc.s    V_5
+  IL_0027  ldloca.s   V_5
+  IL_0029  call       instance valuetype [System.Text.Json]System.Text.Json.JsonElement/ArrayEnumerator [System.Text.Json]System.Text.Json.JsonElement/ArrayEnumerator::GetEnumerator()
+  IL_002E  stloc.3
+  IL_002F  br.s       IL_0096
+  IL_0031  ldloca.s   V_3
+  IL_0033  call       instance valuetype [System.Text.Json]System.Text.Json.JsonElement [System.Text.Json]System.Text.Json.JsonElement/ArrayEnumerator::get_Current()
+  IL_0038  stloc.s    V_6
+  IL_003A  ldloca.s   V_6
+  IL_003C  ldstr      "unit"
+  IL_0041  ldloca.s   V_8
+  IL_0043  call       instance bool [System.Text.Json]System.Text.Json.JsonElement::TryGetProperty(string, valuetype [System.Text.Json]System.Text.Json.JsonElement&)
+  IL_0048  brtrue.s   IL_004D
+  IL_004A  ldnull
+  IL_004B  br.s       IL_0054
+  IL_004D  ldloca.s   V_8
+  IL_004F  call       instance string [System.Text.Json]System.Text.Json.JsonElement::GetString()
+  IL_0054  stloc.s    V_7
+  IL_0056  ldloc.1
+  IL_0057  ldloca.s   V_6
+  IL_0059  ldstr      "name"
+  IL_005E  call       instance valuetype [System.Text.Json]System.Text.Json.JsonElement [System.Text.Json]System.Text.Json.JsonElement::GetProperty(string)
+  IL_0063  stloc.s    V_4
+  IL_0065  ldloca.s   V_4
+  IL_0067  call       instance string [System.Text.Json]System.Text.Json.JsonElement::GetString()
+  IL_006C  dup
+  IL_006D  brtrue.s   IL_0075
+  IL_006F  pop
+  IL_0070  ldstr      ""
+  IL_0075  ldloca.s   V_6
+  IL_0077  ldstr      "value"
+  IL_007C  call       instance valuetype [System.Text.Json]System.Text.Json.JsonElement [System.Text.Json]System.Text.Json.JsonElement::GetProperty(string)
+  IL_0081  stloc.s    V_4
+  IL_0083  ldloca.s   V_4
+  IL_0085  call       instance float64 [System.Text.Json]System.Text.Json.JsonElement::GetDouble()
+  IL_008A  ldloc.s    V_7
+  IL_008C  newobj     instance void Ref.NetCore31.Measurement::.ctor(string, float64, string)
+  IL_0091  callvirt   instance void class [System.Collections]System.Collections.Generic.List`1<class Ref.NetCore31.Measurement>::Add(!0)
+  IL_0096  ldloca.s   V_3
+  IL_0098  call       instance bool [System.Text.Json]System.Text.Json.JsonElement/ArrayEnumerator::MoveNext()
+  IL_009D  brtrue.s   IL_0031
+  IL_009F  leave.s    IL_00AF
+  IL_00A1  ldloca.s   V_3
+  IL_00A3  constrained. [System.Text.Json]System.Text.Json.JsonElement/ArrayEnumerator
+  IL_00A9  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  IL_00AE  endfinally
+  IL_00AF  ldloc.1
+  IL_00B0  stloc.s    V_9
+  IL_00B2  leave.s    IL_00BE
+  IL_00B4  ldloc.0
+  IL_00B5  brfalse.s  IL_00BD
+  IL_00B7  ldloc.0
+  IL_00B8  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  IL_00BD  endfinally
+  IL_00BE  ldloc.s    V_9
+  IL_00C0  ret
+  .try IL_002F to IL_00A1 finally handler IL_00A1 to IL_00AF
+  .try IL_0010 to IL_00B4 finally handler IL_00B4 to IL_00BE
+
+Type     : Ref.NetCore31.ILogger
+
+Method   : void Log(string message)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000010
+
+Method   : void LogError(Exception ex)
+Kind     : instance, public, virtual
+RVA      : 0x2548   Size: 23 bytes   Token: 0x06000011
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldstr      "error: "
+  IL_0006  ldarg.1
+  IL_0007  callvirt   instance string [System.Runtime]System.Exception::get_Message()
+  IL_000C  call       string [System.Runtime]System.String::Concat(string, string)
+  IL_0011  callvirt   instance void Ref.NetCore31.ILogger::Log(string)
+  IL_0016  ret

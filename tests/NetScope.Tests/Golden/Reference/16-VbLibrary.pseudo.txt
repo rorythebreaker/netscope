@@ -1,0 +1,716 @@
+Assembly : Ref16.VbLibrary.dll
+Name     : Ref16.VbLibrary, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 49
+
+Type     : Ref.VbLibrary.Accounts.InsufficientFundsException
+
+Method   : void .ctor(Decimal needed)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 31 bytes   Token: 0x06000001
+
+[Pseudocode]
+  public InsufficientFundsException(decimal needed)
+      : base("insufficient funds: need " + needed)
+  {
+      Needed = needed;
+  }
+
+Method   : Decimal get_Needed()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2070   Size: 7 bytes   Token: 0x06000002
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return _Needed;
+  }
+
+Type     : Ref.VbLibrary.Accounts.Account
+
+Method   : void add_BalanceChanged(BalanceChangedEventHandler obj)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x2078   Size: 41 bytes   Token: 0x06000003
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      BalanceChangedEventHandler balanceChangedEventHandler = BalanceChangedEvent;
+      BalanceChangedEventHandler balanceChangedEventHandler2;
+      do
+      {
+          balanceChangedEventHandler2 = balanceChangedEventHandler;
+          BalanceChangedEventHandler value2 = (BalanceChangedEventHandler)Delegate.Combine(balanceChangedEventHandler2, value);
+          balanceChangedEventHandler = Interlocked.CompareExchange(ref BalanceChangedEvent, value2, balanceChangedEventHandler2);
+      }
+      while ((object)balanceChangedEventHandler != balanceChangedEventHandler2);
+  }
+
+Method   : void remove_BalanceChanged(BalanceChangedEventHandler obj)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x20B0   Size: 41 bytes   Token: 0x06000004
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      BalanceChangedEventHandler balanceChangedEventHandler = BalanceChangedEvent;
+      BalanceChangedEventHandler balanceChangedEventHandler2;
+      do
+      {
+          balanceChangedEventHandler2 = balanceChangedEventHandler;
+          BalanceChangedEventHandler value2 = (BalanceChangedEventHandler)Delegate.Remove(balanceChangedEventHandler2, value);
+          balanceChangedEventHandler = Interlocked.CompareExchange(ref BalanceChangedEvent, value2, balanceChangedEventHandler2);
+      }
+      while ((object)balanceChangedEventHandler != balanceChangedEventHandler2);
+  }
+
+Method   : void .ctor(string owner, AccountKind kind)
+Kind     : ctor, instance, public
+RVA      : 0x20E5   Size: 32 bytes   Token: 0x06000005
+
+[Pseudocode]
+  public Account(string owner, AccountKind kind)
+  {
+      _history = new List<string>();
+      Owner = owner;
+      Kind = kind;
+  }
+
+Method   : string get_Owner()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2106   Size: 7 bytes   Token: 0x06000006
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return _Owner;
+  }
+
+Method   : AccountKind get_Kind()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x210E   Size: 7 bytes   Token: 0x06000007
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return _Kind;
+  }
+
+Method   : Decimal get_Balance()
+Kind     : property-get, instance, public
+RVA      : 0x2116   Size: 7 bytes   Token: 0x06000008
+
+[Pseudocode]
+  {
+      return _balance;
+  }
+
+Method   : void Deposit(Decimal amount)
+Kind     : instance, public, virtual
+RVA      : 0x2120   Size: 102 bytes   Token: 0x06000009
+
+[Pseudocode]
+  public virtual void Deposit(decimal amount)
+  {
+      if (decimal.Compare(amount, 0m) <= 0)
+      {
+          throw new ArgumentOutOfRangeException("amount");
+      }
+      ref decimal balance = ref _balance;
+      balance = decimal.Add(balance, amount);
+      _history.Add("deposit " + amount);
+      BalanceChanged?.Invoke(this, _balance);
+  }
+
+Method   : void Withdraw(Decimal amount)
+Kind     : instance, public, virtual
+RVA      : 0x2194   Size: 110 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  public virtual void Withdraw(decimal amount)
+  {
+      if (decimal.Compare(amount, _balance) > 0)
+      {
+          throw new InsufficientFundsException(decimal.Subtract(amount, _balance));
+      }
+      ref decimal balance = ref _balance;
+      balance = decimal.Subtract(balance, amount);
+      _history.Add("withdraw " + amount);
+      BalanceChanged?.Invoke(this, _balance);
+  }
+
+Method   : IEnumerable<string> History()
+Kind     : instance, public
+RVA      : 0x220E   Size: 12 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  public IEnumerable<string> History()
+  {
+      return _history.AsReadOnly();
+  }
+
+Method   : Account op_Addition(Account a, Decimal amount)
+Kind     : operator, static, public
+RVA      : 0x221B   Size: 9 bytes   Token: 0x0600000C
+
+[Pseudocode]
+  public static Account operator +(Account a, decimal amount)
+  {
+      a.Deposit(amount);
+      return a;
+  }
+
+Type     : Ref.VbLibrary.Accounts.SavingsAccount
+
+Method   : void .ctor(string owner)
+Kind     : ctor, instance, public
+RVA      : 0x2225   Size: 25 bytes   Token: 0x0600000D
+
+[Pseudocode]
+  public SavingsAccount(string owner)
+      : base(owner, AccountKind.Savings)
+  {
+      Rate = 0.02m;
+  }
+
+Method   : Decimal get_Rate()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x223F   Size: 7 bytes   Token: 0x0600000E
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return _Rate;
+  }
+
+Method   : void set_Rate(Decimal AutoPropertyValue)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2247   Size: 8 bytes   Token: 0x0600000F
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      _Rate = value;
+  }
+
+Method   : void Withdraw(Decimal amount)
+Kind     : instance, public, override
+RVA      : 0x2250   Size: 39 bytes   Token: 0x06000010
+
+[Pseudocode]
+  public override void Withdraw(decimal amount)
+  {
+      if (decimal.Compare(amount, 1000m) > 0)
+      {
+          throw new InvalidOperationException("limit exceeded");
+      }
+      base.Withdraw(amount);
+  }
+
+Method   : void AddInterest()
+Kind     : instance, public
+RVA      : 0x2278   Size: 30 bytes   Token: 0x06000011
+
+[Pseudocode]
+  public void AddInterest()
+  {
+      Deposit(Math.Round(decimal.Multiply(Balance, Rate), 2));
+  }
+
+Type     : Ref.VbLibrary.Accounts.Bank
+
+Method   : string Describe(AccountKind kind)
+Kind     : static, public
+RVA      : 0x2298   Size: 35 bytes   Token: 0x06000012
+
+[Pseudocode]
+  public static string Describe(AccountKind kind)
+  {
+      return kind switch
+      {
+          AccountKind.Checking => "checking",
+          AccountKind.Savings => "savings",
+          _ => "unknown",
+      };
+  }
+
+Method   : string Grade(int score)
+Kind     : static, public
+RVA      : 0x22C8   Size: 59 bytes   Token: 0x06000013
+
+[Pseudocode]
+  public static string Grade(int score)
+  {
+      if (score >= 90)
+      {
+          return "A";
+      }
+      if (score >= 80 && score <= 89)
+      {
+          return "B";
+      }
+      if (score >= 70 && score <= 79)
+      {
+          return "C";
+      }
+      return "F";
+  }
+
+Method   : List<string> RichOwners(IEnumerable<Account> accounts, Decimal limit)
+Kind     : static, public
+RVA      : 0x2310   Size: 119 bytes   Token: 0x06000014
+
+[Pseudocode]
+  public static List<string> RichOwners(IEnumerable<Account> accounts, decimal limit)
+  {
+      return accounts.Where([SpecialName] (Account a) => decimal.Compare(a.Balance, limit) > 0).OrderBy([SpecialName] (Account a) => a.Owner).Select([SpecialName] (Account a) => a.Owner)
+          .ToList();
+  }
+
+Method   : Dictionary<AccountKind, Decimal> TotalBy(IEnumerable<Account> accounts)
+Kind     : static, public
+RVA      : 0x2394   Size: 120 bytes   Token: 0x06000015
+
+[Pseudocode]
+  public static Dictionary<AccountKind, decimal> TotalBy(IEnumerable<Account> accounts)
+  {
+      return accounts.GroupBy([SpecialName] (Account a) => a.Kind).ToDictionary([SpecialName] (IGrouping<AccountKind, Account> g) => g.Key, [SpecialName] (IGrouping<AccountKind, Account> g) => g.Sum([SpecialName] (Account a) => a.Balance));
+  }
+
+Method   : IEnumerable<string> Statements(Account account)
+Kind     : static, public, iterator
+RVA      : 0x2418   Size: 15 bytes   Token: 0x06000016
+
+[Pseudocode]
+  public static IEnumerable<string> Statements(Account account)
+  {
+      foreach (string item in account.History())
+      {
+          yield return account.Owner + ": " + item;
+      }
+  }
+
+Method   : Task<bool> TransferAsync(Account source, Account target, Decimal amount)
+Kind     : static, public, async
+RVA      : 0x2428   Size: 79 bytes   Token: 0x06000017
+
+[Pseudocode]
+  public static async Task<bool> TransferAsync(Account source, Account target, decimal amount)
+  {
+      await Task.Yield();
+      try
+      {
+          source.Withdraw(amount);
+          target.Deposit(amount);
+          return true;
+      }
+      catch (InsufficientFundsException ex) when (((Func<bool>)delegate
+      {
+          // Could not convert BlockContainer to single expression
+          ProjectData.SetProjectError(ex);
+          return decimal.Compare(ex.Needed, 10m) < 0;
+      }).Invoke())
+      {
+          bool result = false;
+          ProjectData.ClearProjectError();
+          return result;
+      }
+  }
+
+Method   : string LegacyText(object value)
+Kind     : static, public
+RVA      : 0x2484   Size: 50 bytes   Token: 0x06000018
+
+[Pseudocode]
+  public static string LegacyText(object value)
+  {
+      string text = Conversions.ToString(value);
+      if (Strings.Len(text) == 0)
+      {
+          return "(empty)";
+      }
+      return Strings.UCase(Strings.Left(text, 1)) + Strings.Mid(text, 2);
+  }
+
+Method   : int SafeDivide(int a, int b)
+Kind     : static, public
+RVA      : 0x24C4   Size: 35 bytes   Token: 0x06000019
+
+[Pseudocode]
+  public static int SafeDivide(int a, int b)
+  {
+      int result;
+      try
+      {
+          result = a / b;
+      }
+      catch (DivideByZeroException ex)
+      {
+          ProjectData.SetProjectError(ex);
+          DivideByZeroException ex2 = ex;
+          result = 0;
+          ProjectData.ClearProjectError();
+      }
+      finally
+      {
+          Console.WriteLine("divided");
+      }
+      return result;
+  }
+
+Type     : Ref.VbLibrary.Accounts.Account+BalanceChangedEventHandler
+
+Method   : void .ctor(object TargetObject, nint TargetMethod)
+Kind     : ctor, instance, public, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001A
+
+[Pseudocode]
+  public extern BalanceChangedEventHandler(object TargetObject, nint TargetMethod);
+
+Method   : IAsyncResult BeginInvoke(object sender, Decimal newBalance, AsyncCallback DelegateCallback, object DelegateAsyncState)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001B
+
+[Pseudocode]
+  public virtual extern IAsyncResult BeginInvoke(object sender, decimal newBalance, AsyncCallback DelegateCallback, object DelegateAsyncState);
+
+Method   : void EndInvoke(IAsyncResult DelegateAsyncResult)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001C
+
+[Pseudocode]
+  public virtual extern void EndInvoke(IAsyncResult DelegateAsyncResult);
+
+Method   : void Invoke(object sender, Decimal newBalance)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001D
+
+[Pseudocode]
+  public virtual extern void Invoke(object sender, decimal newBalance);
+
+Type     : Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements
+
+Method   : void .ctor(int $State)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2510   Size: 25 bytes   Token: 0x0600001E
+
+[Pseudocode]
+  public VB$StateMachine_4_Statements(int $State)
+  {
+      this.$State = $State;
+      $InitialThreadId = Environment.CurrentManagedThreadId;
+  }
+
+Method   : void Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x252C   Size: 44 bytes   Token: 0x0600001F
+
+[Pseudocode]
+  private void Dispose()
+  {
+      int num = $State;
+      if (num == 1)
+      {
+          $State = -3;
+      }
+      else
+      {
+          $State = -1;
+      }
+      MoveNext();
+      $State = -2;
+  }
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2564   Size: 201 bytes   Token: 0x06000020
+
+[Pseudocode]
+  [CompilerGenerated]
+  private bool MoveNext()
+  {
+      int num = $State;
+      switch (num)
+      {
+      default:
+          return false;
+      case 0:
+          num = ($State = -1);
+          break;
+      case -3:
+      case 1:
+          break;
+      }
+      try
+      {
+          switch (num)
+          {
+          case -3:
+              num = ($State = -1);
+              return true;
+          default:
+              $S0 = $VB$Local_account.History().GetEnumerator();
+              break;
+          case 1:
+              num = ($State = -1);
+              break;
+          }
+          if ($S0.MoveNext())
+          {
+              string current = $S0.Current;
+              $Current = $VB$Local_account.Owner + ": " + current;
+              num = ($State = 1);
+              return true;
+          }
+      }
+      finally
+      {
+          if (num < 0 && $S0 != null)
+          {
+              $S0.Dispose();
+          }
+      }
+      return false;
+  }
+
+Method   : IEnumerator<string> GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x264C   Size: 55 bytes   Token: 0x06000021
+
+[Pseudocode]
+  private IEnumerator<string> GetEnumerator()
+  {
+      VB$StateMachine_4_Statements obj;
+      if ($State == -2 && $InitialThreadId == Environment.CurrentManagedThreadId)
+      {
+          $State = 0;
+          obj = this;
+      }
+      else
+      {
+          obj = new VB$StateMachine_4_Statements(0);
+      }
+      obj.$VB$Local_account = $P_account;
+      return obj;
+  }
+
+Method   : IEnumerator IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x268F   Size: 7 bytes   Token: 0x06000022
+
+[Pseudocode]
+  IEnumerator IEnumerable.GetEnumerator()
+  {
+      return GetEnumerator();
+  }
+
+Method   : string get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2697   Size: 7 bytes   Token: 0x06000023
+
+[Pseudocode]
+  {
+      return $Current;
+  }
+
+Method   : void Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x269F   Size: 6 bytes   Token: 0x06000024
+
+[Pseudocode]
+  private void Reset()
+  {
+      throw new NotSupportedException();
+  }
+
+Method   : object IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26A6   Size: 7 bytes   Token: 0x06000025
+
+[Pseudocode]
+  {
+      return $Current;
+  }
+
+Type     : Ref.VbLibrary.Accounts.Bank+VB$StateMachine_5_TransferAsync
+
+Method   : void MoveNext()
+Kind     : instance, internal, virtual, sealed, compiler-generated
+RVA      : 0x26B0   Size: 266 bytes   Token: 0x06000026
+
+[Pseudocode]
+  [CompilerGenerated]
+  internal void MoveNext()
+  {
+      int num = $State;
+      bool result;
+      try
+      {
+          YieldAwaitable.YieldAwaiter awaiter;
+          if (num != 0)
+          {
+              awaiter = Task.Yield().GetAwaiter();
+              if (!awaiter.IsCompleted)
+              {
+                  num = ($State = 0);
+                  $A0 = awaiter;
+                  $Builder.AwaitUnsafeOnCompleted(ref awaiter, ref this);
+                  return;
+              }
+          }
+          else
+          {
+              num = ($State = -1);
+              awaiter = $A0;
+              $A0 = default;
+          }
+          awaiter.GetResult();
+          awaiter = default;
+          try
+          {
+              $VB$Local_source.Withdraw($VB$Local_amount);
+              $VB$Local_target.Deposit($VB$Local_amount);
+              result = true;
+          }
+          catch (InsufficientFundsException ex) when (((Func<bool>)delegate
+          {
+              // Could not convert BlockContainer to single expression
+              ProjectData.SetProjectError(ex);
+              return decimal.Compare(ex.Needed, 10m) < 0;
+          }).Invoke())
+          {
+              result = false;
+              ProjectData.ClearProjectError();
+          }
+      }
+      catch (Exception ex2)
+      {
+          ProjectData.SetProjectError(ex2);
+          Exception exception = ex2;
+          $State = -2;
+          $Builder.SetException(exception);
+          ProjectData.ClearProjectError();
+          return;
+      }
+      num = ($State = -2);
+      $Builder.SetResult(result);
+  }
+
+Method   : void System.Runtime.CompilerServices.IAsyncStateMachine.SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x27E4   Size: 13 bytes   Token: 0x06000027
+
+[Pseudocode]
+  void IAsyncStateMachine.SetStateMachine(IAsyncStateMachine stateMachine)
+  {
+      $Builder.SetStateMachine(stateMachine);
+  }
+
+Type     : Ref.VbLibrary.Accounts.Bank+_Closure$__
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x27F2   Size: 7 bytes   Token: 0x06000028
+
+[Pseudocode]
+  public _Closure$__()
+  {
+  }
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x27FA   Size: 11 bytes   Token: 0x06000029
+
+[Pseudocode]
+  static _Closure$__()
+  {
+      $I = new _Closure$__();
+  }
+
+Method   : string _Lambda$__2-1(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2806   Size: 7 bytes   Token: 0x0600002A
+
+[Pseudocode]
+  [SpecialName]
+  internal string _Lambda$__2-1(Account a)
+  {
+      return a.Owner;
+  }
+
+Method   : string _Lambda$__2-2(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x280E   Size: 7 bytes   Token: 0x0600002B
+
+[Pseudocode]
+  [SpecialName]
+  internal string _Lambda$__2-2(Account a)
+  {
+      return a.Owner;
+  }
+
+Method   : AccountKind _Lambda$__3-0(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2816   Size: 7 bytes   Token: 0x0600002C
+
+[Pseudocode]
+  [SpecialName]
+  internal AccountKind _Lambda$__3-0(Account a)
+  {
+      return a.Kind;
+  }
+
+Method   : AccountKind _Lambda$__3-1(IGrouping<AccountKind, Account> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x281E   Size: 7 bytes   Token: 0x0600002D
+
+[Pseudocode]
+  [SpecialName]
+  internal AccountKind _Lambda$__3-1(IGrouping<AccountKind, Account> g)
+  {
+      return g.Key;
+  }
+
+Method   : Decimal _Lambda$__3-2(IGrouping<AccountKind, Account> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2826   Size: 43 bytes   Token: 0x0600002E
+
+[Pseudocode]
+  [SpecialName]
+  internal decimal _Lambda$__3-2(IGrouping<AccountKind, Account> g)
+  {
+      return g.Sum([SpecialName] (Account a) => a.Balance);
+  }
+
+Method   : Decimal _Lambda$__3-3(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2852   Size: 7 bytes   Token: 0x0600002F
+
+[Pseudocode]
+  [SpecialName]
+  internal decimal _Lambda$__3-3(Account a)
+  {
+      return a.Balance;
+  }
+
+Type     : Ref.VbLibrary.Accounts.Bank+_Closure$__2-0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x285A   Size: 7 bytes   Token: 0x06000030
+
+[Pseudocode]
+  public _Closure$__2-0()
+  {
+  }
+
+Method   : bool _Lambda$__0(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2862   Size: 21 bytes   Token: 0x06000031
+
+[Pseudocode]
+  [SpecialName]
+  internal bool _Lambda$__0(Account a)
+  {
+      return decimal.Compare(a.Balance, $VB$Local_limit) > 0;
+  }

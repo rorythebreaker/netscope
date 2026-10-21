@@ -1,0 +1,720 @@
+Assembly : Ref17.FSharpLibrary.dll
+Name     : Ref17.FSharpLibrary, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 159
+
+Type     : Ref.FSharp.Expr
+
+Method   : void .ctor(int _tag)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2050   Size: 14 bytes   Token: 0x06000001
+
+Method   : Expr NewNum(double item)
+Kind     : static, public, compiler-generated
+RVA      : 0x2060   Size: 7 bytes   Token: 0x06000002
+
+Method   : bool get_IsNum()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2068   Size: 10 bytes   Token: 0x06000003
+
+Method   : Expr NewVar(string item)
+Kind     : static, public, compiler-generated
+RVA      : 0x2074   Size: 7 bytes   Token: 0x06000004
+
+Method   : bool get_IsVar()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x207C   Size: 10 bytes   Token: 0x06000005
+
+Method   : Expr NewAdd(Expr item1, Expr item2)
+Kind     : static, public, compiler-generated
+RVA      : 0x2088   Size: 8 bytes   Token: 0x06000006
+
+Method   : bool get_IsAdd()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2094   Size: 10 bytes   Token: 0x06000007
+
+Method   : Expr NewMul(Expr item1, Expr item2)
+Kind     : static, public, compiler-generated
+RVA      : 0x20A0   Size: 8 bytes   Token: 0x06000008
+
+Method   : bool get_IsMul()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20AC   Size: 10 bytes   Token: 0x06000009
+
+Method   : Expr NewNeg(Expr item)
+Kind     : static, public, compiler-generated
+RVA      : 0x20B8   Size: 7 bytes   Token: 0x0600000A
+
+Method   : bool get_IsNeg()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20C0   Size: 10 bytes   Token: 0x0600000B
+
+Method   : int get_Tag()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20CC   Size: 7 bytes   Token: 0x0600000C
+
+Method   : object __DebugDisplay()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x20D4   Size: 22 bytes   Token: 0x0600000D
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20EC   Size: 22 bytes   Token: 0x0600000E
+
+Method   : int CompareTo(Expr obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2104   Size: 48 bytes   Token: 0x0600000F
+
+Method   : int CompareTo(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2140   Size: 15 bytes   Token: 0x06000010
+
+Method   : int CompareTo(object obj, IComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2150   Size: 447 bytes   Token: 0x06000011
+
+Method   : int GetHashCode(IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x231C   Size: 300 bytes   Token: 0x06000012
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2454   Size: 12 bytes   Token: 0x06000013
+
+Method   : bool Equals(Expr obj, IEqualityComparer comp)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2464   Size: 355 bytes   Token: 0x06000014
+
+Method   : bool Equals(object obj, IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x25D4   Size: 21 bytes   Token: 0x06000015
+
+Method   : bool Equals(Expr obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x25F8   Size: 333 bytes   Token: 0x06000016
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2754   Size: 20 bytes   Token: 0x06000017
+
+Type     : Ref.FSharp.Expr+Num
+
+Method   : void .ctor(double item)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2774   Size: 15 bytes   Token: 0x06000018
+
+Method   : double get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2784   Size: 7 bytes   Token: 0x06000019
+
+Type     : Ref.FSharp.Expr+Var
+
+Method   : void .ctor(string item)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x278C   Size: 15 bytes   Token: 0x0600001A
+
+Method   : string get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x279C   Size: 7 bytes   Token: 0x0600001B
+
+Type     : Ref.FSharp.Expr+Add
+
+Method   : void .ctor(Expr item1, Expr item2)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x27A4   Size: 22 bytes   Token: 0x0600001C
+
+Method   : Expr get_Item1()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27BC   Size: 7 bytes   Token: 0x0600001D
+
+Method   : Expr get_Item2()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27C4   Size: 7 bytes   Token: 0x0600001E
+
+Type     : Ref.FSharp.Expr+Mul
+
+Method   : void .ctor(Expr item1, Expr item2)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x27CC   Size: 22 bytes   Token: 0x0600001F
+
+Method   : Expr get_Item1()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27E4   Size: 7 bytes   Token: 0x06000020
+
+Method   : Expr get_Item2()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27EC   Size: 7 bytes   Token: 0x06000021
+
+Type     : Ref.FSharp.Expr+Neg
+
+Method   : void .ctor(Expr item)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x27F4   Size: 15 bytes   Token: 0x06000022
+
+Method   : Expr get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2804   Size: 7 bytes   Token: 0x06000023
+
+Type     : Ref.FSharp.Expr+Num@DebugTypeProxy
+
+Method   : void .ctor(Num obj)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x280C   Size: 14 bytes   Token: 0x06000024
+
+Method   : double get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x281C   Size: 12 bytes   Token: 0x06000025
+
+Type     : Ref.FSharp.Expr+Var@DebugTypeProxy
+
+Method   : void .ctor(Var obj)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x282C   Size: 14 bytes   Token: 0x06000026
+
+Method   : string get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x283C   Size: 12 bytes   Token: 0x06000027
+
+Type     : Ref.FSharp.Expr+Add@DebugTypeProxy
+
+Method   : void .ctor(Add obj)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x284C   Size: 14 bytes   Token: 0x06000028
+
+Method   : Expr get_Item1()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x285C   Size: 12 bytes   Token: 0x06000029
+
+Method   : Expr get_Item2()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x286C   Size: 12 bytes   Token: 0x0600002A
+
+Type     : Ref.FSharp.Expr+Mul@DebugTypeProxy
+
+Method   : void .ctor(Mul obj)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x287C   Size: 14 bytes   Token: 0x0600002B
+
+Method   : Expr get_Item1()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x288C   Size: 12 bytes   Token: 0x0600002C
+
+Method   : Expr get_Item2()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x289C   Size: 12 bytes   Token: 0x0600002D
+
+Type     : Ref.FSharp.Expr+Neg@DebugTypeProxy
+
+Method   : void .ctor(Neg obj)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x28AC   Size: 14 bytes   Token: 0x0600002E
+
+Method   : Expr get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x28BC   Size: 12 bytes   Token: 0x0600002F
+
+Type     : Ref.FSharp.Token
+
+Method   : string get_Kind()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x28CC   Size: 7 bytes   Token: 0x06000030
+
+Method   : string get_Text()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x28D4   Size: 7 bytes   Token: 0x06000031
+
+Method   : int get_Position()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x28DC   Size: 7 bytes   Token: 0x06000032
+
+Method   : void .ctor(string kind, string text, int position)
+Kind     : ctor, instance, public
+RVA      : 0x28E4   Size: 28 bytes   Token: 0x06000033
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2904   Size: 22 bytes   Token: 0x06000034
+
+Method   : int CompareTo(Token obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x291C   Size: 120 bytes   Token: 0x06000035
+
+Method   : int CompareTo(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x29A0   Size: 13 bytes   Token: 0x06000036
+
+Method   : int CompareTo(object obj, IComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x29B0   Size: 119 bytes   Token: 0x06000037
+
+Method   : int GetHashCode(IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2A34   Size: 98 bytes   Token: 0x06000038
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2AA4   Size: 12 bytes   Token: 0x06000039
+
+Method   : bool Equals(Token obj, IEqualityComparer comp)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2AB4   Size: 73 bytes   Token: 0x0600003A
+
+Method   : bool Equals(object obj, IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2B0C   Size: 21 bytes   Token: 0x0600003B
+
+Method   : bool Equals(Token obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2B30   Size: 73 bytes   Token: 0x0600003C
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2B88   Size: 20 bytes   Token: 0x0600003D
+
+Type     : Ref.FSharp.Range
+
+Method   : int get_Start()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2BA8   Size: 7 bytes   Token: 0x0600003E
+
+Method   : int get_Length()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2BB0   Size: 7 bytes   Token: 0x0600003F
+
+Method   : void .ctor(int start, int length)
+Kind     : ctor, instance, public
+RVA      : 0x2BB8   Size: 15 bytes   Token: 0x06000040
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2BC8   Size: 27 bytes   Token: 0x06000041
+
+Method   : int CompareTo(Range obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2BE4   Size: 74 bytes   Token: 0x06000042
+
+Method   : int CompareTo(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2C3C   Size: 13 bytes   Token: 0x06000043
+
+Method   : int CompareTo(object obj, IComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2C4C   Size: 69 bytes   Token: 0x06000044
+
+Method   : int GetHashCode(IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2CA0   Size: 46 bytes   Token: 0x06000045
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2CDC   Size: 12 bytes   Token: 0x06000046
+
+Method   : bool Equals(Range obj, IEqualityComparer comp)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2CEC   Size: 33 bytes   Token: 0x06000047
+
+Method   : bool Equals(object obj, IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2D10   Size: 26 bytes   Token: 0x06000048
+
+Method   : bool Equals(Range obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2D38   Size: 33 bytes   Token: 0x06000049
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2D5C   Size: 23 bytes   Token: 0x0600004A
+
+Type     : Ref.FSharp.Stack`1
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2D74   Size: 20 bytes   Token: 0x0600004B
+
+Method   : void Push(T x)
+Kind     : instance, public
+RVA      : 0x2D8C   Size: 15 bytes   Token: 0x0600004C
+
+Method   : T Pop()
+Kind     : instance, public
+RVA      : 0x2D9C   Size: 75 bytes   Token: 0x0600004D
+
+Method   : int get_Count()
+Kind     : property-get, instance, public
+RVA      : 0x2DF4   Size: 14 bytes   Token: 0x0600004E
+
+Method   : IEnumerator<T> System.Collections.Generic.IEnumerable<'T>.GetEnumerator()
+Kind     : instance, private, virtual
+RVA      : 0x2E04   Size: 19 bytes   Token: 0x0600004F
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual
+RVA      : 0x2E18   Size: 19 bytes   Token: 0x06000050
+
+Type     : Ref.FSharp.Async
+
+Method   : FSharpAsync<a> delayed<a>(int ms, a value)
+Kind     : static, public, generic
+RVA      : 0x2E2C   Size: 20 bytes   Token: 0x06000051
+
+Method   : Task<int> sumAll(FSharpList<int> values)
+Kind     : static, public
+RVA      : 0x2E44   Size: 68 bytes   Token: 0x06000052
+
+Type     : Ref.FSharp.Async+delayed@129-1
+
+Method   : void .ctor(a value)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2E94   Size: 14 bytes   Token: 0x06000053
+
+Method   : FSharpAsync<a> Invoke(Unit _arg1)
+Kind     : instance, public, override
+RVA      : 0x2EA4   Size: 19 bytes   Token: 0x06000054
+
+Type     : Ref.FSharp.Async+delayed@129-2
+
+Method   : void .ctor(a value)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2EB8   Size: 14 bytes   Token: 0x06000055
+
+Method   : AsyncReturn Invoke(AsyncActivation<a> ctxt)
+Kind     : instance, public, override
+RVA      : 0x2EC8   Size: 15 bytes   Token: 0x06000056
+
+Type     : Ref.FSharp.Async+delayed@129-3
+
+Method   : void .ctor(FSharpAsync<Unit> computation, FSharpFunc<Unit, FSharpAsync<a>> binder)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2ED8   Size: 21 bytes   Token: 0x06000057
+
+Method   : AsyncReturn Invoke(AsyncActivation<a> ctxt)
+Kind     : instance, public, override
+RVA      : 0x2EF0   Size: 21 bytes   Token: 0x06000058
+
+Type     : Ref.FSharp.Async+delayed@129
+
+Method   : void .ctor(int ms, a value)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2F08   Size: 21 bytes   Token: 0x06000059
+
+Method   : FSharpAsync<a> Invoke(Unit unitVar)
+Kind     : instance, public, override
+RVA      : 0x2F20   Size: 39 bytes   Token: 0x0600005A
+
+Type     : Ref.FSharp.Async+sumAll@133
+
+Method   : void MoveNext()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2F54   Size: 607 bytes   Token: 0x0600005B
+
+Method   : void SetStateMachine(IAsyncStateMachine state)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x31F4   Size: 18 bytes   Token: 0x0600005C
+
+Method   : int get_ResumptionPoint()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x3208   Size: 7 bytes   Token: 0x0600005D
+
+Method   : TaskStateMachineData<int> get_Data()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x3210   Size: 7 bytes   Token: 0x0600005E
+
+Method   : void set_Data(TaskStateMachineData<int> value)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x3218   Size: 8 bytes   Token: 0x0600005F
+
+Type     : Ref.FSharp.Collections
+
+Method   : FSharpList<Tuple<string, int>> wordFrequencies(string text)
+Kind     : static, public
+RVA      : 0x3224   Size: 89 bytes   Token: 0x06000060
+
+Method   : FSharpList<Token> tokenize(string input)
+Kind     : static, public
+RVA      : 0x328C   Size: 229 bytes   Token: 0x06000061
+
+Method   : IEnumerable<int> primes(int limit)
+Kind     : static, public
+RVA      : 0x3380   Size: 13 bytes   Token: 0x06000062
+
+Method   : int adder(int n, int x)
+Kind     : static, public
+RVA      : 0x339C   Size: 4 bytes   Token: 0x06000063
+
+Method   : FSharpFunc<int, int> get_compose()
+Kind     : property-get, static, public
+RVA      : 0x33A4   Size: 6 bytes   Token: 0x06000064
+
+Method   : FSharpFunc<int, int> get_func1@1()
+Kind     : property-get, static, internal
+RVA      : 0x33AC   Size: 6 bytes   Token: 0x06000065
+
+Method   : FSharpFunc<int, int> get_func1@1-1()
+Kind     : property-get, static, internal
+RVA      : 0x33B4   Size: 6 bytes   Token: 0x06000066
+
+Method   : FSharpFunc<int, int> get_func2@1()
+Kind     : property-get, static, internal
+RVA      : 0x33BC   Size: 6 bytes   Token: 0x06000067
+
+Method   : FSharpFunc<a, b> memoize<a, b>(FSharpFunc<a, b> f)
+Kind     : static, public, generic
+RVA      : 0x33C4   Size: 19 bytes   Token: 0x06000068
+
+Type     : Ref.FSharp.Collections+wordFrequencies@68-1
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x33E4   Size: 7 bytes   Token: 0x06000069
+
+Method   : string Invoke(string w)
+Kind     : instance, public, override
+RVA      : 0x33EC   Size: 7 bytes   Token: 0x0600006A
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x33F4   Size: 11 bytes   Token: 0x0600006B
+
+Type     : Ref.FSharp.Collections+wordFrequencies@69
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x340C   Size: 7 bytes   Token: 0x0600006C
+
+Method   : string Invoke(string x)
+Kind     : instance, public, override
+RVA      : 0x3414   Size: 2 bytes   Token: 0x0600006D
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x3418   Size: 11 bytes   Token: 0x0600006E
+
+Type     : Ref.FSharp.Collections+wordFrequencies@70-2
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3430   Size: 7 bytes   Token: 0x0600006F
+
+Method   : int Invoke(Tuple<string, int> a, Tuple<string, int> b)
+Kind     : instance, public, override
+RVA      : 0x3438   Size: 24 bytes   Token: 0x06000070
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x345C   Size: 11 bytes   Token: 0x06000071
+
+Type     : Ref.FSharp.Collections+primes@90
+
+Method   : void .ctor(int limit, bool[] sieve, int i, IEnumerator<int> enum, IEnumerator<int> enum0, int pc, int current)
+Kind     : ctor, instance, public
+RVA      : 0x3474   Size: 60 bytes   Token: 0x06000072
+
+Method   : int GenerateNext(ref IEnumerable<int> next)
+Kind     : instance, public, override
+RVA      : 0x34B4   Size: 342 bytes   Token: 0x06000073
+
+Method   : void Close()
+Kind     : instance, public, override
+RVA      : 0x3618   Size: 144 bytes   Token: 0x06000074
+
+Method   : bool get_CheckClose()
+Kind     : instance, public, override
+RVA      : 0x36C4   Size: 51 bytes   Token: 0x06000075
+
+Method   : int get_LastGenerated()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x36F8   Size: 7 bytes   Token: 0x06000076
+
+Method   : IEnumerator<int> GetFreshEnumerator()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x3700   Size: 18 bytes   Token: 0x06000077
+
+Type     : Ref.FSharp.Collections+compose@100
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3720   Size: 7 bytes   Token: 0x06000078
+
+Method   : int Invoke(int x)
+Kind     : instance, public, override
+RVA      : 0x3728   Size: 4 bytes   Token: 0x06000079
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x3730   Size: 11 bytes   Token: 0x0600007A
+
+Type     : Ref.FSharp.Collections+compose@100-2
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3748   Size: 7 bytes   Token: 0x0600007B
+
+Method   : int Invoke(int x)
+Kind     : instance, public, override
+RVA      : 0x3750   Size: 24 bytes   Token: 0x0600007C
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x376C   Size: 11 bytes   Token: 0x0600007D
+
+Type     : Ref.FSharp.Collections+compose@100-3
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3784   Size: 7 bytes   Token: 0x0600007E
+
+Method   : int Invoke(int x)
+Kind     : instance, public, override
+RVA      : 0x378C   Size: 14 bytes   Token: 0x0600007F
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x379C   Size: 11 bytes   Token: 0x06000080
+
+Type     : Ref.FSharp.Collections+compose@100-1
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x37B4   Size: 7 bytes   Token: 0x06000081
+
+Method   : int Invoke(int x)
+Kind     : instance, public, override
+RVA      : 0x37BC   Size: 4 bytes   Token: 0x06000082
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x37C4   Size: 11 bytes   Token: 0x06000083
+
+Type     : Ref.FSharp.Collections+memoize@104
+
+Method   : void .ctor(FSharpFunc<a, b> f, Dictionary<a, b> cache)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x37DC   Size: 21 bytes   Token: 0x06000084
+
+Method   : b Invoke(a x)
+Kind     : instance, public, override
+RVA      : 0x37F4   Size: 46 bytes   Token: 0x06000085
+
+Type     : Ref.FSharp.Recursion
+
+Method   : long sumTo(long acc, int n)
+Kind     : static, public
+RVA      : 0x3830   Size: 18 bytes   Token: 0x06000086
+
+Method   : bool isEven(int n)
+Kind     : static, public
+RVA      : 0x3844   Size: 16 bytes   Token: 0x06000087
+
+Method   : bool isOdd(int n)
+Kind     : static, public
+RVA      : 0x3858   Size: 16 bytes   Token: 0x06000088
+
+Method   : b foldBack<a, b>(FSharpFunc<a, FSharpFunc<b, b>> f, FSharpList<a> list, FSharpFunc<b, b> k, b state)
+Kind     : static, public, generic
+RVA      : 0x386C   Size: 55 bytes   Token: 0x06000089
+
+Method   : int length<a>(FSharpList<a> list)
+Kind     : static, public, generic
+RVA      : 0x38B0   Size: 20 bytes   Token: 0x0600008A
+
+Type     : Ref.FSharp.Recursion+foldBack@61
+
+Method   : void .ctor(FSharpFunc<a, FSharpFunc<b, b>> f, FSharpFunc<b, b> k, a x)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x38C8   Size: 28 bytes   Token: 0x0600008B
+
+Method   : b Invoke(b acc)
+Kind     : instance, public, override
+RVA      : 0x38E8   Size: 32 bytes   Token: 0x0600008C
+
+Type     : Ref.FSharp.Recursion+length@63
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x390C   Size: 7 bytes   Token: 0x0600008D
+
+Method   : int Invoke(a _arg1, int n)
+Kind     : instance, public, override
+RVA      : 0x3914   Size: 4 bytes   Token: 0x0600008E
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x391C   Size: 11 bytes   Token: 0x0600008F
+
+Type     : Ref.FSharp.Recursion+length@63-1
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3934   Size: 7 bytes   Token: 0x06000090
+
+Method   : int Invoke(int x)
+Kind     : instance, public, override
+RVA      : 0x393C   Size: 2 bytes   Token: 0x06000091
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x3940   Size: 11 bytes   Token: 0x06000092
+
+Type     : Ref.FSharp.Eval
+
+Method   : double eval(FSharpMap<string, double> env, Expr expr)
+Kind     : static, public
+RVA      : 0x3958   Size: 213 bytes   Token: 0x06000093
+
+Method   : Expr simplify(Expr expr)
+Kind     : static, public
+RVA      : 0x3A3C   Size: 824 bytes   Token: 0x06000094
+
+Method   : string show(Expr expr)
+Kind     : static, public
+RVA      : 0x3D80   Size: 241 bytes   Token: 0x06000095
+
+Type     : Ref.FSharp.Eval+show@45-1
+
+Method   : void .ctor(FSharpFunc<string, string> clo2)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3E80   Size: 14 bytes   Token: 0x06000096
+
+Method   : string Invoke(string arg20)
+Kind     : instance, public, override
+RVA      : 0x3E90   Size: 15 bytes   Token: 0x06000097
+
+Type     : Ref.FSharp.Eval+show@45
+
+Method   : void .ctor(FSharpFunc<string, FSharpFunc<string, string>> clo1)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3EA0   Size: 14 bytes   Token: 0x06000098
+
+Method   : FSharpFunc<string, string> Invoke(string arg10)
+Kind     : instance, public, override
+RVA      : 0x3EB0   Size: 20 bytes   Token: 0x06000099
+
+Type     : Ref.FSharp.Eval+show@46-3
+
+Method   : void .ctor(FSharpFunc<string, string> clo2)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3ED0   Size: 14 bytes   Token: 0x0600009A
+
+Method   : string Invoke(string arg20)
+Kind     : instance, public, override
+RVA      : 0x3EE0   Size: 15 bytes   Token: 0x0600009B
+
+Type     : Ref.FSharp.Eval+show@46-2
+
+Method   : void .ctor(FSharpFunc<string, FSharpFunc<string, string>> clo1)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3EF0   Size: 14 bytes   Token: 0x0600009C
+
+Method   : FSharpFunc<string, string> Invoke(string arg10)
+Kind     : instance, public, override
+RVA      : 0x3F00   Size: 20 bytes   Token: 0x0600009D
+
+Type     : <StartupCode$Ref17-FSharpLibrary>.$Library
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x3F20   Size: 41 bytes   Token: 0x0600009E
+
+Method   : int CompareTo$cont@7(Expr this, Expr obj, Unit unitVar)
+Kind     : static, internal, compiler-generated
+RVA      : 0x3F4C   Size: 410 bytes   Token: 0x0600009F

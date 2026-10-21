@@ -1,0 +1,1053 @@
+Assembly : Ref14.Lambdas.dll
+Name     : Ref14.Lambdas, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 84
+
+Type     : <>f__AnonymousType0`2
+
+Method   : <o>j__TPar get_o()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2050   Size: 7 bytes   Token: 0x06000001
+
+[Pseudocode]
+  {
+      return <o>i__Field;
+  }
+
+Method   : <v>j__TPar get_v()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2058   Size: 7 bytes   Token: 0x06000002
+
+[Pseudocode]
+  {
+      return <v>i__Field;
+  }
+
+Method   : void .ctor(<o>j__TPar o, <v>j__TPar v)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2060   Size: 21 bytes   Token: 0x06000003
+
+[Pseudocode]
+  [DebuggerHidden]
+  public <>f__AnonymousType0(<o>j__TPar o, <v>j__TPar v)
+  {
+      <o>i__Field = o;
+      <v>i__Field = v;
+  }
+
+Method   : bool Equals(object value)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2078   Size: 65 bytes   Token: 0x06000004
+
+[Pseudocode]
+  [DebuggerHidden]
+  public override bool Equals(object value)
+  {
+      var anon = value as <>f__AnonymousType0<<o>j__TPar, <v>j__TPar>;
+      if (this != anon)
+      {
+          if (anon != null && EqualityComparer<<o>j__TPar>.Default.Equals(<o>i__Field, anon.<o>i__Field))
+          {
+              return EqualityComparer<<v>j__TPar>.Default.Equals(<v>i__Field, anon.<v>i__Field);
+          }
+          return false;
+      }
+      return true;
+  }
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20C5   Size: 52 bytes   Token: 0x06000005
+
+[Pseudocode]
+  [DebuggerHidden]
+  public override int GetHashCode()
+  {
+      return (unchecked(1374088573 * -1521134295) + EqualityComparer<<o>j__TPar>.Default.GetHashCode(<o>i__Field)) * -1521134295 + EqualityComparer<<v>j__TPar>.Default.GetHashCode(<v>i__Field);
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20FC   Size: 98 bytes   Token: 0x06000006
+
+[Pseudocode]
+  [DebuggerHidden]
+  public override string ToString()
+  {
+      object[] array = new object[2];
+      <o>j__TPar val = <o>i__Field;
+      array[0] = ((val != null) ? val.ToString() : null);
+      <v>j__TPar val2 = <v>i__Field;
+      array[1] = ((val2 != null) ? val2.ToString() : null);
+      return string.Format(null, "{{ o = {0}, v = {1} }}", array);
+  }
+
+Type     : <>f__AnonymousType1`2
+
+Method   : <g>j__TPar get_g()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x216A   Size: 7 bytes   Token: 0x06000007
+
+[Pseudocode]
+  {
+      return <g>i__Field;
+  }
+
+Method   : <total>j__TPar get_total()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2172   Size: 7 bytes   Token: 0x06000008
+
+[Pseudocode]
+  {
+      return <total>i__Field;
+  }
+
+Method   : void .ctor(<g>j__TPar g, <total>j__TPar total)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x217A   Size: 21 bytes   Token: 0x06000009
+
+[Pseudocode]
+  [DebuggerHidden]
+  public <>f__AnonymousType1(<g>j__TPar g, <total>j__TPar total)
+  {
+      <g>i__Field = g;
+      <total>i__Field = total;
+  }
+
+Method   : bool Equals(object value)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2190   Size: 65 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  [DebuggerHidden]
+  public override bool Equals(object value)
+  {
+      var anon = value as <>f__AnonymousType1<<g>j__TPar, <total>j__TPar>;
+      if (this != anon)
+      {
+          if (anon != null && EqualityComparer<<g>j__TPar>.Default.Equals(<g>i__Field, anon.<g>i__Field))
+          {
+              return EqualityComparer<<total>j__TPar>.Default.Equals(<total>i__Field, anon.<total>i__Field);
+          }
+          return false;
+      }
+      return true;
+  }
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x21DD   Size: 52 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  [DebuggerHidden]
+  public override int GetHashCode()
+  {
+      return (unchecked(4830313 * -1521134295) + EqualityComparer<<g>j__TPar>.Default.GetHashCode(<g>i__Field)) * -1521134295 + EqualityComparer<<total>j__TPar>.Default.GetHashCode(<total>i__Field);
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2214   Size: 98 bytes   Token: 0x0600000C
+
+[Pseudocode]
+  [DebuggerHidden]
+  public override string ToString()
+  {
+      object[] array = new object[2];
+      <g>j__TPar val = <g>i__Field;
+      array[0] = ((val != null) ? val.ToString() : null);
+      <total>j__TPar val2 = <total>i__Field;
+      array[1] = ((val2 != null) ? val2.ToString() : null);
+      return string.Format(null, "{{ g = {0}, total = {1} }}", array);
+  }
+
+Type     : Ref.Lambdas.Order
+
+Method   : void .ctor(int Id, string Customer, Decimal Amount, DateTime Date)
+Kind     : ctor, instance, public
+RVA      : 0x2282   Size: 36 bytes   Token: 0x0600000D
+
+[Pseudocode]
+  public Order(int Id, string Customer, decimal Amount, DateTime Date)
+  {
+  }
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, private, compiler-generated
+RVA      : 0x22A7   Size: 11 bytes   Token: 0x0600000E
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return typeof(Order);
+  }
+
+Method   : int get_Id()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22B3   Size: 7 bytes   Token: 0x0600000F
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Id>k__BackingField;
+  }
+
+Method   : void set_Id(int value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22BB   Size: 8 bytes   Token: 0x06000010
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Id>k__BackingField = value;
+  }
+
+Method   : string get_Customer()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22C4   Size: 7 bytes   Token: 0x06000011
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Customer>k__BackingField;
+  }
+
+Method   : void set_Customer(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22CC   Size: 8 bytes   Token: 0x06000012
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Customer>k__BackingField = value;
+  }
+
+Method   : Decimal get_Amount()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22D5   Size: 7 bytes   Token: 0x06000013
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Amount>k__BackingField;
+  }
+
+Method   : void set_Amount(Decimal value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22DD   Size: 8 bytes   Token: 0x06000014
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Amount>k__BackingField = value;
+  }
+
+Method   : DateTime get_Date()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22E6   Size: 7 bytes   Token: 0x06000015
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Date>k__BackingField;
+  }
+
+Method   : void set_Date(DateTime value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22EE   Size: 8 bytes   Token: 0x06000016
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Date>k__BackingField = value;
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x22F8   Size: 64 bytes   Token: 0x06000017
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override string ToString()
+  {
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.Append("Order");
+      stringBuilder.Append(" { ");
+      if (PrintMembers(stringBuilder))
+      {
+          stringBuilder.Append(' ');
+      }
+      stringBuilder.Append('}');
+      return stringBuilder.ToString();
+  }
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, private, compiler-generated
+RVA      : 0x2344   Size: 149 bytes   Token: 0x06000018
+
+[Pseudocode]
+  [CompilerGenerated]
+  private bool PrintMembers(StringBuilder builder)
+  {
+      RuntimeHelpers.EnsureSufficientExecutionStack();
+      builder.Append("Id = ");
+      builder.Append(Id.ToString());
+      builder.Append(", Customer = ");
+      builder.Append((object?)Customer);
+      builder.Append(", Amount = ");
+      builder.Append(Amount.ToString());
+      builder.Append(", Date = ");
+      builder.Append(Date.ToString());
+      return true;
+  }
+
+Method   : bool op_Inequality(Order left, Order right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x23E5   Size: 11 bytes   Token: 0x06000019
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator !=(Order? left, Order? right)
+  {
+      return !(left == right);
+  }
+
+Method   : bool op_Equality(Order left, Order right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x23F1   Size: 19 bytes   Token: 0x0600001A
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator ==(Order? left, Order? right)
+  {
+      if ((object)left != right)
+      {
+          return left?.Equals(right) ?? false;
+      }
+      return true;
+  }
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2408   Size: 109 bytes   Token: 0x0600001B
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override int GetHashCode()
+  {
+      return (((EqualityComparer<Type>.Default.GetHashCode(EqualityContract) * -1521134295 + EqualityComparer<int>.Default.GetHashCode(<Id>k__BackingField)) * -1521134295 + EqualityComparer<string>.Default.GetHashCode(<Customer>k__BackingField)) * -1521134295 + EqualityComparer<decimal>.Default.GetHashCode(<Amount>k__BackingField)) * -1521134295 + EqualityComparer<DateTime>.Default.GetHashCode(<Date>k__BackingField);
+  }
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2481   Size: 13 bytes   Token: 0x0600001C
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override bool Equals(object? obj)
+  {
+      return Equals(obj as Order);
+  }
+
+Method   : bool Equals(Order other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x2490   Size: 125 bytes   Token: 0x0600001D
+
+[Pseudocode]
+  [CompilerGenerated]
+  public bool Equals(Order? other)
+  {
+      if ((object)this != other)
+      {
+          if ((object)other != null && EqualityContract == other.EqualityContract && EqualityComparer<int>.Default.Equals(<Id>k__BackingField, other.<Id>k__BackingField) && EqualityComparer<string>.Default.Equals(<Customer>k__BackingField, other.<Customer>k__BackingField) && EqualityComparer<decimal>.Default.Equals(<Amount>k__BackingField, other.<Amount>k__BackingField))
+          {
+              return EqualityComparer<DateTime>.Default.Equals(<Date>k__BackingField, other.<Date>k__BackingField);
+          }
+          return false;
+      }
+      return true;
+  }
+
+Method   : Order <Clone>$()
+Kind     : instance, public, compiler-generated
+RVA      : 0x2519   Size: 7 bytes   Token: 0x0600001E
+
+[Pseudocode]
+  [CompilerGenerated]
+  public Order <Clone>$()
+  {
+      return new Order(this);
+  }
+
+Method   : void .ctor(Order original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x2521   Size: 55 bytes   Token: 0x0600001F
+
+[Pseudocode]
+  [CompilerGenerated]
+  private Order(Order original)
+  {
+      <Id>k__BackingField = original.<Id>k__BackingField;
+      <Customer>k__BackingField = original.<Customer>k__BackingField;
+      <Amount>k__BackingField = original.<Amount>k__BackingField;
+      <Date>k__BackingField = original.<Date>k__BackingField;
+  }
+
+Method   : void Deconstruct(out int Id, out string Customer, out Decimal Amount, out DateTime Date)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2559   Size: 42 bytes   Token: 0x06000020
+
+[Pseudocode]
+  [CompilerGenerated]
+  public void Deconstruct(out int Id, out string Customer, out decimal Amount, out DateTime Date)
+  {
+      Id = this.Id;
+      Customer = this.Customer;
+      Amount = this.Amount;
+      Date = this.Date;
+  }
+
+Type     : Ref.Lambdas.Reports
+
+Method   : void .ctor(IEnumerable<Order> orders)
+Kind     : ctor, instance, public
+RVA      : 0x2584   Size: 32 bytes   Token: 0x06000021
+
+[Pseudocode]
+  public Reports(IEnumerable<Order> orders)
+  {
+      _threshold = 100m;
+      base..ctor();
+      _orders = orders.ToList();
+  }
+
+Method   : void add_Logged(Action<string> value)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x25A8   Size: 41 bytes   Token: 0x06000022
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      Action<string> action = this.Logged;
+      Action<string> action2;
+      do
+      {
+          action2 = action;
+          Action<string> value2 = (Action<string>)Delegate.Combine(action2, value);
+          action = Interlocked.CompareExchange(ref this.Logged, value2, action2);
+      }
+      while ((object)action != action2);
+  }
+
+Method   : void remove_Logged(Action<string> value)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x25E0   Size: 41 bytes   Token: 0x06000023
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      Action<string> action = this.Logged;
+      Action<string> action2;
+      do
+      {
+          action2 = action;
+          Action<string> value2 = (Action<string>)Delegate.Remove(action2, value);
+          action = Interlocked.CompareExchange(ref this.Logged, value2, action2);
+      }
+      while ((object)action != action2);
+  }
+
+Method   : IEnumerable<string> Customers()
+Kind     : instance, public
+RVA      : 0x2618   Size: 89 bytes   Token: 0x06000024
+
+[Pseudocode]
+  public IEnumerable<string> Customers()
+  {
+      return _orders.Select((Order o) => o.Customer).Distinct().OrderBy((string c) => c, StringComparer.Ordinal);
+  }
+
+Method   : IEnumerable<Order> Large()
+Kind     : instance, public
+RVA      : 0x267D   Size: 24 bytes   Token: 0x06000025
+
+[Pseudocode]
+  public IEnumerable<Order> Large()
+  {
+      return _orders.Where((Order o) => o.Amount >= _threshold);
+  }
+
+Method   : IEnumerable<Order> Between(DateTime from, int days)
+Kind     : instance, public
+RVA      : 0x2698   Size: 56 bytes   Token: 0x06000026
+
+[Pseudocode]
+  public IEnumerable<Order> Between(DateTime from, int days)
+  {
+      DateTime to = from.AddDays(days);
+      return _orders.Where((Order o) => o.Date >= from && o.Date < to);
+  }
+
+Method   : IEnumerable<ValueTuple<string, Decimal, int>> Totals(IEnumerable<string> vip)
+Kind     : instance, public
+RVA      : 0x26DC   Size: 281 bytes   Token: 0x06000027
+
+[Pseudocode]
+  public IEnumerable<(string Customer, decimal Total, int Count)> Totals(IEnumerable<string> vip)
+  {
+      return _orders.Join(vip, (Order o) => o.Customer, (string v) => v, (Order o, string v) => new { o, v }).GroupBy(<>h__TransparentIdentifier0 => <>h__TransparentIdentifier0.o.Customer, <>h__TransparentIdentifier0 => <>h__TransparentIdentifier0.o).Select((IGrouping<string, Order> g) => new
+      {
+          g = g,
+          total = g.Sum((Order x) => x.Amount)
+      })
+          .OrderByDescending(<>h__TransparentIdentifier1 => <>h__TransparentIdentifier1.total)
+          .Select(<>h__TransparentIdentifier1 => (Key: <>h__TransparentIdentifier1.g.Key, total: <>h__TransparentIdentifier1.total, <>h__TransparentIdentifier1.g.Count()));
+  }
+
+Method   : Func<int, Func<Decimal, bool>> Rules()
+Kind     : instance, public
+RVA      : 0x2801   Size: 31 bytes   Token: 0x06000028
+
+[Pseudocode]
+  public Func<int, Func<decimal, bool>> Rules()
+  {
+      int calls = 0;
+      return (int minCount) =>
+      {
+          calls++;
+          return (decimal amount) => amount > _threshold && _orders.Count((Order o) => o.Amount == amount) >= minCount && calls > 0;
+      };
+  }
+
+Method   : Decimal Median()
+Kind     : instance, public
+RVA      : 0x2824   Size: 113 bytes   Token: 0x06000029
+
+[Pseudocode]
+  public decimal Median()
+  {
+      decimal[] sorted = _orders.Select((Order o) => o.Amount).OrderBy((decimal a) => a).ToArray();
+      if (sorted.Length != 0)
+      {
+          return Middle();
+      }
+      return 0m;
+      static decimal Average(decimal a, decimal b)
+      {
+          return (a + b) / 2m;
+      }
+      decimal Middle()
+      {
+          int num = sorted.Length / 2;
+          if (sorted.Length % 2 != 1)
+          {
+              return Average(sorted[num - 1], sorted[num]);
+          }
+          return sorted[num];
+      }
+  }
+
+Method   : long Fib(int n)
+Kind     : static, public
+RVA      : 0x28A1   Size: 7 bytes   Token: 0x0600002A
+
+[Pseudocode]
+  public static long Fib(int n)
+  {
+      return Go(n);
+      static long Go(int k)
+      {
+          if (k >= 2)
+          {
+              return Go(k - 1) + Go(k - 2);
+          }
+          return k;
+      }
+  }
+
+Method   : void Log(IEnumerable<string> lines)
+Kind     : instance, public
+RVA      : 0x28AC   Size: 95 bytes   Token: 0x0600002B
+
+[Pseudocode]
+  public void Log(IEnumerable<string> lines)
+  {
+      int n = 0;
+      foreach (string line in lines)
+      {
+          Write(line);
+      }
+      Array.ForEach(new string[1] { "done" }, Write);
+      void Write(string line)
+      {
+          Logged?.Invoke($"{++n}: {line}");
+      }
+  }
+
+Method   : List<Func<int>> Counters(int count)
+Kind     : instance, public
+RVA      : 0x2928   Size: 51 bytes   Token: 0x0600002C
+
+[Pseudocode]
+  public List<Func<int>> Counters(int count)
+  {
+      List<Func<int>> list = new List<Func<int>>();
+      for (int i = 0; i < count; i++)
+      {
+          int captured = i;
+          list.Add(() => captured * captured);
+      }
+      return list;
+  }
+
+Method   : Expression<Func<Order, bool>> Filter(string customer)
+Kind     : static, public
+RVA      : 0x2968   Size: 164 bytes   Token: 0x0600002D
+
+[Pseudocode]
+  public static Expression<Func<Order, bool>> Filter(string customer)
+  {
+      return (Order o) => o.Customer == customer && o.Amount > 0m;
+  }
+
+Method   : void SetThreshold(Decimal value)
+Kind     : instance, public
+RVA      : 0x2A18   Size: 8 bytes   Token: 0x0600002E
+
+[Pseudocode]
+  public void SetThreshold(decimal value)
+  {
+      _threshold = value;
+  }
+
+Method   : Func<T, TResult> Memoize<T, TResult>(Func<T, TResult> f)
+Kind     : static, public, generic
+RVA      : 0x2A21   Size: 35 bytes   Token: 0x0600002F
+
+[Pseudocode]
+  public static Func<T, TResult> Memoize<T, TResult>(Func<T, TResult> f) where T : notnull
+  {
+      Dictionary<T, TResult> cache = new Dictionary<T, TResult>();
+      return (T x) => (!cache.TryGetValue(x, out var value)) ? (cache[x] = f(x)) : value;
+  }
+
+Method   : Action Compose(params Action[] actions)
+Kind     : static, public
+RVA      : 0x2A45   Size: 24 bytes   Token: 0x06000030
+
+[Pseudocode]
+  public static Action Compose(params Action[] actions)
+  {
+      return () =>
+      {
+          Action[] array = actions;
+          for (int i = 0; i < array.Length; i++)
+          {
+              array[i]();
+          }
+      };
+  }
+
+Method   : bool <Large>b__7_0(Order o)
+Kind     : instance, private, lambda, compiler-generated
+RVA      : 0x2A5E   Size: 18 bytes   Token: 0x06000031
+
+[Pseudocode]
+  [CompilerGenerated]
+  private bool <Large>b__7_0(Order o)
+  {
+      return o.Amount >= _threshold;
+  }
+
+Method   : Decimal <Median>g__Middle|11_2(ref <>c__DisplayClass11_0 arg1)
+Kind     : static, internal, local-function, compiler-generated
+RVA      : 0x2A74   Size: 69 bytes   Token: 0x06000032
+
+[Pseudocode]
+  [CompilerGenerated]
+  internal static decimal <Median>g__Middle|11_2(ref <>c__DisplayClass11_0 P_0)
+  {
+      int num = P_0.sorted.Length / 2;
+      if (P_0.sorted.Length % 2 != 1)
+      {
+          return <Median>g__Average|11_3(P_0.sorted[num - 1], P_0.sorted[num]);
+      }
+      return P_0.sorted[num];
+  }
+
+Method   : Decimal <Median>g__Average|11_3(Decimal a, Decimal b)
+Kind     : static, internal, local-function, compiler-generated
+RVA      : 0x2AC5   Size: 19 bytes   Token: 0x06000033
+
+[Pseudocode]
+  [CompilerGenerated]
+  internal static decimal <Median>g__Average|11_3(decimal a, decimal b)
+  {
+      return (a + b) / 2m;
+  }
+
+Method   : long <Fib>g__Go|12_0(int k)
+Kind     : static, internal, local-function, compiler-generated
+RVA      : 0x2AD9   Size: 25 bytes   Token: 0x06000034
+
+[Pseudocode]
+  [CompilerGenerated]
+  internal static long <Fib>g__Go|12_0(int k)
+  {
+      if (k >= 2)
+      {
+          return <Fib>g__Go|12_0(k - 1) + <Fib>g__Go|12_0(k - 2);
+      }
+      return k;
+  }
+
+Type     : Ref.Lambdas.Reports+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2AF3   Size: 11 bytes   Token: 0x06000035
+
+[Pseudocode]
+  static <>c()
+  {
+      <>9 = new <>c();
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2AFF   Size: 7 bytes   Token: 0x06000036
+
+[Pseudocode]
+  public <>c()
+  {
+  }
+
+Method   : string <Customers>b__6_0(Order o)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B07   Size: 7 bytes   Token: 0x06000037
+
+[Pseudocode]
+  internal string <Customers>b__6_0(Order o)
+  {
+      return o.Customer;
+  }
+
+Method   : string <Customers>b__6_1(string c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B0F   Size: 2 bytes   Token: 0x06000038
+
+[Pseudocode]
+  internal string <Customers>b__6_1(string c)
+  {
+      return c;
+  }
+
+Method   : string <Totals>b__9_0(Order o)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B12   Size: 7 bytes   Token: 0x06000039
+
+[Pseudocode]
+  internal string <Totals>b__9_0(Order o)
+  {
+      return o.Customer;
+  }
+
+Method   : string <Totals>b__9_1(string v)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B1A   Size: 2 bytes   Token: 0x0600003A
+
+[Pseudocode]
+  internal string <Totals>b__9_1(string v)
+  {
+      return v;
+  }
+
+Method   : <>f__AnonymousType0<Order, string> <Totals>b__9_2(Order o, string v)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B1D   Size: 8 bytes   Token: 0x0600003B
+
+[Pseudocode]
+  internal <>f__AnonymousType0<Order, string> <Totals>b__9_2(Order o, string v)
+  {
+      return new { o, v };
+  }
+
+Method   : string <Totals>b__9_3(<>f__AnonymousType0<Order, string> <>h__TransparentIdentifier0)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B26   Size: 12 bytes   Token: 0x0600003C
+
+[Pseudocode]
+  internal string <Totals>b__9_3(<>f__AnonymousType0<Order, string> <>h__TransparentIdentifier0)
+  {
+      return <>h__TransparentIdentifier0.o.Customer;
+  }
+
+Method   : Order <Totals>b__9_4(<>f__AnonymousType0<Order, string> <>h__TransparentIdentifier0)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B33   Size: 7 bytes   Token: 0x0600003D
+
+[Pseudocode]
+  internal Order <Totals>b__9_4(<>f__AnonymousType0<Order, string> <>h__TransparentIdentifier0)
+  {
+      return <>h__TransparentIdentifier0.o;
+  }
+
+Method   : <>f__AnonymousType1<IGrouping<string, Order>, Decimal> <Totals>b__9_5(IGrouping<string, Order> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B3B   Size: 44 bytes   Token: 0x0600003E
+
+[Pseudocode]
+  internal <>f__AnonymousType1<IGrouping<string, Order>, decimal> <Totals>b__9_5(IGrouping<string, Order> g)
+  {
+      return new
+      {
+          g = g,
+          total = g.Sum((Order x) => x.Amount)
+      };
+  }
+
+Method   : Decimal <Totals>b__9_8(Order x)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B68   Size: 7 bytes   Token: 0x0600003F
+
+[Pseudocode]
+  internal decimal <Totals>b__9_8(Order x)
+  {
+      return x.Amount;
+  }
+
+Method   : Decimal <Totals>b__9_6(<>f__AnonymousType1<IGrouping<string, Order>, Decimal> <>h__TransparentIdentifier1)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B70   Size: 7 bytes   Token: 0x06000040
+
+[Pseudocode]
+  internal decimal <Totals>b__9_6(<>f__AnonymousType1<IGrouping<string, Order>, decimal> <>h__TransparentIdentifier1)
+  {
+      return <>h__TransparentIdentifier1.total;
+  }
+
+Method   : ValueTuple<string, Decimal, int> <Totals>b__9_7(<>f__AnonymousType1<IGrouping<string, Order>, Decimal> <>h__TransparentIdentifier1)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B78   Size: 34 bytes   Token: 0x06000041
+
+[Pseudocode]
+  internal (string Key, decimal total, int) <Totals>b__9_7(<>f__AnonymousType1<IGrouping<string, Order>, decimal> <>h__TransparentIdentifier1)
+  {
+      return (Key: <>h__TransparentIdentifier1.g.Key, total: <>h__TransparentIdentifier1.total, <>h__TransparentIdentifier1.g.Count());
+  }
+
+Method   : Decimal <Median>b__11_0(Order o)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B9B   Size: 7 bytes   Token: 0x06000042
+
+[Pseudocode]
+  internal decimal <Median>b__11_0(Order o)
+  {
+      return o.Amount;
+  }
+
+Method   : Decimal <Median>b__11_1(Decimal a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2BA3   Size: 2 bytes   Token: 0x06000043
+
+[Pseudocode]
+  internal decimal <Median>b__11_1(decimal a)
+  {
+      return a;
+  }
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass10_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2BA6   Size: 7 bytes   Token: 0x06000044
+
+[Pseudocode]
+  public <>c__DisplayClass10_0()
+  {
+  }
+
+Method   : Func<Decimal, bool> <Rules>b__0(int minCount)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2BB0   Size: 47 bytes   Token: 0x06000045
+
+[Pseudocode]
+  internal Func<decimal, bool> <Rules>b__0(int minCount)
+  {
+      calls++;
+      return (decimal amount) => amount > <>4__this._threshold && <>4__this._orders.Count((Order o) => o.Amount == amount) >= minCount && calls > 0;
+  }
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass10_1
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2BEB   Size: 7 bytes   Token: 0x06000046
+
+[Pseudocode]
+  public <>c__DisplayClass10_1()
+  {
+  }
+
+Method   : bool <Rules>b__1(Decimal amount)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2BF4   Size: 100 bytes   Token: 0x06000047
+
+[Pseudocode]
+  internal bool <Rules>b__1(decimal amount)
+  {
+      if (amount > CS$<>8__locals1.<>4__this._threshold && CS$<>8__locals1.<>4__this._orders.Count((Order o) => o.Amount == amount) >= minCount)
+      {
+          return CS$<>8__locals1.calls > 0;
+      }
+      return false;
+  }
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass10_2
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2C64   Size: 7 bytes   Token: 0x06000048
+
+[Pseudocode]
+  public <>c__DisplayClass10_2()
+  {
+  }
+
+Method   : bool <Rules>b__2(Order o)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2C6C   Size: 18 bytes   Token: 0x06000049
+
+[Pseudocode]
+  internal bool <Rules>b__2(Order o)
+  {
+      return o.Amount == amount;
+  }
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass13_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2C7F   Size: 7 bytes   Token: 0x0600004A
+
+[Pseudocode]
+  public <>c__DisplayClass13_0()
+  {
+  }
+
+Method   : void <Log>g__Write|0(string line)
+Kind     : instance, internal, local-function, compiler-generated
+RVA      : 0x2C88   Size: 82 bytes   Token: 0x0600004B
+
+[Pseudocode]
+  internal void <Log>g__Write|0(string line)
+  {
+      <>4__this.Logged?.Invoke($"{++n}: {line}");
+  }
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass14_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2CE6   Size: 7 bytes   Token: 0x0600004C
+
+[Pseudocode]
+  public <>c__DisplayClass14_0()
+  {
+  }
+
+Method   : int <Counters>b__0()
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2CEE   Size: 14 bytes   Token: 0x0600004D
+
+[Pseudocode]
+  internal int <Counters>b__0()
+  {
+      return captured * captured;
+  }
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass15_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2CFD   Size: 7 bytes   Token: 0x0600004E
+
+[Pseudocode]
+  public <>c__DisplayClass15_0()
+  {
+  }
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass17_0`2
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2D05   Size: 7 bytes   Token: 0x0600004F
+
+[Pseudocode]
+  public <>c__DisplayClass17_0()
+  {
+  }
+
+Method   : TResult <Memoize>b__0(T x)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2D10   Size: 46 bytes   Token: 0x06000050
+
+[Pseudocode]
+  internal TResult <Memoize>b__0(T x)
+  {
+      if (!cache.TryGetValue(x, out var value))
+      {
+          return cache[x] = f(x);
+      }
+      return value;
+  }
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass18_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2D4A   Size: 7 bytes   Token: 0x06000051
+
+[Pseudocode]
+  public <>c__DisplayClass18_0()
+  {
+  }
+
+Method   : void <Compose>b__0()
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2D54   Size: 30 bytes   Token: 0x06000052
+
+[Pseudocode]
+  internal void <Compose>b__0()
+  {
+      Action[] array = actions;
+      for (int i = 0; i < array.Length; i++)
+      {
+          array[i]();
+      }
+  }
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass8_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2D7E   Size: 7 bytes   Token: 0x06000053
+
+[Pseudocode]
+  public <>c__DisplayClass8_0()
+  {
+  }
+
+Method   : bool <Between>b__0(Order o)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2D86   Size: 39 bytes   Token: 0x06000054
+
+[Pseudocode]
+  internal bool <Between>b__0(Order o)
+  {
+      if (o.Date >= from)
+      {
+          return o.Date < to;
+      }
+      return false;
+  }

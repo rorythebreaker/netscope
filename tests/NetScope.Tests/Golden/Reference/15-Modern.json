@@ -1,0 +1,3805 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref15.Modern.dll",
+      "assembly": "Ref15.Modern",
+      "version": "1.0.0.0",
+      "targetFramework": ".NETCoreApp,Version=v8.0",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": ".ctor",
+          "signature": "void .ctor(string First, string Last)",
+          "token": 100663297,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8272,
+          "size": 21,
+          "calls": [
+            {
+              "offset": 15,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::.ctor",
+              "signature": "void .ctor(string First, string Last, Decimal Salary)",
+              "offset": 10,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": "get_EqualityContract",
+          "signature": "Type get_EqualityContract()",
+          "token": 100663298,
+          "access": "protected",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "compiler-generated"
+          ],
+          "rva": 8294,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 5,
+              "opcode": "call",
+              "target": "System.Type::GetTypeFromHandle(RuntimeTypeHandle)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Person::GetHashCode",
+              "signature": "int GetHashCode()",
+              "offset": 6,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Person::Equals",
+              "signature": "bool Equals(Person other)",
+              "offset": 8,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Person::Equals",
+              "signature": "bool Equals(Person other)",
+              "offset": 14,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": "get_First",
+          "signature": "string get_First()",
+          "token": 100663299,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8306,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Person::get_Full",
+              "signature": "string get_Full()",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Person::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 19,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Person::Deconstruct",
+              "signature": "void Deconstruct(out string First, out string Last)",
+              "offset": 2,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::Deconstruct",
+              "signature": "void Deconstruct(out string First, out string Last, out Decimal Salary)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": "set_First",
+          "signature": "void set_First(string value)",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8314,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": "get_Last",
+          "signature": "string get_Last()",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8323,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Person::get_Full",
+              "signature": "string get_Full()",
+              "offset": 12,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Person::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 44,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Person::Deconstruct",
+              "signature": "void Deconstruct(out string First, out string Last)",
+              "offset": 10,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::Deconstruct",
+              "signature": "void Deconstruct(out string First, out string Last, out Decimal Salary)",
+              "offset": 10,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": "set_Last",
+          "signature": "void set_Last(string value)",
+          "token": 100663302,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8331,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": "get_Full",
+          "signature": "string get_Full()",
+          "token": 100663303,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance"
+          ],
+          "rva": 8340,
+          "size": 23,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Modern.Person::get_First()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "Ref.Modern.Person::get_Last()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663301
+            },
+            {
+              "offset": 17,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Person::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 69,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8364,
+          "size": 64,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.Text.StringBuilder::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 24,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 32,
+              "opcode": "callvirt",
+              "target": "Ref.Modern.Person::PrintMembers(StringBuilder)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663305
+            },
+            {
+              "offset": 42,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 51,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 58,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": "PrintMembers",
+          "signature": "bool PrintMembers(StringBuilder builder)",
+          "token": 100663305,
+          "access": "protected",
+          "kinds": [
+            "instance",
+            "virtual",
+            "compiler-generated"
+          ],
+          "rva": 8440,
+          "size": 82,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.RuntimeHelpers::EnsureSufficientExecutionStack()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 11,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 19,
+              "opcode": "call",
+              "target": "Ref.Modern.Person::get_First()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 24,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(object)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 36,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 44,
+              "opcode": "call",
+              "target": "Ref.Modern.Person::get_Last()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663301
+            },
+            {
+              "offset": 49,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(object)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 61,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 69,
+              "opcode": "call",
+              "target": "Ref.Modern.Person::get_Full()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663303
+            },
+            {
+              "offset": 74,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(object)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Person::ToString",
+              "signature": "string ToString()",
+              "offset": 32,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::ToString",
+              "signature": "string ToString()",
+              "offset": 32,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": "op_Inequality",
+          "signature": "bool op_Inequality(Person left, Person right)",
+          "token": 100663306,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 8534,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Modern.Person::op_Equality(Person, Person)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663307
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": "op_Equality",
+          "signature": "bool op_Equality(Person left, Person right)",
+          "token": 100663307,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 8546,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "Ref.Modern.Person::Equals(Person)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663310
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Person::op_Inequality",
+              "signature": "bool op_Inequality(Person left, Person right)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode()",
+          "token": 100663308,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8566,
+          "size": 63,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<System.Type>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "Ref.Modern.Person::get_EqualityContract()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 11,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<System.Type>::GetHashCode(Type)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 22,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<string>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 33,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<string>::GetHashCode(string)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 45,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<string>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 56,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<string>::GetHashCode(string)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::GetHashCode",
+              "signature": "int GetHashCode()",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": "Equals",
+          "signature": "bool Equals(object obj)",
+          "token": 100663309,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8630,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "Ref.Modern.Person::Equals(Person)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663310
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": "Equals",
+          "signature": "bool Equals(Person other)",
+          "token": 100663310,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "compiler-generated"
+          ],
+          "rva": 8644,
+          "size": 77,
+          "calls": [
+            {
+              "offset": 8,
+              "opcode": "callvirt",
+              "target": "Ref.Modern.Person::get_EqualityContract()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 14,
+              "opcode": "callvirt",
+              "target": "Ref.Modern.Person::get_EqualityContract()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 19,
+              "opcode": "call",
+              "target": "System.Type::op_Equality(Type, Type)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 26,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<string>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 43,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<string>::Equals(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 50,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<string>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 67,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<string>::Equals(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Person::op_Equality",
+              "signature": "bool op_Equality(Person left, Person right)",
+              "offset": 9,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Person::Equals",
+              "signature": "bool Equals(object obj)",
+              "offset": 7,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::Equals",
+              "signature": "bool Equals(Employee other)",
+              "offset": 6,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": "<Clone>$",
+          "signature": "Person <Clone>$()",
+          "token": 100663311,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "compiler-generated"
+          ],
+          "rva": 8733,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "Ref.Modern.Person::.ctor(Person)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663312
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": ".ctor",
+          "signature": "void .ctor(Person original)",
+          "token": 100663312,
+          "access": "protected",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8741,
+          "size": 31,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Person::<Clone>$",
+              "signature": "Person <Clone>$()",
+              "offset": 1,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::.ctor",
+              "signature": "void .ctor(Employee original)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Person",
+          "name": "Deconstruct",
+          "signature": "void Deconstruct(out string First, out string Last)",
+          "token": 100663313,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8773,
+          "size": 17,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Modern.Person::get_First()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "Ref.Modern.Person::get_Last()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663301
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": ".ctor",
+          "signature": "void .ctor(string First, string Last, Decimal Salary)",
+          "token": 100663314,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8791,
+          "size": 16,
+          "calls": [
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "Ref.Modern.Person::.ctor(string, string)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663297
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": "get_EqualityContract",
+          "signature": "Type get_EqualityContract()",
+          "token": 100663315,
+          "access": "protected",
+          "kinds": [
+            "property-get",
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8808,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 5,
+              "opcode": "call",
+              "target": "System.Type::GetTypeFromHandle(RuntimeTypeHandle)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": "get_Salary",
+          "signature": "Decimal get_Salary()",
+          "token": 100663316,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8820,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::Raise",
+              "signature": "Employee Raise(Decimal percent)",
+              "offset": 8,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 35,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::Deconstruct",
+              "signature": "void Deconstruct(out string First, out string Last, out Decimal Salary)",
+              "offset": 18,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": "set_Salary",
+          "signature": "void set_Salary(Decimal value)",
+          "token": 100663317,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8828,
+          "size": 8,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::Raise",
+              "signature": "Employee Raise(Decimal percent)",
+              "offset": 41,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": "Raise",
+          "signature": "Employee Raise(Decimal percent)",
+          "token": 100663318,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8837,
+          "size": 47,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Modern.Employee::<Clone>$()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663327
+            },
+            {
+              "offset": 8,
+              "opcode": "call",
+              "target": "Ref.Modern.Employee::get_Salary()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663316
+            },
+            {
+              "offset": 21,
+              "opcode": "newobj",
+              "target": "System.Decimal::.ctor(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 26,
+              "opcode": "call",
+              "target": "System.Decimal::op_Division(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 31,
+              "opcode": "call",
+              "target": "System.Decimal::op_Addition(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 36,
+              "opcode": "call",
+              "target": "System.Decimal::op_Multiply(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 41,
+              "opcode": "callvirt",
+              "target": "Ref.Modern.Employee::set_Salary(Decimal)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663317
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663319,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8888,
+          "size": 64,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.Text.StringBuilder::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 24,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 32,
+              "opcode": "callvirt",
+              "target": "Ref.Modern.Person::PrintMembers(StringBuilder)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663305
+            },
+            {
+              "offset": 42,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 51,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 58,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": "PrintMembers",
+          "signature": "bool PrintMembers(StringBuilder builder)",
+          "token": 100663320,
+          "access": "protected",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8964,
+          "size": 62,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Modern.Person::PrintMembers(StringBuilder)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663305
+            },
+            {
+              "offset": 15,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 27,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 35,
+              "opcode": "call",
+              "target": "Ref.Modern.Employee::get_Salary()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663316
+            },
+            {
+              "offset": 49,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 54,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": "op_Inequality",
+          "signature": "bool op_Inequality(Employee left, Employee right)",
+          "token": 100663321,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9038,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Modern.Employee::op_Equality(Employee, Employee)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663322
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": "op_Equality",
+          "signature": "bool op_Equality(Employee left, Employee right)",
+          "token": 100663322,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9050,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "Ref.Modern.Employee::Equals(Employee)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663326
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::op_Inequality",
+              "signature": "bool op_Inequality(Employee left, Employee right)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode()",
+          "token": 100663323,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9070,
+          "size": 30,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Modern.Person::GetHashCode()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<System.Decimal>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 23,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<System.Decimal>::GetHashCode(Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": "Equals",
+          "signature": "bool Equals(object obj)",
+          "token": 100663324,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9101,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "Ref.Modern.Employee::Equals(Employee)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663326
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": "Equals",
+          "signature": "bool Equals(Person other)",
+          "token": 100663325,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9115,
+          "size": 8,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "callvirt",
+              "target": "System.Object::Equals(object)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": "Equals",
+          "signature": "bool Equals(Employee other)",
+          "token": 100663326,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9124,
+          "size": 40,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "Ref.Modern.Person::Equals(Person)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663310
+            },
+            {
+              "offset": 13,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<System.Decimal>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 30,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<System.Decimal>::Equals(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::op_Equality",
+              "signature": "bool op_Equality(Employee left, Employee right)",
+              "offset": 9,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::Equals",
+              "signature": "bool Equals(object obj)",
+              "offset": 7,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": "<Clone>$",
+          "signature": "Employee <Clone>$()",
+          "token": 100663327,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "compiler-generated"
+          ],
+          "rva": 9165,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "Ref.Modern.Employee::.ctor(Employee)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663328
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::Raise",
+              "signature": "Employee Raise(Decimal percent)",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": ".ctor",
+          "signature": "void .ctor(Employee original)",
+          "token": 100663328,
+          "access": "private",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9173,
+          "size": 20,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Modern.Person::.ctor(Person)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663312
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Employee::<Clone>$",
+              "signature": "Employee <Clone>$()",
+              "offset": 1,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Employee",
+          "name": "Deconstruct",
+          "signature": "void Deconstruct(out string First, out string Last, out Decimal Salary)",
+          "token": 100663329,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9194,
+          "size": 29,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Modern.Person::get_First()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "Ref.Modern.Person::get_Last()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663301
+            },
+            {
+              "offset": 18,
+              "opcode": "call",
+              "target": "Ref.Modern.Employee::get_Salary()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663316
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Point",
+          "name": ".ctor",
+          "signature": "void .ctor(double X, double Y)",
+          "token": 100663330,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 9224,
+          "size": 15,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::op_Addition",
+              "signature": "Point op_Addition(Point a, Point b)",
+              "offset": 30,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Point",
+          "name": "get_X",
+          "signature": "double get_X()",
+          "token": 100663331,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9240,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::get_Length",
+              "signature": "double get_Length()",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::get_Length",
+              "signature": "double get_Length()",
+              "offset": 7,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::op_Addition",
+              "signature": "Point op_Addition(Point a, Point b)",
+              "offset": 2,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::op_Addition",
+              "signature": "Point op_Addition(Point a, Point b)",
+              "offset": 9,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 14,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::Deconstruct",
+              "signature": "void Deconstruct(out double X, out double Y)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Point",
+          "name": "set_X",
+          "signature": "void set_X(double value)",
+          "token": 100663332,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9248,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Point",
+          "name": "get_Y",
+          "signature": "double get_Y()",
+          "token": 100663333,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9257,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::get_Length",
+              "signature": "double get_Length()",
+              "offset": 14,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::get_Length",
+              "signature": "double get_Length()",
+              "offset": 20,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::op_Addition",
+              "signature": "Point op_Addition(Point a, Point b)",
+              "offset": 17,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::op_Addition",
+              "signature": "Point op_Addition(Point a, Point b)",
+              "offset": 24,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 53,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::Deconstruct",
+              "signature": "void Deconstruct(out double X, out double Y)",
+              "offset": 10,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Point",
+          "name": "set_Y",
+          "signature": "void set_Y(double value)",
+          "token": 100663334,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9265,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Point",
+          "name": "get_Length",
+          "signature": "double get_Length()",
+          "token": 100663335,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance"
+          ],
+          "rva": 9274,
+          "size": 33,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::get_X()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663331
+            },
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::get_X()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663331
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::get_Y()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663333
+            },
+            {
+              "offset": 20,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::get_Y()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663333
+            },
+            {
+              "offset": 27,
+              "opcode": "call",
+              "target": "System.Math::Sqrt(double)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 92,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Point",
+          "name": "op_Addition",
+          "signature": "Point op_Addition(Point a, Point b)",
+          "token": 100663336,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static"
+          ],
+          "rva": 9308,
+          "size": 36,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::get_X()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663331
+            },
+            {
+              "offset": 9,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::get_X()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663331
+            },
+            {
+              "offset": 17,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::get_Y()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663333
+            },
+            {
+              "offset": 24,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::get_Y()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663333
+            },
+            {
+              "offset": 30,
+              "opcode": "newobj",
+              "target": "Ref.Modern.Point::.ctor(double, double)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663330
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Point",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663337,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9348,
+          "size": 64,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.Text.StringBuilder::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 24,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 32,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::PrintMembers(StringBuilder)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663338
+            },
+            {
+              "offset": 42,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 51,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 58,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Point",
+          "name": "PrintMembers",
+          "signature": "bool PrintMembers(StringBuilder builder)",
+          "token": 100663338,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9424,
+          "size": 119,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::get_X()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663331
+            },
+            {
+              "offset": 28,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 33,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 45,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 53,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::get_Y()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663333
+            },
+            {
+              "offset": 67,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 72,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 84,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 92,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::get_Length()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663335
+            },
+            {
+              "offset": 106,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 111,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::ToString",
+              "signature": "string ToString()",
+              "offset": 32,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Point",
+          "name": "op_Inequality",
+          "signature": "bool op_Inequality(Point left, Point right)",
+          "token": 100663339,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9555,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::op_Equality(Point, Point)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663340
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Point",
+          "name": "op_Equality",
+          "signature": "bool op_Equality(Point left, Point right)",
+          "token": 100663340,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9567,
+          "size": 9,
+          "calls": [
+            {
+              "offset": 3,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::Equals(Point)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663343
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::op_Inequality",
+              "signature": "bool op_Inequality(Point left, Point right)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Point",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode()",
+          "token": 100663341,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9577,
+          "size": 40,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<double>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 11,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<double>::GetHashCode(double)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 22,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<double>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 33,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<double>::GetHashCode(double)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Point",
+          "name": "Equals",
+          "signature": "bool Equals(object obj)",
+          "token": 100663342,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9618,
+          "size": 23,
+          "calls": [
+            {
+              "offset": 15,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::Equals(Point)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663343
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Point",
+          "name": "Equals",
+          "signature": "bool Equals(Point other)",
+          "token": 100663343,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9642,
+          "size": 49,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<double>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 17,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<double>::Equals(double, double)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 24,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<double>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 41,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<double>::Equals(double, double)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::op_Equality",
+              "signature": "bool op_Equality(Point left, Point right)",
+              "offset": 3,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Point::Equals",
+              "signature": "bool Equals(object obj)",
+              "offset": 15,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Point",
+          "name": "Deconstruct",
+          "signature": "void Deconstruct(out double X, out double Y)",
+          "token": 100663344,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9692,
+          "size": 17,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::get_X()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663331
+            },
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "Ref.Modern.Point::get_Y()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663333
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Counter",
+          "name": "get_Value",
+          "signature": "int get_Value()",
+          "token": 100663345,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9710,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Counter::Increment",
+              "signature": "void Increment()",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Counter::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 14,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Counter",
+          "name": "set_Value",
+          "signature": "void set_Value(int value)",
+          "token": 100663346,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9718,
+          "size": 8,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Counter::Increment",
+              "signature": "void Increment()",
+              "offset": 11,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Counter",
+          "name": "Increment",
+          "signature": "void Increment()",
+          "token": 100663347,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 9728,
+          "size": 17,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Modern.Counter::get_Value()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663345
+            },
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "Ref.Modern.Counter::set_Value(int)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663346
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Counter",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663348,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9760,
+          "size": 64,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.Text.StringBuilder::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 24,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 32,
+              "opcode": "call",
+              "target": "Ref.Modern.Counter::PrintMembers(StringBuilder)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663349
+            },
+            {
+              "offset": 42,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 51,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 58,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Counter",
+          "name": "PrintMembers",
+          "signature": "bool PrintMembers(StringBuilder builder)",
+          "token": 100663349,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9836,
+          "size": 41,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "Ref.Modern.Counter::get_Value()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663345
+            },
+            {
+              "offset": 28,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 33,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Counter::ToString",
+              "signature": "string ToString()",
+              "offset": 32,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Counter",
+          "name": "op_Inequality",
+          "signature": "bool op_Inequality(Counter left, Counter right)",
+          "token": 100663350,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9889,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Modern.Counter::op_Equality(Counter, Counter)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663351
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Counter",
+          "name": "op_Equality",
+          "signature": "bool op_Equality(Counter left, Counter right)",
+          "token": 100663351,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9901,
+          "size": 9,
+          "calls": [
+            {
+              "offset": 3,
+              "opcode": "call",
+              "target": "Ref.Modern.Counter::Equals(Counter)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663354
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Counter::op_Inequality",
+              "signature": "bool op_Inequality(Counter left, Counter right)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Counter",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode()",
+          "token": 100663352,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9911,
+          "size": 17,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<int>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 11,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<int>::GetHashCode(int)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Counter",
+          "name": "Equals",
+          "signature": "bool Equals(object obj)",
+          "token": 100663353,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9929,
+          "size": 23,
+          "calls": [
+            {
+              "offset": 15,
+              "opcode": "call",
+              "target": "Ref.Modern.Counter::Equals(Counter)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663354
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Counter",
+          "name": "Equals",
+          "signature": "bool Equals(Counter other)",
+          "token": 100663354,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9953,
+          "size": 23,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<int>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 17,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<int>::Equals(int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Counter::op_Equality",
+              "signature": "bool op_Equality(Counter left, Counter right)",
+              "offset": 3,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Counter::Equals",
+              "signature": "bool Equals(object obj)",
+              "offset": 15,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Settings",
+          "name": "get_Name",
+          "signature": "string get_Name()",
+          "token": 100663355,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9977,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Settings",
+          "name": "set_Name",
+          "signature": "void set_Name(string value)",
+          "token": 100663356,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9985,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Settings",
+          "name": "get_Retries",
+          "signature": "int get_Retries()",
+          "token": 100663357,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9994,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Settings",
+          "name": "set_Retries",
+          "signature": "void set_Retries(int value)",
+          "token": 100663358,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10002,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Settings",
+          "name": "get_Timeout",
+          "signature": "TimeSpan get_Timeout()",
+          "token": 100663359,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10011,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Settings",
+          "name": "set_Timeout",
+          "signature": "void set_Timeout(TimeSpan value)",
+          "token": 100663360,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10019,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Settings",
+          "name": "get_Tags",
+          "signature": "IReadOnlyList<string> get_Tags()",
+          "token": 100663361,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10028,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Settings",
+          "name": "set_Tags",
+          "signature": "void set_Tags(IReadOnlyList<string> value)",
+          "token": 100663362,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10036,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Settings",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663363,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 10045,
+          "size": 45,
+          "calls": [
+            {
+              "offset": 17,
+              "opcode": "call",
+              "target": "System.TimeSpan::FromSeconds(double)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 28,
+              "opcode": "call",
+              "target": "System.Array::Empty<string>()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 39,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.IGreeter",
+          "name": "get_Name",
+          "signature": "string get_Name()",
+          "token": 100663364,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "abstract",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.IGreeter::Greet",
+              "signature": "string Greet()",
+              "offset": 7,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.IGreeter",
+          "name": "Greet",
+          "signature": "string Greet()",
+          "token": 100663365,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual"
+          ],
+          "rva": 10091,
+          "size": 18,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Modern.IGreeter::Prefix()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663367
+            },
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "Ref.Modern.IGreeter::get_Name()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663364
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.IGreeter::GreetLoudly",
+              "signature": "string GreetLoudly()",
+              "offset": 1,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.IGreeter",
+          "name": "GreetLoudly",
+          "signature": "string GreetLoudly()",
+          "token": 100663366,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual"
+          ],
+          "rva": 10110,
+          "size": 22,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.Modern.IGreeter::Greet()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663365
+            },
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.String::ToUpperInvariant()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 16,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.IGreeter",
+          "name": "Prefix",
+          "signature": "string Prefix()",
+          "token": 100663367,
+          "access": "private",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 10133,
+          "size": 6,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.IGreeter::Greet",
+              "signature": "string Greet()",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.IGreeter",
+          "name": "get_Anonymous",
+          "signature": "string get_Anonymous()",
+          "token": 100663368,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "static"
+          ],
+          "rva": 10140,
+          "size": 6,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Greeter",
+          "name": ".ctor",
+          "signature": "void .ctor(string name)",
+          "token": 100663369,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 10147,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Greeter",
+          "name": "get_Name",
+          "signature": "string get_Name()",
+          "token": 100663370,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10162,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.PoliteGreeter",
+          "name": "get_Name",
+          "signature": "string get_Name()",
+          "token": 100663371,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed"
+          ],
+          "rva": 10170,
+          "size": 6,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.PoliteGreeter::Greet",
+              "signature": "string Greet()",
+              "offset": 6,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.PoliteGreeter",
+          "name": "Greet",
+          "signature": "string Greet()",
+          "token": 100663372,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed"
+          ],
+          "rva": 10177,
+          "size": 17,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "Ref.Modern.PoliteGreeter::get_Name()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663371
+            },
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.PoliteGreeter",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663373,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 10195,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.IShape`1",
+          "name": "get_Unit",
+          "signature": "TSelf get_Unit()",
+          "token": 100663374,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "static",
+            "abstract",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Shapes::Scale",
+              "signature": "T Scale<T>(double factor)",
+              "offset": 6,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.IShape`1",
+          "name": "op_Multiply",
+          "signature": "TSelf op_Multiply(TSelf shape, double factor)",
+          "token": 100663375,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "abstract",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Shapes::Scale",
+              "signature": "T Scale<T>(double factor)",
+              "offset": 18,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.IShape`1",
+          "name": "get_Area",
+          "signature": "double get_Area()",
+          "token": 100663376,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "abstract",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.IShape`1",
+          "name": "get_Kind",
+          "signature": "string get_Kind()",
+          "token": 100663377,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "static",
+            "virtual"
+          ],
+          "rva": 10203,
+          "size": 16,
+          "calls": [
+            {
+              "offset": 5,
+              "opcode": "call",
+              "target": "System.Type::GetTypeFromHandle(RuntimeTypeHandle)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 10,
+              "opcode": "callvirt",
+              "target": "System.Reflection.MemberInfo::get_Name()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Shapes::KindOf",
+              "signature": "string KindOf<T>()",
+              "offset": 6,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Square",
+          "name": ".ctor",
+          "signature": "void .ctor(double side)",
+          "token": 100663378,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 10220,
+          "size": 8,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Square::get_Unit",
+              "signature": "Square get_Unit()",
+              "offset": 9,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Square::op_Multiply",
+              "signature": "Square op_Multiply(Square s, double factor)",
+              "offset": 9,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Square",
+          "name": "get_Side",
+          "signature": "double get_Side()",
+          "token": 100663379,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10229,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Square::get_Area",
+              "signature": "double get_Area()",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Square::get_Area",
+              "signature": "double get_Area()",
+              "offset": 7,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Square::op_Multiply",
+              "signature": "Square op_Multiply(Square s, double factor)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Square",
+          "name": "get_Area",
+          "signature": "double get_Area()",
+          "token": 100663380,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed"
+          ],
+          "rva": 10237,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Modern.Square::get_Side()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663379
+            },
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "Ref.Modern.Square::get_Side()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663379
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Square",
+          "name": "get_Unit",
+          "signature": "Square get_Unit()",
+          "token": 100663381,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "static"
+          ],
+          "rva": 10252,
+          "size": 15,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "newobj",
+              "target": "Ref.Modern.Square::.ctor(double)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663378
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Square",
+          "name": "op_Multiply",
+          "signature": "Square op_Multiply(Square s, double factor)",
+          "token": 100663382,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static"
+          ],
+          "rva": 10268,
+          "size": 15,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Modern.Square::get_Side()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663379
+            },
+            {
+              "offset": 9,
+              "opcode": "newobj",
+              "target": "Ref.Modern.Square::.ctor(double)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663378
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Square",
+          "name": "Ref.Modern.IShape<Ref.Modern.Square>.get_Kind",
+          "signature": "string Ref.Modern.IShape<Ref.Modern.Square>.get_Kind()",
+          "token": 100663383,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "static"
+          ],
+          "rva": 10284,
+          "size": 6,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Shapes",
+          "name": "Scale",
+          "signature": "T Scale<T>(double factor)",
+          "token": 100663384,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 10291,
+          "size": 24,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "Ref.Modern.IShape<!!0>::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663374
+            },
+            {
+              "offset": 18,
+              "opcode": "call",
+              "target": "Ref.Modern.IShape<!!0>::op_Multiply(!!0, double)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663375
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Shapes",
+          "name": "KindOf",
+          "signature": "string KindOf<T>()",
+          "token": 100663385,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 10316,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "Ref.Modern.IShape<!!0>::get_Kind()",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663377
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Shapes",
+          "name": "Add",
+          "signature": "T Add<T>(T a, T b)",
+          "token": 100663386,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 10329,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 8,
+              "opcode": "call",
+              "target": "System.Numerics.IAdditionOperators<!!0, !!0, !!0>::op_Addition(!!0, !!0)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Catalog",
+          "name": ".ctor",
+          "signature": "void .ctor(string name, IEnumerable<string> items)",
+          "token": 100663387,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 10344,
+          "size": 26,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::ToList<string>(IEnumerable<string>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 20,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Catalog",
+          "name": "get_Name",
+          "signature": "string get_Name()",
+          "token": 100663388,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance"
+          ],
+          "rva": 10371,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Catalog",
+          "name": "get_Count",
+          "signature": "int get_Count()",
+          "token": 100663389,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance"
+          ],
+          "rva": 10379,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<string>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Catalog",
+          "name": "Sorted",
+          "signature": "string[] Sorted()",
+          "token": 100663390,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 10392,
+          "size": 23,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<string>::ToArray()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.StringComparer::get_Ordinal()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 17,
+              "opcode": "call",
+              "target": "System.Array::Sort<string>(string[], IComparer<string>)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Catalog",
+          "name": "Contains",
+          "signature": "bool Contains(string item)",
+          "token": 100663391,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 10416,
+          "size": 23,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "Ref.Modern.Helper::Normalize(IEnumerable<string>)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663393
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "Ref.Modern.Helper::Normalize(string)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663392
+            },
+            {
+              "offset": 17,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.HashSet<string>::Contains(string)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Helper",
+          "name": "Normalize",
+          "signature": "string Normalize(string s)",
+          "token": 100663392,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 10440,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "System.String::Trim()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.String::ToLowerInvariant()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Catalog::Contains",
+              "signature": "bool Contains(string item)",
+              "offset": 12,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Helper::Normalize",
+              "signature": "HashSet<string> Normalize(IEnumerable<string> items)",
+              "offset": 29,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref15.Modern",
+          "namespace": "Ref.Modern",
+          "type": "Ref.Modern.Helper",
+          "name": "Normalize",
+          "signature": "HashSet<string> Normalize(IEnumerable<string> items)",
+          "token": 100663393,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 10456,
+          "size": 62,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "call",
+              "target": "System.StringComparer::get_Ordinal()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 5,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.HashSet<string>::.ctor(IEqualityComparer<string>)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<string>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 21,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<string>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 29,
+              "opcode": "call",
+              "target": "Ref.Modern.Helper::Normalize(string)",
+              "scope": "internal",
+              "groupFile": "Ref15.Modern.dll",
+              "groupToken": 100663392
+            },
+            {
+              "offset": 34,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.HashSet<string>::Add(string)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 41,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 54,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref15.Modern",
+              "method": "Ref.Modern.Catalog::Contains",
+              "signature": "bool Contains(string item)",
+              "offset": 6,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

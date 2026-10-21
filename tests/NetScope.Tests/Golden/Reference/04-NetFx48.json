@@ -1,0 +1,1014 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref04.NetFx48.dll",
+      "assembly": "Ref04.NetFx48",
+      "version": "1.0.0.0",
+      "targetFramework": ".NETFramework,Version=v4.8",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.SettingsException",
+          "name": ".ctor",
+          "signature": "void .ctor(string key)",
+          "token": 100663297,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8272,
+          "size": 25,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.Exception::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref04.NetFx48",
+              "method": "Ref.NetFx48.AppSettings::get_Item",
+              "signature": "string get_Item(string key)",
+              "offset": 21,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.SettingsException",
+          "name": ".ctor",
+          "signature": "void .ctor(SerializationInfo info, StreamingContext context)",
+          "token": 100663298,
+          "access": "protected",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8298,
+          "size": 26,
+          "calls": [
+            {
+              "offset": 3,
+              "opcode": "call",
+              "target": "System.Exception::.ctor(SerializationInfo, StreamingContext)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 15,
+              "opcode": "callvirt",
+              "target": "System.Runtime.Serialization.SerializationInfo::GetString(string)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.SettingsException",
+          "name": "get_Key",
+          "signature": "string get_Key()",
+          "token": 100663299,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8325,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref04.NetFx48",
+              "method": "Ref.NetFx48.SettingsException::GetObjectData",
+              "signature": "void GetObjectData(SerializationInfo info, StreamingContext context)",
+              "offset": 15,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.SettingsException",
+          "name": "GetObjectData",
+          "signature": "void GetObjectData(SerializationInfo info, StreamingContext context)",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 8333,
+          "size": 26,
+          "calls": [
+            {
+              "offset": 3,
+              "opcode": "call",
+              "target": "System.Exception::GetObjectData(SerializationInfo, StreamingContext)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 15,
+              "opcode": "call",
+              "target": "Ref.NetFx48.SettingsException::get_Key()",
+              "scope": "internal",
+              "groupFile": "Ref04.NetFx48.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 20,
+              "opcode": "callvirt",
+              "target": "System.Runtime.Serialization.SerializationInfo::AddValue(string, object)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.AppSettings",
+          "name": "FromConfiguration",
+          "signature": "AppSettings FromConfiguration()",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8360,
+          "size": 60,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.NetFx48.AppSettings::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref04.NetFx48.dll",
+              "groupToken": 100663307
+            },
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "System.Configuration.ConfigurationManager::get_AppSettings()",
+              "scope": "external",
+              "targetAssembly": "System.Configuration"
+            },
+            {
+              "offset": 11,
+              "opcode": "callvirt",
+              "target": "System.Collections.Specialized.NameValueCollection::get_AllKeys()",
+              "scope": "external",
+              "targetAssembly": "System"
+            },
+            {
+              "offset": 32,
+              "opcode": "call",
+              "target": "System.Configuration.ConfigurationManager::get_AppSettings()",
+              "scope": "external",
+              "targetAssembly": "System.Configuration"
+            },
+            {
+              "offset": 38,
+              "opcode": "callvirt",
+              "target": "System.Collections.Specialized.NameValueCollection::get_Item(string)",
+              "scope": "external",
+              "targetAssembly": "System"
+            },
+            {
+              "offset": 43,
+              "opcode": "callvirt",
+              "target": "System.Collections.Hashtable::set_Item(object, object)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.AppSettings",
+          "name": "FromXml",
+          "signature": "AppSettings FromXml(string xml)",
+          "token": 100663302,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8432,
+          "size": 161,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.Xml.XmlDocument::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Xml"
+            },
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "System.Xml.XmlDocument::LoadXml(string)",
+              "scope": "external",
+              "targetAssembly": "System.Xml"
+            },
+            {
+              "offset": 12,
+              "opcode": "newobj",
+              "target": "Ref.NetFx48.AppSettings::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref04.NetFx48.dll",
+              "groupToken": 100663307
+            },
+            {
+              "offset": 23,
+              "opcode": "callvirt",
+              "target": "System.Xml.XmlNode::SelectNodes(string)",
+              "scope": "external",
+              "targetAssembly": "System.Xml"
+            },
+            {
+              "offset": 28,
+              "opcode": "callvirt",
+              "target": "System.Xml.XmlNodeList::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Xml"
+            },
+            {
+              "offset": 37,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::get_Current()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 49,
+              "opcode": "callvirt",
+              "target": "System.Xml.XmlNode::get_Attributes()",
+              "scope": "external",
+              "targetAssembly": "System.Xml"
+            },
+            {
+              "offset": 59,
+              "opcode": "callvirt",
+              "target": "System.Xml.XmlAttributeCollection::get_ItemOf(string)",
+              "scope": "external",
+              "targetAssembly": "System.Xml"
+            },
+            {
+              "offset": 71,
+              "opcode": "callvirt",
+              "target": "System.Xml.XmlNode::get_Value()",
+              "scope": "external",
+              "targetAssembly": "System.Xml"
+            },
+            {
+              "offset": 88,
+              "opcode": "callvirt",
+              "target": "System.Xml.XmlNode::get_Attributes()",
+              "scope": "external",
+              "targetAssembly": "System.Xml"
+            },
+            {
+              "offset": 98,
+              "opcode": "callvirt",
+              "target": "System.Xml.XmlAttributeCollection::get_ItemOf(string)",
+              "scope": "external",
+              "targetAssembly": "System.Xml"
+            },
+            {
+              "offset": 110,
+              "opcode": "callvirt",
+              "target": "System.Xml.XmlNode::get_Value()",
+              "scope": "external",
+              "targetAssembly": "System.Xml"
+            },
+            {
+              "offset": 124,
+              "opcode": "callvirt",
+              "target": "System.Collections.Hashtable::set_Item(object, object)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 130,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 153,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.AppSettings",
+          "name": "get_Item",
+          "signature": "string get_Item(string key)",
+          "token": 100663303,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance"
+          ],
+          "rva": 8624,
+          "size": 28,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "System.Collections.Hashtable::get_Item(object)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 21,
+              "opcode": "newobj",
+              "target": "Ref.NetFx48.SettingsException::.ctor(string)",
+              "scope": "internal",
+              "groupFile": "Ref04.NetFx48.dll",
+              "groupToken": 100663297
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.AppSettings",
+          "name": "set_Item",
+          "signature": "void set_Item(string key, string value)",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance"
+          ],
+          "rva": 8653,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 8,
+              "opcode": "callvirt",
+              "target": "System.Collections.Hashtable::set_Item(object, object)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.AppSettings",
+          "name": "GetInt",
+          "signature": "int GetInt(string key, int fallback)",
+          "token": 100663305,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8668,
+          "size": 44,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "System.Collections.Hashtable::ContainsKey(object)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 21,
+              "opcode": "callvirt",
+              "target": "System.Collections.Hashtable::get_Item(object)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 33,
+              "opcode": "call",
+              "target": "System.Int32::TryParse(string, ref int)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.AppSettings",
+          "name": "Clone",
+          "signature": "object Clone()",
+          "token": 100663306,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed"
+          ],
+          "rva": 8724,
+          "size": 86,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.NetFx48.AppSettings::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref04.NetFx48.dll",
+              "groupToken": 100663307
+            },
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "System.Collections.Hashtable::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 21,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::get_Current()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 40,
+              "opcode": "call",
+              "target": "System.Collections.DictionaryEntry::get_Key()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 47,
+              "opcode": "call",
+              "target": "System.Collections.DictionaryEntry::get_Value()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 52,
+              "opcode": "callvirt",
+              "target": "System.Collections.Hashtable::set_Item(object, object)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 58,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 78,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.AppSettings",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663307,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8840,
+          "size": 23,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.StringComparer::get_OrdinalIgnoreCase()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 6,
+              "opcode": "newobj",
+              "target": "System.Collections.Hashtable::.ctor(IEqualityComparer)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 17,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref04.NetFx48",
+              "method": "Ref.NetFx48.AppSettings::FromConfiguration",
+              "signature": "AppSettings FromConfiguration()",
+              "offset": 0,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref04.NetFx48",
+              "method": "Ref.NetFx48.AppSettings::FromXml",
+              "signature": "AppSettings FromXml(string xml)",
+              "offset": 12,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref04.NetFx48",
+              "method": "Ref.NetFx48.AppSettings::Clone",
+              "signature": "object Clone()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.WorkCompleted",
+          "name": ".ctor",
+          "signature": "void .ctor(object object, nint method)",
+          "token": 100663308,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "runtime",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.WorkCompleted",
+          "name": "Invoke",
+          "signature": "void Invoke(object sender, int processed)",
+          "token": 100663309,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "runtime",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref04.NetFx48",
+              "method": "Ref.NetFx48.BackgroundCounter::OnCompleted",
+              "signature": "void OnCompleted(int processed)",
+              "offset": 13,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.WorkCompleted",
+          "name": "BeginInvoke",
+          "signature": "IAsyncResult BeginInvoke(object sender, int processed, AsyncCallback callback, object object)",
+          "token": 100663310,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "runtime",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.WorkCompleted",
+          "name": "EndInvoke",
+          "signature": "void EndInvoke(IAsyncResult result)",
+          "token": 100663311,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "runtime",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.BackgroundCounter",
+          "name": "add_Completed",
+          "signature": "void add_Completed(WorkCompleted value)",
+          "token": 100663312,
+          "access": "public",
+          "kinds": [
+            "event-add",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8864,
+          "size": 41,
+          "calls": [
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.Delegate::Combine(Delegate, Delegate)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 30,
+              "opcode": "call",
+              "target": "System.Threading.Interlocked::CompareExchange<WorkCompleted>(ref WorkCompleted, WorkCompleted, WorkCompleted)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.BackgroundCounter",
+          "name": "remove_Completed",
+          "signature": "void remove_Completed(WorkCompleted value)",
+          "token": 100663313,
+          "access": "public",
+          "kinds": [
+            "event-remove",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8920,
+          "size": 41,
+          "calls": [
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.Delegate::Remove(Delegate, Delegate)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 30,
+              "opcode": "call",
+              "target": "System.Threading.Interlocked::CompareExchange<WorkCompleted>(ref WorkCompleted, WorkCompleted, WorkCompleted)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.BackgroundCounter",
+          "name": "Run",
+          "signature": "void Run(IList<string> items)",
+          "token": 100663314,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8976,
+          "size": 166,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.NetFx48.BackgroundCounter.<>c__DisplayClass5_0::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref04.NetFx48.dll",
+              "groupToken": 100663317
+            },
+            {
+              "offset": 15,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.ICollection<string>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 35,
+              "opcode": "newobj",
+              "target": "System.Threading.ManualResetEvent::.ctor(bool)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 46,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<string>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 55,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<string>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 73,
+              "opcode": "ldftn",
+              "target": "Ref.NetFx48.BackgroundCounter.<>c__DisplayClass5_0::<Run>b__0(object)",
+              "scope": "internal",
+              "groupFile": "Ref04.NetFx48.dll",
+              "groupToken": 100663318
+            },
+            {
+              "offset": 79,
+              "opcode": "newobj",
+              "target": "System.Threading.WaitCallback::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 93,
+              "opcode": "call",
+              "target": "System.Threading.ThreadPool::QueueUserWorkItem(WaitCallback, object)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 100,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 113,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 125,
+              "opcode": "callvirt",
+              "target": "System.Threading.WaitHandle::WaitOne()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 147,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 160,
+              "opcode": "callvirt",
+              "target": "Ref.NetFx48.BackgroundCounter::OnCompleted(int)",
+              "scope": "internal",
+              "groupFile": "Ref04.NetFx48.dll",
+              "groupToken": 100663315
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.BackgroundCounter",
+          "name": "OnCompleted",
+          "signature": "void OnCompleted(int processed)",
+          "token": 100663315,
+          "access": "protected",
+          "kinds": [
+            "instance",
+            "virtual"
+          ],
+          "rva": 9184,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 13,
+              "opcode": "callvirt",
+              "target": "Ref.NetFx48.WorkCompleted::Invoke(object, int)",
+              "scope": "internal",
+              "groupFile": "Ref04.NetFx48.dll",
+              "groupToken": 100663309
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref04.NetFx48",
+              "method": "Ref.NetFx48.BackgroundCounter::Run",
+              "signature": "void Run(IList<string> items)",
+              "offset": 160,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.BackgroundCounter",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663316,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 9215,
+          "size": 18,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.BackgroundCounter+<>c__DisplayClass5_0",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663317,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9234,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref04.NetFx48",
+              "method": "Ref.NetFx48.BackgroundCounter::Run",
+              "signature": "void Run(IList<string> items)",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref04.NetFx48",
+          "namespace": "Ref.NetFx48",
+          "type": "Ref.NetFx48.BackgroundCounter+<>c__DisplayClass5_0",
+          "name": "<Run>b__0",
+          "signature": "void <Run>b__0(object state)",
+          "token": 100663318,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 9244,
+          "size": 97,
+          "calls": [
+            {
+              "offset": 17,
+              "opcode": "call",
+              "target": "System.Threading.Monitor::Enter(object, ref bool)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 28,
+              "opcode": "call",
+              "target": "System.String::IsNullOrEmpty(string)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 65,
+              "opcode": "call",
+              "target": "System.Threading.Monitor::Exit(object)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 77,
+              "opcode": "call",
+              "target": "System.Threading.Interlocked::Decrement(ref int)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 90,
+              "opcode": "callvirt",
+              "target": "System.Threading.EventWaitHandle::Set()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref04.NetFx48",
+              "method": "Ref.NetFx48.BackgroundCounter::Run",
+              "signature": "void Run(IList<string> items)",
+              "offset": 73,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

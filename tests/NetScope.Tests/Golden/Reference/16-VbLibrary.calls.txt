@@ -1,0 +1,551 @@
+Assembly : Ref16.VbLibrary.dll
+Name     : Ref16.VbLibrary, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 49
+
+Type     : Ref.VbLibrary.Accounts.InsufficientFundsException
+
+Method   : void .ctor(Decimal needed)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 31 bytes   Token: 0x06000001
+
+[Calls]
+  IL_0008  call      System.Decimal::ToString()             external System.Runtime
+  IL_000D  call      System.String::Concat(string, string)  external System.Runtime
+  IL_0012  call      System.Exception::.ctor(string)        external System.Runtime
+[Callers]
+  Ref.VbLibrary.Accounts.Account::Withdraw  IL_001B  newobj  (Ref16.VbLibrary.dll)
+
+Method   : Decimal get_Needed()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2070   Size: 7 bytes   Token: 0x06000002
+
+[Calls]
+  (none)
+[Callers]
+  Ref.VbLibrary.Accounts.Bank+VB$StateMachine_5_TransferAsync::MoveNext  IL_00AB  callvirt  (Ref16.VbLibrary.dll)
+
+Type     : Ref.VbLibrary.Accounts.Account
+
+Method   : void add_BalanceChanged(BalanceChangedEventHandler obj)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x2078   Size: 41 bytes   Token: 0x06000003
+
+[Calls]
+  IL_000B  call      System.Delegate::Combine(Delegate, Delegate)                                                                                                                       external System.Runtime
+  IL_001E  call      System.Threading.Interlocked::CompareExchange<BalanceChangedEventHandler>(ref BalanceChangedEventHandler, BalanceChangedEventHandler, BalanceChangedEventHandler)  external System.Threading
+[Callers]
+  (none in the input files)
+
+Method   : void remove_BalanceChanged(BalanceChangedEventHandler obj)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x20B0   Size: 41 bytes   Token: 0x06000004
+
+[Calls]
+  IL_000B  call      System.Delegate::Remove(Delegate, Delegate)                                                                                                                        external System.Runtime
+  IL_001E  call      System.Threading.Interlocked::CompareExchange<BalanceChangedEventHandler>(ref BalanceChangedEventHandler, BalanceChangedEventHandler, BalanceChangedEventHandler)  external System.Threading
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor(string owner, AccountKind kind)
+Kind     : ctor, instance, public
+RVA      : 0x20E5   Size: 32 bytes   Token: 0x06000005
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()                            external System.Runtime
+  IL_0007  newobj    System.Collections.Generic.List<string>::.ctor()  external System.Collections
+[Callers]
+  Ref.VbLibrary.Accounts.SavingsAccount::.ctor  IL_0003  call  (Ref16.VbLibrary.dll)
+
+Method   : string get_Owner()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2106   Size: 7 bytes   Token: 0x06000006
+
+[Calls]
+  (none)
+[Callers]
+  Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements::MoveNext  IL_0073  callvirt  (Ref16.VbLibrary.dll)
+  Ref.VbLibrary.Accounts.Bank+_Closure$__::_Lambda$__2-1  IL_0001  callvirt  (Ref16.VbLibrary.dll)
+  Ref.VbLibrary.Accounts.Bank+_Closure$__::_Lambda$__2-2  IL_0001  callvirt  (Ref16.VbLibrary.dll)
+
+Method   : AccountKind get_Kind()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x210E   Size: 7 bytes   Token: 0x06000007
+
+[Calls]
+  (none)
+[Callers]
+  Ref.VbLibrary.Accounts.Bank+_Closure$__::_Lambda$__3-0  IL_0001  callvirt  (Ref16.VbLibrary.dll)
+
+Method   : Decimal get_Balance()
+Kind     : property-get, instance, public
+RVA      : 0x2116   Size: 7 bytes   Token: 0x06000008
+
+[Calls]
+  (none)
+[Callers]
+  Ref.VbLibrary.Accounts.SavingsAccount::AddInterest  IL_0002  call  (Ref16.VbLibrary.dll)
+  Ref.VbLibrary.Accounts.Bank+_Closure$__::_Lambda$__3-3  IL_0001  callvirt  (Ref16.VbLibrary.dll)
+  Ref.VbLibrary.Accounts.Bank+_Closure$__2-0::_Lambda$__0  IL_0001  callvirt  (Ref16.VbLibrary.dll)
+
+Method   : void Deposit(Decimal amount)
+Kind     : instance, public, virtual
+RVA      : 0x2120   Size: 102 bytes   Token: 0x06000009
+
+[Calls]
+  IL_0006  call      System.Decimal::Compare(Decimal, Decimal)                                           external System.Runtime
+  IL_0013  newobj    System.ArgumentOutOfRangeException::.ctor(string)                                   external System.Runtime
+  IL_0028  call      System.Decimal::Add(Decimal, Decimal)                                               external System.Runtime
+  IL_003F  call      System.Decimal::ToString()                                                          external System.Runtime
+  IL_0044  call      System.String::Concat(string, string)                                               external System.Runtime
+  IL_0049  callvirt  System.Collections.Generic.List<string>::Add(string)                                external System.Collections
+  IL_0060  callvirt  Ref.VbLibrary.Accounts.Account.BalanceChangedEventHandler::Invoke(object, Decimal)  internal
+[Callers]
+  Ref.VbLibrary.Accounts.Account::op_Addition  IL_0002  callvirt  (Ref16.VbLibrary.dll)
+  Ref.VbLibrary.Accounts.SavingsAccount::AddInterest  IL_0018  callvirt  (Ref16.VbLibrary.dll)
+  Ref.VbLibrary.Accounts.Bank+VB$StateMachine_5_TransferAsync::MoveNext  IL_008C  callvirt  (Ref16.VbLibrary.dll)
+
+Method   : void Withdraw(Decimal amount)
+Kind     : instance, public, virtual
+RVA      : 0x2194   Size: 110 bytes   Token: 0x0600000A
+
+[Calls]
+  IL_0007  call      System.Decimal::Compare(Decimal, Decimal)                                           external System.Runtime
+  IL_0016  call      System.Decimal::Subtract(Decimal, Decimal)                                          external System.Runtime
+  IL_001B  newobj    Ref.VbLibrary.Accounts.InsufficientFundsException::.ctor(Decimal)                   internal
+  IL_0030  call      System.Decimal::Subtract(Decimal, Decimal)                                          external System.Runtime
+  IL_0047  call      System.Decimal::ToString()                                                          external System.Runtime
+  IL_004C  call      System.String::Concat(string, string)                                               external System.Runtime
+  IL_0051  callvirt  System.Collections.Generic.List<string>::Add(string)                                external System.Collections
+  IL_0068  callvirt  Ref.VbLibrary.Accounts.Account.BalanceChangedEventHandler::Invoke(object, Decimal)  internal
+[Callers]
+  Ref.VbLibrary.Accounts.SavingsAccount::Withdraw  IL_0021  call  (Ref16.VbLibrary.dll)
+  Ref.VbLibrary.Accounts.Bank+VB$StateMachine_5_TransferAsync::MoveNext  IL_007B  callvirt  (Ref16.VbLibrary.dll)
+
+Method   : IEnumerable<string> History()
+Kind     : instance, public
+RVA      : 0x220E   Size: 12 bytes   Token: 0x0600000B
+
+[Calls]
+  IL_0006  callvirt  System.Collections.Generic.List<string>::AsReadOnly()  external System.Collections
+[Callers]
+  Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements::MoveNext  IL_004F  callvirt  (Ref16.VbLibrary.dll)
+
+Method   : Account op_Addition(Account a, Decimal amount)
+Kind     : operator, static, public
+RVA      : 0x221B   Size: 9 bytes   Token: 0x0600000C
+
+[Calls]
+  IL_0002  callvirt  Ref.VbLibrary.Accounts.Account::Deposit(Decimal)  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.VbLibrary.Accounts.SavingsAccount
+
+Method   : void .ctor(string owner)
+Kind     : ctor, instance, public
+RVA      : 0x2225   Size: 25 bytes   Token: 0x0600000D
+
+[Calls]
+  IL_0003  call      Ref.VbLibrary.Accounts.Account::.ctor(string, AccountKind)  internal
+  IL_000E  newobj    System.Decimal::.ctor(int, int, int, bool, byte)            external System.Runtime
+  IL_0013  call      Ref.VbLibrary.Accounts.SavingsAccount::set_Rate(Decimal)    internal
+[Callers]
+  (none in the input files)
+
+Method   : Decimal get_Rate()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x223F   Size: 7 bytes   Token: 0x0600000E
+
+[Calls]
+  (none)
+[Callers]
+  Ref.VbLibrary.Accounts.SavingsAccount::AddInterest  IL_0008  call  (Ref16.VbLibrary.dll)
+
+Method   : void set_Rate(Decimal AutoPropertyValue)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2247   Size: 8 bytes   Token: 0x0600000F
+
+[Calls]
+  (none)
+[Callers]
+  Ref.VbLibrary.Accounts.SavingsAccount::.ctor  IL_0013  call  (Ref16.VbLibrary.dll)
+
+Method   : void Withdraw(Decimal amount)
+Kind     : instance, public, override
+RVA      : 0x2250   Size: 39 bytes   Token: 0x06000010
+
+[Calls]
+  IL_0007  newobj    System.Decimal::.ctor(long)                        external System.Runtime
+  IL_000C  call      System.Decimal::Compare(Decimal, Decimal)          external System.Runtime
+  IL_0019  newobj    System.InvalidOperationException::.ctor(string)    external System.Runtime
+  IL_0021  call      Ref.VbLibrary.Accounts.Account::Withdraw(Decimal)  internal
+[Callers]
+  (none in the input files)
+
+Method   : void AddInterest()
+Kind     : instance, public
+RVA      : 0x2278   Size: 30 bytes   Token: 0x06000011
+
+[Calls]
+  IL_0002  call      Ref.VbLibrary.Accounts.Account::get_Balance()      internal
+  IL_0008  call      Ref.VbLibrary.Accounts.SavingsAccount::get_Rate()  internal
+  IL_000D  call      System.Decimal::Multiply(Decimal, Decimal)         external System.Runtime
+  IL_0013  call      System.Math::Round(Decimal, int)                   external System.Runtime
+  IL_0018  callvirt  Ref.VbLibrary.Accounts.Account::Deposit(Decimal)   internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.VbLibrary.Accounts.Bank
+
+Method   : string Describe(AccountKind kind)
+Kind     : static, public
+RVA      : 0x2298   Size: 35 bytes   Token: 0x06000012
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : string Grade(int score)
+Kind     : static, public
+RVA      : 0x22C8   Size: 59 bytes   Token: 0x06000013
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : List<string> RichOwners(IEnumerable<Account> accounts, Decimal limit)
+Kind     : static, public
+RVA      : 0x2310   Size: 119 bytes   Token: 0x06000014
+
+[Calls]
+  IL_0000  newobj    Ref.VbLibrary.Accounts.Bank._Closure$__2-0::.ctor()                                            internal
+  IL_000F  ldftn     Ref.VbLibrary.Accounts.Bank._Closure$__2-0::_Lambda$__0(Account)                               internal
+  IL_0015  newobj    System.Func<Ref.VbLibrary.Accounts.Account, bool>::.ctor(object, nint)                         external System.Runtime
+  IL_001A  call      System.Linq.Enumerable::Where<Account>(IEnumerable<Account>, Func<Account, bool>)              external System.Linq
+  IL_0032  ldftn     Ref.VbLibrary.Accounts.Bank._Closure$__::_Lambda$__2-1(Account)                                internal
+  IL_0038  newobj    System.Func<Ref.VbLibrary.Accounts.Account, string>::.ctor(object, nint)                       external System.Runtime
+  IL_0043  call      System.Linq.Enumerable::OrderBy<Account, string>(IEnumerable<Account>, Func<Account, string>)  external System.Linq
+  IL_005B  ldftn     Ref.VbLibrary.Accounts.Bank._Closure$__::_Lambda$__2-2(Account)                                internal
+  IL_0061  newobj    System.Func<Ref.VbLibrary.Accounts.Account, string>::.ctor(object, nint)                       external System.Runtime
+  IL_006C  call      System.Linq.Enumerable::Select<Account, string>(IEnumerable<Account>, Func<Account, string>)   external System.Linq
+  IL_0071  call      System.Linq.Enumerable::ToList<string>(IEnumerable<string>)                                    external System.Linq
+[Callers]
+  (none in the input files)
+
+Method   : Dictionary<AccountKind, Decimal> TotalBy(IEnumerable<Account> accounts)
+Kind     : static, public
+RVA      : 0x2394   Size: 120 bytes   Token: 0x06000015
+
+[Calls]
+  IL_0014  ldftn     Ref.VbLibrary.Accounts.Bank._Closure$__::_Lambda$__3-0(Account)                                                                                                                                                                                internal
+  IL_001A  newobj    System.Func<Ref.VbLibrary.Accounts.Account, Ref.VbLibrary.Accounts.AccountKind>::.ctor(object, nint)                                                                                                                                           external System.Runtime
+  IL_0025  call      System.Linq.Enumerable::GroupBy<Account, AccountKind>(IEnumerable<Account>, Func<Account, AccountKind>)                                                                                                                                        external System.Linq
+  IL_003D  ldftn     Ref.VbLibrary.Accounts.Bank._Closure$__::_Lambda$__3-1(IGrouping<AccountKind, Account>)                                                                                                                                                        internal
+  IL_0043  newobj    System.Func<System.Linq.IGrouping<Ref.VbLibrary.Accounts.AccountKind, Ref.VbLibrary.Accounts.Account>, Ref.VbLibrary.Accounts.AccountKind>::.ctor(object, nint)                                                                                external System.Runtime
+  IL_0061  ldftn     Ref.VbLibrary.Accounts.Bank._Closure$__::_Lambda$__3-2(IGrouping<AccountKind, Account>)                                                                                                                                                        internal
+  IL_0067  newobj    System.Func<System.Linq.IGrouping<Ref.VbLibrary.Accounts.AccountKind, Ref.VbLibrary.Accounts.Account>, System.Decimal>::.ctor(object, nint)                                                                                                    external System.Runtime
+  IL_0072  call      System.Linq.Enumerable::ToDictionary<IGrouping<AccountKind, Account>, AccountKind, Decimal>(IEnumerable<IGrouping<AccountKind, Account>>, Func<IGrouping<AccountKind, Account>, AccountKind>, Func<IGrouping<AccountKind, Account>, Decimal>)  external System.Linq
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerable<string> Statements(Account account)
+Kind     : static, public, iterator
+RVA      : 0x2418   Size: 15 bytes   Token: 0x06000016
+
+[Calls]
+  IL_0002  newobj    Ref.VbLibrary.Accounts.Bank.VB$StateMachine_4_Statements::.ctor(int)  internal
+[Callers]
+  (none in the input files)
+
+Method   : Task<bool> TransferAsync(Account source, Account target, Decimal amount)
+Kind     : static, public, async
+RVA      : 0x2428   Size: 79 bytes   Token: 0x06000017
+
+[Calls]
+  IL_002A  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<bool>::Create()                                                                     external System.Runtime
+  IL_003D  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<bool>::Start<VB$StateMachine_5_TransferAsync>(ref VB$StateMachine_5_TransferAsync)  external System.Runtime
+  IL_0049  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<bool>::get_Task()                                                                   external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : string LegacyText(object value)
+Kind     : static, public
+RVA      : 0x2484   Size: 50 bytes   Token: 0x06000018
+
+[Calls]
+  IL_0001  call      Microsoft.VisualBasic.CompilerServices.Conversions::ToString(object)  external Microsoft.VisualBasic.Core
+  IL_0008  call      Microsoft.VisualBasic.Strings::Len(string)                            external Microsoft.VisualBasic.Core
+  IL_0019  call      Microsoft.VisualBasic.Strings::Left(string, int)                      external Microsoft.VisualBasic.Core
+  IL_001E  call      Microsoft.VisualBasic.Strings::UCase(string)                          external Microsoft.VisualBasic.Core
+  IL_0025  call      Microsoft.VisualBasic.Strings::Mid(string, int)                       external Microsoft.VisualBasic.Core
+  IL_002A  call      System.String::Concat(string, string)                                 external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : int SafeDivide(int a, int b)
+Kind     : static, public
+RVA      : 0x24C4   Size: 35 bytes   Token: 0x06000019
+
+[Calls]
+  IL_0007  call      Microsoft.VisualBasic.CompilerServices.ProjectData::SetProjectError(Exception)  external Microsoft.VisualBasic.Core
+  IL_000F  call      Microsoft.VisualBasic.CompilerServices.ProjectData::ClearProjectError()         external Microsoft.VisualBasic.Core
+  IL_001B  call      System.Console::WriteLine(string)                                               external System.Console
+[Callers]
+  (none in the input files)
+
+Type     : Ref.VbLibrary.Accounts.Account+BalanceChangedEventHandler
+
+Method   : void .ctor(object TargetObject, nint TargetMethod)
+Kind     : ctor, instance, public, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001A
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : IAsyncResult BeginInvoke(object sender, Decimal newBalance, AsyncCallback DelegateCallback, object DelegateAsyncState)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001B
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void EndInvoke(IAsyncResult DelegateAsyncResult)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001C
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void Invoke(object sender, Decimal newBalance)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001D
+
+[Calls]
+  (none)
+[Callers]
+  Ref.VbLibrary.Accounts.Account::Deposit  IL_0060  callvirt  (Ref16.VbLibrary.dll)
+  Ref.VbLibrary.Accounts.Account::Withdraw  IL_0068  callvirt  (Ref16.VbLibrary.dll)
+
+Type     : Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements
+
+Method   : void .ctor(int $State)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2510   Size: 25 bytes   Token: 0x0600001E
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()                            external System.Runtime
+  IL_000E  call      System.Environment::get_CurrentManagedThreadId()  external System.Runtime
+[Callers]
+  Ref.VbLibrary.Accounts.Bank::Statements  IL_0002  newobj  (Ref16.VbLibrary.dll)
+  Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements::GetEnumerator  IL_0023  newobj  (Ref16.VbLibrary.dll)
+
+Method   : void Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x252C   Size: 44 bytes   Token: 0x0600001F
+
+[Calls]
+  IL_001D  call      Ref.VbLibrary.Accounts.Bank.VB$StateMachine_4_Statements::MoveNext()  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2564   Size: 201 bytes   Token: 0x06000020
+
+[Calls]
+  IL_004F  callvirt  Ref.VbLibrary.Accounts.Account::History()                        internal
+  IL_0054  callvirt  System.Collections.Generic.IEnumerable<string>::GetEnumerator()  external System.Runtime
+  IL_0066  callvirt  System.Collections.Generic.IEnumerator<string>::get_Current()    external System.Runtime
+  IL_0073  callvirt  Ref.VbLibrary.Accounts.Account::get_Owner()                      internal
+  IL_007E  call      System.String::Concat(string, string, string)                    external System.Runtime
+  IL_00A4  callvirt  System.Collections.IEnumerator::MoveNext()                       external System.Runtime
+  IL_00BF  callvirt  System.IDisposable::Dispose()                                    external System.Runtime
+[Callers]
+  Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements::Dispose  IL_001D  call  (Ref16.VbLibrary.dll)
+
+Method   : IEnumerator<string> GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x264C   Size: 55 bytes   Token: 0x06000021
+
+[Calls]
+  IL_0010  call      System.Environment::get_CurrentManagedThreadId()                      external System.Runtime
+  IL_0023  newobj    Ref.VbLibrary.Accounts.Bank.VB$StateMachine_4_Statements::.ctor(int)  internal
+[Callers]
+  Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements::IEnumerable.GetEnumerator  IL_0001  call  (Ref16.VbLibrary.dll)
+
+Method   : IEnumerator IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x268F   Size: 7 bytes   Token: 0x06000022
+
+[Calls]
+  IL_0001  call      Ref.VbLibrary.Accounts.Bank.VB$StateMachine_4_Statements::GetEnumerator()  internal
+[Callers]
+  (none in the input files)
+
+Method   : string get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2697   Size: 7 bytes   Token: 0x06000023
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x269F   Size: 6 bytes   Token: 0x06000024
+
+[Calls]
+  IL_0000  newobj    System.NotSupportedException::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : object IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26A6   Size: 7 bytes   Token: 0x06000025
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.VbLibrary.Accounts.Bank+VB$StateMachine_5_TransferAsync
+
+Method   : void MoveNext()
+Kind     : instance, internal, virtual, sealed, compiler-generated
+RVA      : 0x26B0   Size: 266 bytes   Token: 0x06000026
+
+[Calls]
+  IL_000A  call      System.Threading.Tasks.Task::Yield()                                                                                                                                                        external System.Runtime
+  IL_0012  call      System.Runtime.CompilerServices.YieldAwaitable::GetAwaiter()                                                                                                                                external System.Runtime
+  IL_001A  call      System.Runtime.CompilerServices.YieldAwaitable.YieldAwaiter::get_IsCompleted()                                                                                                              external System.Runtime
+  IL_003A  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<bool>::AwaitUnsafeOnCompleted<YieldAwaiter, VB$StateMachine_5_TransferAsync>(ref YieldAwaiter, ref VB$StateMachine_5_TransferAsync)  external System.Runtime
+  IL_0062  call      System.Runtime.CompilerServices.YieldAwaitable.YieldAwaiter::GetResult()                                                                                                                    external System.Runtime
+  IL_007B  callvirt  Ref.VbLibrary.Accounts.Account::Withdraw(Decimal)                                                                                                                                           internal
+  IL_008C  callvirt  Ref.VbLibrary.Accounts.Account::Deposit(Decimal)                                                                                                                                            internal
+  IL_00A2  call      Microsoft.VisualBasic.CompilerServices.ProjectData::SetProjectError(Exception)                                                                                                              external Microsoft.VisualBasic.Core
+  IL_00AB  callvirt  Ref.VbLibrary.Accounts.InsufficientFundsException::get_Needed()                                                                                                                             internal
+  IL_00B3  newobj    System.Decimal::.ctor(long)                                                                                                                                                                 external System.Runtime
+  IL_00B8  call      System.Decimal::Compare(Decimal, Decimal)                                                                                                                                                   external System.Runtime
+  IL_00C8  call      Microsoft.VisualBasic.CompilerServices.ProjectData::ClearProjectError()                                                                                                                     external Microsoft.VisualBasic.Core
+  IL_00D0  call      Microsoft.VisualBasic.CompilerServices.ProjectData::SetProjectError(Exception)                                                                                                              external Microsoft.VisualBasic.Core
+  IL_00E7  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<bool>::SetException(Exception)                                                                                                       external System.Runtime
+  IL_00EC  call      Microsoft.VisualBasic.CompilerServices.ProjectData::ClearProjectError()                                                                                                                     external Microsoft.VisualBasic.Core
+  IL_0104  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<bool>::SetResult(bool)                                                                                                               external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void System.Runtime.CompilerServices.IAsyncStateMachine.SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x27E4   Size: 13 bytes   Token: 0x06000027
+
+[Calls]
+  IL_0007  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<bool>::SetStateMachine(IAsyncStateMachine)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.VbLibrary.Accounts.Bank+_Closure$__
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x27F2   Size: 7 bytes   Token: 0x06000028
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  Ref.VbLibrary.Accounts.Bank+_Closure$__::.cctor  IL_0000  newobj  (Ref16.VbLibrary.dll)
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x27FA   Size: 11 bytes   Token: 0x06000029
+
+[Calls]
+  IL_0000  newobj    Ref.VbLibrary.Accounts.Bank._Closure$__::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Method   : string _Lambda$__2-1(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2806   Size: 7 bytes   Token: 0x0600002A
+
+[Calls]
+  IL_0001  callvirt  Ref.VbLibrary.Accounts.Account::get_Owner()  internal
+[Callers]
+  Ref.VbLibrary.Accounts.Bank::RichOwners  IL_0032  ldftn  (Ref16.VbLibrary.dll)
+
+Method   : string _Lambda$__2-2(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x280E   Size: 7 bytes   Token: 0x0600002B
+
+[Calls]
+  IL_0001  callvirt  Ref.VbLibrary.Accounts.Account::get_Owner()  internal
+[Callers]
+  Ref.VbLibrary.Accounts.Bank::RichOwners  IL_005B  ldftn  (Ref16.VbLibrary.dll)
+
+Method   : AccountKind _Lambda$__3-0(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2816   Size: 7 bytes   Token: 0x0600002C
+
+[Calls]
+  IL_0001  callvirt  Ref.VbLibrary.Accounts.Account::get_Kind()  internal
+[Callers]
+  Ref.VbLibrary.Accounts.Bank::TotalBy  IL_0014  ldftn  (Ref16.VbLibrary.dll)
+
+Method   : AccountKind _Lambda$__3-1(IGrouping<AccountKind, Account> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x281E   Size: 7 bytes   Token: 0x0600002D
+
+[Calls]
+  IL_0001  callvirt  System.Linq.IGrouping<Ref.VbLibrary.Accounts.AccountKind, Ref.VbLibrary.Accounts.Account>::get_Key()  external System.Linq
+[Callers]
+  Ref.VbLibrary.Accounts.Bank::TotalBy  IL_003D  ldftn  (Ref16.VbLibrary.dll)
+
+Method   : Decimal _Lambda$__3-2(IGrouping<AccountKind, Account> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2826   Size: 43 bytes   Token: 0x0600002E
+
+[Calls]
+  IL_0014  ldftn     Ref.VbLibrary.Accounts.Bank._Closure$__::_Lambda$__3-3(Account)                     internal
+  IL_001A  newobj    System.Func<Ref.VbLibrary.Accounts.Account, System.Decimal>::.ctor(object, nint)    external System.Runtime
+  IL_0025  call      System.Linq.Enumerable::Sum<Account>(IEnumerable<Account>, Func<Account, Decimal>)  external System.Linq
+[Callers]
+  Ref.VbLibrary.Accounts.Bank::TotalBy  IL_0061  ldftn  (Ref16.VbLibrary.dll)
+
+Method   : Decimal _Lambda$__3-3(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2852   Size: 7 bytes   Token: 0x0600002F
+
+[Calls]
+  IL_0001  callvirt  Ref.VbLibrary.Accounts.Account::get_Balance()  internal
+[Callers]
+  Ref.VbLibrary.Accounts.Bank+_Closure$__::_Lambda$__3-2  IL_0014  ldftn  (Ref16.VbLibrary.dll)
+
+Type     : Ref.VbLibrary.Accounts.Bank+_Closure$__2-0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x285A   Size: 7 bytes   Token: 0x06000030
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  Ref.VbLibrary.Accounts.Bank::RichOwners  IL_0000  newobj  (Ref16.VbLibrary.dll)
+
+Method   : bool _Lambda$__0(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2862   Size: 21 bytes   Token: 0x06000031
+
+[Calls]
+  IL_0001  callvirt  Ref.VbLibrary.Accounts.Account::get_Balance()  internal
+  IL_000C  call      System.Decimal::Compare(Decimal, Decimal)      external System.Runtime
+[Callers]
+  Ref.VbLibrary.Accounts.Bank::RichOwners  IL_000F  ldftn  (Ref16.VbLibrary.dll)

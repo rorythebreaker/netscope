@@ -1,0 +1,351 @@
+Assembly : Ref10.Interop.dll
+Name     : Ref10.Interop, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 21
+
+Type     : Ref.Interop.Kernel32
+
+Method   : void GetSystemTime(out SystemTime time)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000001
+PInvoke  : kernel32.dll!GetSystemTime
+
+Method   : uint GetEnvironmentVariableW(string name, StringBuilder buffer, uint size)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000002
+PInvoke  : kernel32.dll!GetEnvironmentVariableW
+
+Method   : ulong Ticks()
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000003
+PInvoke  : kernel32.dll!GetTickCount64
+
+Type     : Ref.Interop.LibC
+
+Method   : int GetPid()
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000004
+PInvoke  : libc!getpid
+
+Method   : nuint StrLen(string s)
+Kind     : static, public
+RVA      : 0x2050   Size: 66 bytes   Token: 0x06000005
+
+[Branches]  complexity=2  blocks=4  loops=0
+  B0 IL_0000..IL_000A  -> B1
+       IL_0000  ldc.i4.0
+       IL_0001  conv.i
+       IL_0002  stloc.0
+       IL_0003  ldloca.s   V_1
+       IL_0005  initobj    [System.Runtime.InteropServices]System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller/ManagedToUnmanagedIn
+  B1 IL_000B..IL_0037  -> B3 (leave) | B2 (finally)  [try]
+       IL_000B  ldarg.0
+       IL_000C  stloc.2
+       IL_000D  call       int32 [System.Runtime.InteropServices]System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller/ManagedToUnmanagedIn::get_BufferSize()
+       IL_0012  stloc.3
+       IL_0013  ldloc.3
+       IL_0014  conv.u
+       IL_0015  localloc
+       IL_0017  ldloc.3
+       IL_0018  newobj     instance void valuetype [System.Runtime]System.Span`1<uint8>::.ctor(void*, int32)
+       IL_001D  stloc.s    V_4
+       IL_001F  ldloca.s   V_1
+       IL_0021  ldloc.2
+       IL_0022  ldloc.s    V_4
+       IL_0024  call       instance void [System.Runtime.InteropServices]System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller/ManagedToUnmanagedIn::FromManaged(string, valuetype [System.Runtime]System.Span`1<uint8>)
+       IL_0029  ldloca.s   V_1
+       IL_002B  call       instance uint8* [System.Runtime.InteropServices]System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller/ManagedToUnmanagedIn::ToUnmanaged()
+       IL_0030  call       native uint Ref.Interop.LibC::'<StrLen>g____PInvoke|1_0'(uint8*)
+       IL_0035  stloc.0
+       IL_0036  leave.s    IL_0040
+  B2 IL_0038..IL_003F  -> endfinally  [finally]
+       IL_0038  ldloca.s   V_1
+       IL_003A  call       instance void [System.Runtime.InteropServices]System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller/ManagedToUnmanagedIn::Free()
+       IL_003F  endfinally
+  B3 IL_0040..IL_0041  -> exit
+       IL_0040  ldloc.0
+       IL_0041  ret
+  exits: B3 (return)
+  regions:
+    try IL_000B..IL_0037  [B1]
+    finally IL_0038..IL_003F  [B2]  (handler of try IL_000B)
+
+Method   : void QSort(void* data, nuint count, nuint size, delegate*<void*, void*, int> compare)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000006
+PInvoke  : libc!qsort
+
+Method   : nuint <StrLen>g____PInvoke|1_0(byte* __s_native)
+Kind     : static, internal, pinvoke, local-function, compiler-generated, no-body
+RVA      : 0x0000   Token: 0x06000007
+PInvoke  : libc!strlen
+
+Type     : Ref.Interop.Callbacks
+
+Method   : int CompareInts(void* a, void* b)
+Kind     : static, private
+RVA      : 0x20B0   Size: 9 bytes   Token: 0x06000008
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0008  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  ldind.i4
+       IL_0003  call       instance int32 [System.Runtime]System.Int32::CompareTo(int32)
+       IL_0008  ret
+  exits: B0 (return)
+
+Method   : void Sort(int[] values)
+Kind     : static, public
+RVA      : 0x20BC   Size: 45 bytes   Token: 0x06000009
+
+[Branches]  complexity=3  blocks=5  loops=0
+  B0 IL_0000..IL_0004  -> B1 (values != null) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  dup
+       IL_0002  stloc.1
+       IL_0003  brfalse.s  IL_000A
+  B1 IL_0005..IL_0009  -> B2 ((int)V_1.Length == 0) | B3 (else)
+       IL_0005  ldloc.1
+       IL_0006  ldlen
+       IL_0007  conv.i4
+       IL_0008  brtrue.s   IL_000F
+  B2 IL_000A..IL_000E  -> B4
+       IL_000A  ldc.i4.0
+       IL_000B  conv.u
+       IL_000C  stloc.0
+       IL_000D  br.s       IL_0018
+  B3 IL_000F..IL_0017  -> B4
+       IL_000F  ldloc.1
+       IL_0010  ldc.i4.0
+       IL_0011  ldelema    [System.Runtime]System.Int32
+       IL_0016  conv.u
+       IL_0017  stloc.0
+  B4 IL_0018..IL_002C  -> exit
+       IL_0018  ldloc.0
+       IL_0019  ldarg.0
+       IL_001A  ldlen
+       IL_001B  conv.i4
+       IL_001C  conv.i
+       IL_001D  ldc.i4.4
+       IL_001E  conv.i
+       IL_001F  ldftn      int32 Ref.Interop.Callbacks::CompareInts(void*, void*)
+       IL_0025  call       void Ref.Interop.LibC::QSort(void*, native uint, native uint, method int32 *(void*, void*))
+       IL_002A  ldnull
+       IL_002B  stloc.1
+       IL_002C  ret
+  exits: B4 (return)
+
+Method   : int Apply(delegate*<int, int, int> op, int a, int b)
+Kind     : static, public
+RVA      : 0x20F8   Size: 11 bytes   Token: 0x0600000A
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000A  -> exit
+       IL_0000  ldarg.0
+       IL_0001  stloc.0
+       IL_0002  ldarg.1
+       IL_0003  ldarg.2
+       IL_0004  ldloc.0
+       IL_0005  calli      int32(int32, int32)
+       IL_000A  ret
+  exits: B0 (return)
+
+Method   : int Add(int a, int b)
+Kind     : static, private
+RVA      : 0x210F   Size: 4 bytes   Token: 0x0600000B
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0003  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  add
+       IL_0003  ret
+  exits: B0 (return)
+
+Method   : int AddViaPointer(int a, int b)
+Kind     : static, public
+RVA      : 0x2114   Size: 14 bytes   Token: 0x0600000C
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000D  -> exit
+       IL_0000  ldftn      int32 Ref.Interop.Callbacks::Add(int32, int32)
+       IL_0006  ldarg.0
+       IL_0007  ldarg.1
+       IL_0008  call       int32 Ref.Interop.Callbacks::Apply(method int32 *(int32, int32), int32, int32)
+       IL_000D  ret
+  exits: B0 (return)
+
+Method   : int CallNative(nint fn, int a, int b)
+Kind     : static, public
+RVA      : 0x2123   Size: 14 bytes   Token: 0x0600000D
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000D  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       !!0 [System.Runtime.InteropServices]System.Runtime.InteropServices.Marshal::GetDelegateForFunctionPointer<class Ref.Interop.Callbacks/BinaryOp>(native int)
+       IL_0006  ldarg.1
+       IL_0007  ldarg.2
+       IL_0008  callvirt   instance int32 Ref.Interop.Callbacks/BinaryOp::Invoke(int32, int32)
+       IL_000D  ret
+  exits: B0 (return)
+
+Method   : nint Export(BinaryOp op)
+Kind     : static, public
+RVA      : 0x2132   Size: 7 bytes   Token: 0x0600000E
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       native int [System.Runtime.InteropServices]System.Runtime.InteropServices.Marshal::GetFunctionPointerForDelegate<class Ref.Interop.Callbacks/BinaryOp>(!!0)
+       IL_0006  ret
+  exits: B0 (return)
+
+Type     : Ref.Interop.Platform
+
+Method   : string Describe()
+Kind     : static, public
+RVA      : 0x213C   Size: 268 bytes   Token: 0x0600000F
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0009  -> B1 (OperatingSystem.IsWindows()) | B2 (else)
+       IL_0000  call       bool [System.Runtime]System.OperatingSystem::IsWindows()
+       IL_0005  brfalse    IL_00C1
+  B1 IL_000A..IL_00C0  -> exit
+       IL_000A  ldloca.s   V_0
+       IL_000C  call       void Ref.Interop.Kernel32::GetSystemTime(valuetype Ref.Interop.SystemTime&)
+       IL_0011  ldc.i4     0x104
+       IL_0016  newobj     instance void [System.Runtime]System.Text.StringBuilder::.ctor(int32)
+       IL_001B  stloc.1
+       IL_001C  ldstr      "PATH"
+       IL_0021  ldloc.1
+       IL_0022  ldloc.1
+       IL_0023  callvirt   instance int32 [System.Runtime]System.Text.StringBuilder::get_Capacity()
+       IL_0028  call       uint32 Ref.Interop.Kernel32::GetEnvironmentVariableW(string, class [System.Runtime]System.Text.StringBuilder, uint32)
+       IL_002D  stloc.2
+       IL_002E  ldloca.s   V_3
+       IL_0030  ldc.i4.s   27
+       IL_0032  ldc.i4.5
+       IL_0033  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int32, int32)
+       IL_0038  ldloca.s   V_3
+       IL_003A  ldloc.0
+       IL_003B  ldfld      uint16 Ref.Interop.SystemTime::Year
+       IL_0040  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<uint16>(!!0)
+       IL_0045  ldloca.s   V_3
+       IL_0047  ldstr      "-"
+       IL_004C  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)
+       IL_0051  ldloca.s   V_3
+       IL_0053  ldloc.0
+       IL_0054  ldfld      uint16 Ref.Interop.SystemTime::Month
+       IL_0059  ldstr      "00"
+       IL_005E  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<uint16>(!!0, string)
+       IL_0063  ldloca.s   V_3
+       IL_0065  ldstr      "-"
+       IL_006A  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)
+       IL_006F  ldloca.s   V_3
+       IL_0071  ldloc.0
+       IL_0072  ldfld      uint16 Ref.Interop.SystemTime::Day
+       IL_0077  ldstr      "00"
+       IL_007C  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<uint16>(!!0, string)
+       IL_0081  ldloca.s   V_3
+       IL_0083  ldstr      ", PATH has "
+       IL_0088  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)
+       IL_008D  ldloca.s   V_3
+       IL_008F  ldloc.2
+       IL_0090  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<uint32>(!!0)
+       IL_0095  ldloca.s   V_3
+       IL_0097  ldstr      " chars, up "
+       IL_009C  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)
+       IL_00A1  ldloca.s   V_3
+       IL_00A3  call       uint64 Ref.Interop.Kernel32::Ticks()
+       IL_00A8  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<uint64>(!!0)
+       IL_00AD  ldloca.s   V_3
+       IL_00AF  ldstr      " ms"
+       IL_00B4  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)
+       IL_00B9  ldloca.s   V_3
+       IL_00BB  call       instance string [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+       IL_00C0  ret
+  B2 IL_00C1..IL_010B  -> exit
+       IL_00C1  ldc.i4.5
+       IL_00C2  newarr     [System.Runtime]System.String
+       IL_00C7  dup
+       IL_00C8  ldc.i4.0
+       IL_00C9  ldstr      "pid "
+       IL_00CE  stelem.ref
+       IL_00CF  dup
+       IL_00D0  ldc.i4.1
+       IL_00D1  call       int32 Ref.Interop.LibC::GetPid()
+       IL_00D6  stloc.s    V_4
+       IL_00D8  ldloca.s   V_4
+       IL_00DA  call       instance string [System.Runtime]System.Int32::ToString()
+       IL_00DF  stelem.ref
+       IL_00E0  dup
+       IL_00E1  ldc.i4.2
+       IL_00E2  ldstr      ", "
+       IL_00E7  stelem.ref
+       IL_00E8  dup
+       IL_00E9  ldc.i4.3
+       IL_00EA  ldstr      "hello"
+       IL_00EF  call       native uint Ref.Interop.LibC::StrLen(string)
+       IL_00F4  stloc.s    V_5
+       IL_00F6  ldloca.s   V_5
+       IL_00F8  call       instance string [System.Runtime]System.UIntPtr::ToString()
+       IL_00FD  stelem.ref
+       IL_00FE  dup
+       IL_00FF  ldc.i4.4
+       IL_0100  ldstr      " bytes"
+       IL_0105  stelem.ref
+       IL_0106  call       string [System.Runtime]System.String::Concat(string[])
+       IL_010B  ret
+  exits: B1 (return), B2 (return)
+
+Method   : float Reinterpret(int bits)
+Kind     : static, public
+RVA      : 0x2254   Size: 23 bytes   Token: 0x06000010
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0016  -> exit
+       IL_0000  ldloca.s   V_0
+       IL_0002  initobj    Ref.Interop.Union
+       IL_0008  ldloca.s   V_0
+       IL_000A  ldarg.0
+       IL_000B  stfld      int32 Ref.Interop.Union::Int
+       IL_0010  ldloc.0
+       IL_0011  ldfld      float32 Ref.Interop.Union::Float
+       IL_0016  ret
+  exits: B0 (return)
+
+Method   : string PtrToString(nint p)
+Kind     : static, public
+RVA      : 0x2277   Size: 16 bytes   Token: 0x06000011
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0008  -> B1 (Marshal.PtrToStringUTF8(p) == null) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  call       string [System.Runtime.InteropServices]System.Runtime.InteropServices.Marshal::PtrToStringUTF8(native int)
+       IL_0006  dup
+       IL_0007  brtrue.s   IL_000F
+  B1 IL_0009..IL_000E  -> B2
+       IL_0009  pop
+       IL_000A  ldsfld     string [System.Runtime]System.String::Empty
+  B2 IL_000F..IL_000F  -> exit
+       IL_000F  ret
+  exits: B2 (return)
+
+Type     : Ref.Interop.Callbacks+BinaryOp
+
+Method   : void .ctor(object object, nint method)
+Kind     : ctor, instance, public, runtime, no-body
+RVA      : 0x0000   Token: 0x06000012
+
+Method   : int Invoke(int a, int b)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x06000013
+
+Method   : IAsyncResult BeginInvoke(int a, int b, AsyncCallback callback, object object)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x06000014
+
+Method   : int EndInvoke(IAsyncResult result)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x06000015

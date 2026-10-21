@@ -1,0 +1,1118 @@
+Assembly : Ref15.Modern.dll
+Name     : Ref15.Modern, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 97
+
+Type     : Ref.Modern.Person
+
+Method   : void .ctor(string First, string Last)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 21 bytes   Token: 0x06000001
+
+[Pseudocode]
+  public Person(string First, string Last)
+  {
+  }
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, virtual, compiler-generated
+RVA      : 0x2066   Size: 11 bytes   Token: 0x06000002
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return typeof(Person);
+  }
+
+Method   : string get_First()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2072   Size: 7 bytes   Token: 0x06000003
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <First>k__BackingField;
+  }
+
+Method   : void set_First(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x207A   Size: 8 bytes   Token: 0x06000004
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <First>k__BackingField = value;
+  }
+
+Method   : string get_Last()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2083   Size: 7 bytes   Token: 0x06000005
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Last>k__BackingField;
+  }
+
+Method   : void set_Last(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x208B   Size: 8 bytes   Token: 0x06000006
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Last>k__BackingField = value;
+  }
+
+Method   : string get_Full()
+Kind     : property-get, instance, public
+RVA      : 0x2094   Size: 23 bytes   Token: 0x06000007
+
+[Pseudocode]
+  {
+      return First + " " + Last;
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20AC   Size: 64 bytes   Token: 0x06000008
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override string ToString()
+  {
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.Append("Person");
+      stringBuilder.Append(" { ");
+      if (PrintMembers(stringBuilder))
+      {
+          stringBuilder.Append(' ');
+      }
+      stringBuilder.Append('}');
+      return stringBuilder.ToString();
+  }
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, virtual, compiler-generated
+RVA      : 0x20F8   Size: 82 bytes   Token: 0x06000009
+
+[Pseudocode]
+  [CompilerGenerated]
+  protected virtual bool PrintMembers(StringBuilder builder)
+  {
+      RuntimeHelpers.EnsureSufficientExecutionStack();
+      builder.Append("First = ");
+      builder.Append((object?)First);
+      builder.Append(", Last = ");
+      builder.Append((object?)Last);
+      builder.Append(", Full = ");
+      builder.Append((object?)Full);
+      return true;
+  }
+
+Method   : bool op_Inequality(Person left, Person right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2156   Size: 11 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator !=(Person? left, Person? right)
+  {
+      return !(left == right);
+  }
+
+Method   : bool op_Equality(Person left, Person right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2162   Size: 19 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator ==(Person? left, Person? right)
+  {
+      if ((object)left != right)
+      {
+          return left?.Equals(right) ?? false;
+      }
+      return true;
+  }
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2176   Size: 63 bytes   Token: 0x0600000C
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override int GetHashCode()
+  {
+      return (EqualityComparer<Type>.Default.GetHashCode(EqualityContract) * -1521134295 + EqualityComparer<string>.Default.GetHashCode(<First>k__BackingField)) * -1521134295 + EqualityComparer<string>.Default.GetHashCode(<Last>k__BackingField);
+  }
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x21B6   Size: 13 bytes   Token: 0x0600000D
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override bool Equals(object? obj)
+  {
+      return Equals(obj as Person);
+  }
+
+Method   : bool Equals(Person other)
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x21C4   Size: 77 bytes   Token: 0x0600000E
+
+[Pseudocode]
+  [CompilerGenerated]
+  public virtual bool Equals(Person? other)
+  {
+      if ((object)this != other)
+      {
+          if ((object)other != null && EqualityContract == other.EqualityContract && EqualityComparer<string>.Default.Equals(<First>k__BackingField, other.<First>k__BackingField))
+          {
+              return EqualityComparer<string>.Default.Equals(<Last>k__BackingField, other.<Last>k__BackingField);
+          }
+          return false;
+      }
+      return true;
+  }
+
+Method   : Person <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x221D   Size: 7 bytes   Token: 0x0600000F
+
+[Pseudocode]
+  [CompilerGenerated]
+  public virtual Person <Clone>$()
+  {
+      return new Person(this);
+  }
+
+Method   : void .ctor(Person original)
+Kind     : ctor, instance, protected, compiler-generated
+RVA      : 0x2225   Size: 31 bytes   Token: 0x06000010
+
+[Pseudocode]
+  [CompilerGenerated]
+  protected Person(Person original)
+  {
+      <First>k__BackingField = original.<First>k__BackingField;
+      <Last>k__BackingField = original.<Last>k__BackingField;
+  }
+
+Method   : void Deconstruct(out string First, out string Last)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2245   Size: 17 bytes   Token: 0x06000011
+
+[Pseudocode]
+  [CompilerGenerated]
+  public void Deconstruct(out string First, out string Last)
+  {
+      First = this.First;
+      Last = this.Last;
+  }
+
+Type     : Ref.Modern.Employee
+
+Method   : void .ctor(string First, string Last, Decimal Salary)
+Kind     : ctor, instance, public
+RVA      : 0x2257   Size: 16 bytes   Token: 0x06000012
+
+[Pseudocode]
+  public Employee(string First, string Last, decimal Salary)
+      : base(First, Last)
+  {
+  }
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x2268   Size: 11 bytes   Token: 0x06000013
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return typeof(Employee);
+  }
+
+Method   : Decimal get_Salary()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2274   Size: 7 bytes   Token: 0x06000014
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Salary>k__BackingField;
+  }
+
+Method   : void set_Salary(Decimal value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x227C   Size: 8 bytes   Token: 0x06000015
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Salary>k__BackingField = value;
+  }
+
+Method   : Employee Raise(Decimal percent)
+Kind     : instance, public
+RVA      : 0x2285   Size: 47 bytes   Token: 0x06000016
+
+[Pseudocode]
+  public Employee Raise(decimal percent)
+  {
+      return this with
+      {
+          Salary = Salary * (1m + percent / 100m)
+      };
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x22B8   Size: 64 bytes   Token: 0x06000017
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override string ToString()
+  {
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.Append("Employee");
+      stringBuilder.Append(" { ");
+      if (PrintMembers(stringBuilder))
+      {
+          stringBuilder.Append(' ');
+      }
+      stringBuilder.Append('}');
+      return stringBuilder.ToString();
+  }
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x2304   Size: 62 bytes   Token: 0x06000018
+
+[Pseudocode]
+  [CompilerGenerated]
+  protected override bool PrintMembers(StringBuilder builder)
+  {
+      if (base.PrintMembers(builder))
+      {
+          builder.Append(", ");
+      }
+      builder.Append("Salary = ");
+      builder.Append(Salary.ToString());
+      return true;
+  }
+
+Method   : bool op_Inequality(Employee left, Employee right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x234E   Size: 11 bytes   Token: 0x06000019
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator !=(Employee? left, Employee? right)
+  {
+      return !(left == right);
+  }
+
+Method   : bool op_Equality(Employee left, Employee right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x235A   Size: 19 bytes   Token: 0x0600001A
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator ==(Employee? left, Employee? right)
+  {
+      if ((object)left != right)
+      {
+          return left?.Equals(right) ?? false;
+      }
+      return true;
+  }
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x236E   Size: 30 bytes   Token: 0x0600001B
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override int GetHashCode()
+  {
+      return base.GetHashCode() * -1521134295 + EqualityComparer<decimal>.Default.GetHashCode(<Salary>k__BackingField);
+  }
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x238D   Size: 13 bytes   Token: 0x0600001C
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override bool Equals(object? obj)
+  {
+      return Equals(obj as Employee);
+  }
+
+Method   : bool Equals(Person other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x239B   Size: 8 bytes   Token: 0x0600001D
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed override bool Equals(Person? other)
+  {
+      return Equals((object?)other);
+  }
+
+Method   : bool Equals(Employee other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x23A4   Size: 40 bytes   Token: 0x0600001E
+
+[Pseudocode]
+  [CompilerGenerated]
+  public bool Equals(Employee? other)
+  {
+      if ((object)this != other)
+      {
+          if (base.Equals(other))
+          {
+              return EqualityComparer<decimal>.Default.Equals(<Salary>k__BackingField, other.<Salary>k__BackingField);
+          }
+          return false;
+      }
+      return true;
+  }
+
+Method   : Employee <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x23CD   Size: 7 bytes   Token: 0x0600001F
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override Employee <Clone>$()
+  {
+      return new Employee(this);
+  }
+
+Method   : void .ctor(Employee original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x23D5   Size: 20 bytes   Token: 0x06000020
+
+[Pseudocode]
+  [CompilerGenerated]
+  private Employee(Employee original)
+      : base(original)
+  {
+      <Salary>k__BackingField = original.<Salary>k__BackingField;
+  }
+
+Method   : void Deconstruct(out string First, out string Last, out Decimal Salary)
+Kind     : instance, public, compiler-generated
+RVA      : 0x23EA   Size: 29 bytes   Token: 0x06000021
+
+[Pseudocode]
+  [CompilerGenerated]
+  public void Deconstruct(out string First, out string Last, out decimal Salary)
+  {
+      First = base.First;
+      Last = base.Last;
+      Salary = this.Salary;
+  }
+
+Type     : Ref.Modern.Point
+
+Method   : void .ctor(double X, double Y)
+Kind     : ctor, instance, public
+RVA      : 0x2408   Size: 15 bytes   Token: 0x06000022
+
+[Pseudocode]
+  public Point(double X, double Y)
+  {
+  }
+
+Method   : double get_X()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2418   Size: 7 bytes   Token: 0x06000023
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <X>k__BackingField;
+  }
+
+Method   : void set_X(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2420   Size: 8 bytes   Token: 0x06000024
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <X>k__BackingField = value;
+  }
+
+Method   : double get_Y()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2429   Size: 7 bytes   Token: 0x06000025
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Y>k__BackingField;
+  }
+
+Method   : void set_Y(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2431   Size: 8 bytes   Token: 0x06000026
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Y>k__BackingField = value;
+  }
+
+Method   : double get_Length()
+Kind     : property-get, instance, public
+RVA      : 0x243A   Size: 33 bytes   Token: 0x06000027
+
+[Pseudocode]
+  {
+      return Math.Sqrt(X * X + Y * Y);
+  }
+
+Method   : Point op_Addition(Point a, Point b)
+Kind     : operator, static, public
+RVA      : 0x245C   Size: 36 bytes   Token: 0x06000028
+
+[Pseudocode]
+  public static Point operator +(Point a, Point b)
+  {
+      return new Point(a.X + b.X, a.Y + b.Y);
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2484   Size: 64 bytes   Token: 0x06000029
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override string ToString()
+  {
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.Append("Point");
+      stringBuilder.Append(" { ");
+      if (PrintMembers(stringBuilder))
+      {
+          stringBuilder.Append(' ');
+      }
+      stringBuilder.Append('}');
+      return stringBuilder.ToString();
+  }
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, private, compiler-generated
+RVA      : 0x24D0   Size: 119 bytes   Token: 0x0600002A
+
+[Pseudocode]
+  [CompilerGenerated]
+  private bool PrintMembers(StringBuilder builder)
+  {
+      builder.Append("X = ");
+      builder.Append(X.ToString());
+      builder.Append(", Y = ");
+      builder.Append(Y.ToString());
+      builder.Append(", Length = ");
+      builder.Append(Length.ToString());
+      return true;
+  }
+
+Method   : bool op_Inequality(Point left, Point right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2553   Size: 11 bytes   Token: 0x0600002B
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator !=(Point left, Point right)
+  {
+      return !(left == right);
+  }
+
+Method   : bool op_Equality(Point left, Point right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x255F   Size: 9 bytes   Token: 0x0600002C
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator ==(Point left, Point right)
+  {
+      return left.Equals(right);
+  }
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2569   Size: 40 bytes   Token: 0x0600002D
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override int GetHashCode()
+  {
+      return EqualityComparer<double>.Default.GetHashCode(<X>k__BackingField) * -1521134295 + EqualityComparer<double>.Default.GetHashCode(<Y>k__BackingField);
+  }
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2592   Size: 23 bytes   Token: 0x0600002E
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override bool Equals(object obj)
+  {
+      if (obj is Point)
+      {
+          return Equals((Point)obj);
+      }
+      return false;
+  }
+
+Method   : bool Equals(Point other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x25AA   Size: 49 bytes   Token: 0x0600002F
+
+[Pseudocode]
+  [CompilerGenerated]
+  public bool Equals(Point other)
+  {
+      if (EqualityComparer<double>.Default.Equals(<X>k__BackingField, other.<X>k__BackingField))
+      {
+          return EqualityComparer<double>.Default.Equals(<Y>k__BackingField, other.<Y>k__BackingField);
+      }
+      return false;
+  }
+
+Method   : void Deconstruct(out double X, out double Y)
+Kind     : instance, public, compiler-generated
+RVA      : 0x25DC   Size: 17 bytes   Token: 0x06000030
+
+[Pseudocode]
+  [CompilerGenerated]
+  public void Deconstruct(out double X, out double Y)
+  {
+      X = this.X;
+      Y = this.Y;
+  }
+
+Type     : Ref.Modern.Counter
+
+Method   : int get_Value()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x25EE   Size: 7 bytes   Token: 0x06000031
+
+[Pseudocode]
+  [CompilerGenerated]
+  readonly
+  {
+      return <Value>k__BackingField;
+  }
+
+Method   : void set_Value(int value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x25F6   Size: 8 bytes   Token: 0x06000032
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Value>k__BackingField = value;
+  }
+
+Method   : void Increment()
+Kind     : instance, public
+RVA      : 0x2600   Size: 17 bytes   Token: 0x06000033
+
+[Pseudocode]
+  public void Increment()
+  {
+      Value++;
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2620   Size: 64 bytes   Token: 0x06000034
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override readonly string ToString()
+  {
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.Append("Counter");
+      stringBuilder.Append(" { ");
+      if (PrintMembers(stringBuilder))
+      {
+          stringBuilder.Append(' ');
+      }
+      stringBuilder.Append('}');
+      return stringBuilder.ToString();
+  }
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, private, compiler-generated
+RVA      : 0x266C   Size: 41 bytes   Token: 0x06000035
+
+[Pseudocode]
+  [CompilerGenerated]
+  private readonly bool PrintMembers(StringBuilder builder)
+  {
+      builder.Append("Value = ");
+      builder.Append(Value.ToString());
+      return true;
+  }
+
+Method   : bool op_Inequality(Counter left, Counter right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x26A1   Size: 11 bytes   Token: 0x06000036
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator !=(Counter left, Counter right)
+  {
+      return !(left == right);
+  }
+
+Method   : bool op_Equality(Counter left, Counter right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x26AD   Size: 9 bytes   Token: 0x06000037
+
+[Pseudocode]
+  [CompilerGenerated]
+  public static bool operator ==(Counter left, Counter right)
+  {
+      return left.Equals(right);
+  }
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x26B7   Size: 17 bytes   Token: 0x06000038
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override readonly int GetHashCode()
+  {
+      return EqualityComparer<int>.Default.GetHashCode(<Value>k__BackingField);
+  }
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x26C9   Size: 23 bytes   Token: 0x06000039
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override readonly bool Equals(object obj)
+  {
+      if (obj is Counter)
+      {
+          return Equals((Counter)obj);
+      }
+      return false;
+  }
+
+Method   : bool Equals(Counter other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x26E1   Size: 23 bytes   Token: 0x0600003A
+
+[Pseudocode]
+  [CompilerGenerated]
+  public readonly bool Equals(Counter other)
+  {
+      return EqualityComparer<int>.Default.Equals(<Value>k__BackingField, other.<Value>k__BackingField);
+  }
+
+Type     : Ref.Modern.Settings
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x26F9   Size: 7 bytes   Token: 0x0600003B
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Name>k__BackingField;
+  }
+
+Method   : void set_Name(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2701   Size: 8 bytes   Token: 0x0600003C
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Name>k__BackingField = value;
+  }
+
+Method   : int get_Retries()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x270A   Size: 7 bytes   Token: 0x0600003D
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Retries>k__BackingField;
+  }
+
+Method   : void set_Retries(int value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2712   Size: 8 bytes   Token: 0x0600003E
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Retries>k__BackingField = value;
+  }
+
+Method   : TimeSpan get_Timeout()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x271B   Size: 7 bytes   Token: 0x0600003F
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Timeout>k__BackingField;
+  }
+
+Method   : void set_Timeout(TimeSpan value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2723   Size: 8 bytes   Token: 0x06000040
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Timeout>k__BackingField = value;
+  }
+
+Method   : IReadOnlyList<string> get_Tags()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x272C   Size: 7 bytes   Token: 0x06000041
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Tags>k__BackingField;
+  }
+
+Method   : void set_Tags(IReadOnlyList<string> value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2734   Size: 8 bytes   Token: 0x06000042
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Tags>k__BackingField = value;
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x273D   Size: 45 bytes   Token: 0x06000043
+
+[Pseudocode]
+  public Settings()
+  {
+      Retries = 3;
+      Timeout = TimeSpan.FromSeconds(30.0);
+      Tags = Array.Empty<string>();
+      base..ctor();
+  }
+
+Type     : Ref.Modern.IGreeter
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000044
+
+[Pseudocode]
+  ;
+
+Method   : string Greet()
+Kind     : instance, public, virtual
+RVA      : 0x276B   Size: 18 bytes   Token: 0x06000045
+
+[Pseudocode]
+  string Greet()
+  {
+      return Prefix() + Name;
+  }
+
+Method   : string GreetLoudly()
+Kind     : instance, public, virtual
+RVA      : 0x277E   Size: 22 bytes   Token: 0x06000046
+
+[Pseudocode]
+  string GreetLoudly()
+  {
+      return Greet().ToUpperInvariant() + "!";
+  }
+
+Method   : string Prefix()
+Kind     : instance, private
+RVA      : 0x2795   Size: 6 bytes   Token: 0x06000047
+
+[Pseudocode]
+  private string Prefix()
+  {
+      return "Hello, ";
+  }
+
+Method   : string get_Anonymous()
+Kind     : property-get, static, public
+RVA      : 0x279C   Size: 6 bytes   Token: 0x06000048
+
+[Pseudocode]
+  {
+      return "stranger";
+  }
+
+Type     : Ref.Modern.Greeter
+
+Method   : void .ctor(string name)
+Kind     : ctor, instance, public
+RVA      : 0x27A3   Size: 14 bytes   Token: 0x06000049
+
+[Pseudocode]
+  public Greeter(string name)
+  {
+      Name = name;
+  }
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, virtual, sealed, compiler-generated
+RVA      : 0x27B2   Size: 7 bytes   Token: 0x0600004A
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Name>k__BackingField;
+  }
+
+Type     : Ref.Modern.PoliteGreeter
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, virtual, sealed
+RVA      : 0x27BA   Size: 6 bytes   Token: 0x0600004B
+
+[Pseudocode]
+  {
+      return "sir";
+  }
+
+Method   : string Greet()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x27C1   Size: 17 bytes   Token: 0x0600004C
+
+[Pseudocode]
+  public string Greet()
+  {
+      return "Good day, " + Name;
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x27D3   Size: 7 bytes   Token: 0x0600004D
+
+[Pseudocode]
+  public PoliteGreeter()
+  {
+  }
+
+Type     : Ref.Modern.IShape`1
+
+Method   : TSelf get_Unit()
+Kind     : property-get, static, public, abstract, no-body
+RVA      : 0x0000   Token: 0x0600004E
+
+[Pseudocode]
+  ;
+
+Method   : TSelf op_Multiply(TSelf shape, double factor)
+Kind     : operator, static, public, abstract, no-body
+RVA      : 0x0000   Token: 0x0600004F
+
+[Pseudocode]
+  static abstract TSelf operator *(TSelf shape, double factor);
+
+Method   : double get_Area()
+Kind     : property-get, instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000050
+
+[Pseudocode]
+  ;
+
+Method   : string get_Kind()
+Kind     : property-get, static, public, virtual
+RVA      : 0x27DB   Size: 16 bytes   Token: 0x06000051
+
+[Pseudocode]
+  {
+      return typeof(TSelf).Name;
+  }
+
+Type     : Ref.Modern.Square
+
+Method   : void .ctor(double side)
+Kind     : ctor, instance, public
+RVA      : 0x27EC   Size: 8 bytes   Token: 0x06000052
+
+[Pseudocode]
+  public Square(double side)
+  {
+  }
+
+Method   : double get_Side()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27F5   Size: 7 bytes   Token: 0x06000053
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Side>k__BackingField;
+  }
+
+Method   : double get_Area()
+Kind     : property-get, instance, public, virtual, sealed
+RVA      : 0x27FD   Size: 14 bytes   Token: 0x06000054
+
+[Pseudocode]
+  {
+      return Side * Side;
+  }
+
+Method   : Square get_Unit()
+Kind     : property-get, static, public
+RVA      : 0x280C   Size: 15 bytes   Token: 0x06000055
+
+[Pseudocode]
+  {
+      return new Square(1.0);
+  }
+
+Method   : Square op_Multiply(Square s, double factor)
+Kind     : operator, static, public
+RVA      : 0x281C   Size: 15 bytes   Token: 0x06000056
+
+[Pseudocode]
+  public static Square operator *(Square s, double factor)
+  {
+      return new Square(s.Side * factor);
+  }
+
+Method   : string Ref.Modern.IShape<Ref.Modern.Square>.get_Kind()
+Kind     : property-get, static, private
+RVA      : 0x282C   Size: 6 bytes   Token: 0x06000057
+
+[Pseudocode]
+  {
+      return "square";
+  }
+
+Type     : Ref.Modern.Shapes
+
+Method   : T Scale<T>(double factor)
+Kind     : static, public, generic
+RVA      : 0x2833   Size: 24 bytes   Token: 0x06000058
+
+[Pseudocode]
+  public static T Scale<T>(double factor) where T : IShape<T>
+  {
+      return T.Unit * factor;
+  }
+
+Method   : string KindOf<T>()
+Kind     : static, public, generic
+RVA      : 0x284C   Size: 12 bytes   Token: 0x06000059
+
+[Pseudocode]
+  public static string KindOf<T>() where T : IShape<T>
+  {
+      return T.Kind;
+  }
+
+Method   : T Add<T>(T a, T b)
+Kind     : static, public, generic
+RVA      : 0x2859   Size: 14 bytes   Token: 0x0600005A
+
+[Pseudocode]
+  public static T Add<T>(T a, T b) where T : IAdditionOperators<T, T, T>
+  {
+      return a + b;
+  }
+
+Type     : Ref.Modern.Catalog
+
+Method   : void .ctor(string name, IEnumerable<string> items)
+Kind     : ctor, instance, public
+RVA      : 0x2868   Size: 26 bytes   Token: 0x0600005B
+
+[Pseudocode]
+  public Catalog(string name, IEnumerable<string> items)
+  {
+  }
+
+Method   : string get_Name()
+Kind     : property-get, instance, public
+RVA      : 0x2883   Size: 7 bytes   Token: 0x0600005C
+
+[Pseudocode]
+  {
+      return <name>P;
+  }
+
+Method   : int get_Count()
+Kind     : property-get, instance, public
+RVA      : 0x288B   Size: 12 bytes   Token: 0x0600005D
+
+[Pseudocode]
+  {
+      return _items.Count;
+  }
+
+Method   : string[] Sorted()
+Kind     : instance, public
+RVA      : 0x2898   Size: 23 bytes   Token: 0x0600005E
+
+[Pseudocode]
+  public string[] Sorted()
+  {
+      string[] array = _items.ToArray();
+      Array.Sort(array, StringComparer.Ordinal);
+      return array;
+  }
+
+Method   : bool Contains(string item)
+Kind     : instance, public
+RVA      : 0x28B0   Size: 23 bytes   Token: 0x0600005F
+
+[Pseudocode]
+  public bool Contains(string item)
+  {
+      return Helper.Normalize(_items).Contains(Helper.Normalize(item));
+  }
+
+Type     : Ref.Modern.Helper
+
+Method   : string Normalize(string s)
+Kind     : static, public
+RVA      : 0x28C8   Size: 12 bytes   Token: 0x06000060
+
+[Pseudocode]
+  public static string Normalize(string s)
+  {
+      return s.Trim().ToLowerInvariant();
+  }
+
+Method   : HashSet<string> Normalize(IEnumerable<string> items)
+Kind     : static, public
+RVA      : 0x28D8   Size: 62 bytes   Token: 0x06000061
+
+[Pseudocode]
+  public static HashSet<string> Normalize(IEnumerable<string> items)
+  {
+      HashSet<string> hashSet = new HashSet<string>(StringComparer.Ordinal);
+      foreach (string item in items)
+      {
+          hashSet.Add(Normalize(item));
+      }
+      return hashSet;
+  }

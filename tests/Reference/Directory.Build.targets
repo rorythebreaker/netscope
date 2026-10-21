@@ -1,0 +1,16 @@
+<Project>
+  <!--
+    Next to each assembly: <name>.refs, the directories of the reference assemblies it was compiled against
+    (reference packs, FSharp.Core, Microsoft.NETFramework.ReferenceAssemblies). The tests pass them as
+    -ref-path so that types resolve the same way on every platform, whatever framework is installed.
+  -->
+  <Target Name="WriteReferenceDirectories" AfterTargets="Build" Condition="'@(ReferencePath)' != ''">
+    <ItemGroup>
+      <_NsRefDir Include="@(ReferencePath->'%(RootDir)%(Directory)')" />
+    </ItemGroup>
+    <RemoveDuplicates Inputs="@(_NsRefDir)">
+      <Output TaskParameter="Filtered" ItemName="_NsRefDirUnique" />
+    </RemoveDuplicates>
+    <WriteLinesToFile File="$(OutDir)$(TargetName).refs" Lines="@(_NsRefDirUnique)" Overwrite="true" WriteOnlyWhenDifferent="true" />
+  </Target>
+</Project>

@@ -1,0 +1,196 @@
+Assembly : Ref02.Library.dll
+Name     : Ref02.Library, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 44
+
+Type     : Ref.Library.Quantity
+
+Method   : void .ctor(Decimal amount, Unit unit)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 39 bytes   Token: 0x06000001
+
+Method   : Decimal get_Amount()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2078   Size: 7 bytes   Token: 0x06000002
+
+Method   : Unit get_Unit()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2080   Size: 7 bytes   Token: 0x06000003
+
+Method   : Quantity op_Addition(Quantity a, Quantity b)
+Kind     : operator, static, public
+RVA      : 0x2088   Size: 59 bytes   Token: 0x06000004
+
+Method   : bool op_Equality(Quantity a, Quantity b)
+Kind     : operator, static, public
+RVA      : 0x20C4   Size: 9 bytes   Token: 0x06000005
+
+Method   : bool op_Inequality(Quantity a, Quantity b)
+Kind     : operator, static, public
+RVA      : 0x20CE   Size: 12 bytes   Token: 0x06000006
+
+Method   : bool Equals(Quantity other)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x20DB   Size: 38 bytes   Token: 0x06000007
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override
+RVA      : 0x2104   Size: 25 bytes   Token: 0x06000008
+
+Method   : int GetHashCode()
+Kind     : instance, public, override
+RVA      : 0x2129   Size: 18 bytes   Token: 0x06000009
+
+Method   : int CompareTo(Quantity other)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x213C   Size: 70 bytes   Token: 0x0600000A
+
+Method   : string ToString()
+Kind     : instance, public, override
+RVA      : 0x2190   Size: 72 bytes   Token: 0x0600000B
+
+Type     : Ref.Library.Item
+
+Method   : void .ctor(string sku, string name, Quantity stock)
+Kind     : ctor, instance, public
+RVA      : 0x21E4   Size: 43 bytes   Token: 0x0600000C
+
+Method   : string get_Sku()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2210   Size: 7 bytes   Token: 0x0600000D
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2218   Size: 7 bytes   Token: 0x0600000E
+
+Method   : void set_Name(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2220   Size: 8 bytes   Token: 0x0600000F
+
+Method   : Quantity get_Stock()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2229   Size: 7 bytes   Token: 0x06000010
+
+Method   : void set_Stock(Quantity value)
+Kind     : property-set, instance, internal, compiler-generated
+RVA      : 0x2231   Size: 8 bytes   Token: 0x06000011
+
+Method   : Decimal get_Price()
+Kind     : property-get, instance, public, virtual
+RVA      : 0x223A   Size: 6 bytes   Token: 0x06000012
+
+Type     : Ref.Library.PricedItem
+
+Method   : void .ctor(string sku, string name, Quantity stock, Decimal price)
+Kind     : ctor, instance, public
+RVA      : 0x2241   Size: 18 bytes   Token: 0x06000013
+
+Method   : Decimal get_Price()
+Kind     : property-get, instance, public, override
+RVA      : 0x2254   Size: 7 bytes   Token: 0x06000014
+
+Type     : Ref.Library.IRepository`1
+
+Method   : T Find(string key)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000015
+
+Method   : void Save(T item)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000016
+
+Method   : IReadOnlyCollection<T> get_All()
+Kind     : property-get, instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000017
+
+Type     : Ref.Library.MemoryRepository`1
+
+Method   : void .ctor(Func<T, string> key)
+Kind     : ctor, instance, public
+RVA      : 0x225C   Size: 30 bytes   Token: 0x06000018
+
+Method   : void add_Saved(EventHandler<T> value)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x227C   Size: 41 bytes   Token: 0x06000019
+
+Method   : void remove_Saved(EventHandler<T> value)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x22B4   Size: 41 bytes   Token: 0x0600001A
+
+Method   : T Find(string key)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x22EC   Size: 28 bytes   Token: 0x0600001B
+
+Method   : void Save(T item)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x2314   Size: 43 bytes   Token: 0x0600001C
+
+Method   : IReadOnlyCollection<T> get_All()
+Kind     : property-get, instance, public, virtual, sealed
+RVA      : 0x2340   Size: 12 bytes   Token: 0x0600001D
+
+Type     : Ref.Library.Inventory
+
+Method   : int get_Changes()
+Kind     : property-get, instance, public
+RVA      : 0x234D   Size: 12 bytes   Token: 0x0600001E
+
+Method   : void Receive(Item item)
+Kind     : instance, public
+RVA      : 0x235C   Size: 71 bytes   Token: 0x0600001F
+
+Method   : bool TryShip(string sku, Quantity amount, out string error)
+Kind     : instance, public
+RVA      : 0x23B0   Size: 152 bytes   Token: 0x06000020
+
+Method   : Decimal TotalValue()
+Kind     : instance, public
+RVA      : 0x2470   Size: 88 bytes   Token: 0x06000021
+
+Method   : string Export()
+Kind     : instance, public
+RVA      : 0x24E4   Size: 115 bytes   Token: 0x06000022
+
+Method   : Inventory Import(TextReader reader)
+Kind     : static, public
+RVA      : 0x2580   Size: 206 bytes   Token: 0x06000023
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x266C   Size: 60 bytes   Token: 0x06000024
+
+Type     : Ref.Library.Statistics
+
+Method   : T Max<T>(IEnumerable<T> values)
+Kind     : static, public, generic
+RVA      : 0x26AC   Size: 90 bytes   Token: 0x06000025
+
+Method   : int MaxInt(List<int> values)
+Kind     : static, public
+RVA      : 0x2724   Size: 7 bytes   Token: 0x06000026
+
+Method   : Quantity MaxQuantity(Quantity[] values)
+Kind     : static, public
+RVA      : 0x272C   Size: 7 bytes   Token: 0x06000027
+
+Method   : string MaxString(List<string> values)
+Kind     : static, public
+RVA      : 0x2734   Size: 7 bytes   Token: 0x06000028
+
+Method   : double Mean(IReadOnlyList<double> values)
+Kind     : static, public
+RVA      : 0x273C   Size: 65 bytes   Token: 0x06000029
+
+Type     : Ref.Library.Inventory+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2789   Size: 11 bytes   Token: 0x0600002A
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2795   Size: 7 bytes   Token: 0x0600002B
+
+Method   : string <.ctor>b__9_0(Item i)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x279D   Size: 7 bytes   Token: 0x0600002C

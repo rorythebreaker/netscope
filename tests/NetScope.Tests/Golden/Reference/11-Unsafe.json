@@ -1,0 +1,397 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref11.Unsafe.dll",
+      "assembly": "Ref11.Unsafe",
+      "version": "1.0.0.0",
+      "targetFramework": ".NETCoreApp,Version=v8.0",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.FixedHeader",
+          "name": "HasMagic",
+          "signature": "bool HasMagic(byte a, byte b, byte c, byte d)",
+          "token": 100663297,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8272,
+          "size": 70,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.Vector3",
+          "name": "Dot",
+          "signature": "float Dot(Vector3* a, Vector3* b)",
+          "token": 100663298,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8354,
+          "size": 42,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.Memory",
+          "name": "Sum",
+          "signature": "int Sum(int[] values)",
+          "token": 100663299,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8400,
+          "size": 61,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.Memory",
+          "name": "Fill",
+          "signature": "void Fill(byte* destination, int length, byte value)",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8476,
+          "size": 18,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.Memory",
+          "name": "Reverse",
+          "signature": "string Reverse(string s)",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8508,
+          "size": 79,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 22,
+              "opcode": "call",
+              "target": "System.String::GetPinnableReference()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 73,
+              "opcode": "newobj",
+              "target": "System.String::.ctor(char*, int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.Memory",
+          "name": "Checksum",
+          "signature": "long Checksum(ReadOnlySpan<byte> data)",
+          "token": 100663302,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8600,
+          "size": 94,
+          "calls": [
+            {
+              "offset": 5,
+              "opcode": "call",
+              "target": "System.ReadOnlySpan<byte>::GetPinnableReference()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 18,
+              "opcode": "call",
+              "target": "System.ReadOnlySpan<byte>::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 82,
+              "opcode": "call",
+              "target": "System.ReadOnlySpan<byte>::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.Memory",
+          "name": "Copy",
+          "signature": "void Copy(void* from, void* to, int bytes)",
+          "token": 100663303,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8706,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "System.Buffer::MemoryCopy(void*, void*, long, long)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.Memory",
+          "name": "ReadInt",
+          "signature": "int ReadInt(byte[] data, int offset)",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8720,
+          "size": 12,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.Memory",
+          "name": "Write",
+          "signature": "void Write(ref int target, int value)",
+          "token": 100663305,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8744,
+          "size": 4,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.Memory",
+          "name": "Element",
+          "signature": "ref int Element(int[] array, int index)",
+          "token": 100663306,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8749,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.Memory",
+          "name": "Increment",
+          "signature": "void Increment(int* p)",
+          "token": 100663307,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8758,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.Memory",
+          "name": "Allocate",
+          "signature": "nint Allocate(int bytes)",
+          "token": 100663308,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8766,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Runtime.InteropServices.NativeMemory::AllocZeroed(nuint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime.InteropServices"
+            },
+            {
+              "offset": 12,
+              "opcode": "newobj",
+              "target": "System.OutOfMemoryException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.Memory",
+          "name": "Release",
+          "signature": "void Release(nint p)",
+          "token": 100663309,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8786,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Runtime.InteropServices.NativeMemory::Free(void*)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime.InteropServices"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.Memory",
+          "name": "SizeOfHeader",
+          "signature": "int SizeOfHeader()",
+          "token": 100663310,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8794,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.Memory",
+          "name": "ReadUnaligned",
+          "signature": "T ReadUnaligned<T>(byte* p)",
+          "token": 100663311,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 8802,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.Unsafe::ReadUnaligned<!!0>(void*)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref11.Unsafe",
+          "namespace": "Ref.Unsafe",
+          "type": "Ref.Unsafe.Memory",
+          "name": "Pinned",
+          "signature": "int Pinned(string text)",
+          "token": 100663312,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8812,
+          "size": 31,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Runtime.InteropServices.GCHandle::Alloc(object, GCHandleType)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "System.Runtime.InteropServices.GCHandle::AddrOfPinnedObject()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 23,
+              "opcode": "call",
+              "target": "System.Runtime.InteropServices.GCHandle::Free()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

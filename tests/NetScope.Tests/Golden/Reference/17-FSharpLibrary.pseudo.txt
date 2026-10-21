@@ -1,0 +1,2952 @@
+Assembly : Ref17.FSharpLibrary.dll
+Name     : Ref17.FSharpLibrary, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 159
+
+Type     : Ref.FSharp.Expr
+
+Method   : void .ctor(int _tag)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2050   Size: 14 bytes   Token: 0x06000001
+
+[Pseudocode]
+  [DynamicDependency(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicNestedTypes | DynamicallyAccessedMemberTypes.NonPublicNestedTypes | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties, typeof(Expr))]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal Expr(int _tag)
+  {
+      this._tag = _tag;
+  }
+
+Method   : Expr NewNum(double item)
+Kind     : static, public, compiler-generated
+RVA      : 0x2060   Size: 7 bytes   Token: 0x06000002
+
+[Pseudocode]
+  [CompilationMapping(SourceConstructFlags.UnionCase, 0)]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  public static Expr NewNum(double item)
+  {
+      return new Num(item);
+  }
+
+Method   : bool get_IsNum()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2068   Size: 10 bytes   Token: 0x06000003
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return Tag == 0;
+  }
+
+Method   : Expr NewVar(string item)
+Kind     : static, public, compiler-generated
+RVA      : 0x2074   Size: 7 bytes   Token: 0x06000004
+
+[Pseudocode]
+  [CompilationMapping(SourceConstructFlags.UnionCase, 1)]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  public static Expr NewVar(string item)
+  {
+      return new Var(item);
+  }
+
+Method   : bool get_IsVar()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x207C   Size: 10 bytes   Token: 0x06000005
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return Tag == 1;
+  }
+
+Method   : Expr NewAdd(Expr item1, Expr item2)
+Kind     : static, public, compiler-generated
+RVA      : 0x2088   Size: 8 bytes   Token: 0x06000006
+
+[Pseudocode]
+  [CompilationMapping(SourceConstructFlags.UnionCase, 2)]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  public static Expr NewAdd(Expr item1, Expr item2)
+  {
+      return new Add(item1, item2);
+  }
+
+Method   : bool get_IsAdd()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2094   Size: 10 bytes   Token: 0x06000007
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return Tag == 2;
+  }
+
+Method   : Expr NewMul(Expr item1, Expr item2)
+Kind     : static, public, compiler-generated
+RVA      : 0x20A0   Size: 8 bytes   Token: 0x06000008
+
+[Pseudocode]
+  [CompilationMapping(SourceConstructFlags.UnionCase, 3)]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  public static Expr NewMul(Expr item1, Expr item2)
+  {
+      return new Mul(item1, item2);
+  }
+
+Method   : bool get_IsMul()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20AC   Size: 10 bytes   Token: 0x06000009
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return Tag == 3;
+  }
+
+Method   : Expr NewNeg(Expr item)
+Kind     : static, public, compiler-generated
+RVA      : 0x20B8   Size: 7 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  [CompilationMapping(SourceConstructFlags.UnionCase, 4)]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  public static Expr NewNeg(Expr item)
+  {
+      return new Neg(item);
+  }
+
+Method   : bool get_IsNeg()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20C0   Size: 10 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return Tag == 4;
+  }
+
+Method   : int get_Tag()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20CC   Size: 7 bytes   Token: 0x0600000C
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return _tag;
+  }
+
+Method   : object __DebugDisplay()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x20D4   Size: 22 bytes   Token: 0x0600000D
+
+[Pseudocode]
+  [SpecialName]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal object __DebugDisplay()
+  {
+      return ExtraTopLevelOperators.PrintFormatToString(new PrintfFormat<FSharpFunc<Expr, string>, Unit, string, string, string>("%+0.8A")).Invoke(this);
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20EC   Size: 22 bytes   Token: 0x0600000E
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override string ToString()
+  {
+      return ExtraTopLevelOperators.PrintFormatToString(new PrintfFormat<FSharpFunc<Expr, string>, Unit, string, string, Expr>("%+A")).Invoke(this);
+  }
+
+Method   : int CompareTo(Expr obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2104   Size: 48 bytes   Token: 0x0600000F
+
+[Pseudocode]
+  [CompilerGenerated]
+  public virtual sealed int CompareTo(Expr obj)
+  {
+      if (this != null)
+      {
+          if (obj != null)
+          {
+              int num = _tag;
+              int num2 = obj._tag;
+              if (num == num2)
+              {
+                  return /*tail.*/$Library.CompareTo$cont@7(this, obj, null);
+              }
+              return num - num2;
+          }
+          return 1;
+      }
+      if (obj != null)
+      {
+          return -1;
+      }
+      return 0;
+  }
+
+Method   : int CompareTo(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2140   Size: 15 bytes   Token: 0x06000010
+
+[Pseudocode]
+  [CompilerGenerated]
+  public virtual sealed int CompareTo(object obj)
+  {
+      return /*tail.*/CompareTo((Expr)obj);
+  }
+
+Method   : int CompareTo(object obj, IComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2150   Size: 447 bytes   Token: 0x06000011
+
+[Pseudocode]
+  [CompilerGenerated]
+  public virtual sealed int CompareTo(object obj, IComparer comp)
+  {
+      while (true)
+      {
+          Expr expr = (Expr)obj;
+          if (this == null)
+          {
+              break;
+          }
+          if ((Expr)obj != null)
+          {
+              int num = _tag;
+              int num2 = expr._tag;
+              if (num == num2)
+              {
+                  switch (Tag)
+                  {
+                  default:
+                  {
+                      Num num4 = (Num)this;
+                      Num num5 = (Num)expr;
+                      double num6 = num4.item;
+                      double num7 = num5.item;
+                      if (num6 < num7)
+                      {
+                          return -1;
+                      }
+                      if (num6 > num7)
+                      {
+                          return 1;
+                      }
+                      if (num6 == num7)
+                      {
+                          return 0;
+                      }
+                      return /*tail.*/LanguagePrimitives.HashCompare.GenericComparisonWithComparerIntrinsic(comp, num6, num7);
+                  }
+                  case 1:
+                  {
+                      Var var = (Var)this;
+                      Var var2 = (Var)expr;
+                      return string.CompareOrdinal(var.item, var2.item);
+                  }
+                  case 2:
+                  {
+                      Add add = (Add)this;
+                      Add add2 = (Add)expr;
+                      Expr expr2 = add.item1;
+                      Expr expr3 = add2.item1;
+                      int num3 = expr2.CompareTo(expr3, comp);
+                      if (num3 < 0)
+                      {
+                          return num3;
+                      }
+                      if (num3 > 0)
+                      {
+                          return num3;
+                      }
+                      expr2 = add.item2;
+                      expr3 = add2.item2;
+                      Expr expr8 = expr2;
+                      Expr expr9 = expr3;
+                      comp = comp;
+                      obj = expr9;
+                      this = expr8;
+                      break;
+                  }
+                  case 3:
+                  {
+                      Mul mul = (Mul)this;
+                      Mul mul2 = (Mul)expr;
+                      Expr expr2 = mul.item1;
+                      Expr expr3 = mul2.item1;
+                      int num3 = expr2.CompareTo(expr3, comp);
+                      if (num3 < 0)
+                      {
+                          return num3;
+                      }
+                      if (num3 > 0)
+                      {
+                          return num3;
+                      }
+                      expr2 = mul.item2;
+                      expr3 = mul2.item2;
+                      Expr expr6 = expr2;
+                      Expr expr7 = expr3;
+                      comp = comp;
+                      obj = expr7;
+                      this = expr6;
+                      break;
+                  }
+                  case 4:
+                  {
+                      Neg neg = (Neg)this;
+                      Neg neg2 = (Neg)expr;
+                      Expr expr2 = neg.item;
+                      Expr expr3 = neg2.item;
+                      Expr expr4 = expr2;
+                      Expr expr5 = expr3;
+                      comp = comp;
+                      obj = expr5;
+                      this = expr4;
+                      break;
+                  }
+                  }
+                  continue;
+              }
+              return num - num2;
+          }
+          return 1;
+      }
+      if ((Expr)obj != null)
+      {
+          return -1;
+      }
+      return 0;
+  }
+
+Method   : int GetHashCode(IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x231C   Size: 300 bytes   Token: 0x06000012
+
+[Pseudocode]
+  [CompilerGenerated]
+  public virtual sealed int GetHashCode(IEqualityComparer comp)
+  {
+      if (this != null)
+      {
+          int num = 0;
+          switch (Tag)
+          {
+          default:
+          {
+              Num num2 = (Num)this;
+              num = 0;
+              return -1640531527 + (LanguagePrimitives.HashCompare.GenericHashWithComparerIntrinsic(comp, num2.item) + ((num << 6) + (num >> 2)));
+          }
+          case 1:
+          {
+              Var var = (Var)this;
+              num = 1;
+              return -1640531527 + ((var.item?.GetHashCode() ?? 0) + ((num << 6) + (num >> 2)));
+          }
+          case 2:
+          {
+              Add add = (Add)this;
+              num = 2;
+              num = -1640531527 + (add.item2.GetHashCode(comp) + ((num << 6) + (num >> 2)));
+              return -1640531527 + (add.item1.GetHashCode(comp) + ((num << 6) + (num >> 2)));
+          }
+          case 3:
+          {
+              Mul mul = (Mul)this;
+              num = 3;
+              num = -1640531527 + (mul.item2.GetHashCode(comp) + ((num << 6) + (num >> 2)));
+              return -1640531527 + (mul.item1.GetHashCode(comp) + ((num << 6) + (num >> 2)));
+          }
+          case 4:
+          {
+              Neg neg = (Neg)this;
+              num = 4;
+              return -1640531527 + (neg.item.GetHashCode(comp) + ((num << 6) + (num >> 2)));
+          }
+          }
+      }
+      return 0;
+  }
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2454   Size: 12 bytes   Token: 0x06000013
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed override int GetHashCode()
+  {
+      return GetHashCode(LanguagePrimitives.GenericEqualityComparer);
+  }
+
+Method   : bool Equals(Expr obj, IEqualityComparer comp)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2464   Size: 355 bytes   Token: 0x06000014
+
+[Pseudocode]
+  [CompilerGenerated]
+  public bool Equals(Expr obj, IEqualityComparer comp)
+  {
+      while (this != null)
+      {
+          if (obj != null)
+          {
+              int num = _tag;
+              int num2 = obj._tag;
+              if (num == num2)
+              {
+                  switch (Tag)
+                  {
+                  default:
+                  {
+                      Num num3 = (Num)this;
+                      Num num4 = (Num)obj;
+                      return num3.item == num4.item;
+                  }
+                  case 1:
+                  {
+                      Var var = (Var)this;
+                      Var var2 = (Var)obj;
+                      return string.Equals(var.item, var2.item);
+                  }
+                  case 2:
+                  {
+                      Add add = (Add)this;
+                      Add add2 = (Add)obj;
+                      Expr expr = add.item1;
+                      Expr expr2 = add2.item1;
+                      if (expr.Equals(expr2, comp))
+                      {
+                          expr = add.item2;
+                          expr2 = add2.item2;
+                          Expr expr7 = expr;
+                          Expr expr8 = expr2;
+                          comp = comp;
+                          obj = expr8;
+                          this = expr7;
+                          break;
+                      }
+                      return false;
+                  }
+                  case 3:
+                  {
+                      Mul mul = (Mul)this;
+                      Mul mul2 = (Mul)obj;
+                      Expr expr = mul.item1;
+                      Expr expr2 = mul2.item1;
+                      if (expr.Equals(expr2, comp))
+                      {
+                          expr = mul.item2;
+                          expr2 = mul2.item2;
+                          Expr expr5 = expr;
+                          Expr expr6 = expr2;
+                          comp = comp;
+                          obj = expr6;
+                          this = expr5;
+                          break;
+                      }
+                      return false;
+                  }
+                  case 4:
+                  {
+                      Neg neg = (Neg)this;
+                      Neg neg2 = (Neg)obj;
+                      Expr expr = neg.item;
+                      Expr expr2 = neg2.item;
+                      Expr expr3 = expr;
+                      Expr expr4 = expr2;
+                      comp = comp;
+                      obj = expr4;
+                      this = expr3;
+                      break;
+                  }
+                  }
+                  continue;
+              }
+              return false;
+          }
+          return false;
+      }
+      return obj == null;
+  }
+
+Method   : bool Equals(object obj, IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x25D4   Size: 21 bytes   Token: 0x06000015
+
+[Pseudocode]
+  [CompilerGenerated]
+  public virtual sealed bool Equals(object obj, IEqualityComparer comp)
+  {
+      if (obj is Expr obj2)
+      {
+          return Equals(obj2, comp);
+      }
+      return false;
+  }
+
+Method   : bool Equals(Expr obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x25F8   Size: 333 bytes   Token: 0x06000016
+
+[Pseudocode]
+  [CompilerGenerated]
+  public virtual sealed bool Equals(Expr obj)
+  {
+      while (this != null)
+      {
+          if (obj != null)
+          {
+              int num = _tag;
+              int num2 = obj._tag;
+              if (num == num2)
+              {
+                  switch (Tag)
+                  {
+                  case 1:
+                  {
+                      Var var = (Var)this;
+                      Var var2 = (Var)obj;
+                      return string.Equals(var.item, var2.item);
+                  }
+                  case 2:
+                  {
+                      Add add = (Add)this;
+                      Add add2 = (Add)obj;
+                      if (add.item1.Equals(add2.item1))
+                      {
+                          Expr expr3 = add.item2;
+                          obj = add2.item2;
+                          this = expr3;
+                          continue;
+                      }
+                      return false;
+                  }
+                  case 3:
+                  {
+                      Mul mul = (Mul)this;
+                      Mul mul2 = (Mul)obj;
+                      if (mul.item1.Equals(mul2.item1))
+                      {
+                          Expr expr2 = mul.item2;
+                          obj = mul2.item2;
+                          this = expr2;
+                          continue;
+                      }
+                      return false;
+                  }
+                  case 4:
+                  {
+                      Neg neg = (Neg)this;
+                      Neg neg2 = (Neg)obj;
+                      Expr expr = neg.item;
+                      obj = neg2.item;
+                      this = expr;
+                      continue;
+                  }
+                  }
+                  Num num3 = (Num)this;
+                  Num num4 = (Num)obj;
+                  double num5 = num3.item;
+                  double num6 = num4.item;
+                  if (num5 == num6)
+                  {
+                      return true;
+                  }
+                  if (num5 != num5)
+                  {
+                      return num6 != num6;
+                  }
+              }
+              return false;
+          }
+          return false;
+      }
+      return obj == null;
+  }
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2754   Size: 20 bytes   Token: 0x06000017
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed override bool Equals(object obj)
+  {
+      if (obj is Expr obj2)
+      {
+          return Equals(obj2);
+      }
+      return false;
+  }
+
+Type     : Ref.FSharp.Expr+Num
+
+Method   : void .ctor(double item)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2774   Size: 15 bytes   Token: 0x06000018
+
+[Pseudocode]
+  [DynamicDependency(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties, typeof(Expr))]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal Num(double item)
+      : base(0)
+  {
+      this.item = item;
+  }
+
+Method   : double get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2784   Size: 7 bytes   Token: 0x06000019
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return item;
+  }
+
+Type     : Ref.FSharp.Expr+Var
+
+Method   : void .ctor(string item)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x278C   Size: 15 bytes   Token: 0x0600001A
+
+[Pseudocode]
+  [DynamicDependency(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties, typeof(Expr))]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal Var(string item)
+      : base(1)
+  {
+      this.item = item;
+  }
+
+Method   : string get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x279C   Size: 7 bytes   Token: 0x0600001B
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return item;
+  }
+
+Type     : Ref.FSharp.Expr+Add
+
+Method   : void .ctor(Expr item1, Expr item2)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x27A4   Size: 22 bytes   Token: 0x0600001C
+
+[Pseudocode]
+  [DynamicDependency(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties, typeof(Expr))]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal Add(Expr item1, Expr item2)
+      : base(2)
+  {
+      this.item1 = item1;
+      this.item2 = item2;
+  }
+
+Method   : Expr get_Item1()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27BC   Size: 7 bytes   Token: 0x0600001D
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return item1;
+  }
+
+Method   : Expr get_Item2()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27C4   Size: 7 bytes   Token: 0x0600001E
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return item2;
+  }
+
+Type     : Ref.FSharp.Expr+Mul
+
+Method   : void .ctor(Expr item1, Expr item2)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x27CC   Size: 22 bytes   Token: 0x0600001F
+
+[Pseudocode]
+  [DynamicDependency(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties, typeof(Expr))]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal Mul(Expr item1, Expr item2)
+      : base(3)
+  {
+      this.item1 = item1;
+      this.item2 = item2;
+  }
+
+Method   : Expr get_Item1()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27E4   Size: 7 bytes   Token: 0x06000020
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return item1;
+  }
+
+Method   : Expr get_Item2()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27EC   Size: 7 bytes   Token: 0x06000021
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return item2;
+  }
+
+Type     : Ref.FSharp.Expr+Neg
+
+Method   : void .ctor(Expr item)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x27F4   Size: 15 bytes   Token: 0x06000022
+
+[Pseudocode]
+  [DynamicDependency(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties, typeof(Expr))]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal Neg(Expr item)
+      : base(4)
+  {
+      this.item = item;
+  }
+
+Method   : Expr get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2804   Size: 7 bytes   Token: 0x06000023
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return item;
+  }
+
+Type     : Ref.FSharp.Expr+Num@DebugTypeProxy
+
+Method   : void .ctor(Num obj)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x280C   Size: 14 bytes   Token: 0x06000024
+
+[Pseudocode]
+  [DynamicDependency(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties, typeof(Expr))]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  public Num@DebugTypeProxy(Num obj)
+  {
+      _obj = obj;
+  }
+
+Method   : double get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x281C   Size: 12 bytes   Token: 0x06000025
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return _obj.item;
+  }
+
+Type     : Ref.FSharp.Expr+Var@DebugTypeProxy
+
+Method   : void .ctor(Var obj)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x282C   Size: 14 bytes   Token: 0x06000026
+
+[Pseudocode]
+  [DynamicDependency(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties, typeof(Expr))]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  public Var@DebugTypeProxy(Var obj)
+  {
+      _obj = obj;
+  }
+
+Method   : string get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x283C   Size: 12 bytes   Token: 0x06000027
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return _obj.item;
+  }
+
+Type     : Ref.FSharp.Expr+Add@DebugTypeProxy
+
+Method   : void .ctor(Add obj)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x284C   Size: 14 bytes   Token: 0x06000028
+
+[Pseudocode]
+  [DynamicDependency(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties, typeof(Expr))]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  public Add@DebugTypeProxy(Add obj)
+  {
+      _obj = obj;
+  }
+
+Method   : Expr get_Item1()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x285C   Size: 12 bytes   Token: 0x06000029
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return _obj.item1;
+  }
+
+Method   : Expr get_Item2()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x286C   Size: 12 bytes   Token: 0x0600002A
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return _obj.item2;
+  }
+
+Type     : Ref.FSharp.Expr+Mul@DebugTypeProxy
+
+Method   : void .ctor(Mul obj)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x287C   Size: 14 bytes   Token: 0x0600002B
+
+[Pseudocode]
+  [DynamicDependency(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties, typeof(Expr))]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  public Mul@DebugTypeProxy(Mul obj)
+  {
+      _obj = obj;
+  }
+
+Method   : Expr get_Item1()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x288C   Size: 12 bytes   Token: 0x0600002C
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return _obj.item1;
+  }
+
+Method   : Expr get_Item2()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x289C   Size: 12 bytes   Token: 0x0600002D
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return _obj.item2;
+  }
+
+Type     : Ref.FSharp.Expr+Neg@DebugTypeProxy
+
+Method   : void .ctor(Neg obj)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x28AC   Size: 14 bytes   Token: 0x0600002E
+
+[Pseudocode]
+  [DynamicDependency(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties, typeof(Expr))]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  public Neg@DebugTypeProxy(Neg obj)
+  {
+      _obj = obj;
+  }
+
+Method   : Expr get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x28BC   Size: 12 bytes   Token: 0x0600002F
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return _obj.item;
+  }
+
+Type     : Ref.FSharp.Token
+
+Method   : string get_Kind()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x28CC   Size: 7 bytes   Token: 0x06000030
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return Kind@;
+  }
+
+Method   : string get_Text()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x28D4   Size: 7 bytes   Token: 0x06000031
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return Text@;
+  }
+
+Method   : int get_Position()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x28DC   Size: 7 bytes   Token: 0x06000032
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  {
+      return Position@;
+  }
+
+Method   : void .ctor(string kind, string text, int position)
+Kind     : ctor, instance, public
+RVA      : 0x28E4   Size: 28 bytes   Token: 0x06000033
+
+[Pseudocode]
+  [DynamicDependency(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties, typeof(Token))]
+  public Token(string kind, string text, int position)
+  {
+      Kind@ = kind;
+      Text@ = text;
+      Position@ = position;
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2904   Size: 22 bytes   Token: 0x06000034
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override string ToString()
+  {
+      return ExtraTopLevelOperators.PrintFormatToString(new PrintfFormat<FSharpFunc<Token, string>, Unit, string, string, Token>("%+A")).Invoke(this);
+  }
+
+Method   : int CompareTo(Token obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x291C   Size: 120 bytes   Token: 0x06000035
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed int CompareTo(Token obj)
+  {
+      if (this != null)
+      {
+          if (obj != null)
+          {
+              IComparer genericComparer = LanguagePrimitives.GenericComparer;
+              int num = string.CompareOrdinal(Kind@, obj.Kind@);
+              if (num < 0)
+              {
+                  return num;
+              }
+              if (num > 0)
+              {
+                  return num;
+              }
+              genericComparer = LanguagePrimitives.GenericComparer;
+              int num2 = string.CompareOrdinal(Text@, obj.Text@);
+              if (num2 < 0)
+              {
+                  return num2;
+              }
+              if (num2 > 0)
+              {
+                  return num2;
+              }
+              genericComparer = LanguagePrimitives.GenericComparer;
+              int num3 = Position@;
+              int num4 = obj.Position@;
+              return ((num3 > num4) ? 1 : 0) - ((num3 < num4) ? 1 : 0);
+          }
+          return 1;
+      }
+      if (obj != null)
+      {
+          return -1;
+      }
+      return 0;
+  }
+
+Method   : int CompareTo(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x29A0   Size: 13 bytes   Token: 0x06000036
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed int CompareTo(object obj)
+  {
+      return CompareTo((Token)obj);
+  }
+
+Method   : int CompareTo(object obj, IComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x29B0   Size: 119 bytes   Token: 0x06000037
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed int CompareTo(object obj, IComparer comp)
+  {
+      Token token = (Token)obj;
+      if (this != null)
+      {
+          if ((Token)obj != null)
+          {
+              int num = string.CompareOrdinal(Kind@, token.Kind@);
+              if (num < 0)
+              {
+                  return num;
+              }
+              if (num > 0)
+              {
+                  return num;
+              }
+              int num2 = string.CompareOrdinal(Text@, token.Text@);
+              if (num2 < 0)
+              {
+                  return num2;
+              }
+              if (num2 > 0)
+              {
+                  return num2;
+              }
+              int num3 = Position@;
+              int num4 = token.Position@;
+              return ((num3 > num4) ? 1 : 0) - ((num3 < num4) ? 1 : 0);
+          }
+          return 1;
+      }
+      if ((Token)obj != null)
+      {
+          return -1;
+      }
+      return 0;
+  }
+
+Method   : int GetHashCode(IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2A34   Size: 98 bytes   Token: 0x06000038
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed int GetHashCode(IEqualityComparer comp)
+  {
+      if (this != null)
+      {
+          int num = 0;
+          num = -1640531527 + (Position@ + ((num << 6) + (num >> 2)));
+          num = -1640531527 + ((Text@?.GetHashCode() ?? 0) + ((num << 6) + (num >> 2)));
+          return -1640531527 + ((Kind@?.GetHashCode() ?? 0) + ((num << 6) + (num >> 2)));
+      }
+      return 0;
+  }
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2AA4   Size: 12 bytes   Token: 0x06000039
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed override int GetHashCode()
+  {
+      return GetHashCode(LanguagePrimitives.GenericEqualityComparer);
+  }
+
+Method   : bool Equals(Token obj, IEqualityComparer comp)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2AB4   Size: 73 bytes   Token: 0x0600003A
+
+[Pseudocode]
+  [CompilerGenerated]
+  public bool Equals(Token obj, IEqualityComparer comp)
+  {
+      if (this != null)
+      {
+          if (obj != null)
+          {
+              if (string.Equals(Kind@, obj.Kind@))
+              {
+                  if (string.Equals(Text@, obj.Text@))
+                  {
+                      return Position@ == obj.Position@;
+                  }
+                  return false;
+              }
+              return false;
+          }
+          return false;
+      }
+      return obj == null;
+  }
+
+Method   : bool Equals(object obj, IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2B0C   Size: 21 bytes   Token: 0x0600003B
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed bool Equals(object obj, IEqualityComparer comp)
+  {
+      if (obj is Token obj2)
+      {
+          return Equals(obj2, comp);
+      }
+      return false;
+  }
+
+Method   : bool Equals(Token obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2B30   Size: 73 bytes   Token: 0x0600003C
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed bool Equals(Token obj)
+  {
+      if (this != null)
+      {
+          if (obj != null)
+          {
+              if (string.Equals(Kind@, obj.Kind@))
+              {
+                  if (string.Equals(Text@, obj.Text@))
+                  {
+                      return Position@ == obj.Position@;
+                  }
+                  return false;
+              }
+              return false;
+          }
+          return false;
+      }
+      return obj == null;
+  }
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2B88   Size: 20 bytes   Token: 0x0600003D
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed override bool Equals(object obj)
+  {
+      if (obj is Token obj2)
+      {
+          return Equals(obj2);
+      }
+      return false;
+  }
+
+Type     : Ref.FSharp.Range
+
+Method   : int get_Start()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2BA8   Size: 7 bytes   Token: 0x0600003E
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  readonly
+  {
+      return Start@;
+  }
+
+Method   : int get_Length()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2BB0   Size: 7 bytes   Token: 0x0600003F
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  readonly
+  {
+      return Length@;
+  }
+
+Method   : void .ctor(int start, int length)
+Kind     : ctor, instance, public
+RVA      : 0x2BB8   Size: 15 bytes   Token: 0x06000040
+
+[Pseudocode]
+  [DynamicDependency(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties, typeof(Range))]
+  public Range(int start, int length)
+  {
+      Start@ = start;
+      Length@ = length;
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2BC8   Size: 27 bytes   Token: 0x06000041
+
+[Pseudocode]
+  [CompilerGenerated]
+  public override string ToString()
+  {
+      return ExtraTopLevelOperators.PrintFormatToString(new PrintfFormat<FSharpFunc<Range, string>, Unit, string, string, Range>("%+A")).Invoke(this);
+  }
+
+Method   : int CompareTo(Range obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2BE4   Size: 74 bytes   Token: 0x06000042
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed int CompareTo(Range obj)
+  {
+      IComparer genericComparer = LanguagePrimitives.GenericComparer;
+      int num = Start@;
+      int num2 = obj.Start@;
+      int num3 = ((num > num2) ? 1 : 0) - ((num < num2) ? 1 : 0);
+      if (num3 < 0)
+      {
+          return num3;
+      }
+      if (num3 > 0)
+      {
+          return num3;
+      }
+      genericComparer = LanguagePrimitives.GenericComparer;
+      num = Length@;
+      num2 = obj.Length@;
+      return ((num > num2) ? 1 : 0) - ((num < num2) ? 1 : 0);
+  }
+
+Method   : int CompareTo(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2C3C   Size: 13 bytes   Token: 0x06000043
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed int CompareTo(object obj)
+  {
+      return CompareTo((Range)obj);
+  }
+
+Method   : int CompareTo(object obj, IComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2C4C   Size: 69 bytes   Token: 0x06000044
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed int CompareTo(object obj, IComparer comp)
+  {
+      Range range = (Range)obj;
+      int num = Start@;
+      int num2 = range.Start@;
+      int num3 = ((num > num2) ? 1 : 0) - ((num < num2) ? 1 : 0);
+      if (num3 < 0)
+      {
+          return num3;
+      }
+      if (num3 > 0)
+      {
+          return num3;
+      }
+      num = Length@;
+      num2 = range.Length@;
+      return ((num > num2) ? 1 : 0) - ((num < num2) ? 1 : 0);
+  }
+
+Method   : int GetHashCode(IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2CA0   Size: 46 bytes   Token: 0x06000045
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed int GetHashCode(IEqualityComparer comp)
+  {
+      int num = 0;
+      num = -1640531527 + (Length@ + ((num << 6) + (num >> 2)));
+      return -1640531527 + (Start@ + ((num << 6) + (num >> 2)));
+  }
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2CDC   Size: 12 bytes   Token: 0x06000046
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed override int GetHashCode()
+  {
+      return GetHashCode(LanguagePrimitives.GenericEqualityComparer);
+  }
+
+Method   : bool Equals(Range obj, IEqualityComparer comp)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2CEC   Size: 33 bytes   Token: 0x06000047
+
+[Pseudocode]
+  [CompilerGenerated]
+  public bool Equals(Range obj, IEqualityComparer comp)
+  {
+      if (Start@ == obj.Start@)
+      {
+          return Length@ == obj.Length@;
+      }
+      return false;
+  }
+
+Method   : bool Equals(object obj, IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2D10   Size: 26 bytes   Token: 0x06000048
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed bool Equals(object obj, IEqualityComparer comp)
+  {
+      if (obj is Range obj2)
+      {
+          return Equals(obj2, comp);
+      }
+      return false;
+  }
+
+Method   : bool Equals(Range obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2D38   Size: 33 bytes   Token: 0x06000049
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed bool Equals(Range obj)
+  {
+      if (Start@ == obj.Start@)
+      {
+          return Length@ == obj.Length@;
+      }
+      return false;
+  }
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2D5C   Size: 23 bytes   Token: 0x0600004A
+
+[Pseudocode]
+  [CompilerGenerated]
+  public sealed override bool Equals(object obj)
+  {
+      if (obj is Range)
+      {
+          return Equals((Range)obj);
+      }
+      return false;
+  }
+
+Type     : Ref.FSharp.Stack`1
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2D74   Size: 20 bytes   Token: 0x0600004B
+
+[Pseudocode]
+  public Stack()
+  {
+      items = new List<T>();
+  }
+
+Method   : void Push(T x)
+Kind     : instance, public
+RVA      : 0x2D8C   Size: 15 bytes   Token: 0x0600004C
+
+[Pseudocode]
+  public void Push(T x)
+  {
+      /*tail.*/items.Add(x);
+  }
+
+Method   : T Pop()
+Kind     : instance, public
+RVA      : 0x2D9C   Size: 75 bytes   Token: 0x0600004D
+
+[Pseudocode]
+  public T Pop()
+  {
+      if (items.Count == 0)
+      {
+          throw new InvalidOperationException("empty stack");
+      }
+      T result = items[items.Count - 1];
+      items.RemoveAt(items.Count - 1);
+      return result;
+  }
+
+Method   : int get_Count()
+Kind     : property-get, instance, public
+RVA      : 0x2DF4   Size: 14 bytes   Token: 0x0600004E
+
+[Pseudocode]
+  {
+      return /*tail.*/items.Count;
+  }
+
+Method   : IEnumerator<T> System.Collections.Generic.IEnumerable<'T>.GetEnumerator()
+Kind     : instance, private, virtual
+RVA      : 0x2E04   Size: 19 bytes   Token: 0x0600004F
+
+[Pseudocode]
+  virtual IEnumerator<T> IEnumerable<T>.GetEnumerator()
+  {
+      return /*tail.*/SeqModule.Reverse(items).GetEnumerator();
+  }
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual
+RVA      : 0x2E18   Size: 19 bytes   Token: 0x06000050
+
+[Pseudocode]
+  virtual IEnumerator IEnumerable.GetEnumerator()
+  {
+      return /*tail.*/((IEnumerable)SeqModule.Reverse(items)).GetEnumerator();
+  }
+
+Type     : Ref.FSharp.Async
+
+Method   : FSharpAsync<a> delayed<a>(int ms, a value)
+Kind     : static, public, generic
+RVA      : 0x2E2C   Size: 20 bytes   Token: 0x06000051
+
+[Pseudocode]
+  [CompilationArgumentCounts(new int[] { 1, 1 })]
+  public static FSharpAsync<a> delayed<a>(int ms, a value)
+  {
+      return /*tail.*/ExtraTopLevelOperators.DefaultAsyncBuilder.Delay(new delayed@129<a>(ms, value));
+  }
+
+Method   : Task<int> sumAll(FSharpList<int> values)
+Kind     : static, public
+RVA      : 0x2E44   Size: 68 bytes   Token: 0x06000052
+
+[Pseudocode]
+  public static Task<int> sumAll(FSharpList<int> values)
+  {
+      sumAll@133 stateMachine = default;
+      stateMachine.values = values;
+      stateMachine.Data.MethodBuilder = AsyncTaskMethodBuilder<int>.Create();
+      stateMachine.Data.MethodBuilder.Start(ref stateMachine);
+      return stateMachine.Data.MethodBuilder.Task;
+  }
+
+Type     : Ref.FSharp.Async+delayed@129-1
+
+Method   : void .ctor(a value)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2E94   Size: 14 bytes   Token: 0x06000053
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal delayed@129-1(a value)
+  {
+      this.value = value;
+  }
+
+Method   : FSharpAsync<a> Invoke(Unit _arg1)
+Kind     : instance, public, override
+RVA      : 0x2EA4   Size: 19 bytes   Token: 0x06000054
+
+[Pseudocode]
+  public override FSharpAsync<a> Invoke(Unit _arg1)
+  {
+      return /*tail.*/AsyncPrimitives.MakeAsync(new delayed@129-2<a>(value));
+  }
+
+Type     : Ref.FSharp.Async+delayed@129-2
+
+Method   : void .ctor(a value)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2EB8   Size: 14 bytes   Token: 0x06000055
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal delayed@129-2(a value)
+  {
+      this.value = value;
+  }
+
+Method   : AsyncReturn Invoke(AsyncActivation<a> ctxt)
+Kind     : instance, public, override
+RVA      : 0x2EC8   Size: 15 bytes   Token: 0x06000056
+
+[Pseudocode]
+  public override AsyncReturn Invoke(AsyncActivation<a> ctxt)
+  {
+      return /*tail.*/AsyncActivation<a>.Success(ctxt, value);
+  }
+
+Type     : Ref.FSharp.Async+delayed@129-3
+
+Method   : void .ctor(FSharpAsync<Unit> computation, FSharpFunc<Unit, FSharpAsync<a>> binder)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2ED8   Size: 21 bytes   Token: 0x06000057
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal delayed@129-3(FSharpAsync<Unit> computation, FSharpFunc<Unit, FSharpAsync<a>> binder)
+  {
+      this.computation = computation;
+      this.binder = binder;
+  }
+
+Method   : AsyncReturn Invoke(AsyncActivation<a> ctxt)
+Kind     : instance, public, override
+RVA      : 0x2EF0   Size: 21 bytes   Token: 0x06000058
+
+[Pseudocode]
+  public override AsyncReturn Invoke(AsyncActivation<a> ctxt)
+  {
+      return /*tail.*/AsyncPrimitives.Bind(ctxt, computation, binder);
+  }
+
+Type     : Ref.FSharp.Async+delayed@129
+
+Method   : void .ctor(int ms, a value)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2F08   Size: 21 bytes   Token: 0x06000059
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal delayed@129(int ms, a value)
+  {
+      this.ms = ms;
+      this.value = value;
+  }
+
+Method   : FSharpAsync<a> Invoke(Unit unitVar)
+Kind     : instance, public, override
+RVA      : 0x2F20   Size: 39 bytes   Token: 0x0600005A
+
+[Pseudocode]
+  public override FSharpAsync<a> Invoke(Unit unitVar)
+  {
+      FSharpAsync<Unit> computation = FSharpAsync.Sleep(ms);
+      FSharpFunc<Unit, FSharpAsync<a>> binder = new delayed@129-1<a>(value);
+      return /*tail.*/AsyncPrimitives.MakeAsync(new delayed@129-3<a>(computation, binder));
+  }
+
+Type     : Ref.FSharp.Async+sumAll@133
+
+Method   : void MoveNext()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2F54   Size: 607 bytes   Token: 0x0600005B
+
+[Pseudocode]
+  public void MoveNext()
+  {
+      int num = ResumptionPoint;
+      switch (num)
+      {
+      }
+      Exception ex2 = default;
+      Exception ex;
+      try
+      {
+          bool flag;
+          switch (num)
+          {
+          default:
+          {
+              total = new FSharpRef<int>(0);
+              IEnumerable<int> enumerable = values;
+              resource = enumerable.GetEnumerator();
+              flag = false;
+              break;
+          }
+          case 1:
+              break;
+          }
+          try
+          {
+              bool flag2;
+              int num2;
+              int current;
+              Task<int> task;
+              bool flag3;
+              int num4;
+              int num5;
+              bool flag4;
+              bool flag5;
+              switch (num)
+              {
+              default:
+                  e = resource;
+                  flag2 = true;
+                  goto IL_0121;
+              case 1:
+                  {
+                      num2 = 1;
+                      goto IL_00b2;
+                  }
+                  IL_0121:
+                  if (!flag2 || !e.MoveNext())
+                  {
+                      break;
+                  }
+                  current = e.Current;
+                  task = Task.FromResult(current);
+                  awaiter = task.GetAwaiter();
+                  flag3 = true;
+                  if (awaiter.IsCompleted)
+                  {
+                      goto IL_00ba;
+                  }
+                  if (false)
+                  {
+                      goto case 1;
+                  }
+                  ResumptionPoint = 1;
+                  num2 = 0;
+                  goto IL_00b2;
+                  IL_00ba:
+                  if (flag3)
+                  {
+                      int result = awaiter.GetResult();
+                      int num3 = result;
+                      total.contents += num3;
+                      num4 = 1;
+                  }
+                  else
+                  {
+                      Data.MethodBuilder.AwaitUnsafeOnCompleted(ref awaiter, ref this);
+                      num4 = 0;
+                  }
+                  if (num4 != 0)
+                  {
+                      awaiter = default;
+                      num5 = 1;
+                  }
+                  else
+                  {
+                      num5 = 0;
+                  }
+                  flag4 = (byte)num5 != 0;
+                  flag2 = flag4;
+                  num = 0;
+                  goto IL_0121;
+                  IL_00b2:
+                  flag5 = (byte)num2 != 0;
+                  flag3 = flag5;
+                  goto IL_00ba;
+              }
+              int num6;
+              if (flag2)
+              {
+                  e = null;
+                  num6 = 1;
+              }
+              else
+              {
+                  num6 = 0;
+              }
+              bool flag6 = (byte)num6 != 0;
+              flag = flag6;
+          }
+          catch (object obj)
+          {
+              ex = (Exception)obj;
+              object obj2 = resource;
+              if (obj2 != null || 1 == 0)
+              {
+                  IEnumerator<int> enumerator = resource;
+                  enumerator.Dispose();
+              }
+              bool flag6 = true;
+              throw;
+          }
+          if (flag)
+          {
+              object obj2 = resource;
+              if (obj2 != null || 1 == 0)
+              {
+                  IEnumerator<int> enumerator2 = resource;
+                  enumerator2.Dispose();
+              }
+              bool flag6 = true;
+          }
+          if (flag)
+          {
+              resource = null;
+              if (true)
+              {
+                  int current = total.contents;
+                  Data.Result = current;
+                  if (true)
+                  {
+                      total = null;
+                      if (true)
+                      {
+                          Data.MethodBuilder.SetResult(Data.Result);
+                      }
+                  }
+              }
+          }
+      }
+      catch (object obj3)
+      {
+          ex = (Exception)obj3;
+          ex2 = ex;
+      }
+      ex = ex2;
+      if (ex != null)
+      {
+          Data.MethodBuilder.SetException(ex);
+      }
+  }
+
+Method   : void SetStateMachine(IAsyncStateMachine state)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x31F4   Size: 18 bytes   Token: 0x0600005C
+
+[Pseudocode]
+  public void SetStateMachine(IAsyncStateMachine state)
+  {
+      Data.MethodBuilder.SetStateMachine(state);
+  }
+
+Method   : int get_ResumptionPoint()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x3208   Size: 7 bytes   Token: 0x0600005D
+
+[Pseudocode]
+  public int get_ResumptionPoint()
+  {
+      return ResumptionPoint;
+  }
+
+Method   : TaskStateMachineData<int> get_Data()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x3210   Size: 7 bytes   Token: 0x0600005E
+
+[Pseudocode]
+  public TaskStateMachineData<int> get_Data()
+  {
+      return Data;
+  }
+
+Method   : void set_Data(TaskStateMachineData<int> value)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x3218   Size: 8 bytes   Token: 0x0600005F
+
+[Pseudocode]
+  public void set_Data(TaskStateMachineData<int> value)
+  {
+      Data = value;
+  }
+
+Type     : Ref.FSharp.Collections
+
+Method   : FSharpList<Tuple<string, int>> wordFrequencies(string text)
+Kind     : static, public
+RVA      : 0x3224   Size: 89 bytes   Token: 0x06000060
+
+[Pseudocode]
+  public static FSharpList<Tuple<string, int>> wordFrequencies(string text)
+  {
+      IEnumerable<Tuple<string, int>> enumerable = SeqModule.CountBy(wordFrequencies@69.@_instance, SeqModule.Map(source: text.Split(new char[3] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries), mapping: wordFrequencies@68-1.@_instance));
+      if (enumerable == null)
+      {
+          throw new ArgumentNullException("source");
+      }
+      return /*tail.*/SeqModule.ToList(SeqModule.SortWith(wordFrequencies@70-2.@_instance, enumerable));
+  }
+
+Method   : FSharpList<Token> tokenize(string input)
+Kind     : static, public
+RVA      : 0x328C   Size: 229 bytes   Token: 0x06000061
+
+[Pseudocode]
+  public static FSharpList<Token> tokenize(string input)
+  {
+      FSharpRef<int> fSharpRef = new FSharpRef<int>(0);
+      ListCollector<Token> listCollector = default;
+      while (fSharpRef.contents < input.Length)
+      {
+          char c = input[fSharpRef.contents];
+          if (char.IsDigit(c))
+          {
+              int contents = fSharpRef.contents;
+              while (fSharpRef.contents < input.Length && char.IsDigit(input[fSharpRef.contents]))
+              {
+                  fSharpRef.contents++;
+              }
+              listCollector.Add(new Token("number", input.Substring(contents, fSharpRef.contents - contents), contents));
+          }
+          else if (char.IsWhiteSpace(c))
+          {
+              fSharpRef.contents++;
+          }
+          else
+          {
+              char c2 = c;
+              listCollector.Add(new Token("symbol", c2.ToString(), fSharpRef.contents));
+              fSharpRef.contents++;
+          }
+      }
+      return listCollector.Close();
+  }
+
+Method   : IEnumerable<int> primes(int limit)
+Kind     : static, public
+RVA      : 0x3380   Size: 13 bytes   Token: 0x06000062
+
+[Pseudocode]
+  public static IEnumerable<int> primes(int limit)
+  {
+      return new primes@90(limit, null, 0, null, null, 0, 0);
+  }
+
+Method   : int adder(int n, int x)
+Kind     : static, public
+RVA      : 0x339C   Size: 4 bytes   Token: 0x06000063
+
+[Pseudocode]
+  [CompilationArgumentCounts(new int[] { 1, 1 })]
+  public static int adder(int n, int x)
+  {
+      return x + n;
+  }
+
+Method   : FSharpFunc<int, int> get_compose()
+Kind     : property-get, static, public
+RVA      : 0x33A4   Size: 6 bytes   Token: 0x06000064
+
+[Pseudocode]
+  {
+      return $Library.compose@100;
+  }
+
+Method   : FSharpFunc<int, int> get_func1@1()
+Kind     : property-get, static, internal
+RVA      : 0x33AC   Size: 6 bytes   Token: 0x06000065
+
+[Pseudocode]
+  {
+      return $Library.func1@1;
+  }
+
+Method   : FSharpFunc<int, int> get_func1@1-1()
+Kind     : property-get, static, internal
+RVA      : 0x33B4   Size: 6 bytes   Token: 0x06000066
+
+[Pseudocode]
+  {
+      return $Library.func1@1-1;
+  }
+
+Method   : FSharpFunc<int, int> get_func2@1()
+Kind     : property-get, static, internal
+RVA      : 0x33BC   Size: 6 bytes   Token: 0x06000067
+
+[Pseudocode]
+  {
+      return $Library.func2@1;
+  }
+
+Method   : FSharpFunc<a, b> memoize<a, b>(FSharpFunc<a, b> f)
+Kind     : static, public, generic
+RVA      : 0x33C4   Size: 19 bytes   Token: 0x06000068
+
+[Pseudocode]
+  public static FSharpFunc<a, b> memoize<a, b>(FSharpFunc<a, b> f)
+  {
+      Dictionary<a, b> cache = new Dictionary<a, b>(LanguagePrimitives.FastGenericEqualityComparerFromTable<a>());
+      return new memoize@104<a, b>(f, cache);
+  }
+
+Type     : Ref.FSharp.Collections+wordFrequencies@68-1
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x33E4   Size: 7 bytes   Token: 0x06000069
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal wordFrequencies@68-1()
+  {
+  }
+
+Method   : string Invoke(string w)
+Kind     : instance, public, override
+RVA      : 0x33EC   Size: 7 bytes   Token: 0x0600006A
+
+[Pseudocode]
+  public override string Invoke(string w)
+  {
+      return w.ToLowerInvariant();
+  }
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x33F4   Size: 11 bytes   Token: 0x0600006B
+
+[Pseudocode]
+  static wordFrequencies@68-1()
+  {
+      @_instance = new wordFrequencies@68-1();
+  }
+
+Type     : Ref.FSharp.Collections+wordFrequencies@69
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x340C   Size: 7 bytes   Token: 0x0600006C
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal wordFrequencies@69()
+  {
+  }
+
+Method   : string Invoke(string x)
+Kind     : instance, public, override
+RVA      : 0x3414   Size: 2 bytes   Token: 0x0600006D
+
+[Pseudocode]
+  public override string Invoke(string x)
+  {
+      return x;
+  }
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x3418   Size: 11 bytes   Token: 0x0600006E
+
+[Pseudocode]
+  static wordFrequencies@69()
+  {
+      @_instance = new wordFrequencies@69();
+  }
+
+Type     : Ref.FSharp.Collections+wordFrequencies@70-2
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3430   Size: 7 bytes   Token: 0x0600006F
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal wordFrequencies@70-2()
+  {
+  }
+
+Method   : int Invoke(Tuple<string, int> a, Tuple<string, int> b)
+Kind     : instance, public, override
+RVA      : 0x3438   Size: 24 bytes   Token: 0x06000070
+
+[Pseudocode]
+  public override int Invoke(Tuple<string, int> a, Tuple<string, int> b)
+  {
+      int item = b.Item2;
+      int item2 = a.Item2;
+      return ((item > item2) ? 1 : 0) - ((item < item2) ? 1 : 0);
+  }
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x345C   Size: 11 bytes   Token: 0x06000071
+
+[Pseudocode]
+  static wordFrequencies@70-2()
+  {
+      @_instance = new wordFrequencies@70-2();
+  }
+
+Type     : Ref.FSharp.Collections+primes@90
+
+Method   : void .ctor(int limit, bool[] sieve, int i, IEnumerator<int> enum, IEnumerator<int> enum0, int pc, int current)
+Kind     : ctor, instance, public
+RVA      : 0x3474   Size: 60 bytes   Token: 0x06000072
+
+[Pseudocode]
+  public primes@90(int limit, bool[] sieve, int i, IEnumerator<int> @enum, IEnumerator<int> enum0, int pc, int current)
+  {
+  }
+
+Method   : int GenerateNext(ref IEnumerable<int> next)
+Kind     : instance, public, override
+RVA      : 0x34B4   Size: 342 bytes   Token: 0x06000073
+
+[Pseudocode]
+  public override int GenerateNext(ref IEnumerable<int> next)
+  {
+      switch (pc)
+      {
+      default:
+          sieve = ArrayModule.Create(limit + 1, value: true);
+          @enum = Operators.OperatorIntrinsics.RangeInt32(2, 1, limit).GetEnumerator();
+          pc = 1;
+          goto IL_0116;
+      case 2:
+          enum0 = Operators.OperatorIntrinsics.RangeInt32(i * i, i, limit).GetEnumerator();
+          pc = 3;
+          while (enum0.MoveNext())
+          {
+              int num = enum0.Current;
+              sieve[num] = false;
+          }
+          goto case 3;
+      case 3:
+          pc = 1;
+          LanguagePrimitives.IntrinsicFunctions.Dispose(enum0);
+          enum0 = null;
+          goto IL_010f;
+      case 1:
+          pc = 4;
+          LanguagePrimitives.IntrinsicFunctions.Dispose(@enum);
+          @enum = null;
+          sieve = null;
+          pc = 4;
+          break;
+      case 4:
+          break;
+          IL_010f:
+          i = 0;
+          goto IL_0116;
+          IL_0116:
+          if (@enum.MoveNext())
+          {
+              i = @enum.Current;
+              if (sieve[i])
+              {
+                  pc = 2;
+                  current = i;
+                  return 1;
+              }
+              goto IL_010f;
+          }
+          goto case 1;
+      }
+      current = 0;
+      return 0;
+  }
+
+Method   : void Close()
+Kind     : instance, public, override
+RVA      : 0x3618   Size: 144 bytes   Token: 0x06000074
+
+[Pseudocode]
+  public override void Close()
+  {
+      Exception ex = default;
+      while (true)
+      {
+          switch (pc)
+          {
+          case 4:
+              if (ex != null)
+              {
+                  throw ex;
+              }
+              return;
+          }
+          try
+          {
+              switch (pc)
+              {
+              default:
+                  pc = 1;
+                  LanguagePrimitives.IntrinsicFunctions.Dispose(enum0);
+                  goto case 1;
+              case 1:
+              case 2:
+                  pc = 4;
+                  LanguagePrimitives.IntrinsicFunctions.Dispose(@enum);
+                  break;
+              case 0:
+              case 4:
+                  break;
+              }
+              pc = 4;
+              current = 0;
+          }
+          catch (object obj)
+          {
+              Exception ex2 = (Exception)obj;
+              ex = ex2;
+          }
+      }
+  }
+
+Method   : bool get_CheckClose()
+Kind     : instance, public, override
+RVA      : 0x36C4   Size: 51 bytes   Token: 0x06000075
+
+[Pseudocode]
+  public bool get_CheckClose()
+  {
+      switch (pc)
+      {
+      default:
+          return true;
+      case 2:
+          return true;
+      case 1:
+          return true;
+      case 0:
+      case 4:
+          return false;
+      }
+  }
+
+Method   : int get_LastGenerated()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x36F8   Size: 7 bytes   Token: 0x06000076
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  public int get_LastGenerated()
+  {
+      return current;
+  }
+
+Method   : IEnumerator<int> GetFreshEnumerator()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x3700   Size: 18 bytes   Token: 0x06000077
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  public override IEnumerator<int> GetFreshEnumerator()
+  {
+      return new primes@90(limit, null, 0, null, null, 0, 0);
+  }
+
+Type     : Ref.FSharp.Collections+compose@100
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3720   Size: 7 bytes   Token: 0x06000078
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal compose@100()
+  {
+  }
+
+Method   : int Invoke(int x)
+Kind     : instance, public, override
+RVA      : 0x3728   Size: 4 bytes   Token: 0x06000079
+
+[Pseudocode]
+  public override int Invoke(int x)
+  {
+      return x + 1;
+  }
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x3730   Size: 11 bytes   Token: 0x0600007A
+
+[Pseudocode]
+  static compose@100()
+  {
+      @_instance = new compose@100();
+  }
+
+Type     : Ref.FSharp.Collections+compose@100-2
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3748   Size: 7 bytes   Token: 0x0600007B
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal compose@100-2()
+  {
+  }
+
+Method   : int Invoke(int x)
+Kind     : instance, public, override
+RVA      : 0x3750   Size: 24 bytes   Token: 0x0600007C
+
+[Pseudocode]
+  public override int Invoke(int x)
+  {
+      return /*tail.*/func2@1.Invoke(func1@1-1.Invoke(x));
+  }
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x376C   Size: 11 bytes   Token: 0x0600007D
+
+[Pseudocode]
+  static compose@100-2()
+  {
+      @_instance = new compose@100-2();
+  }
+
+Type     : Ref.FSharp.Collections+compose@100-3
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3784   Size: 7 bytes   Token: 0x0600007E
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal compose@100-3()
+  {
+  }
+
+Method   : int Invoke(int x)
+Kind     : instance, public, override
+RVA      : 0x378C   Size: 14 bytes   Token: 0x0600007F
+
+[Pseudocode]
+  public override int Invoke(int x)
+  {
+      return 3 * func1@1.Invoke(x);
+  }
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x379C   Size: 11 bytes   Token: 0x06000080
+
+[Pseudocode]
+  static compose@100-3()
+  {
+      @_instance = new compose@100-3();
+  }
+
+Type     : Ref.FSharp.Collections+compose@100-1
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x37B4   Size: 7 bytes   Token: 0x06000081
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal compose@100-1()
+  {
+  }
+
+Method   : int Invoke(int x)
+Kind     : instance, public, override
+RVA      : 0x37BC   Size: 4 bytes   Token: 0x06000082
+
+[Pseudocode]
+  public override int Invoke(int x)
+  {
+      return x + 2;
+  }
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x37C4   Size: 11 bytes   Token: 0x06000083
+
+[Pseudocode]
+  static compose@100-1()
+  {
+      @_instance = new compose@100-1();
+  }
+
+Type     : Ref.FSharp.Collections+memoize@104
+
+Method   : void .ctor(FSharpFunc<a, b> f, Dictionary<a, b> cache)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x37DC   Size: 21 bytes   Token: 0x06000084
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal memoize@104(FSharpFunc<a, b> f, Dictionary<a, b> cache)
+  {
+      this.f = f;
+      this.cache = cache;
+  }
+
+Method   : b Invoke(a x)
+Kind     : instance, public, override
+RVA      : 0x37F4   Size: 46 bytes   Token: 0x06000085
+
+[Pseudocode]
+  public override b Invoke(a x)
+  {
+      if (cache.TryGetValue(x, out var value))
+      {
+          return value;
+      }
+      b val = f.Invoke(x);
+      cache[x] = val;
+      return val;
+  }
+
+Type     : Ref.FSharp.Recursion
+
+Method   : long sumTo(long acc, int n)
+Kind     : static, public
+RVA      : 0x3830   Size: 18 bytes   Token: 0x06000086
+
+[Pseudocode]
+  [CompilationArgumentCounts(new int[] { 1, 1 })]
+  public static long sumTo(long acc, int n)
+  {
+      while (n != 0)
+      {
+          long num = acc + n;
+          n--;
+          acc = num;
+      }
+      return acc;
+  }
+
+Method   : bool isEven(int n)
+Kind     : static, public
+RVA      : 0x3844   Size: 16 bytes   Token: 0x06000087
+
+[Pseudocode]
+  public static bool isEven(int n)
+  {
+      if (n == 0)
+      {
+          return true;
+      }
+      return /*tail.*/isOdd(n - 1);
+  }
+
+Method   : bool isOdd(int n)
+Kind     : static, public
+RVA      : 0x3858   Size: 16 bytes   Token: 0x06000088
+
+[Pseudocode]
+  public static bool isOdd(int n)
+  {
+      if (n == 0)
+      {
+          return false;
+      }
+      return /*tail.*/isEven(n - 1);
+  }
+
+Method   : b foldBack<a, b>(FSharpFunc<a, FSharpFunc<b, b>> f, FSharpList<a> list, FSharpFunc<b, b> k, b state)
+Kind     : static, public, generic
+RVA      : 0x386C   Size: 55 bytes   Token: 0x06000089
+
+[Pseudocode]
+  [CompilationArgumentCounts(new int[] { 1, 1, 1, 1 })]
+  public static b foldBack<a, b>(FSharpFunc<a, FSharpFunc<b, b>> f, FSharpList<a> list, FSharpFunc<b, b> k, b state)
+  {
+      while (list.TailOrNull != null)
+      {
+          FSharpList<a> fSharpList = list;
+          a headOrDefault = fSharpList.HeadOrDefault;
+          FSharpFunc<a, FSharpFunc<b, b>> fSharpFunc = f;
+          FSharpList<a> tailOrNull = fSharpList.TailOrNull;
+          foldBack@61<a, b> obj = new foldBack@61<a, b>(f, k, headOrDefault);
+          state = state;
+          k = obj;
+          list = tailOrNull;
+          f = fSharpFunc;
+      }
+      return /*tail.*/k.Invoke(state);
+  }
+
+Method   : int length<a>(FSharpList<a> list)
+Kind     : static, public, generic
+RVA      : 0x38B0   Size: 20 bytes   Token: 0x0600008A
+
+[Pseudocode]
+  public static int length<a>(FSharpList<a> list)
+  {
+      return /*tail.*/foldBack(length@63<a>.@_instance, list, length@63-1.@_instance, 0);
+  }
+
+Type     : Ref.FSharp.Recursion+foldBack@61
+
+Method   : void .ctor(FSharpFunc<a, FSharpFunc<b, b>> f, FSharpFunc<b, b> k, a x)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x38C8   Size: 28 bytes   Token: 0x0600008B
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal foldBack@61(FSharpFunc<a, FSharpFunc<b, b>> f, FSharpFunc<b, b> k, a x)
+  {
+      this.f = f;
+      this.k = k;
+      this.x = x;
+  }
+
+Method   : b Invoke(b acc)
+Kind     : instance, public, override
+RVA      : 0x38E8   Size: 32 bytes   Token: 0x0600008C
+
+[Pseudocode]
+  public override b Invoke(b acc)
+  {
+      return /*tail.*/k.Invoke(FSharpFunc<a, b>.InvokeFast(f, x, acc));
+  }
+
+Type     : Ref.FSharp.Recursion+length@63
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x390C   Size: 7 bytes   Token: 0x0600008D
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal length@63()
+  {
+  }
+
+Method   : int Invoke(a _arg1, int n)
+Kind     : instance, public, override
+RVA      : 0x3914   Size: 4 bytes   Token: 0x0600008E
+
+[Pseudocode]
+  public override int Invoke(a _arg1, int n)
+  {
+      return n + 1;
+  }
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x391C   Size: 11 bytes   Token: 0x0600008F
+
+[Pseudocode]
+  static length@63()
+  {
+      @_instance = new length@63<a>();
+  }
+
+Type     : Ref.FSharp.Recursion+length@63-1
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3934   Size: 7 bytes   Token: 0x06000090
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal length@63-1()
+  {
+  }
+
+Method   : int Invoke(int x)
+Kind     : instance, public, override
+RVA      : 0x393C   Size: 2 bytes   Token: 0x06000091
+
+[Pseudocode]
+  public override int Invoke(int x)
+  {
+      return x;
+  }
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x3940   Size: 11 bytes   Token: 0x06000092
+
+[Pseudocode]
+  static length@63-1()
+  {
+      @_instance = new length@63-1();
+  }
+
+Type     : Ref.FSharp.Eval
+
+Method   : double eval(FSharpMap<string, double> env, Expr expr)
+Kind     : static, public
+RVA      : 0x3958   Size: 213 bytes   Token: 0x06000093
+
+[Pseudocode]
+  [CompilationArgumentCounts(new int[] { 1, 1 })]
+  public static double eval(FSharpMap<string, double> env, Expr expr)
+  {
+      switch (expr.Tag)
+      {
+      default:
+          return ((Expr.Num)expr).item;
+      case 1:
+      {
+          Expr.Var var = (Expr.Var)expr;
+          string text = var.item;
+          return MapModule.TryFind(text, env)?.Value ?? /*tail.*/PrintfModule.PrintFormatToStringThenFail(new PrintfFormat<FSharpFunc<string, double>, Unit, string, double, string>("unbound variable %s")).Invoke(text);
+      }
+      case 2:
+      {
+          Expr.Add add = (Expr.Add)expr;
+          Expr expr2 = add.item2;
+          Expr expr3 = add.item1;
+          return eval(env, expr3) + eval(env, expr2);
+      }
+      case 3:
+      {
+          Expr.Mul mul = (Expr.Mul)expr;
+          Expr expr2 = mul.item2;
+          Expr expr3 = mul.item1;
+          return eval(env, expr3) * eval(env, expr2);
+      }
+      case 4:
+      {
+          Expr.Neg neg = (Expr.Neg)expr;
+          Expr expr2 = neg.item;
+          return 0.0 - eval(env, expr2);
+      }
+      }
+  }
+
+Method   : Expr simplify(Expr expr)
+Kind     : static, public
+RVA      : 0x3A3C   Size: 824 bytes   Token: 0x06000094
+
+[Pseudocode]
+  public static Expr simplify(Expr expr)
+  {
+      while (true)
+      {
+          Expr expr2;
+          switch (expr.Tag)
+          {
+          case 2:
+          {
+              Expr.Add add = (Expr.Add)expr;
+              Expr expr3;
+              if (add.item1.Tag == 0)
+              {
+                  Expr.Num num = (Expr.Num)add.item1;
+                  if (num.item == 0.0)
+                  {
+                      expr2 = add.item2;
+                      goto IL_00e2;
+                  }
+                  if (add.item2.Tag == 0)
+                  {
+                      Expr.Num num2 = (Expr.Num)add.item2;
+                      if (num2.item == 0.0)
+                      {
+                          expr2 = add.item1;
+                          goto IL_00e2;
+                      }
+                      expr2 = add.item2;
+                      expr3 = add.item1;
+                  }
+                  else
+                  {
+                      Expr expr4 = add.item2;
+                      expr3 = add.item1;
+                      expr2 = expr4;
+                  }
+              }
+              else if (add.item2.Tag == 0)
+              {
+                  Expr.Num num = (Expr.Num)add.item2;
+                  if (num.item == 0.0)
+                  {
+                      expr2 = add.item1;
+                      goto IL_00e2;
+                  }
+                  Expr expr5 = add.item2;
+                  expr3 = add.item1;
+                  expr2 = expr5;
+              }
+              else
+              {
+                  Expr expr6 = add.item2;
+                  expr3 = add.item1;
+                  expr2 = expr6;
+              }
+              return Expr.NewAdd(simplify(expr3), simplify(expr2));
+          }
+          case 3:
+          {
+              Expr.Mul mul = (Expr.Mul)expr;
+              Expr expr3;
+              if (mul.item1.Tag == 0)
+              {
+                  Expr.Num num = (Expr.Num)mul.item1;
+                  if (num.item == 1.0)
+                  {
+                      expr2 = mul.item2;
+                      goto IL_028d;
+                  }
+                  if (num.item == 0.0)
+                  {
+                      if (mul.item2.Tag == 0)
+                      {
+                          Expr.Num num2 = (Expr.Num)mul.item2;
+                          if (num2.item == 1.0)
+                          {
+                              expr2 = mul.item1;
+                              goto IL_028d;
+                          }
+                          if (num2.item != 0.0)
+                          {
+                          }
+                      }
+                      goto IL_02c5;
+                  }
+                  if (mul.item2.Tag == 0)
+                  {
+                      Expr.Num num2 = (Expr.Num)mul.item2;
+                      if (num2.item == 1.0)
+                      {
+                          expr2 = mul.item1;
+                          goto IL_028d;
+                      }
+                      if (num2.item == 0.0)
+                      {
+                          goto IL_02c5;
+                      }
+                      expr2 = mul.item2;
+                      expr3 = mul.item1;
+                  }
+                  else
+                  {
+                      Expr expr7 = mul.item2;
+                      expr3 = mul.item1;
+                      expr2 = expr7;
+                  }
+              }
+              else if (mul.item2.Tag == 0)
+              {
+                  Expr.Num num = (Expr.Num)mul.item2;
+                  if (num.item == 1.0)
+                  {
+                      expr2 = mul.item1;
+                      goto IL_028d;
+                  }
+                  if (num.item == 0.0)
+                  {
+                      goto IL_02c5;
+                  }
+                  Expr expr8 = mul.item2;
+                  expr3 = mul.item1;
+                  expr2 = expr8;
+              }
+              else
+              {
+                  Expr expr9 = mul.item2;
+                  expr3 = mul.item1;
+                  expr2 = expr9;
+              }
+              return Expr.NewMul(simplify(expr3), simplify(expr2));
+          }
+          case 4:
+          {
+              Expr.Neg neg = (Expr.Neg)expr;
+              if (neg.item.Tag != 4)
+              {
+                  return expr;
+              }
+              expr2 = ((Expr.Neg)neg.item).item;
+              expr = expr2;
+              break;
+          }
+          default:
+              {
+                  return expr;
+              }
+              IL_02c5:
+              return Expr.NewNum(0.0);
+              IL_00e2:
+              expr = expr2;
+              break;
+              IL_028d:
+              expr = expr2;
+              break;
+          }
+      }
+  }
+
+Method   : string show(Expr expr)
+Kind     : static, public
+RVA      : 0x3D80   Size: 241 bytes   Token: 0x06000095
+
+[Pseudocode]
+  public static string show(Expr expr)
+  {
+      switch (expr.Tag)
+      {
+      default:
+      {
+          Expr.Num num = (Expr.Num)expr;
+          double num2 = num.item;
+          return num2.ToString(null, CultureInfo.InvariantCulture);
+      }
+      case 1:
+          return ((Expr.Var)expr).item;
+      case 2:
+      {
+          Expr.Add add = (Expr.Add)expr;
+          Expr expr2 = add.item2;
+          Expr expr3 = add.item1;
+          FSharpFunc<string, FSharpFunc<string, string>> clo = PrintfModule.PrintFormatToStringThen(new PrintfFormat<FSharpFunc<string, FSharpFunc<string, string>>, Unit, string, string, Tuple<string, string>>("(%s + %s)"));
+          return /*tail.*/FSharpFunc<string, string>.InvokeFast(new show@45(clo), show(expr3), show(expr2));
+      }
+      case 3:
+      {
+          Expr.Mul mul = (Expr.Mul)expr;
+          Expr expr2 = mul.item2;
+          Expr expr3 = mul.item1;
+          FSharpFunc<string, FSharpFunc<string, string>> clo = PrintfModule.PrintFormatToStringThen(new PrintfFormat<FSharpFunc<string, FSharpFunc<string, string>>, Unit, string, string, Tuple<string, string>>("%s * %s"));
+          return /*tail.*/FSharpFunc<string, string>.InvokeFast(new show@46-2(clo), show(expr3), show(expr2));
+      }
+      case 4:
+      {
+          Expr.Neg neg = (Expr.Neg)expr;
+          Expr expr2 = neg.item;
+          return "-" + show(expr2);
+      }
+      }
+  }
+
+Type     : Ref.FSharp.Eval+show@45-1
+
+Method   : void .ctor(FSharpFunc<string, string> clo2)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3E80   Size: 14 bytes   Token: 0x06000096
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal show@45-1(FSharpFunc<string, string> clo2)
+  {
+      this.clo2 = clo2;
+  }
+
+Method   : string Invoke(string arg20)
+Kind     : instance, public, override
+RVA      : 0x3E90   Size: 15 bytes   Token: 0x06000097
+
+[Pseudocode]
+  public override string Invoke(string arg20)
+  {
+      return /*tail.*/clo2.Invoke(arg20);
+  }
+
+Type     : Ref.FSharp.Eval+show@45
+
+Method   : void .ctor(FSharpFunc<string, FSharpFunc<string, string>> clo1)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3EA0   Size: 14 bytes   Token: 0x06000098
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal show@45(FSharpFunc<string, FSharpFunc<string, string>> clo1)
+  {
+      this.clo1 = clo1;
+  }
+
+Method   : FSharpFunc<string, string> Invoke(string arg10)
+Kind     : instance, public, override
+RVA      : 0x3EB0   Size: 20 bytes   Token: 0x06000099
+
+[Pseudocode]
+  public override FSharpFunc<string, string> Invoke(string arg10)
+  {
+      FSharpFunc<string, string> clo = clo1.Invoke(arg10);
+      return new show@45-1(clo);
+  }
+
+Type     : Ref.FSharp.Eval+show@46-3
+
+Method   : void .ctor(FSharpFunc<string, string> clo2)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3ED0   Size: 14 bytes   Token: 0x0600009A
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal show@46-3(FSharpFunc<string, string> clo2)
+  {
+      this.clo2 = clo2;
+  }
+
+Method   : string Invoke(string arg20)
+Kind     : instance, public, override
+RVA      : 0x3EE0   Size: 15 bytes   Token: 0x0600009B
+
+[Pseudocode]
+  public override string Invoke(string arg20)
+  {
+      return /*tail.*/clo2.Invoke(arg20);
+  }
+
+Type     : Ref.FSharp.Eval+show@46-2
+
+Method   : void .ctor(FSharpFunc<string, FSharpFunc<string, string>> clo1)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3EF0   Size: 14 bytes   Token: 0x0600009C
+
+[Pseudocode]
+  [CompilerGenerated]
+  [DebuggerNonUserCode]
+  internal show@46-2(FSharpFunc<string, FSharpFunc<string, string>> clo1)
+  {
+      this.clo1 = clo1;
+  }
+
+Method   : FSharpFunc<string, string> Invoke(string arg10)
+Kind     : instance, public, override
+RVA      : 0x3F00   Size: 20 bytes   Token: 0x0600009D
+
+[Pseudocode]
+  public override FSharpFunc<string, string> Invoke(string arg10)
+  {
+      FSharpFunc<string, string> clo = clo1.Invoke(arg10);
+      return new show@46-3(clo);
+  }
+
+Type     : <StartupCode$Ref17-FSharpLibrary>.$Library
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x3F20   Size: 41 bytes   Token: 0x0600009E
+
+[Pseudocode]
+  static $Library()
+  {
+      func1@1-1 = Collections.compose@100.@_instance;
+      func2@1 = Collections.compose@100-1.@_instance;
+      func1@1 = Collections.compose@100-2.@_instance;
+      compose@100 = Collections.compose@100-3.@_instance;
+  }
+
+Method   : int CompareTo$cont@7(Expr this, Expr obj, Unit unitVar)
+Kind     : static, internal, compiler-generated
+RVA      : 0x3F4C   Size: 410 bytes   Token: 0x0600009F
+
+[Pseudocode]
+  [CompilerGenerated]
+  internal static int CompareTo$cont@7(Expr @this, Expr obj, Unit unitVar)
+  {
+      switch (@this.Tag)
+      {
+      default:
+      {
+          Expr.Num num2 = (Expr.Num)@this;
+          Expr.Num num3 = (Expr.Num)obj;
+          IComparer genericComparer = LanguagePrimitives.GenericComparer;
+          double num4 = num2.item;
+          double num5 = num3.item;
+          if (num4 < num5)
+          {
+              return -1;
+          }
+          if (num4 > num5)
+          {
+              return 1;
+          }
+          if (num4 == num5)
+          {
+              return 0;
+          }
+          return /*tail.*/LanguagePrimitives.HashCompare.GenericComparisonWithComparerIntrinsic(genericComparer, num4, num5);
+      }
+      case 1:
+      {
+          Expr.Var var = (Expr.Var)@this;
+          Expr.Var var2 = (Expr.Var)obj;
+          IComparer genericComparer = LanguagePrimitives.GenericComparer;
+          return string.CompareOrdinal(var.item, var2.item);
+      }
+      case 2:
+      {
+          Expr.Add add = (Expr.Add)@this;
+          Expr.Add add2 = (Expr.Add)obj;
+          IComparer genericComparer = LanguagePrimitives.GenericComparer;
+          Expr expr = add.item1;
+          Expr obj2 = add2.item1;
+          int num = expr.CompareTo(obj2, genericComparer);
+          if (num < 0)
+          {
+              return num;
+          }
+          if (num > 0)
+          {
+              return num;
+          }
+          genericComparer = LanguagePrimitives.GenericComparer;
+          expr = add.item2;
+          obj2 = add2.item2;
+          return /*tail.*/expr.CompareTo(obj2, genericComparer);
+      }
+      case 3:
+      {
+          Expr.Mul mul = (Expr.Mul)@this;
+          Expr.Mul mul2 = (Expr.Mul)obj;
+          IComparer genericComparer = LanguagePrimitives.GenericComparer;
+          Expr expr = mul.item1;
+          Expr obj2 = mul2.item1;
+          int num = expr.CompareTo(obj2, genericComparer);
+          if (num < 0)
+          {
+              return num;
+          }
+          if (num > 0)
+          {
+              return num;
+          }
+          genericComparer = LanguagePrimitives.GenericComparer;
+          expr = mul.item2;
+          obj2 = mul2.item2;
+          return /*tail.*/expr.CompareTo(obj2, genericComparer);
+      }
+      case 4:
+      {
+          Expr.Neg neg = (Expr.Neg)@this;
+          Expr.Neg neg2 = (Expr.Neg)obj;
+          IComparer genericComparer = LanguagePrimitives.GenericComparer;
+          Expr expr = neg.item;
+          Expr obj2 = neg2.item;
+          return /*tail.*/expr.CompareTo(obj2, genericComparer);
+      }
+      }
+  }

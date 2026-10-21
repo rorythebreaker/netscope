@@ -1,0 +1,774 @@
+Assembly : Ref13.Switches.dll
+Name     : Ref13.Switches, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 67
+
+Type     : Ref.Switches.Shape
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, virtual, compiler-generated
+RVA      : 0x2050   Size: 11 bytes   Token: 0x06000001
+
+[Calls]
+  IL_0005  call      System.Type::GetTypeFromHandle(RuntimeTypeHandle)  external System.Runtime
+[Callers]
+  Ref.Switches.Shape::GetHashCode  IL_0006  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Shape::Equals  IL_0008  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Shape::Equals  IL_000E  callvirt  (Ref13.Switches.dll)
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x205C   Size: 64 bytes   Token: 0x06000002
+
+[Calls]
+  IL_0000  newobj    System.Text.StringBuilder::.ctor()               external System.Runtime
+  IL_000C  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_0018  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_0020  callvirt  Ref.Switches.Shape::PrintMembers(StringBuilder)  internal
+  IL_002A  callvirt  System.Text.StringBuilder::Append(char)          external System.Runtime
+  IL_0033  callvirt  System.Text.StringBuilder::Append(char)          external System.Runtime
+  IL_003A  callvirt  System.Object::ToString()                        external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, virtual, compiler-generated
+RVA      : 0x20A8   Size: 2 bytes   Token: 0x06000003
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Switches.Shape::ToString  IL_0020  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Circle::ToString  IL_0020  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Circle::PrintMembers  IL_0002  call  (Ref13.Switches.dll)
+  Ref.Switches.Rect::ToString  IL_0020  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Rect::PrintMembers  IL_0002  call  (Ref13.Switches.dll)
+  Ref.Switches.Polygon::ToString  IL_0020  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Polygon::PrintMembers  IL_0002  call  (Ref13.Switches.dll)
+
+Method   : bool op_Inequality(Shape left, Shape right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x20AB   Size: 11 bytes   Token: 0x06000004
+
+[Calls]
+  IL_0002  call      Ref.Switches.Shape::op_Equality(Shape, Shape)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool op_Equality(Shape left, Shape right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x20B7   Size: 19 bytes   Token: 0x06000005
+
+[Calls]
+  IL_0009  callvirt  Ref.Switches.Shape::Equals(Shape)  internal
+[Callers]
+  Ref.Switches.Shape::op_Inequality  IL_0002  call  (Ref13.Switches.dll)
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20CB   Size: 17 bytes   Token: 0x06000006
+
+[Calls]
+  IL_0000  call      System.Collections.Generic.EqualityComparer<System.Type>::get_Default()      external System.Collections
+  IL_0006  callvirt  Ref.Switches.Shape::get_EqualityContract()                                   internal
+  IL_000B  callvirt  System.Collections.Generic.EqualityComparer<System.Type>::GetHashCode(Type)  external System.Collections
+[Callers]
+  Ref.Switches.Circle::GetHashCode  IL_0001  call  (Ref13.Switches.dll)
+  Ref.Switches.Rect::GetHashCode  IL_0001  call  (Ref13.Switches.dll)
+  Ref.Switches.Polygon::GetHashCode  IL_0001  call  (Ref13.Switches.dll)
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20DD   Size: 13 bytes   Token: 0x06000007
+
+[Calls]
+  IL_0007  callvirt  Ref.Switches.Shape::Equals(Shape)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x20EB   Size: 29 bytes   Token: 0x06000008
+
+[Calls]
+  IL_0008  callvirt  Ref.Switches.Shape::get_EqualityContract()  internal
+  IL_000E  callvirt  Ref.Switches.Shape::get_EqualityContract()  internal
+  IL_0013  call      System.Type::op_Equality(Type, Type)        external System.Runtime
+[Callers]
+  Ref.Switches.Shape::op_Equality  IL_0009  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Shape::Equals  IL_0007  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Circle::Equals  IL_0006  call  (Ref13.Switches.dll)
+  Ref.Switches.Rect::Equals  IL_0006  call  (Ref13.Switches.dll)
+  Ref.Switches.Polygon::Equals  IL_0006  call  (Ref13.Switches.dll)
+
+Method   : Shape <Clone>$()
+Kind     : instance, public, abstract, compiler-generated, no-body
+RVA      : 0x0000   Token: 0x06000009
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor(Shape original)
+Kind     : ctor, instance, protected, compiler-generated
+RVA      : 0x2109   Size: 7 bytes   Token: 0x0600000A
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  Ref.Switches.Circle::.ctor  IL_0002  call  (Ref13.Switches.dll)
+  Ref.Switches.Rect::.ctor  IL_0002  call  (Ref13.Switches.dll)
+  Ref.Switches.Polygon::.ctor  IL_0002  call  (Ref13.Switches.dll)
+
+Method   : void .ctor()
+Kind     : ctor, instance, protected
+RVA      : 0x2111   Size: 7 bytes   Token: 0x0600000B
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  Ref.Switches.Circle::.ctor  IL_0008  call  (Ref13.Switches.dll)
+  Ref.Switches.Rect::.ctor  IL_000F  call  (Ref13.Switches.dll)
+  Ref.Switches.Polygon::.ctor  IL_0008  call  (Ref13.Switches.dll)
+
+Type     : Ref.Switches.Circle
+
+Method   : void .ctor(double Radius)
+Kind     : ctor, instance, public
+RVA      : 0x2119   Size: 14 bytes   Token: 0x0600000C
+
+[Calls]
+  IL_0008  call      Ref.Switches.Shape::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x2128   Size: 11 bytes   Token: 0x0600000D
+
+[Calls]
+  IL_0005  call      System.Type::GetTypeFromHandle(RuntimeTypeHandle)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : double get_Radius()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2134   Size: 7 bytes   Token: 0x0600000E
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Switches.Circle::PrintMembers  IL_0023  call  (Ref13.Switches.dll)
+  Ref.Switches.Circle::Deconstruct  IL_0002  call  (Ref13.Switches.dll)
+  Ref.Switches.Dispatch::Area  IL_000F  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Dispatch::Area  IL_007F  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Dispatch::Area  IL_0086  callvirt  (Ref13.Switches.dll)
+
+Method   : void set_Radius(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x213C   Size: 8 bytes   Token: 0x0600000F
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2148   Size: 64 bytes   Token: 0x06000010
+
+[Calls]
+  IL_0000  newobj    System.Text.StringBuilder::.ctor()               external System.Runtime
+  IL_000C  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_0018  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_0020  callvirt  Ref.Switches.Shape::PrintMembers(StringBuilder)  internal
+  IL_002A  callvirt  System.Text.StringBuilder::Append(char)          external System.Runtime
+  IL_0033  callvirt  System.Text.StringBuilder::Append(char)          external System.Runtime
+  IL_003A  callvirt  System.Object::ToString()                        external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x2194   Size: 62 bytes   Token: 0x06000011
+
+[Calls]
+  IL_0002  call      Ref.Switches.Shape::PrintMembers(StringBuilder)  internal
+  IL_000F  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_001B  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_0023  call      Ref.Switches.Circle::get_Radius()                internal
+  IL_0031  callvirt  System.Object::ToString()                        external System.Runtime
+  IL_0036  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool op_Inequality(Circle left, Circle right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x21DE   Size: 11 bytes   Token: 0x06000012
+
+[Calls]
+  IL_0002  call      Ref.Switches.Circle::op_Equality(Circle, Circle)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool op_Equality(Circle left, Circle right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x21EA   Size: 19 bytes   Token: 0x06000013
+
+[Calls]
+  IL_0009  callvirt  Ref.Switches.Circle::Equals(Circle)  internal
+[Callers]
+  Ref.Switches.Circle::op_Inequality  IL_0002  call  (Ref13.Switches.dll)
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x21FE   Size: 30 bytes   Token: 0x06000014
+
+[Calls]
+  IL_0001  call      Ref.Switches.Shape::GetHashCode()                                         internal
+  IL_000C  call      System.Collections.Generic.EqualityComparer<double>::get_Default()        external System.Collections
+  IL_0017  callvirt  System.Collections.Generic.EqualityComparer<double>::GetHashCode(double)  external System.Collections
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x221D   Size: 13 bytes   Token: 0x06000015
+
+[Calls]
+  IL_0007  call      Ref.Switches.Circle::Equals(Circle)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x222B   Size: 8 bytes   Token: 0x06000016
+
+[Calls]
+  IL_0002  callvirt  System.Object::Equals(object)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Circle other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x2234   Size: 40 bytes   Token: 0x06000017
+
+[Calls]
+  IL_0006  call      Ref.Switches.Shape::Equals(Shape)                                            internal
+  IL_000D  call      System.Collections.Generic.EqualityComparer<double>::get_Default()           external System.Collections
+  IL_001E  callvirt  System.Collections.Generic.EqualityComparer<double>::Equals(double, double)  external System.Collections
+[Callers]
+  Ref.Switches.Circle::op_Equality  IL_0009  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Circle::Equals  IL_0007  call  (Ref13.Switches.dll)
+
+Method   : Circle <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x225D   Size: 7 bytes   Token: 0x06000018
+
+[Calls]
+  IL_0001  newobj    Ref.Switches.Circle::.ctor(Circle)  internal
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor(Circle original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x2265   Size: 20 bytes   Token: 0x06000019
+
+[Calls]
+  IL_0002  call      Ref.Switches.Shape::.ctor(Shape)  internal
+[Callers]
+  Ref.Switches.Circle::<Clone>$  IL_0001  newobj  (Ref13.Switches.dll)
+
+Method   : void Deconstruct(out double Radius)
+Kind     : instance, public, compiler-generated
+RVA      : 0x227A   Size: 9 bytes   Token: 0x0600001A
+
+[Calls]
+  IL_0002  call      Ref.Switches.Circle::get_Radius()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Switches.Rect
+
+Method   : void .ctor(double Width, double Height)
+Kind     : ctor, instance, public
+RVA      : 0x2284   Size: 21 bytes   Token: 0x0600001B
+
+[Calls]
+  IL_000F  call      Ref.Switches.Shape::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x229A   Size: 11 bytes   Token: 0x0600001C
+
+[Calls]
+  IL_0005  call      System.Type::GetTypeFromHandle(RuntimeTypeHandle)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : double get_Width()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22A6   Size: 7 bytes   Token: 0x0600001D
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Switches.Rect::PrintMembers  IL_0023  call  (Ref13.Switches.dll)
+  Ref.Switches.Rect::Deconstruct  IL_0002  call  (Ref13.Switches.dll)
+  Ref.Switches.Dispatch::Area  IL_002D  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Dispatch::Area  IL_009C  callvirt  (Ref13.Switches.dll)
+
+Method   : void set_Width(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22AE   Size: 8 bytes   Token: 0x0600001E
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : double get_Height()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22B7   Size: 7 bytes   Token: 0x0600001F
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Switches.Rect::PrintMembers  IL_004A  call  (Ref13.Switches.dll)
+  Ref.Switches.Rect::Deconstruct  IL_000A  call  (Ref13.Switches.dll)
+  Ref.Switches.Dispatch::Area  IL_0034  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Dispatch::Area  IL_00A2  callvirt  (Ref13.Switches.dll)
+
+Method   : void set_Height(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22BF   Size: 8 bytes   Token: 0x06000020
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x22C8   Size: 64 bytes   Token: 0x06000021
+
+[Calls]
+  IL_0000  newobj    System.Text.StringBuilder::.ctor()               external System.Runtime
+  IL_000C  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_0018  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_0020  callvirt  Ref.Switches.Shape::PrintMembers(StringBuilder)  internal
+  IL_002A  callvirt  System.Text.StringBuilder::Append(char)          external System.Runtime
+  IL_0033  callvirt  System.Text.StringBuilder::Append(char)          external System.Runtime
+  IL_003A  callvirt  System.Object::ToString()                        external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x2314   Size: 101 bytes   Token: 0x06000022
+
+[Calls]
+  IL_0002  call      Ref.Switches.Shape::PrintMembers(StringBuilder)  internal
+  IL_000F  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_001B  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_0023  call      Ref.Switches.Rect::get_Width()                   internal
+  IL_0031  callvirt  System.Object::ToString()                        external System.Runtime
+  IL_0036  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_0042  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_004A  call      Ref.Switches.Rect::get_Height()                  internal
+  IL_0058  callvirt  System.Object::ToString()                        external System.Runtime
+  IL_005D  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool op_Inequality(Rect left, Rect right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2385   Size: 11 bytes   Token: 0x06000023
+
+[Calls]
+  IL_0002  call      Ref.Switches.Rect::op_Equality(Rect, Rect)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool op_Equality(Rect left, Rect right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2391   Size: 19 bytes   Token: 0x06000024
+
+[Calls]
+  IL_0009  callvirt  Ref.Switches.Rect::Equals(Rect)  internal
+[Callers]
+  Ref.Switches.Rect::op_Inequality  IL_0002  call  (Ref13.Switches.dll)
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x23A5   Size: 53 bytes   Token: 0x06000025
+
+[Calls]
+  IL_0001  call      Ref.Switches.Shape::GetHashCode()                                         internal
+  IL_000C  call      System.Collections.Generic.EqualityComparer<double>::get_Default()        external System.Collections
+  IL_0017  callvirt  System.Collections.Generic.EqualityComparer<double>::GetHashCode(double)  external System.Collections
+  IL_0023  call      System.Collections.Generic.EqualityComparer<double>::get_Default()        external System.Collections
+  IL_002E  callvirt  System.Collections.Generic.EqualityComparer<double>::GetHashCode(double)  external System.Collections
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x23DB   Size: 13 bytes   Token: 0x06000026
+
+[Calls]
+  IL_0007  call      Ref.Switches.Rect::Equals(Rect)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x23E9   Size: 8 bytes   Token: 0x06000027
+
+[Calls]
+  IL_0002  callvirt  System.Object::Equals(object)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Rect other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x23F4   Size: 64 bytes   Token: 0x06000028
+
+[Calls]
+  IL_0006  call      Ref.Switches.Shape::Equals(Shape)                                            internal
+  IL_000D  call      System.Collections.Generic.EqualityComparer<double>::get_Default()           external System.Collections
+  IL_001E  callvirt  System.Collections.Generic.EqualityComparer<double>::Equals(double, double)  external System.Collections
+  IL_0025  call      System.Collections.Generic.EqualityComparer<double>::get_Default()           external System.Collections
+  IL_0036  callvirt  System.Collections.Generic.EqualityComparer<double>::Equals(double, double)  external System.Collections
+[Callers]
+  Ref.Switches.Rect::op_Equality  IL_0009  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Rect::Equals  IL_0007  call  (Ref13.Switches.dll)
+
+Method   : Rect <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x2440   Size: 7 bytes   Token: 0x06000029
+
+[Calls]
+  IL_0001  newobj    Ref.Switches.Rect::.ctor(Rect)  internal
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor(Rect original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x2448   Size: 32 bytes   Token: 0x0600002A
+
+[Calls]
+  IL_0002  call      Ref.Switches.Shape::.ctor(Shape)  internal
+[Callers]
+  Ref.Switches.Rect::<Clone>$  IL_0001  newobj  (Ref13.Switches.dll)
+
+Method   : void Deconstruct(out double Width, out double Height)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2469   Size: 17 bytes   Token: 0x0600002B
+
+[Calls]
+  IL_0002  call      Ref.Switches.Rect::get_Width()   internal
+  IL_000A  call      Ref.Switches.Rect::get_Height()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Switches.Polygon
+
+Method   : void .ctor(IReadOnlyList<ValueTuple<double, double>> Points)
+Kind     : ctor, instance, public
+RVA      : 0x247B   Size: 14 bytes   Token: 0x0600002C
+
+[Calls]
+  IL_0008  call      Ref.Switches.Shape::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x248A   Size: 11 bytes   Token: 0x0600002D
+
+[Calls]
+  IL_0005  call      System.Type::GetTypeFromHandle(RuntimeTypeHandle)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : IReadOnlyList<ValueTuple<double, double>> get_Points()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2496   Size: 7 bytes   Token: 0x0600002E
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Switches.Polygon::PrintMembers  IL_0023  call  (Ref13.Switches.dll)
+  Ref.Switches.Polygon::Deconstruct  IL_0002  call  (Ref13.Switches.dll)
+  Ref.Switches.Dispatch::Area  IL_004B  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Dispatch::Area  IL_00BB  callvirt  (Ref13.Switches.dll)
+
+Method   : void set_Points(IReadOnlyList<ValueTuple<double, double>> value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x249E   Size: 8 bytes   Token: 0x0600002F
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x24A8   Size: 64 bytes   Token: 0x06000030
+
+[Calls]
+  IL_0000  newobj    System.Text.StringBuilder::.ctor()               external System.Runtime
+  IL_000C  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_0018  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_0020  callvirt  Ref.Switches.Shape::PrintMembers(StringBuilder)  internal
+  IL_002A  callvirt  System.Text.StringBuilder::Append(char)          external System.Runtime
+  IL_0033  callvirt  System.Text.StringBuilder::Append(char)          external System.Runtime
+  IL_003A  callvirt  System.Object::ToString()                        external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x24F4   Size: 48 bytes   Token: 0x06000031
+
+[Calls]
+  IL_0002  call      Ref.Switches.Shape::PrintMembers(StringBuilder)  internal
+  IL_000F  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_001B  callvirt  System.Text.StringBuilder::Append(string)        external System.Runtime
+  IL_0023  call      Ref.Switches.Polygon::get_Points()               internal
+  IL_0028  callvirt  System.Text.StringBuilder::Append(object)        external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool op_Inequality(Polygon left, Polygon right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2525   Size: 11 bytes   Token: 0x06000032
+
+[Calls]
+  IL_0002  call      Ref.Switches.Polygon::op_Equality(Polygon, Polygon)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool op_Equality(Polygon left, Polygon right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2531   Size: 19 bytes   Token: 0x06000033
+
+[Calls]
+  IL_0009  callvirt  Ref.Switches.Polygon::Equals(Polygon)  internal
+[Callers]
+  Ref.Switches.Polygon::op_Inequality  IL_0002  call  (Ref13.Switches.dll)
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2545   Size: 30 bytes   Token: 0x06000034
+
+[Calls]
+  IL_0001  call      Ref.Switches.Shape::GetHashCode()                                                                                                                                                 internal
+  IL_000C  call      System.Collections.Generic.EqualityComparer<System.Collections.Generic.IReadOnlyList<System.ValueTuple<double, double>>>::get_Default()                                           external System.Collections
+  IL_0017  callvirt  System.Collections.Generic.EqualityComparer<System.Collections.Generic.IReadOnlyList<System.ValueTuple<double, double>>>::GetHashCode(IReadOnlyList<ValueTuple<double, double>>)  external System.Collections
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2564   Size: 13 bytes   Token: 0x06000035
+
+[Calls]
+  IL_0007  call      Ref.Switches.Polygon::Equals(Polygon)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2572   Size: 8 bytes   Token: 0x06000036
+
+[Calls]
+  IL_0002  callvirt  System.Object::Equals(object)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Polygon other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x257B   Size: 40 bytes   Token: 0x06000037
+
+[Calls]
+  IL_0006  call      Ref.Switches.Shape::Equals(Shape)                                                                                                                                                                                       internal
+  IL_000D  call      System.Collections.Generic.EqualityComparer<System.Collections.Generic.IReadOnlyList<System.ValueTuple<double, double>>>::get_Default()                                                                                 external System.Collections
+  IL_001E  callvirt  System.Collections.Generic.EqualityComparer<System.Collections.Generic.IReadOnlyList<System.ValueTuple<double, double>>>::Equals(IReadOnlyList<ValueTuple<double, double>>, IReadOnlyList<ValueTuple<double, double>>)  external System.Collections
+[Callers]
+  Ref.Switches.Polygon::op_Equality  IL_0009  callvirt  (Ref13.Switches.dll)
+  Ref.Switches.Polygon::Equals  IL_0007  call  (Ref13.Switches.dll)
+
+Method   : Polygon <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x25A4   Size: 7 bytes   Token: 0x06000038
+
+[Calls]
+  IL_0001  newobj    Ref.Switches.Polygon::.ctor(Polygon)  internal
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor(Polygon original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x25AC   Size: 20 bytes   Token: 0x06000039
+
+[Calls]
+  IL_0002  call      Ref.Switches.Shape::.ctor(Shape)  internal
+[Callers]
+  Ref.Switches.Polygon::<Clone>$  IL_0001  newobj  (Ref13.Switches.dll)
+
+Method   : void Deconstruct(out IReadOnlyList<ValueTuple<double, double>> Points)
+Kind     : instance, public, compiler-generated
+RVA      : 0x25C1   Size: 9 bytes   Token: 0x0600003A
+
+[Calls]
+  IL_0002  call      Ref.Switches.Polygon::get_Points()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Switches.Dispatch
+
+Method   : string HttpStatus(int code)
+Kind     : static, public
+RVA      : 0x25CC   Size: 394 bytes   Token: 0x0600003B
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : int Keyword(string word)
+Kind     : static, public
+RVA      : 0x2764   Size: 710 bytes   Token: 0x0600003C
+
+[Calls]
+  IL_0007  call      System.String::get_Length()                 external System.Runtime
+  IL_0038  call      System.String::get_Chars(int)               external System.Runtime
+  IL_005E  call      System.String::get_Chars(int)               external System.Runtime
+  IL_007B  call      System.String::get_Chars(int)               external System.Runtime
+  IL_00C3  call      System.String::get_Chars(int)               external System.Runtime
+  IL_00FA  call      System.String::get_Chars(int)               external System.Runtime
+  IL_0124  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_0139  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_014E  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_0163  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_0178  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_018D  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_019D  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_01B2  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_01C7  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_01DC  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_01F1  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_0206  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_0218  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_0227  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_0236  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_0245  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_0254  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_0263  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_0272  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_0281  call      System.String::op_Equality(string, string)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : ConsoleColor Color(string name)
+Kind     : static, public
+RVA      : 0x2A38   Size: 60 bytes   Token: 0x0600003D
+
+[Calls]
+  IL_0006  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_0013  call      System.String::op_Equality(string, string)  external System.Runtime
+  IL_0020  call      System.String::op_Equality(string, string)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : double Area(Shape shape)
+Kind     : static, public
+RVA      : 0x2A80   Size: 232 bytes   Token: 0x0600003E
+
+[Calls]
+  IL_000F  callvirt  Ref.Switches.Circle::get_Radius()                                                               internal
+  IL_002D  callvirt  Ref.Switches.Rect::get_Width()                                                                  internal
+  IL_0034  callvirt  Ref.Switches.Rect::get_Height()                                                                 internal
+  IL_004B  callvirt  Ref.Switches.Polygon::get_Points()                                                              internal
+  IL_0058  callvirt  System.Collections.Generic.IReadOnlyCollection<System.ValueTuple<double, double>>::get_Count()  external System.Runtime
+  IL_007F  callvirt  Ref.Switches.Circle::get_Radius()                                                               internal
+  IL_0086  callvirt  Ref.Switches.Circle::get_Radius()                                                               internal
+  IL_009C  callvirt  Ref.Switches.Rect::get_Width()                                                                  internal
+  IL_00A2  callvirt  Ref.Switches.Rect::get_Height()                                                                 internal
+  IL_00BB  callvirt  Ref.Switches.Polygon::get_Points()                                                              internal
+  IL_00C0  call      Ref.Switches.Dispatch::Shoelace(IReadOnlyList<ValueTuple<double, double>>)                      internal
+  IL_00CE  newobj    System.ArgumentNullException::.ctor(string)                                                     external System.Runtime
+  IL_00D5  callvirt  System.Object::GetType()                                                                        external System.Runtime
+  IL_00DA  callvirt  System.Reflection.MemberInfo::get_Name()                                                        external System.Runtime
+  IL_00DF  newobj    System.NotSupportedException::.ctor(string)                                                     external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : double Shoelace(IReadOnlyList<ValueTuple<double, double>> points)
+Kind     : static, private
+RVA      : 0x2B74   Size: 107 bytes   Token: 0x0600003F
+
+[Calls]
+  IL_0010  callvirt  System.Collections.Generic.IReadOnlyList<System.ValueTuple<double, double>>::get_Item(int)      external System.Runtime
+  IL_0027  callvirt  System.Collections.Generic.IReadOnlyCollection<System.ValueTuple<double, double>>::get_Count()  external System.Runtime
+  IL_002D  callvirt  System.Collections.Generic.IReadOnlyList<System.ValueTuple<double, double>>::get_Item(int)      external System.Runtime
+  IL_0053  callvirt  System.Collections.Generic.IReadOnlyCollection<System.ValueTuple<double, double>>::get_Count()  external System.Runtime
+  IL_005B  call      System.Math::Abs(double)                                                                        external System.Runtime
+[Callers]
+  Ref.Switches.Dispatch::Area  IL_00C0  call  (Ref13.Switches.dll)
+
+Method   : string Quadrant(int x, int y)
+Kind     : static, public
+RVA      : 0x2BEC   Size: 80 bytes   Token: 0x06000040
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : string Describe(object o)
+Kind     : static, public
+RVA      : 0x2C48   Size: 338 bytes   Token: 0x06000041
+
+[Calls]
+  IL_0041  callvirt  System.String::get_Length()                                                                  external System.Runtime
+  IL_0098  call      System.Int32::ToString()                                                                     external System.Runtime
+  IL_009D  call      System.String::Concat(string, string)                                                        external System.Runtime
+  IL_00B2  call      System.Int32::ToString()                                                                     external System.Runtime
+  IL_00B7  call      System.String::Concat(string, string)                                                        external System.Runtime
+  IL_00D8  callvirt  System.String::Substring(int, int)                                                           external System.Runtime
+  IL_00DD  call      System.String::Concat(string, string)                                                        external System.Runtime
+  IL_00EE  call      System.String::Concat(string, string)                                                        external System.Runtime
+  IL_0104  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int, int)            external System.Runtime
+  IL_0110  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)      external System.Runtime
+  IL_0119  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<int>(int)  external System.Runtime
+  IL_0125  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)      external System.Runtime
+  IL_012E  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<int>(int)  external System.Runtime
+  IL_0135  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()         external System.Runtime
+  IL_013F  callvirt  System.Object::ToString()                                                                    external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : char Grade(int score)
+Kind     : static, public
+RVA      : 0x2DA8   Size: 78 bytes   Token: 0x06000042
+
+[Calls]
+  IL_0017  newobj    System.ArgumentOutOfRangeException::.ctor(string)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : int CountTokens(string text)
+Kind     : static, public
+RVA      : 0x2E04   Size: 101 bytes   Token: 0x06000043
+
+[Calls]
+  IL_000C  callvirt  System.String::get_Chars(int)  external System.Runtime
+  IL_005C  callvirt  System.String::get_Length()    external System.Runtime
+[Callers]
+  (none in the input files)

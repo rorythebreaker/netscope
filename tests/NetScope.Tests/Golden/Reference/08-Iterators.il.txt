@@ -1,0 +1,2426 @@
+Assembly : Ref08.Iterators.dll
+Name     : Ref08.Iterators, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 100
+
+Type     : Ref.Iterators.Sequences
+
+Method   : IEnumerable<int> Range(int start, int count)
+Kind     : static, public
+RVA      : 0x2050   Size: 23 bytes   Token: 0x06000001
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  ldc.i4.0
+  IL_0002  bge.s      IL_000F
+  IL_0004  ldstr      "count"
+  IL_0009  newobj     instance void [System.Runtime]System.ArgumentOutOfRangeException::.ctor(string)
+  IL_000E  throw
+  IL_000F  ldarg.0
+  IL_0010  ldarg.1
+  IL_0011  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<int32> Ref.Iterators.Sequences::RangeIterator(int32, int32)
+  IL_0016  ret
+
+Method   : IEnumerable<int> RangeIterator(int start, int count)
+Kind     : static, private, iterator
+RVA      : 0x2068   Size: 22 bytes   Token: 0x06000002
+
+[IL]  .maxstack 8
+  IL_0000  ldc.i4.s   -2
+  IL_0002  newobj     instance void Ref.Iterators.Sequences/<RangeIterator>d__1::.ctor(int32)
+  IL_0007  dup
+  IL_0008  ldarg.0
+  IL_0009  stfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>3__start'
+  IL_000E  dup
+  IL_000F  ldarg.1
+  IL_0010  stfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>3__count'
+  IL_0015  ret
+
+Method   : IEnumerable<long> Fibonacci()
+Kind     : static, public, iterator
+RVA      : 0x207F   Size: 8 bytes   Token: 0x06000003
+
+[IL]  .maxstack 8
+  IL_0000  ldc.i4.s   -2
+  IL_0002  newobj     instance void Ref.Iterators.Sequences/<Fibonacci>d__2::.ctor(int32)
+  IL_0007  ret
+
+Method   : IEnumerable<T[]> Chunk<T>(IEnumerable<T> source, int size)
+Kind     : static, public, iterator, generic
+RVA      : 0x2088   Size: 22 bytes   Token: 0x06000004
+
+[IL]  .maxstack 8
+  IL_0000  ldc.i4.s   -2
+  IL_0002  newobj     instance void class Ref.Iterators.Sequences/<Chunk>d__3`1<!!0>::.ctor(int32)
+  IL_0007  dup
+  IL_0008  ldarg.0
+  IL_0009  stfld      class [System.Runtime]System.Collections.Generic.IEnumerable`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!!0>::'<>3__source'
+  IL_000E  dup
+  IL_000F  ldarg.1
+  IL_0010  stfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!!0>::'<>3__size'
+  IL_0015  ret
+
+Method   : IEnumerable<string> Lines(TextReader reader)
+Kind     : static, public, iterator
+RVA      : 0x209F   Size: 15 bytes   Token: 0x06000005
+
+[IL]  .maxstack 8
+  IL_0000  ldc.i4.s   -2
+  IL_0002  newobj     instance void Ref.Iterators.Sequences/<Lines>d__4::.ctor(int32)
+  IL_0007  dup
+  IL_0008  ldarg.0
+  IL_0009  stfld      class [System.Runtime]System.IO.TextReader Ref.Iterators.Sequences/<Lines>d__4::'<>3__reader'
+  IL_000E  ret
+
+Method   : IEnumerator<char> Letters(string s)
+Kind     : static, public, iterator
+RVA      : 0x20AF   Size: 14 bytes   Token: 0x06000006
+
+[IL]  .maxstack 8
+  IL_0000  ldc.i4.0
+  IL_0001  newobj     instance void Ref.Iterators.Sequences/<Letters>d__5::.ctor(int32)
+  IL_0006  dup
+  IL_0007  ldarg.0
+  IL_0008  stfld      string Ref.Iterators.Sequences/<Letters>d__5::s
+  IL_000D  ret
+
+Method   : IAsyncEnumerable<int> TicksAsync(int count, TimeSpan interval, CancellationToken token)
+Kind     : static, public, async, iterator
+RVA      : 0x20BE   Size: 29 bytes   Token: 0x06000007
+
+[IL]  .maxstack 8
+  IL_0000  ldc.i4.s   -2
+  IL_0002  newobj     instance void Ref.Iterators.Sequences/<TicksAsync>d__6::.ctor(int32)
+  IL_0007  dup
+  IL_0008  ldarg.0
+  IL_0009  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>3__count'
+  IL_000E  dup
+  IL_000F  ldarg.1
+  IL_0010  stfld      valuetype [System.Runtime]System.TimeSpan Ref.Iterators.Sequences/<TicksAsync>d__6::'<>3__interval'
+  IL_0015  dup
+  IL_0016  ldarg.2
+  IL_0017  stfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<TicksAsync>d__6::'<>3__token'
+  IL_001C  ret
+
+Method   : IAsyncEnumerable<string> ReadLinesAsync(Stream stream, CancellationToken token)
+Kind     : static, public, async, iterator
+RVA      : 0x20DC   Size: 22 bytes   Token: 0x06000008
+
+[IL]  .maxstack 8
+  IL_0000  ldc.i4.s   -2
+  IL_0002  newobj     instance void Ref.Iterators.Sequences/<ReadLinesAsync>d__7::.ctor(int32)
+  IL_0007  dup
+  IL_0008  ldarg.0
+  IL_0009  stfld      class [System.Runtime]System.IO.Stream Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>3__stream'
+  IL_000E  dup
+  IL_000F  ldarg.1
+  IL_0010  stfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>3__token'
+  IL_0015  ret
+
+Method   : Task<int> SumAsync(IAsyncEnumerable<int> source, CancellationToken token)
+Kind     : static, public, async
+RVA      : 0x20F4   Size: 63 bytes   Token: 0x06000009
+
+[IL]  .maxstack 2
+  .locals init ([0] valuetype Ref.Iterators.Sequences/<SumAsync>d__8 V_0)
+  IL_0000  ldloca.s   V_0
+  IL_0002  call       valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<!0> valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32>::Create()
+  IL_0007  stfld      valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32> Ref.Iterators.Sequences/<SumAsync>d__8::'<>t__builder'
+  IL_000C  ldloca.s   V_0
+  IL_000E  ldarg.0
+  IL_000F  stfld      class [System.Runtime]System.Collections.Generic.IAsyncEnumerable`1<int32> Ref.Iterators.Sequences/<SumAsync>d__8::source
+  IL_0014  ldloca.s   V_0
+  IL_0016  ldarg.1
+  IL_0017  stfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<SumAsync>d__8::token
+  IL_001C  ldloca.s   V_0
+  IL_001E  ldc.i4.m1
+  IL_001F  stfld      int32 Ref.Iterators.Sequences/<SumAsync>d__8::'<>1__state'
+  IL_0024  ldloca.s   V_0
+  IL_0026  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32> Ref.Iterators.Sequences/<SumAsync>d__8::'<>t__builder'
+  IL_002B  ldloca.s   V_0
+  IL_002D  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32>::Start<valuetype Ref.Iterators.Sequences/<SumAsync>d__8>(!!0&)
+  IL_0032  ldloca.s   V_0
+  IL_0034  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32> Ref.Iterators.Sequences/<SumAsync>d__8::'<>t__builder'
+  IL_0039  call       instance class [System.Runtime]System.Threading.Tasks.Task`1<!0> valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32>::get_Task()
+  IL_003E  ret
+
+Type     : Ref.Iterators.Countdown
+
+Method   : void .ctor(int from)
+Kind     : ctor, instance, public
+RVA      : 0x213F   Size: 14 bytes   Token: 0x0600000A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      int32 Ref.Iterators.Countdown::_from
+  IL_000D  ret
+
+Method   : IEnumerator<int> GetEnumerator()
+Kind     : instance, public, virtual, sealed, iterator
+RVA      : 0x214E   Size: 14 bytes   Token: 0x0600000B
+
+[IL]  .maxstack 8
+  IL_0000  ldc.i4.0
+  IL_0001  newobj     instance void Ref.Iterators.Countdown/<GetEnumerator>d__2::.ctor(int32)
+  IL_0006  dup
+  IL_0007  ldarg.0
+  IL_0008  stfld      class Ref.Iterators.Countdown Ref.Iterators.Countdown/<GetEnumerator>d__2::'<>4__this'
+  IL_000D  ret
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed
+RVA      : 0x215D   Size: 7 bytes   Token: 0x0600000C
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<int32> Ref.Iterators.Countdown::GetEnumerator()
+  IL_0006  ret
+
+Type     : Ref.Iterators.Tree`1
+
+Method   : void .ctor(T value, params Tree<T>[] children)
+Kind     : ctor, instance, public
+RVA      : 0x2165   Size: 21 bytes   Token: 0x0600000D
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      !0 class Ref.Iterators.Tree`1<!0>::'<Value>k__BackingField'
+  IL_000D  ldarg.0
+  IL_000E  ldarg.2
+  IL_000F  stfld      class Ref.Iterators.Tree`1<!0>[] class Ref.Iterators.Tree`1<!0>::'<Children>k__BackingField'
+  IL_0014  ret
+
+Method   : T get_Value()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x217B   Size: 7 bytes   Token: 0x0600000E
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      !0 class Ref.Iterators.Tree`1<!0>::'<Value>k__BackingField'
+  IL_0006  ret
+
+Method   : Tree<T>[] get_Children()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2183   Size: 7 bytes   Token: 0x0600000F
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class Ref.Iterators.Tree`1<!0>[] class Ref.Iterators.Tree`1<!0>::'<Children>k__BackingField'
+  IL_0006  ret
+
+Method   : IEnumerable<T> DepthFirst()
+Kind     : instance, public, iterator
+RVA      : 0x218B   Size: 15 bytes   Token: 0x06000010
+
+[IL]  .maxstack 8
+  IL_0000  ldc.i4.s   -2
+  IL_0002  newobj     instance void class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::.ctor(int32)
+  IL_0007  dup
+  IL_0008  ldarg.0
+  IL_0009  stfld      class Ref.Iterators.Tree`1<!0> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>4__this'
+  IL_000E  ret
+
+Method   : IEnumerator<T> GetEnumerator()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x219B   Size: 12 bytes   Token: 0x06000011
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance class [System.Runtime]System.Collections.Generic.IEnumerable`1<!0> class Ref.Iterators.Tree`1<!0>::DepthFirst()
+  IL_0006  callvirt   instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class [System.Runtime]System.Collections.Generic.IEnumerable`1<!0>::GetEnumerator()
+  IL_000B  ret
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed
+RVA      : 0x21A8   Size: 7 bytes   Token: 0x06000012
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class Ref.Iterators.Tree`1<!0>::GetEnumerator()
+  IL_0006  ret
+
+Type     : Ref.Iterators.Sequences+<Chunk>d__3`1
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x21B0   Size: 25 bytes   Token: 0x06000013
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>1__state'
+  IL_000D  ldarg.0
+  IL_000E  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+  IL_0013  stfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>l__initialThreadId'
+  IL_0018  ret
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x21CC   Size: 49 bytes   Token: 0x06000014
+
+[IL]  .maxstack 2
+  .locals init ([0] int32 V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>1__state'
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  ldc.i4.s   -3
+  IL_000A  beq.s      IL_0010
+  IL_000C  ldloc.0
+  IL_000D  ldc.i4.1
+  IL_000E  bne.un.s   IL_001A
+  IL_0010  nop
+  IL_0011  leave.s    IL_001A
+  IL_0013  ldarg.0
+  IL_0014  call       instance void class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>m__Finally1'()
+  IL_0019  endfinally
+  IL_001A  ldarg.0
+  IL_001B  ldnull
+  IL_001C  stfld      class [System.Collections]System.Collections.Generic.List`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<chunk>5__2'
+  IL_0021  ldarg.0
+  IL_0022  ldnull
+  IL_0023  stfld      class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>7__wrap2'
+  IL_0028  ldarg.0
+  IL_0029  ldc.i4.s   -2
+  IL_002B  stfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>1__state'
+  IL_0030  ret
+  .try IL_0011 to IL_0013 finally handler IL_0013 to IL_001A
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x221C   Size: 261 bytes   Token: 0x06000015
+
+[IL]  .maxstack 2
+  .locals init ([0] bool V_0, [1] int32 V_1, [2] !T V_2)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>1__state'
+  IL_0006  stloc.1
+  IL_0007  ldloc.1
+  IL_0008  switch     (IL_0020, IL_009A, IL_00F1)
+  IL_0019  ldc.i4.0
+  IL_001A  stloc.0
+  IL_001B  leave      IL_0103
+  IL_0020  ldarg.0
+  IL_0021  ldc.i4.m1
+  IL_0022  stfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>1__state'
+  IL_0027  ldarg.0
+  IL_0028  ldarg.0
+  IL_0029  ldfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::size
+  IL_002E  newobj     instance void class [System.Collections]System.Collections.Generic.List`1<!0>::.ctor(int32)
+  IL_0033  stfld      class [System.Collections]System.Collections.Generic.List`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<chunk>5__2'
+  IL_0038  ldarg.0
+  IL_0039  ldarg.0
+  IL_003A  ldfld      class [System.Runtime]System.Collections.Generic.IEnumerable`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::source
+  IL_003F  callvirt   instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class [System.Runtime]System.Collections.Generic.IEnumerable`1<!0>::GetEnumerator()
+  IL_0044  stfld      class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>7__wrap2'
+  IL_0049  ldarg.0
+  IL_004A  ldc.i4.s   -3
+  IL_004C  stfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>1__state'
+  IL_0051  br.s       IL_00AD
+  IL_0053  ldarg.0
+  IL_0054  ldfld      class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>7__wrap2'
+  IL_0059  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0>::get_Current()
+  IL_005E  stloc.2
+  IL_005F  ldarg.0
+  IL_0060  ldfld      class [System.Collections]System.Collections.Generic.List`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<chunk>5__2'
+  IL_0065  ldloc.2
+  IL_0066  callvirt   instance void class [System.Collections]System.Collections.Generic.List`1<!0>::Add(!0)
+  IL_006B  ldarg.0
+  IL_006C  ldfld      class [System.Collections]System.Collections.Generic.List`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<chunk>5__2'
+  IL_0071  callvirt   instance int32 class [System.Collections]System.Collections.Generic.List`1<!0>::get_Count()
+  IL_0076  ldarg.0
+  IL_0077  ldfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::size
+  IL_007C  bne.un.s   IL_00AD
+  IL_007E  ldarg.0
+  IL_007F  ldarg.0
+  IL_0080  ldfld      class [System.Collections]System.Collections.Generic.List`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<chunk>5__2'
+  IL_0085  callvirt   instance !0[] class [System.Collections]System.Collections.Generic.List`1<!0>::ToArray()
+  IL_008A  stfld      !0[] class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>2__current'
+  IL_008F  ldarg.0
+  IL_0090  ldc.i4.1
+  IL_0091  stfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>1__state'
+  IL_0096  ldc.i4.1
+  IL_0097  stloc.0
+  IL_0098  leave.s    IL_0103
+  IL_009A  ldarg.0
+  IL_009B  ldc.i4.s   -3
+  IL_009D  stfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>1__state'
+  IL_00A2  ldarg.0
+  IL_00A3  ldfld      class [System.Collections]System.Collections.Generic.List`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<chunk>5__2'
+  IL_00A8  callvirt   instance void class [System.Collections]System.Collections.Generic.List`1<!0>::Clear()
+  IL_00AD  ldarg.0
+  IL_00AE  ldfld      class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>7__wrap2'
+  IL_00B3  callvirt   instance bool [System.Runtime]System.Collections.IEnumerator::MoveNext()
+  IL_00B8  brtrue.s   IL_0053
+  IL_00BA  ldarg.0
+  IL_00BB  call       instance void class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>m__Finally1'()
+  IL_00C0  ldarg.0
+  IL_00C1  ldnull
+  IL_00C2  stfld      class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>7__wrap2'
+  IL_00C7  ldarg.0
+  IL_00C8  ldfld      class [System.Collections]System.Collections.Generic.List`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<chunk>5__2'
+  IL_00CD  callvirt   instance int32 class [System.Collections]System.Collections.Generic.List`1<!0>::get_Count()
+  IL_00D2  ldc.i4.0
+  IL_00D3  ble.s      IL_00F8
+  IL_00D5  ldarg.0
+  IL_00D6  ldarg.0
+  IL_00D7  ldfld      class [System.Collections]System.Collections.Generic.List`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<chunk>5__2'
+  IL_00DC  callvirt   instance !0[] class [System.Collections]System.Collections.Generic.List`1<!0>::ToArray()
+  IL_00E1  stfld      !0[] class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>2__current'
+  IL_00E6  ldarg.0
+  IL_00E7  ldc.i4.2
+  IL_00E8  stfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>1__state'
+  IL_00ED  ldc.i4.1
+  IL_00EE  stloc.0
+  IL_00EF  leave.s    IL_0103
+  IL_00F1  ldarg.0
+  IL_00F2  ldc.i4.m1
+  IL_00F3  stfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>1__state'
+  IL_00F8  ldc.i4.0
+  IL_00F9  stloc.0
+  IL_00FA  leave.s    IL_0103
+  IL_00FC  ldarg.0
+  IL_00FD  call       instance void class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::System.IDisposable.Dispose()
+  IL_0102  endfinally
+  IL_0103  ldloc.0
+  IL_0104  ret
+  .try IL_0000 to IL_00FC fault handler IL_00FC to IL_0103
+
+Method   : void <>m__Finally1()
+Kind     : instance, private, compiler-generated
+RVA      : 0x2340   Size: 27 bytes   Token: 0x06000016
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.m1
+  IL_0002  stfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>1__state'
+  IL_0007  ldarg.0
+  IL_0008  ldfld      class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>7__wrap2'
+  IL_000D  brfalse.s  IL_001A
+  IL_000F  ldarg.0
+  IL_0010  ldfld      class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>7__wrap2'
+  IL_0015  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  IL_001A  ret
+
+Method   : T[] System.Collections.Generic.IEnumerator<T[]>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x235C   Size: 7 bytes   Token: 0x06000017
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      !0[] class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>2__current'
+  IL_0006  ret
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2364   Size: 6 bytes   Token: 0x06000018
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void [System.Runtime]System.NotSupportedException::.ctor()
+  IL_0005  throw
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x236B   Size: 7 bytes   Token: 0x06000019
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      !0[] class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>2__current'
+  IL_0006  ret
+
+Method   : IEnumerator<T[]> System.Collections.Generic.IEnumerable<T[]>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2374   Size: 67 bytes   Token: 0x0600001A
+
+[IL]  .maxstack 2
+  .locals init ([0] class Ref.Iterators.Sequences/<Chunk>d__3`1<!T> V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>1__state'
+  IL_0006  ldc.i4.s   -2
+  IL_0008  bne.un.s   IL_0022
+  IL_000A  ldarg.0
+  IL_000B  ldfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>l__initialThreadId'
+  IL_0010  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+  IL_0015  bne.un.s   IL_0022
+  IL_0017  ldarg.0
+  IL_0018  ldc.i4.0
+  IL_0019  stfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>1__state'
+  IL_001E  ldarg.0
+  IL_001F  stloc.0
+  IL_0020  br.s       IL_0029
+  IL_0022  ldc.i4.0
+  IL_0023  newobj     instance void class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::.ctor(int32)
+  IL_0028  stloc.0
+  IL_0029  ldloc.0
+  IL_002A  ldarg.0
+  IL_002B  ldfld      class [System.Runtime]System.Collections.Generic.IEnumerable`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>3__source'
+  IL_0030  stfld      class [System.Runtime]System.Collections.Generic.IEnumerable`1<!0> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::source
+  IL_0035  ldloc.0
+  IL_0036  ldarg.0
+  IL_0037  ldfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'<>3__size'
+  IL_003C  stfld      int32 class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::size
+  IL_0041  ldloc.0
+  IL_0042  ret
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x23C3   Size: 7 bytes   Token: 0x0600001B
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0[]> class Ref.Iterators.Sequences/<Chunk>d__3`1<!0>::'System.Collections.Generic.IEnumerable<T[]>.GetEnumerator'()
+  IL_0006  ret
+
+Type     : Ref.Iterators.Sequences+<Fibonacci>d__2
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x23CB   Size: 25 bytes   Token: 0x0600001C
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      int32 Ref.Iterators.Sequences/<Fibonacci>d__2::'<>1__state'
+  IL_000D  ldarg.0
+  IL_000E  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+  IL_0013  stfld      int32 Ref.Iterators.Sequences/<Fibonacci>d__2::'<>l__initialThreadId'
+  IL_0018  ret
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x23E5   Size: 9 bytes   Token: 0x0600001D
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.s   -2
+  IL_0003  stfld      int32 Ref.Iterators.Sequences/<Fibonacci>d__2::'<>1__state'
+  IL_0008  ret
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x23F0   Size: 104 bytes   Token: 0x0600001E
+
+[IL]  .maxstack 2
+  .locals init ([0] int32 V_0, [1] int64 V_1, [2] int64 V_2)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<Fibonacci>d__2::'<>1__state'
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  brfalse.s  IL_0010
+  IL_000A  ldloc.0
+  IL_000B  ldc.i4.1
+  IL_000C  beq.s      IL_003C
+  IL_000E  ldc.i4.0
+  IL_000F  ret
+  IL_0010  ldarg.0
+  IL_0011  ldc.i4.m1
+  IL_0012  stfld      int32 Ref.Iterators.Sequences/<Fibonacci>d__2::'<>1__state'
+  IL_0017  ldarg.0
+  IL_0018  ldc.i4.0
+  IL_0019  conv.i8
+  IL_001A  stfld      int64 Ref.Iterators.Sequences/<Fibonacci>d__2::'<a>5__2'
+  IL_001F  ldarg.0
+  IL_0020  ldc.i4.1
+  IL_0021  conv.i8
+  IL_0022  stfld      int64 Ref.Iterators.Sequences/<Fibonacci>d__2::'<b>5__3'
+  IL_0027  ldarg.0
+  IL_0028  ldarg.0
+  IL_0029  ldfld      int64 Ref.Iterators.Sequences/<Fibonacci>d__2::'<a>5__2'
+  IL_002E  stfld      int64 Ref.Iterators.Sequences/<Fibonacci>d__2::'<>2__current'
+  IL_0033  ldarg.0
+  IL_0034  ldc.i4.1
+  IL_0035  stfld      int32 Ref.Iterators.Sequences/<Fibonacci>d__2::'<>1__state'
+  IL_003A  ldc.i4.1
+  IL_003B  ret
+  IL_003C  ldarg.0
+  IL_003D  ldc.i4.m1
+  IL_003E  stfld      int32 Ref.Iterators.Sequences/<Fibonacci>d__2::'<>1__state'
+  IL_0043  ldarg.0
+  IL_0044  ldfld      int64 Ref.Iterators.Sequences/<Fibonacci>d__2::'<b>5__3'
+  IL_0049  stloc.1
+  IL_004A  ldarg.0
+  IL_004B  ldfld      int64 Ref.Iterators.Sequences/<Fibonacci>d__2::'<a>5__2'
+  IL_0050  ldarg.0
+  IL_0051  ldfld      int64 Ref.Iterators.Sequences/<Fibonacci>d__2::'<b>5__3'
+  IL_0056  add
+  IL_0057  stloc.2
+  IL_0058  ldarg.0
+  IL_0059  ldloc.2
+  IL_005A  stfld      int64 Ref.Iterators.Sequences/<Fibonacci>d__2::'<b>5__3'
+  IL_005F  ldarg.0
+  IL_0060  ldloc.1
+  IL_0061  stfld      int64 Ref.Iterators.Sequences/<Fibonacci>d__2::'<a>5__2'
+  IL_0066  br.s       IL_0027
+
+Method   : long System.Collections.Generic.IEnumerator<System.Int64>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2464   Size: 7 bytes   Token: 0x0600001F
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int64 Ref.Iterators.Sequences/<Fibonacci>d__2::'<>2__current'
+  IL_0006  ret
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x246C   Size: 6 bytes   Token: 0x06000020
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void [System.Runtime]System.NotSupportedException::.ctor()
+  IL_0005  throw
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2473   Size: 12 bytes   Token: 0x06000021
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int64 Ref.Iterators.Sequences/<Fibonacci>d__2::'<>2__current'
+  IL_0006  box        [System.Runtime]System.Int64
+  IL_000B  ret
+
+Method   : IEnumerator<long> System.Collections.Generic.IEnumerable<System.Int64>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2480   Size: 43 bytes   Token: 0x06000022
+
+[IL]  .maxstack 2
+  .locals init ([0] class Ref.Iterators.Sequences/<Fibonacci>d__2 V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<Fibonacci>d__2::'<>1__state'
+  IL_0006  ldc.i4.s   -2
+  IL_0008  bne.un.s   IL_0022
+  IL_000A  ldarg.0
+  IL_000B  ldfld      int32 Ref.Iterators.Sequences/<Fibonacci>d__2::'<>l__initialThreadId'
+  IL_0010  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+  IL_0015  bne.un.s   IL_0022
+  IL_0017  ldarg.0
+  IL_0018  ldc.i4.0
+  IL_0019  stfld      int32 Ref.Iterators.Sequences/<Fibonacci>d__2::'<>1__state'
+  IL_001E  ldarg.0
+  IL_001F  stloc.0
+  IL_0020  br.s       IL_0029
+  IL_0022  ldc.i4.0
+  IL_0023  newobj     instance void Ref.Iterators.Sequences/<Fibonacci>d__2::.ctor(int32)
+  IL_0028  stloc.0
+  IL_0029  ldloc.0
+  IL_002A  ret
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x24B7   Size: 7 bytes   Token: 0x06000023
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<int64> Ref.Iterators.Sequences/<Fibonacci>d__2::'System.Collections.Generic.IEnumerable<System.Int64>.GetEnumerator'()
+  IL_0006  ret
+
+Type     : Ref.Iterators.Sequences+<Letters>d__5
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x24BF   Size: 14 bytes   Token: 0x06000024
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      int32 Ref.Iterators.Sequences/<Letters>d__5::'<>1__state'
+  IL_000D  ret
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x24CE   Size: 16 bytes   Token: 0x06000025
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldnull
+  IL_0002  stfld      string Ref.Iterators.Sequences/<Letters>d__5::'<>7__wrap1'
+  IL_0007  ldarg.0
+  IL_0008  ldc.i4.s   -2
+  IL_000A  stfld      int32 Ref.Iterators.Sequences/<Letters>d__5::'<>1__state'
+  IL_000F  ret
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x24E0   Size: 135 bytes   Token: 0x06000026
+
+[IL]  .maxstack 3
+  .locals init ([0] int32 V_0, [1] char V_1)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<Letters>d__5::'<>1__state'
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  brfalse.s  IL_0010
+  IL_000A  ldloc.0
+  IL_000B  ldc.i4.1
+  IL_000C  beq.s      IL_0056
+  IL_000E  ldc.i4.0
+  IL_000F  ret
+  IL_0010  ldarg.0
+  IL_0011  ldc.i4.m1
+  IL_0012  stfld      int32 Ref.Iterators.Sequences/<Letters>d__5::'<>1__state'
+  IL_0017  ldarg.0
+  IL_0018  ldarg.0
+  IL_0019  ldfld      string Ref.Iterators.Sequences/<Letters>d__5::s
+  IL_001E  stfld      string Ref.Iterators.Sequences/<Letters>d__5::'<>7__wrap1'
+  IL_0023  ldarg.0
+  IL_0024  ldc.i4.0
+  IL_0025  stfld      int32 Ref.Iterators.Sequences/<Letters>d__5::'<>7__wrap2'
+  IL_002A  br.s       IL_006B
+  IL_002C  ldarg.0
+  IL_002D  ldfld      string Ref.Iterators.Sequences/<Letters>d__5::'<>7__wrap1'
+  IL_0032  ldarg.0
+  IL_0033  ldfld      int32 Ref.Iterators.Sequences/<Letters>d__5::'<>7__wrap2'
+  IL_0038  callvirt   instance char [System.Runtime]System.String::get_Chars(int32)
+  IL_003D  stloc.1
+  IL_003E  ldloc.1
+  IL_003F  call       bool [System.Runtime]System.Char::IsLetter(char)
+  IL_0044  brfalse.s  IL_005D
+  IL_0046  ldarg.0
+  IL_0047  ldloc.1
+  IL_0048  stfld      char Ref.Iterators.Sequences/<Letters>d__5::'<>2__current'
+  IL_004D  ldarg.0
+  IL_004E  ldc.i4.1
+  IL_004F  stfld      int32 Ref.Iterators.Sequences/<Letters>d__5::'<>1__state'
+  IL_0054  ldc.i4.1
+  IL_0055  ret
+  IL_0056  ldarg.0
+  IL_0057  ldc.i4.m1
+  IL_0058  stfld      int32 Ref.Iterators.Sequences/<Letters>d__5::'<>1__state'
+  IL_005D  ldarg.0
+  IL_005E  ldarg.0
+  IL_005F  ldfld      int32 Ref.Iterators.Sequences/<Letters>d__5::'<>7__wrap2'
+  IL_0064  ldc.i4.1
+  IL_0065  add
+  IL_0066  stfld      int32 Ref.Iterators.Sequences/<Letters>d__5::'<>7__wrap2'
+  IL_006B  ldarg.0
+  IL_006C  ldfld      int32 Ref.Iterators.Sequences/<Letters>d__5::'<>7__wrap2'
+  IL_0071  ldarg.0
+  IL_0072  ldfld      string Ref.Iterators.Sequences/<Letters>d__5::'<>7__wrap1'
+  IL_0077  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+  IL_007C  blt.s      IL_002C
+  IL_007E  ldarg.0
+  IL_007F  ldnull
+  IL_0080  stfld      string Ref.Iterators.Sequences/<Letters>d__5::'<>7__wrap1'
+  IL_0085  ldc.i4.0
+  IL_0086  ret
+
+Method   : char System.Collections.Generic.IEnumerator<System.Char>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2573   Size: 7 bytes   Token: 0x06000027
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      char Ref.Iterators.Sequences/<Letters>d__5::'<>2__current'
+  IL_0006  ret
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x257B   Size: 6 bytes   Token: 0x06000028
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void [System.Runtime]System.NotSupportedException::.ctor()
+  IL_0005  throw
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2582   Size: 12 bytes   Token: 0x06000029
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      char Ref.Iterators.Sequences/<Letters>d__5::'<>2__current'
+  IL_0006  box        [System.Runtime]System.Char
+  IL_000B  ret
+
+Type     : Ref.Iterators.Sequences+<Lines>d__4
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x258F   Size: 25 bytes   Token: 0x0600002A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      int32 Ref.Iterators.Sequences/<Lines>d__4::'<>1__state'
+  IL_000D  ldarg.0
+  IL_000E  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+  IL_0013  stfld      int32 Ref.Iterators.Sequences/<Lines>d__4::'<>l__initialThreadId'
+  IL_0018  ret
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x25AC   Size: 35 bytes   Token: 0x0600002B
+
+[IL]  .maxstack 2
+  .locals init ([0] int32 V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<Lines>d__4::'<>1__state'
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  ldc.i4.s   -3
+  IL_000A  beq.s      IL_0010
+  IL_000C  ldloc.0
+  IL_000D  ldc.i4.1
+  IL_000E  bne.un.s   IL_001A
+  IL_0010  nop
+  IL_0011  leave.s    IL_001A
+  IL_0013  ldarg.0
+  IL_0014  call       instance void Ref.Iterators.Sequences/<Lines>d__4::'<>m__Finally1'()
+  IL_0019  endfinally
+  IL_001A  ldarg.0
+  IL_001B  ldc.i4.s   -2
+  IL_001D  stfld      int32 Ref.Iterators.Sequences/<Lines>d__4::'<>1__state'
+  IL_0022  ret
+  .try IL_0011 to IL_0013 finally handler IL_0013 to IL_001A
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x25EC   Size: 117 bytes   Token: 0x0600002C
+
+[IL]  .maxstack 2
+  .locals init ([0] bool V_0, [1] int32 V_1, [2] string V_2)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<Lines>d__4::'<>1__state'
+  IL_0006  stloc.1
+  IL_0007  ldloc.1
+  IL_0008  brfalse.s  IL_0012
+  IL_000A  ldloc.1
+  IL_000B  ldc.i4.1
+  IL_000C  beq.s      IL_0041
+  IL_000E  ldc.i4.0
+  IL_000F  stloc.0
+  IL_0010  leave.s    IL_0073
+  IL_0012  ldarg.0
+  IL_0013  ldc.i4.m1
+  IL_0014  stfld      int32 Ref.Iterators.Sequences/<Lines>d__4::'<>1__state'
+  IL_0019  ldarg.0
+  IL_001A  ldc.i4.s   -3
+  IL_001C  stfld      int32 Ref.Iterators.Sequences/<Lines>d__4::'<>1__state'
+  IL_0021  br.s       IL_0049
+  IL_0023  ldloc.2
+  IL_0024  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+  IL_0029  brtrue.s   IL_002F
+  IL_002B  ldc.i4.0
+  IL_002C  stloc.0
+  IL_002D  br.s       IL_0060
+  IL_002F  ldarg.0
+  IL_0030  ldloc.2
+  IL_0031  stfld      string Ref.Iterators.Sequences/<Lines>d__4::'<>2__current'
+  IL_0036  ldarg.0
+  IL_0037  ldc.i4.1
+  IL_0038  stfld      int32 Ref.Iterators.Sequences/<Lines>d__4::'<>1__state'
+  IL_003D  ldc.i4.1
+  IL_003E  stloc.0
+  IL_003F  leave.s    IL_0073
+  IL_0041  ldarg.0
+  IL_0042  ldc.i4.s   -3
+  IL_0044  stfld      int32 Ref.Iterators.Sequences/<Lines>d__4::'<>1__state'
+  IL_0049  ldarg.0
+  IL_004A  ldfld      class [System.Runtime]System.IO.TextReader Ref.Iterators.Sequences/<Lines>d__4::reader
+  IL_004F  callvirt   instance string [System.Runtime]System.IO.TextReader::ReadLine()
+  IL_0054  dup
+  IL_0055  stloc.2
+  IL_0056  brtrue.s   IL_0023
+  IL_0058  ldarg.0
+  IL_0059  call       instance void Ref.Iterators.Sequences/<Lines>d__4::'<>m__Finally1'()
+  IL_005E  br.s       IL_0068
+  IL_0060  ldarg.0
+  IL_0061  call       instance void Ref.Iterators.Sequences/<Lines>d__4::'<>m__Finally1'()
+  IL_0066  leave.s    IL_0073
+  IL_0068  ldc.i4.0
+  IL_0069  stloc.0
+  IL_006A  leave.s    IL_0073
+  IL_006C  ldarg.0
+  IL_006D  call       instance void Ref.Iterators.Sequences/<Lines>d__4::System.IDisposable.Dispose()
+  IL_0072  endfinally
+  IL_0073  ldloc.0
+  IL_0074  ret
+  .try IL_0000 to IL_006C fault handler IL_006C to IL_0073
+
+Method   : void <>m__Finally1()
+Kind     : instance, private, compiler-generated
+RVA      : 0x2680   Size: 19 bytes   Token: 0x0600002D
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.m1
+  IL_0002  stfld      int32 Ref.Iterators.Sequences/<Lines>d__4::'<>1__state'
+  IL_0007  ldarg.0
+  IL_0008  ldfld      class [System.Runtime]System.IO.TextReader Ref.Iterators.Sequences/<Lines>d__4::reader
+  IL_000D  callvirt   instance void [System.Runtime]System.IO.TextReader::Dispose()
+  IL_0012  ret
+
+Method   : string System.Collections.Generic.IEnumerator<System.String>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2694   Size: 7 bytes   Token: 0x0600002E
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      string Ref.Iterators.Sequences/<Lines>d__4::'<>2__current'
+  IL_0006  ret
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x269C   Size: 6 bytes   Token: 0x0600002F
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void [System.Runtime]System.NotSupportedException::.ctor()
+  IL_0005  throw
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26A3   Size: 7 bytes   Token: 0x06000030
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      string Ref.Iterators.Sequences/<Lines>d__4::'<>2__current'
+  IL_0006  ret
+
+Method   : IEnumerator<string> System.Collections.Generic.IEnumerable<System.String>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26AC   Size: 55 bytes   Token: 0x06000031
+
+[IL]  .maxstack 2
+  .locals init ([0] class Ref.Iterators.Sequences/<Lines>d__4 V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<Lines>d__4::'<>1__state'
+  IL_0006  ldc.i4.s   -2
+  IL_0008  bne.un.s   IL_0022
+  IL_000A  ldarg.0
+  IL_000B  ldfld      int32 Ref.Iterators.Sequences/<Lines>d__4::'<>l__initialThreadId'
+  IL_0010  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+  IL_0015  bne.un.s   IL_0022
+  IL_0017  ldarg.0
+  IL_0018  ldc.i4.0
+  IL_0019  stfld      int32 Ref.Iterators.Sequences/<Lines>d__4::'<>1__state'
+  IL_001E  ldarg.0
+  IL_001F  stloc.0
+  IL_0020  br.s       IL_0029
+  IL_0022  ldc.i4.0
+  IL_0023  newobj     instance void Ref.Iterators.Sequences/<Lines>d__4::.ctor(int32)
+  IL_0028  stloc.0
+  IL_0029  ldloc.0
+  IL_002A  ldarg.0
+  IL_002B  ldfld      class [System.Runtime]System.IO.TextReader Ref.Iterators.Sequences/<Lines>d__4::'<>3__reader'
+  IL_0030  stfld      class [System.Runtime]System.IO.TextReader Ref.Iterators.Sequences/<Lines>d__4::reader
+  IL_0035  ldloc.0
+  IL_0036  ret
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26EF   Size: 7 bytes   Token: 0x06000032
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<string> Ref.Iterators.Sequences/<Lines>d__4::'System.Collections.Generic.IEnumerable<System.String>.GetEnumerator'()
+  IL_0006  ret
+
+Type     : Ref.Iterators.Sequences+<RangeIterator>d__1
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x26F7   Size: 25 bytes   Token: 0x06000033
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>1__state'
+  IL_000D  ldarg.0
+  IL_000E  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+  IL_0013  stfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>l__initialThreadId'
+  IL_0018  ret
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2711   Size: 9 bytes   Token: 0x06000034
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.s   -2
+  IL_0003  stfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>1__state'
+  IL_0008  ret
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x271C   Size: 99 bytes   Token: 0x06000035
+
+[IL]  .maxstack 3
+  .locals init ([0] int32 V_0, [1] int32 V_1)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>1__state'
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  brfalse.s  IL_0010
+  IL_000A  ldloc.0
+  IL_000B  ldc.i4.1
+  IL_000C  beq.s      IL_003C
+  IL_000E  ldc.i4.0
+  IL_000F  ret
+  IL_0010  ldarg.0
+  IL_0011  ldc.i4.m1
+  IL_0012  stfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>1__state'
+  IL_0017  ldarg.0
+  IL_0018  ldc.i4.0
+  IL_0019  stfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<i>5__2'
+  IL_001E  br.s       IL_0053
+  IL_0020  ldarg.0
+  IL_0021  ldarg.0
+  IL_0022  ldfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::start
+  IL_0027  ldarg.0
+  IL_0028  ldfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<i>5__2'
+  IL_002D  add
+  IL_002E  stfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>2__current'
+  IL_0033  ldarg.0
+  IL_0034  ldc.i4.1
+  IL_0035  stfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>1__state'
+  IL_003A  ldc.i4.1
+  IL_003B  ret
+  IL_003C  ldarg.0
+  IL_003D  ldc.i4.m1
+  IL_003E  stfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>1__state'
+  IL_0043  ldarg.0
+  IL_0044  ldfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<i>5__2'
+  IL_0049  stloc.1
+  IL_004A  ldarg.0
+  IL_004B  ldloc.1
+  IL_004C  ldc.i4.1
+  IL_004D  add
+  IL_004E  stfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<i>5__2'
+  IL_0053  ldarg.0
+  IL_0054  ldfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<i>5__2'
+  IL_0059  ldarg.0
+  IL_005A  ldfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::count
+  IL_005F  blt.s      IL_0020
+  IL_0061  ldc.i4.0
+  IL_0062  ret
+
+Method   : int System.Collections.Generic.IEnumerator<System.Int32>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x278B   Size: 7 bytes   Token: 0x06000036
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>2__current'
+  IL_0006  ret
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2793   Size: 6 bytes   Token: 0x06000037
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void [System.Runtime]System.NotSupportedException::.ctor()
+  IL_0005  throw
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x279A   Size: 12 bytes   Token: 0x06000038
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>2__current'
+  IL_0006  box        [System.Runtime]System.Int32
+  IL_000B  ret
+
+Method   : IEnumerator<int> System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x27A8   Size: 67 bytes   Token: 0x06000039
+
+[IL]  .maxstack 2
+  .locals init ([0] class Ref.Iterators.Sequences/<RangeIterator>d__1 V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>1__state'
+  IL_0006  ldc.i4.s   -2
+  IL_0008  bne.un.s   IL_0022
+  IL_000A  ldarg.0
+  IL_000B  ldfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>l__initialThreadId'
+  IL_0010  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+  IL_0015  bne.un.s   IL_0022
+  IL_0017  ldarg.0
+  IL_0018  ldc.i4.0
+  IL_0019  stfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>1__state'
+  IL_001E  ldarg.0
+  IL_001F  stloc.0
+  IL_0020  br.s       IL_0029
+  IL_0022  ldc.i4.0
+  IL_0023  newobj     instance void Ref.Iterators.Sequences/<RangeIterator>d__1::.ctor(int32)
+  IL_0028  stloc.0
+  IL_0029  ldloc.0
+  IL_002A  ldarg.0
+  IL_002B  ldfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>3__start'
+  IL_0030  stfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::start
+  IL_0035  ldloc.0
+  IL_0036  ldarg.0
+  IL_0037  ldfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::'<>3__count'
+  IL_003C  stfld      int32 Ref.Iterators.Sequences/<RangeIterator>d__1::count
+  IL_0041  ldloc.0
+  IL_0042  ret
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x27F7   Size: 7 bytes   Token: 0x0600003A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<int32> Ref.Iterators.Sequences/<RangeIterator>d__1::'System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator'()
+  IL_0006  ret
+
+Type     : Ref.Iterators.Sequences+<ReadLinesAsync>d__7
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x27FF   Size: 36 bytes   Token: 0x0600003B
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  call       valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Create()
+  IL_000C  stfld      valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>t__builder'
+  IL_0011  ldarg.0
+  IL_0012  ldarg.1
+  IL_0013  stfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>1__state'
+  IL_0018  ldarg.0
+  IL_0019  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+  IL_001E  stfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>l__initialThreadId'
+  IL_0023  ret
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2824   Size: 459 bytes   Token: 0x0600003C
+
+[IL]  .maxstack 3
+  .locals init ([0] int32 V_0, [1] string V_1, [2] valuetype [System.Runtime]System.Runtime.CompilerServices.ValueTaskAwaiter`1<string> V_2, [3] valuetype [System.Runtime]System.Threading.Tasks.ValueTask`1<string> V_3, [4] class Ref.Iterators.Sequences/<ReadLinesAsync>d__7 V_4, [5] class [System.Runtime]System.Exception V_5)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>1__state'
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  ldc.i4.s   -4
+  IL_000A  sub
+  IL_000B  switch     (IL_004B, IL_0024, IL_0024, IL_0024, IL_004B)
+  IL_0024  ldarg.0
+  IL_0025  ldfld      bool Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>w__disposeMode'
+  IL_002A  brfalse.s  IL_0031
+  IL_002C  leave      IL_0176
+  IL_0031  ldarg.0
+  IL_0032  ldc.i4.m1
+  IL_0033  dup
+  IL_0034  stloc.0
+  IL_0035  stfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>1__state'
+  IL_003A  ldarg.0
+  IL_003B  ldarg.0
+  IL_003C  ldfld      class [System.Runtime]System.IO.Stream Ref.Iterators.Sequences/<ReadLinesAsync>d__7::stream
+  IL_0041  newobj     instance void [System.Runtime]System.IO.StreamReader::.ctor(class [System.Runtime]System.IO.Stream)
+  IL_0046  stfld      class [System.Runtime]System.IO.StreamReader Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<reader>5__2'
+  IL_004B  nop
+  IL_004C  ldloc.0
+  IL_004D  ldc.i4.s   -4
+  IL_004F  beq.s      IL_006C
+  IL_0051  ldloc.0
+  IL_0052  brfalse.s  IL_00D3
+  IL_0054  br.s       IL_0082
+  IL_0056  ldarg.0
+  IL_0057  ldloc.1
+  IL_0058  stfld      string Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>2__current'
+  IL_005D  ldarg.0
+  IL_005E  ldc.i4.s   -4
+  IL_0060  dup
+  IL_0061  stloc.0
+  IL_0062  stfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>1__state'
+  IL_0067  leave      IL_01BE
+  IL_006C  ldarg.0
+  IL_006D  ldc.i4.m1
+  IL_006E  dup
+  IL_006F  stloc.0
+  IL_0070  stfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>1__state'
+  IL_0075  ldarg.0
+  IL_0076  ldfld      bool Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>w__disposeMode'
+  IL_007B  brfalse.s  IL_0082
+  IL_007D  leave      IL_0117
+  IL_0082  ldarg.0
+  IL_0083  ldnull
+  IL_0084  stfld      string Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>2__current'
+  IL_0089  ldarg.0
+  IL_008A  ldfld      class [System.Runtime]System.IO.StreamReader Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<reader>5__2'
+  IL_008F  ldarg.0
+  IL_0090  ldfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<ReadLinesAsync>d__7::token
+  IL_0095  callvirt   instance valuetype [System.Runtime]System.Threading.Tasks.ValueTask`1<string> [System.Runtime]System.IO.TextReader::ReadLineAsync(valuetype [System.Runtime]System.Threading.CancellationToken)
+  IL_009A  stloc.3
+  IL_009B  ldloca.s   V_3
+  IL_009D  call       instance valuetype [System.Runtime]System.Runtime.CompilerServices.ValueTaskAwaiter`1<!0> valuetype [System.Runtime]System.Threading.Tasks.ValueTask`1<string>::GetAwaiter()
+  IL_00A2  stloc.2
+  IL_00A3  ldloca.s   V_2
+  IL_00A5  call       instance bool valuetype [System.Runtime]System.Runtime.CompilerServices.ValueTaskAwaiter`1<string>::get_IsCompleted()
+  IL_00AA  brtrue.s   IL_00EF
+  IL_00AC  ldarg.0
+  IL_00AD  ldc.i4.0
+  IL_00AE  dup
+  IL_00AF  stloc.0
+  IL_00B0  stfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>1__state'
+  IL_00B5  ldarg.0
+  IL_00B6  ldloc.2
+  IL_00B7  stfld      valuetype [System.Runtime]System.Runtime.CompilerServices.ValueTaskAwaiter`1<string> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>u__1'
+  IL_00BC  ldarg.0
+  IL_00BD  stloc.s    V_4
+  IL_00BF  ldarg.0
+  IL_00C0  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>t__builder'
+  IL_00C5  ldloca.s   V_2
+  IL_00C7  ldloca.s   V_4
+  IL_00C9  call       instance void [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::AwaitUnsafeOnCompleted<valuetype [System.Runtime]System.Runtime.CompilerServices.ValueTaskAwaiter`1<string>, class Ref.Iterators.Sequences/<ReadLinesAsync>d__7>(!!0&, !!1&)
+  IL_00CE  leave      IL_01CA
+  IL_00D3  ldarg.0
+  IL_00D4  ldfld      valuetype [System.Runtime]System.Runtime.CompilerServices.ValueTaskAwaiter`1<string> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>u__1'
+  IL_00D9  stloc.2
+  IL_00DA  ldarg.0
+  IL_00DB  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.ValueTaskAwaiter`1<string> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>u__1'
+  IL_00E0  initobj    valuetype [System.Runtime]System.Runtime.CompilerServices.ValueTaskAwaiter`1<string>
+  IL_00E6  ldarg.0
+  IL_00E7  ldc.i4.m1
+  IL_00E8  dup
+  IL_00E9  stloc.0
+  IL_00EA  stfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>1__state'
+  IL_00EF  ldloca.s   V_2
+  IL_00F1  call       instance !0 valuetype [System.Runtime]System.Runtime.CompilerServices.ValueTaskAwaiter`1<string>::GetResult()
+  IL_00F6  dup
+  IL_00F7  stloc.1
+  IL_00F8  brtrue     IL_0056
+  IL_00FD  leave.s    IL_0176
+  IL_00FF  ldloc.0
+  IL_0100  ldc.i4.m1
+  IL_0101  bne.un.s   IL_0116
+  IL_0103  ldarg.0
+  IL_0104  ldfld      class [System.Runtime]System.IO.StreamReader Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<reader>5__2'
+  IL_0109  brfalse.s  IL_0116
+  IL_010B  ldarg.0
+  IL_010C  ldfld      class [System.Runtime]System.IO.StreamReader Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<reader>5__2'
+  IL_0111  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  IL_0116  endfinally
+  IL_0117  ldarg.0
+  IL_0118  ldfld      bool Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>w__disposeMode'
+  IL_011D  brfalse.s  IL_0121
+  IL_011F  leave.s    IL_0176
+  IL_0121  ldarg.0
+  IL_0122  ldnull
+  IL_0123  stfld      class [System.Runtime]System.IO.StreamReader Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<reader>5__2'
+  IL_0128  leave.s    IL_0176
+  IL_012A  stloc.s    V_5
+  IL_012C  ldarg.0
+  IL_012D  ldc.i4.s   -2
+  IL_012F  stfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>1__state'
+  IL_0134  ldarg.0
+  IL_0135  ldnull
+  IL_0136  stfld      class [System.Runtime]System.IO.StreamReader Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<reader>5__2'
+  IL_013B  ldarg.0
+  IL_013C  ldfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>x__combinedTokens'
+  IL_0141  brfalse.s  IL_0155
+  IL_0143  ldarg.0
+  IL_0144  ldfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>x__combinedTokens'
+  IL_0149  callvirt   instance void [System.Runtime]System.Threading.CancellationTokenSource::Dispose()
+  IL_014E  ldarg.0
+  IL_014F  ldnull
+  IL_0150  stfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>x__combinedTokens'
+  IL_0155  ldarg.0
+  IL_0156  ldnull
+  IL_0157  stfld      string Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>2__current'
+  IL_015C  ldarg.0
+  IL_015D  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>t__builder'
+  IL_0162  call       instance void [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Complete()
+  IL_0167  ldarg.0
+  IL_0168  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>v__promiseOfValueOrEnd'
+  IL_016D  ldloc.s    V_5
+  IL_016F  call       instance void valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::SetException(class [System.Runtime]System.Exception)
+  IL_0174  leave.s    IL_01CA
+  IL_0176  ldarg.0
+  IL_0177  ldc.i4.s   -2
+  IL_0179  stfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>1__state'
+  IL_017E  ldarg.0
+  IL_017F  ldnull
+  IL_0180  stfld      class [System.Runtime]System.IO.StreamReader Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<reader>5__2'
+  IL_0185  ldarg.0
+  IL_0186  ldfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>x__combinedTokens'
+  IL_018B  brfalse.s  IL_019F
+  IL_018D  ldarg.0
+  IL_018E  ldfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>x__combinedTokens'
+  IL_0193  callvirt   instance void [System.Runtime]System.Threading.CancellationTokenSource::Dispose()
+  IL_0198  ldarg.0
+  IL_0199  ldnull
+  IL_019A  stfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>x__combinedTokens'
+  IL_019F  ldarg.0
+  IL_01A0  ldnull
+  IL_01A1  stfld      string Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>2__current'
+  IL_01A6  ldarg.0
+  IL_01A7  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>t__builder'
+  IL_01AC  call       instance void [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Complete()
+  IL_01B1  ldarg.0
+  IL_01B2  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>v__promiseOfValueOrEnd'
+  IL_01B7  ldc.i4.0
+  IL_01B8  call       instance void valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::SetResult(!0)
+  IL_01BD  ret
+  IL_01BE  ldarg.0
+  IL_01BF  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>v__promiseOfValueOrEnd'
+  IL_01C4  ldc.i4.1
+  IL_01C5  call       instance void valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::SetResult(!0)
+  IL_01CA  ret
+  .try IL_004C to IL_00FF finally handler IL_00FF to IL_0117
+  .try IL_0007 to IL_012A catch [System.Runtime]System.Exception handler IL_012A to IL_0176
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2A30   Size: 1 bytes   Token: 0x0600003D
+
+[IL]  .maxstack 8
+  IL_0000  ret
+
+Method   : IAsyncEnumerator<string> System.Collections.Generic.IAsyncEnumerable<System.String>.GetAsyncEnumerator(CancellationToken cancellationToken)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2A34   Size: 188 bytes   Token: 0x0600003E
+
+[IL]  .maxstack 3
+  .locals init ([0] class Ref.Iterators.Sequences/<ReadLinesAsync>d__7 V_0, [1] valuetype [System.Runtime]System.Threading.CancellationToken V_1)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>1__state'
+  IL_0006  ldc.i4.s   -2
+  IL_0008  bne.un.s   IL_0035
+  IL_000A  ldarg.0
+  IL_000B  ldfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>l__initialThreadId'
+  IL_0010  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+  IL_0015  bne.un.s   IL_0035
+  IL_0017  ldarg.0
+  IL_0018  ldc.i4.s   -3
+  IL_001A  stfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>1__state'
+  IL_001F  ldarg.0
+  IL_0020  call       valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Create()
+  IL_0025  stfld      valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>t__builder'
+  IL_002A  ldarg.0
+  IL_002B  ldc.i4.0
+  IL_002C  stfld      bool Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>w__disposeMode'
+  IL_0031  ldarg.0
+  IL_0032  stloc.0
+  IL_0033  br.s       IL_003D
+  IL_0035  ldc.i4.s   -3
+  IL_0037  newobj     instance void Ref.Iterators.Sequences/<ReadLinesAsync>d__7::.ctor(int32)
+  IL_003C  stloc.0
+  IL_003D  ldloc.0
+  IL_003E  ldarg.0
+  IL_003F  ldfld      class [System.Runtime]System.IO.Stream Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>3__stream'
+  IL_0044  stfld      class [System.Runtime]System.IO.Stream Ref.Iterators.Sequences/<ReadLinesAsync>d__7::stream
+  IL_0049  ldarg.0
+  IL_004A  ldflda     valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>3__token'
+  IL_004F  ldloca.s   V_1
+  IL_0051  initobj    [System.Runtime]System.Threading.CancellationToken
+  IL_0057  ldloc.1
+  IL_0058  call       instance bool [System.Runtime]System.Threading.CancellationToken::Equals(valuetype [System.Runtime]System.Threading.CancellationToken)
+  IL_005D  brfalse.s  IL_0068
+  IL_005F  ldloc.0
+  IL_0060  ldarg.1
+  IL_0061  stfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<ReadLinesAsync>d__7::token
+  IL_0066  br.s       IL_00BA
+  IL_0068  ldarga.s   cancellationToken
+  IL_006A  ldarg.0
+  IL_006B  ldfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>3__token'
+  IL_0070  call       instance bool [System.Runtime]System.Threading.CancellationToken::Equals(valuetype [System.Runtime]System.Threading.CancellationToken)
+  IL_0075  brtrue.s   IL_0089
+  IL_0077  ldarga.s   cancellationToken
+  IL_0079  ldloca.s   V_1
+  IL_007B  initobj    [System.Runtime]System.Threading.CancellationToken
+  IL_0081  ldloc.1
+  IL_0082  call       instance bool [System.Runtime]System.Threading.CancellationToken::Equals(valuetype [System.Runtime]System.Threading.CancellationToken)
+  IL_0087  brfalse.s  IL_0097
+  IL_0089  ldloc.0
+  IL_008A  ldarg.0
+  IL_008B  ldfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>3__token'
+  IL_0090  stfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<ReadLinesAsync>d__7::token
+  IL_0095  br.s       IL_00BA
+  IL_0097  ldarg.0
+  IL_0098  ldarg.0
+  IL_0099  ldfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>3__token'
+  IL_009E  ldarg.1
+  IL_009F  call       class [System.Runtime]System.Threading.CancellationTokenSource [System.Runtime]System.Threading.CancellationTokenSource::CreateLinkedTokenSource(valuetype [System.Runtime]System.Threading.CancellationToken, valuetype [System.Runtime]System.Threading.CancellationToken)
+  IL_00A4  stfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>x__combinedTokens'
+  IL_00A9  ldloc.0
+  IL_00AA  ldarg.0
+  IL_00AB  ldfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>x__combinedTokens'
+  IL_00B0  callvirt   instance valuetype [System.Runtime]System.Threading.CancellationToken [System.Runtime]System.Threading.CancellationTokenSource::get_Token()
+  IL_00B5  stfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<ReadLinesAsync>d__7::token
+  IL_00BA  ldloc.0
+  IL_00BB  ret
+
+Method   : ValueTask<bool> System.Collections.Generic.IAsyncEnumerator<System.String>.MoveNextAsync()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2AFC   Size: 99 bytes   Token: 0x0600003F
+
+[IL]  .maxstack 2
+  .locals init ([0] class Ref.Iterators.Sequences/<ReadLinesAsync>d__7 V_0, [1] int16 V_1, [2] valuetype [System.Runtime]System.Threading.Tasks.ValueTask`1<bool> V_2)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>1__state'
+  IL_0006  ldc.i4.s   -2
+  IL_0008  bne.un.s   IL_0014
+  IL_000A  ldloca.s   V_2
+  IL_000C  initobj    valuetype [System.Runtime]System.Threading.Tasks.ValueTask`1<bool>
+  IL_0012  ldloc.2
+  IL_0013  ret
+  IL_0014  ldarg.0
+  IL_0015  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>v__promiseOfValueOrEnd'
+  IL_001A  call       instance void valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::Reset()
+  IL_001F  ldarg.0
+  IL_0020  stloc.0
+  IL_0021  ldarg.0
+  IL_0022  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>t__builder'
+  IL_0027  ldloca.s   V_0
+  IL_0029  call       instance void [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::MoveNext<class Ref.Iterators.Sequences/<ReadLinesAsync>d__7>(!!0&)
+  IL_002E  ldarg.0
+  IL_002F  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>v__promiseOfValueOrEnd'
+  IL_0034  call       instance int16 valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::get_Version()
+  IL_0039  stloc.1
+  IL_003A  ldarg.0
+  IL_003B  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>v__promiseOfValueOrEnd'
+  IL_0040  ldloc.1
+  IL_0041  call       instance valuetype [System.Runtime]System.Threading.Tasks.Sources.ValueTaskSourceStatus valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::GetStatus(int16)
+  IL_0046  ldc.i4.1
+  IL_0047  bne.un.s   IL_005B
+  IL_0049  ldarg.0
+  IL_004A  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>v__promiseOfValueOrEnd'
+  IL_004F  ldloc.1
+  IL_0050  call       instance !0 valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::GetResult(int16)
+  IL_0055  newobj     instance void valuetype [System.Runtime]System.Threading.Tasks.ValueTask`1<bool>::.ctor(!0)
+  IL_005A  ret
+  IL_005B  ldarg.0
+  IL_005C  ldloc.1
+  IL_005D  newobj     instance void valuetype [System.Runtime]System.Threading.Tasks.ValueTask`1<bool>::.ctor(class [System.Runtime]System.Threading.Tasks.Sources.IValueTaskSource`1<!0>, int16)
+  IL_0062  ret
+
+Method   : string System.Collections.Generic.IAsyncEnumerator<System.String>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2B6B   Size: 7 bytes   Token: 0x06000040
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      string Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>2__current'
+  IL_0006  ret
+
+Method   : bool System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetResult(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2B73   Size: 13 bytes   Token: 0x06000041
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>v__promiseOfValueOrEnd'
+  IL_0006  ldarg.1
+  IL_0007  call       instance !0 valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::GetResult(int16)
+  IL_000C  ret
+
+Method   : ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetStatus(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2B81   Size: 13 bytes   Token: 0x06000042
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>v__promiseOfValueOrEnd'
+  IL_0006  ldarg.1
+  IL_0007  call       instance valuetype [System.Runtime]System.Threading.Tasks.Sources.ValueTaskSourceStatus valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::GetStatus(int16)
+  IL_000C  ret
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2B8F   Size: 17 bytes   Token: 0x06000043
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>v__promiseOfValueOrEnd'
+  IL_0006  ldarg.1
+  IL_0007  ldarg.2
+  IL_0008  ldarg.3
+  IL_0009  ldarg.s    flags
+  IL_000B  call       instance void valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::OnCompleted(class [System.Runtime]System.Action`1<object>, object, int16, valuetype [System.Runtime]System.Threading.Tasks.Sources.ValueTaskSourceOnCompletedFlags)
+  IL_0010  ret
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource.GetResult(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2BA1   Size: 14 bytes   Token: 0x06000044
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>v__promiseOfValueOrEnd'
+  IL_0006  ldarg.1
+  IL_0007  call       instance !0 valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::GetResult(int16)
+  IL_000C  pop
+  IL_000D  ret
+
+Method   : ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource.GetStatus(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2BB0   Size: 13 bytes   Token: 0x06000045
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>v__promiseOfValueOrEnd'
+  IL_0006  ldarg.1
+  IL_0007  call       instance valuetype [System.Runtime]System.Threading.Tasks.Sources.ValueTaskSourceStatus valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::GetStatus(int16)
+  IL_000C  ret
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2BBE   Size: 17 bytes   Token: 0x06000046
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>v__promiseOfValueOrEnd'
+  IL_0006  ldarg.1
+  IL_0007  ldarg.2
+  IL_0008  ldarg.3
+  IL_0009  ldarg.s    flags
+  IL_000B  call       instance void valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::OnCompleted(class [System.Runtime]System.Action`1<object>, object, int16, valuetype [System.Runtime]System.Threading.Tasks.Sources.ValueTaskSourceOnCompletedFlags)
+  IL_0010  ret
+
+Method   : ValueTask System.IAsyncDisposable.DisposeAsync()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2BD0   Size: 86 bytes   Token: 0x06000047
+
+[IL]  .maxstack 2
+  .locals init ([0] class Ref.Iterators.Sequences/<ReadLinesAsync>d__7 V_0, [1] valuetype [System.Runtime]System.Threading.Tasks.ValueTask V_1)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>1__state'
+  IL_0006  ldc.i4.m1
+  IL_0007  blt.s      IL_000F
+  IL_0009  newobj     instance void [System.Runtime]System.NotSupportedException::.ctor()
+  IL_000E  throw
+  IL_000F  ldarg.0
+  IL_0010  ldfld      int32 Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>1__state'
+  IL_0015  ldc.i4.s   -2
+  IL_0017  bne.un.s   IL_0023
+  IL_0019  ldloca.s   V_1
+  IL_001B  initobj    [System.Runtime]System.Threading.Tasks.ValueTask
+  IL_0021  ldloc.1
+  IL_0022  ret
+  IL_0023  ldarg.0
+  IL_0024  ldc.i4.1
+  IL_0025  stfld      bool Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>w__disposeMode'
+  IL_002A  ldarg.0
+  IL_002B  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>v__promiseOfValueOrEnd'
+  IL_0030  call       instance void valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::Reset()
+  IL_0035  ldarg.0
+  IL_0036  stloc.0
+  IL_0037  ldarg.0
+  IL_0038  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>t__builder'
+  IL_003D  ldloca.s   V_0
+  IL_003F  call       instance void [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::MoveNext<class Ref.Iterators.Sequences/<ReadLinesAsync>d__7>(!!0&)
+  IL_0044  ldarg.0
+  IL_0045  ldarg.0
+  IL_0046  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<ReadLinesAsync>d__7::'<>v__promiseOfValueOrEnd'
+  IL_004B  call       instance int16 valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::get_Version()
+  IL_0050  newobj     instance void [System.Runtime]System.Threading.Tasks.ValueTask::.ctor(class [System.Runtime]System.Threading.Tasks.Sources.IValueTaskSource, int16)
+  IL_0055  ret
+
+Type     : Ref.Iterators.Sequences+<SumAsync>d__8
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2C34   Size: 444 bytes   Token: 0x06000048
+
+[IL]  .maxstack 3
+  .locals init ([0] int32 V_0, [1] int32 V_1, [2] valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1<int32> V_2, [3] int32 V_3, [4] valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1/ConfiguredValueTaskAwaiter<bool> V_4, [5] valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1<bool> V_5, [6] object V_6, [7] valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable/ConfiguredValueTaskAwaiter V_7, [8] valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable V_8, [9] class [System.Runtime]System.Exception V_9)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<SumAsync>d__8::'<>1__state'
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  brfalse.s  IL_004E
+  IL_000A  ldloc.0
+  IL_000B  ldc.i4.1
+  IL_000C  beq        IL_012B
+  IL_0011  ldarg.0
+  IL_0012  ldc.i4.0
+  IL_0013  stfld      int32 Ref.Iterators.Sequences/<SumAsync>d__8::'<sum>5__2'
+  IL_0018  ldarg.0
+  IL_0019  ldarg.0
+  IL_001A  ldfld      class [System.Runtime]System.Collections.Generic.IAsyncEnumerable`1<int32> Ref.Iterators.Sequences/<SumAsync>d__8::source
+  IL_001F  ldarg.0
+  IL_0020  ldfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<SumAsync>d__8::token
+  IL_0025  call       valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1<!!0> [System.Runtime]System.Threading.Tasks.TaskAsyncEnumerableExtensions::WithCancellation<int32>(class [System.Runtime]System.Collections.Generic.IAsyncEnumerable`1<!!0>, valuetype [System.Runtime]System.Threading.CancellationToken)
+  IL_002A  stloc.2
+  IL_002B  ldloca.s   V_2
+  IL_002D  ldc.i4.0
+  IL_002E  call       instance valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1<!0> valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1<int32>::ConfigureAwait(bool)
+  IL_0033  stloc.2
+  IL_0034  ldloca.s   V_2
+  IL_0036  call       instance valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1/Enumerator<!0> valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1<int32>::GetAsyncEnumerator()
+  IL_003B  stfld      valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1/Enumerator<int32> Ref.Iterators.Sequences/<SumAsync>d__8::'<>7__wrap2'
+  IL_0040  ldarg.0
+  IL_0041  ldnull
+  IL_0042  stfld      object Ref.Iterators.Sequences/<SumAsync>d__8::'<>7__wrap3'
+  IL_0047  ldarg.0
+  IL_0048  ldc.i4.0
+  IL_0049  stfld      int32 Ref.Iterators.Sequences/<SumAsync>d__8::'<>7__wrap4'
+  IL_004E  nop
+  IL_004F  ldloc.0
+  IL_0050  brfalse.s  IL_00B1
+  IL_0052  br.s       IL_006E
+  IL_0054  ldarg.0
+  IL_0055  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1/Enumerator<int32> Ref.Iterators.Sequences/<SumAsync>d__8::'<>7__wrap2'
+  IL_005A  call       instance !0 valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1/Enumerator<int32>::get_Current()
+  IL_005F  stloc.3
+  IL_0060  ldarg.0
+  IL_0061  ldarg.0
+  IL_0062  ldfld      int32 Ref.Iterators.Sequences/<SumAsync>d__8::'<sum>5__2'
+  IL_0067  ldloc.3
+  IL_0068  add
+  IL_0069  stfld      int32 Ref.Iterators.Sequences/<SumAsync>d__8::'<sum>5__2'
+  IL_006E  ldarg.0
+  IL_006F  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1/Enumerator<int32> Ref.Iterators.Sequences/<SumAsync>d__8::'<>7__wrap2'
+  IL_0074  call       instance valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1<bool> valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1/Enumerator<int32>::MoveNextAsync()
+  IL_0079  stloc.s    V_5
+  IL_007B  ldloca.s   V_5
+  IL_007D  call       instance valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1/ConfiguredValueTaskAwaiter<!0> valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1<bool>::GetAwaiter()
+  IL_0082  stloc.s    V_4
+  IL_0084  ldloca.s   V_4
+  IL_0086  call       instance bool valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1/ConfiguredValueTaskAwaiter<bool>::get_IsCompleted()
+  IL_008B  brtrue.s   IL_00CE
+  IL_008D  ldarg.0
+  IL_008E  ldc.i4.0
+  IL_008F  dup
+  IL_0090  stloc.0
+  IL_0091  stfld      int32 Ref.Iterators.Sequences/<SumAsync>d__8::'<>1__state'
+  IL_0096  ldarg.0
+  IL_0097  ldloc.s    V_4
+  IL_0099  stfld      valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1/ConfiguredValueTaskAwaiter<bool> Ref.Iterators.Sequences/<SumAsync>d__8::'<>u__1'
+  IL_009E  ldarg.0
+  IL_009F  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32> Ref.Iterators.Sequences/<SumAsync>d__8::'<>t__builder'
+  IL_00A4  ldloca.s   V_4
+  IL_00A6  ldarg.0
+  IL_00A7  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32>::AwaitUnsafeOnCompleted<valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1/ConfiguredValueTaskAwaiter<bool>, valuetype Ref.Iterators.Sequences/<SumAsync>d__8>(!!0&, !!1&)
+  IL_00AC  leave      IL_01BB
+  IL_00B1  ldarg.0
+  IL_00B2  ldfld      valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1/ConfiguredValueTaskAwaiter<bool> Ref.Iterators.Sequences/<SumAsync>d__8::'<>u__1'
+  IL_00B7  stloc.s    V_4
+  IL_00B9  ldarg.0
+  IL_00BA  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1/ConfiguredValueTaskAwaiter<bool> Ref.Iterators.Sequences/<SumAsync>d__8::'<>u__1'
+  IL_00BF  initobj    valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1/ConfiguredValueTaskAwaiter<bool>
+  IL_00C5  ldarg.0
+  IL_00C6  ldc.i4.m1
+  IL_00C7  dup
+  IL_00C8  stloc.0
+  IL_00C9  stfld      int32 Ref.Iterators.Sequences/<SumAsync>d__8::'<>1__state'
+  IL_00CE  ldloca.s   V_4
+  IL_00D0  call       instance !0 valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1/ConfiguredValueTaskAwaiter<bool>::GetResult()
+  IL_00D5  brtrue     IL_0054
+  IL_00DA  leave.s    IL_00E8
+  IL_00DC  stloc.s    V_6
+  IL_00DE  ldarg.0
+  IL_00DF  ldloc.s    V_6
+  IL_00E1  stfld      object Ref.Iterators.Sequences/<SumAsync>d__8::'<>7__wrap3'
+  IL_00E6  leave.s    IL_00E8
+  IL_00E8  ldarg.0
+  IL_00E9  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1/Enumerator<int32> Ref.Iterators.Sequences/<SumAsync>d__8::'<>7__wrap2'
+  IL_00EE  call       instance valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1/Enumerator<int32>::DisposeAsync()
+  IL_00F3  stloc.s    V_8
+  IL_00F5  ldloca.s   V_8
+  IL_00F7  call       instance valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable/ConfiguredValueTaskAwaiter [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable::GetAwaiter()
+  IL_00FC  stloc.s    V_7
+  IL_00FE  ldloca.s   V_7
+  IL_0100  call       instance bool [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable/ConfiguredValueTaskAwaiter::get_IsCompleted()
+  IL_0105  brtrue.s   IL_0148
+  IL_0107  ldarg.0
+  IL_0108  ldc.i4.1
+  IL_0109  dup
+  IL_010A  stloc.0
+  IL_010B  stfld      int32 Ref.Iterators.Sequences/<SumAsync>d__8::'<>1__state'
+  IL_0110  ldarg.0
+  IL_0111  ldloc.s    V_7
+  IL_0113  stfld      valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable/ConfiguredValueTaskAwaiter Ref.Iterators.Sequences/<SumAsync>d__8::'<>u__2'
+  IL_0118  ldarg.0
+  IL_0119  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32> Ref.Iterators.Sequences/<SumAsync>d__8::'<>t__builder'
+  IL_011E  ldloca.s   V_7
+  IL_0120  ldarg.0
+  IL_0121  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32>::AwaitUnsafeOnCompleted<valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable/ConfiguredValueTaskAwaiter, valuetype Ref.Iterators.Sequences/<SumAsync>d__8>(!!0&, !!1&)
+  IL_0126  leave      IL_01BB
+  IL_012B  ldarg.0
+  IL_012C  ldfld      valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable/ConfiguredValueTaskAwaiter Ref.Iterators.Sequences/<SumAsync>d__8::'<>u__2'
+  IL_0131  stloc.s    V_7
+  IL_0133  ldarg.0
+  IL_0134  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable/ConfiguredValueTaskAwaiter Ref.Iterators.Sequences/<SumAsync>d__8::'<>u__2'
+  IL_0139  initobj    [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable/ConfiguredValueTaskAwaiter
+  IL_013F  ldarg.0
+  IL_0140  ldc.i4.m1
+  IL_0141  dup
+  IL_0142  stloc.0
+  IL_0143  stfld      int32 Ref.Iterators.Sequences/<SumAsync>d__8::'<>1__state'
+  IL_0148  ldloca.s   V_7
+  IL_014A  call       instance void [System.Runtime]System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable/ConfiguredValueTaskAwaiter::GetResult()
+  IL_014F  ldarg.0
+  IL_0150  ldfld      object Ref.Iterators.Sequences/<SumAsync>d__8::'<>7__wrap3'
+  IL_0155  stloc.s    V_6
+  IL_0157  ldloc.s    V_6
+  IL_0159  brfalse.s  IL_0172
+  IL_015B  ldloc.s    V_6
+  IL_015D  isinst     [System.Runtime]System.Exception
+  IL_0162  dup
+  IL_0163  brtrue.s   IL_0168
+  IL_0165  ldloc.s    V_6
+  IL_0167  throw
+  IL_0168  call       class [System.Runtime]System.Runtime.ExceptionServices.ExceptionDispatchInfo [System.Runtime]System.Runtime.ExceptionServices.ExceptionDispatchInfo::Capture(class [System.Runtime]System.Exception)
+  IL_016D  callvirt   instance void [System.Runtime]System.Runtime.ExceptionServices.ExceptionDispatchInfo::Throw()
+  IL_0172  ldarg.0
+  IL_0173  ldnull
+  IL_0174  stfld      object Ref.Iterators.Sequences/<SumAsync>d__8::'<>7__wrap3'
+  IL_0179  ldarg.0
+  IL_017A  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1/Enumerator<int32> Ref.Iterators.Sequences/<SumAsync>d__8::'<>7__wrap2'
+  IL_017F  initobj    valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1/Enumerator<int32>
+  IL_0185  ldarg.0
+  IL_0186  ldfld      int32 Ref.Iterators.Sequences/<SumAsync>d__8::'<sum>5__2'
+  IL_018B  stloc.1
+  IL_018C  leave.s    IL_01A7
+  IL_018E  stloc.s    V_9
+  IL_0190  ldarg.0
+  IL_0191  ldc.i4.s   -2
+  IL_0193  stfld      int32 Ref.Iterators.Sequences/<SumAsync>d__8::'<>1__state'
+  IL_0198  ldarg.0
+  IL_0199  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32> Ref.Iterators.Sequences/<SumAsync>d__8::'<>t__builder'
+  IL_019E  ldloc.s    V_9
+  IL_01A0  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32>::SetException(class [System.Runtime]System.Exception)
+  IL_01A5  leave.s    IL_01BB
+  IL_01A7  ldarg.0
+  IL_01A8  ldc.i4.s   -2
+  IL_01AA  stfld      int32 Ref.Iterators.Sequences/<SumAsync>d__8::'<>1__state'
+  IL_01AF  ldarg.0
+  IL_01B0  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32> Ref.Iterators.Sequences/<SumAsync>d__8::'<>t__builder'
+  IL_01B5  ldloc.1
+  IL_01B6  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32>::SetResult(!0)
+  IL_01BB  ret
+  .try IL_004F to IL_00DC catch [System.Runtime]System.Object handler IL_00DC to IL_00E8
+  .try IL_0007 to IL_018E catch [System.Runtime]System.Exception handler IL_018E to IL_01A7
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2E30   Size: 13 bytes   Token: 0x06000049
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32> Ref.Iterators.Sequences/<SumAsync>d__8::'<>t__builder'
+  IL_0006  ldarg.1
+  IL_0007  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int32>::SetStateMachine(class [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine)
+  IL_000C  ret
+
+Type     : Ref.Iterators.Sequences+<TicksAsync>d__6
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2E3E   Size: 36 bytes   Token: 0x0600004A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  call       valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Create()
+  IL_000C  stfld      valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder Ref.Iterators.Sequences/<TicksAsync>d__6::'<>t__builder'
+  IL_0011  ldarg.0
+  IL_0012  ldarg.1
+  IL_0013  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>1__state'
+  IL_0018  ldarg.0
+  IL_0019  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+  IL_001E  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>l__initialThreadId'
+  IL_0023  ret
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2E64   Size: 414 bytes   Token: 0x0600004B
+
+[IL]  .maxstack 3
+  .locals init ([0] int32 V_0, [1] valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredTaskAwaitable/ConfiguredTaskAwaiter V_1, [2] valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredTaskAwaitable V_2, [3] class Ref.Iterators.Sequences/<TicksAsync>d__6 V_3, [4] int32 V_4, [5] class [System.Runtime]System.Exception V_5)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>1__state'
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  ldc.i4.s   -4
+  IL_000A  sub
+  IL_000B  switch     (IL_00D3, IL_0024, IL_0024, IL_0024, IL_0095)
+  IL_0024  ldarg.0
+  IL_0025  ldfld      bool Ref.Iterators.Sequences/<TicksAsync>d__6::'<>w__disposeMode'
+  IL_002A  brfalse.s  IL_0031
+  IL_002C  leave      IL_0150
+  IL_0031  ldarg.0
+  IL_0032  ldc.i4.m1
+  IL_0033  dup
+  IL_0034  stloc.0
+  IL_0035  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>1__state'
+  IL_003A  ldarg.0
+  IL_003B  ldc.i4.0
+  IL_003C  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<i>5__2'
+  IL_0041  br         IL_00F8
+  IL_0046  ldarg.0
+  IL_0047  ldfld      valuetype [System.Runtime]System.TimeSpan Ref.Iterators.Sequences/<TicksAsync>d__6::interval
+  IL_004C  ldarg.0
+  IL_004D  ldfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<TicksAsync>d__6::token
+  IL_0052  call       class [System.Runtime]System.Threading.Tasks.Task [System.Runtime]System.Threading.Tasks.Task::Delay(valuetype [System.Runtime]System.TimeSpan, valuetype [System.Runtime]System.Threading.CancellationToken)
+  IL_0057  ldc.i4.0
+  IL_0058  callvirt   instance valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredTaskAwaitable [System.Runtime]System.Threading.Tasks.Task::ConfigureAwait(bool)
+  IL_005D  stloc.2
+  IL_005E  ldloca.s   V_2
+  IL_0060  call       instance valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredTaskAwaitable/ConfiguredTaskAwaiter [System.Runtime]System.Runtime.CompilerServices.ConfiguredTaskAwaitable::GetAwaiter()
+  IL_0065  stloc.1
+  IL_0066  ldloca.s   V_1
+  IL_0068  call       instance bool [System.Runtime]System.Runtime.CompilerServices.ConfiguredTaskAwaitable/ConfiguredTaskAwaiter::get_IsCompleted()
+  IL_006D  brtrue.s   IL_00B1
+  IL_006F  ldarg.0
+  IL_0070  ldc.i4.0
+  IL_0071  dup
+  IL_0072  stloc.0
+  IL_0073  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>1__state'
+  IL_0078  ldarg.0
+  IL_0079  ldloc.1
+  IL_007A  stfld      valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredTaskAwaitable/ConfiguredTaskAwaiter Ref.Iterators.Sequences/<TicksAsync>d__6::'<>u__1'
+  IL_007F  ldarg.0
+  IL_0080  stloc.3
+  IL_0081  ldarg.0
+  IL_0082  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder Ref.Iterators.Sequences/<TicksAsync>d__6::'<>t__builder'
+  IL_0087  ldloca.s   V_1
+  IL_0089  ldloca.s   V_3
+  IL_008B  call       instance void [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::AwaitUnsafeOnCompleted<valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredTaskAwaitable/ConfiguredTaskAwaiter, class Ref.Iterators.Sequences/<TicksAsync>d__6>(!!0&, !!1&)
+  IL_0090  leave      IL_019D
+  IL_0095  ldarg.0
+  IL_0096  ldfld      valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredTaskAwaitable/ConfiguredTaskAwaiter Ref.Iterators.Sequences/<TicksAsync>d__6::'<>u__1'
+  IL_009B  stloc.1
+  IL_009C  ldarg.0
+  IL_009D  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.ConfiguredTaskAwaitable/ConfiguredTaskAwaiter Ref.Iterators.Sequences/<TicksAsync>d__6::'<>u__1'
+  IL_00A2  initobj    [System.Runtime]System.Runtime.CompilerServices.ConfiguredTaskAwaitable/ConfiguredTaskAwaiter
+  IL_00A8  ldarg.0
+  IL_00A9  ldc.i4.m1
+  IL_00AA  dup
+  IL_00AB  stloc.0
+  IL_00AC  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>1__state'
+  IL_00B1  ldloca.s   V_1
+  IL_00B3  call       instance void [System.Runtime]System.Runtime.CompilerServices.ConfiguredTaskAwaitable/ConfiguredTaskAwaiter::GetResult()
+  IL_00B8  ldarg.0
+  IL_00B9  ldarg.0
+  IL_00BA  ldfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<i>5__2'
+  IL_00BF  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>2__current'
+  IL_00C4  ldarg.0
+  IL_00C5  ldc.i4.s   -4
+  IL_00C7  dup
+  IL_00C8  stloc.0
+  IL_00C9  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>1__state'
+  IL_00CE  leave      IL_0191
+  IL_00D3  ldarg.0
+  IL_00D4  ldc.i4.m1
+  IL_00D5  dup
+  IL_00D6  stloc.0
+  IL_00D7  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>1__state'
+  IL_00DC  ldarg.0
+  IL_00DD  ldfld      bool Ref.Iterators.Sequences/<TicksAsync>d__6::'<>w__disposeMode'
+  IL_00E2  brfalse.s  IL_00E6
+  IL_00E4  leave.s    IL_0150
+  IL_00E6  ldarg.0
+  IL_00E7  ldfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<i>5__2'
+  IL_00EC  stloc.s    V_4
+  IL_00EE  ldarg.0
+  IL_00EF  ldloc.s    V_4
+  IL_00F1  ldc.i4.1
+  IL_00F2  add
+  IL_00F3  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<i>5__2'
+  IL_00F8  ldarg.0
+  IL_00F9  ldfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<i>5__2'
+  IL_00FE  ldarg.0
+  IL_00FF  ldfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::count
+  IL_0104  blt        IL_0046
+  IL_0109  leave.s    IL_0150
+  IL_010B  stloc.s    V_5
+  IL_010D  ldarg.0
+  IL_010E  ldc.i4.s   -2
+  IL_0110  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>1__state'
+  IL_0115  ldarg.0
+  IL_0116  ldfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<TicksAsync>d__6::'<>x__combinedTokens'
+  IL_011B  brfalse.s  IL_012F
+  IL_011D  ldarg.0
+  IL_011E  ldfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<TicksAsync>d__6::'<>x__combinedTokens'
+  IL_0123  callvirt   instance void [System.Runtime]System.Threading.CancellationTokenSource::Dispose()
+  IL_0128  ldarg.0
+  IL_0129  ldnull
+  IL_012A  stfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<TicksAsync>d__6::'<>x__combinedTokens'
+  IL_012F  ldarg.0
+  IL_0130  ldc.i4.0
+  IL_0131  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>2__current'
+  IL_0136  ldarg.0
+  IL_0137  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder Ref.Iterators.Sequences/<TicksAsync>d__6::'<>t__builder'
+  IL_013C  call       instance void [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Complete()
+  IL_0141  ldarg.0
+  IL_0142  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<TicksAsync>d__6::'<>v__promiseOfValueOrEnd'
+  IL_0147  ldloc.s    V_5
+  IL_0149  call       instance void valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::SetException(class [System.Runtime]System.Exception)
+  IL_014E  leave.s    IL_019D
+  IL_0150  ldarg.0
+  IL_0151  ldc.i4.s   -2
+  IL_0153  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>1__state'
+  IL_0158  ldarg.0
+  IL_0159  ldfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<TicksAsync>d__6::'<>x__combinedTokens'
+  IL_015E  brfalse.s  IL_0172
+  IL_0160  ldarg.0
+  IL_0161  ldfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<TicksAsync>d__6::'<>x__combinedTokens'
+  IL_0166  callvirt   instance void [System.Runtime]System.Threading.CancellationTokenSource::Dispose()
+  IL_016B  ldarg.0
+  IL_016C  ldnull
+  IL_016D  stfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<TicksAsync>d__6::'<>x__combinedTokens'
+  IL_0172  ldarg.0
+  IL_0173  ldc.i4.0
+  IL_0174  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>2__current'
+  IL_0179  ldarg.0
+  IL_017A  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder Ref.Iterators.Sequences/<TicksAsync>d__6::'<>t__builder'
+  IL_017F  call       instance void [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Complete()
+  IL_0184  ldarg.0
+  IL_0185  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<TicksAsync>d__6::'<>v__promiseOfValueOrEnd'
+  IL_018A  ldc.i4.0
+  IL_018B  call       instance void valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::SetResult(!0)
+  IL_0190  ret
+  IL_0191  ldarg.0
+  IL_0192  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<TicksAsync>d__6::'<>v__promiseOfValueOrEnd'
+  IL_0197  ldc.i4.1
+  IL_0198  call       instance void valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::SetResult(!0)
+  IL_019D  ret
+  .try IL_0007 to IL_010B catch [System.Runtime]System.Exception handler IL_010B to IL_0150
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x302C   Size: 1 bytes   Token: 0x0600004C
+
+[IL]  .maxstack 8
+  IL_0000  ret
+
+Method   : IAsyncEnumerator<int> System.Collections.Generic.IAsyncEnumerable<System.Int32>.GetAsyncEnumerator(CancellationToken cancellationToken)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3030   Size: 200 bytes   Token: 0x0600004D
+
+[IL]  .maxstack 3
+  .locals init ([0] class Ref.Iterators.Sequences/<TicksAsync>d__6 V_0, [1] valuetype [System.Runtime]System.Threading.CancellationToken V_1)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>1__state'
+  IL_0006  ldc.i4.s   -2
+  IL_0008  bne.un.s   IL_0035
+  IL_000A  ldarg.0
+  IL_000B  ldfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>l__initialThreadId'
+  IL_0010  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+  IL_0015  bne.un.s   IL_0035
+  IL_0017  ldarg.0
+  IL_0018  ldc.i4.s   -3
+  IL_001A  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>1__state'
+  IL_001F  ldarg.0
+  IL_0020  call       valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Create()
+  IL_0025  stfld      valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder Ref.Iterators.Sequences/<TicksAsync>d__6::'<>t__builder'
+  IL_002A  ldarg.0
+  IL_002B  ldc.i4.0
+  IL_002C  stfld      bool Ref.Iterators.Sequences/<TicksAsync>d__6::'<>w__disposeMode'
+  IL_0031  ldarg.0
+  IL_0032  stloc.0
+  IL_0033  br.s       IL_003D
+  IL_0035  ldc.i4.s   -3
+  IL_0037  newobj     instance void Ref.Iterators.Sequences/<TicksAsync>d__6::.ctor(int32)
+  IL_003C  stloc.0
+  IL_003D  ldloc.0
+  IL_003E  ldarg.0
+  IL_003F  ldfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>3__count'
+  IL_0044  stfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::count
+  IL_0049  ldloc.0
+  IL_004A  ldarg.0
+  IL_004B  ldfld      valuetype [System.Runtime]System.TimeSpan Ref.Iterators.Sequences/<TicksAsync>d__6::'<>3__interval'
+  IL_0050  stfld      valuetype [System.Runtime]System.TimeSpan Ref.Iterators.Sequences/<TicksAsync>d__6::interval
+  IL_0055  ldarg.0
+  IL_0056  ldflda     valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<TicksAsync>d__6::'<>3__token'
+  IL_005B  ldloca.s   V_1
+  IL_005D  initobj    [System.Runtime]System.Threading.CancellationToken
+  IL_0063  ldloc.1
+  IL_0064  call       instance bool [System.Runtime]System.Threading.CancellationToken::Equals(valuetype [System.Runtime]System.Threading.CancellationToken)
+  IL_0069  brfalse.s  IL_0074
+  IL_006B  ldloc.0
+  IL_006C  ldarg.1
+  IL_006D  stfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<TicksAsync>d__6::token
+  IL_0072  br.s       IL_00C6
+  IL_0074  ldarga.s   cancellationToken
+  IL_0076  ldarg.0
+  IL_0077  ldfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<TicksAsync>d__6::'<>3__token'
+  IL_007C  call       instance bool [System.Runtime]System.Threading.CancellationToken::Equals(valuetype [System.Runtime]System.Threading.CancellationToken)
+  IL_0081  brtrue.s   IL_0095
+  IL_0083  ldarga.s   cancellationToken
+  IL_0085  ldloca.s   V_1
+  IL_0087  initobj    [System.Runtime]System.Threading.CancellationToken
+  IL_008D  ldloc.1
+  IL_008E  call       instance bool [System.Runtime]System.Threading.CancellationToken::Equals(valuetype [System.Runtime]System.Threading.CancellationToken)
+  IL_0093  brfalse.s  IL_00A3
+  IL_0095  ldloc.0
+  IL_0096  ldarg.0
+  IL_0097  ldfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<TicksAsync>d__6::'<>3__token'
+  IL_009C  stfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<TicksAsync>d__6::token
+  IL_00A1  br.s       IL_00C6
+  IL_00A3  ldarg.0
+  IL_00A4  ldarg.0
+  IL_00A5  ldfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<TicksAsync>d__6::'<>3__token'
+  IL_00AA  ldarg.1
+  IL_00AB  call       class [System.Runtime]System.Threading.CancellationTokenSource [System.Runtime]System.Threading.CancellationTokenSource::CreateLinkedTokenSource(valuetype [System.Runtime]System.Threading.CancellationToken, valuetype [System.Runtime]System.Threading.CancellationToken)
+  IL_00B0  stfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<TicksAsync>d__6::'<>x__combinedTokens'
+  IL_00B5  ldloc.0
+  IL_00B6  ldarg.0
+  IL_00B7  ldfld      class [System.Runtime]System.Threading.CancellationTokenSource Ref.Iterators.Sequences/<TicksAsync>d__6::'<>x__combinedTokens'
+  IL_00BC  callvirt   instance valuetype [System.Runtime]System.Threading.CancellationToken [System.Runtime]System.Threading.CancellationTokenSource::get_Token()
+  IL_00C1  stfld      valuetype [System.Runtime]System.Threading.CancellationToken Ref.Iterators.Sequences/<TicksAsync>d__6::token
+  IL_00C6  ldloc.0
+  IL_00C7  ret
+
+Method   : ValueTask<bool> System.Collections.Generic.IAsyncEnumerator<System.Int32>.MoveNextAsync()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3104   Size: 99 bytes   Token: 0x0600004E
+
+[IL]  .maxstack 2
+  .locals init ([0] class Ref.Iterators.Sequences/<TicksAsync>d__6 V_0, [1] int16 V_1, [2] valuetype [System.Runtime]System.Threading.Tasks.ValueTask`1<bool> V_2)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>1__state'
+  IL_0006  ldc.i4.s   -2
+  IL_0008  bne.un.s   IL_0014
+  IL_000A  ldloca.s   V_2
+  IL_000C  initobj    valuetype [System.Runtime]System.Threading.Tasks.ValueTask`1<bool>
+  IL_0012  ldloc.2
+  IL_0013  ret
+  IL_0014  ldarg.0
+  IL_0015  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<TicksAsync>d__6::'<>v__promiseOfValueOrEnd'
+  IL_001A  call       instance void valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::Reset()
+  IL_001F  ldarg.0
+  IL_0020  stloc.0
+  IL_0021  ldarg.0
+  IL_0022  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder Ref.Iterators.Sequences/<TicksAsync>d__6::'<>t__builder'
+  IL_0027  ldloca.s   V_0
+  IL_0029  call       instance void [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::MoveNext<class Ref.Iterators.Sequences/<TicksAsync>d__6>(!!0&)
+  IL_002E  ldarg.0
+  IL_002F  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<TicksAsync>d__6::'<>v__promiseOfValueOrEnd'
+  IL_0034  call       instance int16 valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::get_Version()
+  IL_0039  stloc.1
+  IL_003A  ldarg.0
+  IL_003B  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<TicksAsync>d__6::'<>v__promiseOfValueOrEnd'
+  IL_0040  ldloc.1
+  IL_0041  call       instance valuetype [System.Runtime]System.Threading.Tasks.Sources.ValueTaskSourceStatus valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::GetStatus(int16)
+  IL_0046  ldc.i4.1
+  IL_0047  bne.un.s   IL_005B
+  IL_0049  ldarg.0
+  IL_004A  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<TicksAsync>d__6::'<>v__promiseOfValueOrEnd'
+  IL_004F  ldloc.1
+  IL_0050  call       instance !0 valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::GetResult(int16)
+  IL_0055  newobj     instance void valuetype [System.Runtime]System.Threading.Tasks.ValueTask`1<bool>::.ctor(!0)
+  IL_005A  ret
+  IL_005B  ldarg.0
+  IL_005C  ldloc.1
+  IL_005D  newobj     instance void valuetype [System.Runtime]System.Threading.Tasks.ValueTask`1<bool>::.ctor(class [System.Runtime]System.Threading.Tasks.Sources.IValueTaskSource`1<!0>, int16)
+  IL_0062  ret
+
+Method   : int System.Collections.Generic.IAsyncEnumerator<System.Int32>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3173   Size: 7 bytes   Token: 0x0600004F
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>2__current'
+  IL_0006  ret
+
+Method   : bool System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetResult(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x317B   Size: 13 bytes   Token: 0x06000050
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<TicksAsync>d__6::'<>v__promiseOfValueOrEnd'
+  IL_0006  ldarg.1
+  IL_0007  call       instance !0 valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::GetResult(int16)
+  IL_000C  ret
+
+Method   : ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetStatus(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3189   Size: 13 bytes   Token: 0x06000051
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<TicksAsync>d__6::'<>v__promiseOfValueOrEnd'
+  IL_0006  ldarg.1
+  IL_0007  call       instance valuetype [System.Runtime]System.Threading.Tasks.Sources.ValueTaskSourceStatus valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::GetStatus(int16)
+  IL_000C  ret
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3197   Size: 17 bytes   Token: 0x06000052
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<TicksAsync>d__6::'<>v__promiseOfValueOrEnd'
+  IL_0006  ldarg.1
+  IL_0007  ldarg.2
+  IL_0008  ldarg.3
+  IL_0009  ldarg.s    flags
+  IL_000B  call       instance void valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::OnCompleted(class [System.Runtime]System.Action`1<object>, object, int16, valuetype [System.Runtime]System.Threading.Tasks.Sources.ValueTaskSourceOnCompletedFlags)
+  IL_0010  ret
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource.GetResult(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x31A9   Size: 14 bytes   Token: 0x06000053
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<TicksAsync>d__6::'<>v__promiseOfValueOrEnd'
+  IL_0006  ldarg.1
+  IL_0007  call       instance !0 valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::GetResult(int16)
+  IL_000C  pop
+  IL_000D  ret
+
+Method   : ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource.GetStatus(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x31B8   Size: 13 bytes   Token: 0x06000054
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<TicksAsync>d__6::'<>v__promiseOfValueOrEnd'
+  IL_0006  ldarg.1
+  IL_0007  call       instance valuetype [System.Runtime]System.Threading.Tasks.Sources.ValueTaskSourceStatus valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::GetStatus(int16)
+  IL_000C  ret
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x31C6   Size: 17 bytes   Token: 0x06000055
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<TicksAsync>d__6::'<>v__promiseOfValueOrEnd'
+  IL_0006  ldarg.1
+  IL_0007  ldarg.2
+  IL_0008  ldarg.3
+  IL_0009  ldarg.s    flags
+  IL_000B  call       instance void valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::OnCompleted(class [System.Runtime]System.Action`1<object>, object, int16, valuetype [System.Runtime]System.Threading.Tasks.Sources.ValueTaskSourceOnCompletedFlags)
+  IL_0010  ret
+
+Method   : ValueTask System.IAsyncDisposable.DisposeAsync()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x31D8   Size: 86 bytes   Token: 0x06000056
+
+[IL]  .maxstack 2
+  .locals init ([0] class Ref.Iterators.Sequences/<TicksAsync>d__6 V_0, [1] valuetype [System.Runtime]System.Threading.Tasks.ValueTask V_1)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>1__state'
+  IL_0006  ldc.i4.m1
+  IL_0007  blt.s      IL_000F
+  IL_0009  newobj     instance void [System.Runtime]System.NotSupportedException::.ctor()
+  IL_000E  throw
+  IL_000F  ldarg.0
+  IL_0010  ldfld      int32 Ref.Iterators.Sequences/<TicksAsync>d__6::'<>1__state'
+  IL_0015  ldc.i4.s   -2
+  IL_0017  bne.un.s   IL_0023
+  IL_0019  ldloca.s   V_1
+  IL_001B  initobj    [System.Runtime]System.Threading.Tasks.ValueTask
+  IL_0021  ldloc.1
+  IL_0022  ret
+  IL_0023  ldarg.0
+  IL_0024  ldc.i4.1
+  IL_0025  stfld      bool Ref.Iterators.Sequences/<TicksAsync>d__6::'<>w__disposeMode'
+  IL_002A  ldarg.0
+  IL_002B  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<TicksAsync>d__6::'<>v__promiseOfValueOrEnd'
+  IL_0030  call       instance void valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::Reset()
+  IL_0035  ldarg.0
+  IL_0036  stloc.0
+  IL_0037  ldarg.0
+  IL_0038  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder Ref.Iterators.Sequences/<TicksAsync>d__6::'<>t__builder'
+  IL_003D  ldloca.s   V_0
+  IL_003F  call       instance void [System.Runtime]System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::MoveNext<class Ref.Iterators.Sequences/<TicksAsync>d__6>(!!0&)
+  IL_0044  ldarg.0
+  IL_0045  ldarg.0
+  IL_0046  ldflda     valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool> Ref.Iterators.Sequences/<TicksAsync>d__6::'<>v__promiseOfValueOrEnd'
+  IL_004B  call       instance int16 valuetype [System.Runtime]System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1<bool>::get_Version()
+  IL_0050  newobj     instance void [System.Runtime]System.Threading.Tasks.ValueTask::.ctor(class [System.Runtime]System.Threading.Tasks.Sources.IValueTaskSource, int16)
+  IL_0055  ret
+
+Type     : Ref.Iterators.Countdown+<GetEnumerator>d__2
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x323A   Size: 14 bytes   Token: 0x06000057
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      int32 Ref.Iterators.Countdown/<GetEnumerator>d__2::'<>1__state'
+  IL_000D  ret
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3249   Size: 9 bytes   Token: 0x06000058
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.s   -2
+  IL_0003  stfld      int32 Ref.Iterators.Countdown/<GetEnumerator>d__2::'<>1__state'
+  IL_0008  ret
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x3254   Size: 99 bytes   Token: 0x06000059
+
+[IL]  .maxstack 3
+  .locals init ([0] int32 V_0, [1] class Ref.Iterators.Countdown V_1, [2] int32 V_2)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Countdown/<GetEnumerator>d__2::'<>1__state'
+  IL_0006  stloc.0
+  IL_0007  ldarg.0
+  IL_0008  ldfld      class Ref.Iterators.Countdown Ref.Iterators.Countdown/<GetEnumerator>d__2::'<>4__this'
+  IL_000D  stloc.1
+  IL_000E  ldloc.0
+  IL_000F  brfalse.s  IL_0017
+  IL_0011  ldloc.0
+  IL_0012  ldc.i4.1
+  IL_0013  beq.s      IL_0041
+  IL_0015  ldc.i4.0
+  IL_0016  ret
+  IL_0017  ldarg.0
+  IL_0018  ldc.i4.m1
+  IL_0019  stfld      int32 Ref.Iterators.Countdown/<GetEnumerator>d__2::'<>1__state'
+  IL_001E  ldarg.0
+  IL_001F  ldloc.1
+  IL_0020  ldfld      int32 Ref.Iterators.Countdown::_from
+  IL_0025  stfld      int32 Ref.Iterators.Countdown/<GetEnumerator>d__2::'<i>5__2'
+  IL_002A  br.s       IL_0058
+  IL_002C  ldarg.0
+  IL_002D  ldarg.0
+  IL_002E  ldfld      int32 Ref.Iterators.Countdown/<GetEnumerator>d__2::'<i>5__2'
+  IL_0033  stfld      int32 Ref.Iterators.Countdown/<GetEnumerator>d__2::'<>2__current'
+  IL_0038  ldarg.0
+  IL_0039  ldc.i4.1
+  IL_003A  stfld      int32 Ref.Iterators.Countdown/<GetEnumerator>d__2::'<>1__state'
+  IL_003F  ldc.i4.1
+  IL_0040  ret
+  IL_0041  ldarg.0
+  IL_0042  ldc.i4.m1
+  IL_0043  stfld      int32 Ref.Iterators.Countdown/<GetEnumerator>d__2::'<>1__state'
+  IL_0048  ldarg.0
+  IL_0049  ldfld      int32 Ref.Iterators.Countdown/<GetEnumerator>d__2::'<i>5__2'
+  IL_004E  stloc.2
+  IL_004F  ldarg.0
+  IL_0050  ldloc.2
+  IL_0051  ldc.i4.1
+  IL_0052  sub
+  IL_0053  stfld      int32 Ref.Iterators.Countdown/<GetEnumerator>d__2::'<i>5__2'
+  IL_0058  ldarg.0
+  IL_0059  ldfld      int32 Ref.Iterators.Countdown/<GetEnumerator>d__2::'<i>5__2'
+  IL_005E  ldc.i4.0
+  IL_005F  bge.s      IL_002C
+  IL_0061  ldc.i4.0
+  IL_0062  ret
+
+Method   : int System.Collections.Generic.IEnumerator<System.Int32>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x32C3   Size: 7 bytes   Token: 0x0600005A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Countdown/<GetEnumerator>d__2::'<>2__current'
+  IL_0006  ret
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x32CB   Size: 6 bytes   Token: 0x0600005B
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void [System.Runtime]System.NotSupportedException::.ctor()
+  IL_0005  throw
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x32D2   Size: 12 bytes   Token: 0x0600005C
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Iterators.Countdown/<GetEnumerator>d__2::'<>2__current'
+  IL_0006  box        [System.Runtime]System.Int32
+  IL_000B  ret
+
+Type     : Ref.Iterators.Tree`1+<DepthFirst>d__7
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x32DF   Size: 25 bytes   Token: 0x0600005D
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      int32 class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>1__state'
+  IL_000D  ldarg.0
+  IL_000E  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+  IL_0013  stfld      int32 class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>l__initialThreadId'
+  IL_0018  ret
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x32F9   Size: 23 bytes   Token: 0x0600005E
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldnull
+  IL_0002  stfld      class [System.Collections]System.Collections.Generic.Stack`1<class Ref.Iterators.Tree`1<!0>> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<stack>5__2'
+  IL_0007  ldarg.0
+  IL_0008  ldnull
+  IL_0009  stfld      class Ref.Iterators.Tree`1<!0> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<node>5__3'
+  IL_000E  ldarg.0
+  IL_000F  ldc.i4.s   -2
+  IL_0011  stfld      int32 class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>1__state'
+  IL_0016  ret
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x3314   Size: 178 bytes   Token: 0x0600005F
+
+[IL]  .maxstack 3
+  .locals init ([0] int32 V_0, [1] class Ref.Iterators.Tree`1<!T> V_1, [2] int32 V_2)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>1__state'
+  IL_0006  stloc.0
+  IL_0007  ldarg.0
+  IL_0008  ldfld      class Ref.Iterators.Tree`1<!0> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>4__this'
+  IL_000D  stloc.1
+  IL_000E  ldloc.0
+  IL_000F  brfalse.s  IL_0017
+  IL_0011  ldloc.0
+  IL_0012  ldc.i4.1
+  IL_0013  beq.s      IL_0062
+  IL_0015  ldc.i4.0
+  IL_0016  ret
+  IL_0017  ldarg.0
+  IL_0018  ldc.i4.m1
+  IL_0019  stfld      int32 class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>1__state'
+  IL_001E  ldarg.0
+  IL_001F  newobj     instance void class [System.Collections]System.Collections.Generic.Stack`1<class Ref.Iterators.Tree`1<!0>>::.ctor()
+  IL_0024  stfld      class [System.Collections]System.Collections.Generic.Stack`1<class Ref.Iterators.Tree`1<!0>> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<stack>5__2'
+  IL_0029  ldarg.0
+  IL_002A  ldfld      class [System.Collections]System.Collections.Generic.Stack`1<class Ref.Iterators.Tree`1<!0>> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<stack>5__2'
+  IL_002F  ldloc.1
+  IL_0030  callvirt   instance void class [System.Collections]System.Collections.Generic.Stack`1<class Ref.Iterators.Tree`1<!0>>::Push(!0)
+  IL_0035  br.s       IL_00A2
+  IL_0037  ldarg.0
+  IL_0038  ldarg.0
+  IL_0039  ldfld      class [System.Collections]System.Collections.Generic.Stack`1<class Ref.Iterators.Tree`1<!0>> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<stack>5__2'
+  IL_003E  callvirt   instance !0 class [System.Collections]System.Collections.Generic.Stack`1<class Ref.Iterators.Tree`1<!0>>::Pop()
+  IL_0043  stfld      class Ref.Iterators.Tree`1<!0> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<node>5__3'
+  IL_0048  ldarg.0
+  IL_0049  ldarg.0
+  IL_004A  ldfld      class Ref.Iterators.Tree`1<!0> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<node>5__3'
+  IL_004F  callvirt   instance !0 class Ref.Iterators.Tree`1<!0>::get_Value()
+  IL_0054  stfld      !0 class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>2__current'
+  IL_0059  ldarg.0
+  IL_005A  ldc.i4.1
+  IL_005B  stfld      int32 class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>1__state'
+  IL_0060  ldc.i4.1
+  IL_0061  ret
+  IL_0062  ldarg.0
+  IL_0063  ldc.i4.m1
+  IL_0064  stfld      int32 class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>1__state'
+  IL_0069  ldarg.0
+  IL_006A  ldfld      class Ref.Iterators.Tree`1<!0> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<node>5__3'
+  IL_006F  callvirt   instance class Ref.Iterators.Tree`1<!0>[] class Ref.Iterators.Tree`1<!0>::get_Children()
+  IL_0074  ldlen
+  IL_0075  conv.i4
+  IL_0076  ldc.i4.1
+  IL_0077  sub
+  IL_0078  stloc.2
+  IL_0079  br.s       IL_0097
+  IL_007B  ldarg.0
+  IL_007C  ldfld      class [System.Collections]System.Collections.Generic.Stack`1<class Ref.Iterators.Tree`1<!0>> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<stack>5__2'
+  IL_0081  ldarg.0
+  IL_0082  ldfld      class Ref.Iterators.Tree`1<!0> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<node>5__3'
+  IL_0087  callvirt   instance class Ref.Iterators.Tree`1<!0>[] class Ref.Iterators.Tree`1<!0>::get_Children()
+  IL_008C  ldloc.2
+  IL_008D  ldelem.ref
+  IL_008E  callvirt   instance void class [System.Collections]System.Collections.Generic.Stack`1<class Ref.Iterators.Tree`1<!0>>::Push(!0)
+  IL_0093  ldloc.2
+  IL_0094  ldc.i4.1
+  IL_0095  sub
+  IL_0096  stloc.2
+  IL_0097  ldloc.2
+  IL_0098  ldc.i4.0
+  IL_0099  bge.s      IL_007B
+  IL_009B  ldarg.0
+  IL_009C  ldnull
+  IL_009D  stfld      class Ref.Iterators.Tree`1<!0> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<node>5__3'
+  IL_00A2  ldarg.0
+  IL_00A3  ldfld      class [System.Collections]System.Collections.Generic.Stack`1<class Ref.Iterators.Tree`1<!0>> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<stack>5__2'
+  IL_00A8  callvirt   instance int32 class [System.Collections]System.Collections.Generic.Stack`1<class Ref.Iterators.Tree`1<!0>>::get_Count()
+  IL_00AD  ldc.i4.0
+  IL_00AE  bgt.s      IL_0037
+  IL_00B0  ldc.i4.0
+  IL_00B1  ret
+
+Method   : T System.Collections.Generic.IEnumerator<T>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x33D2   Size: 7 bytes   Token: 0x06000060
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      !0 class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>2__current'
+  IL_0006  ret
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x33DA   Size: 6 bytes   Token: 0x06000061
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void [System.Runtime]System.NotSupportedException::.ctor()
+  IL_0005  throw
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x33E1   Size: 12 bytes   Token: 0x06000062
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      !0 class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>2__current'
+  IL_0006  box        !T
+  IL_000B  ret
+
+Method   : IEnumerator<T> System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x33F0   Size: 55 bytes   Token: 0x06000063
+
+[IL]  .maxstack 2
+  .locals init ([0] class Ref.Iterators.Tree`1/<DepthFirst>d__7<!T> V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>1__state'
+  IL_0006  ldc.i4.s   -2
+  IL_0008  bne.un.s   IL_0022
+  IL_000A  ldarg.0
+  IL_000B  ldfld      int32 class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>l__initialThreadId'
+  IL_0010  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+  IL_0015  bne.un.s   IL_0022
+  IL_0017  ldarg.0
+  IL_0018  ldc.i4.0
+  IL_0019  stfld      int32 class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>1__state'
+  IL_001E  ldarg.0
+  IL_001F  stloc.0
+  IL_0020  br.s       IL_0035
+  IL_0022  ldc.i4.0
+  IL_0023  newobj     instance void class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::.ctor(int32)
+  IL_0028  stloc.0
+  IL_0029  ldloc.0
+  IL_002A  ldarg.0
+  IL_002B  ldfld      class Ref.Iterators.Tree`1<!0> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>4__this'
+  IL_0030  stfld      class Ref.Iterators.Tree`1<!0> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'<>4__this'
+  IL_0035  ldloc.0
+  IL_0036  ret
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3433   Size: 7 bytes   Token: 0x06000064
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class Ref.Iterators.Tree`1/<DepthFirst>d__7<!0>::'System.Collections.Generic.IEnumerable<T>.GetEnumerator'()
+  IL_0006  ret

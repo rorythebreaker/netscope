@@ -1,0 +1,1181 @@
+Assembly : Ref16.VbLibrary.dll
+Name     : Ref16.VbLibrary, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 49
+
+Type     : Ref.VbLibrary.Accounts.InsufficientFundsException
+
+Method   : void .ctor(Decimal needed)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 31 bytes   Token: 0x06000001
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_001E  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldstr      "insufficient funds: need "
+       IL_0006  ldarga.s   needed
+       IL_0008  call       instance string [System.Runtime]System.Decimal::ToString()
+       IL_000D  call       string [System.Runtime]System.String::Concat(string, string)
+       IL_0012  call       instance void [System.Runtime]System.Exception::.ctor(string)
+       IL_0017  ldarg.0
+       IL_0018  ldarg.1
+       IL_0019  stfld      valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.InsufficientFundsException::_Needed
+       IL_001E  ret
+  exits: B0 (return)
+
+Method   : Decimal get_Needed()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2070   Size: 7 bytes   Token: 0x06000002
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.InsufficientFundsException::_Needed
+       IL_0006  ret
+  exits: B0 (return)
+
+Type     : Ref.VbLibrary.Accounts.Account
+
+Method   : void add_BalanceChanged(BalanceChangedEventHandler obj)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x2078   Size: 41 bytes   Token: 0x06000003
+
+[Branches]  complexity=2  blocks=3  loops=1
+  B0 IL_0000..IL_0006  -> B1
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class Ref.VbLibrary.Accounts.Account/BalanceChangedEventHandler Ref.VbLibrary.Accounts.Account::BalanceChangedEvent
+       IL_0006  stloc.0
+  B1 IL_0007..IL_0027  -> B1 (V_0 != V_1) | B2 (else)  [loop]
+       IL_0007  ldloc.0
+       IL_0008  stloc.1
+       IL_0009  ldloc.1
+       IL_000A  ldarg.1
+       IL_000B  call       class [System.Runtime]System.Delegate [System.Runtime]System.Delegate::Combine(class [System.Runtime]System.Delegate, class [System.Runtime]System.Delegate)
+       IL_0010  castclass  Ref.VbLibrary.Accounts.Account/BalanceChangedEventHandler
+       IL_0015  stloc.2
+       IL_0016  ldarg.0
+       IL_0017  ldflda     class Ref.VbLibrary.Accounts.Account/BalanceChangedEventHandler Ref.VbLibrary.Accounts.Account::BalanceChangedEvent
+       IL_001C  ldloc.2
+       IL_001D  ldloc.1
+       IL_001E  call       !!0 [System.Threading]System.Threading.Interlocked::CompareExchange<class Ref.VbLibrary.Accounts.Account/BalanceChangedEventHandler>(!!0&, !!0, !!0)
+       IL_0023  stloc.0
+       IL_0024  ldloc.0
+       IL_0025  ldloc.1
+       IL_0026  bne.un.s   IL_0007
+  B2 IL_0028..IL_0028  -> exit
+       IL_0028  ret
+  loop: header B1, back edges from B1, body B1
+  exits: B2 (return)
+
+Method   : void remove_BalanceChanged(BalanceChangedEventHandler obj)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x20B0   Size: 41 bytes   Token: 0x06000004
+
+[Branches]  complexity=2  blocks=3  loops=1
+  B0 IL_0000..IL_0006  -> B1
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class Ref.VbLibrary.Accounts.Account/BalanceChangedEventHandler Ref.VbLibrary.Accounts.Account::BalanceChangedEvent
+       IL_0006  stloc.0
+  B1 IL_0007..IL_0027  -> B1 (V_0 != V_1) | B2 (else)  [loop]
+       IL_0007  ldloc.0
+       IL_0008  stloc.1
+       IL_0009  ldloc.1
+       IL_000A  ldarg.1
+       IL_000B  call       class [System.Runtime]System.Delegate [System.Runtime]System.Delegate::Remove(class [System.Runtime]System.Delegate, class [System.Runtime]System.Delegate)
+       IL_0010  castclass  Ref.VbLibrary.Accounts.Account/BalanceChangedEventHandler
+       IL_0015  stloc.2
+       IL_0016  ldarg.0
+       IL_0017  ldflda     class Ref.VbLibrary.Accounts.Account/BalanceChangedEventHandler Ref.VbLibrary.Accounts.Account::BalanceChangedEvent
+       IL_001C  ldloc.2
+       IL_001D  ldloc.1
+       IL_001E  call       !!0 [System.Threading]System.Threading.Interlocked::CompareExchange<class Ref.VbLibrary.Accounts.Account/BalanceChangedEventHandler>(!!0&, !!0, !!0)
+       IL_0023  stloc.0
+       IL_0024  ldloc.0
+       IL_0025  ldloc.1
+       IL_0026  bne.un.s   IL_0007
+  B2 IL_0028..IL_0028  -> exit
+       IL_0028  ret
+  loop: header B1, back edges from B1, body B1
+  exits: B2 (return)
+
+Method   : void .ctor(string owner, AccountKind kind)
+Kind     : ctor, instance, public
+RVA      : 0x20E5   Size: 32 bytes   Token: 0x06000005
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_001F  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  ldarg.0
+       IL_0007  newobj     instance void class [System.Collections]System.Collections.Generic.List`1<string>::.ctor()
+       IL_000C  stfld      class [System.Collections]System.Collections.Generic.List`1<string> Ref.VbLibrary.Accounts.Account::_history
+       IL_0011  ldarg.0
+       IL_0012  ldarg.1
+       IL_0013  stfld      string Ref.VbLibrary.Accounts.Account::_Owner
+       IL_0018  ldarg.0
+       IL_0019  ldarg.2
+       IL_001A  stfld      valuetype Ref.VbLibrary.Accounts.AccountKind Ref.VbLibrary.Accounts.Account::_Kind
+       IL_001F  ret
+  exits: B0 (return)
+
+Method   : string get_Owner()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2106   Size: 7 bytes   Token: 0x06000006
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      string Ref.VbLibrary.Accounts.Account::_Owner
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : AccountKind get_Kind()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x210E   Size: 7 bytes   Token: 0x06000007
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      valuetype Ref.VbLibrary.Accounts.AccountKind Ref.VbLibrary.Accounts.Account::_Kind
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : Decimal get_Balance()
+Kind     : property-get, instance, public
+RVA      : 0x2116   Size: 7 bytes   Token: 0x06000008
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Account::_balance
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void Deposit(Decimal amount)
+Kind     : instance, public, virtual
+RVA      : 0x2120   Size: 102 bytes   Token: 0x06000009
+
+[Branches]  complexity=3  blocks=5  loops=0
+  B0 IL_0000..IL_000D  -> B1 (Decimal.Compare(amount, Decimal.Zero) <= 0) | B2 (else)
+       IL_0000  ldarg.1
+       IL_0001  ldsfld     valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::Zero
+       IL_0006  call       int32 [System.Runtime]System.Decimal::Compare(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+       IL_000B  ldc.i4.0
+       IL_000C  bgt.s      IL_0019
+  B1 IL_000E..IL_0018  -> throw
+       IL_000E  ldstr      "amount"
+       IL_0013  newobj     instance void [System.Runtime]System.ArgumentOutOfRangeException::.ctor(string)
+       IL_0018  throw
+  B2 IL_0019..IL_0057  -> B3 (V_1 != null) | B4 (else)
+       IL_0019  ldarg.0
+       IL_001A  ldflda     valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Account::_balance
+       IL_001F  dup
+       IL_0020  stloc.0
+       IL_0021  ldloc.0
+       IL_0022  ldobj      [System.Runtime]System.Decimal
+       IL_0027  ldarg.1
+       IL_0028  call       valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::Add(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+       IL_002D  stobj      [System.Runtime]System.Decimal
+       IL_0032  ldarg.0
+       IL_0033  ldfld      class [System.Collections]System.Collections.Generic.List`1<string> Ref.VbLibrary.Accounts.Account::_history
+       IL_0038  ldstr      "deposit "
+       IL_003D  ldarga.s   amount
+       IL_003F  call       instance string [System.Runtime]System.Decimal::ToString()
+       IL_0044  call       string [System.Runtime]System.String::Concat(string, string)
+       IL_0049  callvirt   instance void class [System.Collections]System.Collections.Generic.List`1<string>::Add(!0)
+       IL_004E  ldarg.0
+       IL_004F  ldfld      class Ref.VbLibrary.Accounts.Account/BalanceChangedEventHandler Ref.VbLibrary.Accounts.Account::BalanceChangedEvent
+       IL_0054  stloc.1
+       IL_0055  ldloc.1
+       IL_0056  brfalse.s  IL_0065
+  B3 IL_0058..IL_0064  -> B4
+       IL_0058  ldloc.1
+       IL_0059  ldarg.0
+       IL_005A  ldarg.0
+       IL_005B  ldfld      valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Account::_balance
+       IL_0060  callvirt   instance void Ref.VbLibrary.Accounts.Account/BalanceChangedEventHandler::Invoke(object, valuetype [System.Runtime]System.Decimal)
+  B4 IL_0065..IL_0065  -> exit
+       IL_0065  ret
+  exits: B1 (throw), B4 (return)
+
+Method   : void Withdraw(Decimal amount)
+Kind     : instance, public, virtual
+RVA      : 0x2194   Size: 110 bytes   Token: 0x0600000A
+
+[Branches]  complexity=3  blocks=5  loops=0
+  B0 IL_0000..IL_000E  -> B1 (Decimal.Compare(amount, this._balance) > 0) | B2 (else)
+       IL_0000  ldarg.1
+       IL_0001  ldarg.0
+       IL_0002  ldfld      valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Account::_balance
+       IL_0007  call       int32 [System.Runtime]System.Decimal::Compare(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+       IL_000C  ldc.i4.0
+       IL_000D  ble.s      IL_0021
+  B1 IL_000F..IL_0020  -> throw
+       IL_000F  ldarg.1
+       IL_0010  ldarg.0
+       IL_0011  ldfld      valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Account::_balance
+       IL_0016  call       valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::Subtract(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+       IL_001B  newobj     instance void Ref.VbLibrary.Accounts.InsufficientFundsException::.ctor(valuetype [System.Runtime]System.Decimal)
+       IL_0020  throw
+  B2 IL_0021..IL_005F  -> B3 (V_1 != null) | B4 (else)
+       IL_0021  ldarg.0
+       IL_0022  ldflda     valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Account::_balance
+       IL_0027  dup
+       IL_0028  stloc.0
+       IL_0029  ldloc.0
+       IL_002A  ldobj      [System.Runtime]System.Decimal
+       IL_002F  ldarg.1
+       IL_0030  call       valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::Subtract(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+       IL_0035  stobj      [System.Runtime]System.Decimal
+       IL_003A  ldarg.0
+       IL_003B  ldfld      class [System.Collections]System.Collections.Generic.List`1<string> Ref.VbLibrary.Accounts.Account::_history
+       IL_0040  ldstr      "withdraw "
+       IL_0045  ldarga.s   amount
+       IL_0047  call       instance string [System.Runtime]System.Decimal::ToString()
+       IL_004C  call       string [System.Runtime]System.String::Concat(string, string)
+       IL_0051  callvirt   instance void class [System.Collections]System.Collections.Generic.List`1<string>::Add(!0)
+       IL_0056  ldarg.0
+       IL_0057  ldfld      class Ref.VbLibrary.Accounts.Account/BalanceChangedEventHandler Ref.VbLibrary.Accounts.Account::BalanceChangedEvent
+       IL_005C  stloc.1
+       IL_005D  ldloc.1
+       IL_005E  brfalse.s  IL_006D
+  B3 IL_0060..IL_006C  -> B4
+       IL_0060  ldloc.1
+       IL_0061  ldarg.0
+       IL_0062  ldarg.0
+       IL_0063  ldfld      valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Account::_balance
+       IL_0068  callvirt   instance void Ref.VbLibrary.Accounts.Account/BalanceChangedEventHandler::Invoke(object, valuetype [System.Runtime]System.Decimal)
+  B4 IL_006D..IL_006D  -> exit
+       IL_006D  ret
+  exits: B1 (throw), B4 (return)
+
+Method   : IEnumerable<string> History()
+Kind     : instance, public
+RVA      : 0x220E   Size: 12 bytes   Token: 0x0600000B
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000B  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class [System.Collections]System.Collections.Generic.List`1<string> Ref.VbLibrary.Accounts.Account::_history
+       IL_0006  callvirt   instance class [System.Runtime]System.Collections.ObjectModel.ReadOnlyCollection`1<!0> class [System.Collections]System.Collections.Generic.List`1<string>::AsReadOnly()
+       IL_000B  ret
+  exits: B0 (return)
+
+Method   : Account op_Addition(Account a, Decimal amount)
+Kind     : operator, static, public
+RVA      : 0x221B   Size: 9 bytes   Token: 0x0600000C
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0008  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  callvirt   instance void Ref.VbLibrary.Accounts.Account::Deposit(valuetype [System.Runtime]System.Decimal)
+       IL_0007  ldarg.0
+       IL_0008  ret
+  exits: B0 (return)
+
+Type     : Ref.VbLibrary.Accounts.SavingsAccount
+
+Method   : void .ctor(string owner)
+Kind     : ctor, instance, public
+RVA      : 0x2225   Size: 25 bytes   Token: 0x0600000D
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0018  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  ldc.i4.1
+       IL_0003  call       instance void Ref.VbLibrary.Accounts.Account::.ctor(string, valuetype Ref.VbLibrary.Accounts.AccountKind)
+       IL_0008  ldarg.0
+       IL_0009  ldc.i4.2
+       IL_000A  ldc.i4.0
+       IL_000B  ldc.i4.0
+       IL_000C  ldc.i4.0
+       IL_000D  ldc.i4.2
+       IL_000E  newobj     instance void [System.Runtime]System.Decimal::.ctor(int32, int32, int32, bool, uint8)
+       IL_0013  call       instance void Ref.VbLibrary.Accounts.SavingsAccount::set_Rate(valuetype [System.Runtime]System.Decimal)
+       IL_0018  ret
+  exits: B0 (return)
+
+Method   : Decimal get_Rate()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x223F   Size: 7 bytes   Token: 0x0600000E
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.SavingsAccount::_Rate
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_Rate(Decimal AutoPropertyValue)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2247   Size: 8 bytes   Token: 0x0600000F
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.SavingsAccount::_Rate
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : void Withdraw(Decimal amount)
+Kind     : instance, public, override
+RVA      : 0x2250   Size: 39 bytes   Token: 0x06000010
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0013  -> B1 (Decimal.Compare(amount, new Decimal((long)1000)) > 0) | B2 (else)
+       IL_0000  ldarg.1
+       IL_0001  ldc.i4     0x3e8
+       IL_0006  conv.i8
+       IL_0007  newobj     instance void [System.Runtime]System.Decimal::.ctor(int64)
+       IL_000C  call       int32 [System.Runtime]System.Decimal::Compare(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+       IL_0011  ldc.i4.0
+       IL_0012  ble.s      IL_001F
+  B1 IL_0014..IL_001E  -> throw
+       IL_0014  ldstr      "limit exceeded"
+       IL_0019  newobj     instance void [System.Runtime]System.InvalidOperationException::.ctor(string)
+       IL_001E  throw
+  B2 IL_001F..IL_0026  -> exit
+       IL_001F  ldarg.0
+       IL_0020  ldarg.1
+       IL_0021  call       instance void Ref.VbLibrary.Accounts.Account::Withdraw(valuetype [System.Runtime]System.Decimal)
+       IL_0026  ret
+  exits: B1 (throw), B2 (return)
+
+Method   : void AddInterest()
+Kind     : instance, public
+RVA      : 0x2278   Size: 30 bytes   Token: 0x06000011
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_001D  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.0
+       IL_0002  call       instance valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Account::get_Balance()
+       IL_0007  ldarg.0
+       IL_0008  call       instance valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.SavingsAccount::get_Rate()
+       IL_000D  call       valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::Multiply(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+       IL_0012  ldc.i4.2
+       IL_0013  call       valuetype [System.Runtime]System.Decimal [System.Runtime]System.Math::Round(valuetype [System.Runtime]System.Decimal, int32)
+       IL_0018  callvirt   instance void Ref.VbLibrary.Accounts.Account::Deposit(valuetype [System.Runtime]System.Decimal)
+       IL_001D  ret
+  exits: B0 (return)
+
+Type     : Ref.VbLibrary.Accounts.Bank
+
+Method   : string Describe(AccountKind kind)
+Kind     : static, public
+RVA      : 0x2298   Size: 35 bytes   Token: 0x06000012
+
+[Branches]  complexity=3  blocks=7  loops=0
+  B0 IL_0000..IL_0004  -> B1 (V_1 != null) | B3 (else)
+       IL_0000  ldarg.0
+       IL_0001  stloc.1
+       IL_0002  ldloc.1
+       IL_0003  brfalse.s  IL_000B
+  B1 IL_0005..IL_0008  -> B2 (V_1 != 1) | B4 (else)
+       IL_0005  ldloc.1
+       IL_0006  ldc.i4.1
+       IL_0007  beq.s      IL_0013
+  B2 IL_0009..IL_000A  -> B5
+       IL_0009  br.s       IL_001B
+  B3 IL_000B..IL_0012  -> B6
+       IL_000B  ldstr      "checking"
+       IL_0010  stloc.0
+       IL_0011  br.s       IL_0021
+  B4 IL_0013..IL_001A  -> B6
+       IL_0013  ldstr      "savings"
+       IL_0018  stloc.0
+       IL_0019  br.s       IL_0021
+  B5 IL_001B..IL_0020  -> B6
+       IL_001B  ldstr      "unknown"
+       IL_0020  stloc.0
+  B6 IL_0021..IL_0022  -> exit
+       IL_0021  ldloc.0
+       IL_0022  ret
+  exits: B6 (return)
+
+Method   : string Grade(int score)
+Kind     : static, public
+RVA      : 0x22C8   Size: 59 bytes   Token: 0x06000013
+
+[Branches]  complexity=6  blocks=10  loops=0
+  B0 IL_0000..IL_0006  -> B1 (V_1 >= 90) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  stloc.1
+       IL_0002  ldloc.1
+       IL_0003  ldc.i4.s   90
+       IL_0005  blt.s      IL_000F
+  B1 IL_0007..IL_000E  -> B9
+       IL_0007  ldstr      "A"
+       IL_000C  stloc.0
+       IL_000D  br.s       IL_0039
+  B2 IL_000F..IL_0013  -> B3 (V_1 >= 80) | B5 (else)
+       IL_000F  ldloc.1
+       IL_0010  ldc.i4.s   80
+       IL_0012  blt.s      IL_0021
+  B3 IL_0014..IL_0018  -> B4 (V_1 <= 89) | B5 (else)
+       IL_0014  ldloc.1
+       IL_0015  ldc.i4.s   89
+       IL_0017  bgt.s      IL_0021
+  B4 IL_0019..IL_0020  -> B9
+       IL_0019  ldstr      "B"
+       IL_001E  stloc.0
+       IL_001F  br.s       IL_0039
+  B5 IL_0021..IL_0025  -> B6 (V_1 >= 70) | B8 (else)
+       IL_0021  ldloc.1
+       IL_0022  ldc.i4.s   70
+       IL_0024  blt.s      IL_0033
+  B6 IL_0026..IL_002A  -> B7 (V_1 <= 79) | B8 (else)
+       IL_0026  ldloc.1
+       IL_0027  ldc.i4.s   79
+       IL_0029  bgt.s      IL_0033
+  B7 IL_002B..IL_0032  -> B9
+       IL_002B  ldstr      "C"
+       IL_0030  stloc.0
+       IL_0031  br.s       IL_0039
+  B8 IL_0033..IL_0038  -> B9
+       IL_0033  ldstr      "F"
+       IL_0038  stloc.0
+  B9 IL_0039..IL_003A  -> exit
+       IL_0039  ldloc.0
+       IL_003A  ret
+  exits: B9 (return)
+
+Method   : List<string> RichOwners(IEnumerable<Account> accounts, Decimal limit)
+Kind     : static, public
+RVA      : 0x2310   Size: 119 bytes   Token: 0x06000014
+
+[Branches]  complexity=3  blocks=7  loops=0
+  B0 IL_0000..IL_0025  -> B1 (_Closure$__.$I2-1 != null) | B2 (else)
+       IL_0000  newobj     instance void Ref.VbLibrary.Accounts.Bank/_Closure$__2-0::.ctor()
+       IL_0005  stloc.0
+       IL_0006  ldloc.0
+       IL_0007  ldarg.1
+       IL_0008  stfld      valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Bank/_Closure$__2-0::$VB$Local_limit
+       IL_000D  ldarg.0
+       IL_000E  ldloc.0
+       IL_000F  ldftn      instance bool Ref.VbLibrary.Accounts.Bank/_Closure$__2-0::_Lambda$__0(class Ref.VbLibrary.Accounts.Account)
+       IL_0015  newobj     instance void class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, bool>::.ctor(object, native int)
+       IL_001A  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0> [System.Linq]System.Linq.Enumerable::Where<class Ref.VbLibrary.Accounts.Account>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, bool>)
+       IL_001F  ldsfld     class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, string> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I2-1'
+       IL_0024  brfalse.s  IL_002D
+  B1 IL_0026..IL_002C  -> B3
+       IL_0026  ldsfld     class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, string> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I2-1'
+       IL_002B  br.s       IL_0043
+  B2 IL_002D..IL_0042  -> B3
+       IL_002D  ldsfld     class Ref.VbLibrary.Accounts.Bank/_Closure$__ Ref.VbLibrary.Accounts.Bank/_Closure$__::$I
+       IL_0032  ldftn      instance string Ref.VbLibrary.Accounts.Bank/_Closure$__::'_Lambda$__2-1'(class Ref.VbLibrary.Accounts.Account)
+       IL_0038  newobj     instance void class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, string>::.ctor(object, native int)
+       IL_003D  dup
+       IL_003E  stsfld     class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, string> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I2-1'
+  B3 IL_0043..IL_004E  -> B4 (_Closure$__.$I2-2 != null) | B5 (else)
+       IL_0043  call       class [System.Linq]System.Linq.IOrderedEnumerable`1<!!0> [System.Linq]System.Linq.Enumerable::OrderBy<class Ref.VbLibrary.Accounts.Account, string>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>)
+       IL_0048  ldsfld     class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, string> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I2-2'
+       IL_004D  brfalse.s  IL_0056
+  B4 IL_004F..IL_0055  -> B6
+       IL_004F  ldsfld     class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, string> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I2-2'
+       IL_0054  br.s       IL_006C
+  B5 IL_0056..IL_006B  -> B6
+       IL_0056  ldsfld     class Ref.VbLibrary.Accounts.Bank/_Closure$__ Ref.VbLibrary.Accounts.Bank/_Closure$__::$I
+       IL_005B  ldftn      instance string Ref.VbLibrary.Accounts.Bank/_Closure$__::'_Lambda$__2-2'(class Ref.VbLibrary.Accounts.Account)
+       IL_0061  newobj     instance void class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, string>::.ctor(object, native int)
+       IL_0066  dup
+       IL_0067  stsfld     class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, string> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I2-2'
+  B6 IL_006C..IL_0076  -> exit
+       IL_006C  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!1> [System.Linq]System.Linq.Enumerable::Select<class Ref.VbLibrary.Accounts.Account, string>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>)
+       IL_0071  call       class [System.Collections]System.Collections.Generic.List`1<!!0> [System.Linq]System.Linq.Enumerable::ToList<string>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>)
+       IL_0076  ret
+  exits: B6 (return)
+
+Method   : Dictionary<AccountKind, Decimal> TotalBy(IEnumerable<Account> accounts)
+Kind     : static, public
+RVA      : 0x2394   Size: 120 bytes   Token: 0x06000015
+
+[Branches]  complexity=4  blocks=10  loops=0
+  B0 IL_0000..IL_0007  -> B1 (_Closure$__.$I3-0 != null) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  ldsfld     class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, valuetype Ref.VbLibrary.Accounts.AccountKind> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I3-0'
+       IL_0006  brfalse.s  IL_000F
+  B1 IL_0008..IL_000E  -> B3
+       IL_0008  ldsfld     class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, valuetype Ref.VbLibrary.Accounts.AccountKind> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I3-0'
+       IL_000D  br.s       IL_0025
+  B2 IL_000F..IL_0024  -> B3
+       IL_000F  ldsfld     class Ref.VbLibrary.Accounts.Bank/_Closure$__ Ref.VbLibrary.Accounts.Bank/_Closure$__::$I
+       IL_0014  ldftn      instance valuetype Ref.VbLibrary.Accounts.AccountKind Ref.VbLibrary.Accounts.Bank/_Closure$__::'_Lambda$__3-0'(class Ref.VbLibrary.Accounts.Account)
+       IL_001A  newobj     instance void class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, valuetype Ref.VbLibrary.Accounts.AccountKind>::.ctor(object, native int)
+       IL_001F  dup
+       IL_0020  stsfld     class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, valuetype Ref.VbLibrary.Accounts.AccountKind> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I3-0'
+  B3 IL_0025..IL_0030  -> B4 (_Closure$__.$I3-1 != null) | B5 (else)
+       IL_0025  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<class [System.Linq]System.Linq.IGrouping`2<!!1, !!0>> [System.Linq]System.Linq.Enumerable::GroupBy<class Ref.VbLibrary.Accounts.Account, valuetype Ref.VbLibrary.Accounts.AccountKind>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>)
+       IL_002A  ldsfld     class [System.Runtime]System.Func`2<class [System.Linq]System.Linq.IGrouping`2<valuetype Ref.VbLibrary.Accounts.AccountKind, class Ref.VbLibrary.Accounts.Account>, valuetype Ref.VbLibrary.Accounts.AccountKind> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I3-1'
+       IL_002F  brfalse.s  IL_0038
+  B4 IL_0031..IL_0037  -> B6
+       IL_0031  ldsfld     class [System.Runtime]System.Func`2<class [System.Linq]System.Linq.IGrouping`2<valuetype Ref.VbLibrary.Accounts.AccountKind, class Ref.VbLibrary.Accounts.Account>, valuetype Ref.VbLibrary.Accounts.AccountKind> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I3-1'
+       IL_0036  br.s       IL_004E
+  B5 IL_0038..IL_004D  -> B6
+       IL_0038  ldsfld     class Ref.VbLibrary.Accounts.Bank/_Closure$__ Ref.VbLibrary.Accounts.Bank/_Closure$__::$I
+       IL_003D  ldftn      instance valuetype Ref.VbLibrary.Accounts.AccountKind Ref.VbLibrary.Accounts.Bank/_Closure$__::'_Lambda$__3-1'(class [System.Linq]System.Linq.IGrouping`2<valuetype Ref.VbLibrary.Accounts.AccountKind, class Ref.VbLibrary.Accounts.Account>)
+       IL_0043  newobj     instance void class [System.Runtime]System.Func`2<class [System.Linq]System.Linq.IGrouping`2<valuetype Ref.VbLibrary.Accounts.AccountKind, class Ref.VbLibrary.Accounts.Account>, valuetype Ref.VbLibrary.Accounts.AccountKind>::.ctor(object, native int)
+       IL_0048  dup
+       IL_0049  stsfld     class [System.Runtime]System.Func`2<class [System.Linq]System.Linq.IGrouping`2<valuetype Ref.VbLibrary.Accounts.AccountKind, class Ref.VbLibrary.Accounts.Account>, valuetype Ref.VbLibrary.Accounts.AccountKind> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I3-1'
+  B6 IL_004E..IL_0054  -> B7 (_Closure$__.$I3-2 != null) | B8 (else)
+       IL_004E  ldsfld     class [System.Runtime]System.Func`2<class [System.Linq]System.Linq.IGrouping`2<valuetype Ref.VbLibrary.Accounts.AccountKind, class Ref.VbLibrary.Accounts.Account>, valuetype [System.Runtime]System.Decimal> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I3-2'
+       IL_0053  brfalse.s  IL_005C
+  B7 IL_0055..IL_005B  -> B9
+       IL_0055  ldsfld     class [System.Runtime]System.Func`2<class [System.Linq]System.Linq.IGrouping`2<valuetype Ref.VbLibrary.Accounts.AccountKind, class Ref.VbLibrary.Accounts.Account>, valuetype [System.Runtime]System.Decimal> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I3-2'
+       IL_005A  br.s       IL_0072
+  B8 IL_005C..IL_0071  -> B9
+       IL_005C  ldsfld     class Ref.VbLibrary.Accounts.Bank/_Closure$__ Ref.VbLibrary.Accounts.Bank/_Closure$__::$I
+       IL_0061  ldftn      instance valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Bank/_Closure$__::'_Lambda$__3-2'(class [System.Linq]System.Linq.IGrouping`2<valuetype Ref.VbLibrary.Accounts.AccountKind, class Ref.VbLibrary.Accounts.Account>)
+       IL_0067  newobj     instance void class [System.Runtime]System.Func`2<class [System.Linq]System.Linq.IGrouping`2<valuetype Ref.VbLibrary.Accounts.AccountKind, class Ref.VbLibrary.Accounts.Account>, valuetype [System.Runtime]System.Decimal>::.ctor(object, native int)
+       IL_006C  dup
+       IL_006D  stsfld     class [System.Runtime]System.Func`2<class [System.Linq]System.Linq.IGrouping`2<valuetype Ref.VbLibrary.Accounts.AccountKind, class Ref.VbLibrary.Accounts.Account>, valuetype [System.Runtime]System.Decimal> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I3-2'
+  B9 IL_0072..IL_0077  -> exit
+       IL_0072  call       class [System.Collections]System.Collections.Generic.Dictionary`2<!!1, !!2> [System.Linq]System.Linq.Enumerable::ToDictionary<class [System.Linq]System.Linq.IGrouping`2<valuetype Ref.VbLibrary.Accounts.AccountKind, class Ref.VbLibrary.Accounts.Account>, valuetype Ref.VbLibrary.Accounts.AccountKind, valuetype [System.Runtime]System.Decimal>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>, class [System.Runtime]System.Func`2<!!0, !!2>)
+       IL_0077  ret
+  exits: B9 (return)
+
+Method   : IEnumerable<string> Statements(Account account)
+Kind     : static, public, iterator
+RVA      : 0x2418   Size: 15 bytes   Token: 0x06000016
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000E  -> exit
+       IL_0000  ldc.i4.s   -2
+       IL_0002  newobj     instance void Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::.ctor(int32)
+       IL_0007  dup
+       IL_0008  ldarg.0
+       IL_0009  stfld      class Ref.VbLibrary.Accounts.Account Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$P_account
+       IL_000E  ret
+  exits: B0 (return)
+
+Method   : Task<bool> TransferAsync(Account source, Account target, Decimal amount)
+Kind     : static, public, async
+RVA      : 0x2428   Size: 79 bytes   Token: 0x06000017
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_004E  -> exit
+       IL_0000  ldloca.s   V_0
+       IL_0002  initobj    Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync
+       IL_0008  ldloca.s   V_0
+       IL_000A  ldarg.0
+       IL_000B  stfld      class Ref.VbLibrary.Accounts.Account Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$VB$Local_source
+       IL_0010  ldloca.s   V_0
+       IL_0012  ldarg.1
+       IL_0013  stfld      class Ref.VbLibrary.Accounts.Account Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$VB$Local_target
+       IL_0018  ldloca.s   V_0
+       IL_001A  ldarg.2
+       IL_001B  stfld      valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$VB$Local_amount
+       IL_0020  ldloca.s   V_0
+       IL_0022  ldc.i4.m1
+       IL_0023  stfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$State
+       IL_0028  ldloca.s   V_0
+       IL_002A  call       valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<!0> valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool>::Create()
+       IL_002F  stfld      valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool> Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$Builder
+       IL_0034  ldloca.s   V_0
+       IL_0036  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool> Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$Builder
+       IL_003B  ldloca.s   V_0
+       IL_003D  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool>::Start<valuetype Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync>(!!0&)
+       IL_0042  ldloca.s   V_0
+       IL_0044  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool> Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$Builder
+       IL_0049  call       instance class [System.Runtime]System.Threading.Tasks.Task`1<!0> valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool>::get_Task()
+       IL_004E  ret
+  exits: B0 (return)
+
+Method   : string LegacyText(object value)
+Kind     : static, public
+RVA      : 0x2484   Size: 50 bytes   Token: 0x06000018
+
+[Branches]  complexity=2  blocks=4  loops=0
+  B0 IL_0000..IL_000E  -> B1 (Strings.Len(V_1) == 0) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  call       string [Microsoft.VisualBasic.Core]Microsoft.VisualBasic.CompilerServices.Conversions::ToString(object)
+       IL_0006  stloc.1
+       IL_0007  ldloc.1
+       IL_0008  call       int32 [Microsoft.VisualBasic.Core]Microsoft.VisualBasic.Strings::Len(string)
+       IL_000D  brtrue.s   IL_0017
+  B1 IL_000F..IL_0016  -> B3
+       IL_000F  ldstr      "(empty)"
+       IL_0014  stloc.0
+       IL_0015  br.s       IL_0030
+  B2 IL_0017..IL_002F  -> B3
+       IL_0017  ldloc.1
+       IL_0018  ldc.i4.1
+       IL_0019  call       string [Microsoft.VisualBasic.Core]Microsoft.VisualBasic.Strings::Left(string, int32)
+       IL_001E  call       string [Microsoft.VisualBasic.Core]Microsoft.VisualBasic.Strings::UCase(string)
+       IL_0023  ldloc.1
+       IL_0024  ldc.i4.2
+       IL_0025  call       string [Microsoft.VisualBasic.Core]Microsoft.VisualBasic.Strings::Mid(string, int32)
+       IL_002A  call       string [System.Runtime]System.String::Concat(string, string)
+       IL_002F  stloc.0
+  B3 IL_0030..IL_0031  -> exit
+       IL_0030  ldloc.0
+       IL_0031  ret
+  exits: B3 (return)
+
+Method   : int SafeDivide(int a, int b)
+Kind     : static, public
+RVA      : 0x24C4   Size: 35 bytes   Token: 0x06000019
+
+[Branches]  complexity=3  blocks=4  loops=0
+  B0 IL_0000..IL_0005  -> B3 (leave) | B1 (catch DivideByZeroException) | B2 (finally)  [try]
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  div
+       IL_0003  stloc.0
+       IL_0004  leave.s    IL_0021
+  B1 IL_0006..IL_0015  -> B3 (leave)  [catch DivideByZeroException]
+       IL_0006  dup
+       IL_0007  call       void [Microsoft.VisualBasic.Core]Microsoft.VisualBasic.CompilerServices.ProjectData::SetProjectError(class [System.Runtime]System.Exception)
+       IL_000C  stloc.1
+       IL_000D  ldc.i4.0
+       IL_000E  stloc.0
+       IL_000F  call       void [Microsoft.VisualBasic.Core]Microsoft.VisualBasic.CompilerServices.ProjectData::ClearProjectError()
+       IL_0014  leave.s    IL_0021
+  B2 IL_0016..IL_0020  -> endfinally  [finally]
+       IL_0016  ldstr      "divided"
+       IL_001B  call       void [System.Console]System.Console::WriteLine(string)
+       IL_0020  endfinally
+  B3 IL_0021..IL_0022  -> exit
+       IL_0021  ldloc.0
+       IL_0022  ret
+  exits: B3 (return)
+  regions:
+    try IL_0000..IL_0015
+      try IL_0000..IL_0005  [B0]
+      catch DivideByZeroException IL_0006..IL_0015  [B1]  (handler of try IL_0000)
+    finally IL_0016..IL_0020  [B2]  (handler of try IL_0000)
+
+Type     : Ref.VbLibrary.Accounts.Account+BalanceChangedEventHandler
+
+Method   : void .ctor(object TargetObject, nint TargetMethod)
+Kind     : ctor, instance, public, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001A
+
+Method   : IAsyncResult BeginInvoke(object sender, Decimal newBalance, AsyncCallback DelegateCallback, object DelegateAsyncState)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001B
+
+Method   : void EndInvoke(IAsyncResult DelegateAsyncResult)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001C
+
+Method   : void Invoke(object sender, Decimal newBalance)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600001D
+
+Type     : Ref.VbLibrary.Accounts.Bank+VB$StateMachine_4_Statements
+
+Method   : void .ctor(int $State)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2510   Size: 25 bytes   Token: 0x0600001E
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0018  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  ldarg.0
+       IL_0007  ldarg.1
+       IL_0008  stfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$State
+       IL_000D  ldarg.0
+       IL_000E  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+       IL_0013  stfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$InitialThreadId
+       IL_0018  ret
+  exits: B0 (return)
+
+Method   : void Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x252C   Size: 44 bytes   Token: 0x0600001F
+
+[Branches]  complexity=2  blocks=4  loops=0
+  B0 IL_0000..IL_000A  -> B1 (V_0 == 1) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  ldfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$State
+       IL_0006  stloc.0
+       IL_0007  ldloc.0
+       IL_0008  ldc.i4.1
+       IL_0009  bne.un.s   IL_0015
+  B1 IL_000B..IL_0014  -> B3
+       IL_000B  ldarg.0
+       IL_000C  ldc.i4.s   -3
+       IL_000E  stfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$State
+       IL_0013  br.s       IL_001C
+  B2 IL_0015..IL_001B  -> B3
+       IL_0015  ldarg.0
+       IL_0016  ldc.i4.m1
+       IL_0017  stfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$State
+  B3 IL_001C..IL_002B  -> exit
+       IL_001C  ldarg.0
+       IL_001D  call       instance bool Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::MoveNext()
+       IL_0022  pop
+       IL_0023  ldarg.0
+       IL_0024  ldc.i4.s   -2
+       IL_0026  stfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$State
+       IL_002B  ret
+  exits: B3 (return)
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2564   Size: 201 bytes   Token: 0x06000020
+
+[Branches]  complexity=12  blocks=19  loops=0
+  B0 IL_0000..IL_0023  -> B3 (case 0) | B1 (case 1) | B1 (case 2) | B2 (case 3) | B3 (case 4) | B1 (default)
+       IL_0000  ldarg.0
+       IL_0001  ldfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$State
+       IL_0006  stloc.1
+       IL_0007  ldloc.1
+       IL_0008  ldc.i4.s   -3
+       IL_000A  sub
+       IL_000B  switch     (IL_002F, IL_0024, IL_0024, IL_0026, IL_002F)
+  B1 IL_0024..IL_0025  -> exit
+       IL_0024  ldc.i4.0
+       IL_0025  ret
+  B2 IL_0026..IL_002E  -> B3
+       IL_0026  ldarg.0
+       IL_0027  ldc.i4.m1
+       IL_0028  dup
+       IL_0029  stloc.1
+       IL_002A  stfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$State
+  B3 IL_002F..IL_002F  -> B4
+       IL_002F  nop
+  B4 IL_0030..IL_0034  -> B5 (V_1 != -3) | B7 (else) | B13 (finally)  [try]
+       IL_0030  ldloc.1
+       IL_0031  ldc.i4.s   -3
+       IL_0033  beq.s      IL_003B
+  B5 IL_0035..IL_0038  -> B6 (V_1 != 1) | B10 (else)  [try]
+       IL_0035  ldloc.1
+       IL_0036  ldc.i4.1
+       IL_0037  beq.s      IL_0095
+  B6 IL_0039..IL_003A  -> B8  [try]
+       IL_0039  br.s       IL_0048
+  B7 IL_003B..IL_0047  -> B18 (leave)  [try]
+       IL_003B  ldarg.0
+       IL_003C  ldc.i4.m1
+       IL_003D  dup
+       IL_003E  stloc.1
+       IL_003F  stfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$State
+       IL_0044  ldc.i4.1
+       IL_0045  stloc.0
+       IL_0046  leave.s    IL_00C7
+  B8 IL_0048..IL_005F  -> B11  [try]
+       IL_0048  ldarg.0
+       IL_0049  ldarg.0
+       IL_004A  ldfld      class Ref.VbLibrary.Accounts.Account Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$VB$Local_account
+       IL_004F  callvirt   instance class [System.Runtime]System.Collections.Generic.IEnumerable`1<string> Ref.VbLibrary.Accounts.Account::History()
+       IL_0054  callvirt   instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class [System.Runtime]System.Collections.Generic.IEnumerable`1<string>::GetEnumerator()
+       IL_0059  stfld      class [System.Runtime]System.Collections.Generic.IEnumerator`1<string> Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$S0
+       IL_005E  br.s       IL_009E
+  B9 IL_0060..IL_0094  -> B18 (leave)  [try]
+       IL_0060  ldarg.0
+       IL_0061  ldfld      class [System.Runtime]System.Collections.Generic.IEnumerator`1<string> Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$S0
+       IL_0066  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IEnumerator`1<string>::get_Current()
+       IL_006B  stloc.2
+       IL_006C  ldarg.0
+       IL_006D  ldarg.0
+       IL_006E  ldfld      class Ref.VbLibrary.Accounts.Account Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$VB$Local_account
+       IL_0073  callvirt   instance string Ref.VbLibrary.Accounts.Account::get_Owner()
+       IL_0078  ldstr      ": "
+       IL_007D  ldloc.2
+       IL_007E  call       string [System.Runtime]System.String::Concat(string, string, string)
+       IL_0083  stfld      string Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$Current
+       IL_0088  ldarg.0
+       IL_0089  ldc.i4.1
+       IL_008A  dup
+       IL_008B  stloc.1
+       IL_008C  stfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$State
+       IL_0091  ldc.i4.1
+       IL_0092  stloc.0
+       IL_0093  leave.s    IL_00C7
+  B10 IL_0095..IL_009D  -> B11  [try]
+       IL_0095  ldarg.0
+       IL_0096  ldc.i4.m1
+       IL_0097  dup
+       IL_0098  stloc.1
+       IL_0099  stfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$State
+  B11 IL_009E..IL_00AA  -> B9 (this.$S0.MoveNext()) | B12 (else)  [try]
+       IL_009E  ldarg.0
+       IL_009F  ldfld      class [System.Runtime]System.Collections.Generic.IEnumerator`1<string> Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$S0
+       IL_00A4  callvirt   instance bool [System.Runtime]System.Collections.IEnumerator::MoveNext()
+       IL_00A9  brtrue.s   IL_0060
+  B12 IL_00AB..IL_00AC  -> B17 (leave)  [try]
+       IL_00AB  leave.s    IL_00C5
+  B13 IL_00AD..IL_00B0  -> B14 (V_1 < 0) | B16 (else)  [finally]
+       IL_00AD  ldloc.1
+       IL_00AE  ldc.i4.0
+       IL_00AF  bge.s      IL_00C4
+  B14 IL_00B1..IL_00B8  -> B15 (this.$S0 != null) | B16 (else)  [finally]
+       IL_00B1  ldarg.0
+       IL_00B2  ldfld      class [System.Runtime]System.Collections.Generic.IEnumerator`1<string> Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$S0
+       IL_00B7  brfalse.s  IL_00C4
+  B15 IL_00B9..IL_00C3  -> B16  [finally]
+       IL_00B9  ldarg.0
+       IL_00BA  ldfld      class [System.Runtime]System.Collections.Generic.IEnumerator`1<string> Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$S0
+       IL_00BF  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  B16 IL_00C4..IL_00C4  -> endfinally  [finally]
+       IL_00C4  endfinally
+  B17 IL_00C5..IL_00C6  -> exit
+       IL_00C5  ldc.i4.0
+       IL_00C6  ret
+  B18 IL_00C7..IL_00C8  -> exit
+       IL_00C7  ldloc.0
+       IL_00C8  ret
+  exits: B1 (return), B17 (return), B18 (return)
+  regions:
+    try IL_0030..IL_00AC  [B4 B5 B6 B7 B8 B9 B10 B11 B12]
+    finally IL_00AD..IL_00C4  [B13 B14 B15 B16]  (handler of try IL_0030)
+
+Method   : IEnumerator<string> GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x264C   Size: 55 bytes   Token: 0x06000021
+
+[Branches]  complexity=3  blocks=5  loops=0
+  B0 IL_0000..IL_0009  -> B1 (this.$State == -2) | B3 (else)
+       IL_0000  ldarg.0
+       IL_0001  ldfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$State
+       IL_0006  ldc.i4.s   -2
+       IL_0008  bne.un.s   IL_0022
+  B1 IL_000A..IL_0016  -> B2 (this.$InitialThreadId == Environment.CurrentManagedThreadId) | B3 (else)
+       IL_000A  ldarg.0
+       IL_000B  ldfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$InitialThreadId
+       IL_0010  call       int32 [System.Runtime]System.Environment::get_CurrentManagedThreadId()
+       IL_0015  bne.un.s   IL_0022
+  B2 IL_0017..IL_0021  -> B4
+       IL_0017  ldarg.0
+       IL_0018  ldc.i4.0
+       IL_0019  stfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$State
+       IL_001E  ldarg.0
+       IL_001F  stloc.0
+       IL_0020  br.s       IL_0029
+  B3 IL_0022..IL_0028  -> B4
+       IL_0022  ldc.i4.0
+       IL_0023  newobj     instance void Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::.ctor(int32)
+       IL_0028  stloc.0
+  B4 IL_0029..IL_0036  -> exit
+       IL_0029  ldloc.0
+       IL_002A  ldarg.0
+       IL_002B  ldfld      class Ref.VbLibrary.Accounts.Account Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$P_account
+       IL_0030  stfld      class Ref.VbLibrary.Accounts.Account Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$VB$Local_account
+       IL_0035  ldloc.0
+       IL_0036  ret
+  exits: B4 (return)
+
+Method   : IEnumerator IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x268F   Size: 7 bytes   Token: 0x06000022
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<string> Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::GetEnumerator()
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : string get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2697   Size: 7 bytes   Token: 0x06000023
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      string Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$Current
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x269F   Size: 6 bytes   Token: 0x06000024
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0005  -> throw
+       IL_0000  newobj     instance void [System.Runtime]System.NotSupportedException::.ctor()
+       IL_0005  throw
+  exits: B0 (throw)
+
+Method   : object IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26A6   Size: 7 bytes   Token: 0x06000025
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      string Ref.VbLibrary.Accounts.Bank/VB$StateMachine_4_Statements::$Current
+       IL_0006  ret
+  exits: B0 (return)
+
+Type     : Ref.VbLibrary.Accounts.Bank+VB$StateMachine_5_TransferAsync
+
+Method   : void MoveNext()
+Kind     : instance, internal, virtual, sealed, compiler-generated
+RVA      : 0x26B0   Size: 266 bytes   Token: 0x06000026
+
+[Branches]  complexity=7  blocks=15  loops=0
+  B0 IL_0000..IL_0006  -> B1
+       IL_0000  ldarg.0
+       IL_0001  ldfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$State
+       IL_0006  stloc.1
+  B1 IL_0007..IL_0009  -> B2 (V_1 != 0) | B4 (else) | B12 (catch Exception)  [try]
+       IL_0007  ldloc.1
+       IL_0008  brfalse.s  IL_0044
+  B2 IL_000A..IL_0020  -> B3 (!V_2.IsCompleted) | B5 (else)  [try]
+       IL_000A  call       valuetype [System.Runtime]System.Runtime.CompilerServices.YieldAwaitable [System.Runtime]System.Threading.Tasks.Task::Yield()
+       IL_000F  stloc.3
+       IL_0010  ldloca.s   V_3
+       IL_0012  call       instance valuetype [System.Runtime]System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter [System.Runtime]System.Runtime.CompilerServices.YieldAwaitable::GetAwaiter()
+       IL_0017  stloc.2
+       IL_0018  ldloca.s   V_2
+       IL_001A  call       instance bool [System.Runtime]System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter::get_IsCompleted()
+       IL_001F  brtrue.s   IL_0060
+  B3 IL_0021..IL_0043  -> B14 (leave)  [try]
+       IL_0021  ldarg.0
+       IL_0022  ldc.i4.0
+       IL_0023  dup
+       IL_0024  stloc.1
+       IL_0025  stfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$State
+       IL_002A  ldarg.0
+       IL_002B  ldloc.2
+       IL_002C  stfld      valuetype [System.Runtime]System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$A0
+       IL_0031  ldarg.0
+       IL_0032  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool> Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$Builder
+       IL_0037  ldloca.s   V_2
+       IL_0039  ldarg.0
+       IL_003A  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool>::AwaitUnsafeOnCompleted<valuetype [System.Runtime]System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter, valuetype Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync>(!!0&, !!1&)
+       IL_003F  leave      IL_0109
+  B4 IL_0044..IL_005F  -> B5  [try]
+       IL_0044  ldarg.0
+       IL_0045  ldc.i4.m1
+       IL_0046  dup
+       IL_0047  stloc.1
+       IL_0048  stfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$State
+       IL_004D  ldarg.0
+       IL_004E  ldfld      valuetype [System.Runtime]System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$A0
+       IL_0053  stloc.2
+       IL_0054  ldarg.0
+       IL_0055  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$A0
+       IL_005A  initobj    [System.Runtime]System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter
+  B5 IL_0060..IL_006E  -> B6  [try]
+       IL_0060  ldloca.s   V_2
+       IL_0062  call       instance void [System.Runtime]System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter::GetResult()
+       IL_0067  ldloca.s   V_2
+       IL_0069  initobj    [System.Runtime]System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter
+  B6 IL_006F..IL_0094  -> B13 (leave) | B7 (filter) | B11 (catch when filter)  [try]
+       IL_006F  ldarg.0
+       IL_0070  ldfld      class Ref.VbLibrary.Accounts.Account Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$VB$Local_source
+       IL_0075  ldarg.0
+       IL_0076  ldfld      valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$VB$Local_amount
+       IL_007B  callvirt   instance void Ref.VbLibrary.Accounts.Account::Withdraw(valuetype [System.Runtime]System.Decimal)
+       IL_0080  ldarg.0
+       IL_0081  ldfld      class Ref.VbLibrary.Accounts.Account Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$VB$Local_target
+       IL_0086  ldarg.0
+       IL_0087  ldfld      valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$VB$Local_amount
+       IL_008C  callvirt   instance void Ref.VbLibrary.Accounts.Account::Deposit(valuetype [System.Runtime]System.Decimal)
+       IL_0091  ldc.i4.1
+       IL_0092  stloc.0
+       IL_0093  leave.s    IL_00F3
+  B7 IL_0095..IL_009C  -> B8 (!(ex is InsufficientFundsException)) | B9 (else)  [filter]
+       IL_0095  isinst     Ref.VbLibrary.Accounts.InsufficientFundsException
+       IL_009A  dup
+       IL_009B  brtrue.s   IL_00A1
+  B8 IL_009D..IL_00A0  -> B10  [filter]
+       IL_009D  pop
+       IL_009E  ldc.i4.0
+       IL_009F  br.s       IL_00C3
+  B9 IL_00A1..IL_00C2  -> B10  [filter]
+       IL_00A1  dup
+       IL_00A2  call       void [Microsoft.VisualBasic.Core]Microsoft.VisualBasic.CompilerServices.ProjectData::SetProjectError(class [System.Runtime]System.Exception)
+       IL_00A7  stloc.s    V_4
+       IL_00A9  ldloc.s    V_4
+       IL_00AB  callvirt   instance valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.InsufficientFundsException::get_Needed()
+       IL_00B0  ldc.i4.s   10
+       IL_00B2  conv.i8
+       IL_00B3  newobj     instance void [System.Runtime]System.Decimal::.ctor(int64)
+       IL_00B8  call       int32 [System.Runtime]System.Decimal::Compare(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+       IL_00BD  ldc.i4.0
+       IL_00BE  clt
+       IL_00C0  ldc.i4.0
+       IL_00C1  cgt.un
+  B10 IL_00C3..IL_00C4  -> endfilter  [filter]
+       IL_00C3  endfilter
+  B11 IL_00C5..IL_00CE  -> B13 (leave)  [catch when filter]
+       IL_00C5  pop
+       IL_00C6  ldc.i4.0
+       IL_00C7  stloc.0
+       IL_00C8  call       void [Microsoft.VisualBasic.Core]Microsoft.VisualBasic.CompilerServices.ProjectData::ClearProjectError()
+       IL_00CD  leave.s    IL_00F3
+  B12 IL_00CF..IL_00F2  -> B14 (leave)  [catch Exception]
+       IL_00CF  dup
+       IL_00D0  call       void [Microsoft.VisualBasic.Core]Microsoft.VisualBasic.CompilerServices.ProjectData::SetProjectError(class [System.Runtime]System.Exception)
+       IL_00D5  stloc.s    V_5
+       IL_00D7  ldarg.0
+       IL_00D8  ldc.i4.s   -2
+       IL_00DA  stfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$State
+       IL_00DF  ldarg.0
+       IL_00E0  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool> Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$Builder
+       IL_00E5  ldloc.s    V_5
+       IL_00E7  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool>::SetException(class [System.Runtime]System.Exception)
+       IL_00EC  call       void [Microsoft.VisualBasic.Core]Microsoft.VisualBasic.CompilerServices.ProjectData::ClearProjectError()
+       IL_00F1  leave.s    IL_0109
+  B13 IL_00F3..IL_0108  -> B14
+       IL_00F3  ldarg.0
+       IL_00F4  ldc.i4.s   -2
+       IL_00F6  dup
+       IL_00F7  stloc.1
+       IL_00F8  stfld      int32 Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$State
+       IL_00FD  ldarg.0
+       IL_00FE  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool> Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$Builder
+       IL_0103  ldloc.0
+       IL_0104  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool>::SetResult(!0)
+  B14 IL_0109..IL_0109  -> exit
+       IL_0109  ret
+  exits: B14 (return)
+  regions:
+    try IL_0007..IL_00CE  [B1 B2 B3 B4 B5]
+      try IL_006F..IL_0094  [B6]
+      filter IL_0095..IL_00C4  [B7 B8 B9 B10]  (handler of try IL_006F)
+      catch when filter IL_00C5..IL_00CE  [B11]  (handler of try IL_006F)
+    catch Exception IL_00CF..IL_00F2  [B12]  (handler of try IL_0007)
+
+Method   : void System.Runtime.CompilerServices.IAsyncStateMachine.SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x27E4   Size: 13 bytes   Token: 0x06000027
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000C  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldflda     valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool> Ref.VbLibrary.Accounts.Bank/VB$StateMachine_5_TransferAsync::$Builder
+       IL_0006  ldarg.1
+       IL_0007  call       instance void valuetype [System.Runtime]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool>::SetStateMachine(class [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine)
+       IL_000C  ret
+  exits: B0 (return)
+
+Type     : Ref.VbLibrary.Accounts.Bank+_Closure$__
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x27F2   Size: 7 bytes   Token: 0x06000028
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x27FA   Size: 11 bytes   Token: 0x06000029
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000A  -> exit
+       IL_0000  newobj     instance void Ref.VbLibrary.Accounts.Bank/_Closure$__::.ctor()
+       IL_0005  stsfld     class Ref.VbLibrary.Accounts.Bank/_Closure$__ Ref.VbLibrary.Accounts.Bank/_Closure$__::$I
+       IL_000A  ret
+  exits: B0 (return)
+
+Method   : string _Lambda$__2-1(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2806   Size: 7 bytes   Token: 0x0600002A
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.1
+       IL_0001  callvirt   instance string Ref.VbLibrary.Accounts.Account::get_Owner()
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : string _Lambda$__2-2(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x280E   Size: 7 bytes   Token: 0x0600002B
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.1
+       IL_0001  callvirt   instance string Ref.VbLibrary.Accounts.Account::get_Owner()
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : AccountKind _Lambda$__3-0(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2816   Size: 7 bytes   Token: 0x0600002C
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.1
+       IL_0001  callvirt   instance valuetype Ref.VbLibrary.Accounts.AccountKind Ref.VbLibrary.Accounts.Account::get_Kind()
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : AccountKind _Lambda$__3-1(IGrouping<AccountKind, Account> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x281E   Size: 7 bytes   Token: 0x0600002D
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.1
+       IL_0001  callvirt   instance !0 class [System.Linq]System.Linq.IGrouping`2<valuetype Ref.VbLibrary.Accounts.AccountKind, class Ref.VbLibrary.Accounts.Account>::get_Key()
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : Decimal _Lambda$__3-2(IGrouping<AccountKind, Account> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2826   Size: 43 bytes   Token: 0x0600002E
+
+[Branches]  complexity=2  blocks=4  loops=0
+  B0 IL_0000..IL_0007  -> B1 (_Closure$__.$I3-3 != null) | B2 (else)
+       IL_0000  ldarg.1
+       IL_0001  ldsfld     class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, valuetype [System.Runtime]System.Decimal> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I3-3'
+       IL_0006  brfalse.s  IL_000F
+  B1 IL_0008..IL_000E  -> B3
+       IL_0008  ldsfld     class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, valuetype [System.Runtime]System.Decimal> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I3-3'
+       IL_000D  br.s       IL_0025
+  B2 IL_000F..IL_0024  -> B3
+       IL_000F  ldsfld     class Ref.VbLibrary.Accounts.Bank/_Closure$__ Ref.VbLibrary.Accounts.Bank/_Closure$__::$I
+       IL_0014  ldftn      instance valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Bank/_Closure$__::'_Lambda$__3-3'(class Ref.VbLibrary.Accounts.Account)
+       IL_001A  newobj     instance void class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, valuetype [System.Runtime]System.Decimal>::.ctor(object, native int)
+       IL_001F  dup
+       IL_0020  stsfld     class [System.Runtime]System.Func`2<class Ref.VbLibrary.Accounts.Account, valuetype [System.Runtime]System.Decimal> Ref.VbLibrary.Accounts.Bank/_Closure$__::'$I3-3'
+  B3 IL_0025..IL_002A  -> exit
+       IL_0025  call       valuetype [System.Runtime]System.Decimal [System.Linq]System.Linq.Enumerable::Sum<class Ref.VbLibrary.Accounts.Account>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, valuetype [System.Runtime]System.Decimal>)
+       IL_002A  ret
+  exits: B3 (return)
+
+Method   : Decimal _Lambda$__3-3(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2852   Size: 7 bytes   Token: 0x0600002F
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.1
+       IL_0001  callvirt   instance valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Account::get_Balance()
+       IL_0006  ret
+  exits: B0 (return)
+
+Type     : Ref.VbLibrary.Accounts.Bank+_Closure$__2-0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x285A   Size: 7 bytes   Token: 0x06000030
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : bool _Lambda$__0(Account a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2862   Size: 21 bytes   Token: 0x06000031
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0014  -> exit
+       IL_0000  ldarg.1
+       IL_0001  callvirt   instance valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Account::get_Balance()
+       IL_0006  ldarg.0
+       IL_0007  ldfld      valuetype [System.Runtime]System.Decimal Ref.VbLibrary.Accounts.Bank/_Closure$__2-0::$VB$Local_limit
+       IL_000C  call       int32 [System.Runtime]System.Decimal::Compare(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+       IL_0011  ldc.i4.0
+       IL_0012  cgt
+       IL_0014  ret
+  exits: B0 (return)

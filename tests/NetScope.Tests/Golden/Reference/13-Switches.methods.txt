@@ -1,0 +1,282 @@
+Assembly : Ref13.Switches.dll
+Name     : Ref13.Switches, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 67
+
+Type     : Ref.Switches.Shape
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, virtual, compiler-generated
+RVA      : 0x2050   Size: 11 bytes   Token: 0x06000001
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x205C   Size: 64 bytes   Token: 0x06000002
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, virtual, compiler-generated
+RVA      : 0x20A8   Size: 2 bytes   Token: 0x06000003
+
+Method   : bool op_Inequality(Shape left, Shape right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x20AB   Size: 11 bytes   Token: 0x06000004
+
+Method   : bool op_Equality(Shape left, Shape right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x20B7   Size: 19 bytes   Token: 0x06000005
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20CB   Size: 17 bytes   Token: 0x06000006
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20DD   Size: 13 bytes   Token: 0x06000007
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x20EB   Size: 29 bytes   Token: 0x06000008
+
+Method   : Shape <Clone>$()
+Kind     : instance, public, abstract, compiler-generated, no-body
+RVA      : 0x0000   Token: 0x06000009
+
+Method   : void .ctor(Shape original)
+Kind     : ctor, instance, protected, compiler-generated
+RVA      : 0x2109   Size: 7 bytes   Token: 0x0600000A
+
+Method   : void .ctor()
+Kind     : ctor, instance, protected
+RVA      : 0x2111   Size: 7 bytes   Token: 0x0600000B
+
+Type     : Ref.Switches.Circle
+
+Method   : void .ctor(double Radius)
+Kind     : ctor, instance, public
+RVA      : 0x2119   Size: 14 bytes   Token: 0x0600000C
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x2128   Size: 11 bytes   Token: 0x0600000D
+
+Method   : double get_Radius()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2134   Size: 7 bytes   Token: 0x0600000E
+
+Method   : void set_Radius(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x213C   Size: 8 bytes   Token: 0x0600000F
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2148   Size: 64 bytes   Token: 0x06000010
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x2194   Size: 62 bytes   Token: 0x06000011
+
+Method   : bool op_Inequality(Circle left, Circle right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x21DE   Size: 11 bytes   Token: 0x06000012
+
+Method   : bool op_Equality(Circle left, Circle right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x21EA   Size: 19 bytes   Token: 0x06000013
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x21FE   Size: 30 bytes   Token: 0x06000014
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x221D   Size: 13 bytes   Token: 0x06000015
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x222B   Size: 8 bytes   Token: 0x06000016
+
+Method   : bool Equals(Circle other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x2234   Size: 40 bytes   Token: 0x06000017
+
+Method   : Circle <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x225D   Size: 7 bytes   Token: 0x06000018
+
+Method   : void .ctor(Circle original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x2265   Size: 20 bytes   Token: 0x06000019
+
+Method   : void Deconstruct(out double Radius)
+Kind     : instance, public, compiler-generated
+RVA      : 0x227A   Size: 9 bytes   Token: 0x0600001A
+
+Type     : Ref.Switches.Rect
+
+Method   : void .ctor(double Width, double Height)
+Kind     : ctor, instance, public
+RVA      : 0x2284   Size: 21 bytes   Token: 0x0600001B
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x229A   Size: 11 bytes   Token: 0x0600001C
+
+Method   : double get_Width()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22A6   Size: 7 bytes   Token: 0x0600001D
+
+Method   : void set_Width(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22AE   Size: 8 bytes   Token: 0x0600001E
+
+Method   : double get_Height()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22B7   Size: 7 bytes   Token: 0x0600001F
+
+Method   : void set_Height(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22BF   Size: 8 bytes   Token: 0x06000020
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x22C8   Size: 64 bytes   Token: 0x06000021
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x2314   Size: 101 bytes   Token: 0x06000022
+
+Method   : bool op_Inequality(Rect left, Rect right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2385   Size: 11 bytes   Token: 0x06000023
+
+Method   : bool op_Equality(Rect left, Rect right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2391   Size: 19 bytes   Token: 0x06000024
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x23A5   Size: 53 bytes   Token: 0x06000025
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x23DB   Size: 13 bytes   Token: 0x06000026
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x23E9   Size: 8 bytes   Token: 0x06000027
+
+Method   : bool Equals(Rect other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x23F4   Size: 64 bytes   Token: 0x06000028
+
+Method   : Rect <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x2440   Size: 7 bytes   Token: 0x06000029
+
+Method   : void .ctor(Rect original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x2448   Size: 32 bytes   Token: 0x0600002A
+
+Method   : void Deconstruct(out double Width, out double Height)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2469   Size: 17 bytes   Token: 0x0600002B
+
+Type     : Ref.Switches.Polygon
+
+Method   : void .ctor(IReadOnlyList<ValueTuple<double, double>> Points)
+Kind     : ctor, instance, public
+RVA      : 0x247B   Size: 14 bytes   Token: 0x0600002C
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x248A   Size: 11 bytes   Token: 0x0600002D
+
+Method   : IReadOnlyList<ValueTuple<double, double>> get_Points()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2496   Size: 7 bytes   Token: 0x0600002E
+
+Method   : void set_Points(IReadOnlyList<ValueTuple<double, double>> value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x249E   Size: 8 bytes   Token: 0x0600002F
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x24A8   Size: 64 bytes   Token: 0x06000030
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x24F4   Size: 48 bytes   Token: 0x06000031
+
+Method   : bool op_Inequality(Polygon left, Polygon right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2525   Size: 11 bytes   Token: 0x06000032
+
+Method   : bool op_Equality(Polygon left, Polygon right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2531   Size: 19 bytes   Token: 0x06000033
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2545   Size: 30 bytes   Token: 0x06000034
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2564   Size: 13 bytes   Token: 0x06000035
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2572   Size: 8 bytes   Token: 0x06000036
+
+Method   : bool Equals(Polygon other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x257B   Size: 40 bytes   Token: 0x06000037
+
+Method   : Polygon <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x25A4   Size: 7 bytes   Token: 0x06000038
+
+Method   : void .ctor(Polygon original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x25AC   Size: 20 bytes   Token: 0x06000039
+
+Method   : void Deconstruct(out IReadOnlyList<ValueTuple<double, double>> Points)
+Kind     : instance, public, compiler-generated
+RVA      : 0x25C1   Size: 9 bytes   Token: 0x0600003A
+
+Type     : Ref.Switches.Dispatch
+
+Method   : string HttpStatus(int code)
+Kind     : static, public
+RVA      : 0x25CC   Size: 394 bytes   Token: 0x0600003B
+
+Method   : int Keyword(string word)
+Kind     : static, public
+RVA      : 0x2764   Size: 710 bytes   Token: 0x0600003C
+
+Method   : ConsoleColor Color(string name)
+Kind     : static, public
+RVA      : 0x2A38   Size: 60 bytes   Token: 0x0600003D
+
+Method   : double Area(Shape shape)
+Kind     : static, public
+RVA      : 0x2A80   Size: 232 bytes   Token: 0x0600003E
+
+Method   : double Shoelace(IReadOnlyList<ValueTuple<double, double>> points)
+Kind     : static, private
+RVA      : 0x2B74   Size: 107 bytes   Token: 0x0600003F
+
+Method   : string Quadrant(int x, int y)
+Kind     : static, public
+RVA      : 0x2BEC   Size: 80 bytes   Token: 0x06000040
+
+Method   : string Describe(object o)
+Kind     : static, public
+RVA      : 0x2C48   Size: 338 bytes   Token: 0x06000041
+
+Method   : char Grade(int score)
+Kind     : static, public
+RVA      : 0x2DA8   Size: 78 bytes   Token: 0x06000042
+
+Method   : int CountTokens(string text)
+Kind     : static, public
+RVA      : 0x2E04   Size: 101 bytes   Token: 0x06000043

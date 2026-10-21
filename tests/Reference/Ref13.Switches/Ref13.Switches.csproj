@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 13. Pattern matching, switch on strings and a large switch: jump tables and hashed string switches. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Ref.Switches</RootNamespace>
+  </PropertyGroup>
+</Project>

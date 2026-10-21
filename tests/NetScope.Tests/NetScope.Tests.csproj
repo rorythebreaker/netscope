@@ -31,6 +31,36 @@
     <None Include="Golden\**" CopyToOutputDirectory="Never" />
   </ItemGroup>
 
+  <!-- Reference set (TZ-NetScope-3 §3, tests/Reference/README.md): built first, analyzed as files. They target other
+       frameworks, so the reference is build-order only (no framework negotiation, no output assembly). -->
+  <ItemGroup>
+    <ReferenceSetProject Include="..\Reference\Ref*\*.csproj;..\Reference\Ref*\*.vbproj;..\Reference\Ref*\*.fsproj;..\Reference\Ref*\*.ilproj" />
+    <ProjectReference Include="@(ReferenceSetProject)" ReferenceOutputAssembly="false" SkipGetTargetFrameworkProperties="true" GlobalPropertiesToRemove="TargetFramework;RuntimeIdentifier" />
+  </ItemGroup>
+
+  <!-- ildasm from the Microsoft.NETCore.ILDAsm package for the build machine (Windows and Linux, x64 and ARM64). -->
+  <PropertyGroup>
+    <IldasmVersion>10.0.13</IldasmVersion>
+    <IldasmRid>$(NETCoreSdkRuntimeIdentifier)</IldasmRid>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageDownload Include="runtime.$(IldasmRid).Microsoft.NETCore.ILDAsm" Version="[$(IldasmVersion)]" />
+    <AssemblyMetadata Include="IldasmDir" Value="$(NuGetPackageRoot)runtime.$(IldasmRid.ToLowerInvariant()).microsoft.netcore.ildasm/$(IldasmVersion)/runtimes/$(IldasmRid)/native/" />
+  </ItemGroup>
+
+  <!-- Reference assemblies 18 and 19: ReadyToRun copies of Ref02.Library for win-x64 and linux-arm64, compiled on any host. -->
+  <PropertyGroup>
+    <ReferenceR2RDir>$(MSBuildThisFileDirectory)..\Reference\bin\r2r\$(Configuration)\</ReferenceR2RDir>
+  </PropertyGroup>
+  <Target Name="PublishReferenceReadyToRun" BeforeTargets="Build"
+          Inputs="..\Reference\Ref02.Library\Inventory.cs;..\Reference\Ref02.Library\Ref02.Library.csproj"
+          Outputs="$(ReferenceR2RDir)win-x64\Ref02.Library.dll;$(ReferenceR2RDir)linux-arm64\Ref02.Library.dll">
+    <Exec Command="dotnet publish &quot;$(MSBuildThisFileDirectory)..\Reference\Ref02.Library\Ref02.Library.csproj&quot; -c $(Configuration) -r %(R2RRid.Identity) --self-contained false -p:PublishReadyToRun=true -o &quot;$(ReferenceR2RDir)%(R2RRid.Identity)&quot; -v q -nologo" />
+  </Target>
+  <ItemGroup>
+    <R2RRid Include="win-x64;linux-arm64" />
+  </ItemGroup>
+
   <!-- ReadyToRun copy of the sample assembly for the native code tests (compiled for the build machine). -->
   <PropertyGroup>
     <SamplesR2RDir>$(MSBuildThisFileDirectory)..\NetScope.Samples\bin\r2r\$(Configuration)\</SamplesR2RDir>
