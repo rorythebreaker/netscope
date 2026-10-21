@@ -147,7 +147,8 @@ jobs:
           $props = Join-Path $ghidra 'Ghidra/Extensions/Ghidrathon/extension.properties'
           (Get-Content $props) -replace '^version=.*', "version=${env:GHIDRA_VERSION}" | Set-Content $props
           python (Join-Path $dl 'ghidrathon_configure.py') $ghidra             # writes ghidrathon.save (the interpreter)
-          Remove-Item (Join-Path $ghidra 'Ghidra/Features/Jython') -Recurse -Force
+          # Ghidra 11.1.2 ships Jython as the "Python" feature (later versions call it "Jython").
+          Remove-Item (Join-Path $ghidra 'Ghidra/Features/Python') -Recurse -Force
       - name: Build (also publishes the ReadyToRun sample)
         run: dotnet build NetScope.sln -c Release
       - name: Run the scripts in Ghidra with Ghidrathon
