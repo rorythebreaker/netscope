@@ -92,19 +92,16 @@ public class ReferenceSetTests
         using var loaded = Open(asm, out var resolver, out var methods);
         var provider = new AsmProvider(resolver, false, Array.Empty<string>(), TimeSpan.FromSeconds(1));
 
-        // Documented difference: ConfuserEx nests types in a type that does not exist, and ildasm aborts on that
-        // (its protection against ildasm). For this file the independent reference is ILSpy's disassembler.
+        // Documented difference: ConfuserEx nests types in a type that does not exist. The Windows build of ildasm
+        // aborts on that (its protection against ildasm); the Unix build reads the file. Where ildasm cannot, the
+        // independent reference for the obfuscated file is ILSpy's disassembler.
         Dictionary<int, List<string>> reference;
-        if (asm.Obfuscated)
-        {
-            Assert.False(Ildasm.TryDisassemble(asm.Path, out _, out _), "ildasm now reads the ConfuserEx fixture: compare with it and update docs/reference-set.md");
-            reference = methods.ToDictionary(m => m.Token, m => IlspyListing(loaded, m.Handle));
-        }
-        else
-        {
-            Assert.True(Ildasm.TryDisassemble(asm.Path, out var parsed, out var error), error);
+        if (Ildasm.TryDisassemble(asm.Path, out var parsed, out var error))
             reference = parsed;
-        }
+        else if (asm.Obfuscated)
+            reference = methods.ToDictionary(m => m.Token, m => IlspyListing(loaded, m.Handle));
+        else
+            throw new Xunit.Sdk.XunitException(error);
 
         Assert.Equal(reference.Keys.OrderBy(t => t), methods.Select(m => m.Token).OrderBy(t => t));
 
