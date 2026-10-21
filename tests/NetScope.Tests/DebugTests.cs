@@ -28,7 +28,7 @@ public sealed class DebugTests
     [Fact]
     public void BadFormatExitsTwo()
     {
-        var r = TestEnv.Run(Debug, TestEnv.SamplesPath, "--allow-run", "--format", "xml", "-q");
+        var r = TestEnv.Run(Debug, TestEnv.SamplesPath, "--allow-run", "--i-know-running-as-admin", "--format", "xml", "-q");
         Assert.Equal(Analyzer.ExitBadArguments, r.ExitCode);
     }
 
@@ -38,7 +38,7 @@ public sealed class DebugTests
         var dir = TestEnv.TempDir();
         var text = Path.Combine(dir, "notmanaged.dll");
         File.WriteAllText(text, new string('x', 256));
-        var r = TestEnv.Run(Debug, text, "--allow-run", "-q");
+        var r = TestEnv.Run(Debug, text, "--allow-run", "--i-know-running-as-admin", "-q");
         Assert.Equal(Analyzer.ExitNothingOpened, r.ExitCode);
         try { Directory.Delete(dir, true); } catch { }
     }
@@ -46,7 +46,7 @@ public sealed class DebugTests
     [Fact]
     public void MissingFileWithAllowRunIsRejected()
     {
-        var r = TestEnv.Run(Debug, Path.Combine(TestEnv.TempDir(), "nope.dll"), "--allow-run", "-q");
+        var r = TestEnv.Run(Debug, Path.Combine(TestEnv.TempDir(), "nope.dll"), "--allow-run", "--i-know-running-as-admin", "-q");
         Assert.Equal(Analyzer.ExitNothingOpened, r.ExitCode);
     }
 
@@ -60,7 +60,7 @@ public sealed class DebugTests
 
         var script = Path.Combine(TestEnv.TempDir(), "steps.txt");
         File.WriteAllText(script, "stack\ncontinue\n");
-        var r = TestEnv.Run(Debug, TestEnv.DebugTargetPath, "--allow-run", "--script", script);
+        var r = TestEnv.Run(Debug, TestEnv.DebugTargetPath, "--allow-run", "--i-know-running-as-admin", "--script", script);
 
         Assert.Equal(Analyzer.ExitOk, r.ExitCode);
         // Stopped at the managed entry point, with Main on the stack.
@@ -80,7 +80,7 @@ public sealed class DebugTests
 
         var script = Path.Combine(TestEnv.TempDir(), "steps.txt");
         File.WriteAllText(script, "continue\n");
-        var r = TestEnv.Run(Debug, TestEnv.DebugTargetPath, "--allow-run", "--script", script, "--format", "json");
+        var r = TestEnv.Run(Debug, TestEnv.DebugTargetPath, "--allow-run", "--i-know-running-as-admin", "--script", script, "--format", "json");
 
         Assert.Equal(Analyzer.ExitOk, r.ExitCode);
         Assert.Contains("\"event\":\"stopped\"", r.Stdout);
