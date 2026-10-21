@@ -97,7 +97,7 @@ public sealed class DebugTests
 
         var script = Path.Combine(TestEnv.TempDir(), "bp.txt");
         File.WriteAllText(script, "break NetScope.Samples.DebugTarget.Program::Add\nbreaks\ncontinue\nstack\ncontinue\n");
-        var r = TestEnv.Run(Debug, TestEnv.DebugTargetPath, "--allow-run", "--script", script);
+        var r = TestEnv.Run(Debug, TestEnv.DebugTargetPath, "--allow-run", "--i-know-running-as-admin", "--script", script);
 
         Assert.Equal(Analyzer.ExitOk, r.ExitCode);
         Assert.Contains("Breakpoint 1 at NetScope.Samples.DebugTarget.Program::Add", r.Stdout);
@@ -115,7 +115,7 @@ public sealed class DebugTests
 
         var script = Path.Combine(TestEnv.TempDir(), "step.txt");
         File.WriteAllText(script, "break NetScope.Samples.DebugTarget.Program::Add\ncontinue\nstep\ncontinue\n");
-        var r = TestEnv.Run(Debug, TestEnv.DebugTargetPath, "--allow-run", "--script", script);
+        var r = TestEnv.Run(Debug, TestEnv.DebugTargetPath, "--allow-run", "--i-know-running-as-admin", "--script", script);
 
         Assert.Equal(Analyzer.ExitOk, r.ExitCode);
         Assert.Contains("Stopped (step)", r.Stdout);
@@ -129,7 +129,7 @@ public sealed class DebugTests
 
         var script = Path.Combine(TestEnv.TempDir(), "code.txt");
         File.WriteAllText(script, "break NetScope.Samples.DebugTarget.Program::Add\ncontinue\nil\ncfg\npseudo\ncontinue\n");
-        var r = TestEnv.Run(Debug, TestEnv.DebugTargetPath, "--allow-run", "--script", script);
+        var r = TestEnv.Run(Debug, TestEnv.DebugTargetPath, "--allow-run", "--i-know-running-as-admin", "--script", script);
 
         Assert.Equal(Analyzer.ExitOk, r.ExitCode);
         Assert.Contains("IL_0000", r.Stdout);                 // il
