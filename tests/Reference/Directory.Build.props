@@ -6,6 +6,9 @@
     produce for ordinary code, so analyzers and warnings-as-errors stay off.
   -->
   <PropertyGroup>
+    <!-- This file is read before the SDK sets its default, and a reference from outside the solution arrives
+         without a configuration: give OutputPath below a value either way. -->
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
     <LangVersion>latest</LangVersion>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
