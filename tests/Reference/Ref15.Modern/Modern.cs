@@ -86,7 +86,8 @@ namespace Ref.Modern
         public static T Add<T>(T a, T b) where T : IAdditionOperators<T, T, T> => a + b;
     }
 
-    // Primary constructor of a class, collection expressions, a file-local type.
+    // Primary constructor of a class, collection expressions. (No file-local type: its metadata name contains a
+    // hash of the source path, which would make the reference output depend on the checkout location and OS.)
     public sealed class Catalog(string name, IEnumerable<string> items)
     {
         private readonly List<string> _items = [.. items];
@@ -102,7 +103,7 @@ namespace Ref.Modern
         public bool Contains(string item) => Helper.Normalize(_items).Contains(Helper.Normalize(item));
     }
 
-    file static class Helper
+    internal static class Helper
     {
         public static string Normalize(string s) => s.Trim().ToLowerInvariant();
         public static HashSet<string> Normalize(IEnumerable<string> items)

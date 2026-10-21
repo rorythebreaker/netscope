@@ -21,6 +21,8 @@
     <Optimize>true</Optimize>
     <!-- Identical bytes on every platform: no PDB (it would carry paths), deterministic compilation. -->
     <Deterministic>true</Deterministic>
+    <!-- The name of a C# file-local type contains a hash of its source path: map the checkout location away. -->
+    <PathMap>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))=/_/</PathMap>
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>

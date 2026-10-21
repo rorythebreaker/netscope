@@ -156,13 +156,14 @@ public class ReferenceSetTests
             methods = new Dictionary<int, List<string>>();
             var output = Path.Combine(TestEnv.TempDir(), "out.il");
             var psi = new ProcessStartInfo(exe) { UseShellExecute = false, RedirectStandardOutput = true, RedirectStandardError = true };
-            foreach (var a in new[] { "/utf8", "/tokens", "/out=" + output, assembly }) psi.ArgumentList.Add(a);
+            // '-' rather than '/': on Unix an argument starting with '/' is a path.
+            foreach (var a in new[] { "-utf8", "-tokens", "-out=" + output, assembly }) psi.ArgumentList.Add(a);
             using (var p = Process.Start(psi)!)
             {
                 var stderr = p.StandardError.ReadToEndAsync();
-                p.StandardOutput.ReadToEnd();
+                var stdout = p.StandardOutput.ReadToEnd();
                 p.WaitForExit();
-                error = $"ildasm exited with {p.ExitCode}: {stderr.Result}";
+                error = $"ildasm exited with {p.ExitCode}: {stderr.Result} {stdout}".Trim();
                 if (p.ExitCode != 0 || !File.Exists(output)) return false;
             }
 

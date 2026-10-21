@@ -3645,7 +3645,7 @@
             {
               "offset": 6,
               "opcode": "call",
-              "target": "Ref.Modern.<Modern>FF489395A1E20E605643BF69014925D7A99F6E6157B8F353A6763F1BB93A3375D__Helper::Normalize(IEnumerable<string>)",
+              "target": "Ref.Modern.Helper::Normalize(IEnumerable<string>)",
               "scope": "internal",
               "groupFile": "Ref15.Modern.dll",
               "groupToken": 100663393
@@ -3653,7 +3653,7 @@
             {
               "offset": 12,
               "opcode": "call",
-              "target": "Ref.Modern.<Modern>FF489395A1E20E605643BF69014925D7A99F6E6157B8F353A6763F1BB93A3375D__Helper::Normalize(string)",
+              "target": "Ref.Modern.Helper::Normalize(string)",
               "scope": "internal",
               "groupFile": "Ref15.Modern.dll",
               "groupToken": 100663392
@@ -3672,14 +3672,13 @@
         {
           "assembly": "Ref15.Modern",
           "namespace": "Ref.Modern",
-          "type": "Ref.Modern.<Modern>FF489395A1E20E605643BF69014925D7A99F6E6157B8F353A6763F1BB93A3375D__Helper",
+          "type": "Ref.Modern.Helper",
           "name": "Normalize",
           "signature": "string Normalize(string s)",
           "token": 100663392,
           "access": "public",
           "kinds": [
-            "static",
-            "compiler-generated"
+            "static"
           ],
           "rva": 10440,
           "size": 12,
@@ -3709,7 +3708,7 @@
             },
             {
               "assembly": "Ref15.Modern",
-              "method": "Ref.Modern.<Modern>FF489395A1E20E605643BF69014925D7A99F6E6157B8F353A6763F1BB93A3375D__Helper::Normalize",
+              "method": "Ref.Modern.Helper::Normalize",
               "signature": "HashSet<string> Normalize(IEnumerable<string> items)",
               "offset": 29,
               "opcode": "call"
@@ -3720,14 +3719,13 @@
         {
           "assembly": "Ref15.Modern",
           "namespace": "Ref.Modern",
-          "type": "Ref.Modern.<Modern>FF489395A1E20E605643BF69014925D7A99F6E6157B8F353A6763F1BB93A3375D__Helper",
+          "type": "Ref.Modern.Helper",
           "name": "Normalize",
           "signature": "HashSet<string> Normalize(IEnumerable<string> items)",
           "token": 100663393,
           "access": "public",
           "kinds": [
-            "static",
-            "compiler-generated"
+            "static"
           ],
           "rva": 10456,
           "size": 62,
@@ -3763,7 +3761,7 @@
             {
               "offset": 29,
               "opcode": "call",
-              "target": "Ref.Modern.<Modern>FF489395A1E20E605643BF69014925D7A99F6E6157B8F353A6763F1BB93A3375D__Helper::Normalize(string)",
+              "target": "Ref.Modern.Helper::Normalize(string)",
               "scope": "internal",
               "groupFile": "Ref15.Modern.dll",
               "groupToken": 100663392
