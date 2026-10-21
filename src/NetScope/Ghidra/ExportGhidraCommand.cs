@@ -63,24 +63,36 @@ public static class ExportGhidraCommand
                 return;
             }
 
-            using var asm = new AssemblyLoader().TryLoad(0, paths[0], out var reason);
-            if (asm == null)
-            {
-                Log.Error(file, "skipped: " + reason);
-                code = Analyzer.ExitNothingOpened;
-                return;
-            }
-
             GhidraAnnotations ann;
-            try
+            using (var asm = new AssemblyLoader().TryLoad(0, paths[0], out var reason))
             {
-                ann = GhidraAnnotationBuilder.Build(asm, audit);
-            }
-            catch (Exception ex)
-            {
-                Log.Error(file, "cannot build annotations: " + ex.Message);
-                code = Analyzer.ExitPartial;
-                return;
+                if (asm == null)
+                {
+                    // No CLR header: a NativeAOT image still names its methods in its stack trace metadata
+                    // (TZ-3 §4.3); any other native PE has nothing NetScope can add to what Ghidra reads itself.
+                    var native = NativeImageAnnotations.TryBuild(paths[0], out var nativeError);
+                    if (native == null)
+                    {
+                        Log.Error(file, "skipped: " + (nativeError ?? reason));
+                        code = Analyzer.ExitNothingOpened;
+                        return;
+                    }
+                    if (audit) Log.Warning(file, "--audit needs IL; a NativeAOT image has none, so no bookmarks are set");
+                    ann = native;
+                }
+                else
+                {
+                    try
+                    {
+                        ann = GhidraAnnotationBuilder.Build(asm, audit);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(file, "cannot build annotations: " + ex.Message);
+                        code = Analyzer.ExitPartial;
+                        return;
+                    }
+                }
             }
 
             foreach (var w in ann.Warnings) Log.Warning(file, w);

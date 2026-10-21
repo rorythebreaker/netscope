@@ -57,7 +57,7 @@ public static class GhidraScriptWriter
         "NetScope -> Ghidra annotation script.",
         "",
         "Source assembly : " + ann.AssemblyName,
-        "Architecture    : " + (ann.Architecture ?? "unknown") + (ann.TargetOs != null ? " (ReadyToRun for " + ann.TargetOs + ")" : ""),
+        "Architecture    : " + (ann.Architecture ?? "unknown") + (ann.TargetOs != null ? " (ReadyToRun for " + ann.TargetOs + ")" : "") + (ann.Kind != null ? ", " + ann.Kind : ""),
         "Ghidra version  : " + GhidraVersion + " (Python: Jython 2.7, or Ghidrathon " + GhidrathonVersion + " with Python 3)",
     }.Concat(ann.TargetOs == null ? Array.Empty<string>() : new[]
     {
@@ -137,14 +137,26 @@ public static class GhidraScriptWriter
         sb.AppendLine("    except:");
         sb.AppendLine("        _failed.append(rva)");
         sb.AppendLine();
-        foreach (var f in ann.Functions)
-            sb.AppendLine($"_name_function({f.Rva}, {Py(SymbolName(f.Name))}, {Py(f.Signature)})");
-        foreach (var f in ann.Funclets)
-            sb.AppendLine($"_label({f.Rva}, {Py(FuncletName(f))}, {Py("funclet of " + f.ParentName)})");
-        foreach (var i in ann.Imports)
-            sb.AppendLine($"_label({i.Rva}, {Py("imp_" + Sanitize(i.Name))}, {Py(i.Name)})");
-        foreach (var b in ann.Bookmarks)
-            sb.AppendLine($"_bookmark({b.Rva}, {Py(b.Category)}, {Py(b.Note)})");
+        foreach (var line in DataComment) sb.Append("# ").AppendLine(line);
+        sb.AppendLine("_DATA = [");
+        foreach (var chunk in Chunks(Records(ann)))
+        {
+            for (int i = 0; i < chunk.Count; i++)
+                sb.Append(i == 0 ? "    (" : "     ").Append(Py(chunk[i])).AppendLine(i == chunk.Count - 1 ? ")," : "");
+        }
+        sb.AppendLine("]");
+        sb.AppendLine();
+        sb.AppendLine("for _chunk in _DATA:");
+        sb.AppendLine("    for _record in _chunk.split(u\"\\u001e\"):");
+        sb.AppendLine("        if not _record:");
+        sb.AppendLine("            continue");
+        sb.AppendLine("        _kind, _rva, _text, _extra = _record.split(u\"\\u001f\")");
+        sb.AppendLine("        if _kind == u\"f\":");
+        sb.AppendLine("            _name_function(int(_rva), _text, _extra)");
+        sb.AppendLine("        elif _kind == u\"l\":");
+        sb.AppendLine("            _label(int(_rva), _text, _extra)");
+        sb.AppendLine("        else:");
+        sb.AppendLine("            _bookmark(int(_rva), _text, _extra)");
         sb.AppendLine();
         sb.AppendLine("_python = 'Python %d.%d' % (sys.version_info[0], sys.version_info[1])");
         sb.AppendLine("if _failed:");
@@ -172,18 +184,29 @@ public static class GhidraScriptWriter
         sb.AppendLine("    private int failed;");
         sb.AppendLine("    private int firstFailedRva = -1;");
         sb.AppendLine();
+        foreach (var line in DataComment) sb.Append("    // ").AppendLine(line);
+        sb.AppendLine("    private static final String[] DATA = {");
+        foreach (var chunk in Chunks(Records(ann)))
+        {
+            for (int i = 0; i < chunk.Count; i++)
+                sb.Append("        ").Append(Jv(chunk[i])).AppendLine(i == chunk.Count - 1 ? "," : " +");
+        }
+        sb.AppendLine("    };");
+        sb.AppendLine();
         sb.AppendLine("    @Override");
         sb.AppendLine("    public void run() throws Exception {");
         sb.AppendLine("        Address base = currentProgram.getImageBase();");
         sb.AppendLine("        BookmarkManager bm = currentProgram.getBookmarkManager();");
-        foreach (var f in ann.Functions)
-            sb.AppendLine($"        nameFunction(base, {f.Rva}, {Jv(SymbolName(f.Name))}, {Jv(f.Signature)});");
-        foreach (var f in ann.Funclets)
-            sb.AppendLine($"        label(base, {f.Rva}, {Jv(FuncletName(f))}, {Jv("funclet of " + f.ParentName)});");
-        foreach (var i in ann.Imports)
-            sb.AppendLine($"        label(base, {i.Rva}, {Jv("imp_" + Sanitize(i.Name))}, {Jv(i.Name)});");
-        foreach (var b in ann.Bookmarks)
-            sb.AppendLine($"        bookmark(bm, base, {b.Rva}, {Jv(b.Category)}, {Jv(b.Note)});");
+        sb.AppendLine("        for (String chunk : DATA) {");
+        sb.AppendLine("            for (String record : chunk.split(\"\\u001e\")) {");
+        sb.AppendLine("                if (record.isEmpty()) continue;");
+        sb.AppendLine("                String[] f = record.split(\"\\u001f\", -1);");
+        sb.AppendLine("                int rva = Integer.parseInt(f[1]);");
+        sb.AppendLine("                if (f[0].equals(\"f\")) nameFunction(base, rva, f[2], f[3]);");
+        sb.AppendLine("                else if (f[0].equals(\"l\")) label(base, rva, f[2], f[3]);");
+        sb.AppendLine("                else bookmark(bm, base, rva, f[2], f[3]);");
+        sb.AppendLine("            }");
+        sb.AppendLine("        }");
         sb.AppendLine("        if (failed > 0) println(\"NetScope: annotations applied, \" + failed + \" failed (first RVA \" + firstFailedRva + \")\");");
         sb.AppendLine("        else println(\"NetScope: annotations applied\");");
         sb.AppendLine("    }");
@@ -233,6 +256,53 @@ public static class GhidraScriptWriter
         sb.AppendLine("    }");
         sb.AppendLine("}");
         return sb.ToString();
+    }
+
+    // ------------------------------------------------------------------ the annotations as data
+
+    private const char FieldSeparator = '\u001f', RecordSeparator = '\u001e';
+
+    /// <summary>Records per string constant: the JVM limits a string constant to 65535 bytes (Jython compiles the
+    /// module to a class), so a chunk holds at most this many characters (3 bytes each at worst).</summary>
+    private const int ChunkChars = 20000;
+
+    private static readonly string[] DataComment =
+    {
+        "The annotations, one per line: kind (f = function, l = label, b = bookmark), RVA, name, then the",
+        "signature, comment or note, separated by \\u001f and ended by \\u001e. They are data, not code, so a",
+        "large assembly does not run into the JVM's size limits for a method or a class.",
+    };
+
+    /// <summary>
+    /// Each annotation as one record. Kept as data rather than one call per annotation: thousands of calls made
+    /// Jython fail with "Module or method too large" (and javac with "code too large") on large images.
+    /// </summary>
+    private static IEnumerable<string> Records(GhidraAnnotations ann)
+    {
+        foreach (var f in ann.Functions) yield return Record('f', f.Rva, SymbolName(f.Name), f.Signature);
+        foreach (var f in ann.Funclets) yield return Record('l', f.Rva, FuncletName(f), "funclet of " + f.ParentName);
+        foreach (var i in ann.Imports) yield return Record('l', i.Rva, "imp_" + Sanitize(i.Name), i.Name);
+        foreach (var b in ann.Bookmarks) yield return Record('b', b.Rva, b.Category, b.Note);
+    }
+
+    /// <summary>The separators are control characters, so control characters in the text become spaces.</summary>
+    private static string Record(char kind, int rva, string text, string? extra)
+    {
+        static string Clean(string? s) => s == null ? "" : string.Concat(s.Select(c => c < 0x20 ? ' ' : c));
+        return $"{kind}{FieldSeparator}{rva}{FieldSeparator}{Clean(text)}{FieldSeparator}{Clean(extra)}{RecordSeparator}";
+    }
+
+    private static List<List<string>> Chunks(IEnumerable<string> records)
+    {
+        var chunks = new List<List<string>>();
+        int length = ChunkChars;
+        foreach (var r in records)
+        {
+            if (length + r.Length > ChunkChars) { chunks.Add(new List<string>()); length = 0; }
+            chunks[^1].Add(r);
+            length += r.Length;
+        }
+        return chunks;
     }
 
     private static string FuncletName(GhidraFunclet f) => Sanitize(f.ParentName) + "__" + Sanitize(f.Label);

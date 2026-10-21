@@ -230,6 +230,10 @@ Both languages are checked in CI with `analyzeHeadless` on Ghidra 11.1.2. The Py
 
 `export-ghidra` detects these images, prints a warning with the options and writes them in the script header (`Ghidra import   : ...`). In the GUI, choose the same loader and language in the import dialog. Ghidra then reports `Exception Data unsupported architecture` because it cannot read the `.pdata` of an OS-encoded image; this does not matter, because the script creates the functions itself. CI checks the linux-arm64 (reference assembly 19), linux-x64 and osx-arm64 copies of reference assembly 2 this way, with Jython, Ghidrathon and Java, and checks that the file is not changed.
 
+**NativeAOT and native PE.** A NativeAOT image (a Windows PE without a CLR header) has no IL or metadata in the usual sense, but it keeps the names that `Exception.StackTrace` uses when no PDB is deployed. `export-ghidra` reads them from the image and names the compiled methods, e.g. `AotSample.Program+<Main>d__1::MoveNext`. On the CI sample this covers 3465 of 3950 functions for .NET 8 and 2833 of 3004 for .NET 10; the rest are runtime stubs without a stack trace entry and folded duplicates. An image published with `StackTraceSupport=false` has no names, and a native PE that is not NativeAOT has no .NET data at all: for both, `export-ghidra` says so and exits with code 3, because Ghidra already reads the PE's exports, imports and exception data. Details and the checks against the linker map are in [docs/nativeaot.md](docs/nativeaot.md).
+
+The scripts hold the annotations as a data table rather than one call per function, so they also work for images with tens of thousands of functions (one call per function exceeded the JVM's code size limits in Jython and javac).
+
 To use Ghidrathon 4.0.0 with Ghidra 11.1.2: `pip install jep==4.2.0`, unpack the extension from the release into `<ghidra>/Ghidra/Extensions`, set `version=11.1.2` in its `extension.properties` (the release is marked 11.0, and Ghidra loads only extensions of its own version), and run `python ghidrathon_configure.py <ghidra>`. The CI job `ghidra-python3` does exactly this.
 
 The script:
@@ -280,7 +284,7 @@ Metadata is read with `System.Reflection.Metadata`, the same layer the decompile
 - **ReadyToRun:** composite images are not supported, and NetScope reports the reason. Two things are not shown: the cold parts of hot/cold-split methods (these appear only in profile-guided builds), and instantiations of this assembly's generic methods that were compiled into other assemblies of the version bubble. For methods without R2R code, add `--allow-run`.
 - **JIT:** code is produced for the current machine's architecture at FullOpts, because the helper disables tiered compilation. Open generic methods are compiled as their shared instantiation over `object`. .NET Framework assemblies are compiled by the .NET 8+ runtime, so some of them may fail to load.
 - **ARM64 disassembler:** Disarm (MIT) is only available as a prerelease package. It has been checked against linux-arm64 R2R images from the official runtime package.
-- **NativeAOT** images are detected but not analyzed. Obfuscated assemblies are shown as they are; there is no deobfuscation.
+- **NativeAOT** images have no IL, so the analysis groups do not apply to them. `export-ghidra` names their methods for Ghidra (see [Export to Ghidra](#export-to-ghidra)). Obfuscated assemblies are shown as they are; there is no deobfuscation.
 - **Missing dependencies:** on a machine without .NET installed, framework assemblies cannot be found. Types are then shown by their metadata names, and pseudocode may be simplified. Pass `--ref-path` to fix this.
 
 ## Tests

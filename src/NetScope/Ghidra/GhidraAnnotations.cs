@@ -30,6 +30,8 @@ public sealed class GhidraAnnotations
     public required string SourceFile { get; init; }
     public required string AssemblyName { get; init; }
     public string? Architecture { get; init; }
+    /// <summary>What the native code is, when it is not the usual ReadyToRun / C++/CLI case (e.g. "NativeAOT ...").</summary>
+    public string? Kind { get; init; }
     /// <summary>OS of a ReadyToRun image built for another OS than Windows (Linux, macOS, ...); null otherwise.</summary>
     public string? TargetOs { get; init; }
     /// <summary>analyzeHeadless options that import the image when Ghidra's PE loader does not recognize it on

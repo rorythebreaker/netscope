@@ -35,9 +35,8 @@ public sealed class GhidraTests : IDisposable
         var r = TestEnv.Run(ExportGhidraCommand.Name, TestEnv.SamplesR2RPath, "--out", script, "-q");
         Assert.Equal(Analyzer.ExitOk, r.ExitCode);
 
-        var scriptAddrs = ReadIntArgs(File.ReadAllText(script), "_name_function")
-            .Concat(ReadIntArgs(File.ReadAllText(script), "_label"))
-            .ToHashSet();
+        var text = File.ReadAllText(script);
+        var scriptAddrs = ReadRecordRvas(text, 'f').Concat(ReadRecordRvas(text, 'l')).ToHashSet();
 
         // §5.5: addresses must equal the RVAs from --native --format json.
         var json = Path.Combine(_dir, "native.json");
@@ -146,9 +145,9 @@ public sealed class GhidraTests : IDisposable
     public void SymbolNamesHaveNoWhitespaceButCommentsKeepTheSignature(string lang)
     {
         var text = GhidraScriptWriter.Write(Fabricated((0x1000, "SelectEnumerableIterator<char, char>::ToArray", "TResult[] ToArray()")), lang);
-        Assert.Contains("\"SelectEnumerableIterator<char,_char>::ToArray\"", text);
+        Assert.Contains("\\u001fSelectEnumerableIterator<char,_char>::ToArray\\u001f", text);
         Assert.DoesNotContain("<char, char>", text);
-        Assert.Contains("\"TResult[] ToArray()\"", text); // the plate comment is not a symbol
+        Assert.Contains("\\u001fTResult[] ToArray()\\u001e", text); // the plate comment is not a symbol
         Assert.Equal("a_b_c", GhidraScriptWriter.SymbolName("a b\tc"));
     }
 
@@ -157,7 +156,40 @@ public sealed class GhidraTests : IDisposable
     public void PythonStringsAreUnicodeLiterals()
     {
         var text = GhidraScriptWriter.Write(Fabricated((0x1000, "Счёт", null)), "python");
-        Assert.Contains("_name_function(4096, u\"\\u0421\\u0447\\u0451\\u0442\", None)", text);
+        Assert.Contains("u\"f\\u001f4096\\u001f\\u0421\\u0447\\u0451\\u0442\\u001f\\u001e\"", text);
+    }
+
+    /// <summary>Regression (found on a NativeAOT image with 3465 methods): one call per annotation made Jython fail
+    /// with "Module or method too large", and javac would reject the same as "code too large". The annotations are
+    /// now a data table split into string constants that stay well under the JVM's 64 KB limit.</summary>
+    [Theory]
+    [InlineData("python")]
+    [InlineData("java")]
+    public void LargeScriptsKeepTheirCodeSmall(string lang)
+    {
+        var functions = Enumerable.Range(1, 20000).Select(i => (i * 16, $"Some.Namespace.SomeType`1+Nested::Method{i}", (string?)$"void Method{i}(int a, string b)")).ToArray();
+        var text = GhidraScriptWriter.Write(Fabricated(functions), lang);
+
+        Assert.Equal(20000, ReadRecordRvas(text, 'f').Count);
+        // Several string constants, each a few tens of KB at most, and a fixed amount of code around them.
+        var constants = System.Text.RegularExpressions.Regex.Split(text, lang == "python" ? @"\),\r?\n" : @"\"",\r?\n");
+        Assert.True(constants.Length > 5, $"{constants.Length} chunk(s)");
+        Assert.All(constants.SkipLast(1), c => Assert.True(c.Length < 60000, $"a chunk of {c.Length} characters"));
+        Assert.DoesNotContain("_name_function(16,", text);
+    }
+
+    /// <summary>TZ-3 §4.3: a native PE that is not NativeAOT has no .NET data; export-ghidra says why and exits 3.
+    /// The apphost of reference assembly 1 is such a file (a PE on Windows only).</summary>
+    [Fact]
+    public void NativePeWithoutDotNetDataIsRefusedWithAReason()
+    {
+        if (!OperatingSystem.IsWindows()) return;
+        var apphost = Path.ChangeExtension(ReferenceSet.Get("01-ConsoleApp").Path, ".exe");
+        var script = Path.Combine(_dir, "annotate.py");
+        var r = TestEnv.Run(ExportGhidraCommand.Name, apphost, "--out", script);
+        Assert.Equal(Analyzer.ExitNothingOpened, r.ExitCode);
+        Assert.Contains("native PE without .NET metadata", r.Stderr);
+        Assert.False(File.Exists(script));
     }
 
     /// <summary>TZ-3 §4.2: Ghidra's PE loader does not recognize an R2R image for Linux (OS-encoded Machine). The
@@ -241,19 +273,10 @@ public sealed class GhidraTests : IDisposable
 
     // --- helpers ---
 
-    private static List<int> ReadIntArgs(string script, string func)
-    {
-        var result = new List<int>();
-        foreach (var line in script.Split('\n'))
-        {
-            var t = line.TrimStart();
-            if (!t.StartsWith(func + "(", StringComparison.Ordinal)) continue;
-            int open = t.IndexOf('(');
-            int comma = t.IndexOf(',', open);
-            if (comma > open && int.TryParse(t[(open + 1)..comma].Trim(), out int rva)) result.Add(rva);
-        }
-        return result;
-    }
+    /// <summary>RVAs of the records of one kind (f = function, l = label, b = bookmark) in the script's data table.</summary>
+    private static List<int> ReadRecordRvas(string script, char kind) =>
+        System.Text.RegularExpressions.Regex.Matches(script, "\"" + kind + @"\\u001f(\d+)\\u001f")
+            .Select(m => int.Parse(m.Groups[1].Value, System.Globalization.CultureInfo.InvariantCulture)).ToList();
 
     private static HashSet<int> NativePartAddresses(string jsonFile)
     {

@@ -72,29 +72,43 @@ foreach ($target in $Targets) {
     $base = [IO.Path]::GetFileNameWithoutExtension($target) -replace '[^A-Za-z0-9]', '_'
     Write-Host "== $target"
 
-    # 1. Expected functions: every non-funclet native part. A plain body is named Type::Method, an instantiation
-    #    by its label. Ghidra forbids whitespace in symbol names, so the export turns it into '_'.
-    $json = Join-Path $WorkDir "$base.native.json"
-    Invoke-NetScope @($target, '--native', '--format', 'json', '--out', $json, '-q')
-    $doc = [IO.File]::ReadAllText($json) | ConvertFrom-Json
-    $rows = New-Object System.Collections.Generic.List[string]
-    foreach ($m in $doc.assemblies[0].methods) {
-        if (-not $m.nativeInfo -or -not $m.nativeInfo.available) { continue }
-        foreach ($p in $m.nativeInfo.parts) {
-            if ($p.name -like '*funclet*') { continue }
-            $name = if ($p.name -eq 'main') { "$($m.type)::$($m.name)" } else { $p.name }
-            $rows.Add("$($p.address)`t$($name -replace '[\s\p{Cc}]', '_')")
-        }
-    }
-    $expected = Join-Path $WorkDir "$base.expected.tsv"
-    [IO.File]::WriteAllLines($expected, $rows, $utf8)
-    Write-Host "  $($rows.Count) native function(s) expected"
-
-    # 2-3. Both languages. The Java file name must match its public class.
+    # Both languages. The Java file name must match its public class.
     $py = "ns_$base.py"
     $java = "Ns$($base)Annotate.java"
     Invoke-NetScope @('export-ghidra', $target, '--out', (Join-Path $WorkDir $py), '--audit', '-q')
     Invoke-NetScope @('export-ghidra', $target, '--out', (Join-Path $WorkDir $java), '--lang', 'java', '--audit', '-q')
+
+    # 1. Expected functions: every non-funclet native part from --native. A plain body is named Type::Method, an
+    #    instantiation by its label. Ghidra forbids whitespace in symbol names, so the export turns it into '_'.
+    #    A NativeAOT image has no IL for --native (exit code 3): its names come from the image's stack trace
+    #    metadata, which Check-NativeAot.ps1 checks against the linker map; here the exported list is expected.
+    $json = Join-Path $WorkDir "$base.native.json"
+    $rows = New-Object System.Collections.Generic.List[string]
+    $ErrorActionPreference = 'Continue'   # Windows PowerShell 5.1 turns native stderr into a terminating error
+    & dotnet $NetScopeDll $target --native --format json --out $json -q 2> $null
+    $nativeExit = $LASTEXITCODE
+    $ErrorActionPreference = 'Stop'
+    if ($nativeExit -eq 0) {
+        $doc = [IO.File]::ReadAllText($json) | ConvertFrom-Json
+        foreach ($m in $doc.assemblies[0].methods) {
+            if (-not $m.nativeInfo -or -not $m.nativeInfo.available) { continue }
+            foreach ($p in $m.nativeInfo.parts) {
+                if ($p.name -like '*funclet*') { continue }
+                $name = if ($p.name -eq 'main') { "$($m.type)::$($m.name)" } else { $p.name }
+                $rows.Add("$($p.address)`t$($name -replace '[\s\p{Cc}]', '_')")
+            }
+        }
+    }
+    elseif ((Get-Content (Join-Path $WorkDir $py) -TotalCount 6) -match 'NativeAOT') {
+        # Function records of the script's data table: f \u001f <rva> \u001f <name> \u001f ...
+        foreach ($m in Select-String -Path (Join-Path $WorkDir $py) -Pattern '"f\\u001f(\d+)\\u001f((?:[^"\\]|\\.)*?)\\u001f') {
+            $rows.Add("$($m.Matches[0].Groups[1].Value)`t$([regex]::Unescape($m.Matches[0].Groups[2].Value))")
+        }
+    }
+    else { throw "netscope --native exited with $nativeExit" }
+    $expected = Join-Path $WorkDir "$base.expected.tsv"
+    [IO.File]::WriteAllLines($expected, $rows, $utf8)
+    Write-Host "  $($rows.Count) native function(s) expected"
 
     # TZ-3 §4.2: an R2R image for Linux or macOS is imported with the options the script header documents
     # (the file itself is never changed). For Windows images the header has no such line.
