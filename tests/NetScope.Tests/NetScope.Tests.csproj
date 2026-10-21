@@ -15,6 +15,8 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" />
     <!-- Validates SARIF output against the official OASIS schema (draft-04), see Schemas/. -->
     <PackageReference Include="NJsonSchema" Version="11.6.1" />
+    <!-- Compiles versions of a sample in memory for the diff tests (rebuilds, changed and shifted code). -->
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" />
   </ItemGroup>
 
   <ItemGroup>

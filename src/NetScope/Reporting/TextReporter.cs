@@ -60,7 +60,7 @@ public sealed class TextReporter : IReporter
             {
                 currentType = m.Method.TypeName;
                 sb.AppendLine();
-                sb.AppendLine(Header($"Type     : {currentType}"));
+                sb.AppendLine(Header($"Type     : {TextSafety.EscapeName(currentType)}"));
             }
             sb.AppendLine();
             RenderMethod(sb, m);
@@ -72,7 +72,7 @@ public sealed class TextReporter : IReporter
     private void RenderMethod(StringBuilder sb, MethodReport r)
     {
         var m = r.Method;
-        sb.AppendLine(Strong($"Method   : {m.Signature}"));
+        sb.AppendLine(Strong($"Method   : {TextSafety.EscapeName(m.Signature)}"));
         sb.AppendLine($"Kind     : {string.Join(", ", m.DisplayKinds())}");
         var size = r.CodeSize is int s ? $"   Size: {s} bytes" : "";
         sb.AppendLine($"RVA      : 0x{m.Rva:X4}{size}   Token: 0x{m.Token:X8}");
