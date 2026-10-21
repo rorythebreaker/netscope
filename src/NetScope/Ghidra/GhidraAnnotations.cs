@@ -30,6 +30,11 @@ public sealed class GhidraAnnotations
     public required string SourceFile { get; init; }
     public required string AssemblyName { get; init; }
     public string? Architecture { get; init; }
+    /// <summary>OS of a ReadyToRun image built for another OS than Windows (Linux, macOS, ...); null otherwise.</summary>
+    public string? TargetOs { get; init; }
+    /// <summary>analyzeHeadless options that import the image when Ghidra's PE loader does not recognize it on
+    /// its own: an R2R image for Linux or macOS has an OS-encoded Machine field (TZ-3 §4.2). Null when not needed.</summary>
+    public string? GhidraImportOptions { get; init; }
     public List<GhidraFunction> Functions { get; } = new();
     public List<GhidraFunclet> Funclets { get; } = new();
     public List<GhidraImport> Imports { get; } = new();
@@ -91,11 +96,25 @@ public static class GhidraAnnotationBuilder
 
         ann.Warnings.AddRange(ReadImports(asm, ann.Imports));
 
+        var rawMachine = asm.PE.PEHeaders.CoffHeader.Machine;
+        string os = Native.R2RReader.TargetOs(rawMachine);
+        string? importOptions = null;
+        if (os != "Windows")
+        {
+            importOptions = GhidraImportOptions(Native.R2RReader.NormalizeMachine(rawMachine));
+            ann.Warnings.Add($"{os} ReadyToRun image: its PE Machine field is OS-encoded (0x{(ushort)rawMachine:X4}), so Ghidra's PE loader does not " +
+                             (importOptions != null
+                                 ? $"recognize it on its own. Import it with: analyzeHeadless <proj> <name> -import <file> {importOptions} (the file is not modified)"
+                                 : "recognize it, and NetScope knows no Ghidra language for this architecture"));
+        }
+
         var result = new GhidraAnnotations
         {
             SourceFile = asm.FilePath,
             AssemblyName = asm.Name,
             Architecture = arch ?? asm.Architecture,
+            TargetOs = os == "Windows" ? null : os,
+            GhidraImportOptions = importOptions,
         };
         result.Functions.AddRange(ann.Functions.OrderBy(f => f.Rva));
         result.Funclets.AddRange(ann.Funclets.OrderBy(f => f.Rva));
@@ -104,6 +123,21 @@ public static class GhidraAnnotationBuilder
         result.Warnings.AddRange(ann.Warnings);
         return result;
     }
+
+    /// <summary>
+    /// Ghidra's PE loader has no opinion for an OS-encoded Machine value, so it is chosen explicitly with the
+    /// language of the decoded architecture. The calling convention is the Unix one (gcc) on x86/x64; ARM64 uses
+    /// the same convention everywhere. Checked with Ghidra 11.1.2 on linux-x64, linux-arm64 and osx-arm64 images
+    /// (tests/Ghidra/Check-Ghidra.ps1); the x86 and ARM32 lines follow the same rule but are not checked.
+    /// </summary>
+    public static string? GhidraImportOptions(Machine decoded) => decoded switch
+    {
+        Machine.Arm64 => "-loader PeLoader -processor AARCH64:LE:64:v8A -cspec default",
+        Machine.Amd64 => "-loader PeLoader -processor x86:LE:64:default -cspec gcc",
+        Machine.I386 => "-loader PeLoader -processor x86:LE:32:default -cspec gcc",
+        Machine.Arm or Machine.ArmThumb2 or Machine.Thumb => "-loader PeLoader -processor ARM:LE:32:v8T -cspec default",
+        _ => null,
+    };
 
     private static IReadOnlyList<Finding> RunRules(MethodModel m, MemberResolver resolver, IReadOnlyList<MethodModel> methods)
     {

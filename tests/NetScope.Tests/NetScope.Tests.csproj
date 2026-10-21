@@ -54,11 +54,12 @@
   </PropertyGroup>
   <Target Name="PublishReferenceReadyToRun" BeforeTargets="Build"
           Inputs="..\Reference\Ref02.Library\Inventory.cs;..\Reference\Ref02.Library\Ref02.Library.csproj"
-          Outputs="$(ReferenceR2RDir)win-x64\Ref02.Library.dll;$(ReferenceR2RDir)linux-arm64\Ref02.Library.dll">
+          Outputs="@(R2RRid->'$(ReferenceR2RDir)%(Identity)\Ref02.Library.dll')">
     <Exec Command="dotnet publish &quot;$(MSBuildThisFileDirectory)..\Reference\Ref02.Library\Ref02.Library.csproj&quot; -c $(Configuration) -r %(R2RRid.Identity) --self-contained false -p:PublishReadyToRun=true -o &quot;$(ReferenceR2RDir)%(R2RRid.Identity)&quot; -v q -nologo" />
   </Target>
   <ItemGroup>
-    <R2RRid Include="win-x64;linux-arm64" />
+    <!-- linux-x64 and osx-arm64 are not part of the twenty; the ghidra CI jobs import them (TZ-3 §4.2). -->
+    <R2RRid Include="win-x64;linux-arm64;linux-x64;osx-arm64" />
   </ItemGroup>
 
   <!-- ReadyToRun copy of the sample assembly for the native code tests (compiled for the build machine). -->

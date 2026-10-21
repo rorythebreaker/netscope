@@ -76,6 +76,14 @@ reports `virtual` (`src/NetScope/Catalog/MethodCatalog.cs`).
   `CountTokens` is a `switch` inside a loop. Its sparse `char` cases are compiled to comparisons, not to a `switch`
   opcode, so the test checks the loop and the complexity.
 
+## Ghidra
+
+Assembly 19 (and the linux-x64 and osx-arm64 copies of assembly 2, built only for this) is imported into Ghidra
+11.1.2 by the `ghidra` and `ghidra-python3` CI jobs with the options `export-ghidra` writes in the script header
+(`-loader PeLoader -processor ...`), because Ghidra's PE loader does not recognize the OS-encoded `Machine` field on
+its own. Every function from `--native` is named at its address, a second run adds nothing, and the file is not
+changed. See the README section "Export to Ghidra".
+
 ## C++/CLI
 
 A C++/CLI assembly cannot be built in CI without MSVC, so it is not part of the twenty. As before, the managed and

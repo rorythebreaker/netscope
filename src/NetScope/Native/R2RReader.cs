@@ -36,6 +36,16 @@ public sealed class R2RReader
 
     // Machine values of R2R images are XOR-ed with an OS-specific constant.
     private static readonly ushort[] OsXor = { 0x0000, 0x7B79 /* Linux */, 0x4644 /* Apple */, 0xADC4 /* FreeBSD */, 0x1993 /* NetBSD */, 0x1992 /* SunOS */ };
+    private static readonly string[] OsNames = { "Windows", "Linux", "macOS", "FreeBSD", "NetBSD", "SunOS" };
+
+    /// <summary>The target OS encoded in an R2R image's Machine field ("Windows" when it is a plain PE value).</summary>
+    public static string TargetOs(Machine machine)
+    {
+        for (int i = 0; i < OsXor.Length; i++)
+            if ((Machine)((ushort)machine ^ OsXor[i]) is Machine.Amd64 or Machine.I386 or Machine.Arm64 or Machine.Arm or Machine.ArmThumb2 or Machine.Thumb)
+                return OsNames[i];
+        return "Windows";
+    }
 
     private readonly LoadedAssembly _asm;
     private readonly Dictionary<int, (int Rva, int Size)> _sections = new();
