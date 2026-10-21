@@ -61,6 +61,8 @@ $methodSymbols = @($sectionOf.Keys | Where-Object { $codeSections -contains $sec
 Write-Host "  $($functions.Count) function(s) exported, $methodSymbols symbol address(es) in the code section(s) $($codeSections -join ', ')"
 
 function Mangle([string] $s) { ($s -replace '[^A-Za-z0-9]', '_') }
+# ILC names some primitive types by their element type in symbols (System.Boolean -> Bool__GetHashCode).
+$ilcAliases = @{ 'Boolean' = 'Bool'; 'Byte' = 'UInt8'; 'SByte' = 'Int8'; 'Single' = 'Float'; 'Double' = 'Double' }
 
 $atSymbol = 0; $named = 0; $bad = New-Object System.Collections.Generic.List[string]
 foreach ($f in $functions) {
@@ -68,8 +70,10 @@ foreach ($f in $functions) {
     $atSymbol++
     $sep = $f.Name.LastIndexOf('::')
     $method = Mangle($f.Name.Substring($sep + 2))
-    $type = Mangle(($f.Name.Substring(0, [Math]::Max(0, $sep)) -split '[.+]')[-1])
-    if ($symbols[$f.Rva] | Where-Object { $_.Contains($method) -and $_.Contains($type) }) { $named++ }
+    $simpleType = ($f.Name.Substring(0, [Math]::Max(0, $sep)) -split '[.+]')[-1]
+    $type = Mangle($simpleType)
+    $alias = if ($f.Name.StartsWith('System.') -and $ilcAliases.ContainsKey($simpleType)) { $ilcAliases[$simpleType] } else { $type }
+    if ($symbols[$f.Rva] | Where-Object { $_.Contains($method) -and ($_.Contains($type) -or $_.Contains($alias)) }) { $named++ }
     else { $bad.Add(("0x{0:X}: {1} vs {2}" -f $f.Rva, $f.Name, ($symbols[$f.Rva] -join ' | '))) }
 }
 $bad | Select-Object -First 20 | ForEach-Object { Write-Host "        $_" }
