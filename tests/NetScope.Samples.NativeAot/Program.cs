@@ -4,13 +4,15 @@ namespace AotSample;
 
 public static class Program
 {
+    private static readonly double[] Sizes = { 1.5, 2.5 };
+
     public static async Task<int> Main(string[] args)
     {
         var ledger = new Ledger();
         ledger.Deposit("alice", 120);
         ledger.Deposit("bob", 30);
         Console.WriteLine(ledger.Report());
-        Console.WriteLine(Geometry.ScaleAll(new[] { 1.5, 2.5 }, args.Length + 2).Sum());
+        Console.WriteLine(Geometry.ScaleAll(Sizes, args.Length + 2).Sum());
         Console.WriteLine(await Pipeline.CountWordsAsync("native ahead of time compilation").ConfigureAwait(false));
         try
         {
