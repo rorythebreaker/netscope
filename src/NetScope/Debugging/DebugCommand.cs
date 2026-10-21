@@ -85,9 +85,24 @@ public static class DebugCommand
             }
 
             if (!File.Exists(file)) { Log.Error(file, "file not found"); code = Analyzer.ExitNothingOpened; return; }
+            string backend, runtimeVersion;
             using (var asm = new AssemblyLoader().TryLoad(0, file, out var reason))
             {
                 if (asm == null) { Log.Error(file, "not a managed assembly: " + reason); code = Analyzer.ExitNothingOpened; return; }
+                // §4.2: the backend follows the image. A program built against mscorlib runs on .NET Framework
+                // (CLR 2.0 or 4.0) and is debugged through mscordbi; anything else through DbgShim (.NET Core).
+                runtimeVersion = asm.MetadataVersion;
+                backend = IsFrameworkProgram(asm) ? DebugHost.HostConfig.FrameworkBackend : DebugHost.HostConfig.CoreBackend;
+                if (backend == DebugHost.HostConfig.FrameworkBackend)
+                {
+                    string? problem =
+                        !OperatingSystem.IsWindows() ? "debugging a .NET Framework program needs Windows: its debugging API (mscordbi) is part of the Windows runtime"
+                        : !asm.PE.PEHeaders.IsExe ? "a .NET Framework library cannot be started; debug the .exe that loads it"
+                        : (asm.PE.PEHeaders.CorHeader!.Flags & System.Reflection.PortableExecutable.CorFlags.Requires32Bit) != 0 && Environment.Is64BitProcess
+                            ? "this .NET Framework program runs only as a 32-bit process, and this NetScope is 64-bit: the debugger must have the target's bitness (use a 32-bit NetScope)"
+                        : null;
+                    if (problem != null) { Log.Error(file, problem); code = Analyzer.ExitNothingOpened; return; }
+                }
             }
 
             if (!Program.TryParseSize(p.GetValue(runMemory) ?? "1G", out long memoryLimit))
@@ -139,7 +154,11 @@ public static class DebugCommand
             try
             {
                 using var session = new DebugSession(file, sha, p.GetValue(passThrough) ?? Array.Empty<string>(), memoryLimit, p.GetValue(allowChildren),
-                                        p.GetValue(script), p.GetValue(format) ?? "text", interactive, TimeSpan.FromSeconds(Math.Max(1, p.GetValue(runTimeout))), audit, sink);
+                                        p.GetValue(script), p.GetValue(format) ?? "text", interactive, TimeSpan.FromSeconds(Math.Max(1, p.GetValue(runTimeout))), audit, sink)
+                {
+                    Backend = backend,
+                    RuntimeVersion = runtimeVersion,
+                };
                 code = session.Run();
             }
             finally
@@ -151,6 +170,20 @@ public static class DebugCommand
 
         parse.Invoke();
         return code;
+    }
+
+    /// <summary>Built against mscorlib (CLR 2.0/4.0 .NET Framework) rather than System.Runtime/netstandard.</summary>
+    private static bool IsFrameworkProgram(LoadedAssembly asm)
+    {
+        var md = asm.Metadata;
+        bool mscorlib = false;
+        foreach (var h in md.AssemblyReferences)
+        {
+            var name = md.GetString(md.GetAssemblyReference(h).Name);
+            if (name is "System.Runtime" or "netstandard" or "System.Private.CoreLib") return false;
+            if (name == "mscorlib") mscorlib = true;
+        }
+        return mscorlib || asm.MetadataVersion.StartsWith("v2.", StringComparison.Ordinal);
     }
 
     private static string Sha256(string file)
@@ -201,6 +234,9 @@ public static class DebugCommand
 
         private enum CommandResult { Prompt, Resume, Quit }
 
+        public string Backend { get; init; } = DebugHost.HostConfig.CoreBackend;
+        public string RuntimeVersion { get; init; } = "";
+
         public DebugSession(string file, string sha, string[] args, long memory, bool allowChildren, string? script, string format, bool interactive, TimeSpan timeout, DebugAuditLog audit, TextWriter sink)
         {
             _file = file; _sha = sha; _args = args; _memory = memory; _allowChildren = allowChildren;
@@ -214,7 +250,7 @@ public static class DebugCommand
             var tempDir = Sandbox.CreateWorkingDirectory();
             try
             {
-                var config = new DebugHost.HostConfig(Path.GetFullPath(_file), SelfCommand.DotnetHost(), _args, tempDir, _memory, _allowChildren);
+                var config = new DebugHost.HostConfig(Path.GetFullPath(_file), SelfCommand.DotnetHost(), _args, tempDir, _memory, _allowChildren, Backend, RuntimeVersion);
                 var configFile = Path.Combine(tempDir, "debug-config.json");
                 File.WriteAllText(configFile, config.ToJson());
 

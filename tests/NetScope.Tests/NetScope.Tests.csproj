@@ -26,7 +26,7 @@
     <ProjectReference Include="..\NetScope.Samples.Hostile\NetScope.Samples.Hostile.csproj" ReferenceOutputAssembly="false" />
     <ProjectReference Include="..\NetScope.Samples.Pdb\NetScope.Samples.Pdb.csproj" ReferenceOutputAssembly="false" />
     <!-- A runnable console target the debugger tests launch (Windows only). Built first, never loaded here. -->
-    <ProjectReference Include="..\NetScope.Samples.DebugTarget\NetScope.Samples.DebugTarget.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\NetScope.Samples.DebugTarget\NetScope.Samples.DebugTarget.csproj" ReferenceOutputAssembly="false" SkipGetTargetFrameworkProperties="true" GlobalPropertiesToRemove="TargetFramework" />
   </ItemGroup>
 
   <ItemGroup>

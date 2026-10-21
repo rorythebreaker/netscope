@@ -39,8 +39,11 @@ public static class DebugHost
 
         if (!OperatingSystem.IsWindows())
         {
-            // Core-on-Linux and the Framework backend are not in this stage; fail cleanly, never crash (§4.3).
-            Emit(DebugProtocol.ErrorEvent("the debugger backend is only available on Windows in this version"));
+            // Core on Linux is not in this version; the Framework backend (mscordbi) exists only on Windows.
+            // Fail cleanly, never crash (§4.3).
+            Emit(DebugProtocol.ErrorEvent(config.Backend == HostConfig.FrameworkBackend
+                ? "debugging a .NET Framework program needs Windows: its debugging API (mscordbi) is part of the Windows runtime"
+                : "the debugger backend is only available on Windows in this version"));
             return 3;
         }
 
@@ -87,7 +90,62 @@ public static class DebugHost
 
         public void Dispose() { _exited.Dispose(); _job?.Dispose(); }
 
-        public int Run()
+        public int Run() => _config.Backend == HostConfig.FrameworkBackend ? RunFramework() : RunCore();
+
+        /// <summary>
+        /// .NET Framework 2.0–4.8 (TZ-NetScope-2 §4): ICorDebug comes from the runtime the image was built for
+        /// (ICLRMetaHost → ICLRRuntimeInfo → mscordbi), and ICorDebug::CreateProcess starts the target suspended.
+        /// The sandbox is applied before its first instruction runs, as for .NET Core; the rest of the session
+        /// (breakpoints, stepping, values) is shared.
+        /// </summary>
+        private int RunFramework()
+        {
+            CorDebug cor;
+            try
+            {
+                var runtime = Extensions.CLRCreateInstance().CLRMetaHost.GetRuntime(_config.RuntimeVersion);
+                cor = runtime.GetInterface().CorDebug;
+            }
+            catch (Exception ex)
+            {
+                Emit(DebugProtocol.ErrorEvent($"the .NET Framework runtime {_config.RuntimeVersion} is not available for debugging on this machine: {ex.Message}"));
+                return 3;
+            }
+            Prepare(cor);
+
+            // Like the DbgShim launch of the Core backend, the target inherits the host's standard handles; its
+            // stdout is forwarded by the parent as program output.
+            var startup = new STARTUPINFOW { cb = Marshal.SizeOf<STARTUPINFOW>() };
+            // §4.2: created suspended, confined, then resumed: none of the target's code runs outside the sandbox.
+            var info = new PROCESS_INFORMATION();
+            _process = cor.CreateProcess(null!, BuildCommandLine(), default, default, true,
+                CreateProcessFlags.CREATE_SUSPENDED, IntPtr.Zero, _config.WorkingDirectory,
+                startup, ref info, CorDebugCreateProcessFlags.DEBUG_NO_SPECIAL_OPTIONS);
+            try
+            {
+                ConfineTarget(info.dwProcessId);
+            }
+            catch
+            {
+                try { _process.Terminate(1); } catch { }
+                throw;
+            }
+            finally
+            {
+                if (ResumeThread(info.hThread) == uint.MaxValue) Emit(DebugProtocol.ErrorEvent("cannot resume the target's main thread"));
+                CloseHandle(info.hThread);
+                CloseHandle(info.hProcess);
+            }
+
+            Emit(DebugProtocol.Ready(info.dwProcessId));
+            CommandLoop();
+
+            _exited.Wait(TimeSpan.FromSeconds(5));
+            _job?.Dispose();
+            return _exitCode;
+        }
+
+        private int RunCore()
         {
             var shim = new DbgShim(NativeLibrary.Load(LocateDbgShim()));
             string commandLine = BuildCommandLine();
@@ -133,6 +191,13 @@ public static class DebugHost
         /// <summary>Runs on the runtime-startup callback, while the target's runtime is blocked.</summary>
         private void Attach(CorDebug cor, int pid)
         {
+            Prepare(cor);
+            _process = cor.DebugActiveProcess(pid, win32Attach: false);
+        }
+
+        /// <summary>Initializes ICorDebug and installs the event handlers shared by both backends.</summary>
+        private void Prepare(CorDebug cor)
+        {
             cor.Initialize();
             var callback = new CorDebugManagedCallback();
             callback.OnLoadModule += OnLoadModule;
@@ -153,7 +218,6 @@ public static class DebugHost
                 try { e.Controller.Continue(false); } catch { /* process may be exiting */ }
             };
             cor.SetManagedHandler(callback);
-            _process = cor.DebugActiveProcess(pid, win32Attach: false);
         }
 
         private void ConfineTarget(int pid)
@@ -520,7 +584,8 @@ public static class DebugHost
         private string BuildCommandLine()
         {
             var sb = new StringBuilder();
-            bool dll = _config.TargetPath.EndsWith(".dll", StringComparison.OrdinalIgnoreCase);
+            // A .NET Core .dll runs through the dotnet host; a .NET Framework .exe starts by itself.
+            bool dll = _config.Backend != HostConfig.FrameworkBackend && _config.TargetPath.EndsWith(".dll", StringComparison.OrdinalIgnoreCase);
             if (dll) sb.Append('"').Append(_config.DotnetHost).Append("\" ");
             sb.Append('"').Append(_config.TargetPath).Append('"');
             foreach (var a in _config.Args) sb.Append(" \"").Append(a.Replace("\"", "\\\"")).Append('"');
@@ -551,11 +616,20 @@ public static class DebugHost
 
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern bool CloseHandle(IntPtr handle);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        private static extern uint ResumeThread(IntPtr thread);
+
     }
 
     /// <summary>What the parent tells the host to do. Written by <see cref="DebugCommand"/> as a JSON file.</summary>
-    internal sealed record HostConfig(string TargetPath, string DotnetHost, string[] Args, string WorkingDirectory, long MemoryLimitBytes, bool AllowChildProcesses)
+    /// <param name="Backend"><see cref="CoreBackend"/> (DbgShim) or <see cref="FrameworkBackend"/> (mscordbi).</param>
+    /// <param name="RuntimeVersion">For the Framework backend: the CLR version from the image's metadata (v2.0.50727, v4.0.30319).</param>
+    internal sealed record HostConfig(string TargetPath, string DotnetHost, string[] Args, string WorkingDirectory, long MemoryLimitBytes, bool AllowChildProcesses,
+                                      string Backend = HostConfig.CoreBackend, string RuntimeVersion = "")
     {
+        public const string CoreBackend = "core", FrameworkBackend = "framework";
+
         public string TargetName => Path.GetFileName(TargetPath);
 
         public static HostConfig Load(string file)
@@ -567,7 +641,9 @@ public static class DebugHost
                 e.TryGetProperty("args", out var a) && a.ValueKind == JsonValueKind.Array ? a.EnumerateArray().Select(x => x.GetString() ?? "").ToArray() : Array.Empty<string>(),
                 e.Text("workingDir") ?? Directory.GetCurrentDirectory(),
                 e.TryGetProperty("memoryLimit", out var m) && m.ValueKind == JsonValueKind.Number ? m.GetInt64() : 1L << 30,
-                e.TryGetProperty("allowChildProcesses", out var c) && c.ValueKind == JsonValueKind.True);
+                e.TryGetProperty("allowChildProcesses", out var c) && c.ValueKind == JsonValueKind.True,
+                e.Text("backend") ?? CoreBackend,
+                e.Text("runtimeVersion") ?? "");
         }
 
         public string ToJson()
@@ -584,6 +660,8 @@ public static class DebugHost
                 w.WriteString("workingDir", WorkingDirectory);
                 w.WriteNumber("memoryLimit", MemoryLimitBytes);
                 w.WriteBoolean("allowChildProcesses", AllowChildProcesses);
+                w.WriteString("backend", Backend);
+                w.WriteString("runtimeVersion", RuntimeVersion);
                 w.WriteEndObject();
             }
             return Encoding.UTF8.GetString(buffer.ToArray());
