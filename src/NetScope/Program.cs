@@ -46,6 +46,7 @@ public static class Program
         Log.Reset();
         // Subcommand: a file named "diff" is analyzed as ./diff.
         if (args.Length > 0 && args[0] == Diff.DiffCommand.Name) return Diff.DiffCommand.Run(args[1..], stdout);
+        if (args.Length > 0 && args[0] == Ghidra.ExportGhidraCommand.Name) return Ghidra.ExportGhidraCommand.Run(args[1..], stdout);
         var cli = new Cli();
         // The parser treats a first argument that looks like the tool itself (e.g. a file named "netscope")
         // as the command name and drops it. Passing the command name explicitly keeps every argument.
