@@ -1,0 +1,6093 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref17.FSharpLibrary.dll",
+      "assembly": "Ref17.FSharpLibrary",
+      "version": "1.0.0.0",
+      "targetFramework": ".NETCoreApp,Version=v8.0",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": ".ctor",
+          "signature": "void .ctor(int _tag)",
+          "token": 100663297,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8272,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr+Num::.ctor",
+              "signature": "void .ctor(double item)",
+              "offset": 2,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr+Var::.ctor",
+              "signature": "void .ctor(string item)",
+              "offset": 2,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr+Add::.ctor",
+              "signature": "void .ctor(Expr item1, Expr item2)",
+              "offset": 2,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr+Mul::.ctor",
+              "signature": "void .ctor(Expr item1, Expr item2)",
+              "offset": 2,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr+Neg::.ctor",
+              "signature": "void .ctor(Expr item)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "NewNum",
+          "signature": "Expr NewNum(double item)",
+          "token": 100663298,
+          "access": "public",
+          "kinds": [
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 8288,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Expr.Num::.ctor(double)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663320
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 718,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "get_IsNum",
+          "signature": "bool get_IsNum()",
+          "token": 100663299,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8296,
+          "size": 10,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "NewVar",
+          "signature": "Expr NewVar(string item)",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 8308,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Expr.Var::.ctor(string)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663322
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "get_IsVar",
+          "signature": "bool get_IsVar()",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8316,
+          "size": 10,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "NewAdd",
+          "signature": "Expr NewAdd(Expr item1, Expr item2)",
+          "token": 100663302,
+          "access": "public",
+          "kinds": [
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 8328,
+          "size": 8,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Expr.Add::.ctor(Expr, Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663324
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 752,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "get_IsAdd",
+          "signature": "bool get_IsAdd()",
+          "token": 100663303,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8340,
+          "size": 10,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "NewMul",
+          "signature": "Expr NewMul(Expr item1, Expr item2)",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 8352,
+          "size": 8,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Expr.Mul::.ctor(Expr, Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663327
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 788,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "get_IsMul",
+          "signature": "bool get_IsMul()",
+          "token": 100663305,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8364,
+          "size": 10,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "NewNeg",
+          "signature": "Expr NewNeg(Expr item)",
+          "token": 100663306,
+          "access": "public",
+          "kinds": [
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 8376,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Expr.Neg::.ctor(Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663330
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "get_IsNeg",
+          "signature": "bool get_IsNeg()",
+          "token": 100663307,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8384,
+          "size": 10,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "get_Tag",
+          "signature": "int get_Tag()",
+          "token": 100663308,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8396,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::get_IsNum",
+              "signature": "bool get_IsNum()",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::get_IsVar",
+              "signature": "bool get_IsVar()",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::get_IsAdd",
+              "signature": "bool get_IsAdd()",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::get_IsMul",
+              "signature": "bool get_IsMul()",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::get_IsNeg",
+              "signature": "bool get_IsNeg()",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::CompareTo",
+              "signature": "int CompareTo(object obj, IComparer comp)",
+              "offset": 46,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::GetHashCode",
+              "signature": "int GetHashCode(IEqualityComparer comp)",
+              "offset": 9,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::Equals",
+              "signature": "bool Equals(Expr obj, IEqualityComparer comp)",
+              "offset": 34,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::Equals",
+              "signature": "bool Equals(Expr obj)",
+              "offset": 34,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::eval",
+              "signature": "double eval(FSharpMap<string, double> env, Expr expr)",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 49,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 92,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 171,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 289,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 359,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 437,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 554,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 695,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::show",
+              "signature": "string show(Expr expr)",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "<StartupCode$Ref17-FSharpLibrary>.$Library::CompareTo$cont@7",
+              "signature": "int CompareTo$cont@7(Expr this, Expr obj, Unit unitVar)",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "__DebugDisplay",
+          "signature": "object __DebugDisplay()",
+          "token": 100663309,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8404,
+          "size": 22,
+          "calls": [
+            {
+              "offset": 5,
+              "opcode": "newobj",
+              "target": "Microsoft.FSharp.Core.PrintfFormat<Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Expr, string>, Microsoft.FSharp.Core.Unit, string, string, string>::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.ExtraTopLevelOperators::PrintFormatToString<FSharpFunc<Expr, string>>(PrintfFormat<FSharpFunc<Expr, string>, Unit, string, string>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 16,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Expr, string>::Invoke(Expr)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663310,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8428,
+          "size": 22,
+          "calls": [
+            {
+              "offset": 5,
+              "opcode": "newobj",
+              "target": "Microsoft.FSharp.Core.PrintfFormat<Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Expr, string>, Microsoft.FSharp.Core.Unit, string, string, Ref.FSharp.Expr>::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.ExtraTopLevelOperators::PrintFormatToString<FSharpFunc<Expr, string>>(PrintfFormat<FSharpFunc<Expr, string>, Unit, string, string>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 16,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Expr, string>::Invoke(Expr)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "CompareTo",
+          "signature": "int CompareTo(Expr obj)",
+          "token": 100663311,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 8452,
+          "size": 48,
+          "calls": [
+            {
+              "offset": 29,
+              "opcode": "call",
+              "target": "<StartupCode$Ref17-FSharpLibrary>.$Library::CompareTo$cont@7(Expr, Expr, Unit)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663455
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::CompareTo",
+              "signature": "int CompareTo(object obj)",
+              "offset": 9,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "CompareTo",
+          "signature": "int CompareTo(object obj)",
+          "token": 100663312,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 8512,
+          "size": 15,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::CompareTo(Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663311
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "CompareTo",
+          "signature": "int CompareTo(object obj, IComparer comp)",
+          "token": 100663313,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 8528,
+          "size": 447,
+          "calls": [
+            {
+              "offset": 46,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 145,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives.HashCompare::GenericComparisonWithComparerIntrinsic<double>(IComparer, double, double)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 181,
+              "opcode": "call",
+              "target": "System.String::CompareOrdinal(string, string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 226,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::CompareTo(object, IComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663313
+            },
+            {
+              "offset": 322,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::CompareTo(object, IComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663313
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::CompareTo",
+              "signature": "int CompareTo(object obj, IComparer comp)",
+              "offset": 226,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::CompareTo",
+              "signature": "int CompareTo(object obj, IComparer comp)",
+              "offset": 322,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "<StartupCode$Ref17-FSharpLibrary>.$Library::CompareTo$cont@7",
+              "signature": "int CompareTo$cont@7(Expr this, Expr obj, Unit unitVar)",
+              "offset": 192,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "<StartupCode$Ref17-FSharpLibrary>.$Library::CompareTo$cont@7",
+              "signature": "int CompareTo$cont@7(Expr this, Expr obj, Unit unitVar)",
+              "offset": 246,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "<StartupCode$Ref17-FSharpLibrary>.$Library::CompareTo$cont@7",
+              "signature": "int CompareTo$cont@7(Expr this, Expr obj, Unit unitVar)",
+              "offset": 297,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "<StartupCode$Ref17-FSharpLibrary>.$Library::CompareTo$cont@7",
+              "signature": "int CompareTo$cont@7(Expr this, Expr obj, Unit unitVar)",
+              "offset": 351,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "<StartupCode$Ref17-FSharpLibrary>.$Library::CompareTo$cont@7",
+              "signature": "int CompareTo$cont@7(Expr this, Expr obj, Unit unitVar)",
+              "offset": 404,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode(IEqualityComparer comp)",
+          "token": 100663314,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 8988,
+          "size": 300,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 60,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives.HashCompare::GenericHashWithComparerIntrinsic<double>(IEqualityComparer, double)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 105,
+              "opcode": "callvirt",
+              "target": "System.Object::GetHashCode()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 145,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::GetHashCode(IEqualityComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663314
+            },
+            {
+              "offset": 173,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::GetHashCode(IEqualityComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663314
+            },
+            {
+              "offset": 213,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::GetHashCode(IEqualityComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663314
+            },
+            {
+              "offset": 241,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::GetHashCode(IEqualityComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663314
+            },
+            {
+              "offset": 281,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::GetHashCode(IEqualityComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663314
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::GetHashCode",
+              "signature": "int GetHashCode(IEqualityComparer comp)",
+              "offset": 145,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::GetHashCode",
+              "signature": "int GetHashCode(IEqualityComparer comp)",
+              "offset": 173,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::GetHashCode",
+              "signature": "int GetHashCode(IEqualityComparer comp)",
+              "offset": 213,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::GetHashCode",
+              "signature": "int GetHashCode(IEqualityComparer comp)",
+              "offset": 241,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::GetHashCode",
+              "signature": "int GetHashCode(IEqualityComparer comp)",
+              "offset": 281,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::GetHashCode",
+              "signature": "int GetHashCode()",
+              "offset": 6,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode()",
+          "token": 100663315,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9300,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::get_GenericEqualityComparer()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::GetHashCode(IEqualityComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663314
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "Equals",
+          "signature": "bool Equals(Expr obj, IEqualityComparer comp)",
+          "token": 100663316,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9316,
+          "size": 355,
+          "calls": [
+            {
+              "offset": 34,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 123,
+              "opcode": "call",
+              "target": "System.String::Equals(string, string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 168,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::Equals(Expr, IEqualityComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663316
+            },
+            {
+              "offset": 250,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::Equals(Expr, IEqualityComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663316
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::Equals",
+              "signature": "bool Equals(Expr obj, IEqualityComparer comp)",
+              "offset": 168,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::Equals",
+              "signature": "bool Equals(Expr obj, IEqualityComparer comp)",
+              "offset": 250,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::Equals",
+              "signature": "bool Equals(object obj, IEqualityComparer comp)",
+              "offset": 13,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "Equals",
+          "signature": "bool Equals(object obj, IEqualityComparer comp)",
+          "token": 100663317,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9684,
+          "size": 21,
+          "calls": [
+            {
+              "offset": 13,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::Equals(Expr, IEqualityComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663316
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "Equals",
+          "signature": "bool Equals(Expr obj)",
+          "token": 100663318,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9720,
+          "size": 333,
+          "calls": [
+            {
+              "offset": 34,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 152,
+              "opcode": "call",
+              "target": "System.String::Equals(string, string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 188,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::Equals(Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663318
+            },
+            {
+              "offset": 250,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::Equals(Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663318
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::Equals",
+              "signature": "bool Equals(Expr obj)",
+              "offset": 188,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::Equals",
+              "signature": "bool Equals(Expr obj)",
+              "offset": 250,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::Equals",
+              "signature": "bool Equals(object obj)",
+              "offset": 12,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr",
+          "name": "Equals",
+          "signature": "bool Equals(object obj)",
+          "token": 100663319,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10068,
+          "size": 20,
+          "calls": [
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::Equals(Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663318
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Num",
+          "name": ".ctor",
+          "signature": "void .ctor(double item)",
+          "token": 100663320,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10100,
+          "size": 15,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663297
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::NewNum",
+              "signature": "Expr NewNum(double item)",
+              "offset": 1,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Num",
+          "name": "get_Item",
+          "signature": "double get_Item()",
+          "token": 100663321,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10116,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Var",
+          "name": ".ctor",
+          "signature": "void .ctor(string item)",
+          "token": 100663322,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10124,
+          "size": 15,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663297
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::NewVar",
+              "signature": "Expr NewVar(string item)",
+              "offset": 1,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Var",
+          "name": "get_Item",
+          "signature": "string get_Item()",
+          "token": 100663323,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10140,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Add",
+          "name": ".ctor",
+          "signature": "void .ctor(Expr item1, Expr item2)",
+          "token": 100663324,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10148,
+          "size": 22,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663297
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::NewAdd",
+              "signature": "Expr NewAdd(Expr item1, Expr item2)",
+              "offset": 2,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Add",
+          "name": "get_Item1",
+          "signature": "Expr get_Item1()",
+          "token": 100663325,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10172,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Add",
+          "name": "get_Item2",
+          "signature": "Expr get_Item2()",
+          "token": 100663326,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10180,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Mul",
+          "name": ".ctor",
+          "signature": "void .ctor(Expr item1, Expr item2)",
+          "token": 100663327,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10188,
+          "size": 22,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663297
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::NewMul",
+              "signature": "Expr NewMul(Expr item1, Expr item2)",
+              "offset": 2,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Mul",
+          "name": "get_Item1",
+          "signature": "Expr get_Item1()",
+          "token": 100663328,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10212,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Mul",
+          "name": "get_Item2",
+          "signature": "Expr get_Item2()",
+          "token": 100663329,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10220,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Neg",
+          "name": ".ctor",
+          "signature": "void .ctor(Expr item)",
+          "token": 100663330,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10228,
+          "size": 15,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663297
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::NewNeg",
+              "signature": "Expr NewNeg(Expr item)",
+              "offset": 1,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Neg",
+          "name": "get_Item",
+          "signature": "Expr get_Item()",
+          "token": 100663331,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10244,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Num@DebugTypeProxy",
+          "name": ".ctor",
+          "signature": "void .ctor(Num obj)",
+          "token": 100663332,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10252,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Num@DebugTypeProxy",
+          "name": "get_Item",
+          "signature": "double get_Item()",
+          "token": 100663333,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10268,
+          "size": 12,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Var@DebugTypeProxy",
+          "name": ".ctor",
+          "signature": "void .ctor(Var obj)",
+          "token": 100663334,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10284,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Var@DebugTypeProxy",
+          "name": "get_Item",
+          "signature": "string get_Item()",
+          "token": 100663335,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10300,
+          "size": 12,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Add@DebugTypeProxy",
+          "name": ".ctor",
+          "signature": "void .ctor(Add obj)",
+          "token": 100663336,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10316,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Add@DebugTypeProxy",
+          "name": "get_Item1",
+          "signature": "Expr get_Item1()",
+          "token": 100663337,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10332,
+          "size": 12,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Add@DebugTypeProxy",
+          "name": "get_Item2",
+          "signature": "Expr get_Item2()",
+          "token": 100663338,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10348,
+          "size": 12,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Mul@DebugTypeProxy",
+          "name": ".ctor",
+          "signature": "void .ctor(Mul obj)",
+          "token": 100663339,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10364,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Mul@DebugTypeProxy",
+          "name": "get_Item1",
+          "signature": "Expr get_Item1()",
+          "token": 100663340,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10380,
+          "size": 12,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Mul@DebugTypeProxy",
+          "name": "get_Item2",
+          "signature": "Expr get_Item2()",
+          "token": 100663341,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10396,
+          "size": 12,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Neg@DebugTypeProxy",
+          "name": ".ctor",
+          "signature": "void .ctor(Neg obj)",
+          "token": 100663342,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10412,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Expr+Neg@DebugTypeProxy",
+          "name": "get_Item",
+          "signature": "Expr get_Item()",
+          "token": 100663343,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10428,
+          "size": 12,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Token",
+          "name": "get_Kind",
+          "signature": "string get_Kind()",
+          "token": 100663344,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10444,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Token",
+          "name": "get_Text",
+          "signature": "string get_Text()",
+          "token": 100663345,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10452,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Token",
+          "name": "get_Position",
+          "signature": "int get_Position()",
+          "token": 100663346,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10460,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Token",
+          "name": ".ctor",
+          "signature": "void .ctor(string kind, string text, int position)",
+          "token": 100663347,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 10468,
+          "size": 28,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Collections::tokenize",
+              "signature": "FSharpList<Token> tokenize(string input)",
+              "offset": 115,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Collections::tokenize",
+              "signature": "FSharpList<Token> tokenize(string input)",
+              "offset": 180,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Token",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663348,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 10500,
+          "size": 22,
+          "calls": [
+            {
+              "offset": 5,
+              "opcode": "newobj",
+              "target": "Microsoft.FSharp.Core.PrintfFormat<Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Token, string>, Microsoft.FSharp.Core.Unit, string, string, Ref.FSharp.Token>::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.ExtraTopLevelOperators::PrintFormatToString<FSharpFunc<Token, string>>(PrintfFormat<FSharpFunc<Token, string>, Unit, string, string>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 16,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Token, string>::Invoke(Token)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Token",
+          "name": "CompareTo",
+          "signature": "int CompareTo(Token obj)",
+          "token": 100663349,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10524,
+          "size": 120,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 24,
+              "opcode": "call",
+              "target": "System.String::CompareOrdinal(string, string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 42,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 60,
+              "opcode": "call",
+              "target": "System.String::CompareOrdinal(string, string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 78,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Token::CompareTo",
+              "signature": "int CompareTo(object obj)",
+              "offset": 7,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Token",
+          "name": "CompareTo",
+          "signature": "int CompareTo(object obj)",
+          "token": 100663350,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10656,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Token::CompareTo(Token)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663349
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Token",
+          "name": "CompareTo",
+          "signature": "int CompareTo(object obj, IComparer comp)",
+          "token": 100663351,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10672,
+          "size": 119,
+          "calls": [
+            {
+              "offset": 30,
+              "opcode": "call",
+              "target": "System.String::CompareOrdinal(string, string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 60,
+              "opcode": "call",
+              "target": "System.String::CompareOrdinal(string, string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Token",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode(IEqualityComparer comp)",
+          "token": 100663352,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10804,
+          "size": 98,
+          "calls": [
+            {
+              "offset": 45,
+              "opcode": "callvirt",
+              "target": "System.Object::GetHashCode()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 79,
+              "opcode": "callvirt",
+              "target": "System.Object::GetHashCode()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Token::GetHashCode",
+              "signature": "int GetHashCode()",
+              "offset": 6,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Token",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode()",
+          "token": 100663353,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10916,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::get_GenericEqualityComparer()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Token::GetHashCode(IEqualityComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663352
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Token",
+          "name": "Equals",
+          "signature": "bool Equals(Token obj, IEqualityComparer comp)",
+          "token": 100663354,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10932,
+          "size": 73,
+          "calls": [
+            {
+              "offset": 18,
+              "opcode": "call",
+              "target": "System.String::Equals(string, string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 37,
+              "opcode": "call",
+              "target": "System.String::Equals(string, string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Token::Equals",
+              "signature": "bool Equals(object obj, IEqualityComparer comp)",
+              "offset": 13,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Token",
+          "name": "Equals",
+          "signature": "bool Equals(object obj, IEqualityComparer comp)",
+          "token": 100663355,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11020,
+          "size": 21,
+          "calls": [
+            {
+              "offset": 13,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Token::Equals(Token, IEqualityComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663354
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Token",
+          "name": "Equals",
+          "signature": "bool Equals(Token obj)",
+          "token": 100663356,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11056,
+          "size": 73,
+          "calls": [
+            {
+              "offset": 18,
+              "opcode": "call",
+              "target": "System.String::Equals(string, string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 37,
+              "opcode": "call",
+              "target": "System.String::Equals(string, string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Token::Equals",
+              "signature": "bool Equals(object obj)",
+              "offset": 12,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Token",
+          "name": "Equals",
+          "signature": "bool Equals(object obj)",
+          "token": 100663357,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11144,
+          "size": 20,
+          "calls": [
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Token::Equals(Token)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663356
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Range",
+          "name": "get_Start",
+          "signature": "int get_Start()",
+          "token": 100663358,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11176,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Range",
+          "name": "get_Length",
+          "signature": "int get_Length()",
+          "token": 100663359,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11184,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Range",
+          "name": ".ctor",
+          "signature": "void .ctor(int start, int length)",
+          "token": 100663360,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 11192,
+          "size": 15,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Range",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663361,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 11208,
+          "size": 27,
+          "calls": [
+            {
+              "offset": 5,
+              "opcode": "newobj",
+              "target": "Microsoft.FSharp.Core.PrintfFormat<Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Range, string>, Microsoft.FSharp.Core.Unit, string, string, Ref.FSharp.Range>::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.ExtraTopLevelOperators::PrintFormatToString<FSharpFunc<Range, string>>(PrintfFormat<FSharpFunc<Range, string>, Unit, string, string>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 21,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Range, string>::Invoke(Range)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Range",
+          "name": "CompareTo",
+          "signature": "int CompareTo(Range obj)",
+          "token": 100663362,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11236,
+          "size": 74,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 43,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Range::CompareTo",
+              "signature": "int CompareTo(object obj)",
+              "offset": 7,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Range",
+          "name": "CompareTo",
+          "signature": "int CompareTo(object obj)",
+          "token": 100663363,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11324,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "Ref.FSharp.Range::CompareTo(Range)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663362
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Range",
+          "name": "CompareTo",
+          "signature": "int CompareTo(object obj, IComparer comp)",
+          "token": 100663364,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11340,
+          "size": 69,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Range",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode(IEqualityComparer comp)",
+          "token": 100663365,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11424,
+          "size": 46,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Range::GetHashCode",
+              "signature": "int GetHashCode()",
+              "offset": 6,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Range",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode()",
+          "token": 100663366,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11484,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::get_GenericEqualityComparer()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "Ref.FSharp.Range::GetHashCode(IEqualityComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663365
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Range",
+          "name": "Equals",
+          "signature": "bool Equals(Range obj, IEqualityComparer comp)",
+          "token": 100663367,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11500,
+          "size": 33,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Range::Equals",
+              "signature": "bool Equals(object obj, IEqualityComparer comp)",
+              "offset": 18,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Range",
+          "name": "Equals",
+          "signature": "bool Equals(object obj, IEqualityComparer comp)",
+          "token": 100663368,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11536,
+          "size": 26,
+          "calls": [
+            {
+              "offset": 18,
+              "opcode": "call",
+              "target": "Ref.FSharp.Range::Equals(Range, IEqualityComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663367
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Range",
+          "name": "Equals",
+          "signature": "bool Equals(Range obj)",
+          "token": 100663369,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11576,
+          "size": 33,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Range::Equals",
+              "signature": "bool Equals(object obj)",
+              "offset": 15,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Range",
+          "name": "Equals",
+          "signature": "bool Equals(object obj)",
+          "token": 100663370,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11612,
+          "size": 23,
+          "calls": [
+            {
+              "offset": 15,
+              "opcode": "call",
+              "target": "Ref.FSharp.Range::Equals(Range)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663369
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Stack`1",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663371,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 11636,
+          "size": 20,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 9,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.List<!0>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Stack`1",
+          "name": "Push",
+          "signature": "void Push(T x)",
+          "token": 100663372,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 11660,
+          "size": 15,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<!0>::Add(!0)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Stack`1",
+          "name": "Pop",
+          "signature": "T Pop()",
+          "token": 100663373,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 11676,
+          "size": 75,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<!0>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 18,
+              "opcode": "newobj",
+              "target": "System.InvalidOperationException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 36,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<!0>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 43,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<!0>::get_Item(int)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 61,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<!0>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 68,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<!0>::RemoveAt(int)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Stack`1",
+          "name": "get_Count",
+          "signature": "int get_Count()",
+          "token": 100663374,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance"
+          ],
+          "rva": 11764,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 8,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<!0>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Stack`1",
+          "name": "System.Collections.Generic.IEnumerable<'T>.GetEnumerator",
+          "signature": "IEnumerator<T> System.Collections.Generic.IEnumerable<'T>.GetEnumerator()",
+          "token": 100663375,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual"
+          ],
+          "rva": 11780,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Collections.SeqModule::Reverse<!0>(IEnumerable<!0>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 13,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<!0>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Stack`1",
+          "name": "System.Collections.IEnumerable.GetEnumerator",
+          "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+          "token": 100663376,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual"
+          ],
+          "rva": 11800,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Collections.SeqModule::Reverse<!0>(IEnumerable<!0>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 13,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerable::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Async",
+          "name": "delayed",
+          "signature": "FSharpAsync<a> delayed<a>(int ms, a value)",
+          "token": 100663377,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 11820,
+          "size": 20,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.ExtraTopLevelOperators::get_DefaultAsyncBuilder()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 7,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Async.delayed@129<!!0>::.ctor(int, !!0)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663385
+            },
+            {
+              "offset": 14,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Control.FSharpAsyncBuilder::Delay<!!0>(FSharpFunc<Unit, FSharpAsync<!!0>>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Async",
+          "name": "sumAll",
+          "signature": "Task<int> sumAll(FSharpList<int> values)",
+          "token": 100663378,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 11844,
+          "size": 68,
+          "calls": [
+            {
+              "offset": 24,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::Create()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 46,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::Start<sumAll@133>(ref sumAll@133)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 62,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::get_Task()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Async+delayed@129-1",
+          "name": ".ctor",
+          "signature": "void .ctor(a value)",
+          "token": 100663379,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11924,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<Microsoft.FSharp.Core.Unit, Microsoft.FSharp.Control.FSharpAsync<!0>>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Async+delayed@129::Invoke",
+              "signature": "FSharpAsync<a> Invoke(Unit unitVar)",
+              "offset": 18,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Async+delayed@129-1",
+          "name": "Invoke",
+          "signature": "FSharpAsync<a> Invoke(Unit _arg1)",
+          "token": 100663380,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 11940,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Async.delayed@129-2<!0>::.ctor(!0)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663381
+            },
+            {
+              "offset": 13,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Control.AsyncPrimitives::MakeAsync<!0>(FSharpFunc<AsyncActivation<!0>, AsyncReturn>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Async+delayed@129-2",
+          "name": ".ctor",
+          "signature": "void .ctor(a value)",
+          "token": 100663381,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11960,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<Microsoft.FSharp.Control.AsyncActivation<!0>, Microsoft.FSharp.Control.AsyncReturn>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Async+delayed@129-1::Invoke",
+              "signature": "FSharpAsync<a> Invoke(Unit _arg1)",
+              "offset": 6,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Async+delayed@129-2",
+          "name": "Invoke",
+          "signature": "AsyncReturn Invoke(AsyncActivation<a> ctxt)",
+          "token": 100663382,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 11976,
+          "size": 15,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Control.AsyncActivation<!0>::Success(AsyncActivation<!0>, !0)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Async+delayed@129-3",
+          "name": ".ctor",
+          "signature": "void .ctor(FSharpAsync<Unit> computation, FSharpFunc<Unit, FSharpAsync<a>> binder)",
+          "token": 100663383,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11992,
+          "size": 21,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<Microsoft.FSharp.Control.AsyncActivation<!0>, Microsoft.FSharp.Control.AsyncReturn>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Async+delayed@129::Invoke",
+              "signature": "FSharpAsync<a> Invoke(Unit unitVar)",
+              "offset": 26,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Async+delayed@129-3",
+          "name": "Invoke",
+          "signature": "AsyncReturn Invoke(AsyncActivation<a> ctxt)",
+          "token": 100663384,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 12016,
+          "size": 21,
+          "calls": [
+            {
+              "offset": 15,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Control.AsyncPrimitives::Bind<!0, Unit>(AsyncActivation<!0>, FSharpAsync<Unit>, FSharpFunc<Unit, FSharpAsync<!0>>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Async+delayed@129",
+          "name": ".ctor",
+          "signature": "void .ctor(int ms, a value)",
+          "token": 100663385,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 12040,
+          "size": 21,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<Microsoft.FSharp.Core.Unit, Microsoft.FSharp.Control.FSharpAsync<!0>>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Async::delayed",
+              "signature": "FSharpAsync<a> delayed<a>(int ms, a value)",
+              "offset": 7,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Async+delayed@129",
+          "name": "Invoke",
+          "signature": "FSharpAsync<a> Invoke(Unit unitVar)",
+          "token": 100663386,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 12064,
+          "size": 39,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Control.FSharpAsync::Sleep(int)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 18,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Async.delayed@129-1<!0>::.ctor(!0)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663379
+            },
+            {
+              "offset": 26,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Async.delayed@129-3<!0>::.ctor(FSharpAsync<Unit>, FSharpFunc<Unit, FSharpAsync<!0>>)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663383
+            },
+            {
+              "offset": 33,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Control.AsyncPrimitives::MakeAsync<!0>(FSharpFunc<AsyncActivation<!0>, AsyncReturn>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Async+sumAll@133",
+          "name": "MoveNext",
+          "signature": "void MoveNext()",
+          "token": 100663387,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 12116,
+          "size": 607,
+          "calls": [
+            {
+              "offset": 41,
+              "opcode": "newobj",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::.ctor(int)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 62,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<int>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 117,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<int>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 126,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Task::FromResult<int>(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 136,
+              "opcode": "callvirt",
+              "target": "System.Threading.Tasks.Task<int>::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 155,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.TaskAwaiter<int>::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 196,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.TaskAwaiter<int>::GetResult()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 219,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::get_contents()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 227,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::set_contents(int)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 253,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::AwaitUnsafeOnCompleted<TaskAwaiter<int>, sumAll@133>(ref TaskAwaiter<int>, ref sumAll@133)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 299,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 388,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 459,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 496,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::get_contents()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 559,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::SetResult(int)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 601,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::SetException(Exception)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Async+sumAll@133",
+          "name": "SetStateMachine",
+          "signature": "void SetStateMachine(IAsyncStateMachine state)",
+          "token": 100663388,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 12788,
+          "size": 18,
+          "calls": [
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::SetStateMachine(IAsyncStateMachine)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Async+sumAll@133",
+          "name": "get_ResumptionPoint",
+          "signature": "int get_ResumptionPoint()",
+          "token": 100663389,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 12808,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Async+sumAll@133",
+          "name": "get_Data",
+          "signature": "TaskStateMachineData<int> get_Data()",
+          "token": 100663390,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 12816,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Async+sumAll@133",
+          "name": "set_Data",
+          "signature": "void set_Data(TaskStateMachineData<int> value)",
+          "token": 100663391,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 12824,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections",
+          "name": "wordFrequencies",
+          "signature": "FSharpList<Tuple<string, int>> wordFrequencies(string text)",
+          "token": 100663392,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 12836,
+          "size": 89,
+          "calls": [
+            {
+              "offset": 28,
+              "opcode": "callvirt",
+              "target": "System.String::Split(char[], StringSplitOptions)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 40,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Collections.SeqModule::Map<string, string>(FSharpFunc<string, string>, IEnumerable<string>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 45,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Collections.SeqModule::CountBy<string, string>(FSharpFunc<string, string>, IEnumerable<string>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 64,
+              "opcode": "newobj",
+              "target": "System.ArgumentNullException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 76,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Collections.SeqModule::SortWith<Tuple<string, int>>(FSharpFunc<Tuple<string, int>, FSharpFunc<Tuple<string, int>, int>>, IEnumerable<Tuple<string, int>>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 83,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Collections.SeqModule::ToList<Tuple<string, int>>(IEnumerable<Tuple<string, int>>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections",
+          "name": "tokenize",
+          "signature": "FSharpList<Token> tokenize(string input)",
+          "token": 100663393,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 12940,
+          "size": 229,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::.ctor(int)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::get_contents()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 19,
+              "opcode": "callvirt",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 26,
+              "opcode": "call",
+              "target": "System.Char::IsDigit(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 34,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::get_contents()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 44,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::get_contents()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 51,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::set_contents(int)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 57,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::get_contents()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 63,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 72,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::get_contents()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 77,
+              "opcode": "callvirt",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 82,
+              "opcode": "call",
+              "target": "System.Char::IsDigit(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 102,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::get_contents()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 109,
+              "opcode": "callvirt",
+              "target": "System.String::Substring(int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 115,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Token::.ctor(string, string, int)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663347
+            },
+            {
+              "offset": 120,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.CompilerServices.ListCollector<Ref.FSharp.Token>::Add(Token)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 128,
+              "opcode": "call",
+              "target": "System.Char::IsWhiteSpace(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 137,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::get_contents()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 144,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::set_contents(int)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 169,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 175,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::get_contents()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 180,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Token::.ctor(string, string, int)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663347
+            },
+            {
+              "offset": 185,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.CompilerServices.ListCollector<Ref.FSharp.Token>::Add(Token)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 192,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::get_contents()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 199,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::set_contents(int)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 205,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpRef<int>::get_contents()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 211,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 223,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.CompilerServices.ListCollector<Ref.FSharp.Token>::Close()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections",
+          "name": "primes",
+          "signature": "IEnumerable<int> primes(int limit)",
+          "token": 100663394,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 13184,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Collections.primes@90::.ctor(int, bool[], int, IEnumerator<int>, IEnumerator<int>, int, int)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663410
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections",
+          "name": "adder",
+          "signature": "int adder(int n, int x)",
+          "token": 100663395,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 13212,
+          "size": 4,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections",
+          "name": "get_compose",
+          "signature": "FSharpFunc<int, int> get_compose()",
+          "token": 100663396,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "static"
+          ],
+          "rva": 13220,
+          "size": 6,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections",
+          "name": "get_func1@1",
+          "signature": "FSharpFunc<int, int> get_func1@1()",
+          "token": 100663397,
+          "access": "internal",
+          "kinds": [
+            "property-get",
+            "static"
+          ],
+          "rva": 13228,
+          "size": 6,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Collections+compose@100-3::Invoke",
+              "signature": "int Invoke(int x)",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections",
+          "name": "get_func1@1-1",
+          "signature": "FSharpFunc<int, int> get_func1@1-1()",
+          "token": 100663398,
+          "access": "internal",
+          "kinds": [
+            "property-get",
+            "static"
+          ],
+          "rva": 13236,
+          "size": 6,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Collections+compose@100-2::Invoke",
+              "signature": "int Invoke(int x)",
+              "offset": 5,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections",
+          "name": "get_func2@1",
+          "signature": "FSharpFunc<int, int> get_func2@1()",
+          "token": 100663399,
+          "access": "internal",
+          "kinds": [
+            "property-get",
+            "static"
+          ],
+          "rva": 13244,
+          "size": 6,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Collections+compose@100-2::Invoke",
+              "signature": "int Invoke(int x)",
+              "offset": 0,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections",
+          "name": "memoize",
+          "signature": "FSharpFunc<a, b> memoize<a, b>(FSharpFunc<a, b> f)",
+          "token": 100663400,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 13252,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::FastGenericEqualityComparerFromTable<!!0>()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 5,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.Dictionary<!!0, !!1>::.ctor(IEqualityComparer<!!0>)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 13,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Collections.memoize@104<!!0, !!1>::.ctor(FSharpFunc<!!0, !!1>, Dictionary<!!0, !!1>)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663428
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+wordFrequencies@68-1",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663401,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 13284,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<string, string>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Collections+wordFrequencies@68-1::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+wordFrequencies@68-1",
+          "name": "Invoke",
+          "signature": "string Invoke(string w)",
+          "token": 100663402,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 13292,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "System.String::ToLowerInvariant()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+wordFrequencies@68-1",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663403,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static"
+          ],
+          "rva": 13300,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Collections.wordFrequencies@68-1::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663401
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+wordFrequencies@69",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663404,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 13324,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<string, string>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Collections+wordFrequencies@69::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+wordFrequencies@69",
+          "name": "Invoke",
+          "signature": "string Invoke(string x)",
+          "token": 100663405,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 13332,
+          "size": 2,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+wordFrequencies@69",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663406,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static"
+          ],
+          "rva": 13336,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Collections.wordFrequencies@69::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663404
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+wordFrequencies@70-2",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663407,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 13360,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.OptimizedClosures.FSharpFunc<System.Tuple<string, int>, System.Tuple<string, int>, int>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Collections+wordFrequencies@70-2::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+wordFrequencies@70-2",
+          "name": "Invoke",
+          "signature": "int Invoke(Tuple<string, int> a, Tuple<string, int> b)",
+          "token": 100663408,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 13368,
+          "size": 24,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Tuple<string, int>::get_Item2()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 8,
+              "opcode": "call",
+              "target": "System.Tuple<string, int>::get_Item2()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+wordFrequencies@70-2",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663409,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static"
+          ],
+          "rva": 13404,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Collections.wordFrequencies@70-2::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663407
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+primes@90",
+          "name": ".ctor",
+          "signature": "void .ctor(int limit, bool[] sieve, int i, IEnumerator<int> enum, IEnumerator<int> enum0, int pc, int current)",
+          "token": 100663410,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 13428,
+          "size": 60,
+          "calls": [
+            {
+              "offset": 54,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.CompilerServices.GeneratedSequenceBase<int>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Collections::primes",
+              "signature": "IEnumerable<int> primes(int limit)",
+              "offset": 7,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Collections+primes@90::GetFreshEnumerator",
+              "signature": "IEnumerator<int> GetFreshEnumerator()",
+              "offset": 12,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+primes@90",
+          "name": "GenerateNext",
+          "signature": "int GenerateNext(ref IEnumerable<int> next)",
+          "token": 100663411,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 13492,
+          "size": 342,
+          "calls": [
+            {
+              "offset": 58,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Collections.ArrayModule::Create<bool>(int, bool)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 77,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.Operators.OperatorIntrinsics::RangeInt32(int, int, int)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 82,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<int>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 111,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<int>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 186,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.Operators.OperatorIntrinsics::RangeInt32(int, int, int)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 191,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<int>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 216,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<int>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 237,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 257,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives.IntrinsicFunctions::Dispose<IEnumerator<int>>(IEnumerator<int>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 284,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 307,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives.IntrinsicFunctions::Dispose<IEnumerator<int>>(IEnumerator<int>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+primes@90",
+          "name": "Close",
+          "signature": "void Close()",
+          "token": 100663412,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 13848,
+          "size": 144,
+          "calls": [
+            {
+              "offset": 80,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives.IntrinsicFunctions::Dispose<IEnumerator<int>>(IEnumerator<int>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 102,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives.IntrinsicFunctions::Dispose<IEnumerator<int>>(IEnumerator<int>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+primes@90",
+          "name": "get_CheckClose",
+          "signature": "bool get_CheckClose()",
+          "token": 100663413,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 14020,
+          "size": 51,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+primes@90",
+          "name": "get_LastGenerated",
+          "signature": "int get_LastGenerated()",
+          "token": 100663414,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 14072,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+primes@90",
+          "name": "GetFreshEnumerator",
+          "signature": "IEnumerator<int> GetFreshEnumerator()",
+          "token": 100663415,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 14080,
+          "size": 18,
+          "calls": [
+            {
+              "offset": 12,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Collections.primes@90::.ctor(int, bool[], int, IEnumerator<int>, IEnumerator<int>, int, int)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663410
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+compose@100",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663416,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 14112,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<int, int>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Collections+compose@100::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+compose@100",
+          "name": "Invoke",
+          "signature": "int Invoke(int x)",
+          "token": 100663417,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 14120,
+          "size": 4,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+compose@100",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663418,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static"
+          ],
+          "rva": 14128,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Collections.compose@100::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663416
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+compose@100-2",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663419,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 14152,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<int, int>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Collections+compose@100-2::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+compose@100-2",
+          "name": "Invoke",
+          "signature": "int Invoke(int x)",
+          "token": 100663420,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 14160,
+          "size": 24,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "call",
+              "target": "Ref.FSharp.Collections::get_func2@1()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663399
+            },
+            {
+              "offset": 5,
+              "opcode": "call",
+              "target": "Ref.FSharp.Collections::get_func1@1-1()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663398
+            },
+            {
+              "offset": 11,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<int, int>::Invoke(int)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 18,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<int, int>::Invoke(int)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+compose@100-2",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663421,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static"
+          ],
+          "rva": 14188,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Collections.compose@100-2::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663419
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+compose@100-3",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663422,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 14212,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<int, int>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Collections+compose@100-3::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+compose@100-3",
+          "name": "Invoke",
+          "signature": "int Invoke(int x)",
+          "token": 100663423,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 14220,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.FSharp.Collections::get_func1@1()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663397
+            },
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<int, int>::Invoke(int)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+compose@100-3",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663424,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static"
+          ],
+          "rva": 14236,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Collections.compose@100-3::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663422
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+compose@100-1",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663425,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 14260,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<int, int>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Collections+compose@100-1::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+compose@100-1",
+          "name": "Invoke",
+          "signature": "int Invoke(int x)",
+          "token": 100663426,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 14268,
+          "size": 4,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+compose@100-1",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663427,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static"
+          ],
+          "rva": 14276,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Collections.compose@100-1::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663425
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+memoize@104",
+          "name": ".ctor",
+          "signature": "void .ctor(FSharpFunc<a, b> f, Dictionary<a, b> cache)",
+          "token": 100663428,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 14300,
+          "size": 21,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<!0, !1>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Collections::memoize",
+              "signature": "FSharpFunc<a, b> memoize<a, b>(FSharpFunc<a, b> f)",
+              "offset": 13,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Collections+memoize@104",
+          "name": "Invoke",
+          "signature": "b Invoke(a x)",
+          "token": 100663429,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 14324,
+          "size": 46,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Dictionary<!0, !1>::TryGetValue(!0, ref !1)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 25,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<!0, !1>::Invoke(!0)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 39,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Dictionary<!0, !1>::set_Item(!0, !1)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Recursion",
+          "name": "sumTo",
+          "signature": "long sumTo(long acc, int n)",
+          "token": 100663430,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 14384,
+          "size": 18,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Recursion",
+          "name": "isEven",
+          "signature": "bool isEven(int n)",
+          "token": 100663431,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 14404,
+          "size": 16,
+          "calls": [
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "Ref.FSharp.Recursion::isOdd(int)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663432
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Recursion::isOdd",
+              "signature": "bool isOdd(int n)",
+              "offset": 10,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Recursion",
+          "name": "isOdd",
+          "signature": "bool isOdd(int n)",
+          "token": 100663432,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 14424,
+          "size": 16,
+          "calls": [
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "Ref.FSharp.Recursion::isEven(int)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663431
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Recursion::isEven",
+              "signature": "bool isEven(int n)",
+              "offset": 10,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Recursion",
+          "name": "foldBack",
+          "signature": "b foldBack<a, b>(FSharpFunc<a, FSharpFunc<b, b>> f, FSharpList<a> list, FSharpFunc<b, b> k, b state)",
+          "token": 100663433,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 14444,
+          "size": 55,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Collections.FSharpList<!!0>::get_TailOrNull()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 14,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<!!1, !!1>::Invoke(!!1)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 23,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Collections.FSharpList<!!0>::get_HeadOrDefault()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 31,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Collections.FSharpList<!!0>::get_TailOrNull()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 39,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Recursion.foldBack@61<!!0, !!1>::.ctor(FSharpFunc<!!0, FSharpFunc<!!1, !!1>>, FSharpFunc<!!1, !!1>, !!0)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663435
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Recursion::length",
+              "signature": "int length<a>(FSharpList<a> list)",
+              "offset": 14,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Recursion",
+          "name": "length",
+          "signature": "int length<a>(FSharpList<a> list)",
+          "token": 100663434,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 14512,
+          "size": 20,
+          "calls": [
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "Ref.FSharp.Recursion::foldBack<!!0, int>(FSharpFunc<!!0, FSharpFunc<int, int>>, FSharpList<!!0>, FSharpFunc<int, int>, int)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663433
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Recursion+foldBack@61",
+          "name": ".ctor",
+          "signature": "void .ctor(FSharpFunc<a, FSharpFunc<b, b>> f, FSharpFunc<b, b> k, a x)",
+          "token": 100663435,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 14536,
+          "size": 28,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<!1, !1>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Recursion::foldBack",
+              "signature": "b foldBack<a, b>(FSharpFunc<a, FSharpFunc<b, b>> f, FSharpList<a> list, FSharpFunc<b, b> k, b state)",
+              "offset": 39,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Recursion+foldBack@61",
+          "name": "Invoke",
+          "signature": "b Invoke(b acc)",
+          "token": 100663436,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 14568,
+          "size": 32,
+          "calls": [
+            {
+              "offset": 19,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<!0, !1>::InvokeFast<!1>(FSharpFunc<!0, FSharpFunc<!1, !1>>, !0, !1)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 26,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<!1, !1>::Invoke(!1)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Recursion+length@63",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663437,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 14604,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.OptimizedClosures.FSharpFunc<!0, int, int>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Recursion+length@63::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Recursion+length@63",
+          "name": "Invoke",
+          "signature": "int Invoke(a _arg1, int n)",
+          "token": 100663438,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 14612,
+          "size": 4,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Recursion+length@63",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663439,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static"
+          ],
+          "rva": 14620,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Recursion.length@63<!0>::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663437
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Recursion+length@63-1",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663440,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 14644,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<int, int>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Recursion+length@63-1::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Recursion+length@63-1",
+          "name": "Invoke",
+          "signature": "int Invoke(int x)",
+          "token": 100663441,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 14652,
+          "size": 2,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Recursion+length@63-1",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663442,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static"
+          ],
+          "rva": 14656,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Recursion.length@63-1::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663440
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Eval",
+          "name": "eval",
+          "signature": "double eval(FSharpMap<string, double> env, Expr expr)",
+          "token": 100663443,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 14680,
+          "size": 213,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 59,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Collections.MapModule::TryFind<string, double>(string, FSharpMap<string, double>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 71,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpOption<double>::get_Value()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 82,
+              "opcode": "newobj",
+              "target": "Microsoft.FSharp.Core.PrintfFormat<Microsoft.FSharp.Core.FSharpFunc<string, double>, Microsoft.FSharp.Core.Unit, string, double, string>::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 87,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.PrintfModule::PrintFormatToStringThenFail<FSharpFunc<string, double>, double>(PrintfFormat<FSharpFunc<string, double>, Unit, string, double>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 95,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<string, double>::Invoke(string)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 127,
+              "opcode": "call",
+              "target": "Ref.FSharp.Eval::eval(FSharpMap<string, double>, Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663443
+            },
+            {
+              "offset": 135,
+              "opcode": "call",
+              "target": "Ref.FSharp.Eval::eval(FSharpMap<string, double>, Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663443
+            },
+            {
+              "offset": 171,
+              "opcode": "call",
+              "target": "Ref.FSharp.Eval::eval(FSharpMap<string, double>, Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663443
+            },
+            {
+              "offset": 179,
+              "opcode": "call",
+              "target": "Ref.FSharp.Eval::eval(FSharpMap<string, double>, Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663443
+            },
+            {
+              "offset": 206,
+              "opcode": "call",
+              "target": "Ref.FSharp.Eval::eval(FSharpMap<string, double>, Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663443
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::eval",
+              "signature": "double eval(FSharpMap<string, double> env, Expr expr)",
+              "offset": 127,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::eval",
+              "signature": "double eval(FSharpMap<string, double> env, Expr expr)",
+              "offset": 135,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::eval",
+              "signature": "double eval(FSharpMap<string, double> env, Expr expr)",
+              "offset": 171,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::eval",
+              "signature": "double eval(FSharpMap<string, double> env, Expr expr)",
+              "offset": 179,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::eval",
+              "signature": "double eval(FSharpMap<string, double> env, Expr expr)",
+              "offset": 206,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Eval",
+          "name": "simplify",
+          "signature": "Expr simplify(Expr expr)",
+          "token": 100663444,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 14908,
+          "size": 824,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 49,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 92,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 171,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 289,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 359,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 437,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 554,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 695,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 718,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::NewNum(double)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 741,
+              "opcode": "call",
+              "target": "Ref.FSharp.Eval::simplify(Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663444
+            },
+            {
+              "offset": 747,
+              "opcode": "call",
+              "target": "Ref.FSharp.Eval::simplify(Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663444
+            },
+            {
+              "offset": 752,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::NewAdd(Expr, Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663302
+            },
+            {
+              "offset": 777,
+              "opcode": "call",
+              "target": "Ref.FSharp.Eval::simplify(Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663444
+            },
+            {
+              "offset": 783,
+              "opcode": "call",
+              "target": "Ref.FSharp.Eval::simplify(Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663444
+            },
+            {
+              "offset": 788,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::NewMul(Expr, Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663304
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 741,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 747,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 777,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::simplify",
+              "signature": "Expr simplify(Expr expr)",
+              "offset": 783,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Eval",
+          "name": "show",
+          "signature": "string show(Expr expr)",
+          "token": 100663445,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 15744,
+          "size": 241,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 48,
+              "opcode": "call",
+              "target": "System.Globalization.CultureInfo::get_InvariantCulture()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 53,
+              "opcode": "call",
+              "target": "System.Double::ToString(string, IFormatProvider)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 98,
+              "opcode": "newobj",
+              "target": "Microsoft.FSharp.Core.PrintfFormat<Microsoft.FSharp.Core.FSharpFunc<string, Microsoft.FSharp.Core.FSharpFunc<string, string>>, Microsoft.FSharp.Core.Unit, string, string, System.Tuple<string, string>>::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 103,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.PrintfModule::PrintFormatToStringThen<FSharpFunc<string, FSharpFunc<string, string>>>(PrintfFormat<FSharpFunc<string, FSharpFunc<string, string>>, Unit, string, string>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 112,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Eval.show@45::.ctor(FSharpFunc<string, FSharpFunc<string, string>>)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663448
+            },
+            {
+              "offset": 119,
+              "opcode": "call",
+              "target": "Ref.FSharp.Eval::show(Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663445
+            },
+            {
+              "offset": 125,
+              "opcode": "call",
+              "target": "Ref.FSharp.Eval::show(Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663445
+            },
+            {
+              "offset": 132,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<string, string>::InvokeFast<string>(FSharpFunc<string, FSharpFunc<string, string>>, string, string)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 168,
+              "opcode": "newobj",
+              "target": "Microsoft.FSharp.Core.PrintfFormat<Microsoft.FSharp.Core.FSharpFunc<string, Microsoft.FSharp.Core.FSharpFunc<string, string>>, Microsoft.FSharp.Core.Unit, string, string, System.Tuple<string, string>>::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 173,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.PrintfModule::PrintFormatToStringThen<FSharpFunc<string, FSharpFunc<string, string>>>(PrintfFormat<FSharpFunc<string, FSharpFunc<string, string>>, Unit, string, string>)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 182,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Eval.show@46-2::.ctor(FSharpFunc<string, FSharpFunc<string, string>>)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663452
+            },
+            {
+              "offset": 189,
+              "opcode": "call",
+              "target": "Ref.FSharp.Eval::show(Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663445
+            },
+            {
+              "offset": 195,
+              "opcode": "call",
+              "target": "Ref.FSharp.Eval::show(Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663445
+            },
+            {
+              "offset": 202,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<string, string>::InvokeFast<string>(FSharpFunc<string, FSharpFunc<string, string>>, string, string)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 230,
+              "opcode": "call",
+              "target": "Ref.FSharp.Eval::show(Expr)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663445
+            },
+            {
+              "offset": 235,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::show",
+              "signature": "string show(Expr expr)",
+              "offset": 119,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::show",
+              "signature": "string show(Expr expr)",
+              "offset": 125,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::show",
+              "signature": "string show(Expr expr)",
+              "offset": 189,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::show",
+              "signature": "string show(Expr expr)",
+              "offset": 195,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::show",
+              "signature": "string show(Expr expr)",
+              "offset": 230,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Eval+show@45-1",
+          "name": ".ctor",
+          "signature": "void .ctor(FSharpFunc<string, string> clo2)",
+          "token": 100663446,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 16000,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<string, string>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval+show@45::Invoke",
+              "signature": "FSharpFunc<string, string> Invoke(string arg10)",
+              "offset": 14,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Eval+show@45-1",
+          "name": "Invoke",
+          "signature": "string Invoke(string arg20)",
+          "token": 100663447,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 16016,
+          "size": 15,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<string, string>::Invoke(string)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Eval+show@45",
+          "name": ".ctor",
+          "signature": "void .ctor(FSharpFunc<string, FSharpFunc<string, string>> clo1)",
+          "token": 100663448,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 16032,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<string, Microsoft.FSharp.Core.FSharpFunc<string, string>>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::show",
+              "signature": "string show(Expr expr)",
+              "offset": 112,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Eval+show@45",
+          "name": "Invoke",
+          "signature": "FSharpFunc<string, string> Invoke(string arg10)",
+          "token": 100663449,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 16048,
+          "size": 20,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<string, Microsoft.FSharp.Core.FSharpFunc<string, string>>::Invoke(string)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 14,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Eval.show@45-1::.ctor(FSharpFunc<string, string>)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663446
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Eval+show@46-3",
+          "name": ".ctor",
+          "signature": "void .ctor(FSharpFunc<string, string> clo2)",
+          "token": 100663450,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 16080,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<string, string>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval+show@46-2::Invoke",
+              "signature": "FSharpFunc<string, string> Invoke(string arg10)",
+              "offset": 14,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Eval+show@46-3",
+          "name": "Invoke",
+          "signature": "string Invoke(string arg20)",
+          "token": 100663451,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 16096,
+          "size": 15,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<string, string>::Invoke(string)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Eval+show@46-2",
+          "name": ".ctor",
+          "signature": "void .ctor(FSharpFunc<string, FSharpFunc<string, string>> clo1)",
+          "token": 100663452,
+          "access": "internal",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 16112,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<string, Microsoft.FSharp.Core.FSharpFunc<string, string>>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Eval::show",
+              "signature": "string show(Expr expr)",
+              "offset": 182,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "Ref.FSharp",
+          "type": "Ref.FSharp.Eval+show@46-2",
+          "name": "Invoke",
+          "signature": "FSharpFunc<string, string> Invoke(string arg10)",
+          "token": 100663453,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 16128,
+          "size": 20,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "Microsoft.FSharp.Core.FSharpFunc<string, Microsoft.FSharp.Core.FSharpFunc<string, string>>::Invoke(string)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 14,
+              "opcode": "newobj",
+              "target": "Ref.FSharp.Eval.show@46-3::.ctor(FSharpFunc<string, string>)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663450
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "<StartupCode$Ref17-FSharpLibrary>",
+          "type": "<StartupCode$Ref17-FSharpLibrary>.$Library",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663454,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static"
+          ],
+          "rva": 16160,
+          "size": 41,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref17.FSharpLibrary",
+          "namespace": "<StartupCode$Ref17-FSharpLibrary>",
+          "type": "<StartupCode$Ref17-FSharpLibrary>.$Library",
+          "name": "CompareTo$cont@7",
+          "signature": "int CompareTo$cont@7(Expr this, Expr obj, Unit unitVar)",
+          "token": 100663455,
+          "access": "internal",
+          "kinds": [
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 16204,
+          "size": 410,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.FSharp.Expr::get_Tag()",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 45,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 99,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives.HashCompare::GenericComparisonWithComparerIntrinsic<double>(IComparer, double, double)",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 121,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 141,
+              "opcode": "call",
+              "target": "System.String::CompareOrdinal(string, string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 163,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 192,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::CompareTo(object, IComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663313
+            },
+            {
+              "offset": 215,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 246,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::CompareTo(object, IComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663313
+            },
+            {
+              "offset": 268,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 297,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::CompareTo(object, IComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663313
+            },
+            {
+              "offset": 320,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 351,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::CompareTo(object, IComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663313
+            },
+            {
+              "offset": 373,
+              "opcode": "call",
+              "target": "Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()",
+              "scope": "external",
+              "targetAssembly": "FSharp.Core"
+            },
+            {
+              "offset": 404,
+              "opcode": "callvirt",
+              "target": "Ref.FSharp.Expr::CompareTo(object, IComparer)",
+              "scope": "internal",
+              "groupFile": "Ref17.FSharpLibrary.dll",
+              "groupToken": 100663313
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref17.FSharpLibrary",
+              "method": "Ref.FSharp.Expr::CompareTo",
+              "signature": "int CompareTo(Expr obj)",
+              "offset": 29,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

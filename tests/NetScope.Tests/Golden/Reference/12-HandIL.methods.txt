@@ -1,0 +1,46 @@
+Assembly : Ref12.HandIL.dll
+Name     : Ref12.HandIL, Version=1.0.0.0
+Runtime  : v4.0.30319   Machine: anycpu
+Methods  : 10
+
+Type     : Ref.HandIL.Constructs
+
+Method   : int WithFault(int x)
+Kind     : static, public
+RVA      : 0x2050   Size: 31 bytes   Token: 0x06000001
+
+Method   : int WithFilter(string s)
+Kind     : static, public
+RVA      : 0x208C   Size: 40 bytes   Token: 0x06000002
+
+Method   : int NestedInHandlers(int x)
+Kind     : static, public
+RVA      : 0x20D0   Size: 38 bytes   Token: 0x06000003
+
+Method   : int JumpTarget(int x)
+Kind     : static, public
+RVA      : 0x2138   Size: 5 bytes   Token: 0x06000004
+
+Method   : int Jumper(int x)
+Kind     : static, public
+RVA      : 0x2149   Size: 5 bytes   Token: 0x06000005
+
+Method   : long Factorial(int n, long acc)
+Kind     : static, public
+RVA      : 0x2150   Size: 21 bytes   Token: 0x06000006
+
+Method   : string SwitchFallThrough(int x)
+Kind     : static, public
+RVA      : 0x2174   Size: 40 bytes   Token: 0x06000007
+
+Method   : int SwitchLoop(int[] ops)
+Kind     : static, public
+RVA      : 0x21A8   Size: 54 bytes   Token: 0x06000008
+
+Method   : void Rethrows()
+Kind     : static, public
+RVA      : 0x21EC   Size: 13 bytes   Token: 0x06000009
+
+Method   : int IndirectCall(int x)
+Kind     : static, public
+RVA      : 0x2218   Size: 13 bytes   Token: 0x0600000A

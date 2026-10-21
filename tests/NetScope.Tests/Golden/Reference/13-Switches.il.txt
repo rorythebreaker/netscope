@@ -1,0 +1,1703 @@
+Assembly : Ref13.Switches.dll
+Name     : Ref13.Switches, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 67
+
+Type     : Ref.Switches.Shape
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, virtual, compiler-generated
+RVA      : 0x2050   Size: 11 bytes   Token: 0x06000001
+
+[IL]  .maxstack 8
+  IL_0000  ldtoken    Ref.Switches.Shape
+  IL_0005  call       class [System.Runtime]System.Type [System.Runtime]System.Type::GetTypeFromHandle(valuetype [System.Runtime]System.RuntimeTypeHandle)
+  IL_000A  ret
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x205C   Size: 64 bytes   Token: 0x06000002
+
+[IL]  .maxstack 2
+  .locals init ([0] class [System.Runtime]System.Text.StringBuilder V_0)
+  IL_0000  newobj     instance void [System.Runtime]System.Text.StringBuilder::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldloc.0
+  IL_0007  ldstr      "Shape"
+  IL_000C  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0011  pop
+  IL_0012  ldloc.0
+  IL_0013  ldstr      " { "
+  IL_0018  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_001D  pop
+  IL_001E  ldarg.0
+  IL_001F  ldloc.0
+  IL_0020  callvirt   instance bool Ref.Switches.Shape::PrintMembers(class [System.Runtime]System.Text.StringBuilder)
+  IL_0025  brfalse.s  IL_0030
+  IL_0027  ldloc.0
+  IL_0028  ldc.i4.s   32
+  IL_002A  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+  IL_002F  pop
+  IL_0030  ldloc.0
+  IL_0031  ldc.i4.s   125
+  IL_0033  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+  IL_0038  pop
+  IL_0039  ldloc.0
+  IL_003A  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_003F  ret
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, virtual, compiler-generated
+RVA      : 0x20A8   Size: 2 bytes   Token: 0x06000003
+
+[IL]  .maxstack 8
+  IL_0000  ldc.i4.0
+  IL_0001  ret
+
+Method   : bool op_Inequality(Shape left, Shape right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x20AB   Size: 11 bytes   Token: 0x06000004
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  call       bool Ref.Switches.Shape::op_Equality(class Ref.Switches.Shape, class Ref.Switches.Shape)
+  IL_0007  ldc.i4.0
+  IL_0008  ceq
+  IL_000A  ret
+
+Method   : bool op_Equality(Shape left, Shape right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x20B7   Size: 19 bytes   Token: 0x06000005
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  beq.s      IL_0011
+  IL_0004  ldarg.0
+  IL_0005  brfalse.s  IL_000F
+  IL_0007  ldarg.0
+  IL_0008  ldarg.1
+  IL_0009  callvirt   instance bool Ref.Switches.Shape::Equals(class Ref.Switches.Shape)
+  IL_000E  ret
+  IL_000F  ldc.i4.0
+  IL_0010  ret
+  IL_0011  ldc.i4.1
+  IL_0012  ret
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20CB   Size: 17 bytes   Token: 0x06000006
+
+[IL]  .maxstack 8
+  IL_0000  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<class [System.Runtime]System.Type>::get_Default()
+  IL_0005  ldarg.0
+  IL_0006  callvirt   instance class [System.Runtime]System.Type Ref.Switches.Shape::get_EqualityContract()
+  IL_000B  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<class [System.Runtime]System.Type>::GetHashCode(!0)
+  IL_0010  ret
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20DD   Size: 13 bytes   Token: 0x06000007
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  isinst     Ref.Switches.Shape
+  IL_0007  callvirt   instance bool Ref.Switches.Shape::Equals(class Ref.Switches.Shape)
+  IL_000C  ret
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x20EB   Size: 29 bytes   Token: 0x06000008
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  beq.s      IL_001B
+  IL_0004  ldarg.1
+  IL_0005  brfalse.s  IL_0019
+  IL_0007  ldarg.0
+  IL_0008  callvirt   instance class [System.Runtime]System.Type Ref.Switches.Shape::get_EqualityContract()
+  IL_000D  ldarg.1
+  IL_000E  callvirt   instance class [System.Runtime]System.Type Ref.Switches.Shape::get_EqualityContract()
+  IL_0013  call       bool [System.Runtime]System.Type::op_Equality(class [System.Runtime]System.Type, class [System.Runtime]System.Type)
+  IL_0018  ret
+  IL_0019  ldc.i4.0
+  IL_001A  ret
+  IL_001B  ldc.i4.1
+  IL_001C  ret
+
+Method   : Shape <Clone>$()
+Kind     : instance, public, abstract, compiler-generated, no-body
+RVA      : 0x0000   Token: 0x06000009
+
+Method   : void .ctor(Shape original)
+Kind     : ctor, instance, protected, compiler-generated
+RVA      : 0x2109   Size: 7 bytes   Token: 0x0600000A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Method   : void .ctor()
+Kind     : ctor, instance, protected
+RVA      : 0x2111   Size: 7 bytes   Token: 0x0600000B
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Type     : Ref.Switches.Circle
+
+Method   : void .ctor(double Radius)
+Kind     : ctor, instance, public
+RVA      : 0x2119   Size: 14 bytes   Token: 0x0600000C
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      float64 Ref.Switches.Circle::'<Radius>k__BackingField'
+  IL_0007  ldarg.0
+  IL_0008  call       instance void Ref.Switches.Shape::.ctor()
+  IL_000D  ret
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x2128   Size: 11 bytes   Token: 0x0600000D
+
+[IL]  .maxstack 8
+  IL_0000  ldtoken    Ref.Switches.Circle
+  IL_0005  call       class [System.Runtime]System.Type [System.Runtime]System.Type::GetTypeFromHandle(valuetype [System.Runtime]System.RuntimeTypeHandle)
+  IL_000A  ret
+
+Method   : double get_Radius()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2134   Size: 7 bytes   Token: 0x0600000E
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      float64 Ref.Switches.Circle::'<Radius>k__BackingField'
+  IL_0006  ret
+
+Method   : void set_Radius(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x213C   Size: 8 bytes   Token: 0x0600000F
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      float64 Ref.Switches.Circle::'<Radius>k__BackingField'
+  IL_0007  ret
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2148   Size: 64 bytes   Token: 0x06000010
+
+[IL]  .maxstack 2
+  .locals init ([0] class [System.Runtime]System.Text.StringBuilder V_0)
+  IL_0000  newobj     instance void [System.Runtime]System.Text.StringBuilder::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldloc.0
+  IL_0007  ldstr      "Circle"
+  IL_000C  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0011  pop
+  IL_0012  ldloc.0
+  IL_0013  ldstr      " { "
+  IL_0018  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_001D  pop
+  IL_001E  ldarg.0
+  IL_001F  ldloc.0
+  IL_0020  callvirt   instance bool Ref.Switches.Shape::PrintMembers(class [System.Runtime]System.Text.StringBuilder)
+  IL_0025  brfalse.s  IL_0030
+  IL_0027  ldloc.0
+  IL_0028  ldc.i4.s   32
+  IL_002A  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+  IL_002F  pop
+  IL_0030  ldloc.0
+  IL_0031  ldc.i4.s   125
+  IL_0033  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+  IL_0038  pop
+  IL_0039  ldloc.0
+  IL_003A  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_003F  ret
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x2194   Size: 62 bytes   Token: 0x06000011
+
+[IL]  .maxstack 2
+  .locals init ([0] float64 V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  call       instance bool Ref.Switches.Shape::PrintMembers(class [System.Runtime]System.Text.StringBuilder)
+  IL_0007  brfalse.s  IL_0015
+  IL_0009  ldarg.1
+  IL_000A  ldstr      ", "
+  IL_000F  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0014  pop
+  IL_0015  ldarg.1
+  IL_0016  ldstr      "Radius = "
+  IL_001B  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0020  pop
+  IL_0021  ldarg.1
+  IL_0022  ldarg.0
+  IL_0023  call       instance float64 Ref.Switches.Circle::get_Radius()
+  IL_0028  stloc.0
+  IL_0029  ldloca.s   V_0
+  IL_002B  constrained. [System.Runtime]System.Double
+  IL_0031  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_0036  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_003B  pop
+  IL_003C  ldc.i4.1
+  IL_003D  ret
+
+Method   : bool op_Inequality(Circle left, Circle right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x21DE   Size: 11 bytes   Token: 0x06000012
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  call       bool Ref.Switches.Circle::op_Equality(class Ref.Switches.Circle, class Ref.Switches.Circle)
+  IL_0007  ldc.i4.0
+  IL_0008  ceq
+  IL_000A  ret
+
+Method   : bool op_Equality(Circle left, Circle right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x21EA   Size: 19 bytes   Token: 0x06000013
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  beq.s      IL_0011
+  IL_0004  ldarg.0
+  IL_0005  brfalse.s  IL_000F
+  IL_0007  ldarg.0
+  IL_0008  ldarg.1
+  IL_0009  callvirt   instance bool Ref.Switches.Circle::Equals(class Ref.Switches.Circle)
+  IL_000E  ret
+  IL_000F  ldc.i4.0
+  IL_0010  ret
+  IL_0011  ldc.i4.1
+  IL_0012  ret
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x21FE   Size: 30 bytes   Token: 0x06000014
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance int32 Ref.Switches.Shape::GetHashCode()
+  IL_0006  ldc.i4     0xa5555529
+  IL_000B  mul
+  IL_000C  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::get_Default()
+  IL_0011  ldarg.0
+  IL_0012  ldfld      float64 Ref.Switches.Circle::'<Radius>k__BackingField'
+  IL_0017  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::GetHashCode(!0)
+  IL_001C  add
+  IL_001D  ret
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x221D   Size: 13 bytes   Token: 0x06000015
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  isinst     Ref.Switches.Circle
+  IL_0007  call       instance bool Ref.Switches.Circle::Equals(class Ref.Switches.Circle)
+  IL_000C  ret
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x222B   Size: 8 bytes   Token: 0x06000016
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  callvirt   instance bool [System.Runtime]System.Object::Equals(object)
+  IL_0007  ret
+
+Method   : bool Equals(Circle other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x2234   Size: 40 bytes   Token: 0x06000017
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  beq.s      IL_0026
+  IL_0004  ldarg.0
+  IL_0005  ldarg.1
+  IL_0006  call       instance bool Ref.Switches.Shape::Equals(class Ref.Switches.Shape)
+  IL_000B  brfalse.s  IL_0024
+  IL_000D  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::get_Default()
+  IL_0012  ldarg.0
+  IL_0013  ldfld      float64 Ref.Switches.Circle::'<Radius>k__BackingField'
+  IL_0018  ldarg.1
+  IL_0019  ldfld      float64 Ref.Switches.Circle::'<Radius>k__BackingField'
+  IL_001E  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::Equals(!0, !0)
+  IL_0023  ret
+  IL_0024  ldc.i4.0
+  IL_0025  ret
+  IL_0026  ldc.i4.1
+  IL_0027  ret
+
+Method   : Circle <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x225D   Size: 7 bytes   Token: 0x06000018
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  newobj     instance void Ref.Switches.Circle::.ctor(class Ref.Switches.Circle)
+  IL_0006  ret
+
+Method   : void .ctor(Circle original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x2265   Size: 20 bytes   Token: 0x06000019
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  call       instance void Ref.Switches.Shape::.ctor(class Ref.Switches.Shape)
+  IL_0007  ldarg.0
+  IL_0008  ldarg.1
+  IL_0009  ldfld      float64 Ref.Switches.Circle::'<Radius>k__BackingField'
+  IL_000E  stfld      float64 Ref.Switches.Circle::'<Radius>k__BackingField'
+  IL_0013  ret
+
+Method   : void Deconstruct(out double Radius)
+Kind     : instance, public, compiler-generated
+RVA      : 0x227A   Size: 9 bytes   Token: 0x0600001A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  ldarg.0
+  IL_0002  call       instance float64 Ref.Switches.Circle::get_Radius()
+  IL_0007  stind.r8
+  IL_0008  ret
+
+Type     : Ref.Switches.Rect
+
+Method   : void .ctor(double Width, double Height)
+Kind     : ctor, instance, public
+RVA      : 0x2284   Size: 21 bytes   Token: 0x0600001B
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      float64 Ref.Switches.Rect::'<Width>k__BackingField'
+  IL_0007  ldarg.0
+  IL_0008  ldarg.2
+  IL_0009  stfld      float64 Ref.Switches.Rect::'<Height>k__BackingField'
+  IL_000E  ldarg.0
+  IL_000F  call       instance void Ref.Switches.Shape::.ctor()
+  IL_0014  ret
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x229A   Size: 11 bytes   Token: 0x0600001C
+
+[IL]  .maxstack 8
+  IL_0000  ldtoken    Ref.Switches.Rect
+  IL_0005  call       class [System.Runtime]System.Type [System.Runtime]System.Type::GetTypeFromHandle(valuetype [System.Runtime]System.RuntimeTypeHandle)
+  IL_000A  ret
+
+Method   : double get_Width()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22A6   Size: 7 bytes   Token: 0x0600001D
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      float64 Ref.Switches.Rect::'<Width>k__BackingField'
+  IL_0006  ret
+
+Method   : void set_Width(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22AE   Size: 8 bytes   Token: 0x0600001E
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      float64 Ref.Switches.Rect::'<Width>k__BackingField'
+  IL_0007  ret
+
+Method   : double get_Height()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22B7   Size: 7 bytes   Token: 0x0600001F
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      float64 Ref.Switches.Rect::'<Height>k__BackingField'
+  IL_0006  ret
+
+Method   : void set_Height(double value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22BF   Size: 8 bytes   Token: 0x06000020
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      float64 Ref.Switches.Rect::'<Height>k__BackingField'
+  IL_0007  ret
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x22C8   Size: 64 bytes   Token: 0x06000021
+
+[IL]  .maxstack 2
+  .locals init ([0] class [System.Runtime]System.Text.StringBuilder V_0)
+  IL_0000  newobj     instance void [System.Runtime]System.Text.StringBuilder::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldloc.0
+  IL_0007  ldstr      "Rect"
+  IL_000C  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0011  pop
+  IL_0012  ldloc.0
+  IL_0013  ldstr      " { "
+  IL_0018  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_001D  pop
+  IL_001E  ldarg.0
+  IL_001F  ldloc.0
+  IL_0020  callvirt   instance bool Ref.Switches.Shape::PrintMembers(class [System.Runtime]System.Text.StringBuilder)
+  IL_0025  brfalse.s  IL_0030
+  IL_0027  ldloc.0
+  IL_0028  ldc.i4.s   32
+  IL_002A  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+  IL_002F  pop
+  IL_0030  ldloc.0
+  IL_0031  ldc.i4.s   125
+  IL_0033  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+  IL_0038  pop
+  IL_0039  ldloc.0
+  IL_003A  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_003F  ret
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x2314   Size: 101 bytes   Token: 0x06000022
+
+[IL]  .maxstack 2
+  .locals init ([0] float64 V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  call       instance bool Ref.Switches.Shape::PrintMembers(class [System.Runtime]System.Text.StringBuilder)
+  IL_0007  brfalse.s  IL_0015
+  IL_0009  ldarg.1
+  IL_000A  ldstr      ", "
+  IL_000F  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0014  pop
+  IL_0015  ldarg.1
+  IL_0016  ldstr      "Width = "
+  IL_001B  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0020  pop
+  IL_0021  ldarg.1
+  IL_0022  ldarg.0
+  IL_0023  call       instance float64 Ref.Switches.Rect::get_Width()
+  IL_0028  stloc.0
+  IL_0029  ldloca.s   V_0
+  IL_002B  constrained. [System.Runtime]System.Double
+  IL_0031  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_0036  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_003B  pop
+  IL_003C  ldarg.1
+  IL_003D  ldstr      ", Height = "
+  IL_0042  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0047  pop
+  IL_0048  ldarg.1
+  IL_0049  ldarg.0
+  IL_004A  call       instance float64 Ref.Switches.Rect::get_Height()
+  IL_004F  stloc.0
+  IL_0050  ldloca.s   V_0
+  IL_0052  constrained. [System.Runtime]System.Double
+  IL_0058  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_005D  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0062  pop
+  IL_0063  ldc.i4.1
+  IL_0064  ret
+
+Method   : bool op_Inequality(Rect left, Rect right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2385   Size: 11 bytes   Token: 0x06000023
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  call       bool Ref.Switches.Rect::op_Equality(class Ref.Switches.Rect, class Ref.Switches.Rect)
+  IL_0007  ldc.i4.0
+  IL_0008  ceq
+  IL_000A  ret
+
+Method   : bool op_Equality(Rect left, Rect right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2391   Size: 19 bytes   Token: 0x06000024
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  beq.s      IL_0011
+  IL_0004  ldarg.0
+  IL_0005  brfalse.s  IL_000F
+  IL_0007  ldarg.0
+  IL_0008  ldarg.1
+  IL_0009  callvirt   instance bool Ref.Switches.Rect::Equals(class Ref.Switches.Rect)
+  IL_000E  ret
+  IL_000F  ldc.i4.0
+  IL_0010  ret
+  IL_0011  ldc.i4.1
+  IL_0012  ret
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x23A5   Size: 53 bytes   Token: 0x06000025
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance int32 Ref.Switches.Shape::GetHashCode()
+  IL_0006  ldc.i4     0xa5555529
+  IL_000B  mul
+  IL_000C  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::get_Default()
+  IL_0011  ldarg.0
+  IL_0012  ldfld      float64 Ref.Switches.Rect::'<Width>k__BackingField'
+  IL_0017  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::GetHashCode(!0)
+  IL_001C  add
+  IL_001D  ldc.i4     0xa5555529
+  IL_0022  mul
+  IL_0023  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::get_Default()
+  IL_0028  ldarg.0
+  IL_0029  ldfld      float64 Ref.Switches.Rect::'<Height>k__BackingField'
+  IL_002E  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::GetHashCode(!0)
+  IL_0033  add
+  IL_0034  ret
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x23DB   Size: 13 bytes   Token: 0x06000026
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  isinst     Ref.Switches.Rect
+  IL_0007  call       instance bool Ref.Switches.Rect::Equals(class Ref.Switches.Rect)
+  IL_000C  ret
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x23E9   Size: 8 bytes   Token: 0x06000027
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  callvirt   instance bool [System.Runtime]System.Object::Equals(object)
+  IL_0007  ret
+
+Method   : bool Equals(Rect other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x23F4   Size: 64 bytes   Token: 0x06000028
+
+[IL]  .maxstack 3
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  beq.s      IL_003E
+  IL_0004  ldarg.0
+  IL_0005  ldarg.1
+  IL_0006  call       instance bool Ref.Switches.Shape::Equals(class Ref.Switches.Shape)
+  IL_000B  brfalse.s  IL_003C
+  IL_000D  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::get_Default()
+  IL_0012  ldarg.0
+  IL_0013  ldfld      float64 Ref.Switches.Rect::'<Width>k__BackingField'
+  IL_0018  ldarg.1
+  IL_0019  ldfld      float64 Ref.Switches.Rect::'<Width>k__BackingField'
+  IL_001E  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::Equals(!0, !0)
+  IL_0023  brfalse.s  IL_003C
+  IL_0025  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::get_Default()
+  IL_002A  ldarg.0
+  IL_002B  ldfld      float64 Ref.Switches.Rect::'<Height>k__BackingField'
+  IL_0030  ldarg.1
+  IL_0031  ldfld      float64 Ref.Switches.Rect::'<Height>k__BackingField'
+  IL_0036  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<float64>::Equals(!0, !0)
+  IL_003B  ret
+  IL_003C  ldc.i4.0
+  IL_003D  ret
+  IL_003E  ldc.i4.1
+  IL_003F  ret
+
+Method   : Rect <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x2440   Size: 7 bytes   Token: 0x06000029
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  newobj     instance void Ref.Switches.Rect::.ctor(class Ref.Switches.Rect)
+  IL_0006  ret
+
+Method   : void .ctor(Rect original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x2448   Size: 32 bytes   Token: 0x0600002A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  call       instance void Ref.Switches.Shape::.ctor(class Ref.Switches.Shape)
+  IL_0007  ldarg.0
+  IL_0008  ldarg.1
+  IL_0009  ldfld      float64 Ref.Switches.Rect::'<Width>k__BackingField'
+  IL_000E  stfld      float64 Ref.Switches.Rect::'<Width>k__BackingField'
+  IL_0013  ldarg.0
+  IL_0014  ldarg.1
+  IL_0015  ldfld      float64 Ref.Switches.Rect::'<Height>k__BackingField'
+  IL_001A  stfld      float64 Ref.Switches.Rect::'<Height>k__BackingField'
+  IL_001F  ret
+
+Method   : void Deconstruct(out double Width, out double Height)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2469   Size: 17 bytes   Token: 0x0600002B
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  ldarg.0
+  IL_0002  call       instance float64 Ref.Switches.Rect::get_Width()
+  IL_0007  stind.r8
+  IL_0008  ldarg.2
+  IL_0009  ldarg.0
+  IL_000A  call       instance float64 Ref.Switches.Rect::get_Height()
+  IL_000F  stind.r8
+  IL_0010  ret
+
+Type     : Ref.Switches.Polygon
+
+Method   : void .ctor(IReadOnlyList<ValueTuple<double, double>> Points)
+Kind     : ctor, instance, public
+RVA      : 0x247B   Size: 14 bytes   Token: 0x0600002C
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>> Ref.Switches.Polygon::'<Points>k__BackingField'
+  IL_0007  ldarg.0
+  IL_0008  call       instance void Ref.Switches.Shape::.ctor()
+  IL_000D  ret
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, protected, override, compiler-generated
+RVA      : 0x248A   Size: 11 bytes   Token: 0x0600002D
+
+[IL]  .maxstack 8
+  IL_0000  ldtoken    Ref.Switches.Polygon
+  IL_0005  call       class [System.Runtime]System.Type [System.Runtime]System.Type::GetTypeFromHandle(valuetype [System.Runtime]System.RuntimeTypeHandle)
+  IL_000A  ret
+
+Method   : IReadOnlyList<ValueTuple<double, double>> get_Points()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2496   Size: 7 bytes   Token: 0x0600002E
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>> Ref.Switches.Polygon::'<Points>k__BackingField'
+  IL_0006  ret
+
+Method   : void set_Points(IReadOnlyList<ValueTuple<double, double>> value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x249E   Size: 8 bytes   Token: 0x0600002F
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>> Ref.Switches.Polygon::'<Points>k__BackingField'
+  IL_0007  ret
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x24A8   Size: 64 bytes   Token: 0x06000030
+
+[IL]  .maxstack 2
+  .locals init ([0] class [System.Runtime]System.Text.StringBuilder V_0)
+  IL_0000  newobj     instance void [System.Runtime]System.Text.StringBuilder::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldloc.0
+  IL_0007  ldstr      "Polygon"
+  IL_000C  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0011  pop
+  IL_0012  ldloc.0
+  IL_0013  ldstr      " { "
+  IL_0018  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_001D  pop
+  IL_001E  ldarg.0
+  IL_001F  ldloc.0
+  IL_0020  callvirt   instance bool Ref.Switches.Shape::PrintMembers(class [System.Runtime]System.Text.StringBuilder)
+  IL_0025  brfalse.s  IL_0030
+  IL_0027  ldloc.0
+  IL_0028  ldc.i4.s   32
+  IL_002A  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+  IL_002F  pop
+  IL_0030  ldloc.0
+  IL_0031  ldc.i4.s   125
+  IL_0033  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+  IL_0038  pop
+  IL_0039  ldloc.0
+  IL_003A  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_003F  ret
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, protected, override, compiler-generated
+RVA      : 0x24F4   Size: 48 bytes   Token: 0x06000031
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  call       instance bool Ref.Switches.Shape::PrintMembers(class [System.Runtime]System.Text.StringBuilder)
+  IL_0007  brfalse.s  IL_0015
+  IL_0009  ldarg.1
+  IL_000A  ldstr      ", "
+  IL_000F  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0014  pop
+  IL_0015  ldarg.1
+  IL_0016  ldstr      "Points = "
+  IL_001B  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0020  pop
+  IL_0021  ldarg.1
+  IL_0022  ldarg.0
+  IL_0023  call       instance class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>> Ref.Switches.Polygon::get_Points()
+  IL_0028  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(object)
+  IL_002D  pop
+  IL_002E  ldc.i4.1
+  IL_002F  ret
+
+Method   : bool op_Inequality(Polygon left, Polygon right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2525   Size: 11 bytes   Token: 0x06000032
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  call       bool Ref.Switches.Polygon::op_Equality(class Ref.Switches.Polygon, class Ref.Switches.Polygon)
+  IL_0007  ldc.i4.0
+  IL_0008  ceq
+  IL_000A  ret
+
+Method   : bool op_Equality(Polygon left, Polygon right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x2531   Size: 19 bytes   Token: 0x06000033
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  beq.s      IL_0011
+  IL_0004  ldarg.0
+  IL_0005  brfalse.s  IL_000F
+  IL_0007  ldarg.0
+  IL_0008  ldarg.1
+  IL_0009  callvirt   instance bool Ref.Switches.Polygon::Equals(class Ref.Switches.Polygon)
+  IL_000E  ret
+  IL_000F  ldc.i4.0
+  IL_0010  ret
+  IL_0011  ldc.i4.1
+  IL_0012  ret
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2545   Size: 30 bytes   Token: 0x06000034
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance int32 Ref.Switches.Shape::GetHashCode()
+  IL_0006  ldc.i4     0xa5555529
+  IL_000B  mul
+  IL_000C  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>>>::get_Default()
+  IL_0011  ldarg.0
+  IL_0012  ldfld      class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>> Ref.Switches.Polygon::'<Points>k__BackingField'
+  IL_0017  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>>>::GetHashCode(!0)
+  IL_001C  add
+  IL_001D  ret
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2564   Size: 13 bytes   Token: 0x06000035
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  isinst     Ref.Switches.Polygon
+  IL_0007  call       instance bool Ref.Switches.Polygon::Equals(class Ref.Switches.Polygon)
+  IL_000C  ret
+
+Method   : bool Equals(Shape other)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2572   Size: 8 bytes   Token: 0x06000036
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  callvirt   instance bool [System.Runtime]System.Object::Equals(object)
+  IL_0007  ret
+
+Method   : bool Equals(Polygon other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x257B   Size: 40 bytes   Token: 0x06000037
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  beq.s      IL_0026
+  IL_0004  ldarg.0
+  IL_0005  ldarg.1
+  IL_0006  call       instance bool Ref.Switches.Shape::Equals(class Ref.Switches.Shape)
+  IL_000B  brfalse.s  IL_0024
+  IL_000D  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>>>::get_Default()
+  IL_0012  ldarg.0
+  IL_0013  ldfld      class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>> Ref.Switches.Polygon::'<Points>k__BackingField'
+  IL_0018  ldarg.1
+  IL_0019  ldfld      class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>> Ref.Switches.Polygon::'<Points>k__BackingField'
+  IL_001E  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>>>::Equals(!0, !0)
+  IL_0023  ret
+  IL_0024  ldc.i4.0
+  IL_0025  ret
+  IL_0026  ldc.i4.1
+  IL_0027  ret
+
+Method   : Polygon <Clone>$()
+Kind     : instance, public, virtual, compiler-generated
+RVA      : 0x25A4   Size: 7 bytes   Token: 0x06000038
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  newobj     instance void Ref.Switches.Polygon::.ctor(class Ref.Switches.Polygon)
+  IL_0006  ret
+
+Method   : void .ctor(Polygon original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x25AC   Size: 20 bytes   Token: 0x06000039
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  call       instance void Ref.Switches.Shape::.ctor(class Ref.Switches.Shape)
+  IL_0007  ldarg.0
+  IL_0008  ldarg.1
+  IL_0009  ldfld      class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>> Ref.Switches.Polygon::'<Points>k__BackingField'
+  IL_000E  stfld      class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>> Ref.Switches.Polygon::'<Points>k__BackingField'
+  IL_0013  ret
+
+Method   : void Deconstruct(out IReadOnlyList<ValueTuple<double, double>> Points)
+Kind     : instance, public, compiler-generated
+RVA      : 0x25C1   Size: 9 bytes   Token: 0x0600003A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  ldarg.0
+  IL_0002  call       instance class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>> Ref.Switches.Polygon::get_Points()
+  IL_0007  stind.ref
+  IL_0008  ret
+
+Type     : Ref.Switches.Dispatch
+
+Method   : string HttpStatus(int code)
+Kind     : static, public
+RVA      : 0x25CC   Size: 394 bytes   Token: 0x0600003B
+
+[IL]  .maxstack 2
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4     0x134
+  IL_0006  bgt.s      IL_006D
+  IL_0008  ldarg.0
+  IL_0009  ldc.i4     0xc8
+  IL_000E  sub
+  IL_000F  switch     (IL_00CA, IL_00D0, IL_00D6, IL_00DC, IL_00E2, IL_00E8, IL_00EE, IL_00F4, IL_00FA)
+  IL_0038  ldarg.0
+  IL_0039  ldc.i4     0x12c
+  IL_003E  sub
+  IL_003F  switch     (IL_0100, IL_0106, IL_010C, IL_0112, IL_0118, IL_0184, IL_0184, IL_011E, IL_0124)
+  IL_0068  br         IL_0184
+  IL_006D  ldarg.0
+  IL_006E  ldc.i4     0x190
+  IL_0073  sub
+  IL_0074  switch     (IL_012A, IL_0130, IL_0136, IL_013C, IL_0142, IL_0148, IL_014E, IL_0184, IL_0154, IL_015A, IL_0160)
+  IL_00A5  ldarg.0
+  IL_00A6  ldc.i4     0x1f4
+  IL_00AB  sub
+  IL_00AC  switch     (IL_0166, IL_016C, IL_0172, IL_0178, IL_017E)
+  IL_00C5  br         IL_0184
+  IL_00CA  ldstr      "OK"
+  IL_00CF  ret
+  IL_00D0  ldstr      "Created"
+  IL_00D5  ret
+  IL_00D6  ldstr      "Accepted"
+  IL_00DB  ret
+  IL_00DC  ldstr      "Non-Authoritative Information"
+  IL_00E1  ret
+  IL_00E2  ldstr      "No Content"
+  IL_00E7  ret
+  IL_00E8  ldstr      "Reset Content"
+  IL_00ED  ret
+  IL_00EE  ldstr      "Partial Content"
+  IL_00F3  ret
+  IL_00F4  ldstr      "Multi-Status"
+  IL_00F9  ret
+  IL_00FA  ldstr      "Already Reported"
+  IL_00FF  ret
+  IL_0100  ldstr      "Multiple Choices"
+  IL_0105  ret
+  IL_0106  ldstr      "Moved Permanently"
+  IL_010B  ret
+  IL_010C  ldstr      "Found"
+  IL_0111  ret
+  IL_0112  ldstr      "See Other"
+  IL_0117  ret
+  IL_0118  ldstr      "Not Modified"
+  IL_011D  ret
+  IL_011E  ldstr      "Temporary Redirect"
+  IL_0123  ret
+  IL_0124  ldstr      "Permanent Redirect"
+  IL_0129  ret
+  IL_012A  ldstr      "Bad Request"
+  IL_012F  ret
+  IL_0130  ldstr      "Unauthorized"
+  IL_0135  ret
+  IL_0136  ldstr      "Payment Required"
+  IL_013B  ret
+  IL_013C  ldstr      "Forbidden"
+  IL_0141  ret
+  IL_0142  ldstr      "Not Found"
+  IL_0147  ret
+  IL_0148  ldstr      "Method Not Allowed"
+  IL_014D  ret
+  IL_014E  ldstr      "Not Acceptable"
+  IL_0153  ret
+  IL_0154  ldstr      "Request Timeout"
+  IL_0159  ret
+  IL_015A  ldstr      "Conflict"
+  IL_015F  ret
+  IL_0160  ldstr      "Gone"
+  IL_0165  ret
+  IL_0166  ldstr      "Internal Server Error"
+  IL_016B  ret
+  IL_016C  ldstr      "Not Implemented"
+  IL_0171  ret
+  IL_0172  ldstr      "Bad Gateway"
+  IL_0177  ret
+  IL_0178  ldstr      "Service Unavailable"
+  IL_017D  ret
+  IL_017E  ldstr      "Gateway Timeout"
+  IL_0183  ret
+  IL_0184  ldstr      "Unknown"
+  IL_0189  ret
+
+Method   : int Keyword(string word)
+Kind     : static, public
+RVA      : 0x2764   Size: 710 bytes   Token: 0x0600003C
+
+[IL]  .maxstack 2
+  .locals init ([0] int32 V_0, [1] char V_1)
+  IL_0000  ldarg.0
+  IL_0001  brfalse    IL_0288
+  IL_0006  ldarg.0
+  IL_0007  call       instance int32 [System.Runtime]System.String::get_Length()
+  IL_000C  stloc.0
+  IL_000D  ldloc.0
+  IL_000E  ldc.i4.2
+  IL_000F  sub
+  IL_0010  switch     (IL_005C, IL_0288, IL_0079, IL_00C1, IL_027B, IL_00F8, IL_0036)
+  IL_0031  br         IL_0288
+  IL_0036  ldarg.0
+  IL_0037  ldc.i4.0
+  IL_0038  call       instance char [System.Runtime]System.String::get_Chars(int32)
+  IL_003D  stloc.1
+  IL_003E  ldloc.1
+  IL_003F  ldc.i4.s   97
+  IL_0041  sub
+  IL_0042  switch     (IL_011E, IL_0288, IL_0133, IL_0148)
+  IL_0057  br         IL_0288
+  IL_005C  ldarg.0
+  IL_005D  ldc.i4.0
+  IL_005E  call       instance char [System.Runtime]System.String::get_Chars(int32)
+  IL_0063  stloc.1
+  IL_0064  ldloc.1
+  IL_0065  ldc.i4.s   97
+  IL_0067  beq        IL_015D
+  IL_006C  ldloc.1
+  IL_006D  ldc.i4.s   100
+  IL_006F  beq        IL_0172
+  IL_0074  br         IL_0288
+  IL_0079  ldarg.0
+  IL_007A  ldc.i4.1
+  IL_007B  call       instance char [System.Runtime]System.String::get_Chars(int32)
+  IL_0080  stloc.1
+  IL_0081  ldloc.1
+  IL_0082  ldc.i4.s   104
+  IL_0084  bgt.un.s   IL_009B
+  IL_0086  ldloc.1
+  IL_0087  ldc.i4.s   97
+  IL_0089  beq        IL_0187
+  IL_008E  ldloc.1
+  IL_008F  ldc.i4.s   104
+  IL_0091  beq        IL_01D6
+  IL_0096  br         IL_0288
+  IL_009B  ldloc.1
+  IL_009C  ldc.i4.s   108
+  IL_009E  sub
+  IL_009F  switch     (IL_01EB, IL_0288, IL_0200, IL_01AC)
+  IL_00B4  ldloc.1
+  IL_00B5  ldc.i4.s   121
+  IL_00B7  beq        IL_01C1
+  IL_00BC  br         IL_0288
+  IL_00C1  ldarg.0
+  IL_00C2  ldc.i4.1
+  IL_00C3  call       instance char [System.Runtime]System.String::get_Chars(int32)
+  IL_00C8  stloc.1
+  IL_00C9  ldloc.1
+  IL_00CA  ldc.i4.s   108
+  IL_00CC  bgt.un.s   IL_00E3
+  IL_00CE  ldloc.1
+  IL_00CF  ldc.i4.s   97
+  IL_00D1  beq        IL_0221
+  IL_00D6  ldloc.1
+  IL_00D7  ldc.i4.s   108
+  IL_00D9  beq        IL_0230
+  IL_00DE  br         IL_0288
+  IL_00E3  ldloc.1
+  IL_00E4  ldc.i4.s   111
+  IL_00E6  beq        IL_023F
+  IL_00EB  ldloc.1
+  IL_00EC  ldc.i4.s   114
+  IL_00EE  beq        IL_0212
+  IL_00F3  br         IL_0288
+  IL_00F8  ldarg.0
+  IL_00F9  ldc.i4.2
+  IL_00FA  call       instance char [System.Runtime]System.String::get_Chars(int32)
+  IL_00FF  stloc.1
+  IL_0100  ldloc.1
+  IL_0101  ldc.i4.s   99
+  IL_0103  sub
+  IL_0104  switch     (IL_025D, IL_0288, IL_024E, IL_026C)
+  IL_0119  br         IL_0288
+  IL_011E  ldarg.0
+  IL_011F  ldstr      "abstract"
+  IL_0124  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_0129  brtrue     IL_028D
+  IL_012E  br         IL_0288
+  IL_0133  ldarg.0
+  IL_0134  ldstr      "continue"
+  IL_0139  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_013E  brtrue     IL_02A9
+  IL_0143  br         IL_0288
+  IL_0148  ldarg.0
+  IL_0149  ldstr      "delegate"
+  IL_014E  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_0153  brtrue     IL_02B2
+  IL_0158  br         IL_0288
+  IL_015D  ldarg.0
+  IL_015E  ldstr      "as"
+  IL_0163  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_0168  brtrue     IL_028F
+  IL_016D  br         IL_0288
+  IL_0172  ldarg.0
+  IL_0173  ldstr      "do"
+  IL_0178  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_017D  brtrue     IL_02B5
+  IL_0182  br         IL_0288
+  IL_0187  ldarg.0
+  IL_0188  ldstr      "base"
+  IL_018D  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_0192  brtrue     IL_0291
+  IL_0197  ldarg.0
+  IL_0198  ldstr      "case"
+  IL_019D  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_01A2  brtrue     IL_0299
+  IL_01A7  br         IL_0288
+  IL_01AC  ldarg.0
+  IL_01AD  ldstr      "bool"
+  IL_01B2  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_01B7  brtrue     IL_0293
+  IL_01BC  br         IL_0288
+  IL_01C1  ldarg.0
+  IL_01C2  ldstr      "byte"
+  IL_01C7  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_01CC  brtrue     IL_0297
+  IL_01D1  br         IL_0288
+  IL_01D6  ldarg.0
+  IL_01D7  ldstr      "char"
+  IL_01DC  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_01E1  brtrue     IL_029D
+  IL_01E6  br         IL_0288
+  IL_01EB  ldarg.0
+  IL_01EC  ldstr      "else"
+  IL_01F1  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_01F6  brtrue     IL_02BB
+  IL_01FB  br         IL_0288
+  IL_0200  ldarg.0
+  IL_0201  ldstr      "enum"
+  IL_0206  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_020B  brtrue     IL_02BE
+  IL_0210  br.s       IL_0288
+  IL_0212  ldarg.0
+  IL_0213  ldstr      "break"
+  IL_0218  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_021D  brtrue.s   IL_0295
+  IL_021F  br.s       IL_0288
+  IL_0221  ldarg.0
+  IL_0222  ldstr      "catch"
+  IL_0227  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_022C  brtrue.s   IL_029B
+  IL_022E  br.s       IL_0288
+  IL_0230  ldarg.0
+  IL_0231  ldstr      "class"
+  IL_0236  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_023B  brtrue.s   IL_02A3
+  IL_023D  br.s       IL_0288
+  IL_023F  ldarg.0
+  IL_0240  ldstr      "const"
+  IL_0245  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_024A  brtrue.s   IL_02A6
+  IL_024C  br.s       IL_0288
+  IL_024E  ldarg.0
+  IL_024F  ldstr      "checked"
+  IL_0254  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_0259  brtrue.s   IL_02A0
+  IL_025B  br.s       IL_0288
+  IL_025D  ldarg.0
+  IL_025E  ldstr      "decimal"
+  IL_0263  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_0268  brtrue.s   IL_02AC
+  IL_026A  br.s       IL_0288
+  IL_026C  ldarg.0
+  IL_026D  ldstr      "default"
+  IL_0272  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_0277  brtrue.s   IL_02AF
+  IL_0279  br.s       IL_0288
+  IL_027B  ldarg.0
+  IL_027C  ldstr      "double"
+  IL_0281  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_0286  brtrue.s   IL_02B8
+  IL_0288  ldarg.0
+  IL_0289  brfalse.s  IL_02C1
+  IL_028B  br.s       IL_02C4
+  IL_028D  ldc.i4.1
+  IL_028E  ret
+  IL_028F  ldc.i4.2
+  IL_0290  ret
+  IL_0291  ldc.i4.3
+  IL_0292  ret
+  IL_0293  ldc.i4.4
+  IL_0294  ret
+  IL_0295  ldc.i4.5
+  IL_0296  ret
+  IL_0297  ldc.i4.6
+  IL_0298  ret
+  IL_0299  ldc.i4.7
+  IL_029A  ret
+  IL_029B  ldc.i4.8
+  IL_029C  ret
+  IL_029D  ldc.i4.s   9
+  IL_029F  ret
+  IL_02A0  ldc.i4.s   10
+  IL_02A2  ret
+  IL_02A3  ldc.i4.s   11
+  IL_02A5  ret
+  IL_02A6  ldc.i4.s   12
+  IL_02A8  ret
+  IL_02A9  ldc.i4.s   13
+  IL_02AB  ret
+  IL_02AC  ldc.i4.s   14
+  IL_02AE  ret
+  IL_02AF  ldc.i4.s   15
+  IL_02B1  ret
+  IL_02B2  ldc.i4.s   16
+  IL_02B4  ret
+  IL_02B5  ldc.i4.s   17
+  IL_02B7  ret
+  IL_02B8  ldc.i4.s   18
+  IL_02BA  ret
+  IL_02BB  ldc.i4.s   19
+  IL_02BD  ret
+  IL_02BE  ldc.i4.s   20
+  IL_02C0  ret
+  IL_02C1  ldc.i4.s   -2
+  IL_02C3  ret
+  IL_02C4  ldc.i4.m1
+  IL_02C5  ret
+
+Method   : ConsoleColor Color(string name)
+Kind     : static, public
+RVA      : 0x2A38   Size: 60 bytes   Token: 0x0600003D
+
+[IL]  .maxstack 2
+  .locals init ([0] valuetype [System.Console]System.ConsoleColor V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldstr      "red"
+  IL_0006  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_000B  brtrue.s   IL_0029
+  IL_000D  ldarg.0
+  IL_000E  ldstr      "green"
+  IL_0013  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_0018  brtrue.s   IL_002E
+  IL_001A  ldarg.0
+  IL_001B  ldstr      "blue"
+  IL_0020  call       bool [System.Runtime]System.String::op_Equality(string, string)
+  IL_0025  brtrue.s   IL_0033
+  IL_0027  br.s       IL_0038
+  IL_0029  ldc.i4.s   12
+  IL_002B  stloc.0
+  IL_002C  br.s       IL_003A
+  IL_002E  ldc.i4.s   10
+  IL_0030  stloc.0
+  IL_0031  br.s       IL_003A
+  IL_0033  ldc.i4.s   9
+  IL_0035  stloc.0
+  IL_0036  br.s       IL_003A
+  IL_0038  ldc.i4.7
+  IL_0039  stloc.0
+  IL_003A  ldloc.0
+  IL_003B  ret
+
+Method   : double Area(Shape shape)
+Kind     : static, public
+RVA      : 0x2A80   Size: 232 bytes   Token: 0x0600003E
+
+[IL]  .maxstack 2
+  .locals init ([0] class Ref.Switches.Circle V_0, [1] float64 V_1, [2] float64 V_2, [3] class Ref.Switches.Rect V_3, [4] class Ref.Switches.Polygon V_4, [5] float64 V_5, [6] class Ref.Switches.Shape V_6, [7] class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>> V_7)
+  IL_0000  ldarg.0
+  IL_0001  stloc.s    V_6
+  IL_0003  ldloc.s    V_6
+  IL_0005  isinst     Ref.Switches.Circle
+  IL_000A  stloc.0
+  IL_000B  ldloc.0
+  IL_000C  brfalse.s  IL_0021
+  IL_000E  ldloc.0
+  IL_000F  callvirt   instance float64 Ref.Switches.Circle::get_Radius()
+  IL_0014  ldc.r8     0
+  IL_001D  ble.s      IL_0068
+  IL_001F  br.s       IL_0075
+  IL_0021  ldloc.s    V_6
+  IL_0023  isinst     Ref.Switches.Rect
+  IL_0028  stloc.3
+  IL_0029  ldloc.3
+  IL_002A  brfalse.s  IL_003C
+  IL_002C  ldloc.3
+  IL_002D  callvirt   instance float64 Ref.Switches.Rect::get_Width()
+  IL_0032  stloc.1
+  IL_0033  ldloc.3
+  IL_0034  callvirt   instance float64 Ref.Switches.Rect::get_Height()
+  IL_0039  stloc.2
+  IL_003A  br.s       IL_0090
+  IL_003C  ldloc.s    V_6
+  IL_003E  isinst     Ref.Switches.Polygon
+  IL_0043  stloc.s    V_4
+  IL_0045  ldloc.s    V_4
+  IL_0047  brfalse.s  IL_0062
+  IL_0049  ldloc.s    V_4
+  IL_004B  callvirt   instance class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>> Ref.Switches.Polygon::get_Points()
+  IL_0050  stloc.s    V_7
+  IL_0052  ldloc.s    V_7
+  IL_0054  brfalse.s  IL_00B9
+  IL_0056  ldloc.s    V_7
+  IL_0058  callvirt   instance int32 class [System.Runtime]System.Collections.Generic.IReadOnlyCollection`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>>::get_Count()
+  IL_005D  ldc.i4.3
+  IL_005E  blt.s      IL_00AC
+  IL_0060  br.s       IL_00B9
+  IL_0062  ldloc.s    V_6
+  IL_0064  brfalse.s  IL_00C9
+  IL_0066  br.s       IL_00D4
+  IL_0068  ldc.r8     0
+  IL_0071  stloc.s    V_5
+  IL_0073  br.s       IL_00E5
+  IL_0075  ldc.r8     3.141592653589793
+  IL_007E  ldloc.0
+  IL_007F  callvirt   instance float64 Ref.Switches.Circle::get_Radius()
+  IL_0084  mul
+  IL_0085  ldloc.0
+  IL_0086  callvirt   instance float64 Ref.Switches.Circle::get_Radius()
+  IL_008B  mul
+  IL_008C  stloc.s    V_5
+  IL_008E  br.s       IL_00E5
+  IL_0090  ldloc.1
+  IL_0091  ldloc.2
+  IL_0092  bne.un.s   IL_009B
+  IL_0094  ldloc.1
+  IL_0095  ldloc.1
+  IL_0096  mul
+  IL_0097  stloc.s    V_5
+  IL_0099  br.s       IL_00E5
+  IL_009B  ldloc.3
+  IL_009C  callvirt   instance float64 Ref.Switches.Rect::get_Width()
+  IL_00A1  ldloc.3
+  IL_00A2  callvirt   instance float64 Ref.Switches.Rect::get_Height()
+  IL_00A7  mul
+  IL_00A8  stloc.s    V_5
+  IL_00AA  br.s       IL_00E5
+  IL_00AC  ldc.r8     0
+  IL_00B5  stloc.s    V_5
+  IL_00B7  br.s       IL_00E5
+  IL_00B9  ldloc.s    V_4
+  IL_00BB  callvirt   instance class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>> Ref.Switches.Polygon::get_Points()
+  IL_00C0  call       float64 Ref.Switches.Dispatch::Shoelace(class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>>)
+  IL_00C5  stloc.s    V_5
+  IL_00C7  br.s       IL_00E5
+  IL_00C9  ldstr      "shape"
+  IL_00CE  newobj     instance void [System.Runtime]System.ArgumentNullException::.ctor(string)
+  IL_00D3  throw
+  IL_00D4  ldarg.0
+  IL_00D5  callvirt   instance class [System.Runtime]System.Type [System.Runtime]System.Object::GetType()
+  IL_00DA  callvirt   instance string [System.Runtime]System.Reflection.MemberInfo::get_Name()
+  IL_00DF  newobj     instance void [System.Runtime]System.NotSupportedException::.ctor(string)
+  IL_00E4  throw
+  IL_00E5  ldloc.s    V_5
+  IL_00E7  ret
+
+Method   : double Shoelace(IReadOnlyList<ValueTuple<double, double>> points)
+Kind     : static, private
+RVA      : 0x2B74   Size: 107 bytes   Token: 0x0600003F
+
+[IL]  .maxstack 4
+  .locals init ([0] float64 V_0, [1] int32 V_1, [2] float64 V_2, [3] float64 V_3, [4] float64 V_4, [5] float64 V_5)
+  IL_0000  ldc.r8     0
+  IL_0009  stloc.0
+  IL_000A  ldc.i4.0
+  IL_000B  stloc.1
+  IL_000C  br.s       IL_0051
+  IL_000E  ldarg.0
+  IL_000F  ldloc.1
+  IL_0010  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>>::get_Item(int32)
+  IL_0015  dup
+  IL_0016  ldfld      !0 valuetype [System.Runtime]System.ValueTuple`2<float64, float64>::Item1
+  IL_001B  stloc.2
+  IL_001C  ldfld      !1 valuetype [System.Runtime]System.ValueTuple`2<float64, float64>::Item2
+  IL_0021  stloc.3
+  IL_0022  ldarg.0
+  IL_0023  ldloc.1
+  IL_0024  ldc.i4.1
+  IL_0025  add
+  IL_0026  ldarg.0
+  IL_0027  callvirt   instance int32 class [System.Runtime]System.Collections.Generic.IReadOnlyCollection`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>>::get_Count()
+  IL_002C  rem
+  IL_002D  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IReadOnlyList`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>>::get_Item(int32)
+  IL_0032  dup
+  IL_0033  ldfld      !0 valuetype [System.Runtime]System.ValueTuple`2<float64, float64>::Item1
+  IL_0038  stloc.s    V_4
+  IL_003A  ldfld      !1 valuetype [System.Runtime]System.ValueTuple`2<float64, float64>::Item2
+  IL_003F  stloc.s    V_5
+  IL_0041  ldloc.0
+  IL_0042  ldloc.2
+  IL_0043  ldloc.s    V_5
+  IL_0045  mul
+  IL_0046  ldloc.s    V_4
+  IL_0048  ldloc.3
+  IL_0049  mul
+  IL_004A  sub
+  IL_004B  add
+  IL_004C  stloc.0
+  IL_004D  ldloc.1
+  IL_004E  ldc.i4.1
+  IL_004F  add
+  IL_0050  stloc.1
+  IL_0051  ldloc.1
+  IL_0052  ldarg.0
+  IL_0053  callvirt   instance int32 class [System.Runtime]System.Collections.Generic.IReadOnlyCollection`1<valuetype [System.Runtime]System.ValueTuple`2<float64, float64>>::get_Count()
+  IL_0058  blt.s      IL_000E
+  IL_005A  ldloc.0
+  IL_005B  call       float64 [System.Runtime]System.Math::Abs(float64)
+  IL_0060  ldc.r8     2
+  IL_0069  div
+  IL_006A  ret
+
+Method   : string Quadrant(int x, int y)
+Kind     : static, public
+RVA      : 0x2BEC   Size: 80 bytes   Token: 0x06000040
+
+[IL]  .maxstack 2
+  .locals init ([0] string V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.0
+  IL_0002  bgt.s      IL_000C
+  IL_0004  ldarg.0
+  IL_0005  brtrue.s   IL_0016
+  IL_0007  ldarg.1
+  IL_0008  brfalse.s  IL_0020
+  IL_000A  br.s       IL_0048
+  IL_000C  ldarg.1
+  IL_000D  ldc.i4.0
+  IL_000E  bgt.s      IL_0028
+  IL_0010  ldarg.1
+  IL_0011  ldc.i4.0
+  IL_0012  blt.s      IL_0040
+  IL_0014  br.s       IL_0048
+  IL_0016  ldarg.1
+  IL_0017  ldc.i4.0
+  IL_0018  bgt.s      IL_0030
+  IL_001A  ldarg.1
+  IL_001B  ldc.i4.0
+  IL_001C  blt.s      IL_0038
+  IL_001E  br.s       IL_0048
+  IL_0020  ldstr      "origin"
+  IL_0025  stloc.0
+  IL_0026  br.s       IL_004E
+  IL_0028  ldstr      "I"
+  IL_002D  stloc.0
+  IL_002E  br.s       IL_004E
+  IL_0030  ldstr      "II"
+  IL_0035  stloc.0
+  IL_0036  br.s       IL_004E
+  IL_0038  ldstr      "III"
+  IL_003D  stloc.0
+  IL_003E  br.s       IL_004E
+  IL_0040  ldstr      "IV"
+  IL_0045  stloc.0
+  IL_0046  br.s       IL_004E
+  IL_0048  ldstr      "axis"
+  IL_004D  stloc.0
+  IL_004E  ldloc.0
+  IL_004F  ret
+
+Method   : string Describe(object o)
+Kind     : static, public
+RVA      : 0x2C48   Size: 338 bytes   Token: 0x06000041
+
+[IL]  .maxstack 4
+  .locals init ([0] int32 V_0, [1] int32 V_1, [2] string V_2, [3] string V_3, [4] int32 V_4, [5] int32 V_5, [6] string V_6, [7] int32[] V_7, [8] int32 V_8, [9] valuetype [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler V_9)
+  IL_0000  ldarg.0
+  IL_0001  isinst     [System.Runtime]System.Int32
+  IL_0006  brfalse.s  IL_0020
+  IL_0008  ldarg.0
+  IL_0009  unbox.any  [System.Runtime]System.Int32
+  IL_000E  stloc.0
+  IL_000F  ldloc.0
+  IL_0010  ldc.i4.0
+  IL_0011  blt        IL_00A9
+  IL_0016  ldloc.0
+  IL_0017  ldc.i4.s   10
+  IL_0019  blt.s      IL_0091
+  IL_001B  br         IL_00A9
+  IL_0020  ldarg.0
+  IL_0021  isinst     [System.Runtime]System.Int64
+  IL_0026  brtrue     IL_00C3
+  IL_002B  ldarg.0
+  IL_002C  isinst     [System.Runtime]System.UInt64
+  IL_0031  brtrue     IL_00C3
+  IL_0036  ldarg.0
+  IL_0037  isinst     [System.Runtime]System.String
+  IL_003C  stloc.2
+  IL_003D  ldloc.2
+  IL_003E  brfalse.s  IL_0052
+  IL_0040  ldloc.2
+  IL_0041  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+  IL_0046  ldc.i4.s   10
+  IL_0048  bgt        IL_00CF
+  IL_004D  br         IL_00E6
+  IL_0052  ldarg.0
+  IL_0053  isinst     int32[]
+  IL_0058  stloc.s    V_7
+  IL_005A  ldloc.s    V_7
+  IL_005C  brfalse.s  IL_0086
+  IL_005E  ldloc.s    V_7
+  IL_0060  ldlen
+  IL_0061  conv.i4
+  IL_0062  stloc.s    V_8
+  IL_0064  ldloc.s    V_8
+  IL_0066  ldc.i4.2
+  IL_0067  bge.s      IL_0075
+  IL_0069  ldloc.s    V_8
+  IL_006B  brfalse    IL_00F7
+  IL_0070  br         IL_013E
+  IL_0075  ldloc.s    V_7
+  IL_0077  ldc.i4.0
+  IL_0078  ldelem.i4
+  IL_0079  stloc.s    V_4
+  IL_007B  ldloc.s    V_7
+  IL_007D  ldloc.s    V_8
+  IL_007F  ldc.i4.1
+  IL_0080  sub
+  IL_0081  ldelem.i4
+  IL_0082  stloc.s    V_5
+  IL_0084  br.s       IL_0100
+  IL_0086  ldarg.0
+  IL_0087  brfalse    IL_0148
+  IL_008C  br         IL_013E
+  IL_0091  ldstr      "digit "
+  IL_0096  ldloca.s   V_0
+  IL_0098  call       instance string [System.Runtime]System.Int32::ToString()
+  IL_009D  call       string [System.Runtime]System.String::Concat(string, string)
+  IL_00A2  stloc.s    V_6
+  IL_00A4  br         IL_014F
+  IL_00A9  ldloc.0
+  IL_00AA  stloc.1
+  IL_00AB  ldstr      "int "
+  IL_00B0  ldloca.s   V_1
+  IL_00B2  call       instance string [System.Runtime]System.Int32::ToString()
+  IL_00B7  call       string [System.Runtime]System.String::Concat(string, string)
+  IL_00BC  stloc.s    V_6
+  IL_00BE  br         IL_014F
+  IL_00C3  ldstr      "64-bit"
+  IL_00C8  stloc.s    V_6
+  IL_00CA  br         IL_014F
+  IL_00CF  ldstr      "long string "
+  IL_00D4  ldloc.2
+  IL_00D5  ldc.i4.0
+  IL_00D6  ldc.i4.s   10
+  IL_00D8  callvirt   instance string [System.Runtime]System.String::Substring(int32, int32)
+  IL_00DD  call       string [System.Runtime]System.String::Concat(string, string)
+  IL_00E2  stloc.s    V_6
+  IL_00E4  br.s       IL_014F
+  IL_00E6  ldloc.2
+  IL_00E7  stloc.3
+  IL_00E8  ldstr      "string "
+  IL_00ED  ldloc.3
+  IL_00EE  call       string [System.Runtime]System.String::Concat(string, string)
+  IL_00F3  stloc.s    V_6
+  IL_00F5  br.s       IL_014F
+  IL_00F7  ldstr      "empty array"
+  IL_00FC  stloc.s    V_6
+  IL_00FE  br.s       IL_014F
+  IL_0100  ldloca.s   V_9
+  IL_0102  ldc.i4.8
+  IL_0103  ldc.i4.2
+  IL_0104  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int32, int32)
+  IL_0109  ldloca.s   V_9
+  IL_010B  ldstr      "array "
+  IL_0110  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)
+  IL_0115  ldloca.s   V_9
+  IL_0117  ldloc.s    V_4
+  IL_0119  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<int32>(!!0)
+  IL_011E  ldloca.s   V_9
+  IL_0120  ldstr      ".."
+  IL_0125  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)
+  IL_012A  ldloca.s   V_9
+  IL_012C  ldloc.s    V_5
+  IL_012E  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<int32>(!!0)
+  IL_0133  ldloca.s   V_9
+  IL_0135  call       instance string [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+  IL_013A  stloc.s    V_6
+  IL_013C  br.s       IL_014F
+  IL_013E  ldarg.0
+  IL_013F  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_0144  stloc.s    V_6
+  IL_0146  br.s       IL_014F
+  IL_0148  ldstr      "null"
+  IL_014D  stloc.s    V_6
+  IL_014F  ldloc.s    V_6
+  IL_0151  ret
+
+Method   : char Grade(int score)
+Kind     : static, public
+RVA      : 0x2DA8   Size: 78 bytes   Token: 0x06000042
+
+[IL]  .maxstack 2
+  .locals init ([0] bool V_0, [1] char V_1)
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.0
+  IL_0002  blt.s      IL_0009
+  IL_0004  ldarg.0
+  IL_0005  ldc.i4.s   100
+  IL_0007  ble.s      IL_000D
+  IL_0009  ldc.i4.1
+  IL_000A  stloc.0
+  IL_000B  br.s       IL_000F
+  IL_000D  ldc.i4.0
+  IL_000E  stloc.0
+  IL_000F  ldloc.0
+  IL_0010  brfalse.s  IL_001D
+  IL_0012  ldstr      "score"
+  IL_0017  newobj     instance void [System.Runtime]System.ArgumentOutOfRangeException::.ctor(string)
+  IL_001C  throw
+  IL_001D  ldarg.0
+  IL_001E  ldc.i4.s   70
+  IL_0020  blt.s      IL_002E
+  IL_0022  ldarg.0
+  IL_0023  ldc.i4.s   90
+  IL_0025  bge.s      IL_0035
+  IL_0027  ldarg.0
+  IL_0028  ldc.i4.s   80
+  IL_002A  bge.s      IL_003A
+  IL_002C  br.s       IL_003F
+  IL_002E  ldarg.0
+  IL_002F  ldc.i4.s   60
+  IL_0031  bge.s      IL_0044
+  IL_0033  br.s       IL_0049
+  IL_0035  ldc.i4.s   65
+  IL_0037  stloc.1
+  IL_0038  br.s       IL_004C
+  IL_003A  ldc.i4.s   66
+  IL_003C  stloc.1
+  IL_003D  br.s       IL_004C
+  IL_003F  ldc.i4.s   67
+  IL_0041  stloc.1
+  IL_0042  br.s       IL_004C
+  IL_0044  ldc.i4.s   68
+  IL_0046  stloc.1
+  IL_0047  br.s       IL_004C
+  IL_0049  ldc.i4.s   70
+  IL_004B  stloc.1
+  IL_004C  ldloc.1
+  IL_004D  ret
+
+Method   : int CountTokens(string text)
+Kind     : static, public
+RVA      : 0x2E04   Size: 101 bytes   Token: 0x06000043
+
+[IL]  .maxstack 2
+  .locals init ([0] int32 V_0, [1] bool V_1, [2] string V_2, [3] int32 V_3, [4] char V_4)
+  IL_0000  ldc.i4.0
+  IL_0001  stloc.0
+  IL_0002  ldc.i4.0
+  IL_0003  stloc.1
+  IL_0004  ldarg.0
+  IL_0005  stloc.2
+  IL_0006  ldc.i4.0
+  IL_0007  stloc.3
+  IL_0008  br.s       IL_005A
+  IL_000A  ldloc.2
+  IL_000B  ldloc.3
+  IL_000C  callvirt   instance char [System.Runtime]System.String::get_Chars(int32)
+  IL_0011  stloc.s    V_4
+  IL_0013  ldloc.s    V_4
+  IL_0015  ldc.i4.s   32
+  IL_0017  bgt.un.s   IL_002D
+  IL_0019  ldloc.s    V_4
+  IL_001B  ldc.i4.s   9
+  IL_001D  beq.s      IL_0041
+  IL_001F  ldloc.s    V_4
+  IL_0021  ldc.i4.s   10
+  IL_0023  beq.s      IL_0041
+  IL_0025  ldloc.s    V_4
+  IL_0027  ldc.i4.s   32
+  IL_0029  beq.s      IL_0041
+  IL_002B  br.s       IL_004D
+  IL_002D  ldloc.s    V_4
+  IL_002F  ldc.i4.s   40
+  IL_0031  beq.s      IL_0045
+  IL_0033  ldloc.s    V_4
+  IL_0035  ldc.i4.s   41
+  IL_0037  beq.s      IL_0045
+  IL_0039  ldloc.s    V_4
+  IL_003B  ldc.i4.s   59
+  IL_003D  beq.s      IL_0045
+  IL_003F  br.s       IL_004D
+  IL_0041  ldc.i4.0
+  IL_0042  stloc.1
+  IL_0043  br.s       IL_0056
+  IL_0045  ldloc.0
+  IL_0046  ldc.i4.1
+  IL_0047  add
+  IL_0048  stloc.0
+  IL_0049  ldc.i4.0
+  IL_004A  stloc.1
+  IL_004B  br.s       IL_0056
+  IL_004D  ldloc.1
+  IL_004E  brtrue.s   IL_0054
+  IL_0050  ldloc.0
+  IL_0051  ldc.i4.1
+  IL_0052  add
+  IL_0053  stloc.0
+  IL_0054  ldc.i4.1
+  IL_0055  stloc.1
+  IL_0056  ldloc.3
+  IL_0057  ldc.i4.1
+  IL_0058  add
+  IL_0059  stloc.3
+  IL_005A  ldloc.3
+  IL_005B  ldloc.2
+  IL_005C  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+  IL_0061  blt.s      IL_000A
+  IL_0063  ldloc.0
+  IL_0064  ret

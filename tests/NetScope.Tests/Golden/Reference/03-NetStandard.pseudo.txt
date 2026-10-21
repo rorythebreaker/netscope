@@ -1,0 +1,461 @@
+Assembly : Ref03.NetStandard.dll
+Name     : Ref03.NetStandard, Version=1.0.0.0
+Runtime  : .NETStandard,Version=v2.0   Machine: anycpu
+Methods  : 27
+
+Type     : Ref.NetStandard.TextUtil
+
+Method   : string Slug(string text)
+Kind     : static, public
+RVA      : 0x2050   Size: 150 bytes   Token: 0x06000001
+
+[Pseudocode]
+  public static string Slug(string text)
+  {
+      if (string.IsNullOrEmpty(text))
+      {
+          return string.Empty;
+      }
+      string text2 = text.Normalize(NormalizationForm.FormD);
+      StringBuilder stringBuilder = new StringBuilder(text2.Length);
+      string text3 = text2;
+      foreach (char c in text3)
+      {
+          if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+          {
+              if (char.IsLetterOrDigit(c))
+              {
+                  stringBuilder.Append(char.ToLowerInvariant(c));
+              }
+              else if (stringBuilder.Length > 0 && stringBuilder[stringBuilder.Length - 1] != '-')
+              {
+                  stringBuilder.Append('-');
+              }
+          }
+      }
+      return stringBuilder.ToString().Trim('-');
+  }
+
+Method   : string CollapseSpaces(string text)
+Kind     : static, public
+RVA      : 0x20F2   Size: 31 bytes   Token: 0x06000002
+
+[Pseudocode]
+  public static string CollapseSpaces(string text)
+  {
+      return Spaces.Replace(text ?? string.Empty, " ").Trim();
+  }
+
+Method   : IEnumerable<string> Wrap(string text, int width)
+Kind     : static, public, iterator
+RVA      : 0x2112   Size: 22 bytes   Token: 0x06000003
+
+[Pseudocode]
+  public static IEnumerable<string> Wrap(string text, int width)
+  {
+      if (width <= 0)
+      {
+          throw new ArgumentOutOfRangeException("width");
+      }
+      StringBuilder line = new StringBuilder();
+      string[] array = CollapseSpaces(text).Split(' ');
+      foreach (string word in array)
+      {
+          if (line.Length > 0 && line.Length + 1 + word.Length > width)
+          {
+              yield return line.ToString();
+              line.Clear();
+          }
+          if (line.Length > 0)
+          {
+              line.Append(' ');
+          }
+          line.Append(word);
+      }
+      if (line.Length > 0)
+      {
+          yield return line.ToString();
+      }
+  }
+
+Method   : int Levenshtein(string a, string b)
+Kind     : static, public
+RVA      : 0x212C   Size: 167 bytes   Token: 0x06000004
+
+[Pseudocode]
+  public static int Levenshtein(string a, string b)
+  {
+      int[] array = new int[b.Length + 1];
+      int[] array2 = new int[b.Length + 1];
+      for (int i = 0; i <= b.Length; i++)
+      {
+          array[i] = i;
+      }
+      for (int j = 1; j <= a.Length; j++)
+      {
+          array2[0] = j;
+          for (int k = 1; k <= b.Length; k++)
+          {
+              int num = ((a[j - 1] != b[k - 1]) ? 1 : 0);
+              array2[k] = Math.Min(Math.Min(array2[k - 1] + 1, array[k] + 1), array[k - 1] + num);
+          }
+          int[] array3 = array;
+          array = array2;
+          array2 = array3;
+      }
+      return array[b.Length];
+  }
+
+Method   : string Closest(string word, IEnumerable<string> candidates)
+Kind     : static, public
+RVA      : 0x21E0   Size: 78 bytes   Token: 0x06000005
+
+[Pseudocode]
+  public static string Closest(string word, IEnumerable<string> candidates)
+  {
+      return candidates.OrderBy((string c) => Levenshtein(word, c)).ThenBy((string c) => c, StringComparer.Ordinal).FirstOrDefault();
+  }
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x223A   Size: 17 bytes   Token: 0x06000006
+
+[Pseudocode]
+  static TextUtil()
+  {
+      Spaces = new Regex("\\s+", RegexOptions.Compiled);
+  }
+
+Type     : Ref.NetStandard.CsvRow
+
+Method   : void .ctor(List<string> fields)
+Kind     : ctor, instance, private
+RVA      : 0x224C   Size: 14 bytes   Token: 0x06000007
+
+[Pseudocode]
+  private CsvRow(List<string> fields)
+  {
+      _fields = fields;
+  }
+
+Method   : int get_Count()
+Kind     : property-get, instance, public
+RVA      : 0x225B   Size: 12 bytes   Token: 0x06000008
+
+[Pseudocode]
+  {
+      return _fields.Count;
+  }
+
+Method   : string get_Item(int index)
+Kind     : property-get, instance, public
+RVA      : 0x2268   Size: 13 bytes   Token: 0x06000009
+
+[Pseudocode]
+  {
+      return _fields[index];
+  }
+
+Method   : CsvRow Parse(string line, char separator)
+Kind     : static, public
+RVA      : 0x2278   Size: 190 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  public static CsvRow Parse(string line, char separator = ',')
+  {
+      List<string> list = new List<string>();
+      StringBuilder stringBuilder = new StringBuilder();
+      bool flag = false;
+      for (int i = 0; i < line.Length; i++)
+      {
+          char c = line[i];
+          if (flag)
+          {
+              if (c == '"' && i + 1 < line.Length && line[i + 1] == '"')
+              {
+                  stringBuilder.Append('"');
+                  i++;
+              }
+              else if (c == '"')
+              {
+                  flag = false;
+              }
+              else
+              {
+                  stringBuilder.Append(c);
+              }
+          }
+          else if (c == '"')
+          {
+              flag = true;
+          }
+          else if (c == separator)
+          {
+              list.Add(stringBuilder.ToString());
+              stringBuilder.Clear();
+          }
+          else
+          {
+              stringBuilder.Append(c);
+          }
+      }
+      if (flag)
+      {
+          throw new FormatException("unterminated quote");
+      }
+      list.Add(stringBuilder.ToString());
+      return new CsvRow(list);
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override
+RVA      : 0x2342   Size: 53 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  public override string ToString()
+  {
+      return string.Join(",", _fields.Select((string f) => (f.IndexOfAny(new char[2] { ',', '"' }) < 0) ? f : ("\"" + f.Replace("\"", "\"\"") + "\"")));
+  }
+
+Type     : Ref.NetStandard.TextUtil+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2378   Size: 11 bytes   Token: 0x0600000C
+
+[Pseudocode]
+  static <>c()
+  {
+      <>9 = new <>c();
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2384   Size: 7 bytes   Token: 0x0600000D
+
+[Pseudocode]
+  public <>c()
+  {
+  }
+
+Method   : string <Closest>b__5_1(string c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x238C   Size: 2 bytes   Token: 0x0600000E
+
+[Pseudocode]
+  internal string <Closest>b__5_1(string c)
+  {
+      return c;
+  }
+
+Type     : Ref.NetStandard.TextUtil+<>c__DisplayClass5_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x238F   Size: 7 bytes   Token: 0x0600000F
+
+[Pseudocode]
+  public <>c__DisplayClass5_0()
+  {
+  }
+
+Method   : int <Closest>b__0(string c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2397   Size: 13 bytes   Token: 0x06000010
+
+[Pseudocode]
+  internal int <Closest>b__0(string c)
+  {
+      return Levenshtein(word, c);
+  }
+
+Type     : Ref.NetStandard.TextUtil+<Wrap>d__3
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x23A5   Size: 25 bytes   Token: 0x06000011
+
+[Pseudocode]
+  [DebuggerHidden]
+  public <Wrap>d__3(int <>1__state)
+  {
+      this.<>1__state = <>1__state;
+      <>l__initialThreadId = Environment.CurrentManagedThreadId;
+  }
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x23BF   Size: 30 bytes   Token: 0x06000012
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IDisposable.Dispose()
+  {
+      <line>5__2 = null;
+      <>7__wrap2 = null;
+      <word>5__5 = null;
+      <>1__state = -2;
+  }
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x23E0   Size: 363 bytes   Token: 0x06000013
+
+[Pseudocode]
+  private bool MoveNext()
+  {
+      switch (<>1__state)
+      {
+      default:
+          return false;
+      case 0:
+          <>1__state = -1;
+          if (width <= 0)
+          {
+              throw new ArgumentOutOfRangeException("width");
+          }
+          <line>5__2 = new StringBuilder();
+          <>7__wrap2 = CollapseSpaces(text).Split(' ');
+          <>7__wrap3 = 0;
+          goto IL_0120;
+      case 1:
+          <>1__state = -1;
+          <line>5__2.Clear();
+          goto IL_00dd;
+      case 2:
+          {
+              <>1__state = -1;
+              break;
+          }
+          IL_00dd:
+          if (<line>5__2.Length > 0)
+          {
+              <line>5__2.Append(' ');
+          }
+          <line>5__2.Append(<word>5__5);
+          <word>5__5 = null;
+          <>7__wrap3++;
+          goto IL_0120;
+          IL_0120:
+          if (<>7__wrap3 < <>7__wrap2.Length)
+          {
+              <word>5__5 = <>7__wrap2[<>7__wrap3];
+              if (<line>5__2.Length > 0 && <line>5__2.Length + 1 + <word>5__5.Length > width)
+              {
+                  <>2__current = <line>5__2.ToString();
+                  <>1__state = 1;
+                  return true;
+              }
+              goto IL_00dd;
+          }
+          <>7__wrap2 = null;
+          if (<line>5__2.Length > 0)
+          {
+              <>2__current = <line>5__2.ToString();
+              <>1__state = 2;
+              return true;
+          }
+          break;
+      }
+      return false;
+  }
+
+Method   : string System.Collections.Generic.IEnumerator<System.String>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2557   Size: 7 bytes   Token: 0x06000014
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x255F   Size: 6 bytes   Token: 0x06000015
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IEnumerator.Reset()
+  {
+      throw new NotSupportedException();
+  }
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2566   Size: 7 bytes   Token: 0x06000016
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : IEnumerator<string> System.Collections.Generic.IEnumerable<System.String>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2570   Size: 67 bytes   Token: 0x06000017
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator<string> IEnumerable<string>.GetEnumerator()
+  {
+      <Wrap>d__3 obj;
+      if (<>1__state == -2 && <>l__initialThreadId == Environment.CurrentManagedThreadId)
+      {
+          <>1__state = 0;
+          obj = this;
+      }
+      else
+      {
+          obj = new <Wrap>d__3(0);
+      }
+      obj.text = <>3__text;
+      obj.width = <>3__width;
+      return obj;
+  }
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x25BF   Size: 7 bytes   Token: 0x06000018
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator IEnumerable.GetEnumerator()
+  {
+      return ((IEnumerable<string>)this).GetEnumerator();
+  }
+
+Type     : Ref.NetStandard.CsvRow+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x25C7   Size: 11 bytes   Token: 0x06000019
+
+[Pseudocode]
+  static <>c()
+  {
+      <>9 = new <>c();
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x25D3   Size: 7 bytes   Token: 0x0600001A
+
+[Pseudocode]
+  public <>c()
+  {
+  }
+
+Method   : string <ToString>b__7_0(string f)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x25DB   Size: 59 bytes   Token: 0x0600001B
+
+[Pseudocode]
+  internal string <ToString>b__7_0(string f)
+  {
+      if (f.IndexOfAny(new char[2] { ',', '"' }) < 0)
+      {
+          return f;
+      }
+      return "\"" + f.Replace("\"", "\"\"") + "\"";
+  }

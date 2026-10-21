@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 15. Records, init, default interface methods, static abstract members: newer metadata shapes. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Ref.Modern</RootNamespace>
+  </PropertyGroup>
+</Project>

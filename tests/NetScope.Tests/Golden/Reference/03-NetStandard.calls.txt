@@ -1,0 +1,328 @@
+Assembly : Ref03.NetStandard.dll
+Name     : Ref03.NetStandard, Version=1.0.0.0
+Runtime  : .NETStandard,Version=v2.0   Machine: anycpu
+Methods  : 27
+
+Type     : Ref.NetStandard.TextUtil
+
+Method   : string Slug(string text)
+Kind     : static, public
+RVA      : 0x2050   Size: 150 bytes   Token: 0x06000001
+
+[Calls]
+  IL_0001  call      System.String::IsNullOrEmpty(string)                            external netstandard
+  IL_0010  callvirt  System.String::Normalize(NormalizationForm)                     external netstandard
+  IL_0016  callvirt  System.String::get_Length()                                     external netstandard
+  IL_001B  newobj    System.Text.StringBuilder::.ctor(int)                           external netstandard
+  IL_0028  callvirt  System.String::get_Chars(int)                                   external netstandard
+  IL_002F  call      System.Globalization.CharUnicodeInfo::GetUnicodeCategory(char)  external netstandard
+  IL_0038  call      System.Char::IsLetterOrDigit(char)                              external netstandard
+  IL_0041  call      System.Char::ToLowerInvariant(char)                             external netstandard
+  IL_0046  callvirt  System.Text.StringBuilder::Append(char)                         external netstandard
+  IL_004F  callvirt  System.Text.StringBuilder::get_Length()                         external netstandard
+  IL_0059  callvirt  System.Text.StringBuilder::get_Length()                         external netstandard
+  IL_0060  callvirt  System.Text.StringBuilder::get_Chars(int)                       external netstandard
+  IL_006C  callvirt  System.Text.StringBuilder::Append(char)                         external netstandard
+  IL_0078  callvirt  System.String::get_Length()                                     external netstandard
+  IL_0080  callvirt  System.Object::ToString()                                       external netstandard
+  IL_0090  callvirt  System.String::Trim(char[])                                     external netstandard
+[Callers]
+  (none in the input files)
+
+Method   : string CollapseSpaces(string text)
+Kind     : static, public
+RVA      : 0x20F2   Size: 31 bytes   Token: 0x06000002
+
+[Calls]
+  IL_0014  callvirt  System.Text.RegularExpressions.Regex::Replace(string, string)  external netstandard
+  IL_0019  callvirt  System.String::Trim()                                          external netstandard
+[Callers]
+  Ref.NetStandard.TextUtil+<Wrap>d__3::MoveNext  IL_0048  call  (Ref03.NetStandard.dll)
+
+Method   : IEnumerable<string> Wrap(string text, int width)
+Kind     : static, public, iterator
+RVA      : 0x2112   Size: 22 bytes   Token: 0x06000003
+
+[Calls]
+  IL_0002  newobj    Ref.NetStandard.TextUtil.<Wrap>d__3::.ctor(int)  internal
+[Callers]
+  (none in the input files)
+
+Method   : int Levenshtein(string a, string b)
+Kind     : static, public
+RVA      : 0x212C   Size: 167 bytes   Token: 0x06000004
+
+[Calls]
+  IL_0001  callvirt  System.String::get_Length()    external netstandard
+  IL_000F  callvirt  System.String::get_Length()    external netstandard
+  IL_002A  callvirt  System.String::get_Length()    external netstandard
+  IL_0042  callvirt  System.String::get_Chars(int)  external netstandard
+  IL_004C  callvirt  System.String::get_Chars(int)  external netstandard
+  IL_0069  call      System.Math::Min(int, int)     external netstandard
+  IL_0077  call      System.Math::Min(int, int)     external netstandard
+  IL_0086  callvirt  System.String::get_Length()    external netstandard
+  IL_0097  callvirt  System.String::get_Length()    external netstandard
+  IL_00A0  callvirt  System.String::get_Length()    external netstandard
+[Callers]
+  Ref.NetStandard.TextUtil+<>c__DisplayClass5_0::<Closest>b__0  IL_0007  call  (Ref03.NetStandard.dll)
+
+Method   : string Closest(string word, IEnumerable<string> candidates)
+Kind     : static, public
+RVA      : 0x21E0   Size: 78 bytes   Token: 0x06000005
+
+[Calls]
+  IL_0000  newobj    Ref.NetStandard.TextUtil.<>c__DisplayClass5_0::.ctor()                                                               internal
+  IL_000F  ldftn     Ref.NetStandard.TextUtil.<>c__DisplayClass5_0::<Closest>b__0(string)                                                 internal
+  IL_0015  newobj    System.Func<string, int>::.ctor(object, nint)                                                                        external netstandard
+  IL_001A  call      System.Linq.Enumerable::OrderBy<string, int>(IEnumerable<string>, Func<string, int>)                                 external netstandard
+  IL_002D  ldftn     Ref.NetStandard.TextUtil.<>c::<Closest>b__5_1(string)                                                                internal
+  IL_0033  newobj    System.Func<string, string>::.ctor(object, nint)                                                                     external netstandard
+  IL_003E  call      System.StringComparer::get_Ordinal()                                                                                 external netstandard
+  IL_0043  call      System.Linq.Enumerable::ThenBy<string, string>(IOrderedEnumerable<string>, Func<string, string>, IComparer<string>)  external netstandard
+  IL_0048  call      System.Linq.Enumerable::FirstOrDefault<string>(IEnumerable<string>)                                                  external netstandard
+[Callers]
+  (none in the input files)
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x223A   Size: 17 bytes   Token: 0x06000006
+
+[Calls]
+  IL_0006  newobj    System.Text.RegularExpressions.Regex::.ctor(string, RegexOptions)  external netstandard
+[Callers]
+  (none in the input files)
+
+Type     : Ref.NetStandard.CsvRow
+
+Method   : void .ctor(List<string> fields)
+Kind     : ctor, instance, private
+RVA      : 0x224C   Size: 14 bytes   Token: 0x06000007
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external netstandard
+[Callers]
+  Ref.NetStandard.CsvRow::Parse  IL_00B8  newobj  (Ref03.NetStandard.dll)
+
+Method   : int get_Count()
+Kind     : property-get, instance, public
+RVA      : 0x225B   Size: 12 bytes   Token: 0x06000008
+
+[Calls]
+  IL_0006  callvirt  System.Collections.Generic.List<string>::get_Count()  external netstandard
+[Callers]
+  (none in the input files)
+
+Method   : string get_Item(int index)
+Kind     : property-get, instance, public
+RVA      : 0x2268   Size: 13 bytes   Token: 0x06000009
+
+[Calls]
+  IL_0007  callvirt  System.Collections.Generic.List<string>::get_Item(int)  external netstandard
+[Callers]
+  (none in the input files)
+
+Method   : CsvRow Parse(string line, char separator)
+Kind     : static, public
+RVA      : 0x2278   Size: 190 bytes   Token: 0x0600000A
+
+[Calls]
+  IL_0000  newobj    System.Collections.Generic.List<string>::.ctor()      external netstandard
+  IL_0006  newobj    System.Text.StringBuilder::.ctor()                    external netstandard
+  IL_0014  callvirt  System.String::get_Chars(int)                         external netstandard
+  IL_0028  callvirt  System.String::get_Length()                           external netstandard
+  IL_0033  callvirt  System.String::get_Chars(int)                         external netstandard
+  IL_003F  callvirt  System.Text.StringBuilder::Append(char)               external netstandard
+  IL_0058  callvirt  System.Text.StringBuilder::Append(char)               external netstandard
+  IL_0071  callvirt  System.Object::ToString()                             external netstandard
+  IL_0076  callvirt  System.Collections.Generic.List<string>::Add(string)  external netstandard
+  IL_007C  callvirt  System.Text.StringBuilder::Clear()                    external netstandard
+  IL_0087  callvirt  System.Text.StringBuilder::Append(char)               external netstandard
+  IL_0093  callvirt  System.String::get_Length()                           external netstandard
+  IL_00A5  newobj    System.FormatException::.ctor(string)                 external netstandard
+  IL_00AD  callvirt  System.Object::ToString()                             external netstandard
+  IL_00B2  callvirt  System.Collections.Generic.List<string>::Add(string)  external netstandard
+  IL_00B8  newobj    Ref.NetStandard.CsvRow::.ctor(List<string>)           internal
+[Callers]
+  (none in the input files)
+
+Method   : string ToString()
+Kind     : instance, public, override
+RVA      : 0x2342   Size: 53 bytes   Token: 0x0600000B
+
+[Calls]
+  IL_0019  ldftn     Ref.NetStandard.CsvRow.<>c::<ToString>b__7_0(string)                                       internal
+  IL_001F  newobj    System.Func<string, string>::.ctor(object, nint)                                           external netstandard
+  IL_002A  call      System.Linq.Enumerable::Select<string, string>(IEnumerable<string>, Func<string, string>)  external netstandard
+  IL_002F  call      System.String::Join(string, IEnumerable<string>)                                           external netstandard
+[Callers]
+  (none in the input files)
+
+Type     : Ref.NetStandard.TextUtil+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2378   Size: 11 bytes   Token: 0x0600000C
+
+[Calls]
+  IL_0000  newobj    Ref.NetStandard.TextUtil.<>c::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2384   Size: 7 bytes   Token: 0x0600000D
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external netstandard
+[Callers]
+  Ref.NetStandard.TextUtil+<>c::.cctor  IL_0000  newobj  (Ref03.NetStandard.dll)
+
+Method   : string <Closest>b__5_1(string c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x238C   Size: 2 bytes   Token: 0x0600000E
+
+[Calls]
+  (none)
+[Callers]
+  Ref.NetStandard.TextUtil::Closest  IL_002D  ldftn  (Ref03.NetStandard.dll)
+
+Type     : Ref.NetStandard.TextUtil+<>c__DisplayClass5_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x238F   Size: 7 bytes   Token: 0x0600000F
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external netstandard
+[Callers]
+  Ref.NetStandard.TextUtil::Closest  IL_0000  newobj  (Ref03.NetStandard.dll)
+
+Method   : int <Closest>b__0(string c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2397   Size: 13 bytes   Token: 0x06000010
+
+[Calls]
+  IL_0007  call      Ref.NetStandard.TextUtil::Levenshtein(string, string)  internal
+[Callers]
+  Ref.NetStandard.TextUtil::Closest  IL_000F  ldftn  (Ref03.NetStandard.dll)
+
+Type     : Ref.NetStandard.TextUtil+<Wrap>d__3
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x23A5   Size: 25 bytes   Token: 0x06000011
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()                            external netstandard
+  IL_000E  call      System.Environment::get_CurrentManagedThreadId()  external netstandard
+[Callers]
+  Ref.NetStandard.TextUtil::Wrap  IL_0002  newobj  (Ref03.NetStandard.dll)
+  Ref.NetStandard.TextUtil+<Wrap>d__3::System.Collections.Generic.IEnumerable<System.String>.GetEnumerator  IL_0023  newobj  (Ref03.NetStandard.dll)
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x23BF   Size: 30 bytes   Token: 0x06000012
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x23E0   Size: 363 bytes   Token: 0x06000013
+
+[Calls]
+  IL_0030  newobj    System.ArgumentOutOfRangeException::.ctor(string)  external netstandard
+  IL_0037  newobj    System.Text.StringBuilder::.ctor()                 external netstandard
+  IL_0048  call      Ref.NetStandard.TextUtil::CollapseSpaces(string)   internal
+  IL_0058  callvirt  System.String::Split(char[])                       external netstandard
+  IL_0087  callvirt  System.Text.StringBuilder::get_Length()            external netstandard
+  IL_0095  callvirt  System.Text.StringBuilder::get_Length()            external netstandard
+  IL_00A2  callvirt  System.String::get_Length()                        external netstandard
+  IL_00B7  callvirt  System.Object::ToString()                          external netstandard
+  IL_00D7  callvirt  System.Text.StringBuilder::Clear()                 external netstandard
+  IL_00E3  callvirt  System.Text.StringBuilder::get_Length()            external netstandard
+  IL_00F3  callvirt  System.Text.StringBuilder::Append(char)            external netstandard
+  IL_0105  callvirt  System.Text.StringBuilder::Append(string)          external netstandard
+  IL_0140  callvirt  System.Text.StringBuilder::get_Length()            external netstandard
+  IL_014F  callvirt  System.Object::ToString()                          external netstandard
+[Callers]
+  (none in the input files)
+
+Method   : string System.Collections.Generic.IEnumerator<System.String>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2557   Size: 7 bytes   Token: 0x06000014
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x255F   Size: 6 bytes   Token: 0x06000015
+
+[Calls]
+  IL_0000  newobj    System.NotSupportedException::.ctor()  external netstandard
+[Callers]
+  (none in the input files)
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2566   Size: 7 bytes   Token: 0x06000016
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerator<string> System.Collections.Generic.IEnumerable<System.String>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2570   Size: 67 bytes   Token: 0x06000017
+
+[Calls]
+  IL_0010  call      System.Environment::get_CurrentManagedThreadId()  external netstandard
+  IL_0023  newobj    Ref.NetStandard.TextUtil.<Wrap>d__3::.ctor(int)   internal
+[Callers]
+  Ref.NetStandard.TextUtil+<Wrap>d__3::System.Collections.IEnumerable.GetEnumerator  IL_0001  call  (Ref03.NetStandard.dll)
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x25BF   Size: 7 bytes   Token: 0x06000018
+
+[Calls]
+  IL_0001  call      Ref.NetStandard.TextUtil.<Wrap>d__3::System.Collections.Generic.IEnumerable<System.String>.GetEnumerator()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.NetStandard.CsvRow+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x25C7   Size: 11 bytes   Token: 0x06000019
+
+[Calls]
+  IL_0000  newobj    Ref.NetStandard.CsvRow.<>c::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x25D3   Size: 7 bytes   Token: 0x0600001A
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external netstandard
+[Callers]
+  Ref.NetStandard.CsvRow+<>c::.cctor  IL_0000  newobj  (Ref03.NetStandard.dll)
+
+Method   : string <ToString>b__7_0(string f)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x25DB   Size: 59 bytes   Token: 0x0600001B
+
+[Calls]
+  IL_0011  callvirt  System.String::IndexOfAny(char[])              external netstandard
+  IL_002B  callvirt  System.String::Replace(string, string)         external netstandard
+  IL_0035  call      System.String::Concat(string, string, string)  external netstandard
+[Callers]
+  Ref.NetStandard.CsvRow::ToString  IL_0019  ldftn  (Ref03.NetStandard.dll)

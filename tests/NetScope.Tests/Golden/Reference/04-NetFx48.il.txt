@@ -1,0 +1,507 @@
+Assembly : Ref04.NetFx48.dll
+Name     : Ref04.NetFx48, Version=1.0.0.0
+Runtime  : .NETFramework,Version=v4.8   Machine: anycpu
+Methods  : 22
+
+Type     : Ref.NetFx48.SettingsException
+
+Method   : void .ctor(string key)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 25 bytes   Token: 0x06000001
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldstr      "missing setting: "
+  IL_0006  ldarg.1
+  IL_0007  call       string [mscorlib]System.String::Concat(string, string)
+  IL_000C  call       instance void [mscorlib]System.Exception::.ctor(string)
+  IL_0011  ldarg.0
+  IL_0012  ldarg.1
+  IL_0013  stfld      string Ref.NetFx48.SettingsException::'<Key>k__BackingField'
+  IL_0018  ret
+
+Method   : void .ctor(SerializationInfo info, StreamingContext context)
+Kind     : ctor, instance, protected
+RVA      : 0x206A   Size: 26 bytes   Token: 0x06000002
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  ldarg.2
+  IL_0003  call       instance void [mscorlib]System.Exception::.ctor(class [mscorlib]System.Runtime.Serialization.SerializationInfo, valuetype [mscorlib]System.Runtime.Serialization.StreamingContext)
+  IL_0008  ldarg.0
+  IL_0009  ldarg.1
+  IL_000A  ldstr      "Key"
+  IL_000F  callvirt   instance string [mscorlib]System.Runtime.Serialization.SerializationInfo::GetString(string)
+  IL_0014  stfld      string Ref.NetFx48.SettingsException::'<Key>k__BackingField'
+  IL_0019  ret
+
+Method   : string get_Key()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2085   Size: 7 bytes   Token: 0x06000003
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      string Ref.NetFx48.SettingsException::'<Key>k__BackingField'
+  IL_0006  ret
+
+Method   : void GetObjectData(SerializationInfo info, StreamingContext context)
+Kind     : instance, public, override
+RVA      : 0x208D   Size: 26 bytes   Token: 0x06000004
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  ldarg.2
+  IL_0003  call       instance void [mscorlib]System.Exception::GetObjectData(class [mscorlib]System.Runtime.Serialization.SerializationInfo, valuetype [mscorlib]System.Runtime.Serialization.StreamingContext)
+  IL_0008  ldarg.1
+  IL_0009  ldstr      "Key"
+  IL_000E  ldarg.0
+  IL_000F  call       instance string Ref.NetFx48.SettingsException::get_Key()
+  IL_0014  callvirt   instance void [mscorlib]System.Runtime.Serialization.SerializationInfo::AddValue(string, object)
+  IL_0019  ret
+
+Type     : Ref.NetFx48.AppSettings
+
+Method   : AppSettings FromConfiguration()
+Kind     : static, public
+RVA      : 0x20A8   Size: 60 bytes   Token: 0x06000005
+
+[IL]  .maxstack 4
+  .locals init ([0] class Ref.NetFx48.AppSettings V_0, [1] string[] V_1, [2] int32 V_2, [3] string V_3)
+  IL_0000  newobj     instance void Ref.NetFx48.AppSettings::.ctor()
+  IL_0005  stloc.0
+  IL_0006  call       class [System]System.Collections.Specialized.NameValueCollection [System.Configuration]System.Configuration.ConfigurationManager::get_AppSettings()
+  IL_000B  callvirt   instance string[] [System]System.Collections.Specialized.NameValueCollection::get_AllKeys()
+  IL_0010  stloc.1
+  IL_0011  ldc.i4.0
+  IL_0012  stloc.2
+  IL_0013  br.s       IL_0034
+  IL_0015  ldloc.1
+  IL_0016  ldloc.2
+  IL_0017  ldelem.ref
+  IL_0018  stloc.3
+  IL_0019  ldloc.0
+  IL_001A  ldfld      class [mscorlib]System.Collections.Hashtable Ref.NetFx48.AppSettings::_values
+  IL_001F  ldloc.3
+  IL_0020  call       class [System]System.Collections.Specialized.NameValueCollection [System.Configuration]System.Configuration.ConfigurationManager::get_AppSettings()
+  IL_0025  ldloc.3
+  IL_0026  callvirt   instance string [System]System.Collections.Specialized.NameValueCollection::get_Item(string)
+  IL_002B  callvirt   instance void [mscorlib]System.Collections.Hashtable::set_Item(object, object)
+  IL_0030  ldloc.2
+  IL_0031  ldc.i4.1
+  IL_0032  add
+  IL_0033  stloc.2
+  IL_0034  ldloc.2
+  IL_0035  ldloc.1
+  IL_0036  ldlen
+  IL_0037  conv.i4
+  IL_0038  blt.s      IL_0015
+  IL_003A  ldloc.0
+  IL_003B  ret
+
+Method   : AppSettings FromXml(string xml)
+Kind     : static, public
+RVA      : 0x20F0   Size: 161 bytes   Token: 0x06000006
+
+[IL]  .maxstack 4
+  .locals init ([0] class Ref.NetFx48.AppSettings V_0, [1] class [mscorlib]System.Collections.IEnumerator V_1, [2] class [System.Xml]System.Xml.XmlNode V_2, [3] string V_3, [4] class [mscorlib]System.IDisposable V_4)
+  IL_0000  newobj     instance void [System.Xml]System.Xml.XmlDocument::.ctor()
+  IL_0005  dup
+  IL_0006  ldarg.0
+  IL_0007  callvirt   instance void [System.Xml]System.Xml.XmlDocument::LoadXml(string)
+  IL_000C  newobj     instance void Ref.NetFx48.AppSettings::.ctor()
+  IL_0011  stloc.0
+  IL_0012  ldstr      "/settings/add"
+  IL_0017  callvirt   instance class [System.Xml]System.Xml.XmlNodeList [System.Xml]System.Xml.XmlNode::SelectNodes(string)
+  IL_001C  callvirt   instance class [mscorlib]System.Collections.IEnumerator [System.Xml]System.Xml.XmlNodeList::GetEnumerator()
+  IL_0021  stloc.1
+  IL_0022  br.s       IL_0081
+  IL_0024  ldloc.1
+  IL_0025  callvirt   instance object [mscorlib]System.Collections.IEnumerator::get_Current()
+  IL_002A  castclass  [System.Xml]System.Xml.XmlNode
+  IL_002F  stloc.2
+  IL_0030  ldloc.2
+  IL_0031  callvirt   instance class [System.Xml]System.Xml.XmlAttributeCollection [System.Xml]System.Xml.XmlNode::get_Attributes()
+  IL_0036  ldstr      "key"
+  IL_003B  callvirt   instance class [System.Xml]System.Xml.XmlAttribute [System.Xml]System.Xml.XmlAttributeCollection::get_ItemOf(string)
+  IL_0040  dup
+  IL_0041  brtrue.s   IL_0047
+  IL_0043  pop
+  IL_0044  ldnull
+  IL_0045  br.s       IL_004C
+  IL_0047  callvirt   instance string [System.Xml]System.Xml.XmlNode::get_Value()
+  IL_004C  stloc.3
+  IL_004D  ldloc.3
+  IL_004E  brfalse.s  IL_0081
+  IL_0050  ldloc.0
+  IL_0051  ldfld      class [mscorlib]System.Collections.Hashtable Ref.NetFx48.AppSettings::_values
+  IL_0056  ldloc.3
+  IL_0057  ldloc.2
+  IL_0058  callvirt   instance class [System.Xml]System.Xml.XmlAttributeCollection [System.Xml]System.Xml.XmlNode::get_Attributes()
+  IL_005D  ldstr      "value"
+  IL_0062  callvirt   instance class [System.Xml]System.Xml.XmlAttribute [System.Xml]System.Xml.XmlAttributeCollection::get_ItemOf(string)
+  IL_0067  dup
+  IL_0068  brtrue.s   IL_006E
+  IL_006A  pop
+  IL_006B  ldnull
+  IL_006C  br.s       IL_0073
+  IL_006E  callvirt   instance string [System.Xml]System.Xml.XmlNode::get_Value()
+  IL_0073  dup
+  IL_0074  brtrue.s   IL_007C
+  IL_0076  pop
+  IL_0077  ldsfld     string [mscorlib]System.String::Empty
+  IL_007C  callvirt   instance void [mscorlib]System.Collections.Hashtable::set_Item(object, object)
+  IL_0081  ldloc.1
+  IL_0082  callvirt   instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+  IL_0087  brtrue.s   IL_0024
+  IL_0089  leave.s    IL_009F
+  IL_008B  ldloc.1
+  IL_008C  isinst     [mscorlib]System.IDisposable
+  IL_0091  stloc.s    V_4
+  IL_0093  ldloc.s    V_4
+  IL_0095  brfalse.s  IL_009E
+  IL_0097  ldloc.s    V_4
+  IL_0099  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+  IL_009E  endfinally
+  IL_009F  ldloc.0
+  IL_00A0  ret
+  .try IL_0022 to IL_008B finally handler IL_008B to IL_009F
+
+Method   : string get_Item(string key)
+Kind     : property-get, instance, public
+RVA      : 0x21B0   Size: 28 bytes   Token: 0x06000007
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [mscorlib]System.Collections.Hashtable Ref.NetFx48.AppSettings::_values
+  IL_0006  ldarg.1
+  IL_0007  callvirt   instance object [mscorlib]System.Collections.Hashtable::get_Item(object)
+  IL_000C  isinst     [mscorlib]System.String
+  IL_0011  dup
+  IL_0012  brtrue.s   IL_001B
+  IL_0014  ldarg.1
+  IL_0015  newobj     instance void Ref.NetFx48.SettingsException::.ctor(string)
+  IL_001A  throw
+  IL_001B  ret
+
+Method   : void set_Item(string key, string value)
+Kind     : property-set, instance, public
+RVA      : 0x21CD   Size: 14 bytes   Token: 0x06000008
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [mscorlib]System.Collections.Hashtable Ref.NetFx48.AppSettings::_values
+  IL_0006  ldarg.1
+  IL_0007  ldarg.2
+  IL_0008  callvirt   instance void [mscorlib]System.Collections.Hashtable::set_Item(object, object)
+  IL_000D  ret
+
+Method   : int GetInt(string key, int fallback)
+Kind     : instance, public
+RVA      : 0x21DC   Size: 44 bytes   Token: 0x06000009
+
+[IL]  .maxstack 2
+  .locals init ([0] int32 V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [mscorlib]System.Collections.Hashtable Ref.NetFx48.AppSettings::_values
+  IL_0006  ldarg.1
+  IL_0007  callvirt   instance bool [mscorlib]System.Collections.Hashtable::ContainsKey(object)
+  IL_000C  brfalse.s  IL_0028
+  IL_000E  ldarg.0
+  IL_000F  ldfld      class [mscorlib]System.Collections.Hashtable Ref.NetFx48.AppSettings::_values
+  IL_0014  ldarg.1
+  IL_0015  callvirt   instance object [mscorlib]System.Collections.Hashtable::get_Item(object)
+  IL_001A  castclass  [mscorlib]System.String
+  IL_001F  ldloca.s   V_0
+  IL_0021  call       bool [mscorlib]System.Int32::TryParse(string, int32&)
+  IL_0026  brtrue.s   IL_002A
+  IL_0028  ldarg.2
+  IL_0029  ret
+  IL_002A  ldloc.0
+  IL_002B  ret
+
+Method   : object Clone()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x2214   Size: 86 bytes   Token: 0x0600000A
+
+[IL]  .maxstack 3
+  .locals init ([0] class Ref.NetFx48.AppSettings V_0, [1] class [mscorlib]System.Collections.IDictionaryEnumerator V_1, [2] valuetype [mscorlib]System.Collections.DictionaryEntry V_2, [3] class [mscorlib]System.IDisposable V_3)
+  IL_0000  newobj     instance void Ref.NetFx48.AppSettings::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldarg.0
+  IL_0007  ldfld      class [mscorlib]System.Collections.Hashtable Ref.NetFx48.AppSettings::_values
+  IL_000C  callvirt   instance class [mscorlib]System.Collections.IDictionaryEnumerator [mscorlib]System.Collections.Hashtable::GetEnumerator()
+  IL_0011  stloc.1
+  IL_0012  br.s       IL_0039
+  IL_0014  ldloc.1
+  IL_0015  callvirt   instance object [mscorlib]System.Collections.IEnumerator::get_Current()
+  IL_001A  unbox.any  [mscorlib]System.Collections.DictionaryEntry
+  IL_001F  stloc.2
+  IL_0020  ldloc.0
+  IL_0021  ldfld      class [mscorlib]System.Collections.Hashtable Ref.NetFx48.AppSettings::_values
+  IL_0026  ldloca.s   V_2
+  IL_0028  call       instance object [mscorlib]System.Collections.DictionaryEntry::get_Key()
+  IL_002D  ldloca.s   V_2
+  IL_002F  call       instance object [mscorlib]System.Collections.DictionaryEntry::get_Value()
+  IL_0034  callvirt   instance void [mscorlib]System.Collections.Hashtable::set_Item(object, object)
+  IL_0039  ldloc.1
+  IL_003A  callvirt   instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+  IL_003F  brtrue.s   IL_0014
+  IL_0041  leave.s    IL_0054
+  IL_0043  ldloc.1
+  IL_0044  isinst     [mscorlib]System.IDisposable
+  IL_0049  stloc.3
+  IL_004A  ldloc.3
+  IL_004B  brfalse.s  IL_0053
+  IL_004D  ldloc.3
+  IL_004E  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+  IL_0053  endfinally
+  IL_0054  ldloc.0
+  IL_0055  ret
+  .try IL_0012 to IL_0043 finally handler IL_0043 to IL_0054
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2288   Size: 23 bytes   Token: 0x0600000B
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       class [mscorlib]System.StringComparer [mscorlib]System.StringComparer::get_OrdinalIgnoreCase()
+  IL_0006  newobj     instance void [mscorlib]System.Collections.Hashtable::.ctor(class [mscorlib]System.Collections.IEqualityComparer)
+  IL_000B  stfld      class [mscorlib]System.Collections.Hashtable Ref.NetFx48.AppSettings::_values
+  IL_0010  ldarg.0
+  IL_0011  call       instance void [mscorlib]System.Object::.ctor()
+  IL_0016  ret
+
+Type     : Ref.NetFx48.WorkCompleted
+
+Method   : void .ctor(object object, nint method)
+Kind     : ctor, instance, public, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000C
+
+Method   : void Invoke(object sender, int processed)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000D
+
+Method   : IAsyncResult BeginInvoke(object sender, int processed, AsyncCallback callback, object object)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000E
+
+Method   : void EndInvoke(IAsyncResult result)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000F
+
+Type     : Ref.NetFx48.BackgroundCounter
+
+Method   : void add_Completed(WorkCompleted value)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x22A0   Size: 41 bytes   Token: 0x06000010
+
+[IL]  .maxstack 3
+  .locals init ([0] class Ref.NetFx48.WorkCompleted V_0, [1] class Ref.NetFx48.WorkCompleted V_1, [2] class Ref.NetFx48.WorkCompleted V_2)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class Ref.NetFx48.WorkCompleted Ref.NetFx48.BackgroundCounter::Completed
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  stloc.1
+  IL_0009  ldloc.1
+  IL_000A  ldarg.1
+  IL_000B  call       class [mscorlib]System.Delegate [mscorlib]System.Delegate::Combine(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+  IL_0010  castclass  Ref.NetFx48.WorkCompleted
+  IL_0015  stloc.2
+  IL_0016  ldarg.0
+  IL_0017  ldflda     class Ref.NetFx48.WorkCompleted Ref.NetFx48.BackgroundCounter::Completed
+  IL_001C  ldloc.2
+  IL_001D  ldloc.1
+  IL_001E  call       !!0 [mscorlib]System.Threading.Interlocked::CompareExchange<class Ref.NetFx48.WorkCompleted>(!!0&, !!0, !!0)
+  IL_0023  stloc.0
+  IL_0024  ldloc.0
+  IL_0025  ldloc.1
+  IL_0026  bne.un.s   IL_0007
+  IL_0028  ret
+
+Method   : void remove_Completed(WorkCompleted value)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x22D8   Size: 41 bytes   Token: 0x06000011
+
+[IL]  .maxstack 3
+  .locals init ([0] class Ref.NetFx48.WorkCompleted V_0, [1] class Ref.NetFx48.WorkCompleted V_1, [2] class Ref.NetFx48.WorkCompleted V_2)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class Ref.NetFx48.WorkCompleted Ref.NetFx48.BackgroundCounter::Completed
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  stloc.1
+  IL_0009  ldloc.1
+  IL_000A  ldarg.1
+  IL_000B  call       class [mscorlib]System.Delegate [mscorlib]System.Delegate::Remove(class [mscorlib]System.Delegate, class [mscorlib]System.Delegate)
+  IL_0010  castclass  Ref.NetFx48.WorkCompleted
+  IL_0015  stloc.2
+  IL_0016  ldarg.0
+  IL_0017  ldflda     class Ref.NetFx48.WorkCompleted Ref.NetFx48.BackgroundCounter::Completed
+  IL_001C  ldloc.2
+  IL_001D  ldloc.1
+  IL_001E  call       !!0 [mscorlib]System.Threading.Interlocked::CompareExchange<class Ref.NetFx48.WorkCompleted>(!!0&, !!0, !!0)
+  IL_0023  stloc.0
+  IL_0024  ldloc.0
+  IL_0025  ldloc.1
+  IL_0026  bne.un.s   IL_0007
+  IL_0028  ret
+
+Method   : void Run(IList<string> items)
+Kind     : instance, public
+RVA      : 0x2310   Size: 166 bytes   Token: 0x06000012
+
+[IL]  .maxstack 3
+  .locals init ([0] class Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0 V_0, [1] class [mscorlib]System.Collections.Generic.IEnumerator`1<string> V_1, [2] string V_2, [3] class [mscorlib]System.Threading.WaitCallback V_3)
+  IL_0000  newobj     instance void Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldloc.0
+  IL_0007  ldarg.0
+  IL_0008  stfld      class Ref.NetFx48.BackgroundCounter Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::'<>4__this'
+  IL_000D  ldloc.0
+  IL_000E  ldarg.1
+  IL_000F  callvirt   instance int32 class [mscorlib]System.Collections.Generic.ICollection`1<string>::get_Count()
+  IL_0014  stfld      int32 Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::pending
+  IL_0019  ldloc.0
+  IL_001A  ldloc.0
+  IL_001B  ldfld      int32 Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::pending
+  IL_0020  ldc.i4.0
+  IL_0021  ceq
+  IL_0023  newobj     instance void [mscorlib]System.Threading.ManualResetEvent::.ctor(bool)
+  IL_0028  stfld      class [mscorlib]System.Threading.ManualResetEvent Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::done
+  IL_002D  ldarg.1
+  IL_002E  callvirt   instance class [mscorlib]System.Collections.Generic.IEnumerator`1<!0> class [mscorlib]System.Collections.Generic.IEnumerable`1<string>::GetEnumerator()
+  IL_0033  stloc.1
+  IL_0034  br.s       IL_0063
+  IL_0036  ldloc.1
+  IL_0037  callvirt   instance !0 class [mscorlib]System.Collections.Generic.IEnumerator`1<string>::get_Current()
+  IL_003C  stloc.2
+  IL_003D  ldloc.0
+  IL_003E  ldfld      class [mscorlib]System.Threading.WaitCallback Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::'<>9__0'
+  IL_0043  dup
+  IL_0044  brtrue.s   IL_005C
+  IL_0046  pop
+  IL_0047  ldloc.0
+  IL_0048  ldloc.0
+  IL_0049  ldftn      instance void Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::'<Run>b__0'(object)
+  IL_004F  newobj     instance void [mscorlib]System.Threading.WaitCallback::.ctor(object, native int)
+  IL_0054  dup
+  IL_0055  stloc.3
+  IL_0056  stfld      class [mscorlib]System.Threading.WaitCallback Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::'<>9__0'
+  IL_005B  ldloc.3
+  IL_005C  ldloc.2
+  IL_005D  call       bool [mscorlib]System.Threading.ThreadPool::QueueUserWorkItem(class [mscorlib]System.Threading.WaitCallback, object)
+  IL_0062  pop
+  IL_0063  ldloc.1
+  IL_0064  callvirt   instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+  IL_0069  brtrue.s   IL_0036
+  IL_006B  leave.s    IL_0077
+  IL_006D  ldloc.1
+  IL_006E  brfalse.s  IL_0076
+  IL_0070  ldloc.1
+  IL_0071  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+  IL_0076  endfinally
+  IL_0077  ldloc.0
+  IL_0078  ldfld      class [mscorlib]System.Threading.ManualResetEvent Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::done
+  IL_007D  callvirt   instance bool [mscorlib]System.Threading.WaitHandle::WaitOne()
+  IL_0082  pop
+  IL_0083  leave.s    IL_0099
+  IL_0085  ldloc.0
+  IL_0086  ldfld      class [mscorlib]System.Threading.ManualResetEvent Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::done
+  IL_008B  brfalse.s  IL_0098
+  IL_008D  ldloc.0
+  IL_008E  ldfld      class [mscorlib]System.Threading.ManualResetEvent Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::done
+  IL_0093  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+  IL_0098  endfinally
+  IL_0099  ldarg.0
+  IL_009A  ldarg.0
+  IL_009B  ldfld      int32 Ref.NetFx48.BackgroundCounter::_processed
+  IL_00A0  callvirt   instance void Ref.NetFx48.BackgroundCounter::OnCompleted(int32)
+  IL_00A5  ret
+  .try IL_0034 to IL_006D finally handler IL_006D to IL_0077
+  .try IL_002D to IL_0085 finally handler IL_0085 to IL_0099
+
+Method   : void OnCompleted(int processed)
+Kind     : instance, protected, virtual
+RVA      : 0x23E0   Size: 19 bytes   Token: 0x06000013
+
+[IL]  .maxstack 3
+  .locals init ([0] class Ref.NetFx48.WorkCompleted V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class Ref.NetFx48.WorkCompleted Ref.NetFx48.BackgroundCounter::Completed
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  brfalse.s  IL_0012
+  IL_000A  ldloc.0
+  IL_000B  ldarg.0
+  IL_000C  ldarg.1
+  IL_000D  callvirt   instance void Ref.NetFx48.WorkCompleted::Invoke(object, int32)
+  IL_0012  ret
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x23FF   Size: 18 bytes   Token: 0x06000014
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  newobj     instance void [mscorlib]System.Object::.ctor()
+  IL_0006  stfld      object Ref.NetFx48.BackgroundCounter::_gate
+  IL_000B  ldarg.0
+  IL_000C  call       instance void [mscorlib]System.Object::.ctor()
+  IL_0011  ret
+
+Type     : Ref.NetFx48.BackgroundCounter+<>c__DisplayClass5_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2412   Size: 7 bytes   Token: 0x06000015
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [mscorlib]System.Object::.ctor()
+  IL_0006  ret
+
+Method   : void <Run>b__0(object state)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x241C   Size: 97 bytes   Token: 0x06000016
+
+[IL]  .maxstack 3
+  .locals init ([0] object V_0, [1] bool V_1)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class Ref.NetFx48.BackgroundCounter Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::'<>4__this'
+  IL_0006  ldfld      object Ref.NetFx48.BackgroundCounter::_gate
+  IL_000B  stloc.0
+  IL_000C  ldc.i4.0
+  IL_000D  stloc.1
+  IL_000E  ldloc.0
+  IL_000F  ldloca.s   V_1
+  IL_0011  call       void [mscorlib]System.Threading.Monitor::Enter(object, bool&)
+  IL_0016  ldarg.1
+  IL_0017  castclass  [mscorlib]System.String
+  IL_001C  call       bool [mscorlib]System.String::IsNullOrEmpty(string)
+  IL_0021  brtrue.s   IL_003B
+  IL_0023  ldarg.0
+  IL_0024  ldfld      class Ref.NetFx48.BackgroundCounter Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::'<>4__this'
+  IL_0029  ldarg.0
+  IL_002A  ldfld      class Ref.NetFx48.BackgroundCounter Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::'<>4__this'
+  IL_002F  ldfld      int32 Ref.NetFx48.BackgroundCounter::_processed
+  IL_0034  ldc.i4.1
+  IL_0035  add
+  IL_0036  stfld      int32 Ref.NetFx48.BackgroundCounter::_processed
+  IL_003B  leave.s    IL_0047
+  IL_003D  ldloc.1
+  IL_003E  brfalse.s  IL_0046
+  IL_0040  ldloc.0
+  IL_0041  call       void [mscorlib]System.Threading.Monitor::Exit(object)
+  IL_0046  endfinally
+  IL_0047  ldarg.0
+  IL_0048  ldflda     int32 Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::pending
+  IL_004D  call       int32 [mscorlib]System.Threading.Interlocked::Decrement(int32&)
+  IL_0052  brtrue.s   IL_0060
+  IL_0054  ldarg.0
+  IL_0055  ldfld      class [mscorlib]System.Threading.ManualResetEvent Ref.NetFx48.BackgroundCounter/<>c__DisplayClass5_0::done
+  IL_005A  callvirt   instance bool [mscorlib]System.Threading.EventWaitHandle::Set()
+  IL_005F  pop
+  IL_0060  ret
+  .try IL_000E to IL_003D finally handler IL_003D to IL_0047

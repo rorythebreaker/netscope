@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 7. async/await, ValueTask, ConfigureAwait: async methods and their generated state machines. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Ref.Async</RootNamespace>
+  </PropertyGroup>
+</Project>

@@ -288,7 +288,12 @@ Metadata is read with `System.Reflection.Metadata`, the same layer the decompile
 - ReadyToRun code in CoreLib and in an R2R copy of the sample assembly that the test build publishes: funclets and generic instantiations;
 - a C++/CLI image from .NET Framework (Windows only);
 - that no analyzed code runs without `--allow-run`;
-- reference output in `tests/NetScope.Tests/Golden`.
+- reference output in `tests/NetScope.Tests/Golden`;
+- a reference set of twenty assemblies built from source in `tests/Reference`: console app, libraries for .NET 8,
+  .NET Standard 2.0, .NET Framework 4.8 and 3.5, .NET Core 3.1, async, iterators, generics, P/Invoke, `unsafe`,
+  hand-written IL, `switch`, lambdas, records, VB.NET, F#, ReadyToRun copies for win-x64 and linux-arm64, and the
+  ConfuserEx fixture. Their method lists and IL are compared with ildasm, their method kinds and decompilation with
+  ILSpy. See [docs/reference-set.md](docs/reference-set.md) for the results and the known differences.
 
 After an intended change to the output format, regenerate the reference files and review the diff:
 

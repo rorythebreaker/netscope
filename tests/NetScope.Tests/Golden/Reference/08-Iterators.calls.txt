@@ -1,0 +1,1059 @@
+Assembly : Ref08.Iterators.dll
+Name     : Ref08.Iterators, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 100
+
+Type     : Ref.Iterators.Sequences
+
+Method   : IEnumerable<int> Range(int start, int count)
+Kind     : static, public
+RVA      : 0x2050   Size: 23 bytes   Token: 0x06000001
+
+[Calls]
+  IL_0009  newobj    System.ArgumentOutOfRangeException::.ctor(string)  external System.Runtime
+  IL_0011  call      Ref.Iterators.Sequences::RangeIterator(int, int)   internal
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerable<int> RangeIterator(int start, int count)
+Kind     : static, private, iterator
+RVA      : 0x2068   Size: 22 bytes   Token: 0x06000002
+
+[Calls]
+  IL_0002  newobj    Ref.Iterators.Sequences.<RangeIterator>d__1::.ctor(int)  internal
+[Callers]
+  Ref.Iterators.Sequences::Range  IL_0011  call  (Ref08.Iterators.dll)
+
+Method   : IEnumerable<long> Fibonacci()
+Kind     : static, public, iterator
+RVA      : 0x207F   Size: 8 bytes   Token: 0x06000003
+
+[Calls]
+  IL_0002  newobj    Ref.Iterators.Sequences.<Fibonacci>d__2::.ctor(int)  internal
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerable<T[]> Chunk<T>(IEnumerable<T> source, int size)
+Kind     : static, public, iterator, generic
+RVA      : 0x2088   Size: 22 bytes   Token: 0x06000004
+
+[Calls]
+  IL_0002  newobj    Ref.Iterators.Sequences.<Chunk>d__3<!!0>::.ctor(int)  internal
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerable<string> Lines(TextReader reader)
+Kind     : static, public, iterator
+RVA      : 0x209F   Size: 15 bytes   Token: 0x06000005
+
+[Calls]
+  IL_0002  newobj    Ref.Iterators.Sequences.<Lines>d__4::.ctor(int)  internal
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerator<char> Letters(string s)
+Kind     : static, public, iterator
+RVA      : 0x20AF   Size: 14 bytes   Token: 0x06000006
+
+[Calls]
+  IL_0001  newobj    Ref.Iterators.Sequences.<Letters>d__5::.ctor(int)  internal
+[Callers]
+  (none in the input files)
+
+Method   : IAsyncEnumerable<int> TicksAsync(int count, TimeSpan interval, CancellationToken token)
+Kind     : static, public, async, iterator
+RVA      : 0x20BE   Size: 29 bytes   Token: 0x06000007
+
+[Calls]
+  IL_0002  newobj    Ref.Iterators.Sequences.<TicksAsync>d__6::.ctor(int)  internal
+[Callers]
+  (none in the input files)
+
+Method   : IAsyncEnumerable<string> ReadLinesAsync(Stream stream, CancellationToken token)
+Kind     : static, public, async, iterator
+RVA      : 0x20DC   Size: 22 bytes   Token: 0x06000008
+
+[Calls]
+  IL_0002  newobj    Ref.Iterators.Sequences.<ReadLinesAsync>d__7::.ctor(int)  internal
+[Callers]
+  (none in the input files)
+
+Method   : Task<int> SumAsync(IAsyncEnumerable<int> source, CancellationToken token)
+Kind     : static, public, async
+RVA      : 0x20F4   Size: 63 bytes   Token: 0x06000009
+
+[Calls]
+  IL_0002  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::Create()                                   external System.Runtime
+  IL_002D  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::Start<<SumAsync>d__8>(ref <SumAsync>d__8)  external System.Runtime
+  IL_0039  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::get_Task()                                 external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Iterators.Countdown
+
+Method   : void .ctor(int from)
+Kind     : ctor, instance, public
+RVA      : 0x213F   Size: 14 bytes   Token: 0x0600000A
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerator<int> GetEnumerator()
+Kind     : instance, public, virtual, sealed, iterator
+RVA      : 0x214E   Size: 14 bytes   Token: 0x0600000B
+
+[Calls]
+  IL_0001  newobj    Ref.Iterators.Countdown.<GetEnumerator>d__2::.ctor(int)  internal
+[Callers]
+  Ref.Iterators.Countdown::System.Collections.IEnumerable.GetEnumerator  IL_0001  call  (Ref08.Iterators.dll)
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed
+RVA      : 0x215D   Size: 7 bytes   Token: 0x0600000C
+
+[Calls]
+  IL_0001  call      Ref.Iterators.Countdown::GetEnumerator()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Iterators.Tree`1
+
+Method   : void .ctor(T value, params Tree<T>[] children)
+Kind     : ctor, instance, public
+RVA      : 0x2165   Size: 21 bytes   Token: 0x0600000D
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : T get_Value()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x217B   Size: 7 bytes   Token: 0x0600000E
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Iterators.Tree`1+<DepthFirst>d__7::MoveNext  IL_004F  callvirt  (Ref08.Iterators.dll)
+
+Method   : Tree<T>[] get_Children()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2183   Size: 7 bytes   Token: 0x0600000F
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Iterators.Tree`1+<DepthFirst>d__7::MoveNext  IL_006F  callvirt  (Ref08.Iterators.dll)
+  Ref.Iterators.Tree`1+<DepthFirst>d__7::MoveNext  IL_0087  callvirt  (Ref08.Iterators.dll)
+
+Method   : IEnumerable<T> DepthFirst()
+Kind     : instance, public, iterator
+RVA      : 0x218B   Size: 15 bytes   Token: 0x06000010
+
+[Calls]
+  IL_0002  newobj    Ref.Iterators.Tree.<DepthFirst>d__7<!0>::.ctor(int)  internal
+[Callers]
+  Ref.Iterators.Tree`1::GetEnumerator  IL_0001  call  (Ref08.Iterators.dll)
+
+Method   : IEnumerator<T> GetEnumerator()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x219B   Size: 12 bytes   Token: 0x06000011
+
+[Calls]
+  IL_0001  call      Ref.Iterators.Tree<!0>::DepthFirst()                         internal
+  IL_0006  callvirt  System.Collections.Generic.IEnumerable<!0>::GetEnumerator()  external System.Runtime
+[Callers]
+  Ref.Iterators.Tree`1::System.Collections.IEnumerable.GetEnumerator  IL_0001  call  (Ref08.Iterators.dll)
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed
+RVA      : 0x21A8   Size: 7 bytes   Token: 0x06000012
+
+[Calls]
+  IL_0001  call      Ref.Iterators.Tree<!0>::GetEnumerator()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Iterators.Sequences+<Chunk>d__3`1
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x21B0   Size: 25 bytes   Token: 0x06000013
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()                            external System.Runtime
+  IL_000E  call      System.Environment::get_CurrentManagedThreadId()  external System.Runtime
+[Callers]
+  Ref.Iterators.Sequences::Chunk  IL_0002  newobj  (Ref08.Iterators.dll)
+  Ref.Iterators.Sequences+<Chunk>d__3`1::System.Collections.Generic.IEnumerable<T[]>.GetEnumerator  IL_0023  newobj  (Ref08.Iterators.dll)
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x21CC   Size: 49 bytes   Token: 0x06000014
+
+[Calls]
+  IL_0014  call      Ref.Iterators.Sequences.<Chunk>d__3<!0>::<>m__Finally1()  internal
+[Callers]
+  Ref.Iterators.Sequences+<Chunk>d__3`1::MoveNext  IL_00FD  call  (Ref08.Iterators.dll)
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x221C   Size: 261 bytes   Token: 0x06000015
+
+[Calls]
+  IL_002E  newobj    System.Collections.Generic.List<!0>::.ctor(int)                        external System.Collections
+  IL_003F  callvirt  System.Collections.Generic.IEnumerable<!0>::GetEnumerator()            external System.Runtime
+  IL_0059  callvirt  System.Collections.Generic.IEnumerator<!0>::get_Current()              external System.Runtime
+  IL_0066  callvirt  System.Collections.Generic.List<!0>::Add(!0)                           external System.Collections
+  IL_0071  callvirt  System.Collections.Generic.List<!0>::get_Count()                       external System.Collections
+  IL_0085  callvirt  System.Collections.Generic.List<!0>::ToArray()                         external System.Collections
+  IL_00A8  callvirt  System.Collections.Generic.List<!0>::Clear()                           external System.Collections
+  IL_00B3  callvirt  System.Collections.IEnumerator::MoveNext()                             external System.Runtime
+  IL_00BB  call      Ref.Iterators.Sequences.<Chunk>d__3<!0>::<>m__Finally1()               internal
+  IL_00CD  callvirt  System.Collections.Generic.List<!0>::get_Count()                       external System.Collections
+  IL_00DC  callvirt  System.Collections.Generic.List<!0>::ToArray()                         external System.Collections
+  IL_00FD  call      Ref.Iterators.Sequences.<Chunk>d__3<!0>::System.IDisposable.Dispose()  internal
+[Callers]
+  (none in the input files)
+
+Method   : void <>m__Finally1()
+Kind     : instance, private, compiler-generated
+RVA      : 0x2340   Size: 27 bytes   Token: 0x06000016
+
+[Calls]
+  IL_0015  callvirt  System.IDisposable::Dispose()  external System.Runtime
+[Callers]
+  Ref.Iterators.Sequences+<Chunk>d__3`1::System.IDisposable.Dispose  IL_0014  call  (Ref08.Iterators.dll)
+  Ref.Iterators.Sequences+<Chunk>d__3`1::MoveNext  IL_00BB  call  (Ref08.Iterators.dll)
+
+Method   : T[] System.Collections.Generic.IEnumerator<T[]>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x235C   Size: 7 bytes   Token: 0x06000017
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2364   Size: 6 bytes   Token: 0x06000018
+
+[Calls]
+  IL_0000  newobj    System.NotSupportedException::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x236B   Size: 7 bytes   Token: 0x06000019
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerator<T[]> System.Collections.Generic.IEnumerable<T[]>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2374   Size: 67 bytes   Token: 0x0600001A
+
+[Calls]
+  IL_0010  call      System.Environment::get_CurrentManagedThreadId()     external System.Runtime
+  IL_0023  newobj    Ref.Iterators.Sequences.<Chunk>d__3<!0>::.ctor(int)  internal
+[Callers]
+  Ref.Iterators.Sequences+<Chunk>d__3`1::System.Collections.IEnumerable.GetEnumerator  IL_0001  call  (Ref08.Iterators.dll)
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x23C3   Size: 7 bytes   Token: 0x0600001B
+
+[Calls]
+  IL_0001  call      Ref.Iterators.Sequences.<Chunk>d__3<!0>::System.Collections.Generic.IEnumerable<T[]>.GetEnumerator()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Iterators.Sequences+<Fibonacci>d__2
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x23CB   Size: 25 bytes   Token: 0x0600001C
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()                            external System.Runtime
+  IL_000E  call      System.Environment::get_CurrentManagedThreadId()  external System.Runtime
+[Callers]
+  Ref.Iterators.Sequences::Fibonacci  IL_0002  newobj  (Ref08.Iterators.dll)
+  Ref.Iterators.Sequences+<Fibonacci>d__2::System.Collections.Generic.IEnumerable<System.Int64>.GetEnumerator  IL_0023  newobj  (Ref08.Iterators.dll)
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x23E5   Size: 9 bytes   Token: 0x0600001D
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x23F0   Size: 104 bytes   Token: 0x0600001E
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : long System.Collections.Generic.IEnumerator<System.Int64>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2464   Size: 7 bytes   Token: 0x0600001F
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x246C   Size: 6 bytes   Token: 0x06000020
+
+[Calls]
+  IL_0000  newobj    System.NotSupportedException::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2473   Size: 12 bytes   Token: 0x06000021
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerator<long> System.Collections.Generic.IEnumerable<System.Int64>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2480   Size: 43 bytes   Token: 0x06000022
+
+[Calls]
+  IL_0010  call      System.Environment::get_CurrentManagedThreadId()     external System.Runtime
+  IL_0023  newobj    Ref.Iterators.Sequences.<Fibonacci>d__2::.ctor(int)  internal
+[Callers]
+  Ref.Iterators.Sequences+<Fibonacci>d__2::System.Collections.IEnumerable.GetEnumerator  IL_0001  call  (Ref08.Iterators.dll)
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x24B7   Size: 7 bytes   Token: 0x06000023
+
+[Calls]
+  IL_0001  call      Ref.Iterators.Sequences.<Fibonacci>d__2::System.Collections.Generic.IEnumerable<System.Int64>.GetEnumerator()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Iterators.Sequences+<Letters>d__5
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x24BF   Size: 14 bytes   Token: 0x06000024
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  Ref.Iterators.Sequences::Letters  IL_0001  newobj  (Ref08.Iterators.dll)
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x24CE   Size: 16 bytes   Token: 0x06000025
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x24E0   Size: 135 bytes   Token: 0x06000026
+
+[Calls]
+  IL_0038  callvirt  System.String::get_Chars(int)  external System.Runtime
+  IL_003F  call      System.Char::IsLetter(char)    external System.Runtime
+  IL_0077  callvirt  System.String::get_Length()    external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : char System.Collections.Generic.IEnumerator<System.Char>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2573   Size: 7 bytes   Token: 0x06000027
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x257B   Size: 6 bytes   Token: 0x06000028
+
+[Calls]
+  IL_0000  newobj    System.NotSupportedException::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2582   Size: 12 bytes   Token: 0x06000029
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Iterators.Sequences+<Lines>d__4
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x258F   Size: 25 bytes   Token: 0x0600002A
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()                            external System.Runtime
+  IL_000E  call      System.Environment::get_CurrentManagedThreadId()  external System.Runtime
+[Callers]
+  Ref.Iterators.Sequences::Lines  IL_0002  newobj  (Ref08.Iterators.dll)
+  Ref.Iterators.Sequences+<Lines>d__4::System.Collections.Generic.IEnumerable<System.String>.GetEnumerator  IL_0023  newobj  (Ref08.Iterators.dll)
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x25AC   Size: 35 bytes   Token: 0x0600002B
+
+[Calls]
+  IL_0014  call      Ref.Iterators.Sequences.<Lines>d__4::<>m__Finally1()  internal
+[Callers]
+  Ref.Iterators.Sequences+<Lines>d__4::MoveNext  IL_006D  call  (Ref08.Iterators.dll)
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x25EC   Size: 117 bytes   Token: 0x0600002C
+
+[Calls]
+  IL_0024  callvirt  System.String::get_Length()                                        external System.Runtime
+  IL_004F  callvirt  System.IO.TextReader::ReadLine()                                   external System.Runtime
+  IL_0059  call      Ref.Iterators.Sequences.<Lines>d__4::<>m__Finally1()               internal
+  IL_0061  call      Ref.Iterators.Sequences.<Lines>d__4::<>m__Finally1()               internal
+  IL_006D  call      Ref.Iterators.Sequences.<Lines>d__4::System.IDisposable.Dispose()  internal
+[Callers]
+  (none in the input files)
+
+Method   : void <>m__Finally1()
+Kind     : instance, private, compiler-generated
+RVA      : 0x2680   Size: 19 bytes   Token: 0x0600002D
+
+[Calls]
+  IL_000D  callvirt  System.IO.TextReader::Dispose()  external System.Runtime
+[Callers]
+  Ref.Iterators.Sequences+<Lines>d__4::System.IDisposable.Dispose  IL_0014  call  (Ref08.Iterators.dll)
+  Ref.Iterators.Sequences+<Lines>d__4::MoveNext  IL_0059  call  (Ref08.Iterators.dll)
+  Ref.Iterators.Sequences+<Lines>d__4::MoveNext  IL_0061  call  (Ref08.Iterators.dll)
+
+Method   : string System.Collections.Generic.IEnumerator<System.String>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2694   Size: 7 bytes   Token: 0x0600002E
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x269C   Size: 6 bytes   Token: 0x0600002F
+
+[Calls]
+  IL_0000  newobj    System.NotSupportedException::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26A3   Size: 7 bytes   Token: 0x06000030
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerator<string> System.Collections.Generic.IEnumerable<System.String>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26AC   Size: 55 bytes   Token: 0x06000031
+
+[Calls]
+  IL_0010  call      System.Environment::get_CurrentManagedThreadId()  external System.Runtime
+  IL_0023  newobj    Ref.Iterators.Sequences.<Lines>d__4::.ctor(int)   internal
+[Callers]
+  Ref.Iterators.Sequences+<Lines>d__4::System.Collections.IEnumerable.GetEnumerator  IL_0001  call  (Ref08.Iterators.dll)
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26EF   Size: 7 bytes   Token: 0x06000032
+
+[Calls]
+  IL_0001  call      Ref.Iterators.Sequences.<Lines>d__4::System.Collections.Generic.IEnumerable<System.String>.GetEnumerator()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Iterators.Sequences+<RangeIterator>d__1
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x26F7   Size: 25 bytes   Token: 0x06000033
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()                            external System.Runtime
+  IL_000E  call      System.Environment::get_CurrentManagedThreadId()  external System.Runtime
+[Callers]
+  Ref.Iterators.Sequences::RangeIterator  IL_0002  newobj  (Ref08.Iterators.dll)
+  Ref.Iterators.Sequences+<RangeIterator>d__1::System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator  IL_0023  newobj  (Ref08.Iterators.dll)
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2711   Size: 9 bytes   Token: 0x06000034
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x271C   Size: 99 bytes   Token: 0x06000035
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : int System.Collections.Generic.IEnumerator<System.Int32>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x278B   Size: 7 bytes   Token: 0x06000036
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2793   Size: 6 bytes   Token: 0x06000037
+
+[Calls]
+  IL_0000  newobj    System.NotSupportedException::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x279A   Size: 12 bytes   Token: 0x06000038
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerator<int> System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x27A8   Size: 67 bytes   Token: 0x06000039
+
+[Calls]
+  IL_0010  call      System.Environment::get_CurrentManagedThreadId()         external System.Runtime
+  IL_0023  newobj    Ref.Iterators.Sequences.<RangeIterator>d__1::.ctor(int)  internal
+[Callers]
+  Ref.Iterators.Sequences+<RangeIterator>d__1::System.Collections.IEnumerable.GetEnumerator  IL_0001  call  (Ref08.Iterators.dll)
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x27F7   Size: 7 bytes   Token: 0x0600003A
+
+[Calls]
+  IL_0001  call      Ref.Iterators.Sequences.<RangeIterator>d__1::System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Iterators.Sequences+<ReadLinesAsync>d__7
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x27FF   Size: 36 bytes   Token: 0x0600003B
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()                                                external System.Runtime
+  IL_0007  call      System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Create()  external System.Runtime
+  IL_0019  call      System.Environment::get_CurrentManagedThreadId()                      external System.Runtime
+[Callers]
+  Ref.Iterators.Sequences::ReadLinesAsync  IL_0002  newobj  (Ref08.Iterators.dll)
+  Ref.Iterators.Sequences+<ReadLinesAsync>d__7::System.Collections.Generic.IAsyncEnumerable<System.String>.GetAsyncEnumerator  IL_0037  newobj  (Ref08.Iterators.dll)
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2824   Size: 459 bytes   Token: 0x0600003C
+
+[Calls]
+  IL_0041  newobj    System.IO.StreamReader::.ctor(Stream)                                                                                                                                                       external System.Runtime
+  IL_0095  callvirt  System.IO.TextReader::ReadLineAsync(CancellationToken)                                                                                                                                      external System.Runtime
+  IL_009D  call      System.Threading.Tasks.ValueTask<string>::GetAwaiter()                                                                                                                                      external System.Runtime
+  IL_00A5  call      System.Runtime.CompilerServices.ValueTaskAwaiter<string>::get_IsCompleted()                                                                                                                 external System.Runtime
+  IL_00C9  call      System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::AwaitUnsafeOnCompleted<ValueTaskAwaiter<string>, <ReadLinesAsync>d__7>(ref ValueTaskAwaiter<string>, ref <ReadLinesAsync>d__7)  external System.Runtime
+  IL_00F1  call      System.Runtime.CompilerServices.ValueTaskAwaiter<string>::GetResult()                                                                                                                       external System.Runtime
+  IL_0111  callvirt  System.IDisposable::Dispose()                                                                                                                                                               external System.Runtime
+  IL_0149  callvirt  System.Threading.CancellationTokenSource::Dispose()                                                                                                                                         external System.Runtime
+  IL_0162  call      System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Complete()                                                                                                                      external System.Runtime
+  IL_016F  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::SetException(Exception)                                                                                                external System.Runtime
+  IL_0193  callvirt  System.Threading.CancellationTokenSource::Dispose()                                                                                                                                         external System.Runtime
+  IL_01AC  call      System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Complete()                                                                                                                      external System.Runtime
+  IL_01B8  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::SetResult(bool)                                                                                                        external System.Runtime
+  IL_01C5  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::SetResult(bool)                                                                                                        external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2A30   Size: 1 bytes   Token: 0x0600003D
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : IAsyncEnumerator<string> System.Collections.Generic.IAsyncEnumerable<System.String>.GetAsyncEnumerator(CancellationToken cancellationToken)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2A34   Size: 188 bytes   Token: 0x0600003E
+
+[Calls]
+  IL_0010  call      System.Environment::get_CurrentManagedThreadId()                                                         external System.Runtime
+  IL_0020  call      System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Create()                                     external System.Runtime
+  IL_0037  newobj    Ref.Iterators.Sequences.<ReadLinesAsync>d__7::.ctor(int)                                                 internal
+  IL_0058  call      System.Threading.CancellationToken::Equals(CancellationToken)                                            external System.Runtime
+  IL_0070  call      System.Threading.CancellationToken::Equals(CancellationToken)                                            external System.Runtime
+  IL_0082  call      System.Threading.CancellationToken::Equals(CancellationToken)                                            external System.Runtime
+  IL_009F  call      System.Threading.CancellationTokenSource::CreateLinkedTokenSource(CancellationToken, CancellationToken)  external System.Runtime
+  IL_00B0  callvirt  System.Threading.CancellationTokenSource::get_Token()                                                    external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : ValueTask<bool> System.Collections.Generic.IAsyncEnumerator<System.String>.MoveNextAsync()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2AFC   Size: 99 bytes   Token: 0x0600003F
+
+[Calls]
+  IL_001A  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::Reset()                                          external System.Runtime
+  IL_0029  call      System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::MoveNext<<ReadLinesAsync>d__7>(ref <ReadLinesAsync>d__7)  external System.Runtime
+  IL_0034  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::get_Version()                                    external System.Runtime
+  IL_0041  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetStatus(short)                                 external System.Runtime
+  IL_0050  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetResult(short)                                 external System.Runtime
+  IL_0055  newobj    System.Threading.Tasks.ValueTask<bool>::.ctor(bool)                                                                   external System.Runtime
+  IL_005D  newobj    System.Threading.Tasks.ValueTask<bool>::.ctor(IValueTaskSource<bool>, short)                                          external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : string System.Collections.Generic.IAsyncEnumerator<System.String>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2B6B   Size: 7 bytes   Token: 0x06000040
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : bool System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetResult(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2B73   Size: 13 bytes   Token: 0x06000041
+
+[Calls]
+  IL_0007  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetResult(short)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetStatus(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2B81   Size: 13 bytes   Token: 0x06000042
+
+[Calls]
+  IL_0007  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetStatus(short)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2B8F   Size: 17 bytes   Token: 0x06000043
+
+[Calls]
+  IL_000B  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::OnCompleted(Action<object>, object, short, ValueTaskSourceOnCompletedFlags)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource.GetResult(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2BA1   Size: 14 bytes   Token: 0x06000044
+
+[Calls]
+  IL_0007  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetResult(short)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource.GetStatus(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2BB0   Size: 13 bytes   Token: 0x06000045
+
+[Calls]
+  IL_0007  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetStatus(short)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2BBE   Size: 17 bytes   Token: 0x06000046
+
+[Calls]
+  IL_000B  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::OnCompleted(Action<object>, object, short, ValueTaskSourceOnCompletedFlags)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : ValueTask System.IAsyncDisposable.DisposeAsync()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2BD0   Size: 86 bytes   Token: 0x06000047
+
+[Calls]
+  IL_0009  newobj    System.NotSupportedException::.ctor()                                                                                 external System.Runtime
+  IL_0030  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::Reset()                                          external System.Runtime
+  IL_003F  call      System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::MoveNext<<ReadLinesAsync>d__7>(ref <ReadLinesAsync>d__7)  external System.Runtime
+  IL_004B  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::get_Version()                                    external System.Runtime
+  IL_0050  newobj    System.Threading.Tasks.ValueTask::.ctor(IValueTaskSource, short)                                                      external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Iterators.Sequences+<SumAsync>d__8
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2C34   Size: 444 bytes   Token: 0x06000048
+
+[Calls]
+  IL_0025  call      System.Threading.Tasks.TaskAsyncEnumerableExtensions::WithCancellation<int>(IAsyncEnumerable<int>, CancellationToken)                                                                            external System.Runtime
+  IL_002E  call      System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable<int>::ConfigureAwait(bool)                                                                                                   external System.Runtime
+  IL_0036  call      System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable<int>::GetAsyncEnumerator()                                                                                                   external System.Runtime
+  IL_005A  call      System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable.Enumerator<int>::get_Current()                                                                                               external System.Runtime
+  IL_0074  call      System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable.Enumerator<int>::MoveNextAsync()                                                                                             external System.Runtime
+  IL_007D  call      System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<bool>::GetAwaiter()                                                                                                                 external System.Runtime
+  IL_0086  call      System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter<bool>::get_IsCompleted()                                                                                 external System.Runtime
+  IL_00A7  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::AwaitUnsafeOnCompleted<ConfiguredValueTaskAwaiter<bool>, <SumAsync>d__8>(ref ConfiguredValueTaskAwaiter<bool>, ref <SumAsync>d__8)  external System.Runtime
+  IL_00D0  call      System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter<bool>::GetResult()                                                                                       external System.Runtime
+  IL_00EE  call      System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable.Enumerator<int>::DisposeAsync()                                                                                              external System.Runtime
+  IL_00F7  call      System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable::GetAwaiter()                                                                                                                       external System.Runtime
+  IL_0100  call      System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter::get_IsCompleted()                                                                                       external System.Runtime
+  IL_0121  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::AwaitUnsafeOnCompleted<ConfiguredValueTaskAwaiter, <SumAsync>d__8>(ref ConfiguredValueTaskAwaiter, ref <SumAsync>d__8)              external System.Runtime
+  IL_014A  call      System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter::GetResult()                                                                                             external System.Runtime
+  IL_0168  call      System.Runtime.ExceptionServices.ExceptionDispatchInfo::Capture(Exception)                                                                                                                       external System.Runtime
+  IL_016D  callvirt  System.Runtime.ExceptionServices.ExceptionDispatchInfo::Throw()                                                                                                                                  external System.Runtime
+  IL_01A0  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::SetException(Exception)                                                                                                             external System.Runtime
+  IL_01B6  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::SetResult(int)                                                                                                                      external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2E30   Size: 13 bytes   Token: 0x06000049
+
+[Calls]
+  IL_0007  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::SetStateMachine(IAsyncStateMachine)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Iterators.Sequences+<TicksAsync>d__6
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2E3E   Size: 36 bytes   Token: 0x0600004A
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()                                                external System.Runtime
+  IL_0007  call      System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Create()  external System.Runtime
+  IL_0019  call      System.Environment::get_CurrentManagedThreadId()                      external System.Runtime
+[Callers]
+  Ref.Iterators.Sequences::TicksAsync  IL_0002  newobj  (Ref08.Iterators.dll)
+  Ref.Iterators.Sequences+<TicksAsync>d__6::System.Collections.Generic.IAsyncEnumerable<System.Int32>.GetAsyncEnumerator  IL_0037  newobj  (Ref08.Iterators.dll)
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2E64   Size: 414 bytes   Token: 0x0600004B
+
+[Calls]
+  IL_0052  call      System.Threading.Tasks.Task::Delay(TimeSpan, CancellationToken)                                                                                                               external System.Runtime
+  IL_0058  callvirt  System.Threading.Tasks.Task::ConfigureAwait(bool)                                                                                                                             external System.Runtime
+  IL_0060  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable::GetAwaiter()                                                                                                         external System.Runtime
+  IL_0068  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter::get_IsCompleted()                                                                              external System.Runtime
+  IL_008B  call      System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::AwaitUnsafeOnCompleted<ConfiguredTaskAwaiter, <TicksAsync>d__6>(ref ConfiguredTaskAwaiter, ref <TicksAsync>d__6)  external System.Runtime
+  IL_00B3  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter::GetResult()                                                                                    external System.Runtime
+  IL_0123  callvirt  System.Threading.CancellationTokenSource::Dispose()                                                                                                                           external System.Runtime
+  IL_013C  call      System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Complete()                                                                                                        external System.Runtime
+  IL_0149  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::SetException(Exception)                                                                                  external System.Runtime
+  IL_0166  callvirt  System.Threading.CancellationTokenSource::Dispose()                                                                                                                           external System.Runtime
+  IL_017F  call      System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Complete()                                                                                                        external System.Runtime
+  IL_018B  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::SetResult(bool)                                                                                          external System.Runtime
+  IL_0198  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::SetResult(bool)                                                                                          external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x302C   Size: 1 bytes   Token: 0x0600004C
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : IAsyncEnumerator<int> System.Collections.Generic.IAsyncEnumerable<System.Int32>.GetAsyncEnumerator(CancellationToken cancellationToken)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3030   Size: 200 bytes   Token: 0x0600004D
+
+[Calls]
+  IL_0010  call      System.Environment::get_CurrentManagedThreadId()                                                         external System.Runtime
+  IL_0020  call      System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Create()                                     external System.Runtime
+  IL_0037  newobj    Ref.Iterators.Sequences.<TicksAsync>d__6::.ctor(int)                                                     internal
+  IL_0064  call      System.Threading.CancellationToken::Equals(CancellationToken)                                            external System.Runtime
+  IL_007C  call      System.Threading.CancellationToken::Equals(CancellationToken)                                            external System.Runtime
+  IL_008E  call      System.Threading.CancellationToken::Equals(CancellationToken)                                            external System.Runtime
+  IL_00AB  call      System.Threading.CancellationTokenSource::CreateLinkedTokenSource(CancellationToken, CancellationToken)  external System.Runtime
+  IL_00BC  callvirt  System.Threading.CancellationTokenSource::get_Token()                                                    external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : ValueTask<bool> System.Collections.Generic.IAsyncEnumerator<System.Int32>.MoveNextAsync()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3104   Size: 99 bytes   Token: 0x0600004E
+
+[Calls]
+  IL_001A  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::Reset()                                  external System.Runtime
+  IL_0029  call      System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::MoveNext<<TicksAsync>d__6>(ref <TicksAsync>d__6)  external System.Runtime
+  IL_0034  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::get_Version()                            external System.Runtime
+  IL_0041  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetStatus(short)                         external System.Runtime
+  IL_0050  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetResult(short)                         external System.Runtime
+  IL_0055  newobj    System.Threading.Tasks.ValueTask<bool>::.ctor(bool)                                                           external System.Runtime
+  IL_005D  newobj    System.Threading.Tasks.ValueTask<bool>::.ctor(IValueTaskSource<bool>, short)                                  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : int System.Collections.Generic.IAsyncEnumerator<System.Int32>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3173   Size: 7 bytes   Token: 0x0600004F
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : bool System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetResult(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x317B   Size: 13 bytes   Token: 0x06000050
+
+[Calls]
+  IL_0007  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetResult(short)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetStatus(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3189   Size: 13 bytes   Token: 0x06000051
+
+[Calls]
+  IL_0007  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetStatus(short)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3197   Size: 17 bytes   Token: 0x06000052
+
+[Calls]
+  IL_000B  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::OnCompleted(Action<object>, object, short, ValueTaskSourceOnCompletedFlags)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource.GetResult(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x31A9   Size: 14 bytes   Token: 0x06000053
+
+[Calls]
+  IL_0007  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetResult(short)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource.GetStatus(short token)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x31B8   Size: 13 bytes   Token: 0x06000054
+
+[Calls]
+  IL_0007  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetStatus(short)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void System.Threading.Tasks.Sources.IValueTaskSource.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x31C6   Size: 17 bytes   Token: 0x06000055
+
+[Calls]
+  IL_000B  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::OnCompleted(Action<object>, object, short, ValueTaskSourceOnCompletedFlags)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : ValueTask System.IAsyncDisposable.DisposeAsync()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x31D8   Size: 86 bytes   Token: 0x06000056
+
+[Calls]
+  IL_0009  newobj    System.NotSupportedException::.ctor()                                                                         external System.Runtime
+  IL_0030  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::Reset()                                  external System.Runtime
+  IL_003F  call      System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::MoveNext<<TicksAsync>d__6>(ref <TicksAsync>d__6)  external System.Runtime
+  IL_004B  call      System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::get_Version()                            external System.Runtime
+  IL_0050  newobj    System.Threading.Tasks.ValueTask::.ctor(IValueTaskSource, short)                                              external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Iterators.Countdown+<GetEnumerator>d__2
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x323A   Size: 14 bytes   Token: 0x06000057
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  Ref.Iterators.Countdown::GetEnumerator  IL_0001  newobj  (Ref08.Iterators.dll)
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3249   Size: 9 bytes   Token: 0x06000058
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x3254   Size: 99 bytes   Token: 0x06000059
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : int System.Collections.Generic.IEnumerator<System.Int32>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x32C3   Size: 7 bytes   Token: 0x0600005A
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x32CB   Size: 6 bytes   Token: 0x0600005B
+
+[Calls]
+  IL_0000  newobj    System.NotSupportedException::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x32D2   Size: 12 bytes   Token: 0x0600005C
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Iterators.Tree`1+<DepthFirst>d__7
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x32DF   Size: 25 bytes   Token: 0x0600005D
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()                            external System.Runtime
+  IL_000E  call      System.Environment::get_CurrentManagedThreadId()  external System.Runtime
+[Callers]
+  Ref.Iterators.Tree`1::DepthFirst  IL_0002  newobj  (Ref08.Iterators.dll)
+  Ref.Iterators.Tree`1+<DepthFirst>d__7::System.Collections.Generic.IEnumerable<T>.GetEnumerator  IL_0023  newobj  (Ref08.Iterators.dll)
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x32F9   Size: 23 bytes   Token: 0x0600005E
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x3314   Size: 178 bytes   Token: 0x0600005F
+
+[Calls]
+  IL_001F  newobj    System.Collections.Generic.Stack<Ref.Iterators.Tree<!0>>::.ctor()         external System.Collections
+  IL_0030  callvirt  System.Collections.Generic.Stack<Ref.Iterators.Tree<!0>>::Push(Tree<!0>)  external System.Collections
+  IL_003E  callvirt  System.Collections.Generic.Stack<Ref.Iterators.Tree<!0>>::Pop()           external System.Collections
+  IL_004F  callvirt  Ref.Iterators.Tree<!0>::get_Value()                                       internal
+  IL_006F  callvirt  Ref.Iterators.Tree<!0>::get_Children()                                    internal
+  IL_0087  callvirt  Ref.Iterators.Tree<!0>::get_Children()                                    internal
+  IL_008E  callvirt  System.Collections.Generic.Stack<Ref.Iterators.Tree<!0>>::Push(Tree<!0>)  external System.Collections
+  IL_00A8  callvirt  System.Collections.Generic.Stack<Ref.Iterators.Tree<!0>>::get_Count()     external System.Collections
+[Callers]
+  (none in the input files)
+
+Method   : T System.Collections.Generic.IEnumerator<T>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x33D2   Size: 7 bytes   Token: 0x06000060
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x33DA   Size: 6 bytes   Token: 0x06000061
+
+[Calls]
+  IL_0000  newobj    System.NotSupportedException::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x33E1   Size: 12 bytes   Token: 0x06000062
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerator<T> System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x33F0   Size: 55 bytes   Token: 0x06000063
+
+[Calls]
+  IL_0010  call      System.Environment::get_CurrentManagedThreadId()     external System.Runtime
+  IL_0023  newobj    Ref.Iterators.Tree.<DepthFirst>d__7<!0>::.ctor(int)  internal
+[Callers]
+  Ref.Iterators.Tree`1+<DepthFirst>d__7::System.Collections.IEnumerable.GetEnumerator  IL_0001  call  (Ref08.Iterators.dll)
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x3433   Size: 7 bytes   Token: 0x06000064
+
+[Calls]
+  IL_0001  call      Ref.Iterators.Tree.<DepthFirst>d__7<!0>::System.Collections.Generic.IEnumerable<T>.GetEnumerator()  internal
+[Callers]
+  (none in the input files)

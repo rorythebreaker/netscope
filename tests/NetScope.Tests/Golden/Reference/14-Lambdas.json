@@ -1,0 +1,3929 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref14.Lambdas.dll",
+      "assembly": "Ref14.Lambdas",
+      "version": "1.0.0.0",
+      "targetFramework": ".NETCoreApp,Version=v8.0",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "",
+          "type": "<>f__AnonymousType0`2",
+          "name": "get_o",
+          "signature": "<o>j__TPar get_o()",
+          "token": 100663297,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8272,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c::<Totals>b__9_3",
+              "signature": "string <Totals>b__9_3(<>f__AnonymousType0<Order, string> <>h__TransparentIdentifier0)",
+              "offset": 1,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c::<Totals>b__9_4",
+              "signature": "Order <Totals>b__9_4(<>f__AnonymousType0<Order, string> <>h__TransparentIdentifier0)",
+              "offset": 1,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "",
+          "type": "<>f__AnonymousType0`2",
+          "name": "get_v",
+          "signature": "<v>j__TPar get_v()",
+          "token": 100663298,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8280,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "",
+          "type": "<>f__AnonymousType0`2",
+          "name": ".ctor",
+          "signature": "void .ctor(<o>j__TPar o, <v>j__TPar v)",
+          "token": 100663299,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8288,
+          "size": 21,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c::<Totals>b__9_2",
+              "signature": "<>f__AnonymousType0<Order, string> <Totals>b__9_2(Order o, string v)",
+              "offset": 2,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "",
+          "type": "<>f__AnonymousType0`2",
+          "name": "Equals",
+          "signature": "bool Equals(object value)",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8312,
+          "size": 65,
+          "calls": [
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<!0>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 31,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<!0>::Equals(!0, !0)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 38,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<!1>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 55,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<!1>::Equals(!1, !1)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "",
+          "type": "<>f__AnonymousType0`2",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode()",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8389,
+          "size": 52,
+          "calls": [
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<!0>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 22,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<!0>::GetHashCode(!0)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 34,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<!1>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 45,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<!1>::GetHashCode(!1)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "",
+          "type": "<>f__AnonymousType0`2",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663302,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8444,
+          "size": 98,
+          "calls": [
+            {
+              "offset": 46,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 86,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 92,
+              "opcode": "call",
+              "target": "System.String::Format(IFormatProvider, string, object[])",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "",
+          "type": "<>f__AnonymousType1`2",
+          "name": "get_g",
+          "signature": "<g>j__TPar get_g()",
+          "token": 100663303,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8554,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c::<Totals>b__9_7",
+              "signature": "ValueTuple<string, Decimal, int> <Totals>b__9_7(<>f__AnonymousType1<IGrouping<string, Order>, Decimal> <>h__TransparentIdentifier1)",
+              "offset": 1,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c::<Totals>b__9_7",
+              "signature": "ValueTuple<string, Decimal, int> <Totals>b__9_7(<>f__AnonymousType1<IGrouping<string, Order>, Decimal> <>h__TransparentIdentifier1)",
+              "offset": 18,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "",
+          "type": "<>f__AnonymousType1`2",
+          "name": "get_total",
+          "signature": "<total>j__TPar get_total()",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8562,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c::<Totals>b__9_6",
+              "signature": "Decimal <Totals>b__9_6(<>f__AnonymousType1<IGrouping<string, Order>, Decimal> <>h__TransparentIdentifier1)",
+              "offset": 1,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c::<Totals>b__9_7",
+              "signature": "ValueTuple<string, Decimal, int> <Totals>b__9_7(<>f__AnonymousType1<IGrouping<string, Order>, Decimal> <>h__TransparentIdentifier1)",
+              "offset": 12,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "",
+          "type": "<>f__AnonymousType1`2",
+          "name": ".ctor",
+          "signature": "void .ctor(<g>j__TPar g, <total>j__TPar total)",
+          "token": 100663305,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8570,
+          "size": 21,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c::<Totals>b__9_5",
+              "signature": "<>f__AnonymousType1<IGrouping<string, Order>, Decimal> <Totals>b__9_5(IGrouping<string, Order> g)",
+              "offset": 38,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "",
+          "type": "<>f__AnonymousType1`2",
+          "name": "Equals",
+          "signature": "bool Equals(object value)",
+          "token": 100663306,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8592,
+          "size": 65,
+          "calls": [
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<!0>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 31,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<!0>::Equals(!0, !0)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 38,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<!1>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 55,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<!1>::Equals(!1, !1)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "",
+          "type": "<>f__AnonymousType1`2",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode()",
+          "token": 100663307,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8669,
+          "size": 52,
+          "calls": [
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<!0>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 22,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<!0>::GetHashCode(!0)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 34,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<!1>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 45,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<!1>::GetHashCode(!1)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "",
+          "type": "<>f__AnonymousType1`2",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663308,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8724,
+          "size": 98,
+          "calls": [
+            {
+              "offset": 46,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 86,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 92,
+              "opcode": "call",
+              "target": "System.String::Format(IFormatProvider, string, object[])",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": ".ctor",
+          "signature": "void .ctor(int Id, string Customer, Decimal Amount, DateTime Date)",
+          "token": 100663309,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8834,
+          "size": 36,
+          "calls": [
+            {
+              "offset": 30,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "get_EqualityContract",
+          "signature": "Type get_EqualityContract()",
+          "token": 100663310,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8871,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 5,
+              "opcode": "call",
+              "target": "System.Type::GetTypeFromHandle(RuntimeTypeHandle)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::GetHashCode",
+              "signature": "int GetHashCode()",
+              "offset": 6,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::Equals",
+              "signature": "bool Equals(Order other)",
+              "offset": 8,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::Equals",
+              "signature": "bool Equals(Order other)",
+              "offset": 14,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "get_Id",
+          "signature": "int get_Id()",
+          "token": 100663311,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8883,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 19,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::Deconstruct",
+              "signature": "void Deconstruct(out int Id, out string Customer, out Decimal Amount, out DateTime Date)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "set_Id",
+          "signature": "void set_Id(int value)",
+          "token": 100663312,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8891,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "get_Customer",
+          "signature": "string get_Customer()",
+          "token": 100663313,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8900,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 58,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::Deconstruct",
+              "signature": "void Deconstruct(out int Id, out string Customer, out Decimal Amount, out DateTime Date)",
+              "offset": 10,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c::<Customers>b__6_0",
+              "signature": "string <Customers>b__6_0(Order o)",
+              "offset": 1,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c::<Totals>b__9_0",
+              "signature": "string <Totals>b__9_0(Order o)",
+              "offset": 1,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c::<Totals>b__9_3",
+              "signature": "string <Totals>b__9_3(<>f__AnonymousType0<Order, string> <>h__TransparentIdentifier0)",
+              "offset": 6,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "set_Customer",
+          "signature": "void set_Customer(string value)",
+          "token": 100663314,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8908,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "get_Amount",
+          "signature": "Decimal get_Amount()",
+          "token": 100663315,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8917,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 83,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::Deconstruct",
+              "signature": "void Deconstruct(out int Id, out string Customer, out Decimal Amount, out DateTime Date)",
+              "offset": 18,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::<Large>b__7_0",
+              "signature": "bool <Large>b__7_0(Order o)",
+              "offset": 1,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c::<Totals>b__9_8",
+              "signature": "Decimal <Totals>b__9_8(Order x)",
+              "offset": 1,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c::<Median>b__11_0",
+              "signature": "Decimal <Median>b__11_0(Order o)",
+              "offset": 1,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c__DisplayClass10_2::<Rules>b__2",
+              "signature": "bool <Rules>b__2(Order o)",
+              "offset": 1,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "set_Amount",
+          "signature": "void set_Amount(Decimal value)",
+          "token": 100663316,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8925,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "get_Date",
+          "signature": "DateTime get_Date()",
+          "token": 100663317,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8934,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::PrintMembers",
+              "signature": "bool PrintMembers(StringBuilder builder)",
+              "offset": 122,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::Deconstruct",
+              "signature": "void Deconstruct(out int Id, out string Customer, out Decimal Amount, out DateTime Date)",
+              "offset": 31,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c__DisplayClass8_0::<Between>b__0",
+              "signature": "bool <Between>b__0(Order o)",
+              "offset": 1,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c__DisplayClass8_0::<Between>b__0",
+              "signature": "bool <Between>b__0(Order o)",
+              "offset": 20,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "set_Date",
+          "signature": "void set_Date(DateTime value)",
+          "token": 100663318,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8942,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663319,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 8952,
+          "size": 64,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.Text.StringBuilder::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 24,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 32,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Order::PrintMembers(StringBuilder)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663320
+            },
+            {
+              "offset": 42,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 51,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 58,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "PrintMembers",
+          "signature": "bool PrintMembers(StringBuilder builder)",
+          "token": 100663320,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9028,
+          "size": 149,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.RuntimeHelpers::EnsureSufficientExecutionStack()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 11,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 19,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Order::get_Id()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663311
+            },
+            {
+              "offset": 33,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 38,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 50,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 58,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Order::get_Customer()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663313
+            },
+            {
+              "offset": 63,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(object)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 75,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 83,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Order::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663315
+            },
+            {
+              "offset": 97,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 102,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 114,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 122,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Order::get_Date()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663317
+            },
+            {
+              "offset": 136,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 141,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::ToString",
+              "signature": "string ToString()",
+              "offset": 32,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "op_Inequality",
+          "signature": "bool op_Inequality(Order left, Order right)",
+          "token": 100663321,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9189,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Order::op_Equality(Order, Order)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663322
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "op_Equality",
+          "signature": "bool op_Equality(Order left, Order right)",
+          "token": 100663322,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9201,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "Ref.Lambdas.Order::Equals(Order)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663325
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::op_Inequality",
+              "signature": "bool op_Inequality(Order left, Order right)",
+              "offset": 2,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode()",
+          "token": 100663323,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9224,
+          "size": 109,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<System.Type>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Order::get_EqualityContract()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663310
+            },
+            {
+              "offset": 11,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<System.Type>::GetHashCode(Type)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 22,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<int>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 33,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<int>::GetHashCode(int)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 45,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<string>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 56,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<string>::GetHashCode(string)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 68,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<System.Decimal>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 79,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<System.Decimal>::GetHashCode(Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 91,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<System.DateTime>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 102,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<System.DateTime>::GetHashCode(DateTime)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "Equals",
+          "signature": "bool Equals(object obj)",
+          "token": 100663324,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override",
+            "compiler-generated"
+          ],
+          "rva": 9345,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Order::Equals(Order)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663325
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "Equals",
+          "signature": "bool Equals(Order other)",
+          "token": 100663325,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9360,
+          "size": 125,
+          "calls": [
+            {
+              "offset": 8,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Order::get_EqualityContract()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663310
+            },
+            {
+              "offset": 14,
+              "opcode": "callvirt",
+              "target": "Ref.Lambdas.Order::get_EqualityContract()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663310
+            },
+            {
+              "offset": 19,
+              "opcode": "call",
+              "target": "System.Type::op_Equality(Type, Type)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 26,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<int>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 43,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<int>::Equals(int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 50,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<string>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 67,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<string>::Equals(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 74,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<System.Decimal>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 91,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<System.Decimal>::Equals(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 98,
+              "opcode": "call",
+              "target": "System.Collections.Generic.EqualityComparer<System.DateTime>::get_Default()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 115,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.EqualityComparer<System.DateTime>::Equals(DateTime, DateTime)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::op_Equality",
+              "signature": "bool op_Equality(Order left, Order right)",
+              "offset": 9,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::Equals",
+              "signature": "bool Equals(object obj)",
+              "offset": 7,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "<Clone>$",
+          "signature": "Order <Clone>$()",
+          "token": 100663326,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9497,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "Ref.Lambdas.Order::.ctor(Order)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663327
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": ".ctor",
+          "signature": "void .ctor(Order original)",
+          "token": 100663327,
+          "access": "private",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9505,
+          "size": 55,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Order::<Clone>$",
+              "signature": "Order <Clone>$()",
+              "offset": 1,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Order",
+          "name": "Deconstruct",
+          "signature": "void Deconstruct(out int Id, out string Customer, out Decimal Amount, out DateTime Date)",
+          "token": 100663328,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9561,
+          "size": 42,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Order::get_Id()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663311
+            },
+            {
+              "offset": 10,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Order::get_Customer()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663313
+            },
+            {
+              "offset": 18,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Order::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663315
+            },
+            {
+              "offset": 31,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Order::get_Date()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663317
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": ".ctor",
+          "signature": "void .ctor(IEnumerable<Order> orders)",
+          "token": 100663329,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 9604,
+          "size": 32,
+          "calls": [
+            {
+              "offset": 3,
+              "opcode": "newobj",
+              "target": "System.Decimal::.ctor(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 21,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::ToList<Order>(IEnumerable<Order>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "add_Logged",
+          "signature": "void add_Logged(Action<string> value)",
+          "token": 100663330,
+          "access": "public",
+          "kinds": [
+            "event-add",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9640,
+          "size": 41,
+          "calls": [
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.Delegate::Combine(Delegate, Delegate)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 30,
+              "opcode": "call",
+              "target": "System.Threading.Interlocked::CompareExchange<Action<string>>(ref Action<string>, Action<string>, Action<string>)",
+              "scope": "external",
+              "targetAssembly": "System.Threading"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "remove_Logged",
+          "signature": "void remove_Logged(Action<string> value)",
+          "token": 100663331,
+          "access": "public",
+          "kinds": [
+            "event-remove",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9696,
+          "size": 41,
+          "calls": [
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.Delegate::Remove(Delegate, Delegate)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 30,
+              "opcode": "call",
+              "target": "System.Threading.Interlocked::CompareExchange<Action<string>>(ref Action<string>, Action<string>, Action<string>)",
+              "scope": "external",
+              "targetAssembly": "System.Threading"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "Customers",
+          "signature": "IEnumerable<string> Customers()",
+          "token": 100663332,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 9752,
+          "size": 89,
+          "calls": [
+            {
+              "offset": 20,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c::<Customers>b__6_0(Order)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663351
+            },
+            {
+              "offset": 26,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.Lambdas.Order, string>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 37,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Select<Order, string>(IEnumerable<Order>, Func<Order, string>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 42,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Distinct<string>(IEnumerable<string>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 61,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c::<Customers>b__6_1(string)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663352
+            },
+            {
+              "offset": 67,
+              "opcode": "newobj",
+              "target": "System.Func<string, string>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 78,
+              "opcode": "call",
+              "target": "System.StringComparer::get_Ordinal()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 83,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::OrderBy<string, string>(IEnumerable<string>, Func<string, string>, IComparer<string>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "Large",
+          "signature": "IEnumerable<Order> Large()",
+          "token": 100663333,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 9853,
+          "size": 24,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports::<Large>b__7_0(Order)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663345
+            },
+            {
+              "offset": 13,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.Lambdas.Order, bool>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 18,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Where<Order>(IEnumerable<Order>, Func<Order, bool>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "Between",
+          "signature": "IEnumerable<Order> Between(DateTime from, int days)",
+          "token": 100663334,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 9880,
+          "size": 56,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass8_0::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663379
+            },
+            {
+              "offset": 22,
+              "opcode": "call",
+              "target": "System.DateTime::AddDays(double)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 39,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass8_0::<Between>b__0(Order)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663380
+            },
+            {
+              "offset": 45,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.Lambdas.Order, bool>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 50,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Where<Order>(IEnumerable<Order>, Func<Order, bool>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "Totals",
+          "signature": "IEnumerable<ValueTuple<string, Decimal, int>> Totals(IEnumerable<string> vip)",
+          "token": 100663335,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 9948,
+          "size": 281,
+          "calls": [
+            {
+              "offset": 21,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c::<Totals>b__9_0(Order)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663353
+            },
+            {
+              "offset": 27,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.Lambdas.Order, string>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 52,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c::<Totals>b__9_1(string)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663354
+            },
+            {
+              "offset": 58,
+              "opcode": "newobj",
+              "target": "System.Func<string, string>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 83,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c::<Totals>b__9_2(Order, string)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663355
+            },
+            {
+              "offset": 89,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.Lambdas.Order, string, <>f__AnonymousType0<Ref.Lambdas.Order, string>>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 100,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Join<Order, string, string, <>f__AnonymousType0<Order, string>>(IEnumerable<Order>, IEnumerable<string>, Func<Order, string>, Func<string, string>, Func<Order, string, <>f__AnonymousType0<Order, string>>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 119,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c::<Totals>b__9_3(<>f__AnonymousType0<Order, string>)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663356
+            },
+            {
+              "offset": 125,
+              "opcode": "newobj",
+              "target": "System.Func<<>f__AnonymousType0<Ref.Lambdas.Order, string>, string>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 150,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c::<Totals>b__9_4(<>f__AnonymousType0<Order, string>)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663357
+            },
+            {
+              "offset": 156,
+              "opcode": "newobj",
+              "target": "System.Func<<>f__AnonymousType0<Ref.Lambdas.Order, string>, Ref.Lambdas.Order>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 167,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::GroupBy<<>f__AnonymousType0<Order, string>, string, Order>(IEnumerable<<>f__AnonymousType0<Order, string>>, Func<<>f__AnonymousType0<Order, string>, string>, Func<<>f__AnonymousType0<Order, string>, Order>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 186,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c::<Totals>b__9_5(IGrouping<string, Order>)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663358
+            },
+            {
+              "offset": 192,
+              "opcode": "newobj",
+              "target": "System.Func<System.Linq.IGrouping<string, Ref.Lambdas.Order>, <>f__AnonymousType1<System.Linq.IGrouping<string, Ref.Lambdas.Order>, System.Decimal>>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 203,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Select<IGrouping<string, Order>, <>f__AnonymousType1<IGrouping<string, Order>, Decimal>>(IEnumerable<IGrouping<string, Order>>, Func<IGrouping<string, Order>, <>f__AnonymousType1<IGrouping<string, Order>, Decimal>>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 222,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c::<Totals>b__9_6(<>f__AnonymousType1<IGrouping<string, Order>, Decimal>)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663360
+            },
+            {
+              "offset": 228,
+              "opcode": "newobj",
+              "target": "System.Func<<>f__AnonymousType1<System.Linq.IGrouping<string, Ref.Lambdas.Order>, System.Decimal>, System.Decimal>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 239,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::OrderByDescending<<>f__AnonymousType1<IGrouping<string, Order>, Decimal>, Decimal>(IEnumerable<<>f__AnonymousType1<IGrouping<string, Order>, Decimal>>, Func<<>f__AnonymousType1<IGrouping<string, Order>, Decimal>, Decimal>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 258,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c::<Totals>b__9_7(<>f__AnonymousType1<IGrouping<string, Order>, Decimal>)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663361
+            },
+            {
+              "offset": 264,
+              "opcode": "newobj",
+              "target": "System.Func<<>f__AnonymousType1<System.Linq.IGrouping<string, Ref.Lambdas.Order>, System.Decimal>, System.ValueTuple<string, System.Decimal, int>>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 275,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Select<<>f__AnonymousType1<IGrouping<string, Order>, Decimal>, ValueTuple<string, Decimal, int>>(IEnumerable<<>f__AnonymousType1<IGrouping<string, Order>, Decimal>>, Func<<>f__AnonymousType1<IGrouping<string, Order>, Decimal>, ValueTuple<string, Decimal, int>>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "Rules",
+          "signature": "Func<int, Func<Decimal, bool>> Rules()",
+          "token": 100663336,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 10241,
+          "size": 31,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass10_0::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663364
+            },
+            {
+              "offset": 19,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass10_0::<Rules>b__0(int)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663365
+            },
+            {
+              "offset": 25,
+              "opcode": "newobj",
+              "target": "System.Func<int, System.Func<System.Decimal, bool>>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "Median",
+          "signature": "Decimal Median()",
+          "token": 100663337,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 10276,
+          "size": 113,
+          "calls": [
+            {
+              "offset": 22,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c::<Median>b__11_0(Order)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663362
+            },
+            {
+              "offset": 28,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.Lambdas.Order, System.Decimal>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 39,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Select<Order, Decimal>(IEnumerable<Order>, Func<Order, Decimal>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 58,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c::<Median>b__11_1(Decimal)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663363
+            },
+            {
+              "offset": 64,
+              "opcode": "newobj",
+              "target": "System.Func<System.Decimal, System.Decimal>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 75,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::OrderBy<Decimal, Decimal>(IEnumerable<Decimal>, Func<Decimal, Decimal>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 80,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::ToArray<Decimal>(IEnumerable<Decimal>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 101,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Reports::<Median>g__Middle|11_2(ref <>c__DisplayClass11_0)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663346
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "Fib",
+          "signature": "long Fib(int n)",
+          "token": 100663338,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 10401,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Reports::<Fib>g__Go|12_0(int)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663348
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "Log",
+          "signature": "void Log(IEnumerable<string> lines)",
+          "token": 100663339,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 10412,
+          "size": 95,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass13_0::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663370
+            },
+            {
+              "offset": 21,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<string>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 30,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<string>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 38,
+              "opcode": "callvirt",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass13_0::<Log>g__Write|0(string)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663371
+            },
+            {
+              "offset": 44,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 57,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 78,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass13_0::<Log>g__Write|0(string)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663371
+            },
+            {
+              "offset": 84,
+              "opcode": "newobj",
+              "target": "System.Action<string>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 89,
+              "opcode": "call",
+              "target": "System.Array::ForEach<string>(string[], Action<string>)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "Counters",
+          "signature": "List<Func<int>> Counters(int count)",
+          "token": 100663340,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 10536,
+          "size": 51,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.List<System.Func<int>>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 10,
+              "opcode": "newobj",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass14_0::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663372
+            },
+            {
+              "offset": 25,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass14_0::<Counters>b__0()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663373
+            },
+            {
+              "offset": 31,
+              "opcode": "newobj",
+              "target": "System.Func<int>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 36,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<System.Func<int>>::Add(Func<int>)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "Filter",
+          "signature": "Expression<Func<Order, bool>> Filter(string customer)",
+          "token": 100663341,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 10600,
+          "size": 164,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass15_0::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663374
+            },
+            {
+              "offset": 18,
+              "opcode": "call",
+              "target": "System.Type::GetTypeFromHandle(RuntimeTypeHandle)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 28,
+              "opcode": "call",
+              "target": "System.Linq.Expressions.Expression::Parameter(Type, string)",
+              "scope": "external",
+              "targetAssembly": "System.Linq.Expressions"
+            },
+            {
+              "offset": 40,
+              "opcode": "call",
+              "target": "System.Reflection.MethodBase::GetMethodFromHandle(RuntimeMethodHandle)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 50,
+              "opcode": "call",
+              "target": "System.Linq.Expressions.Expression::Property(Expression, MethodInfo)",
+              "scope": "external",
+              "targetAssembly": "System.Linq.Expressions"
+            },
+            {
+              "offset": 61,
+              "opcode": "call",
+              "target": "System.Type::GetTypeFromHandle(RuntimeTypeHandle)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 66,
+              "opcode": "call",
+              "target": "System.Linq.Expressions.Expression::Constant(object, Type)",
+              "scope": "external",
+              "targetAssembly": "System.Linq.Expressions"
+            },
+            {
+              "offset": 76,
+              "opcode": "call",
+              "target": "System.Reflection.FieldInfo::GetFieldFromHandle(RuntimeFieldHandle)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 81,
+              "opcode": "call",
+              "target": "System.Linq.Expressions.Expression::Field(Expression, FieldInfo)",
+              "scope": "external",
+              "targetAssembly": "System.Linq.Expressions"
+            },
+            {
+              "offset": 86,
+              "opcode": "call",
+              "target": "System.Linq.Expressions.Expression::Equal(Expression, Expression)",
+              "scope": "external",
+              "targetAssembly": "System.Linq.Expressions"
+            },
+            {
+              "offset": 97,
+              "opcode": "call",
+              "target": "System.Reflection.MethodBase::GetMethodFromHandle(RuntimeMethodHandle)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 107,
+              "opcode": "call",
+              "target": "System.Linq.Expressions.Expression::Property(Expression, MethodInfo)",
+              "scope": "external",
+              "targetAssembly": "System.Linq.Expressions"
+            },
+            {
+              "offset": 113,
+              "opcode": "newobj",
+              "target": "System.Decimal::.ctor(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 128,
+              "opcode": "call",
+              "target": "System.Type::GetTypeFromHandle(RuntimeTypeHandle)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 133,
+              "opcode": "call",
+              "target": "System.Linq.Expressions.Expression::Constant(object, Type)",
+              "scope": "external",
+              "targetAssembly": "System.Linq.Expressions"
+            },
+            {
+              "offset": 138,
+              "opcode": "call",
+              "target": "System.Linq.Expressions.Expression::GreaterThan(Expression, Expression)",
+              "scope": "external",
+              "targetAssembly": "System.Linq.Expressions"
+            },
+            {
+              "offset": 143,
+              "opcode": "call",
+              "target": "System.Linq.Expressions.Expression::AndAlso(Expression, Expression)",
+              "scope": "external",
+              "targetAssembly": "System.Linq.Expressions"
+            },
+            {
+              "offset": 158,
+              "opcode": "call",
+              "target": "System.Linq.Expressions.Expression::Lambda<Func<Order, bool>>(Expression, ParameterExpression[])",
+              "scope": "external",
+              "targetAssembly": "System.Linq.Expressions"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "SetThreshold",
+          "signature": "void SetThreshold(Decimal value)",
+          "token": 100663342,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 10776,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "Memoize",
+          "signature": "Func<T, TResult> Memoize<T, TResult>(Func<T, TResult> f)",
+          "token": 100663343,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 10785,
+          "size": 35,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass17_0<!!0, !!1>::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663375
+            },
+            {
+              "offset": 13,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.Dictionary<!!0, !!1>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 23,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass17_0<!!0, !!1>::<Memoize>b__0(!!0)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663376
+            },
+            {
+              "offset": 29,
+              "opcode": "newobj",
+              "target": "System.Func<!!0, !!1>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "Compose",
+          "signature": "Action Compose(params Action[] actions)",
+          "token": 100663344,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 10821,
+          "size": 24,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass18_0::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663377
+            },
+            {
+              "offset": 12,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass18_0::<Compose>b__0()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663378
+            },
+            {
+              "offset": 18,
+              "opcode": "newobj",
+              "target": "System.Action::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "<Large>b__7_0",
+          "signature": "bool <Large>b__7_0(Order o)",
+          "token": 100663345,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 10846,
+          "size": 18,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.Lambdas.Order::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663315
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.Decimal::op_GreaterThanOrEqual(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Large",
+              "signature": "IEnumerable<Order> Large()",
+              "offset": 7,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "<Median>g__Middle|11_2",
+          "signature": "Decimal <Median>g__Middle|11_2(ref <>c__DisplayClass11_0 arg1)",
+          "token": 100663346,
+          "access": "internal",
+          "kinds": [
+            "static",
+            "local-function",
+            "compiler-generated"
+          ],
+          "rva": 10868,
+          "size": 69,
+          "calls": [
+            {
+              "offset": 50,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Reports::<Median>g__Average|11_3(Decimal, Decimal)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663347
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Median",
+              "signature": "Decimal Median()",
+              "offset": 101,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "<Median>g__Average|11_3",
+          "signature": "Decimal <Median>g__Average|11_3(Decimal a, Decimal b)",
+          "token": 100663347,
+          "access": "internal",
+          "kinds": [
+            "static",
+            "local-function",
+            "compiler-generated"
+          ],
+          "rva": 10949,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Decimal::op_Addition(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 8,
+              "opcode": "newobj",
+              "target": "System.Decimal::.ctor(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 13,
+              "opcode": "call",
+              "target": "System.Decimal::op_Division(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::<Median>g__Middle|11_2",
+              "signature": "Decimal <Median>g__Middle|11_2(ref <>c__DisplayClass11_0 arg1)",
+              "offset": 50,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports",
+          "name": "<Fib>g__Go|12_0",
+          "signature": "long <Fib>g__Go|12_0(int k)",
+          "token": 100663348,
+          "access": "internal",
+          "kinds": [
+            "static",
+            "local-function",
+            "compiler-generated"
+          ],
+          "rva": 10969,
+          "size": 25,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Reports::<Fib>g__Go|12_0(int)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663348
+            },
+            {
+              "offset": 15,
+              "opcode": "call",
+              "target": "Ref.Lambdas.Reports::<Fib>g__Go|12_0(int)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663348
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Fib",
+              "signature": "long Fib(int n)",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::<Fib>g__Go|12_0",
+              "signature": "long <Fib>g__Go|12_0(int k)",
+              "offset": 7,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::<Fib>g__Go|12_0",
+              "signature": "long <Fib>g__Go|12_0(int k)",
+              "offset": 15,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663349,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 10995,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.Lambdas.Reports.<>c::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663350
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663350,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11007,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c",
+          "name": "<Customers>b__6_0",
+          "signature": "string <Customers>b__6_0(Order o)",
+          "token": 100663351,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11015,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.Lambdas.Order::get_Customer()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663313
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Customers",
+              "signature": "IEnumerable<string> Customers()",
+              "offset": 20,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c",
+          "name": "<Customers>b__6_1",
+          "signature": "string <Customers>b__6_1(string c)",
+          "token": 100663352,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11023,
+          "size": 2,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Customers",
+              "signature": "IEnumerable<string> Customers()",
+              "offset": 61,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c",
+          "name": "<Totals>b__9_0",
+          "signature": "string <Totals>b__9_0(Order o)",
+          "token": 100663353,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11026,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.Lambdas.Order::get_Customer()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663313
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Totals",
+              "signature": "IEnumerable<ValueTuple<string, Decimal, int>> Totals(IEnumerable<string> vip)",
+              "offset": 21,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c",
+          "name": "<Totals>b__9_1",
+          "signature": "string <Totals>b__9_1(string v)",
+          "token": 100663354,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11034,
+          "size": 2,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Totals",
+              "signature": "IEnumerable<ValueTuple<string, Decimal, int>> Totals(IEnumerable<string> vip)",
+              "offset": 52,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c",
+          "name": "<Totals>b__9_2",
+          "signature": "<>f__AnonymousType0<Order, string> <Totals>b__9_2(Order o, string v)",
+          "token": 100663355,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11037,
+          "size": 8,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "newobj",
+              "target": "<>f__AnonymousType0<Ref.Lambdas.Order, string>::.ctor(Order, string)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663299
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Totals",
+              "signature": "IEnumerable<ValueTuple<string, Decimal, int>> Totals(IEnumerable<string> vip)",
+              "offset": 83,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c",
+          "name": "<Totals>b__9_3",
+          "signature": "string <Totals>b__9_3(<>f__AnonymousType0<Order, string> <>h__TransparentIdentifier0)",
+          "token": 100663356,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11046,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "<>f__AnonymousType0<Ref.Lambdas.Order, string>::get_o()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663297
+            },
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "Ref.Lambdas.Order::get_Customer()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663313
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Totals",
+              "signature": "IEnumerable<ValueTuple<string, Decimal, int>> Totals(IEnumerable<string> vip)",
+              "offset": 119,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c",
+          "name": "<Totals>b__9_4",
+          "signature": "Order <Totals>b__9_4(<>f__AnonymousType0<Order, string> <>h__TransparentIdentifier0)",
+          "token": 100663357,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11059,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "<>f__AnonymousType0<Ref.Lambdas.Order, string>::get_o()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663297
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Totals",
+              "signature": "IEnumerable<ValueTuple<string, Decimal, int>> Totals(IEnumerable<string> vip)",
+              "offset": 150,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c",
+          "name": "<Totals>b__9_5",
+          "signature": "<>f__AnonymousType1<IGrouping<string, Order>, Decimal> <Totals>b__9_5(IGrouping<string, Order> g)",
+          "token": 100663358,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11067,
+          "size": 44,
+          "calls": [
+            {
+              "offset": 16,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c::<Totals>b__9_8(Order)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663359
+            },
+            {
+              "offset": 22,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.Lambdas.Order, System.Decimal>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 33,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Sum<Order>(IEnumerable<Order>, Func<Order, Decimal>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 38,
+              "opcode": "newobj",
+              "target": "<>f__AnonymousType1<System.Linq.IGrouping<string, Ref.Lambdas.Order>, System.Decimal>::.ctor(IGrouping<string, Order>, Decimal)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663305
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Totals",
+              "signature": "IEnumerable<ValueTuple<string, Decimal, int>> Totals(IEnumerable<string> vip)",
+              "offset": 186,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c",
+          "name": "<Totals>b__9_8",
+          "signature": "Decimal <Totals>b__9_8(Order x)",
+          "token": 100663359,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11112,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.Lambdas.Order::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663315
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c::<Totals>b__9_5",
+              "signature": "<>f__AnonymousType1<IGrouping<string, Order>, Decimal> <Totals>b__9_5(IGrouping<string, Order> g)",
+              "offset": 16,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c",
+          "name": "<Totals>b__9_6",
+          "signature": "Decimal <Totals>b__9_6(<>f__AnonymousType1<IGrouping<string, Order>, Decimal> <>h__TransparentIdentifier1)",
+          "token": 100663360,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11120,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "<>f__AnonymousType1<System.Linq.IGrouping<string, Ref.Lambdas.Order>, System.Decimal>::get_total()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663304
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Totals",
+              "signature": "IEnumerable<ValueTuple<string, Decimal, int>> Totals(IEnumerable<string> vip)",
+              "offset": 222,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c",
+          "name": "<Totals>b__9_7",
+          "signature": "ValueTuple<string, Decimal, int> <Totals>b__9_7(<>f__AnonymousType1<IGrouping<string, Order>, Decimal> <>h__TransparentIdentifier1)",
+          "token": 100663361,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11128,
+          "size": 34,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "<>f__AnonymousType1<System.Linq.IGrouping<string, Ref.Lambdas.Order>, System.Decimal>::get_g()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663303
+            },
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.Linq.IGrouping<string, Ref.Lambdas.Order>::get_Key()",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "<>f__AnonymousType1<System.Linq.IGrouping<string, Ref.Lambdas.Order>, System.Decimal>::get_total()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663304
+            },
+            {
+              "offset": 18,
+              "opcode": "callvirt",
+              "target": "<>f__AnonymousType1<System.Linq.IGrouping<string, Ref.Lambdas.Order>, System.Decimal>::get_g()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663303
+            },
+            {
+              "offset": 23,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Count<Order>(IEnumerable<Order>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            },
+            {
+              "offset": 28,
+              "opcode": "newobj",
+              "target": "System.ValueTuple<string, System.Decimal, int>::.ctor(string, Decimal, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Totals",
+              "signature": "IEnumerable<ValueTuple<string, Decimal, int>> Totals(IEnumerable<string> vip)",
+              "offset": 258,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c",
+          "name": "<Median>b__11_0",
+          "signature": "Decimal <Median>b__11_0(Order o)",
+          "token": 100663362,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11163,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.Lambdas.Order::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663315
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Median",
+              "signature": "Decimal Median()",
+              "offset": 22,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c",
+          "name": "<Median>b__11_1",
+          "signature": "Decimal <Median>b__11_1(Decimal a)",
+          "token": 100663363,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11171,
+          "size": 2,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Median",
+              "signature": "Decimal Median()",
+              "offset": 58,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass10_0",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663364,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11174,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Rules",
+              "signature": "Func<int, Func<Decimal, bool>> Rules()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass10_0",
+          "name": "<Rules>b__0",
+          "signature": "Func<Decimal, bool> <Rules>b__0(int minCount)",
+          "token": 100663365,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11184,
+          "size": 47,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass10_1::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663366
+            },
+            {
+              "offset": 35,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass10_1::<Rules>b__1(Decimal)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663367
+            },
+            {
+              "offset": 41,
+              "opcode": "newobj",
+              "target": "System.Func<System.Decimal, bool>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Rules",
+              "signature": "Func<int, Func<Decimal, bool>> Rules()",
+              "offset": 19,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass10_1",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663366,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11243,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c__DisplayClass10_0::<Rules>b__0",
+              "signature": "Func<Decimal, bool> <Rules>b__0(int minCount)",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass10_1",
+          "name": "<Rules>b__1",
+          "signature": "bool <Rules>b__1(Decimal amount)",
+          "token": 100663367,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11252,
+          "size": 100,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass10_2::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663368
+            },
+            {
+              "offset": 35,
+              "opcode": "call",
+              "target": "System.Decimal::op_GreaterThan(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 59,
+              "opcode": "ldftn",
+              "target": "Ref.Lambdas.Reports.<>c__DisplayClass10_2::<Rules>b__2(Order)",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663369
+            },
+            {
+              "offset": 65,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.Lambdas.Order, bool>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 70,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Count<Order>(IEnumerable<Order>, Func<Order, bool>)",
+              "scope": "external",
+              "targetAssembly": "System.Linq"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c__DisplayClass10_0::<Rules>b__0",
+              "signature": "Func<Decimal, bool> <Rules>b__0(int minCount)",
+              "offset": 35,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass10_2",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663368,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11364,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c__DisplayClass10_1::<Rules>b__1",
+              "signature": "bool <Rules>b__1(Decimal amount)",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass10_2",
+          "name": "<Rules>b__2",
+          "signature": "bool <Rules>b__2(Order o)",
+          "token": 100663369,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11372,
+          "size": 18,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.Lambdas.Order::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663315
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.Decimal::op_Equality(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports+<>c__DisplayClass10_1::<Rules>b__1",
+              "signature": "bool <Rules>b__1(Decimal amount)",
+              "offset": 59,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass13_0",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663370,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11391,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Log",
+              "signature": "void Log(IEnumerable<string> lines)",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass13_0",
+          "name": "<Log>g__Write|0",
+          "signature": "void <Log>g__Write|0(string line)",
+          "token": 100663371,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "local-function",
+            "compiler-generated"
+          ],
+          "rva": 11400,
+          "size": 82,
+          "calls": [
+            {
+              "offset": 20,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 44,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<int>(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 56,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 64,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 71,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 76,
+              "opcode": "callvirt",
+              "target": "System.Action<string>::Invoke(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Log",
+              "signature": "void Log(IEnumerable<string> lines)",
+              "offset": 38,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Log",
+              "signature": "void Log(IEnumerable<string> lines)",
+              "offset": 78,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass14_0",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663372,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11494,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Counters",
+              "signature": "List<Func<int>> Counters(int count)",
+              "offset": 10,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass14_0",
+          "name": "<Counters>b__0",
+          "signature": "int <Counters>b__0()",
+          "token": 100663373,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11502,
+          "size": 14,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Counters",
+              "signature": "List<Func<int>> Counters(int count)",
+              "offset": 25,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass15_0",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663374,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11517,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Filter",
+              "signature": "Expression<Func<Order, bool>> Filter(string customer)",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass17_0`2",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663375,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11525,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Memoize",
+              "signature": "Func<T, TResult> Memoize<T, TResult>(Func<T, TResult> f)",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass17_0`2",
+          "name": "<Memoize>b__0",
+          "signature": "TResult <Memoize>b__0(T x)",
+          "token": 100663376,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11536,
+          "size": 46,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Dictionary<!0, !1>::TryGetValue(!0, ref !1)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 30,
+              "opcode": "callvirt",
+              "target": "System.Func<!0, !1>::Invoke(!0)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 37,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Dictionary<!0, !1>::set_Item(!0, !1)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Memoize",
+              "signature": "Func<T, TResult> Memoize<T, TResult>(Func<T, TResult> f)",
+              "offset": 23,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass18_0",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663377,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11594,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Compose",
+              "signature": "Action Compose(params Action[] actions)",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass18_0",
+          "name": "<Compose>b__0",
+          "signature": "void <Compose>b__0()",
+          "token": 100663378,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11604,
+          "size": 30,
+          "calls": [
+            {
+              "offset": 14,
+              "opcode": "callvirt",
+              "target": "System.Action::Invoke()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Compose",
+              "signature": "Action Compose(params Action[] actions)",
+              "offset": 12,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass8_0",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663379,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11646,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Between",
+              "signature": "IEnumerable<Order> Between(DateTime from, int days)",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref14.Lambdas",
+          "namespace": "Ref.Lambdas",
+          "type": "Ref.Lambdas.Reports+<>c__DisplayClass8_0",
+          "name": "<Between>b__0",
+          "signature": "bool <Between>b__0(Order o)",
+          "token": 100663380,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 11654,
+          "size": 39,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.Lambdas.Order::get_Date()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663317
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.DateTime::op_GreaterThanOrEqual(DateTime, DateTime)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 20,
+              "opcode": "callvirt",
+              "target": "Ref.Lambdas.Order::get_Date()",
+              "scope": "internal",
+              "groupFile": "Ref14.Lambdas.dll",
+              "groupToken": 100663317
+            },
+            {
+              "offset": 31,
+              "opcode": "call",
+              "target": "System.DateTime::op_LessThan(DateTime, DateTime)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref14.Lambdas",
+              "method": "Ref.Lambdas.Reports::Between",
+              "signature": "IEnumerable<Order> Between(DateTime from, int days)",
+              "offset": 39,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

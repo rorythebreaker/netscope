@@ -1,0 +1,878 @@
+Assembly : Ref03.NetStandard.dll
+Name     : Ref03.NetStandard, Version=1.0.0.0
+Runtime  : .NETStandard,Version=v2.0   Machine: anycpu
+Methods  : 27
+
+Type     : Ref.NetStandard.TextUtil
+
+Method   : string Slug(string text)
+Kind     : static, public
+RVA      : 0x2050   Size: 150 bytes   Token: 0x06000001
+
+[Branches]  complexity=7  blocks=12  loops=1
+  B0 IL_0000..IL_0007  -> B1 (String.IsNullOrEmpty(text)) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  call       bool [netstandard]System.String::IsNullOrEmpty(string)
+       IL_0006  brfalse.s  IL_000E
+  B1 IL_0008..IL_000D  -> exit
+       IL_0008  ldsfld     string [netstandard]System.String::Empty
+       IL_000D  ret
+  B2 IL_000E..IL_0025  -> B10
+       IL_000E  ldarg.0
+       IL_000F  ldc.i4.2
+       IL_0010  callvirt   instance string [netstandard]System.String::Normalize(valuetype [netstandard]System.Text.NormalizationForm)
+       IL_0015  dup
+       IL_0016  callvirt   instance int32 [netstandard]System.String::get_Length()
+       IL_001B  newobj     instance void [netstandard]System.Text.StringBuilder::.ctor(int32)
+       IL_0020  stloc.0
+       IL_0021  stloc.1
+       IL_0022  ldc.i4.0
+       IL_0023  stloc.2
+       IL_0024  br.s       IL_0076
+  B3 IL_0026..IL_0036  -> B4 (CharUnicodeInfo.GetUnicodeCategory(V_3) != 5) | B9 (else)
+       IL_0026  ldloc.1
+       IL_0027  ldloc.2
+       IL_0028  callvirt   instance char [netstandard]System.String::get_Chars(int32)
+       IL_002D  stloc.3
+       IL_002E  ldloc.3
+       IL_002F  call       valuetype [netstandard]System.Globalization.UnicodeCategory [netstandard]System.Globalization.CharUnicodeInfo::GetUnicodeCategory(char)
+       IL_0034  ldc.i4.5
+       IL_0035  beq.s      IL_0072
+  B4 IL_0037..IL_003E  -> B5 (Char.IsLetterOrDigit(V_3)) | B6 (else)
+       IL_0037  ldloc.3
+       IL_0038  call       bool [netstandard]System.Char::IsLetterOrDigit(char)
+       IL_003D  brfalse.s  IL_004E
+  B5 IL_003F..IL_004D  -> B9
+       IL_003F  ldloc.0
+       IL_0040  ldloc.3
+       IL_0041  call       char [netstandard]System.Char::ToLowerInvariant(char)
+       IL_0046  callvirt   instance class [netstandard]System.Text.StringBuilder [netstandard]System.Text.StringBuilder::Append(char)
+       IL_004B  pop
+       IL_004C  br.s       IL_0072
+  B6 IL_004E..IL_0056  -> B7 (V_0.Length > 0) | B9 (else)
+       IL_004E  ldloc.0
+       IL_004F  callvirt   instance int32 [netstandard]System.Text.StringBuilder::get_Length()
+       IL_0054  ldc.i4.0
+       IL_0055  ble.s      IL_0072
+  B7 IL_0057..IL_0068  -> B8 (V_0.get_Chars(V_0.Length - 1) != 45) | B9 (else)
+       IL_0057  ldloc.0
+       IL_0058  ldloc.0
+       IL_0059  callvirt   instance int32 [netstandard]System.Text.StringBuilder::get_Length()
+       IL_005E  ldc.i4.1
+       IL_005F  sub
+       IL_0060  callvirt   instance char [netstandard]System.Text.StringBuilder::get_Chars(int32)
+       IL_0065  ldc.i4.s   45
+       IL_0067  beq.s      IL_0072
+  B8 IL_0069..IL_0071  -> B9
+       IL_0069  ldloc.0
+       IL_006A  ldc.i4.s   45
+       IL_006C  callvirt   instance class [netstandard]System.Text.StringBuilder [netstandard]System.Text.StringBuilder::Append(char)
+       IL_0071  pop
+  B9 IL_0072..IL_0075  -> B10 (loop)
+       IL_0072  ldloc.2
+       IL_0073  ldc.i4.1
+       IL_0074  add
+       IL_0075  stloc.2
+  B10 IL_0076..IL_007E  -> B3 (V_2 < V_1.Length) | B11 (else)  [loop]
+       IL_0076  ldloc.2
+       IL_0077  ldloc.1
+       IL_0078  callvirt   instance int32 [netstandard]System.String::get_Length()
+       IL_007D  blt.s      IL_0026
+  B11 IL_007F..IL_0095  -> exit
+       IL_007F  ldloc.0
+       IL_0080  callvirt   instance string [netstandard]System.Object::ToString()
+       IL_0085  ldc.i4.1
+       IL_0086  newarr     [netstandard]System.Char
+       IL_008B  dup
+       IL_008C  ldc.i4.0
+       IL_008D  ldc.i4.s   45
+       IL_008F  stelem.i2
+       IL_0090  callvirt   instance string [netstandard]System.String::Trim(char[])
+       IL_0095  ret
+  loop: header B10, back edges from B9, body B3 B4 B5 B6 B7 B8 B9 B10
+  exits: B1 (return), B11 (return)
+
+Method   : string CollapseSpaces(string text)
+Kind     : static, public
+RVA      : 0x20F2   Size: 31 bytes   Token: 0x06000002
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0008  -> B1 (text == null) | B2 (else)
+       IL_0000  ldsfld     class [netstandard]System.Text.RegularExpressions.Regex Ref.NetStandard.TextUtil::Spaces
+       IL_0005  ldarg.0
+       IL_0006  dup
+       IL_0007  brtrue.s   IL_000F
+  B1 IL_0009..IL_000E  -> B2
+       IL_0009  pop
+       IL_000A  ldsfld     string [netstandard]System.String::Empty
+  B2 IL_000F..IL_001E  -> exit
+       IL_000F  ldstr      " "
+       IL_0014  callvirt   instance string [netstandard]System.Text.RegularExpressions.Regex::Replace(string, string)
+       IL_0019  callvirt   instance string [netstandard]System.String::Trim()
+       IL_001E  ret
+  exits: B2 (return)
+
+Method   : IEnumerable<string> Wrap(string text, int width)
+Kind     : static, public, iterator
+RVA      : 0x2112   Size: 22 bytes   Token: 0x06000003
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0015  -> exit
+       IL_0000  ldc.i4.s   -2
+       IL_0002  newobj     instance void Ref.NetStandard.TextUtil/<Wrap>d__3::.ctor(int32)
+       IL_0007  dup
+       IL_0008  ldarg.0
+       IL_0009  stfld      string Ref.NetStandard.TextUtil/<Wrap>d__3::'<>3__text'
+       IL_000E  dup
+       IL_000F  ldarg.1
+       IL_0010  stfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>3__width'
+       IL_0015  ret
+  exits: B0 (return)
+
+Method   : int Levenshtein(string a, string b)
+Kind     : static, public
+RVA      : 0x212C   Size: 167 bytes   Token: 0x06000004
+
+[Branches]  complexity=4  blocks=10  loops=3
+  B0 IL_0000..IL_001F  -> B2
+       IL_0000  ldarg.1
+       IL_0001  callvirt   instance int32 [netstandard]System.String::get_Length()
+       IL_0006  ldc.i4.1
+       IL_0007  add
+       IL_0008  newarr     [netstandard]System.Int32
+       IL_000D  stloc.0
+       IL_000E  ldarg.1
+       IL_000F  callvirt   instance int32 [netstandard]System.String::get_Length()
+       IL_0014  ldc.i4.1
+       IL_0015  add
+       IL_0016  newarr     [netstandard]System.Int32
+       IL_001B  stloc.1
+       IL_001C  ldc.i4.0
+       IL_001D  stloc.2
+       IL_001E  br.s       IL_0028
+  B1 IL_0020..IL_0027  -> B2 (loop)
+       IL_0020  ldloc.0
+       IL_0021  ldloc.2
+       IL_0022  ldloc.2
+       IL_0023  stelem.i4
+       IL_0024  ldloc.2
+       IL_0025  ldc.i4.1
+       IL_0026  add
+       IL_0027  stloc.2
+  B2 IL_0028..IL_0030  -> B1 (V_2 <= b.Length) | B3 (else)  [loop]
+       IL_0028  ldloc.2
+       IL_0029  ldarg.1
+       IL_002A  callvirt   instance int32 [netstandard]System.String::get_Length()
+       IL_002F  ble.s      IL_0020
+  B3 IL_0031..IL_0034  -> B8
+       IL_0031  ldc.i4.1
+       IL_0032  stloc.3
+       IL_0033  br.s       IL_0095
+  B4 IL_0035..IL_003D  -> B6
+       IL_0035  ldloc.1
+       IL_0036  ldc.i4.0
+       IL_0037  ldloc.3
+       IL_0038  stelem.i4
+       IL_0039  ldc.i4.1
+       IL_003A  stloc.s    V_4
+       IL_003C  br.s       IL_0083
+  B5 IL_003E..IL_0082  -> B6 (loop)
+       IL_003E  ldarg.0
+       IL_003F  ldloc.3
+       IL_0040  ldc.i4.1
+       IL_0041  sub
+       IL_0042  callvirt   instance char [netstandard]System.String::get_Chars(int32)
+       IL_0047  ldarg.1
+       IL_0048  ldloc.s    V_4
+       IL_004A  ldc.i4.1
+       IL_004B  sub
+       IL_004C  callvirt   instance char [netstandard]System.String::get_Chars(int32)
+       IL_0051  ceq
+       IL_0053  ldc.i4.0
+       IL_0054  ceq
+       IL_0056  stloc.s    V_5
+       IL_0058  ldloc.1
+       IL_0059  ldloc.s    V_4
+       IL_005B  ldloc.1
+       IL_005C  ldloc.s    V_4
+       IL_005E  ldc.i4.1
+       IL_005F  sub
+       IL_0060  ldelem.i4
+       IL_0061  ldc.i4.1
+       IL_0062  add
+       IL_0063  ldloc.0
+       IL_0064  ldloc.s    V_4
+       IL_0066  ldelem.i4
+       IL_0067  ldc.i4.1
+       IL_0068  add
+       IL_0069  call       int32 [netstandard]System.Math::Min(int32, int32)
+       IL_006E  ldloc.0
+       IL_006F  ldloc.s    V_4
+       IL_0071  ldc.i4.1
+       IL_0072  sub
+       IL_0073  ldelem.i4
+       IL_0074  ldloc.s    V_5
+       IL_0076  add
+       IL_0077  call       int32 [netstandard]System.Math::Min(int32, int32)
+       IL_007C  stelem.i4
+       IL_007D  ldloc.s    V_4
+       IL_007F  ldc.i4.1
+       IL_0080  add
+       IL_0081  stloc.s    V_4
+  B6 IL_0083..IL_008C  -> B5 (V_4 <= b.Length) | B7 (else)  [loop]
+       IL_0083  ldloc.s    V_4
+       IL_0085  ldarg.1
+       IL_0086  callvirt   instance int32 [netstandard]System.String::get_Length()
+       IL_008B  ble.s      IL_003E
+  B7 IL_008D..IL_0094  -> B8 (loop)
+       IL_008D  ldloc.0
+       IL_008E  ldloc.1
+       IL_008F  stloc.0
+       IL_0090  stloc.1
+       IL_0091  ldloc.3
+       IL_0092  ldc.i4.1
+       IL_0093  add
+       IL_0094  stloc.3
+  B8 IL_0095..IL_009D  -> B4 (V_3 <= a.Length) | B9 (else)  [loop]
+       IL_0095  ldloc.3
+       IL_0096  ldarg.0
+       IL_0097  callvirt   instance int32 [netstandard]System.String::get_Length()
+       IL_009C  ble.s      IL_0035
+  B9 IL_009E..IL_00A6  -> exit
+       IL_009E  ldloc.0
+       IL_009F  ldarg.1
+       IL_00A0  callvirt   instance int32 [netstandard]System.String::get_Length()
+       IL_00A5  ldelem.i4
+       IL_00A6  ret
+  loop: header B2, back edges from B1, body B1 B2
+  loop: header B6, back edges from B5, body B5 B6
+  loop: header B8, back edges from B7, body B4 B5 B6 B7 B8
+  exits: B9 (return)
+
+Method   : string Closest(string word, IEnumerable<string> candidates)
+Kind     : static, public
+RVA      : 0x21E0   Size: 78 bytes   Token: 0x06000005
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0026  -> B1 (<>c.<>9__5_1 == null) | B2 (else)
+       IL_0000  newobj     instance void Ref.NetStandard.TextUtil/<>c__DisplayClass5_0::.ctor()
+       IL_0005  stloc.0
+       IL_0006  ldloc.0
+       IL_0007  ldarg.0
+       IL_0008  stfld      string Ref.NetStandard.TextUtil/<>c__DisplayClass5_0::word
+       IL_000D  ldarg.1
+       IL_000E  ldloc.0
+       IL_000F  ldftn      instance int32 Ref.NetStandard.TextUtil/<>c__DisplayClass5_0::'<Closest>b__0'(string)
+       IL_0015  newobj     instance void class [netstandard]System.Func`2<string, int32>::.ctor(object, native int)
+       IL_001A  call       class [netstandard]System.Linq.IOrderedEnumerable`1<!!0> [netstandard]System.Linq.Enumerable::OrderBy<string, int32>(class [netstandard]System.Collections.Generic.IEnumerable`1<!!0>, class [netstandard]System.Func`2<!!0, !!1>)
+       IL_001F  ldsfld     class [netstandard]System.Func`2<string, string> Ref.NetStandard.TextUtil/<>c::'<>9__5_1'
+       IL_0024  dup
+       IL_0025  brtrue.s   IL_003E
+  B1 IL_0027..IL_003D  -> B2
+       IL_0027  pop
+       IL_0028  ldsfld     class Ref.NetStandard.TextUtil/<>c Ref.NetStandard.TextUtil/<>c::'<>9'
+       IL_002D  ldftn      instance string Ref.NetStandard.TextUtil/<>c::'<Closest>b__5_1'(string)
+       IL_0033  newobj     instance void class [netstandard]System.Func`2<string, string>::.ctor(object, native int)
+       IL_0038  dup
+       IL_0039  stsfld     class [netstandard]System.Func`2<string, string> Ref.NetStandard.TextUtil/<>c::'<>9__5_1'
+  B2 IL_003E..IL_004D  -> exit
+       IL_003E  call       class [netstandard]System.StringComparer [netstandard]System.StringComparer::get_Ordinal()
+       IL_0043  call       class [netstandard]System.Linq.IOrderedEnumerable`1<!!0> [netstandard]System.Linq.Enumerable::ThenBy<string, string>(class [netstandard]System.Linq.IOrderedEnumerable`1<!!0>, class [netstandard]System.Func`2<!!0, !!1>, class [netstandard]System.Collections.Generic.IComparer`1<!!1>)
+       IL_0048  call       !!0 [netstandard]System.Linq.Enumerable::FirstOrDefault<string>(class [netstandard]System.Collections.Generic.IEnumerable`1<!!0>)
+       IL_004D  ret
+  exits: B2 (return)
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x223A   Size: 17 bytes   Token: 0x06000006
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0010  -> exit
+       IL_0000  ldstr      "\\s+"
+       IL_0005  ldc.i4.8
+       IL_0006  newobj     instance void [netstandard]System.Text.RegularExpressions.Regex::.ctor(string, valuetype [netstandard]System.Text.RegularExpressions.RegexOptions)
+       IL_000B  stsfld     class [netstandard]System.Text.RegularExpressions.Regex Ref.NetStandard.TextUtil::Spaces
+       IL_0010  ret
+  exits: B0 (return)
+
+Type     : Ref.NetStandard.CsvRow
+
+Method   : void .ctor(List<string> fields)
+Kind     : ctor, instance, private
+RVA      : 0x224C   Size: 14 bytes   Token: 0x06000007
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000D  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [netstandard]System.Object::.ctor()
+       IL_0006  ldarg.0
+       IL_0007  ldarg.1
+       IL_0008  stfld      class [netstandard]System.Collections.Generic.List`1<string> Ref.NetStandard.CsvRow::_fields
+       IL_000D  ret
+  exits: B0 (return)
+
+Method   : int get_Count()
+Kind     : property-get, instance, public
+RVA      : 0x225B   Size: 12 bytes   Token: 0x06000008
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000B  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class [netstandard]System.Collections.Generic.List`1<string> Ref.NetStandard.CsvRow::_fields
+       IL_0006  callvirt   instance int32 class [netstandard]System.Collections.Generic.List`1<string>::get_Count()
+       IL_000B  ret
+  exits: B0 (return)
+
+Method   : string get_Item(int index)
+Kind     : property-get, instance, public
+RVA      : 0x2268   Size: 13 bytes   Token: 0x06000009
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000C  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class [netstandard]System.Collections.Generic.List`1<string> Ref.NetStandard.CsvRow::_fields
+       IL_0006  ldarg.1
+       IL_0007  callvirt   instance !0 class [netstandard]System.Collections.Generic.List`1<string>::get_Item(int32)
+       IL_000C  ret
+  exits: B0 (return)
+
+Method   : CsvRow Parse(string line, char separator)
+Kind     : static, public
+RVA      : 0x2278   Size: 190 bytes   Token: 0x0600000A
+
+[Branches]  complexity=10  blocks=19  loops=1
+  B0 IL_0000..IL_0011  -> B15
+       IL_0000  newobj     instance void class [netstandard]System.Collections.Generic.List`1<string>::.ctor()
+       IL_0005  stloc.0
+       IL_0006  newobj     instance void [netstandard]System.Text.StringBuilder::.ctor()
+       IL_000B  stloc.1
+       IL_000C  ldc.i4.0
+       IL_000D  stloc.2
+       IL_000E  ldc.i4.0
+       IL_000F  stloc.3
+       IL_0010  br.s       IL_0091
+  B1 IL_0012..IL_001D  -> B2 (V_2) | B9 (else)
+       IL_0012  ldarg.0
+       IL_0013  ldloc.3
+       IL_0014  callvirt   instance char [netstandard]System.String::get_Chars(int32)
+       IL_0019  stloc.s    V_4
+       IL_001B  ldloc.2
+       IL_001C  brfalse.s  IL_0060
+  B2 IL_001E..IL_0023  -> B3 (V_4 == 34) | B6 (else)
+       IL_001E  ldloc.s    V_4
+       IL_0020  ldc.i4.s   34
+       IL_0022  bne.un.s   IL_004B
+  B3 IL_0024..IL_002E  -> B4 (V_3 + 1 < line.Length) | B6 (else)
+       IL_0024  ldloc.3
+       IL_0025  ldc.i4.1
+       IL_0026  add
+       IL_0027  ldarg.0
+       IL_0028  callvirt   instance int32 [netstandard]System.String::get_Length()
+       IL_002D  bge.s      IL_004B
+  B4 IL_002F..IL_003B  -> B5 (line.get_Chars(V_3 + 1) == 34) | B6 (else)
+       IL_002F  ldarg.0
+       IL_0030  ldloc.3
+       IL_0031  ldc.i4.1
+       IL_0032  add
+       IL_0033  callvirt   instance char [netstandard]System.String::get_Chars(int32)
+       IL_0038  ldc.i4.s   34
+       IL_003A  bne.un.s   IL_004B
+  B5 IL_003C..IL_004A  -> B14
+       IL_003C  ldloc.1
+       IL_003D  ldc.i4.s   34
+       IL_003F  callvirt   instance class [netstandard]System.Text.StringBuilder [netstandard]System.Text.StringBuilder::Append(char)
+       IL_0044  pop
+       IL_0045  ldloc.3
+       IL_0046  ldc.i4.1
+       IL_0047  add
+       IL_0048  stloc.3
+       IL_0049  br.s       IL_008D
+  B6 IL_004B..IL_0050  -> B7 (V_4 == 34) | B8 (else)
+       IL_004B  ldloc.s    V_4
+       IL_004D  ldc.i4.s   34
+       IL_004F  bne.un.s   IL_0055
+  B7 IL_0051..IL_0054  -> B14
+       IL_0051  ldc.i4.0
+       IL_0052  stloc.2
+       IL_0053  br.s       IL_008D
+  B8 IL_0055..IL_005F  -> B14
+       IL_0055  ldloc.1
+       IL_0056  ldloc.s    V_4
+       IL_0058  callvirt   instance class [netstandard]System.Text.StringBuilder [netstandard]System.Text.StringBuilder::Append(char)
+       IL_005D  pop
+       IL_005E  br.s       IL_008D
+  B9 IL_0060..IL_0065  -> B10 (V_4 == 34) | B11 (else)
+       IL_0060  ldloc.s    V_4
+       IL_0062  ldc.i4.s   34
+       IL_0064  bne.un.s   IL_006A
+  B10 IL_0066..IL_0069  -> B14
+       IL_0066  ldc.i4.1
+       IL_0067  stloc.2
+       IL_0068  br.s       IL_008D
+  B11 IL_006A..IL_006E  -> B12 (V_4 == separator) | B13 (else)
+       IL_006A  ldloc.s    V_4
+       IL_006C  ldarg.1
+       IL_006D  bne.un.s   IL_0084
+  B12 IL_006F..IL_0083  -> B14
+       IL_006F  ldloc.0
+       IL_0070  ldloc.1
+       IL_0071  callvirt   instance string [netstandard]System.Object::ToString()
+       IL_0076  callvirt   instance void class [netstandard]System.Collections.Generic.List`1<string>::Add(!0)
+       IL_007B  ldloc.1
+       IL_007C  callvirt   instance class [netstandard]System.Text.StringBuilder [netstandard]System.Text.StringBuilder::Clear()
+       IL_0081  pop
+       IL_0082  br.s       IL_008D
+  B13 IL_0084..IL_008C  -> B14
+       IL_0084  ldloc.1
+       IL_0085  ldloc.s    V_4
+       IL_0087  callvirt   instance class [netstandard]System.Text.StringBuilder [netstandard]System.Text.StringBuilder::Append(char)
+       IL_008C  pop
+  B14 IL_008D..IL_0090  -> B15 (loop)
+       IL_008D  ldloc.3
+       IL_008E  ldc.i4.1
+       IL_008F  add
+       IL_0090  stloc.3
+  B15 IL_0091..IL_009C  -> B1 (V_3 < line.Length) | B16 (else)  [loop]
+       IL_0091  ldloc.3
+       IL_0092  ldarg.0
+       IL_0093  callvirt   instance int32 [netstandard]System.String::get_Length()
+       IL_0098  blt        IL_0012
+  B16 IL_009D..IL_009F  -> B17 (V_2) | B18 (else)
+       IL_009D  ldloc.2
+       IL_009E  brfalse.s  IL_00AB
+  B17 IL_00A0..IL_00AA  -> throw
+       IL_00A0  ldstr      "unterminated quote"
+       IL_00A5  newobj     instance void [netstandard]System.FormatException::.ctor(string)
+       IL_00AA  throw
+  B18 IL_00AB..IL_00BD  -> exit
+       IL_00AB  ldloc.0
+       IL_00AC  ldloc.1
+       IL_00AD  callvirt   instance string [netstandard]System.Object::ToString()
+       IL_00B2  callvirt   instance void class [netstandard]System.Collections.Generic.List`1<string>::Add(!0)
+       IL_00B7  ldloc.0
+       IL_00B8  newobj     instance void Ref.NetStandard.CsvRow::.ctor(class [netstandard]System.Collections.Generic.List`1<string>)
+       IL_00BD  ret
+  loop: header B15, back edges from B14, body B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 B12 B13 B14 B15
+  exits: B17 (throw), B18 (return)
+
+Method   : string ToString()
+Kind     : instance, public, override
+RVA      : 0x2342   Size: 53 bytes   Token: 0x0600000B
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0012  -> B1 (<>c.<>9__7_0 == null) | B2 (else)
+       IL_0000  ldstr      ","
+       IL_0005  ldarg.0
+       IL_0006  ldfld      class [netstandard]System.Collections.Generic.List`1<string> Ref.NetStandard.CsvRow::_fields
+       IL_000B  ldsfld     class [netstandard]System.Func`2<string, string> Ref.NetStandard.CsvRow/<>c::'<>9__7_0'
+       IL_0010  dup
+       IL_0011  brtrue.s   IL_002A
+  B1 IL_0013..IL_0029  -> B2
+       IL_0013  pop
+       IL_0014  ldsfld     class Ref.NetStandard.CsvRow/<>c Ref.NetStandard.CsvRow/<>c::'<>9'
+       IL_0019  ldftn      instance string Ref.NetStandard.CsvRow/<>c::'<ToString>b__7_0'(string)
+       IL_001F  newobj     instance void class [netstandard]System.Func`2<string, string>::.ctor(object, native int)
+       IL_0024  dup
+       IL_0025  stsfld     class [netstandard]System.Func`2<string, string> Ref.NetStandard.CsvRow/<>c::'<>9__7_0'
+  B2 IL_002A..IL_0034  -> exit
+       IL_002A  call       class [netstandard]System.Collections.Generic.IEnumerable`1<!!1> [netstandard]System.Linq.Enumerable::Select<string, string>(class [netstandard]System.Collections.Generic.IEnumerable`1<!!0>, class [netstandard]System.Func`2<!!0, !!1>)
+       IL_002F  call       string [netstandard]System.String::Join(string, class [netstandard]System.Collections.Generic.IEnumerable`1<string>)
+       IL_0034  ret
+  exits: B2 (return)
+
+Type     : Ref.NetStandard.TextUtil+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2378   Size: 11 bytes   Token: 0x0600000C
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000A  -> exit
+       IL_0000  newobj     instance void Ref.NetStandard.TextUtil/<>c::.ctor()
+       IL_0005  stsfld     class Ref.NetStandard.TextUtil/<>c Ref.NetStandard.TextUtil/<>c::'<>9'
+       IL_000A  ret
+  exits: B0 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2384   Size: 7 bytes   Token: 0x0600000D
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [netstandard]System.Object::.ctor()
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : string <Closest>b__5_1(string c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x238C   Size: 2 bytes   Token: 0x0600000E
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0001  -> exit
+       IL_0000  ldarg.1
+       IL_0001  ret
+  exits: B0 (return)
+
+Type     : Ref.NetStandard.TextUtil+<>c__DisplayClass5_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x238F   Size: 7 bytes   Token: 0x0600000F
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [netstandard]System.Object::.ctor()
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : int <Closest>b__0(string c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2397   Size: 13 bytes   Token: 0x06000010
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000C  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      string Ref.NetStandard.TextUtil/<>c__DisplayClass5_0::word
+       IL_0006  ldarg.1
+       IL_0007  call       int32 Ref.NetStandard.TextUtil::Levenshtein(string, string)
+       IL_000C  ret
+  exits: B0 (return)
+
+Type     : Ref.NetStandard.TextUtil+<Wrap>d__3
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x23A5   Size: 25 bytes   Token: 0x06000011
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0018  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [netstandard]System.Object::.ctor()
+       IL_0006  ldarg.0
+       IL_0007  ldarg.1
+       IL_0008  stfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>1__state'
+       IL_000D  ldarg.0
+       IL_000E  call       int32 [netstandard]System.Environment::get_CurrentManagedThreadId()
+       IL_0013  stfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>l__initialThreadId'
+       IL_0018  ret
+  exits: B0 (return)
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x23BF   Size: 30 bytes   Token: 0x06000012
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_001D  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldnull
+       IL_0002  stfld      class [netstandard]System.Text.StringBuilder Ref.NetStandard.TextUtil/<Wrap>d__3::'<line>5__2'
+       IL_0007  ldarg.0
+       IL_0008  ldnull
+       IL_0009  stfld      string[] Ref.NetStandard.TextUtil/<Wrap>d__3::'<>7__wrap2'
+       IL_000E  ldarg.0
+       IL_000F  ldnull
+       IL_0010  stfld      string Ref.NetStandard.TextUtil/<Wrap>d__3::'<word>5__5'
+       IL_0015  ldarg.0
+       IL_0016  ldc.i4.s   -2
+       IL_0018  stfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>1__state'
+       IL_001D  ret
+  exits: B0 (return)
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x23E0   Size: 363 bytes   Token: 0x06000013
+
+[Branches]  complexity=10  blocks=17  loops=1
+  B0 IL_0000..IL_0018  -> B2 (case 0) | B8 (case 1) | B15 (case 2) | B1 (default)
+       IL_0000  ldarg.0
+       IL_0001  ldfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>1__state'
+       IL_0006  stloc.0
+       IL_0007  ldloc.0
+       IL_0008  switch     (IL_001B, IL_00CA, IL_0162)
+  B1 IL_0019..IL_001A  -> exit
+       IL_0019  ldc.i4.0
+       IL_001A  ret
+  B2 IL_001B..IL_002A  -> B3 (this.width <= 0) | B4 (else)
+       IL_001B  ldarg.0
+       IL_001C  ldc.i4.m1
+       IL_001D  stfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>1__state'
+       IL_0022  ldarg.0
+       IL_0023  ldfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::width
+       IL_0028  ldc.i4.0
+       IL_0029  bgt.s      IL_0036
+  B3 IL_002B..IL_0035  -> throw
+       IL_002B  ldstr      "width"
+       IL_0030  newobj     instance void [netstandard]System.ArgumentOutOfRangeException::.ctor(string)
+       IL_0035  throw
+  B4 IL_0036..IL_006D  -> B12
+       IL_0036  ldarg.0
+       IL_0037  newobj     instance void [netstandard]System.Text.StringBuilder::.ctor()
+       IL_003C  stfld      class [netstandard]System.Text.StringBuilder Ref.NetStandard.TextUtil/<Wrap>d__3::'<line>5__2'
+       IL_0041  ldarg.0
+       IL_0042  ldarg.0
+       IL_0043  ldfld      string Ref.NetStandard.TextUtil/<Wrap>d__3::text
+       IL_0048  call       string Ref.NetStandard.TextUtil::CollapseSpaces(string)
+       IL_004D  ldc.i4.1
+       IL_004E  newarr     [netstandard]System.Char
+       IL_0053  dup
+       IL_0054  ldc.i4.0
+       IL_0055  ldc.i4.s   32
+       IL_0057  stelem.i2
+       IL_0058  callvirt   instance string[] [netstandard]System.String::Split(char[])
+       IL_005D  stfld      string[] Ref.NetStandard.TextUtil/<Wrap>d__3::'<>7__wrap2'
+       IL_0062  ldarg.0
+       IL_0063  ldc.i4.0
+       IL_0064  stfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>7__wrap3'
+       IL_0069  br         IL_0120
+  B5 IL_006E..IL_008E  -> B6 (this.<line>5__2.Length > 0) | B9 (else)
+       IL_006E  ldarg.0
+       IL_006F  ldarg.0
+       IL_0070  ldfld      string[] Ref.NetStandard.TextUtil/<Wrap>d__3::'<>7__wrap2'
+       IL_0075  ldarg.0
+       IL_0076  ldfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>7__wrap3'
+       IL_007B  ldelem.ref
+       IL_007C  stfld      string Ref.NetStandard.TextUtil/<Wrap>d__3::'<word>5__5'
+       IL_0081  ldarg.0
+       IL_0082  ldfld      class [netstandard]System.Text.StringBuilder Ref.NetStandard.TextUtil/<Wrap>d__3::'<line>5__2'
+       IL_0087  callvirt   instance int32 [netstandard]System.Text.StringBuilder::get_Length()
+       IL_008C  ldc.i4.0
+       IL_008D  ble.s      IL_00DD
+  B6 IL_008F..IL_00AF  -> B7 (this.<line>5__2.Length + 1 + this.<word>5__5.Length > this.width) | B9 (else)
+       IL_008F  ldarg.0
+       IL_0090  ldfld      class [netstandard]System.Text.StringBuilder Ref.NetStandard.TextUtil/<Wrap>d__3::'<line>5__2'
+       IL_0095  callvirt   instance int32 [netstandard]System.Text.StringBuilder::get_Length()
+       IL_009A  ldc.i4.1
+       IL_009B  add
+       IL_009C  ldarg.0
+       IL_009D  ldfld      string Ref.NetStandard.TextUtil/<Wrap>d__3::'<word>5__5'
+       IL_00A2  callvirt   instance int32 [netstandard]System.String::get_Length()
+       IL_00A7  add
+       IL_00A8  ldarg.0
+       IL_00A9  ldfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::width
+       IL_00AE  ble.s      IL_00DD
+  B7 IL_00B0..IL_00C9  -> exit
+       IL_00B0  ldarg.0
+       IL_00B1  ldarg.0
+       IL_00B2  ldfld      class [netstandard]System.Text.StringBuilder Ref.NetStandard.TextUtil/<Wrap>d__3::'<line>5__2'
+       IL_00B7  callvirt   instance string [netstandard]System.Object::ToString()
+       IL_00BC  stfld      string Ref.NetStandard.TextUtil/<Wrap>d__3::'<>2__current'
+       IL_00C1  ldarg.0
+       IL_00C2  ldc.i4.1
+       IL_00C3  stfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>1__state'
+       IL_00C8  ldc.i4.1
+       IL_00C9  ret
+  B8 IL_00CA..IL_00DC  -> B9
+       IL_00CA  ldarg.0
+       IL_00CB  ldc.i4.m1
+       IL_00CC  stfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>1__state'
+       IL_00D1  ldarg.0
+       IL_00D2  ldfld      class [netstandard]System.Text.StringBuilder Ref.NetStandard.TextUtil/<Wrap>d__3::'<line>5__2'
+       IL_00D7  callvirt   instance class [netstandard]System.Text.StringBuilder [netstandard]System.Text.StringBuilder::Clear()
+       IL_00DC  pop
+  B9 IL_00DD..IL_00EA  -> B10 (this.<line>5__2.Length > 0) | B11 (else)
+       IL_00DD  ldarg.0
+       IL_00DE  ldfld      class [netstandard]System.Text.StringBuilder Ref.NetStandard.TextUtil/<Wrap>d__3::'<line>5__2'
+       IL_00E3  callvirt   instance int32 [netstandard]System.Text.StringBuilder::get_Length()
+       IL_00E8  ldc.i4.0
+       IL_00E9  ble.s      IL_00F9
+  B10 IL_00EB..IL_00F8  -> B11
+       IL_00EB  ldarg.0
+       IL_00EC  ldfld      class [netstandard]System.Text.StringBuilder Ref.NetStandard.TextUtil/<Wrap>d__3::'<line>5__2'
+       IL_00F1  ldc.i4.s   32
+       IL_00F3  callvirt   instance class [netstandard]System.Text.StringBuilder [netstandard]System.Text.StringBuilder::Append(char)
+       IL_00F8  pop
+  B11 IL_00F9..IL_011F  -> B12 (loop)
+       IL_00F9  ldarg.0
+       IL_00FA  ldfld      class [netstandard]System.Text.StringBuilder Ref.NetStandard.TextUtil/<Wrap>d__3::'<line>5__2'
+       IL_00FF  ldarg.0
+       IL_0100  ldfld      string Ref.NetStandard.TextUtil/<Wrap>d__3::'<word>5__5'
+       IL_0105  callvirt   instance class [netstandard]System.Text.StringBuilder [netstandard]System.Text.StringBuilder::Append(string)
+       IL_010A  pop
+       IL_010B  ldarg.0
+       IL_010C  ldnull
+       IL_010D  stfld      string Ref.NetStandard.TextUtil/<Wrap>d__3::'<word>5__5'
+       IL_0112  ldarg.0
+       IL_0113  ldarg.0
+       IL_0114  ldfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>7__wrap3'
+       IL_0119  ldc.i4.1
+       IL_011A  add
+       IL_011B  stfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>7__wrap3'
+  B12 IL_0120..IL_0132  -> B5 (this.<>7__wrap3 < (int)this.<>7__wrap2.Length) | B13 (else)  [loop]
+       IL_0120  ldarg.0
+       IL_0121  ldfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>7__wrap3'
+       IL_0126  ldarg.0
+       IL_0127  ldfld      string[] Ref.NetStandard.TextUtil/<Wrap>d__3::'<>7__wrap2'
+       IL_012C  ldlen
+       IL_012D  conv.i4
+       IL_012E  blt        IL_006E
+  B13 IL_0133..IL_0147  -> B14 (this.<line>5__2.Length > 0) | B16 (else)
+       IL_0133  ldarg.0
+       IL_0134  ldnull
+       IL_0135  stfld      string[] Ref.NetStandard.TextUtil/<Wrap>d__3::'<>7__wrap2'
+       IL_013A  ldarg.0
+       IL_013B  ldfld      class [netstandard]System.Text.StringBuilder Ref.NetStandard.TextUtil/<Wrap>d__3::'<line>5__2'
+       IL_0140  callvirt   instance int32 [netstandard]System.Text.StringBuilder::get_Length()
+       IL_0145  ldc.i4.0
+       IL_0146  ble.s      IL_0169
+  B14 IL_0148..IL_0161  -> exit
+       IL_0148  ldarg.0
+       IL_0149  ldarg.0
+       IL_014A  ldfld      class [netstandard]System.Text.StringBuilder Ref.NetStandard.TextUtil/<Wrap>d__3::'<line>5__2'
+       IL_014F  callvirt   instance string [netstandard]System.Object::ToString()
+       IL_0154  stfld      string Ref.NetStandard.TextUtil/<Wrap>d__3::'<>2__current'
+       IL_0159  ldarg.0
+       IL_015A  ldc.i4.2
+       IL_015B  stfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>1__state'
+       IL_0160  ldc.i4.1
+       IL_0161  ret
+  B15 IL_0162..IL_0168  -> B16
+       IL_0162  ldarg.0
+       IL_0163  ldc.i4.m1
+       IL_0164  stfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>1__state'
+  B16 IL_0169..IL_016A  -> exit
+       IL_0169  ldc.i4.0
+       IL_016A  ret
+  loop: header B12, back edges from B11, body B0 B5 B6 B8 B9 B10 B11 B12
+  exits: B1 (return), B3 (throw), B7 (return), B14 (return), B16 (return)
+
+Method   : string System.Collections.Generic.IEnumerator<System.String>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2557   Size: 7 bytes   Token: 0x06000014
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      string Ref.NetStandard.TextUtil/<Wrap>d__3::'<>2__current'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x255F   Size: 6 bytes   Token: 0x06000015
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0005  -> throw
+       IL_0000  newobj     instance void [netstandard]System.NotSupportedException::.ctor()
+       IL_0005  throw
+  exits: B0 (throw)
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2566   Size: 7 bytes   Token: 0x06000016
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      string Ref.NetStandard.TextUtil/<Wrap>d__3::'<>2__current'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : IEnumerator<string> System.Collections.Generic.IEnumerable<System.String>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2570   Size: 67 bytes   Token: 0x06000017
+
+[Branches]  complexity=3  blocks=5  loops=0
+  B0 IL_0000..IL_0009  -> B1 (this.<>1__state == -2) | B3 (else)
+       IL_0000  ldarg.0
+       IL_0001  ldfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>1__state'
+       IL_0006  ldc.i4.s   -2
+       IL_0008  bne.un.s   IL_0022
+  B1 IL_000A..IL_0016  -> B2 (this.<>l__initialThreadId == Environment.CurrentManagedThreadId) | B3 (else)
+       IL_000A  ldarg.0
+       IL_000B  ldfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>l__initialThreadId'
+       IL_0010  call       int32 [netstandard]System.Environment::get_CurrentManagedThreadId()
+       IL_0015  bne.un.s   IL_0022
+  B2 IL_0017..IL_0021  -> B4
+       IL_0017  ldarg.0
+       IL_0018  ldc.i4.0
+       IL_0019  stfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>1__state'
+       IL_001E  ldarg.0
+       IL_001F  stloc.0
+       IL_0020  br.s       IL_0029
+  B3 IL_0022..IL_0028  -> B4
+       IL_0022  ldc.i4.0
+       IL_0023  newobj     instance void Ref.NetStandard.TextUtil/<Wrap>d__3::.ctor(int32)
+       IL_0028  stloc.0
+  B4 IL_0029..IL_0042  -> exit
+       IL_0029  ldloc.0
+       IL_002A  ldarg.0
+       IL_002B  ldfld      string Ref.NetStandard.TextUtil/<Wrap>d__3::'<>3__text'
+       IL_0030  stfld      string Ref.NetStandard.TextUtil/<Wrap>d__3::text
+       IL_0035  ldloc.0
+       IL_0036  ldarg.0
+       IL_0037  ldfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::'<>3__width'
+       IL_003C  stfld      int32 Ref.NetStandard.TextUtil/<Wrap>d__3::width
+       IL_0041  ldloc.0
+       IL_0042  ret
+  exits: B4 (return)
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x25BF   Size: 7 bytes   Token: 0x06000018
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance class [netstandard]System.Collections.Generic.IEnumerator`1<string> Ref.NetStandard.TextUtil/<Wrap>d__3::'System.Collections.Generic.IEnumerable<System.String>.GetEnumerator'()
+       IL_0006  ret
+  exits: B0 (return)
+
+Type     : Ref.NetStandard.CsvRow+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x25C7   Size: 11 bytes   Token: 0x06000019
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000A  -> exit
+       IL_0000  newobj     instance void Ref.NetStandard.CsvRow/<>c::.ctor()
+       IL_0005  stsfld     class Ref.NetStandard.CsvRow/<>c Ref.NetStandard.CsvRow/<>c::'<>9'
+       IL_000A  ret
+  exits: B0 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x25D3   Size: 7 bytes   Token: 0x0600001A
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [netstandard]System.Object::.ctor()
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : string <ToString>b__7_0(string f)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x25DB   Size: 59 bytes   Token: 0x0600001B
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0018  -> B1 (f.IndexOfAny(new Char[2]) < 0) | B2 (else)
+       IL_0000  ldarg.1
+       IL_0001  ldc.i4.2
+       IL_0002  newarr     [netstandard]System.Char
+       IL_0007  dup
+       IL_0008  ldc.i4.0
+       IL_0009  ldc.i4.s   44
+       IL_000B  stelem.i2
+       IL_000C  dup
+       IL_000D  ldc.i4.1
+       IL_000E  ldc.i4.s   34
+       IL_0010  stelem.i2
+       IL_0011  callvirt   instance int32 [netstandard]System.String::IndexOfAny(char[])
+       IL_0016  ldc.i4.0
+       IL_0017  bge.s      IL_001B
+  B1 IL_0019..IL_001A  -> exit
+       IL_0019  ldarg.1
+       IL_001A  ret
+  B2 IL_001B..IL_003A  -> exit
+       IL_001B  ldstr      "\""
+       IL_0020  ldarg.1
+       IL_0021  ldstr      "\""
+       IL_0026  ldstr      "\"\""
+       IL_002B  callvirt   instance string [netstandard]System.String::Replace(string, string)
+       IL_0030  ldstr      "\""
+       IL_0035  call       string [netstandard]System.String::Concat(string, string, string)
+       IL_003A  ret
+  exits: B1 (return), B2 (return)

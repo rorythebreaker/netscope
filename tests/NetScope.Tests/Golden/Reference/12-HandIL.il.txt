@@ -1,0 +1,213 @@
+Assembly : Ref12.HandIL.dll
+Name     : Ref12.HandIL, Version=1.0.0.0
+Runtime  : v4.0.30319   Machine: anycpu
+Methods  : 10
+
+Type     : Ref.HandIL.Constructs
+
+Method   : int WithFault(int x)
+Kind     : static, public
+RVA      : 0x2050   Size: 31 bytes   Token: 0x06000001
+
+[IL]  .maxstack 2
+  .locals init ([0] int32 V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.0
+  IL_0002  bge.s      IL_000A
+  IL_0004  newobj     instance void [System.Runtime]System.ArgumentOutOfRangeException::.ctor()
+  IL_0009  throw
+  IL_000A  ldarg.0
+  IL_000B  ldc.i4.2
+  IL_000C  mul
+  IL_000D  stloc.0
+  IL_000E  leave.s    IL_001D
+  IL_0010  ldsfld     int32 Ref.HandIL.Constructs::Cleanups
+  IL_0015  ldc.i4.1
+  IL_0016  add
+  IL_0017  stsfld     int32 Ref.HandIL.Constructs::Cleanups
+  IL_001C  endfinally
+  IL_001D  ldloc.0
+  IL_001E  ret
+  .try IL_0000 to IL_0010 fault handler IL_0010 to IL_001D
+
+Method   : int WithFilter(string s)
+Kind     : static, public
+RVA      : 0x208C   Size: 40 bytes   Token: 0x06000002
+
+[IL]  .maxstack 2
+  .locals init ([0] int32 V_0)
+  IL_0000  ldarg.0
+  IL_0001  call       int32 [System.Runtime]System.Int32::Parse(string)
+  IL_0006  stloc.0
+  IL_0007  leave.s    IL_0026
+  IL_0009  isinst     [System.Runtime]System.FormatException
+  IL_000E  dup
+  IL_000F  brtrue.s   IL_0015
+  IL_0011  pop
+  IL_0012  ldc.i4.0
+  IL_0013  br.s       IL_001F
+  IL_0015  pop
+  IL_0016  ldarg.0
+  IL_0017  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+  IL_001C  ldc.i4.0
+  IL_001D  cgt
+  IL_001F  endfilter
+  IL_0021  pop
+  IL_0022  ldc.i4.m1
+  IL_0023  stloc.0
+  IL_0024  leave.s    IL_0026
+  IL_0026  ldloc.0
+  IL_0027  ret
+  .try IL_0000 to IL_0009 filter IL_0009 handler IL_0021 to IL_0026
+
+Method   : int NestedInHandlers(int x)
+Kind     : static, public
+RVA      : 0x20D0   Size: 38 bytes   Token: 0x06000003
+
+[IL]  .maxstack 2
+  .locals init ([0] int32 V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.0
+  IL_0002  div
+  IL_0003  stloc.0
+  IL_0004  leave.s    IL_0010
+  IL_0006  pop
+  IL_0007  ldc.i4.7
+  IL_0008  stloc.0
+  IL_0009  leave.s    IL_000E
+  IL_000B  ldc.i4.0
+  IL_000C  stloc.0
+  IL_000D  endfinally
+  IL_000E  leave.s    IL_0010
+  IL_0010  leave.s    IL_0024
+  IL_0012  ldsfld     int32 Ref.HandIL.Constructs::Cleanups
+  IL_0017  ldc.i4.1
+  IL_0018  add
+  IL_0019  stsfld     int32 Ref.HandIL.Constructs::Cleanups
+  IL_001E  leave.s    IL_0023
+  IL_0020  pop
+  IL_0021  leave.s    IL_0023
+  IL_0023  endfinally
+  IL_0024  ldloc.0
+  IL_0025  ret
+  .try IL_0007 to IL_000B fault handler IL_000B to IL_000E
+  .try IL_0000 to IL_0006 catch [System.Runtime]System.DivideByZeroException handler IL_0006 to IL_0010
+  .try IL_0012 to IL_0020 catch [System.Runtime]System.Object handler IL_0020 to IL_0023
+  .try IL_0000 to IL_0012 finally handler IL_0012 to IL_0024
+
+Method   : int JumpTarget(int x)
+Kind     : static, public
+RVA      : 0x2138   Size: 5 bytes   Token: 0x06000004
+
+[IL]  .maxstack 2
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.s   10
+  IL_0003  add
+  IL_0004  ret
+
+Method   : int Jumper(int x)
+Kind     : static, public
+RVA      : 0x2149   Size: 5 bytes   Token: 0x06000005
+
+[IL]  .maxstack 8
+  IL_0000  jmp        int32 Ref.HandIL.Constructs::JumpTarget(int32)
+
+Method   : long Factorial(int n, long acc)
+Kind     : static, public
+RVA      : 0x2150   Size: 21 bytes   Token: 0x06000006
+
+[IL]  .maxstack 3
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.1
+  IL_0002  bgt.s      IL_0006
+  IL_0004  ldarg.1
+  IL_0005  ret
+  IL_0006  ldarg.0
+  IL_0007  ldc.i4.1
+  IL_0008  sub
+  IL_0009  ldarg.1
+  IL_000A  ldarg.0
+  IL_000B  conv.i8
+  IL_000C  mul
+  IL_000D  tail.
+  IL_000F  call       int64 Ref.HandIL.Constructs::Factorial(int32, int64)
+  IL_0014  ret
+
+Method   : string SwitchFallThrough(int x)
+Kind     : static, public
+RVA      : 0x2174   Size: 40 bytes   Token: 0x06000007
+
+[IL]  .maxstack 1
+  IL_0000  ldarg.0
+  IL_0001  switch     (IL_0016, IL_001C, IL_0022, IL_001C)
+  IL_0016  ldstr      "zero or out of range"
+  IL_001B  ret
+  IL_001C  ldstr      "one or three"
+  IL_0021  ret
+  IL_0022  ldstr      "two"
+  IL_0027  ret
+
+Method   : int SwitchLoop(int[] ops)
+Kind     : static, public
+RVA      : 0x21A8   Size: 54 bytes   Token: 0x06000008
+
+[IL]  .maxstack 3
+  .locals init ([0] int32 V_0, [1] int32 V_1)
+  IL_0000  ldc.i4.0
+  IL_0001  stloc.0
+  IL_0002  ldc.i4.0
+  IL_0003  stloc.1
+  IL_0004  br.s       IL_002E
+  IL_0006  ldarg.0
+  IL_0007  ldloc.1
+  IL_0008  ldelem.i4
+  IL_0009  switch     (IL_0020, IL_0026, IL_002A)
+  IL_001A  ldloc.0
+  IL_001B  ldc.i4.1
+  IL_001C  sub
+  IL_001D  stloc.0
+  IL_001E  br.s       IL_002A
+  IL_0020  ldloc.0
+  IL_0021  ldc.i4.1
+  IL_0022  add
+  IL_0023  stloc.0
+  IL_0024  br.s       IL_002A
+  IL_0026  ldloc.0
+  IL_0027  ldc.i4.2
+  IL_0028  mul
+  IL_0029  stloc.0
+  IL_002A  ldloc.1
+  IL_002B  ldc.i4.1
+  IL_002C  add
+  IL_002D  stloc.1
+  IL_002E  ldloc.1
+  IL_002F  ldarg.0
+  IL_0030  ldlen
+  IL_0031  conv.i4
+  IL_0032  blt.s      IL_0006
+  IL_0034  ldloc.0
+  IL_0035  ret
+
+Method   : void Rethrows()
+Kind     : static, public
+RVA      : 0x21EC   Size: 13 bytes   Token: 0x06000009
+
+[IL]  .maxstack 1
+  IL_0000  newobj     instance void [System.Runtime]System.InvalidOperationException::.ctor()
+  IL_0005  throw
+  IL_0006  pop
+  IL_0007  rethrow
+  IL_0009  br.s       IL_000C
+  IL_000B  nop
+  IL_000C  ret
+  .try IL_0000 to IL_0006 catch [System.Runtime]System.InvalidOperationException handler IL_0006 to IL_0009
+
+Method   : int IndirectCall(int x)
+Kind     : static, public
+RVA      : 0x2218   Size: 13 bytes   Token: 0x0600000A
+
+[IL]  .maxstack 2
+  IL_0000  ldarg.0
+  IL_0001  ldftn      int32 Ref.HandIL.Constructs::JumpTarget(int32)
+  IL_0007  calli      int32(int32)
+  IL_000C  ret

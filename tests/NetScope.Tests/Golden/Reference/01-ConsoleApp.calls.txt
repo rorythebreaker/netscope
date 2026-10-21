@@ -1,0 +1,279 @@
+Assembly : Ref01.ConsoleApp.dll
+Name     : Ref01.ConsoleApp, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 21
+
+Type     : Ref.ConsoleApp.Program
+
+Method   : int Main(string[] args)
+Kind     : static, private, entry-point
+RVA      : 0x2050   Size: 284 bytes   Token: 0x06000001
+
+[Calls]
+  IL_0001  call      Ref.ConsoleApp.Options::Parse(string[])                                                           internal
+  IL_0008  callvirt  Ref.ConsoleApp.Options::get_ShowHelp()                                                            internal
+  IL_0014  call      System.Console::WriteLine(string)                                                                 external System.Console
+  IL_001C  callvirt  Ref.ConsoleApp.Options::get_Error()                                                               internal
+  IL_0023  call      System.Console::get_Error()                                                                       external System.Console
+  IL_0029  callvirt  Ref.ConsoleApp.Options::get_Error()                                                               internal
+  IL_002E  callvirt  System.IO.TextWriter::WriteLine(string)                                                           external System.Runtime
+  IL_0036  callvirt  Ref.ConsoleApp.Options::get_IgnoreCase()                                                          internal
+  IL_003B  newobj    Ref.ConsoleApp.WordCounter::.ctor(bool)                                                           internal
+  IL_0042  callvirt  Ref.ConsoleApp.Options::get_Files()                                                               internal
+  IL_0047  callvirt  System.Collections.Generic.List<string>::GetEnumerator()                                          external System.Collections
+  IL_0051  call      System.Collections.Generic.List.Enumerator<string>::get_Current()                                 external System.Collections
+  IL_0058  call      System.IO.File::Exists(string)                                                                    external System.Runtime
+  IL_005F  call      System.Console::get_Error()                                                                       external System.Console
+  IL_006A  call      System.String::Concat(string, string)                                                             external System.Runtime
+  IL_006F  callvirt  System.IO.TextWriter::WriteLine(string)                                                           external System.Runtime
+  IL_007E  call      System.IO.File::ReadAllText(string)                                                               external System.Runtime
+  IL_0083  callvirt  Ref.ConsoleApp.WordCounter::Add(string)                                                           internal
+  IL_008A  call      System.Collections.Generic.List.Enumerator<string>::MoveNext()                                    external System.Collections
+  IL_009B  callvirt  System.IDisposable::Dispose()                                                                     external System.Runtime
+  IL_00A3  callvirt  Ref.ConsoleApp.Options::get_Top()                                                                 internal
+  IL_00A8  callvirt  Ref.ConsoleApp.WordCounter::Top(int)                                                              internal
+  IL_00AD  callvirt  System.Collections.Generic.IEnumerable<System.ValueTuple<string, int>>::GetEnumerator()           external System.Runtime
+  IL_00B8  callvirt  System.Collections.Generic.IEnumerator<System.ValueTuple<string, int>>::get_Current()             external System.Runtime
+  IL_00CE  newobj    System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int, int)                 external System.Runtime
+  IL_00DA  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<int>(int, int)  external System.Runtime
+  IL_00E6  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)           external System.Runtime
+  IL_00EF  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(string)         external System.Runtime
+  IL_00F6  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()              external System.Runtime
+  IL_00FB  call      System.Console::WriteLine(string)                                                                 external System.Console
+  IL_0102  callvirt  System.Collections.IEnumerator::MoveNext()                                                        external System.Runtime
+  IL_0111  callvirt  System.IDisposable::Dispose()                                                                     external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.ConsoleApp.Options
+
+Method   : bool get_ShowHelp()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2194   Size: 7 bytes   Token: 0x06000002
+
+[Calls]
+  (none)
+[Callers]
+  Ref.ConsoleApp.Program::Main  IL_0008  callvirt  (Ref01.ConsoleApp.dll)
+  Ref.ConsoleApp.Options::Parse  IL_00E6  callvirt  (Ref01.ConsoleApp.dll)
+
+Method   : void set_ShowHelp(bool value)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x219C   Size: 8 bytes   Token: 0x06000003
+
+[Calls]
+  (none)
+[Callers]
+  Ref.ConsoleApp.Options::Parse  IL_0056  callvirt  (Ref01.ConsoleApp.dll)
+
+Method   : bool get_IgnoreCase()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x21A5   Size: 7 bytes   Token: 0x06000004
+
+[Calls]
+  (none)
+[Callers]
+  Ref.ConsoleApp.Program::Main  IL_0036  callvirt  (Ref01.ConsoleApp.dll)
+
+Method   : void set_IgnoreCase(bool value)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x21AD   Size: 8 bytes   Token: 0x06000005
+
+[Calls]
+  (none)
+[Callers]
+  Ref.ConsoleApp.Options::Parse  IL_005F  callvirt  (Ref01.ConsoleApp.dll)
+
+Method   : int get_Top()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x21B6   Size: 7 bytes   Token: 0x06000006
+
+[Calls]
+  (none)
+[Callers]
+  Ref.ConsoleApp.Program::Main  IL_00A3  callvirt  (Ref01.ConsoleApp.dll)
+
+Method   : void set_Top(int value)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x21BE   Size: 8 bytes   Token: 0x06000007
+
+[Calls]
+  (none)
+[Callers]
+  Ref.ConsoleApp.Options::Parse  IL_0091  callvirt  (Ref01.ConsoleApp.dll)
+
+Method   : string get_Error()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x21C7   Size: 7 bytes   Token: 0x06000008
+
+[Calls]
+  (none)
+[Callers]
+  Ref.ConsoleApp.Program::Main  IL_001C  callvirt  (Ref01.ConsoleApp.dll)
+  Ref.ConsoleApp.Program::Main  IL_0029  callvirt  (Ref01.ConsoleApp.dll)
+
+Method   : void set_Error(string value)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x21CF   Size: 8 bytes   Token: 0x06000009
+
+[Calls]
+  (none)
+[Callers]
+  Ref.ConsoleApp.Options::Parse  IL_0088  callvirt  (Ref01.ConsoleApp.dll)
+  Ref.ConsoleApp.Options::Parse  IL_00B6  callvirt  (Ref01.ConsoleApp.dll)
+  Ref.ConsoleApp.Options::Parse  IL_00F3  callvirt  (Ref01.ConsoleApp.dll)
+
+Method   : List<string> get_Files()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x21D8   Size: 7 bytes   Token: 0x0600000A
+
+[Calls]
+  (none)
+[Callers]
+  Ref.ConsoleApp.Program::Main  IL_0042  callvirt  (Ref01.ConsoleApp.dll)
+  Ref.ConsoleApp.Options::Parse  IL_00BE  callvirt  (Ref01.ConsoleApp.dll)
+  Ref.ConsoleApp.Options::Parse  IL_00D9  callvirt  (Ref01.ConsoleApp.dll)
+
+Method   : Options Parse(string[] args)
+Kind     : static, public
+RVA      : 0x21E0   Size: 250 bytes   Token: 0x0600000B
+
+[Calls]
+  IL_0000  newobj    Ref.ConsoleApp.Options::.ctor()                       internal
+  IL_0017  call      System.String::op_Equality(string, string)            external System.Runtime
+  IL_0024  call      System.String::op_Equality(string, string)            external System.Runtime
+  IL_0031  call      System.String::op_Equality(string, string)            external System.Runtime
+  IL_003E  call      System.String::op_Equality(string, string)            external System.Runtime
+  IL_004B  call      System.String::op_Equality(string, string)            external System.Runtime
+  IL_0056  callvirt  Ref.ConsoleApp.Options::set_ShowHelp(bool)            internal
+  IL_005F  callvirt  Ref.ConsoleApp.Options::set_IgnoreCase(bool)          internal
+  IL_0077  call      System.Int32::TryParse(string, ref int)               external System.Runtime
+  IL_0088  callvirt  Ref.ConsoleApp.Options::set_Error(string)             internal
+  IL_0091  callvirt  Ref.ConsoleApp.Options::set_Top(int)                  internal
+  IL_00A1  callvirt  System.String::StartsWith(string, StringComparison)   external System.Runtime
+  IL_00B1  call      System.String::Concat(string, string)                 external System.Runtime
+  IL_00B6  callvirt  Ref.ConsoleApp.Options::set_Error(string)             internal
+  IL_00BE  callvirt  Ref.ConsoleApp.Options::get_Files()                   internal
+  IL_00C6  callvirt  System.Collections.Generic.List<string>::Add(string)  external System.Collections
+  IL_00D9  callvirt  Ref.ConsoleApp.Options::get_Files()                   internal
+  IL_00DE  callvirt  System.Collections.Generic.List<string>::get_Count()  external System.Collections
+  IL_00E6  callvirt  Ref.ConsoleApp.Options::get_ShowHelp()                internal
+  IL_00F3  callvirt  Ref.ConsoleApp.Options::set_Error(string)             internal
+[Callers]
+  Ref.ConsoleApp.Program::Main  IL_0001  call  (Ref01.ConsoleApp.dll)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x22E6   Size: 26 bytes   Token: 0x0600000C
+
+[Calls]
+  IL_0009  newobj    System.Collections.Generic.List<string>::.ctor()  external System.Collections
+  IL_0014  call      System.Object::.ctor()                            external System.Runtime
+[Callers]
+  Ref.ConsoleApp.Options::Parse  IL_0000  newobj  (Ref01.ConsoleApp.dll)
+
+Type     : Ref.ConsoleApp.WordCounter
+
+Method   : void .ctor(bool ignoreCase)
+Kind     : ctor, instance, public
+RVA      : 0x2301   Size: 33 bytes   Token: 0x0600000D
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()                                                                external System.Runtime
+  IL_000A  call      System.StringComparer::get_Ordinal()                                                  external System.Runtime
+  IL_0011  call      System.StringComparer::get_OrdinalIgnoreCase()                                        external System.Runtime
+  IL_0016  newobj    System.Collections.Generic.Dictionary<string, int>::.ctor(IEqualityComparer<string>)  external System.Collections
+[Callers]
+  Ref.ConsoleApp.Program::Main  IL_003B  newobj  (Ref01.ConsoleApp.dll)
+
+Method   : int get_Distinct()
+Kind     : property-get, instance, public
+RVA      : 0x2323   Size: 12 bytes   Token: 0x0600000E
+
+[Calls]
+  IL_0006  callvirt  System.Collections.Generic.Dictionary<string, int>::get_Count()  external System.Collections
+[Callers]
+  (none in the input files)
+
+Method   : void Add(string text)
+Kind     : instance, public
+RVA      : 0x2330   Size: 111 bytes   Token: 0x0600000F
+
+[Calls]
+  IL_0008  callvirt  System.String::get_Length()                                                       external System.Runtime
+  IL_0011  callvirt  System.String::get_Chars(int)                                                     external System.Runtime
+  IL_0016  call      System.Char::IsLetter(char)                                                       external System.Runtime
+  IL_0036  callvirt  System.String::Substring(int, int)                                                external System.Runtime
+  IL_004C  callvirt  System.Collections.Generic.Dictionary<string, int>::TryGetValue(string, ref int)  external System.Collections
+  IL_005A  callvirt  System.Collections.Generic.Dictionary<string, int>::set_Item(string, int)         external System.Collections
+  IL_0067  callvirt  System.String::get_Length()                                                       external System.Runtime
+[Callers]
+  Ref.ConsoleApp.Program::Main  IL_0083  callvirt  (Ref01.ConsoleApp.dll)
+
+Method   : IEnumerable<ValueTuple<string, int>> Top(int n)
+Kind     : instance, public
+RVA      : 0x23AC   Size: 126 bytes   Token: 0x06000010
+
+[Calls]
+  IL_0014  ldftn     Ref.ConsoleApp.WordCounter.<>c::<Top>b__5_0(KeyValuePair<string, int>)                                                                                                                internal
+  IL_001A  newobj    System.Func<System.Collections.Generic.KeyValuePair<string, int>, int>::.ctor(object, nint)                                                                                           external System.Runtime
+  IL_0025  call      System.Linq.Enumerable::OrderByDescending<KeyValuePair<string, int>, int>(IEnumerable<KeyValuePair<string, int>>, Func<KeyValuePair<string, int>, int>)                               external System.Linq
+  IL_0038  ldftn     Ref.ConsoleApp.WordCounter.<>c::<Top>b__5_1(KeyValuePair<string, int>)                                                                                                                internal
+  IL_003E  newobj    System.Func<System.Collections.Generic.KeyValuePair<string, int>, string>::.ctor(object, nint)                                                                                        external System.Runtime
+  IL_0049  call      System.StringComparer::get_Ordinal()                                                                                                                                                  external System.Runtime
+  IL_004E  call      System.Linq.Enumerable::ThenBy<KeyValuePair<string, int>, string>(IOrderedEnumerable<KeyValuePair<string, int>>, Func<KeyValuePair<string, int>, string>, IComparer<string>)          external System.Linq
+  IL_0054  call      System.Linq.Enumerable::Take<KeyValuePair<string, int>>(IEnumerable<KeyValuePair<string, int>>, int)                                                                                  external System.Linq
+  IL_0067  ldftn     Ref.ConsoleApp.WordCounter.<>c::<Top>b__5_2(KeyValuePair<string, int>)                                                                                                                internal
+  IL_006D  newobj    System.Func<System.Collections.Generic.KeyValuePair<string, int>, System.ValueTuple<string, int>>::.ctor(object, nint)                                                                external System.Runtime
+  IL_0078  call      System.Linq.Enumerable::Select<KeyValuePair<string, int>, ValueTuple<string, int>>(IEnumerable<KeyValuePair<string, int>>, Func<KeyValuePair<string, int>, ValueTuple<string, int>>)  external System.Linq
+[Callers]
+  Ref.ConsoleApp.Program::Main  IL_00A8  callvirt  (Ref01.ConsoleApp.dll)
+
+Type     : Ref.ConsoleApp.WordCounter+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2436   Size: 11 bytes   Token: 0x06000011
+
+[Calls]
+  IL_0000  newobj    Ref.ConsoleApp.WordCounter.<>c::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2442   Size: 7 bytes   Token: 0x06000012
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  Ref.ConsoleApp.WordCounter+<>c::.cctor  IL_0000  newobj  (Ref01.ConsoleApp.dll)
+
+Method   : int <Top>b__5_0(KeyValuePair<string, int> p)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x244A   Size: 8 bytes   Token: 0x06000013
+
+[Calls]
+  IL_0002  call      System.Collections.Generic.KeyValuePair<string, int>::get_Value()  external System.Runtime
+[Callers]
+  Ref.ConsoleApp.WordCounter::Top  IL_0014  ldftn  (Ref01.ConsoleApp.dll)
+
+Method   : string <Top>b__5_1(KeyValuePair<string, int> p)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2453   Size: 8 bytes   Token: 0x06000014
+
+[Calls]
+  IL_0002  call      System.Collections.Generic.KeyValuePair<string, int>::get_Key()  external System.Runtime
+[Callers]
+  Ref.ConsoleApp.WordCounter::Top  IL_0038  ldftn  (Ref01.ConsoleApp.dll)
+
+Method   : ValueTuple<string, int> <Top>b__5_2(KeyValuePair<string, int> p)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x245C   Size: 20 bytes   Token: 0x06000015
+
+[Calls]
+  IL_0002  call      System.Collections.Generic.KeyValuePair<string, int>::get_Key()    external System.Runtime
+  IL_0009  call      System.Collections.Generic.KeyValuePair<string, int>::get_Value()  external System.Runtime
+  IL_000E  newobj    System.ValueTuple<string, int>::.ctor(string, int)                 external System.Runtime
+[Callers]
+  Ref.ConsoleApp.WordCounter::Top  IL_0067  ldftn  (Ref01.ConsoleApp.dll)

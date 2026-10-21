@@ -1,0 +1,268 @@
+Assembly : Ref04.NetFx48.dll
+Name     : Ref04.NetFx48, Version=1.0.0.0
+Runtime  : .NETFramework,Version=v4.8   Machine: anycpu
+Methods  : 22
+
+Type     : Ref.NetFx48.SettingsException
+
+Method   : void .ctor(string key)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 25 bytes   Token: 0x06000001
+
+[Calls]
+  IL_0007  call      System.String::Concat(string, string)  external mscorlib
+  IL_000C  call      System.Exception::.ctor(string)        external mscorlib
+[Callers]
+  Ref.NetFx48.AppSettings::get_Item  IL_0015  newobj  (Ref04.NetFx48.dll)
+
+Method   : void .ctor(SerializationInfo info, StreamingContext context)
+Kind     : ctor, instance, protected
+RVA      : 0x206A   Size: 26 bytes   Token: 0x06000002
+
+[Calls]
+  IL_0003  call      System.Exception::.ctor(SerializationInfo, StreamingContext)       external mscorlib
+  IL_000F  callvirt  System.Runtime.Serialization.SerializationInfo::GetString(string)  external mscorlib
+[Callers]
+  (none in the input files)
+
+Method   : string get_Key()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2085   Size: 7 bytes   Token: 0x06000003
+
+[Calls]
+  (none)
+[Callers]
+  Ref.NetFx48.SettingsException::GetObjectData  IL_000F  call  (Ref04.NetFx48.dll)
+
+Method   : void GetObjectData(SerializationInfo info, StreamingContext context)
+Kind     : instance, public, override
+RVA      : 0x208D   Size: 26 bytes   Token: 0x06000004
+
+[Calls]
+  IL_0003  call      System.Exception::GetObjectData(SerializationInfo, StreamingContext)      external mscorlib
+  IL_000F  call      Ref.NetFx48.SettingsException::get_Key()                                  internal
+  IL_0014  callvirt  System.Runtime.Serialization.SerializationInfo::AddValue(string, object)  external mscorlib
+[Callers]
+  (none in the input files)
+
+Type     : Ref.NetFx48.AppSettings
+
+Method   : AppSettings FromConfiguration()
+Kind     : static, public
+RVA      : 0x20A8   Size: 60 bytes   Token: 0x06000005
+
+[Calls]
+  IL_0000  newobj    Ref.NetFx48.AppSettings::.ctor()                                      internal
+  IL_0006  call      System.Configuration.ConfigurationManager::get_AppSettings()          external System.Configuration
+  IL_000B  callvirt  System.Collections.Specialized.NameValueCollection::get_AllKeys()     external System
+  IL_0020  call      System.Configuration.ConfigurationManager::get_AppSettings()          external System.Configuration
+  IL_0026  callvirt  System.Collections.Specialized.NameValueCollection::get_Item(string)  external System
+  IL_002B  callvirt  System.Collections.Hashtable::set_Item(object, object)                external mscorlib
+[Callers]
+  (none in the input files)
+
+Method   : AppSettings FromXml(string xml)
+Kind     : static, public
+RVA      : 0x20F0   Size: 161 bytes   Token: 0x06000006
+
+[Calls]
+  IL_0000  newobj    System.Xml.XmlDocument::.ctor()                         external System.Xml
+  IL_0007  callvirt  System.Xml.XmlDocument::LoadXml(string)                 external System.Xml
+  IL_000C  newobj    Ref.NetFx48.AppSettings::.ctor()                        internal
+  IL_0017  callvirt  System.Xml.XmlNode::SelectNodes(string)                 external System.Xml
+  IL_001C  callvirt  System.Xml.XmlNodeList::GetEnumerator()                 external System.Xml
+  IL_0025  callvirt  System.Collections.IEnumerator::get_Current()           external mscorlib
+  IL_0031  callvirt  System.Xml.XmlNode::get_Attributes()                    external System.Xml
+  IL_003B  callvirt  System.Xml.XmlAttributeCollection::get_ItemOf(string)   external System.Xml
+  IL_0047  callvirt  System.Xml.XmlNode::get_Value()                         external System.Xml
+  IL_0058  callvirt  System.Xml.XmlNode::get_Attributes()                    external System.Xml
+  IL_0062  callvirt  System.Xml.XmlAttributeCollection::get_ItemOf(string)   external System.Xml
+  IL_006E  callvirt  System.Xml.XmlNode::get_Value()                         external System.Xml
+  IL_007C  callvirt  System.Collections.Hashtable::set_Item(object, object)  external mscorlib
+  IL_0082  callvirt  System.Collections.IEnumerator::MoveNext()              external mscorlib
+  IL_0099  callvirt  System.IDisposable::Dispose()                           external mscorlib
+[Callers]
+  (none in the input files)
+
+Method   : string get_Item(string key)
+Kind     : property-get, instance, public
+RVA      : 0x21B0   Size: 28 bytes   Token: 0x06000007
+
+[Calls]
+  IL_0007  callvirt  System.Collections.Hashtable::get_Item(object)  external mscorlib
+  IL_0015  newobj    Ref.NetFx48.SettingsException::.ctor(string)    internal
+[Callers]
+  (none in the input files)
+
+Method   : void set_Item(string key, string value)
+Kind     : property-set, instance, public
+RVA      : 0x21CD   Size: 14 bytes   Token: 0x06000008
+
+[Calls]
+  IL_0008  callvirt  System.Collections.Hashtable::set_Item(object, object)  external mscorlib
+[Callers]
+  (none in the input files)
+
+Method   : int GetInt(string key, int fallback)
+Kind     : instance, public
+RVA      : 0x21DC   Size: 44 bytes   Token: 0x06000009
+
+[Calls]
+  IL_0007  callvirt  System.Collections.Hashtable::ContainsKey(object)  external mscorlib
+  IL_0015  callvirt  System.Collections.Hashtable::get_Item(object)     external mscorlib
+  IL_0021  call      System.Int32::TryParse(string, ref int)            external mscorlib
+[Callers]
+  (none in the input files)
+
+Method   : object Clone()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x2214   Size: 86 bytes   Token: 0x0600000A
+
+[Calls]
+  IL_0000  newobj    Ref.NetFx48.AppSettings::.ctor()                        internal
+  IL_000C  callvirt  System.Collections.Hashtable::GetEnumerator()           external mscorlib
+  IL_0015  callvirt  System.Collections.IEnumerator::get_Current()           external mscorlib
+  IL_0028  call      System.Collections.DictionaryEntry::get_Key()           external mscorlib
+  IL_002F  call      System.Collections.DictionaryEntry::get_Value()         external mscorlib
+  IL_0034  callvirt  System.Collections.Hashtable::set_Item(object, object)  external mscorlib
+  IL_003A  callvirt  System.Collections.IEnumerator::MoveNext()              external mscorlib
+  IL_004E  callvirt  System.IDisposable::Dispose()                           external mscorlib
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2288   Size: 23 bytes   Token: 0x0600000B
+
+[Calls]
+  IL_0001  call      System.StringComparer::get_OrdinalIgnoreCase()          external mscorlib
+  IL_0006  newobj    System.Collections.Hashtable::.ctor(IEqualityComparer)  external mscorlib
+  IL_0011  call      System.Object::.ctor()                                  external mscorlib
+[Callers]
+  Ref.NetFx48.AppSettings::FromConfiguration  IL_0000  newobj  (Ref04.NetFx48.dll)
+  Ref.NetFx48.AppSettings::FromXml  IL_000C  newobj  (Ref04.NetFx48.dll)
+  Ref.NetFx48.AppSettings::Clone  IL_0000  newobj  (Ref04.NetFx48.dll)
+
+Type     : Ref.NetFx48.WorkCompleted
+
+Method   : void .ctor(object object, nint method)
+Kind     : ctor, instance, public, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000C
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void Invoke(object sender, int processed)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000D
+
+[Calls]
+  (none)
+[Callers]
+  Ref.NetFx48.BackgroundCounter::OnCompleted  IL_000D  callvirt  (Ref04.NetFx48.dll)
+
+Method   : IAsyncResult BeginInvoke(object sender, int processed, AsyncCallback callback, object object)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000E
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void EndInvoke(IAsyncResult result)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000F
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.NetFx48.BackgroundCounter
+
+Method   : void add_Completed(WorkCompleted value)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x22A0   Size: 41 bytes   Token: 0x06000010
+
+[Calls]
+  IL_000B  call      System.Delegate::Combine(Delegate, Delegate)                                                                   external mscorlib
+  IL_001E  call      System.Threading.Interlocked::CompareExchange<WorkCompleted>(ref WorkCompleted, WorkCompleted, WorkCompleted)  external mscorlib
+[Callers]
+  (none in the input files)
+
+Method   : void remove_Completed(WorkCompleted value)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x22D8   Size: 41 bytes   Token: 0x06000011
+
+[Calls]
+  IL_000B  call      System.Delegate::Remove(Delegate, Delegate)                                                                    external mscorlib
+  IL_001E  call      System.Threading.Interlocked::CompareExchange<WorkCompleted>(ref WorkCompleted, WorkCompleted, WorkCompleted)  external mscorlib
+[Callers]
+  (none in the input files)
+
+Method   : void Run(IList<string> items)
+Kind     : instance, public
+RVA      : 0x2310   Size: 166 bytes   Token: 0x06000012
+
+[Calls]
+  IL_0000  newobj    Ref.NetFx48.BackgroundCounter.<>c__DisplayClass5_0::.ctor()            internal
+  IL_000F  callvirt  System.Collections.Generic.ICollection<string>::get_Count()            external mscorlib
+  IL_0023  newobj    System.Threading.ManualResetEvent::.ctor(bool)                         external mscorlib
+  IL_002E  callvirt  System.Collections.Generic.IEnumerable<string>::GetEnumerator()        external mscorlib
+  IL_0037  callvirt  System.Collections.Generic.IEnumerator<string>::get_Current()          external mscorlib
+  IL_0049  ldftn     Ref.NetFx48.BackgroundCounter.<>c__DisplayClass5_0::<Run>b__0(object)  internal
+  IL_004F  newobj    System.Threading.WaitCallback::.ctor(object, nint)                     external mscorlib
+  IL_005D  call      System.Threading.ThreadPool::QueueUserWorkItem(WaitCallback, object)   external mscorlib
+  IL_0064  callvirt  System.Collections.IEnumerator::MoveNext()                             external mscorlib
+  IL_0071  callvirt  System.IDisposable::Dispose()                                          external mscorlib
+  IL_007D  callvirt  System.Threading.WaitHandle::WaitOne()                                 external mscorlib
+  IL_0093  callvirt  System.IDisposable::Dispose()                                          external mscorlib
+  IL_00A0  callvirt  Ref.NetFx48.BackgroundCounter::OnCompleted(int)                        internal
+[Callers]
+  (none in the input files)
+
+Method   : void OnCompleted(int processed)
+Kind     : instance, protected, virtual
+RVA      : 0x23E0   Size: 19 bytes   Token: 0x06000013
+
+[Calls]
+  IL_000D  callvirt  Ref.NetFx48.WorkCompleted::Invoke(object, int)  internal
+[Callers]
+  Ref.NetFx48.BackgroundCounter::Run  IL_00A0  callvirt  (Ref04.NetFx48.dll)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x23FF   Size: 18 bytes   Token: 0x06000014
+
+[Calls]
+  IL_0001  newobj    System.Object::.ctor()  external mscorlib
+  IL_000C  call      System.Object::.ctor()  external mscorlib
+[Callers]
+  (none in the input files)
+
+Type     : Ref.NetFx48.BackgroundCounter+<>c__DisplayClass5_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2412   Size: 7 bytes   Token: 0x06000015
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external mscorlib
+[Callers]
+  Ref.NetFx48.BackgroundCounter::Run  IL_0000  newobj  (Ref04.NetFx48.dll)
+
+Method   : void <Run>b__0(object state)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x241C   Size: 97 bytes   Token: 0x06000016
+
+[Calls]
+  IL_0011  call      System.Threading.Monitor::Enter(object, ref bool)  external mscorlib
+  IL_001C  call      System.String::IsNullOrEmpty(string)               external mscorlib
+  IL_0041  call      System.Threading.Monitor::Exit(object)             external mscorlib
+  IL_004D  call      System.Threading.Interlocked::Decrement(ref int)   external mscorlib
+  IL_005A  callvirt  System.Threading.EventWaitHandle::Set()            external mscorlib
+[Callers]
+  Ref.NetFx48.BackgroundCounter::Run  IL_0049  ldftn  (Ref04.NetFx48.dll)

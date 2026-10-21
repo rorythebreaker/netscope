@@ -1,0 +1,1749 @@
+Assembly : Ref17.FSharpLibrary.dll
+Name     : Ref17.FSharpLibrary, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 159
+
+Type     : Ref.FSharp.Expr
+
+Method   : void .ctor(int _tag)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2050   Size: 14 bytes   Token: 0x06000001
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  Ref.FSharp.Expr+Num::.ctor  IL_0002  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr+Var::.ctor  IL_0002  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr+Add::.ctor  IL_0002  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr+Mul::.ctor  IL_0002  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr+Neg::.ctor  IL_0002  call  (Ref17.FSharpLibrary.dll)
+
+Method   : Expr NewNum(double item)
+Kind     : static, public, compiler-generated
+RVA      : 0x2060   Size: 7 bytes   Token: 0x06000002
+
+[Calls]
+  IL_0001  newobj    Ref.FSharp.Expr.Num::.ctor(double)  internal
+[Callers]
+  Ref.FSharp.Eval::simplify  IL_02CE  call  (Ref17.FSharpLibrary.dll)
+
+Method   : bool get_IsNum()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2068   Size: 10 bytes   Token: 0x06000003
+
+[Calls]
+  IL_0001  call      Ref.FSharp.Expr::get_Tag()  internal
+[Callers]
+  (none in the input files)
+
+Method   : Expr NewVar(string item)
+Kind     : static, public, compiler-generated
+RVA      : 0x2074   Size: 7 bytes   Token: 0x06000004
+
+[Calls]
+  IL_0001  newobj    Ref.FSharp.Expr.Var::.ctor(string)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool get_IsVar()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x207C   Size: 10 bytes   Token: 0x06000005
+
+[Calls]
+  IL_0001  call      Ref.FSharp.Expr::get_Tag()  internal
+[Callers]
+  (none in the input files)
+
+Method   : Expr NewAdd(Expr item1, Expr item2)
+Kind     : static, public, compiler-generated
+RVA      : 0x2088   Size: 8 bytes   Token: 0x06000006
+
+[Calls]
+  IL_0002  newobj    Ref.FSharp.Expr.Add::.ctor(Expr, Expr)  internal
+[Callers]
+  Ref.FSharp.Eval::simplify  IL_02F0  call  (Ref17.FSharpLibrary.dll)
+
+Method   : bool get_IsAdd()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2094   Size: 10 bytes   Token: 0x06000007
+
+[Calls]
+  IL_0001  call      Ref.FSharp.Expr::get_Tag()  internal
+[Callers]
+  (none in the input files)
+
+Method   : Expr NewMul(Expr item1, Expr item2)
+Kind     : static, public, compiler-generated
+RVA      : 0x20A0   Size: 8 bytes   Token: 0x06000008
+
+[Calls]
+  IL_0002  newobj    Ref.FSharp.Expr.Mul::.ctor(Expr, Expr)  internal
+[Callers]
+  Ref.FSharp.Eval::simplify  IL_0314  call  (Ref17.FSharpLibrary.dll)
+
+Method   : bool get_IsMul()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20AC   Size: 10 bytes   Token: 0x06000009
+
+[Calls]
+  IL_0001  call      Ref.FSharp.Expr::get_Tag()  internal
+[Callers]
+  (none in the input files)
+
+Method   : Expr NewNeg(Expr item)
+Kind     : static, public, compiler-generated
+RVA      : 0x20B8   Size: 7 bytes   Token: 0x0600000A
+
+[Calls]
+  IL_0001  newobj    Ref.FSharp.Expr.Neg::.ctor(Expr)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool get_IsNeg()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20C0   Size: 10 bytes   Token: 0x0600000B
+
+[Calls]
+  IL_0001  call      Ref.FSharp.Expr::get_Tag()  internal
+[Callers]
+  (none in the input files)
+
+Method   : int get_Tag()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20CC   Size: 7 bytes   Token: 0x0600000C
+
+[Calls]
+  (none)
+[Callers]
+  Ref.FSharp.Expr::get_IsNum  IL_0001  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::get_IsVar  IL_0001  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::get_IsAdd  IL_0001  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::get_IsMul  IL_0001  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::get_IsNeg  IL_0001  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::CompareTo  IL_002E  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::GetHashCode  IL_0009  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::Equals  IL_0022  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::Equals  IL_0022  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::eval  IL_0001  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::simplify  IL_0001  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::simplify  IL_0031  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::simplify  IL_005C  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::simplify  IL_00AB  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::simplify  IL_0121  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::simplify  IL_0167  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::simplify  IL_01B5  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::simplify  IL_022A  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::simplify  IL_02B7  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::show  IL_0001  call  (Ref17.FSharpLibrary.dll)
+  <StartupCode$Ref17-FSharpLibrary>.$Library::CompareTo$cont@7  IL_0001  call  (Ref17.FSharpLibrary.dll)
+
+Method   : object __DebugDisplay()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x20D4   Size: 22 bytes   Token: 0x0600000D
+
+[Calls]
+  IL_0005  newobj    Microsoft.FSharp.Core.PrintfFormat<Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Expr, string>, Microsoft.FSharp.Core.Unit, string, string, string>::.ctor(string)  external FSharp.Core
+  IL_000A  call      Microsoft.FSharp.Core.ExtraTopLevelOperators::PrintFormatToString<FSharpFunc<Expr, string>>(PrintfFormat<FSharpFunc<Expr, string>, Unit, string, string>)         external FSharp.Core
+  IL_0010  callvirt  Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Expr, string>::Invoke(Expr)                                                                                           external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20EC   Size: 22 bytes   Token: 0x0600000E
+
+[Calls]
+  IL_0005  newobj    Microsoft.FSharp.Core.PrintfFormat<Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Expr, string>, Microsoft.FSharp.Core.Unit, string, string, Ref.FSharp.Expr>::.ctor(string)  external FSharp.Core
+  IL_000A  call      Microsoft.FSharp.Core.ExtraTopLevelOperators::PrintFormatToString<FSharpFunc<Expr, string>>(PrintfFormat<FSharpFunc<Expr, string>, Unit, string, string>)                  external FSharp.Core
+  IL_0010  callvirt  Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Expr, string>::Invoke(Expr)                                                                                                    external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Method   : int CompareTo(Expr obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2104   Size: 48 bytes   Token: 0x0600000F
+
+[Calls]
+  IL_001D  call      <StartupCode$Ref17-FSharpLibrary>.$Library::CompareTo$cont@7(Expr, Expr, Unit)  internal
+[Callers]
+  Ref.FSharp.Expr::CompareTo  IL_0009  callvirt  (Ref17.FSharpLibrary.dll)
+
+Method   : int CompareTo(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2140   Size: 15 bytes   Token: 0x06000010
+
+[Calls]
+  IL_0009  callvirt  Ref.FSharp.Expr::CompareTo(Expr)  internal
+[Callers]
+  (none in the input files)
+
+Method   : int CompareTo(object obj, IComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2150   Size: 447 bytes   Token: 0x06000011
+
+[Calls]
+  IL_002E  call      Ref.FSharp.Expr::get_Tag()                                                                                                       internal
+  IL_0091  call      Microsoft.FSharp.Core.LanguagePrimitives.HashCompare::GenericComparisonWithComparerIntrinsic<double>(IComparer, double, double)  external FSharp.Core
+  IL_00B5  call      System.String::CompareOrdinal(string, string)                                                                                    external netstandard
+  IL_00E2  callvirt  Ref.FSharp.Expr::CompareTo(object, IComparer)                                                                                    internal
+  IL_0142  callvirt  Ref.FSharp.Expr::CompareTo(object, IComparer)                                                                                    internal
+[Callers]
+  Ref.FSharp.Expr::CompareTo  IL_00E2  callvirt  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::CompareTo  IL_0142  callvirt  (Ref17.FSharpLibrary.dll)
+  <StartupCode$Ref17-FSharpLibrary>.$Library::CompareTo$cont@7  IL_00C0  callvirt  (Ref17.FSharpLibrary.dll)
+  <StartupCode$Ref17-FSharpLibrary>.$Library::CompareTo$cont@7  IL_00F6  callvirt  (Ref17.FSharpLibrary.dll)
+  <StartupCode$Ref17-FSharpLibrary>.$Library::CompareTo$cont@7  IL_0129  callvirt  (Ref17.FSharpLibrary.dll)
+  <StartupCode$Ref17-FSharpLibrary>.$Library::CompareTo$cont@7  IL_015F  callvirt  (Ref17.FSharpLibrary.dll)
+  <StartupCode$Ref17-FSharpLibrary>.$Library::CompareTo$cont@7  IL_0194  callvirt  (Ref17.FSharpLibrary.dll)
+
+Method   : int GetHashCode(IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x231C   Size: 300 bytes   Token: 0x06000012
+
+[Calls]
+  IL_0009  call      Ref.FSharp.Expr::get_Tag()                                                                                                 internal
+  IL_003C  call      Microsoft.FSharp.Core.LanguagePrimitives.HashCompare::GenericHashWithComparerIntrinsic<double>(IEqualityComparer, double)  external FSharp.Core
+  IL_0069  callvirt  System.Object::GetHashCode()                                                                                               external netstandard
+  IL_0091  callvirt  Ref.FSharp.Expr::GetHashCode(IEqualityComparer)                                                                            internal
+  IL_00AD  callvirt  Ref.FSharp.Expr::GetHashCode(IEqualityComparer)                                                                            internal
+  IL_00D5  callvirt  Ref.FSharp.Expr::GetHashCode(IEqualityComparer)                                                                            internal
+  IL_00F1  callvirt  Ref.FSharp.Expr::GetHashCode(IEqualityComparer)                                                                            internal
+  IL_0119  callvirt  Ref.FSharp.Expr::GetHashCode(IEqualityComparer)                                                                            internal
+[Callers]
+  Ref.FSharp.Expr::GetHashCode  IL_0091  callvirt  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::GetHashCode  IL_00AD  callvirt  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::GetHashCode  IL_00D5  callvirt  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::GetHashCode  IL_00F1  callvirt  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::GetHashCode  IL_0119  callvirt  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::GetHashCode  IL_0006  callvirt  (Ref17.FSharpLibrary.dll)
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2454   Size: 12 bytes   Token: 0x06000013
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.LanguagePrimitives::get_GenericEqualityComparer()  external FSharp.Core
+  IL_0006  callvirt  Ref.FSharp.Expr::GetHashCode(IEqualityComparer)                          internal
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Expr obj, IEqualityComparer comp)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2464   Size: 355 bytes   Token: 0x06000014
+
+[Calls]
+  IL_0022  call      Ref.FSharp.Expr::get_Tag()                        internal
+  IL_007B  call      System.String::Equals(string, string)             external netstandard
+  IL_00A8  callvirt  Ref.FSharp.Expr::Equals(Expr, IEqualityComparer)  internal
+  IL_00FA  callvirt  Ref.FSharp.Expr::Equals(Expr, IEqualityComparer)  internal
+[Callers]
+  Ref.FSharp.Expr::Equals  IL_00A8  callvirt  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::Equals  IL_00FA  callvirt  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::Equals  IL_000D  callvirt  (Ref17.FSharpLibrary.dll)
+
+Method   : bool Equals(object obj, IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x25D4   Size: 21 bytes   Token: 0x06000015
+
+[Calls]
+  IL_000D  callvirt  Ref.FSharp.Expr::Equals(Expr, IEqualityComparer)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Expr obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x25F8   Size: 333 bytes   Token: 0x06000016
+
+[Calls]
+  IL_0022  call      Ref.FSharp.Expr::get_Tag()             internal
+  IL_0098  call      System.String::Equals(string, string)  external netstandard
+  IL_00BC  callvirt  Ref.FSharp.Expr::Equals(Expr)          internal
+  IL_00FA  callvirt  Ref.FSharp.Expr::Equals(Expr)          internal
+[Callers]
+  Ref.FSharp.Expr::Equals  IL_00BC  callvirt  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::Equals  IL_00FA  callvirt  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Expr::Equals  IL_000C  callvirt  (Ref17.FSharpLibrary.dll)
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2754   Size: 20 bytes   Token: 0x06000017
+
+[Calls]
+  IL_000C  callvirt  Ref.FSharp.Expr::Equals(Expr)  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Expr+Num
+
+Method   : void .ctor(double item)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2774   Size: 15 bytes   Token: 0x06000018
+
+[Calls]
+  IL_0002  call      Ref.FSharp.Expr::.ctor(int)  internal
+[Callers]
+  Ref.FSharp.Expr::NewNum  IL_0001  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : double get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2784   Size: 7 bytes   Token: 0x06000019
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Expr+Var
+
+Method   : void .ctor(string item)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x278C   Size: 15 bytes   Token: 0x0600001A
+
+[Calls]
+  IL_0002  call      Ref.FSharp.Expr::.ctor(int)  internal
+[Callers]
+  Ref.FSharp.Expr::NewVar  IL_0001  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : string get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x279C   Size: 7 bytes   Token: 0x0600001B
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Expr+Add
+
+Method   : void .ctor(Expr item1, Expr item2)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x27A4   Size: 22 bytes   Token: 0x0600001C
+
+[Calls]
+  IL_0002  call      Ref.FSharp.Expr::.ctor(int)  internal
+[Callers]
+  Ref.FSharp.Expr::NewAdd  IL_0002  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : Expr get_Item1()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27BC   Size: 7 bytes   Token: 0x0600001D
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : Expr get_Item2()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27C4   Size: 7 bytes   Token: 0x0600001E
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Expr+Mul
+
+Method   : void .ctor(Expr item1, Expr item2)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x27CC   Size: 22 bytes   Token: 0x0600001F
+
+[Calls]
+  IL_0002  call      Ref.FSharp.Expr::.ctor(int)  internal
+[Callers]
+  Ref.FSharp.Expr::NewMul  IL_0002  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : Expr get_Item1()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27E4   Size: 7 bytes   Token: 0x06000020
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : Expr get_Item2()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x27EC   Size: 7 bytes   Token: 0x06000021
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Expr+Neg
+
+Method   : void .ctor(Expr item)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x27F4   Size: 15 bytes   Token: 0x06000022
+
+[Calls]
+  IL_0002  call      Ref.FSharp.Expr::.ctor(int)  internal
+[Callers]
+  Ref.FSharp.Expr::NewNeg  IL_0001  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : Expr get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2804   Size: 7 bytes   Token: 0x06000023
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Expr+Num@DebugTypeProxy
+
+Method   : void .ctor(Num obj)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x280C   Size: 14 bytes   Token: 0x06000024
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : double get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x281C   Size: 12 bytes   Token: 0x06000025
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Expr+Var@DebugTypeProxy
+
+Method   : void .ctor(Var obj)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x282C   Size: 14 bytes   Token: 0x06000026
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : string get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x283C   Size: 12 bytes   Token: 0x06000027
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Expr+Add@DebugTypeProxy
+
+Method   : void .ctor(Add obj)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x284C   Size: 14 bytes   Token: 0x06000028
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : Expr get_Item1()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x285C   Size: 12 bytes   Token: 0x06000029
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : Expr get_Item2()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x286C   Size: 12 bytes   Token: 0x0600002A
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Expr+Mul@DebugTypeProxy
+
+Method   : void .ctor(Mul obj)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x287C   Size: 14 bytes   Token: 0x0600002B
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : Expr get_Item1()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x288C   Size: 12 bytes   Token: 0x0600002C
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : Expr get_Item2()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x289C   Size: 12 bytes   Token: 0x0600002D
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Expr+Neg@DebugTypeProxy
+
+Method   : void .ctor(Neg obj)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x28AC   Size: 14 bytes   Token: 0x0600002E
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : Expr get_Item()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x28BC   Size: 12 bytes   Token: 0x0600002F
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Token
+
+Method   : string get_Kind()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x28CC   Size: 7 bytes   Token: 0x06000030
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : string get_Text()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x28D4   Size: 7 bytes   Token: 0x06000031
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : int get_Position()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x28DC   Size: 7 bytes   Token: 0x06000032
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor(string kind, string text, int position)
+Kind     : ctor, instance, public
+RVA      : 0x28E4   Size: 28 bytes   Token: 0x06000033
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  Ref.FSharp.Collections::tokenize  IL_0073  newobj  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Collections::tokenize  IL_00B4  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2904   Size: 22 bytes   Token: 0x06000034
+
+[Calls]
+  IL_0005  newobj    Microsoft.FSharp.Core.PrintfFormat<Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Token, string>, Microsoft.FSharp.Core.Unit, string, string, Ref.FSharp.Token>::.ctor(string)  external FSharp.Core
+  IL_000A  call      Microsoft.FSharp.Core.ExtraTopLevelOperators::PrintFormatToString<FSharpFunc<Token, string>>(PrintfFormat<FSharpFunc<Token, string>, Unit, string, string>)                  external FSharp.Core
+  IL_0010  callvirt  Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Token, string>::Invoke(Token)                                                                                                    external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Method   : int CompareTo(Token obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x291C   Size: 120 bytes   Token: 0x06000035
+
+[Calls]
+  IL_0006  call      Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()  external FSharp.Core
+  IL_0018  call      System.String::CompareOrdinal(string, string)                    external netstandard
+  IL_002A  call      Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()  external FSharp.Core
+  IL_003C  call      System.String::CompareOrdinal(string, string)                    external netstandard
+  IL_004E  call      Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Token::CompareTo  IL_0007  callvirt  (Ref17.FSharpLibrary.dll)
+
+Method   : int CompareTo(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x29A0   Size: 13 bytes   Token: 0x06000036
+
+[Calls]
+  IL_0007  callvirt  Ref.FSharp.Token::CompareTo(Token)  internal
+[Callers]
+  (none in the input files)
+
+Method   : int CompareTo(object obj, IComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x29B0   Size: 119 bytes   Token: 0x06000037
+
+[Calls]
+  IL_001E  call      System.String::CompareOrdinal(string, string)  external netstandard
+  IL_003C  call      System.String::CompareOrdinal(string, string)  external netstandard
+[Callers]
+  (none in the input files)
+
+Method   : int GetHashCode(IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2A34   Size: 98 bytes   Token: 0x06000038
+
+[Calls]
+  IL_002D  callvirt  System.Object::GetHashCode()  external netstandard
+  IL_004F  callvirt  System.Object::GetHashCode()  external netstandard
+[Callers]
+  Ref.FSharp.Token::GetHashCode  IL_0006  callvirt  (Ref17.FSharpLibrary.dll)
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2AA4   Size: 12 bytes   Token: 0x06000039
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.LanguagePrimitives::get_GenericEqualityComparer()  external FSharp.Core
+  IL_0006  callvirt  Ref.FSharp.Token::GetHashCode(IEqualityComparer)                         internal
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Token obj, IEqualityComparer comp)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2AB4   Size: 73 bytes   Token: 0x0600003A
+
+[Calls]
+  IL_0012  call      System.String::Equals(string, string)  external netstandard
+  IL_0025  call      System.String::Equals(string, string)  external netstandard
+[Callers]
+  Ref.FSharp.Token::Equals  IL_000D  callvirt  (Ref17.FSharpLibrary.dll)
+
+Method   : bool Equals(object obj, IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2B0C   Size: 21 bytes   Token: 0x0600003B
+
+[Calls]
+  IL_000D  callvirt  Ref.FSharp.Token::Equals(Token, IEqualityComparer)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Token obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2B30   Size: 73 bytes   Token: 0x0600003C
+
+[Calls]
+  IL_0012  call      System.String::Equals(string, string)  external netstandard
+  IL_0025  call      System.String::Equals(string, string)  external netstandard
+[Callers]
+  Ref.FSharp.Token::Equals  IL_000C  callvirt  (Ref17.FSharpLibrary.dll)
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2B88   Size: 20 bytes   Token: 0x0600003D
+
+[Calls]
+  IL_000C  callvirt  Ref.FSharp.Token::Equals(Token)  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Range
+
+Method   : int get_Start()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2BA8   Size: 7 bytes   Token: 0x0600003E
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : int get_Length()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2BB0   Size: 7 bytes   Token: 0x0600003F
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor(int start, int length)
+Kind     : ctor, instance, public
+RVA      : 0x2BB8   Size: 15 bytes   Token: 0x06000040
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2BC8   Size: 27 bytes   Token: 0x06000041
+
+[Calls]
+  IL_0005  newobj    Microsoft.FSharp.Core.PrintfFormat<Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Range, string>, Microsoft.FSharp.Core.Unit, string, string, Ref.FSharp.Range>::.ctor(string)  external FSharp.Core
+  IL_000A  call      Microsoft.FSharp.Core.ExtraTopLevelOperators::PrintFormatToString<FSharpFunc<Range, string>>(PrintfFormat<FSharpFunc<Range, string>, Unit, string, string>)                  external FSharp.Core
+  IL_0015  callvirt  Microsoft.FSharp.Core.FSharpFunc<Ref.FSharp.Range, string>::Invoke(Range)                                                                                                    external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Method   : int CompareTo(Range obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2BE4   Size: 74 bytes   Token: 0x06000042
+
+[Calls]
+  IL_0000  call      Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()  external FSharp.Core
+  IL_002B  call      Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Range::CompareTo  IL_0007  call  (Ref17.FSharpLibrary.dll)
+
+Method   : int CompareTo(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2C3C   Size: 13 bytes   Token: 0x06000043
+
+[Calls]
+  IL_0007  call      Ref.FSharp.Range::CompareTo(Range)  internal
+[Callers]
+  (none in the input files)
+
+Method   : int CompareTo(object obj, IComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2C4C   Size: 69 bytes   Token: 0x06000044
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : int GetHashCode(IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2CA0   Size: 46 bytes   Token: 0x06000045
+
+[Calls]
+  (none)
+[Callers]
+  Ref.FSharp.Range::GetHashCode  IL_0006  call  (Ref17.FSharpLibrary.dll)
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2CDC   Size: 12 bytes   Token: 0x06000046
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.LanguagePrimitives::get_GenericEqualityComparer()  external FSharp.Core
+  IL_0006  call      Ref.FSharp.Range::GetHashCode(IEqualityComparer)                         internal
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Range obj, IEqualityComparer comp)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2CEC   Size: 33 bytes   Token: 0x06000047
+
+[Calls]
+  (none)
+[Callers]
+  Ref.FSharp.Range::Equals  IL_0012  call  (Ref17.FSharpLibrary.dll)
+
+Method   : bool Equals(object obj, IEqualityComparer comp)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2D10   Size: 26 bytes   Token: 0x06000048
+
+[Calls]
+  IL_0012  call      Ref.FSharp.Range::Equals(Range, IEqualityComparer)  internal
+[Callers]
+  (none in the input files)
+
+Method   : bool Equals(Range obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2D38   Size: 33 bytes   Token: 0x06000049
+
+[Calls]
+  (none)
+[Callers]
+  Ref.FSharp.Range::Equals  IL_000F  call  (Ref17.FSharpLibrary.dll)
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, sealed, compiler-generated
+RVA      : 0x2D5C   Size: 23 bytes   Token: 0x0600004A
+
+[Calls]
+  IL_000F  call      Ref.FSharp.Range::Equals(Range)  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Stack`1
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2D74   Size: 20 bytes   Token: 0x0600004B
+
+[Calls]
+  IL_0001  callvirt  System.Object::.ctor()                        external System.Runtime
+  IL_0009  newobj    System.Collections.Generic.List<!0>::.ctor()  external System.Collections
+[Callers]
+  (none in the input files)
+
+Method   : void Push(T x)
+Kind     : instance, public
+RVA      : 0x2D8C   Size: 15 bytes   Token: 0x0600004C
+
+[Calls]
+  IL_0009  callvirt  System.Collections.Generic.List<!0>::Add(!0)  external System.Collections
+[Callers]
+  (none in the input files)
+
+Method   : T Pop()
+Kind     : instance, public
+RVA      : 0x2D9C   Size: 75 bytes   Token: 0x0600004D
+
+[Calls]
+  IL_0006  callvirt  System.Collections.Generic.List<!0>::get_Count()    external System.Collections
+  IL_0012  newobj    System.InvalidOperationException::.ctor(string)     external netstandard
+  IL_0024  callvirt  System.Collections.Generic.List<!0>::get_Count()    external System.Collections
+  IL_002B  callvirt  System.Collections.Generic.List<!0>::get_Item(int)  external System.Collections
+  IL_003D  callvirt  System.Collections.Generic.List<!0>::get_Count()    external System.Collections
+  IL_0044  callvirt  System.Collections.Generic.List<!0>::RemoveAt(int)  external System.Collections
+[Callers]
+  (none in the input files)
+
+Method   : int get_Count()
+Kind     : property-get, instance, public
+RVA      : 0x2DF4   Size: 14 bytes   Token: 0x0600004E
+
+[Calls]
+  IL_0008  callvirt  System.Collections.Generic.List<!0>::get_Count()  external System.Collections
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerator<T> System.Collections.Generic.IEnumerable<'T>.GetEnumerator()
+Kind     : instance, private, virtual
+RVA      : 0x2E04   Size: 19 bytes   Token: 0x0600004F
+
+[Calls]
+  IL_0006  call      Microsoft.FSharp.Collections.SeqModule::Reverse<!0>(IEnumerable<!0>)  external FSharp.Core
+  IL_000D  callvirt  System.Collections.Generic.IEnumerable<!0>::GetEnumerator()           external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual
+RVA      : 0x2E18   Size: 19 bytes   Token: 0x06000050
+
+[Calls]
+  IL_0006  call      Microsoft.FSharp.Collections.SeqModule::Reverse<!0>(IEnumerable<!0>)  external FSharp.Core
+  IL_000D  callvirt  System.Collections.IEnumerable::GetEnumerator()                       external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Async
+
+Method   : FSharpAsync<a> delayed<a>(int ms, a value)
+Kind     : static, public, generic
+RVA      : 0x2E2C   Size: 20 bytes   Token: 0x06000051
+
+[Calls]
+  IL_0000  call      Microsoft.FSharp.Core.ExtraTopLevelOperators::get_DefaultAsyncBuilder()                      external FSharp.Core
+  IL_0007  newobj    Ref.FSharp.Async.delayed@129<!!0>::.ctor(int, !!0)                                           internal
+  IL_000E  callvirt  Microsoft.FSharp.Control.FSharpAsyncBuilder::Delay<!!0>(FSharpFunc<Unit, FSharpAsync<!!0>>)  external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Method   : Task<int> sumAll(FSharpList<int> values)
+Kind     : static, public
+RVA      : 0x2E44   Size: 68 bytes   Token: 0x06000052
+
+[Calls]
+  IL_0018  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::Create()                           external netstandard
+  IL_002E  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::Start<sumAll@133>(ref sumAll@133)  external netstandard
+  IL_003E  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::get_Task()                         external netstandard
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Async+delayed@129-1
+
+Method   : void .ctor(a value)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2E94   Size: 14 bytes   Token: 0x06000053
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<Microsoft.FSharp.Core.Unit, Microsoft.FSharp.Control.FSharpAsync<!0>>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Async+delayed@129::Invoke  IL_0012  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : FSharpAsync<a> Invoke(Unit _arg1)
+Kind     : instance, public, override
+RVA      : 0x2EA4   Size: 19 bytes   Token: 0x06000054
+
+[Calls]
+  IL_0006  newobj    Ref.FSharp.Async.delayed@129-2<!0>::.ctor(!0)                                                          internal
+  IL_000D  call      Microsoft.FSharp.Control.AsyncPrimitives::MakeAsync<!0>(FSharpFunc<AsyncActivation<!0>, AsyncReturn>)  external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Async+delayed@129-2
+
+Method   : void .ctor(a value)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2EB8   Size: 14 bytes   Token: 0x06000055
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<Microsoft.FSharp.Control.AsyncActivation<!0>, Microsoft.FSharp.Control.AsyncReturn>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Async+delayed@129-1::Invoke  IL_0006  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : AsyncReturn Invoke(AsyncActivation<a> ctxt)
+Kind     : instance, public, override
+RVA      : 0x2EC8   Size: 15 bytes   Token: 0x06000056
+
+[Calls]
+  IL_0009  call      Microsoft.FSharp.Control.AsyncActivation<!0>::Success(AsyncActivation<!0>, !0)  external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Async+delayed@129-3
+
+Method   : void .ctor(FSharpAsync<Unit> computation, FSharpFunc<Unit, FSharpAsync<a>> binder)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2ED8   Size: 21 bytes   Token: 0x06000057
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<Microsoft.FSharp.Control.AsyncActivation<!0>, Microsoft.FSharp.Control.AsyncReturn>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Async+delayed@129::Invoke  IL_001A  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : AsyncReturn Invoke(AsyncActivation<a> ctxt)
+Kind     : instance, public, override
+RVA      : 0x2EF0   Size: 21 bytes   Token: 0x06000058
+
+[Calls]
+  IL_000F  call      Microsoft.FSharp.Control.AsyncPrimitives::Bind<!0, Unit>(AsyncActivation<!0>, FSharpAsync<Unit>, FSharpFunc<Unit, FSharpAsync<!0>>)  external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Async+delayed@129
+
+Method   : void .ctor(int ms, a value)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x2F08   Size: 21 bytes   Token: 0x06000059
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<Microsoft.FSharp.Core.Unit, Microsoft.FSharp.Control.FSharpAsync<!0>>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Async::delayed  IL_0007  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : FSharpAsync<a> Invoke(Unit unitVar)
+Kind     : instance, public, override
+RVA      : 0x2F20   Size: 39 bytes   Token: 0x0600005A
+
+[Calls]
+  IL_0006  call      Microsoft.FSharp.Control.FSharpAsync::Sleep(int)                                                       external FSharp.Core
+  IL_0012  newobj    Ref.FSharp.Async.delayed@129-1<!0>::.ctor(!0)                                                          internal
+  IL_001A  newobj    Ref.FSharp.Async.delayed@129-3<!0>::.ctor(FSharpAsync<Unit>, FSharpFunc<Unit, FSharpAsync<!0>>)        internal
+  IL_0021  call      Microsoft.FSharp.Control.AsyncPrimitives::MakeAsync<!0>(FSharpFunc<AsyncActivation<!0>, AsyncReturn>)  external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Async+sumAll@133
+
+Method   : void MoveNext()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2F54   Size: 607 bytes   Token: 0x0600005B
+
+[Calls]
+  IL_0029  newobj    Microsoft.FSharp.Core.FSharpRef<int>::.ctor(int)                                                                                                         external FSharp.Core
+  IL_003E  callvirt  System.Collections.Generic.IEnumerable<int>::GetEnumerator()                                                                                             external netstandard
+  IL_0075  callvirt  System.Collections.Generic.IEnumerator<int>::get_Current()                                                                                               external netstandard
+  IL_007E  call      System.Threading.Tasks.Task::FromResult<int>(int)                                                                                                        external System.Runtime
+  IL_0088  callvirt  System.Threading.Tasks.Task<int>::GetAwaiter()                                                                                                           external netstandard
+  IL_009B  call      System.Runtime.CompilerServices.TaskAwaiter<int>::get_IsCompleted()                                                                                      external netstandard
+  IL_00C4  call      System.Runtime.CompilerServices.TaskAwaiter<int>::GetResult()                                                                                            external netstandard
+  IL_00DB  call      Microsoft.FSharp.Core.FSharpRef<int>::get_contents()                                                                                                     external FSharp.Core
+  IL_00E3  call      Microsoft.FSharp.Core.FSharpRef<int>::set_contents(int)                                                                                                  external FSharp.Core
+  IL_00FD  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::AwaitUnsafeOnCompleted<TaskAwaiter<int>, sumAll@133>(ref TaskAwaiter<int>, ref sumAll@133)  external netstandard
+  IL_012B  callvirt  System.Collections.IEnumerator::MoveNext()                                                                                                               external netstandard
+  IL_0184  callvirt  System.IDisposable::Dispose()                                                                                                                            external netstandard
+  IL_01CB  callvirt  System.IDisposable::Dispose()                                                                                                                            external netstandard
+  IL_01F0  call      Microsoft.FSharp.Core.FSharpRef<int>::get_contents()                                                                                                     external FSharp.Core
+  IL_022F  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::SetResult(int)                                                                              external netstandard
+  IL_0259  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::SetException(Exception)                                                                     external netstandard
+[Callers]
+  (none in the input files)
+
+Method   : void SetStateMachine(IAsyncStateMachine state)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x31F4   Size: 18 bytes   Token: 0x0600005C
+
+[Calls]
+  IL_000C  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::SetStateMachine(IAsyncStateMachine)  external netstandard
+[Callers]
+  (none in the input files)
+
+Method   : int get_ResumptionPoint()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x3208   Size: 7 bytes   Token: 0x0600005D
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : TaskStateMachineData<int> get_Data()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x3210   Size: 7 bytes   Token: 0x0600005E
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void set_Data(TaskStateMachineData<int> value)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x3218   Size: 8 bytes   Token: 0x0600005F
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Collections
+
+Method   : FSharpList<Tuple<string, int>> wordFrequencies(string text)
+Kind     : static, public
+RVA      : 0x3224   Size: 89 bytes   Token: 0x06000060
+
+[Calls]
+  IL_001C  callvirt  System.String::Split(char[], StringSplitOptions)                                                                                                                            external System.Runtime
+  IL_0028  call      Microsoft.FSharp.Collections.SeqModule::Map<string, string>(FSharpFunc<string, string>, IEnumerable<string>)                                                                external FSharp.Core
+  IL_002D  call      Microsoft.FSharp.Collections.SeqModule::CountBy<string, string>(FSharpFunc<string, string>, IEnumerable<string>)                                                            external FSharp.Core
+  IL_0040  newobj    System.ArgumentNullException::.ctor(string)                                                                                                                                 external netstandard
+  IL_004C  call      Microsoft.FSharp.Collections.SeqModule::SortWith<Tuple<string, int>>(FSharpFunc<Tuple<string, int>, FSharpFunc<Tuple<string, int>, int>>, IEnumerable<Tuple<string, int>>)  external FSharp.Core
+  IL_0053  call      Microsoft.FSharp.Collections.SeqModule::ToList<Tuple<string, int>>(IEnumerable<Tuple<string, int>>)                                                                         external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Method   : FSharpList<Token> tokenize(string input)
+Kind     : static, public
+RVA      : 0x328C   Size: 229 bytes   Token: 0x06000061
+
+[Calls]
+  IL_0001  newobj    Microsoft.FSharp.Core.FSharpRef<int>::.ctor(int)                                    external FSharp.Core
+  IL_000E  call      Microsoft.FSharp.Core.FSharpRef<int>::get_contents()                                external FSharp.Core
+  IL_0013  callvirt  System.String::get_Chars(int)                                                       external netstandard
+  IL_001A  call      System.Char::IsDigit(char)                                                          external System.Runtime
+  IL_0022  call      Microsoft.FSharp.Core.FSharpRef<int>::get_contents()                                external FSharp.Core
+  IL_002C  call      Microsoft.FSharp.Core.FSharpRef<int>::get_contents()                                external FSharp.Core
+  IL_0033  call      Microsoft.FSharp.Core.FSharpRef<int>::set_contents(int)                             external FSharp.Core
+  IL_0039  call      Microsoft.FSharp.Core.FSharpRef<int>::get_contents()                                external FSharp.Core
+  IL_003F  callvirt  System.String::get_Length()                                                         external System.Runtime
+  IL_0048  call      Microsoft.FSharp.Core.FSharpRef<int>::get_contents()                                external FSharp.Core
+  IL_004D  callvirt  System.String::get_Chars(int)                                                       external netstandard
+  IL_0052  call      System.Char::IsDigit(char)                                                          external System.Runtime
+  IL_0066  call      Microsoft.FSharp.Core.FSharpRef<int>::get_contents()                                external FSharp.Core
+  IL_006D  callvirt  System.String::Substring(int, int)                                                  external System.Runtime
+  IL_0073  newobj    Ref.FSharp.Token::.ctor(string, string, int)                                        internal
+  IL_0078  call      Microsoft.FSharp.Core.CompilerServices.ListCollector<Ref.FSharp.Token>::Add(Token)  external FSharp.Core
+  IL_0080  call      System.Char::IsWhiteSpace(char)                                                     external System.Runtime
+  IL_0089  call      Microsoft.FSharp.Core.FSharpRef<int>::get_contents()                                external FSharp.Core
+  IL_0090  call      Microsoft.FSharp.Core.FSharpRef<int>::set_contents(int)                             external FSharp.Core
+  IL_00A9  callvirt  System.Object::ToString()                                                           external netstandard
+  IL_00AF  call      Microsoft.FSharp.Core.FSharpRef<int>::get_contents()                                external FSharp.Core
+  IL_00B4  newobj    Ref.FSharp.Token::.ctor(string, string, int)                                        internal
+  IL_00B9  call      Microsoft.FSharp.Core.CompilerServices.ListCollector<Ref.FSharp.Token>::Add(Token)  external FSharp.Core
+  IL_00C0  call      Microsoft.FSharp.Core.FSharpRef<int>::get_contents()                                external FSharp.Core
+  IL_00C7  call      Microsoft.FSharp.Core.FSharpRef<int>::set_contents(int)                             external FSharp.Core
+  IL_00CD  call      Microsoft.FSharp.Core.FSharpRef<int>::get_contents()                                external FSharp.Core
+  IL_00D3  callvirt  System.String::get_Length()                                                         external System.Runtime
+  IL_00DF  call      Microsoft.FSharp.Core.CompilerServices.ListCollector<Ref.FSharp.Token>::Close()     external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerable<int> primes(int limit)
+Kind     : static, public
+RVA      : 0x3380   Size: 13 bytes   Token: 0x06000062
+
+[Calls]
+  IL_0007  newobj    Ref.FSharp.Collections.primes@90::.ctor(int, bool[], int, IEnumerator<int>, IEnumerator<int>, int, int)  internal
+[Callers]
+  (none in the input files)
+
+Method   : int adder(int n, int x)
+Kind     : static, public
+RVA      : 0x339C   Size: 4 bytes   Token: 0x06000063
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : FSharpFunc<int, int> get_compose()
+Kind     : property-get, static, public
+RVA      : 0x33A4   Size: 6 bytes   Token: 0x06000064
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : FSharpFunc<int, int> get_func1@1()
+Kind     : property-get, static, internal
+RVA      : 0x33AC   Size: 6 bytes   Token: 0x06000065
+
+[Calls]
+  (none)
+[Callers]
+  Ref.FSharp.Collections+compose@100-3::Invoke  IL_0001  call  (Ref17.FSharpLibrary.dll)
+
+Method   : FSharpFunc<int, int> get_func1@1-1()
+Kind     : property-get, static, internal
+RVA      : 0x33B4   Size: 6 bytes   Token: 0x06000066
+
+[Calls]
+  (none)
+[Callers]
+  Ref.FSharp.Collections+compose@100-2::Invoke  IL_0005  call  (Ref17.FSharpLibrary.dll)
+
+Method   : FSharpFunc<int, int> get_func2@1()
+Kind     : property-get, static, internal
+RVA      : 0x33BC   Size: 6 bytes   Token: 0x06000067
+
+[Calls]
+  (none)
+[Callers]
+  Ref.FSharp.Collections+compose@100-2::Invoke  IL_0000  call  (Ref17.FSharpLibrary.dll)
+
+Method   : FSharpFunc<a, b> memoize<a, b>(FSharpFunc<a, b> f)
+Kind     : static, public, generic
+RVA      : 0x33C4   Size: 19 bytes   Token: 0x06000068
+
+[Calls]
+  IL_0000  call      Microsoft.FSharp.Core.LanguagePrimitives::FastGenericEqualityComparerFromTable<!!0>()            external FSharp.Core
+  IL_0005  newobj    System.Collections.Generic.Dictionary<!!0, !!1>::.ctor(IEqualityComparer<!!0>)                   external System.Collections
+  IL_000D  newobj    Ref.FSharp.Collections.memoize@104<!!0, !!1>::.ctor(FSharpFunc<!!0, !!1>, Dictionary<!!0, !!1>)  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Collections+wordFrequencies@68-1
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x33E4   Size: 7 bytes   Token: 0x06000069
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<string, string>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Collections+wordFrequencies@68-1::.cctor  IL_0000  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : string Invoke(string w)
+Kind     : instance, public, override
+RVA      : 0x33EC   Size: 7 bytes   Token: 0x0600006A
+
+[Calls]
+  IL_0001  callvirt  System.String::ToLowerInvariant()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x33F4   Size: 11 bytes   Token: 0x0600006B
+
+[Calls]
+  IL_0000  newobj    Ref.FSharp.Collections.wordFrequencies@68-1::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Collections+wordFrequencies@69
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x340C   Size: 7 bytes   Token: 0x0600006C
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<string, string>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Collections+wordFrequencies@69::.cctor  IL_0000  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : string Invoke(string x)
+Kind     : instance, public, override
+RVA      : 0x3414   Size: 2 bytes   Token: 0x0600006D
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x3418   Size: 11 bytes   Token: 0x0600006E
+
+[Calls]
+  IL_0000  newobj    Ref.FSharp.Collections.wordFrequencies@69::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Collections+wordFrequencies@70-2
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3430   Size: 7 bytes   Token: 0x0600006F
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.OptimizedClosures.FSharpFunc<System.Tuple<string, int>, System.Tuple<string, int>, int>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Collections+wordFrequencies@70-2::.cctor  IL_0000  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : int Invoke(Tuple<string, int> a, Tuple<string, int> b)
+Kind     : instance, public, override
+RVA      : 0x3438   Size: 24 bytes   Token: 0x06000070
+
+[Calls]
+  IL_0001  call      System.Tuple<string, int>::get_Item2()  external System.Runtime
+  IL_0008  call      System.Tuple<string, int>::get_Item2()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x345C   Size: 11 bytes   Token: 0x06000071
+
+[Calls]
+  IL_0000  newobj    Ref.FSharp.Collections.wordFrequencies@70-2::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Collections+primes@90
+
+Method   : void .ctor(int limit, bool[] sieve, int i, IEnumerator<int> enum, IEnumerator<int> enum0, int pc, int current)
+Kind     : ctor, instance, public
+RVA      : 0x3474   Size: 60 bytes   Token: 0x06000072
+
+[Calls]
+  IL_0036  call      Microsoft.FSharp.Core.CompilerServices.GeneratedSequenceBase<int>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Collections::primes  IL_0007  newobj  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Collections+primes@90::GetFreshEnumerator  IL_000C  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : int GenerateNext(ref IEnumerable<int> next)
+Kind     : instance, public, override
+RVA      : 0x34B4   Size: 342 bytes   Token: 0x06000073
+
+[Calls]
+  IL_003A  call      Microsoft.FSharp.Collections.ArrayModule::Create<bool>(int, bool)                                         external FSharp.Core
+  IL_004D  call      Microsoft.FSharp.Core.Operators.OperatorIntrinsics::RangeInt32(int, int, int)                             external FSharp.Core
+  IL_0052  callvirt  System.Collections.Generic.IEnumerable<int>::GetEnumerator()                                              external System.Runtime
+  IL_006F  callvirt  System.Collections.Generic.IEnumerator<int>::get_Current()                                                external System.Runtime
+  IL_00BA  call      Microsoft.FSharp.Core.Operators.OperatorIntrinsics::RangeInt32(int, int, int)                             external FSharp.Core
+  IL_00BF  callvirt  System.Collections.Generic.IEnumerable<int>::GetEnumerator()                                              external System.Runtime
+  IL_00D8  callvirt  System.Collections.Generic.IEnumerator<int>::get_Current()                                                external System.Runtime
+  IL_00ED  callvirt  System.Collections.IEnumerator::MoveNext()                                                                external System.Runtime
+  IL_0101  call      Microsoft.FSharp.Core.LanguagePrimitives.IntrinsicFunctions::Dispose<IEnumerator<int>>(IEnumerator<int>)  external FSharp.Core
+  IL_011C  callvirt  System.Collections.IEnumerator::MoveNext()                                                                external System.Runtime
+  IL_0133  call      Microsoft.FSharp.Core.LanguagePrimitives.IntrinsicFunctions::Dispose<IEnumerator<int>>(IEnumerator<int>)  external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Method   : void Close()
+Kind     : instance, public, override
+RVA      : 0x3618   Size: 144 bytes   Token: 0x06000074
+
+[Calls]
+  IL_0050  call      Microsoft.FSharp.Core.LanguagePrimitives.IntrinsicFunctions::Dispose<IEnumerator<int>>(IEnumerator<int>)  external FSharp.Core
+  IL_0066  call      Microsoft.FSharp.Core.LanguagePrimitives.IntrinsicFunctions::Dispose<IEnumerator<int>>(IEnumerator<int>)  external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Method   : bool get_CheckClose()
+Kind     : instance, public, override
+RVA      : 0x36C4   Size: 51 bytes   Token: 0x06000075
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : int get_LastGenerated()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x36F8   Size: 7 bytes   Token: 0x06000076
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : IEnumerator<int> GetFreshEnumerator()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x3700   Size: 18 bytes   Token: 0x06000077
+
+[Calls]
+  IL_000C  newobj    Ref.FSharp.Collections.primes@90::.ctor(int, bool[], int, IEnumerator<int>, IEnumerator<int>, int, int)  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Collections+compose@100
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3720   Size: 7 bytes   Token: 0x06000078
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<int, int>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Collections+compose@100::.cctor  IL_0000  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : int Invoke(int x)
+Kind     : instance, public, override
+RVA      : 0x3728   Size: 4 bytes   Token: 0x06000079
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x3730   Size: 11 bytes   Token: 0x0600007A
+
+[Calls]
+  IL_0000  newobj    Ref.FSharp.Collections.compose@100::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Collections+compose@100-2
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3748   Size: 7 bytes   Token: 0x0600007B
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<int, int>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Collections+compose@100-2::.cctor  IL_0000  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : int Invoke(int x)
+Kind     : instance, public, override
+RVA      : 0x3750   Size: 24 bytes   Token: 0x0600007C
+
+[Calls]
+  IL_0000  call      Ref.FSharp.Collections::get_func2@1()                    internal
+  IL_0005  call      Ref.FSharp.Collections::get_func1@1-1()                  internal
+  IL_000B  callvirt  Microsoft.FSharp.Core.FSharpFunc<int, int>::Invoke(int)  external FSharp.Core
+  IL_0012  callvirt  Microsoft.FSharp.Core.FSharpFunc<int, int>::Invoke(int)  external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x376C   Size: 11 bytes   Token: 0x0600007D
+
+[Calls]
+  IL_0000  newobj    Ref.FSharp.Collections.compose@100-2::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Collections+compose@100-3
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3784   Size: 7 bytes   Token: 0x0600007E
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<int, int>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Collections+compose@100-3::.cctor  IL_0000  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : int Invoke(int x)
+Kind     : instance, public, override
+RVA      : 0x378C   Size: 14 bytes   Token: 0x0600007F
+
+[Calls]
+  IL_0001  call      Ref.FSharp.Collections::get_func1@1()                    internal
+  IL_0007  callvirt  Microsoft.FSharp.Core.FSharpFunc<int, int>::Invoke(int)  external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x379C   Size: 11 bytes   Token: 0x06000080
+
+[Calls]
+  IL_0000  newobj    Ref.FSharp.Collections.compose@100-3::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Collections+compose@100-1
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x37B4   Size: 7 bytes   Token: 0x06000081
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<int, int>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Collections+compose@100-1::.cctor  IL_0000  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : int Invoke(int x)
+Kind     : instance, public, override
+RVA      : 0x37BC   Size: 4 bytes   Token: 0x06000082
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x37C4   Size: 11 bytes   Token: 0x06000083
+
+[Calls]
+  IL_0000  newobj    Ref.FSharp.Collections.compose@100-1::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Collections+memoize@104
+
+Method   : void .ctor(FSharpFunc<a, b> f, Dictionary<a, b> cache)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x37DC   Size: 21 bytes   Token: 0x06000084
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<!0, !1>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Collections::memoize  IL_000D  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : b Invoke(a x)
+Kind     : instance, public, override
+RVA      : 0x37F4   Size: 46 bytes   Token: 0x06000085
+
+[Calls]
+  IL_0009  callvirt  System.Collections.Generic.Dictionary<!0, !1>::TryGetValue(!0, ref !1)  external System.Collections
+  IL_0019  callvirt  Microsoft.FSharp.Core.FSharpFunc<!0, !1>::Invoke(!0)                    external FSharp.Core
+  IL_0027  callvirt  System.Collections.Generic.Dictionary<!0, !1>::set_Item(!0, !1)         external System.Collections
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Recursion
+
+Method   : long sumTo(long acc, int n)
+Kind     : static, public
+RVA      : 0x3830   Size: 18 bytes   Token: 0x06000086
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : bool isEven(int n)
+Kind     : static, public
+RVA      : 0x3844   Size: 16 bytes   Token: 0x06000087
+
+[Calls]
+  IL_000A  call      Ref.FSharp.Recursion::isOdd(int)  internal
+[Callers]
+  Ref.FSharp.Recursion::isOdd  IL_000A  call  (Ref17.FSharpLibrary.dll)
+
+Method   : bool isOdd(int n)
+Kind     : static, public
+RVA      : 0x3858   Size: 16 bytes   Token: 0x06000088
+
+[Calls]
+  IL_000A  call      Ref.FSharp.Recursion::isEven(int)  internal
+[Callers]
+  Ref.FSharp.Recursion::isEven  IL_000A  call  (Ref17.FSharpLibrary.dll)
+
+Method   : b foldBack<a, b>(FSharpFunc<a, FSharpFunc<b, b>> f, FSharpList<a> list, FSharpFunc<b, b> k, b state)
+Kind     : static, public, generic
+RVA      : 0x386C   Size: 55 bytes   Token: 0x06000089
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Collections.FSharpList<!!0>::get_TailOrNull()                                                       external FSharp.Core
+  IL_000E  callvirt  Microsoft.FSharp.Core.FSharpFunc<!!1, !!1>::Invoke(!!1)                                                              external FSharp.Core
+  IL_0017  call      Microsoft.FSharp.Collections.FSharpList<!!0>::get_HeadOrDefault()                                                    external FSharp.Core
+  IL_001F  call      Microsoft.FSharp.Collections.FSharpList<!!0>::get_TailOrNull()                                                       external FSharp.Core
+  IL_0027  newobj    Ref.FSharp.Recursion.foldBack@61<!!0, !!1>::.ctor(FSharpFunc<!!0, FSharpFunc<!!1, !!1>>, FSharpFunc<!!1, !!1>, !!0)  internal
+[Callers]
+  Ref.FSharp.Recursion::length  IL_000E  call  (Ref17.FSharpLibrary.dll)
+
+Method   : int length<a>(FSharpList<a> list)
+Kind     : static, public, generic
+RVA      : 0x38B0   Size: 20 bytes   Token: 0x0600008A
+
+[Calls]
+  IL_000E  call      Ref.FSharp.Recursion::foldBack<!!0, int>(FSharpFunc<!!0, FSharpFunc<int, int>>, FSharpList<!!0>, FSharpFunc<int, int>, int)  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Recursion+foldBack@61
+
+Method   : void .ctor(FSharpFunc<a, FSharpFunc<b, b>> f, FSharpFunc<b, b> k, a x)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x38C8   Size: 28 bytes   Token: 0x0600008B
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<!1, !1>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Recursion::foldBack  IL_0027  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : b Invoke(b acc)
+Kind     : instance, public, override
+RVA      : 0x38E8   Size: 32 bytes   Token: 0x0600008C
+
+[Calls]
+  IL_0013  call      Microsoft.FSharp.Core.FSharpFunc<!0, !1>::InvokeFast<!1>(FSharpFunc<!0, FSharpFunc<!1, !1>>, !0, !1)  external FSharp.Core
+  IL_001A  callvirt  Microsoft.FSharp.Core.FSharpFunc<!1, !1>::Invoke(!1)                                                  external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Recursion+length@63
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x390C   Size: 7 bytes   Token: 0x0600008D
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.OptimizedClosures.FSharpFunc<!0, int, int>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Recursion+length@63::.cctor  IL_0000  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : int Invoke(a _arg1, int n)
+Kind     : instance, public, override
+RVA      : 0x3914   Size: 4 bytes   Token: 0x0600008E
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x391C   Size: 11 bytes   Token: 0x0600008F
+
+[Calls]
+  IL_0000  newobj    Ref.FSharp.Recursion.length@63<!0>::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Recursion+length@63-1
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3934   Size: 7 bytes   Token: 0x06000090
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<int, int>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Recursion+length@63-1::.cctor  IL_0000  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : int Invoke(int x)
+Kind     : instance, public, override
+RVA      : 0x393C   Size: 2 bytes   Token: 0x06000091
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x3940   Size: 11 bytes   Token: 0x06000092
+
+[Calls]
+  IL_0000  newobj    Ref.FSharp.Recursion.length@63-1::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Eval
+
+Method   : double eval(FSharpMap<string, double> env, Expr expr)
+Kind     : static, public
+RVA      : 0x3958   Size: 213 bytes   Token: 0x06000093
+
+[Calls]
+  IL_0001  call      Ref.FSharp.Expr::get_Tag()                                                                                                                                           internal
+  IL_003B  call      Microsoft.FSharp.Collections.MapModule::TryFind<string, double>(string, FSharpMap<string, double>)                                                                   external FSharp.Core
+  IL_0047  call      Microsoft.FSharp.Core.FSharpOption<double>::get_Value()                                                                                                              external FSharp.Core
+  IL_0052  newobj    Microsoft.FSharp.Core.PrintfFormat<Microsoft.FSharp.Core.FSharpFunc<string, double>, Microsoft.FSharp.Core.Unit, string, double, string>::.ctor(string)              external FSharp.Core
+  IL_0057  call      Microsoft.FSharp.Core.PrintfModule::PrintFormatToStringThenFail<FSharpFunc<string, double>, double>(PrintfFormat<FSharpFunc<string, double>, Unit, string, double>)  external FSharp.Core
+  IL_005F  callvirt  Microsoft.FSharp.Core.FSharpFunc<string, double>::Invoke(string)                                                                                                     external FSharp.Core
+  IL_007F  call      Ref.FSharp.Eval::eval(FSharpMap<string, double>, Expr)                                                                                                               internal
+  IL_0087  call      Ref.FSharp.Eval::eval(FSharpMap<string, double>, Expr)                                                                                                               internal
+  IL_00AB  call      Ref.FSharp.Eval::eval(FSharpMap<string, double>, Expr)                                                                                                               internal
+  IL_00B3  call      Ref.FSharp.Eval::eval(FSharpMap<string, double>, Expr)                                                                                                               internal
+  IL_00CE  call      Ref.FSharp.Eval::eval(FSharpMap<string, double>, Expr)                                                                                                               internal
+[Callers]
+  Ref.FSharp.Eval::eval  IL_007F  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::eval  IL_0087  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::eval  IL_00AB  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::eval  IL_00B3  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::eval  IL_00CE  call  (Ref17.FSharpLibrary.dll)
+
+Method   : Expr simplify(Expr expr)
+Kind     : static, public
+RVA      : 0x3A3C   Size: 824 bytes   Token: 0x06000094
+
+[Calls]
+  IL_0001  call      Ref.FSharp.Expr::get_Tag()           internal
+  IL_0031  call      Ref.FSharp.Expr::get_Tag()           internal
+  IL_005C  call      Ref.FSharp.Expr::get_Tag()           internal
+  IL_00AB  call      Ref.FSharp.Expr::get_Tag()           internal
+  IL_0121  call      Ref.FSharp.Expr::get_Tag()           internal
+  IL_0167  call      Ref.FSharp.Expr::get_Tag()           internal
+  IL_01B5  call      Ref.FSharp.Expr::get_Tag()           internal
+  IL_022A  call      Ref.FSharp.Expr::get_Tag()           internal
+  IL_02B7  call      Ref.FSharp.Expr::get_Tag()           internal
+  IL_02CE  call      Ref.FSharp.Expr::NewNum(double)      internal
+  IL_02E5  call      Ref.FSharp.Eval::simplify(Expr)      internal
+  IL_02EB  call      Ref.FSharp.Eval::simplify(Expr)      internal
+  IL_02F0  call      Ref.FSharp.Expr::NewAdd(Expr, Expr)  internal
+  IL_0309  call      Ref.FSharp.Eval::simplify(Expr)      internal
+  IL_030F  call      Ref.FSharp.Eval::simplify(Expr)      internal
+  IL_0314  call      Ref.FSharp.Expr::NewMul(Expr, Expr)  internal
+[Callers]
+  Ref.FSharp.Eval::simplify  IL_02E5  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::simplify  IL_02EB  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::simplify  IL_0309  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::simplify  IL_030F  call  (Ref17.FSharpLibrary.dll)
+
+Method   : string show(Expr expr)
+Kind     : static, public
+RVA      : 0x3D80   Size: 241 bytes   Token: 0x06000095
+
+[Calls]
+  IL_0001  call      Ref.FSharp.Expr::get_Tag()                                                                                                                                                                                               internal
+  IL_0030  call      System.Globalization.CultureInfo::get_InvariantCulture()                                                                                                                                                                 external netstandard
+  IL_0035  call      System.Double::ToString(string, IFormatProvider)                                                                                                                                                                         external netstandard
+  IL_0062  newobj    Microsoft.FSharp.Core.PrintfFormat<Microsoft.FSharp.Core.FSharpFunc<string, Microsoft.FSharp.Core.FSharpFunc<string, string>>, Microsoft.FSharp.Core.Unit, string, string, System.Tuple<string, string>>::.ctor(string)  external FSharp.Core
+  IL_0067  call      Microsoft.FSharp.Core.PrintfModule::PrintFormatToStringThen<FSharpFunc<string, FSharpFunc<string, string>>>(PrintfFormat<FSharpFunc<string, FSharpFunc<string, string>>, Unit, string, string>)                          external FSharp.Core
+  IL_0070  newobj    Ref.FSharp.Eval.show@45::.ctor(FSharpFunc<string, FSharpFunc<string, string>>)                                                                                                                                           internal
+  IL_0077  call      Ref.FSharp.Eval::show(Expr)                                                                                                                                                                                              internal
+  IL_007D  call      Ref.FSharp.Eval::show(Expr)                                                                                                                                                                                              internal
+  IL_0084  call      Microsoft.FSharp.Core.FSharpFunc<string, string>::InvokeFast<string>(FSharpFunc<string, FSharpFunc<string, string>>, string, string)                                                                                     external FSharp.Core
+  IL_00A8  newobj    Microsoft.FSharp.Core.PrintfFormat<Microsoft.FSharp.Core.FSharpFunc<string, Microsoft.FSharp.Core.FSharpFunc<string, string>>, Microsoft.FSharp.Core.Unit, string, string, System.Tuple<string, string>>::.ctor(string)  external FSharp.Core
+  IL_00AD  call      Microsoft.FSharp.Core.PrintfModule::PrintFormatToStringThen<FSharpFunc<string, FSharpFunc<string, string>>>(PrintfFormat<FSharpFunc<string, FSharpFunc<string, string>>, Unit, string, string>)                          external FSharp.Core
+  IL_00B6  newobj    Ref.FSharp.Eval.show@46-2::.ctor(FSharpFunc<string, FSharpFunc<string, string>>)                                                                                                                                         internal
+  IL_00BD  call      Ref.FSharp.Eval::show(Expr)                                                                                                                                                                                              internal
+  IL_00C3  call      Ref.FSharp.Eval::show(Expr)                                                                                                                                                                                              internal
+  IL_00CA  call      Microsoft.FSharp.Core.FSharpFunc<string, string>::InvokeFast<string>(FSharpFunc<string, FSharpFunc<string, string>>, string, string)                                                                                     external FSharp.Core
+  IL_00E6  call      Ref.FSharp.Eval::show(Expr)                                                                                                                                                                                              internal
+  IL_00EB  call      System.String::Concat(string, string)                                                                                                                                                                                    external System.Runtime
+[Callers]
+  Ref.FSharp.Eval::show  IL_0077  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::show  IL_007D  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::show  IL_00BD  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::show  IL_00C3  call  (Ref17.FSharpLibrary.dll)
+  Ref.FSharp.Eval::show  IL_00E6  call  (Ref17.FSharpLibrary.dll)
+
+Type     : Ref.FSharp.Eval+show@45-1
+
+Method   : void .ctor(FSharpFunc<string, string> clo2)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3E80   Size: 14 bytes   Token: 0x06000096
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<string, string>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Eval+show@45::Invoke  IL_000E  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : string Invoke(string arg20)
+Kind     : instance, public, override
+RVA      : 0x3E90   Size: 15 bytes   Token: 0x06000097
+
+[Calls]
+  IL_0009  callvirt  Microsoft.FSharp.Core.FSharpFunc<string, string>::Invoke(string)  external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Eval+show@45
+
+Method   : void .ctor(FSharpFunc<string, FSharpFunc<string, string>> clo1)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3EA0   Size: 14 bytes   Token: 0x06000098
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<string, Microsoft.FSharp.Core.FSharpFunc<string, string>>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Eval::show  IL_0070  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : FSharpFunc<string, string> Invoke(string arg10)
+Kind     : instance, public, override
+RVA      : 0x3EB0   Size: 20 bytes   Token: 0x06000099
+
+[Calls]
+  IL_0007  callvirt  Microsoft.FSharp.Core.FSharpFunc<string, Microsoft.FSharp.Core.FSharpFunc<string, string>>::Invoke(string)  external FSharp.Core
+  IL_000E  newobj    Ref.FSharp.Eval.show@45-1::.ctor(FSharpFunc<string, string>)                                                internal
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Eval+show@46-3
+
+Method   : void .ctor(FSharpFunc<string, string> clo2)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3ED0   Size: 14 bytes   Token: 0x0600009A
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<string, string>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Eval+show@46-2::Invoke  IL_000E  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : string Invoke(string arg20)
+Kind     : instance, public, override
+RVA      : 0x3EE0   Size: 15 bytes   Token: 0x0600009B
+
+[Calls]
+  IL_0009  callvirt  Microsoft.FSharp.Core.FSharpFunc<string, string>::Invoke(string)  external FSharp.Core
+[Callers]
+  (none in the input files)
+
+Type     : Ref.FSharp.Eval+show@46-2
+
+Method   : void .ctor(FSharpFunc<string, FSharpFunc<string, string>> clo1)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x3EF0   Size: 14 bytes   Token: 0x0600009C
+
+[Calls]
+  IL_0001  call      Microsoft.FSharp.Core.FSharpFunc<string, Microsoft.FSharp.Core.FSharpFunc<string, string>>::.ctor()  external FSharp.Core
+[Callers]
+  Ref.FSharp.Eval::show  IL_00B6  newobj  (Ref17.FSharpLibrary.dll)
+
+Method   : FSharpFunc<string, string> Invoke(string arg10)
+Kind     : instance, public, override
+RVA      : 0x3F00   Size: 20 bytes   Token: 0x0600009D
+
+[Calls]
+  IL_0007  callvirt  Microsoft.FSharp.Core.FSharpFunc<string, Microsoft.FSharp.Core.FSharpFunc<string, string>>::Invoke(string)  external FSharp.Core
+  IL_000E  newobj    Ref.FSharp.Eval.show@46-3::.ctor(FSharpFunc<string, string>)                                                internal
+[Callers]
+  (none in the input files)
+
+Type     : <StartupCode$Ref17-FSharpLibrary>.$Library
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x3F20   Size: 41 bytes   Token: 0x0600009E
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : int CompareTo$cont@7(Expr this, Expr obj, Unit unitVar)
+Kind     : static, internal, compiler-generated
+RVA      : 0x3F4C   Size: 410 bytes   Token: 0x0600009F
+
+[Calls]
+  IL_0001  call      Ref.FSharp.Expr::get_Tag()                                                                                                       internal
+  IL_002D  call      Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()                                                                  external FSharp.Core
+  IL_0063  call      Microsoft.FSharp.Core.LanguagePrimitives.HashCompare::GenericComparisonWithComparerIntrinsic<double>(IComparer, double, double)  external FSharp.Core
+  IL_0079  call      Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()                                                                  external FSharp.Core
+  IL_008D  call      System.String::CompareOrdinal(string, string)                                                                                    external netstandard
+  IL_00A3  call      Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()                                                                  external FSharp.Core
+  IL_00C0  callvirt  Ref.FSharp.Expr::CompareTo(object, IComparer)                                                                                    internal
+  IL_00D7  call      Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()                                                                  external FSharp.Core
+  IL_00F6  callvirt  Ref.FSharp.Expr::CompareTo(object, IComparer)                                                                                    internal
+  IL_010C  call      Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()                                                                  external FSharp.Core
+  IL_0129  callvirt  Ref.FSharp.Expr::CompareTo(object, IComparer)                                                                                    internal
+  IL_0140  call      Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()                                                                  external FSharp.Core
+  IL_015F  callvirt  Ref.FSharp.Expr::CompareTo(object, IComparer)                                                                                    internal
+  IL_0175  call      Microsoft.FSharp.Core.LanguagePrimitives::get_GenericComparer()                                                                  external FSharp.Core
+  IL_0194  callvirt  Ref.FSharp.Expr::CompareTo(object, IComparer)                                                                                    internal
+[Callers]
+  Ref.FSharp.Expr::CompareTo  IL_001D  call  (Ref17.FSharpLibrary.dll)

@@ -1,0 +1,102 @@
+Assembly : Ref04.NetFx48.dll
+Name     : Ref04.NetFx48, Version=1.0.0.0
+Runtime  : .NETFramework,Version=v4.8   Machine: anycpu
+Methods  : 22
+
+Type     : Ref.NetFx48.SettingsException
+
+Method   : void .ctor(string key)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 25 bytes   Token: 0x06000001
+
+Method   : void .ctor(SerializationInfo info, StreamingContext context)
+Kind     : ctor, instance, protected
+RVA      : 0x206A   Size: 26 bytes   Token: 0x06000002
+
+Method   : string get_Key()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2085   Size: 7 bytes   Token: 0x06000003
+
+Method   : void GetObjectData(SerializationInfo info, StreamingContext context)
+Kind     : instance, public, override
+RVA      : 0x208D   Size: 26 bytes   Token: 0x06000004
+
+Type     : Ref.NetFx48.AppSettings
+
+Method   : AppSettings FromConfiguration()
+Kind     : static, public
+RVA      : 0x20A8   Size: 60 bytes   Token: 0x06000005
+
+Method   : AppSettings FromXml(string xml)
+Kind     : static, public
+RVA      : 0x20F0   Size: 161 bytes   Token: 0x06000006
+
+Method   : string get_Item(string key)
+Kind     : property-get, instance, public
+RVA      : 0x21B0   Size: 28 bytes   Token: 0x06000007
+
+Method   : void set_Item(string key, string value)
+Kind     : property-set, instance, public
+RVA      : 0x21CD   Size: 14 bytes   Token: 0x06000008
+
+Method   : int GetInt(string key, int fallback)
+Kind     : instance, public
+RVA      : 0x21DC   Size: 44 bytes   Token: 0x06000009
+
+Method   : object Clone()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x2214   Size: 86 bytes   Token: 0x0600000A
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2288   Size: 23 bytes   Token: 0x0600000B
+
+Type     : Ref.NetFx48.WorkCompleted
+
+Method   : void .ctor(object object, nint method)
+Kind     : ctor, instance, public, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000C
+
+Method   : void Invoke(object sender, int processed)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000D
+
+Method   : IAsyncResult BeginInvoke(object sender, int processed, AsyncCallback callback, object object)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000E
+
+Method   : void EndInvoke(IAsyncResult result)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x0600000F
+
+Type     : Ref.NetFx48.BackgroundCounter
+
+Method   : void add_Completed(WorkCompleted value)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x22A0   Size: 41 bytes   Token: 0x06000010
+
+Method   : void remove_Completed(WorkCompleted value)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x22D8   Size: 41 bytes   Token: 0x06000011
+
+Method   : void Run(IList<string> items)
+Kind     : instance, public
+RVA      : 0x2310   Size: 166 bytes   Token: 0x06000012
+
+Method   : void OnCompleted(int processed)
+Kind     : instance, protected, virtual
+RVA      : 0x23E0   Size: 19 bytes   Token: 0x06000013
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x23FF   Size: 18 bytes   Token: 0x06000014
+
+Type     : Ref.NetFx48.BackgroundCounter+<>c__DisplayClass5_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2412   Size: 7 bytes   Token: 0x06000015
+
+Method   : void <Run>b__0(object state)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x241C   Size: 97 bytes   Token: 0x06000016

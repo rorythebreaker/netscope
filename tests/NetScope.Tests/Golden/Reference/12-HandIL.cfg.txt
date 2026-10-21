@@ -1,0 +1,278 @@
+Assembly : Ref12.HandIL.dll
+Name     : Ref12.HandIL, Version=1.0.0.0
+Runtime  : v4.0.30319   Machine: anycpu
+Methods  : 10
+
+Type     : Ref.HandIL.Constructs
+
+Method   : int WithFault(int x)
+Kind     : static, public
+RVA      : 0x2050   Size: 31 bytes   Token: 0x06000001
+
+[Branches]  complexity=3  blocks=5  loops=0
+  B0 IL_0000..IL_0003  -> B1 (x < 0) | B2 (else) | B3 (fault)  [try]
+       IL_0000  ldarg.0
+       IL_0001  ldc.i4.0
+       IL_0002  bge.s      IL_000A
+  B1 IL_0004..IL_0009  -> throw  [try]
+       IL_0004  newobj     instance void [System.Runtime]System.ArgumentOutOfRangeException::.ctor()
+       IL_0009  throw
+  B2 IL_000A..IL_000F  -> B4 (leave)  [try]
+       IL_000A  ldarg.0
+       IL_000B  ldc.i4.2
+       IL_000C  mul
+       IL_000D  stloc.0
+       IL_000E  leave.s    IL_001D
+  B3 IL_0010..IL_001C  -> endfinally  [fault]
+       IL_0010  ldsfld     int32 Ref.HandIL.Constructs::Cleanups
+       IL_0015  ldc.i4.1
+       IL_0016  add
+       IL_0017  stsfld     int32 Ref.HandIL.Constructs::Cleanups
+       IL_001C  endfinally
+  B4 IL_001D..IL_001E  -> exit
+       IL_001D  ldloc.0
+       IL_001E  ret
+  exits: B1 (throw), B4 (return)
+  regions:
+    try IL_0000..IL_000F  [B0 B1 B2]
+    fault IL_0010..IL_001C  [B3]  (handler of try IL_0000)
+
+Method   : int WithFilter(string s)
+Kind     : static, public
+RVA      : 0x208C   Size: 40 bytes   Token: 0x06000002
+
+[Branches]  complexity=4  blocks=7  loops=0
+  B0 IL_0000..IL_0008  -> B6 (leave) | B1 (filter) | B5 (catch when filter)  [try]
+       IL_0000  ldarg.0
+       IL_0001  call       int32 [System.Runtime]System.Int32::Parse(string)
+       IL_0006  stloc.0
+       IL_0007  leave.s    IL_0026
+  B1 IL_0009..IL_0010  -> B2 (!(ex is FormatException)) | B3 (else)  [filter]
+       IL_0009  isinst     [System.Runtime]System.FormatException
+       IL_000E  dup
+       IL_000F  brtrue.s   IL_0015
+  B2 IL_0011..IL_0014  -> B4  [filter]
+       IL_0011  pop
+       IL_0012  ldc.i4.0
+       IL_0013  br.s       IL_001F
+  B3 IL_0015..IL_001E  -> B4  [filter]
+       IL_0015  pop
+       IL_0016  ldarg.0
+       IL_0017  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+       IL_001C  ldc.i4.0
+       IL_001D  cgt
+  B4 IL_001F..IL_0020  -> endfilter  [filter]
+       IL_001F  endfilter
+  B5 IL_0021..IL_0025  -> B6 (leave)  [catch when filter]
+       IL_0021  pop
+       IL_0022  ldc.i4.m1
+       IL_0023  stloc.0
+       IL_0024  leave.s    IL_0026
+  B6 IL_0026..IL_0027  -> exit
+       IL_0026  ldloc.0
+       IL_0027  ret
+  exits: B6 (return)
+  regions:
+    try IL_0000..IL_0008  [B0]
+    filter IL_0009..IL_0020  [B1 B2 B3 B4]  (handler of try IL_0000)
+    catch when filter IL_0021..IL_0025  [B5]  (handler of try IL_0000)
+
+Method   : int NestedInHandlers(int x)
+Kind     : static, public
+RVA      : 0x20D0   Size: 38 bytes   Token: 0x06000003
+
+[Branches]  complexity=5  blocks=10  loops=0
+  B0 IL_0000..IL_0005  -> B5 (leave) | B1 (catch DivideByZeroException) | B6 (finally)  [try]
+       IL_0000  ldarg.0
+       IL_0001  ldc.i4.0
+       IL_0002  div
+       IL_0003  stloc.0
+       IL_0004  leave.s    IL_0010
+  B1 IL_0006..IL_0006  -> B2  [catch DivideByZeroException]
+       IL_0006  pop
+  B2 IL_0007..IL_000A  -> B4 (leave) | B3 (fault)  [try]
+       IL_0007  ldc.i4.7
+       IL_0008  stloc.0
+       IL_0009  leave.s    IL_000E
+  B3 IL_000B..IL_000D  -> endfinally  [fault]
+       IL_000B  ldc.i4.0
+       IL_000C  stloc.0
+       IL_000D  endfinally
+  B4 IL_000E..IL_000F  -> B5 (leave)  [catch DivideByZeroException]
+       IL_000E  leave.s    IL_0010
+  B5 IL_0010..IL_0011  -> B9 (leave)  [try]
+       IL_0010  leave.s    IL_0024
+  B6 IL_0012..IL_001F  -> B8 (leave) | B7 (catch Object)  [try]
+       IL_0012  ldsfld     int32 Ref.HandIL.Constructs::Cleanups
+       IL_0017  ldc.i4.1
+       IL_0018  add
+       IL_0019  stsfld     int32 Ref.HandIL.Constructs::Cleanups
+       IL_001E  leave.s    IL_0023
+  B7 IL_0020..IL_0022  -> B8 (leave)  [catch Object]
+       IL_0020  pop
+       IL_0021  leave.s    IL_0023
+  B8 IL_0023..IL_0023  -> endfinally  [finally]
+       IL_0023  endfinally
+  B9 IL_0024..IL_0025  -> exit
+       IL_0024  ldloc.0
+       IL_0025  ret
+  exits: B9 (return)
+  regions:
+    try IL_0000..IL_0011  [B5]
+      try IL_0000..IL_0005  [B0]
+      catch DivideByZeroException IL_0006..IL_000F  [B1 B4]  (handler of try IL_0000)
+        try IL_0007..IL_000A  [B2]
+        fault IL_000B..IL_000D  [B3]  (handler of try IL_0007)
+    finally IL_0012..IL_0023  [B8]  (handler of try IL_0000)
+      try IL_0012..IL_001F  [B6]
+      catch Object IL_0020..IL_0022  [B7]  (handler of try IL_0012)
+
+Method   : int JumpTarget(int x)
+Kind     : static, public
+RVA      : 0x2138   Size: 5 bytes   Token: 0x06000004
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0004  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldc.i4.s   10
+       IL_0003  add
+       IL_0004  ret
+  exits: B0 (return)
+
+Method   : int Jumper(int x)
+Kind     : static, public
+RVA      : 0x2149   Size: 5 bytes   Token: 0x06000005
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0004  -> jmp
+       IL_0000  jmp        int32 Ref.HandIL.Constructs::JumpTarget(int32)
+  exits: B0 (jmp)
+
+Method   : long Factorial(int n, long acc)
+Kind     : static, public
+RVA      : 0x2150   Size: 21 bytes   Token: 0x06000006
+
+[Branches]  complexity=2  blocks=3  loops=0
+  B0 IL_0000..IL_0003  -> B1 (n <= 1) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  ldc.i4.1
+       IL_0002  bgt.s      IL_0006
+  B1 IL_0004..IL_0005  -> exit
+       IL_0004  ldarg.1
+       IL_0005  ret
+  B2 IL_0006..IL_0014  -> exit
+       IL_0006  ldarg.0
+       IL_0007  ldc.i4.1
+       IL_0008  sub
+       IL_0009  ldarg.1
+       IL_000A  ldarg.0
+       IL_000B  conv.i8
+       IL_000C  mul
+       IL_000D  tail.
+       IL_000F  call       int64 Ref.HandIL.Constructs::Factorial(int32, int64)
+       IL_0014  ret
+  exits: B1 (return), B2 (return)
+
+Method   : string SwitchFallThrough(int x)
+Kind     : static, public
+RVA      : 0x2174   Size: 40 bytes   Token: 0x06000007
+
+[Branches]  complexity=5  blocks=4  loops=0
+  B0 IL_0000..IL_0015  -> B1 (case 0) | B2 (case 1) | B3 (case 2) | B2 (case 3) | B1 (default)
+       IL_0000  ldarg.0
+       IL_0001  switch     (IL_0016, IL_001C, IL_0022, IL_001C)
+  B1 IL_0016..IL_001B  -> exit
+       IL_0016  ldstr      "zero or out of range"
+       IL_001B  ret
+  B2 IL_001C..IL_0021  -> exit
+       IL_001C  ldstr      "one or three"
+       IL_0021  ret
+  B3 IL_0022..IL_0027  -> exit
+       IL_0022  ldstr      "two"
+       IL_0027  ret
+  exits: B1 (return), B2 (return), B3 (return)
+
+Method   : int SwitchLoop(int[] ops)
+Kind     : static, public
+RVA      : 0x21A8   Size: 54 bytes   Token: 0x06000008
+
+[Branches]  complexity=5  blocks=8  loops=1
+  B0 IL_0000..IL_0005  -> B6
+       IL_0000  ldc.i4.0
+       IL_0001  stloc.0
+       IL_0002  ldc.i4.0
+       IL_0003  stloc.1
+       IL_0004  br.s       IL_002E
+  B1 IL_0006..IL_0019  -> B3 (case 0) | B4 (case 1) | B5 (case 2) | B2 (default)
+       IL_0006  ldarg.0
+       IL_0007  ldloc.1
+       IL_0008  ldelem.i4
+       IL_0009  switch     (IL_0020, IL_0026, IL_002A)
+  B2 IL_001A..IL_001F  -> B5
+       IL_001A  ldloc.0
+       IL_001B  ldc.i4.1
+       IL_001C  sub
+       IL_001D  stloc.0
+       IL_001E  br.s       IL_002A
+  B3 IL_0020..IL_0025  -> B5
+       IL_0020  ldloc.0
+       IL_0021  ldc.i4.1
+       IL_0022  add
+       IL_0023  stloc.0
+       IL_0024  br.s       IL_002A
+  B4 IL_0026..IL_0029  -> B5
+       IL_0026  ldloc.0
+       IL_0027  ldc.i4.2
+       IL_0028  mul
+       IL_0029  stloc.0
+  B5 IL_002A..IL_002D  -> B6 (loop)
+       IL_002A  ldloc.1
+       IL_002B  ldc.i4.1
+       IL_002C  add
+       IL_002D  stloc.1
+  B6 IL_002E..IL_0033  -> B1 (V_1 < (int)ops.Length) | B7 (else)  [loop]
+       IL_002E  ldloc.1
+       IL_002F  ldarg.0
+       IL_0030  ldlen
+       IL_0031  conv.i4
+       IL_0032  blt.s      IL_0006
+  B7 IL_0034..IL_0035  -> exit
+       IL_0034  ldloc.0
+       IL_0035  ret
+  loop: header B6, back edges from B5, body B1 B2 B3 B4 B5 B6
+  exits: B7 (return)
+
+Method   : void Rethrows()
+Kind     : static, public
+RVA      : 0x21EC   Size: 13 bytes   Token: 0x06000009
+
+[Branches]  complexity=1  blocks=5  loops=0
+  B0 IL_0000..IL_0005  -> B1 (catch InvalidOperationException) | throw  [try]
+       IL_0000  newobj     instance void [System.Runtime]System.InvalidOperationException::.ctor()
+       IL_0005  throw
+  B1 IL_0006..IL_0008  -> rethrow  [catch InvalidOperationException]
+       IL_0006  pop
+       IL_0007  rethrow
+  B2 IL_0009..IL_000A  -> B4  [unreachable]
+       IL_0009  br.s       IL_000C
+  B3 IL_000B..IL_000B  -> B4  [unreachable]
+       IL_000B  nop
+  B4 IL_000C..IL_000C  -> exit  [unreachable]
+       IL_000C  ret
+  unreachable: B2, B3, B4
+  exits: B0 (throw), B1 (rethrow), B4 (return)
+  regions:
+    try IL_0000..IL_0005  [B0]
+    catch InvalidOperationException IL_0006..IL_0008  [B1]  (handler of try IL_0000)
+
+Method   : int IndirectCall(int x)
+Kind     : static, public
+RVA      : 0x2218   Size: 13 bytes   Token: 0x0600000A
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000C  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldftn      int32 Ref.HandIL.Constructs::JumpTarget(int32)
+       IL_0007  calli      int32(int32)
+       IL_000C  ret
+  exits: B0 (return)

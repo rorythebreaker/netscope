@@ -1,0 +1,156 @@
+Assembly : Ref05.NetFx35.dll
+Name     : Ref05.NetFx35, Version=1.0.0.0
+Runtime  : v2.0.50727   Machine: anycpu
+Methods  : 35
+
+Type     : Ref.NetFx35.Extensions
+
+Method   : bool IsBlank(string s)
+Kind     : static, public, extension
+RVA      : 0x2050   Size: 20 bytes   Token: 0x06000001
+
+Method   : IEnumerable<T> EveryOther<T>(IEnumerable<T> source)
+Kind     : static, public, generic, extension
+RVA      : 0x2065   Size: 15 bytes   Token: 0x06000002
+
+Method   : string Join(IEnumerable<string> parts, string separator)
+Kind     : static, public, extension
+RVA      : 0x2078   Size: 74 bytes   Token: 0x06000003
+
+Type     : Ref.NetFx35.Customer
+
+Method   : string get_Name()
+Kind     : property-get, instance, public
+RVA      : 0x20E0   Size: 7 bytes   Token: 0x06000004
+
+Method   : void set_Name(string value)
+Kind     : property-set, instance, public
+RVA      : 0x20E8   Size: 22 bytes   Token: 0x06000005
+
+Method   : string get_City()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20FF   Size: 7 bytes   Token: 0x06000006
+
+Method   : void set_City(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2107   Size: 8 bytes   Token: 0x06000007
+
+Method   : Decimal get_Balance()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2110   Size: 7 bytes   Token: 0x06000008
+
+Method   : void set_Balance(Decimal value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2118   Size: 8 bytes   Token: 0x06000009
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2121   Size: 7 bytes   Token: 0x0600000A
+
+Type     : Ref.NetFx35.Ledger
+
+Method   : void Add(Customer customer)
+Kind     : instance, public
+RVA      : 0x2129   Size: 41 bytes   Token: 0x0600000B
+
+Method   : IEnumerable<string> CitiesWithDebt()
+Kind     : instance, public
+RVA      : 0x2154   Size: 156 bytes   Token: 0x0600000C
+
+Method   : Decimal Total()
+Kind     : instance, public
+RVA      : 0x21FC   Size: 43 bytes   Token: 0x0600000D
+
+Method   : string[] Log()
+Kind     : instance, public
+RVA      : 0x2228   Size: 61 bytes   Token: 0x0600000E
+
+Method   : Customer Find(Predicate<Customer> match)
+Kind     : instance, public
+RVA      : 0x2271   Size: 13 bytes   Token: 0x0600000F
+
+Method   : Customer FindByName(string name)
+Kind     : instance, public
+RVA      : 0x2280   Size: 32 bytes   Token: 0x06000010
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x22AC   Size: 29 bytes   Token: 0x06000011
+
+Type     : Ref.NetFx35.Extensions+<EveryOther>d__1`1
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x22CA   Size: 30 bytes   Token: 0x06000012
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x22EC   Size: 42 bytes   Token: 0x06000013
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2334   Size: 162 bytes   Token: 0x06000014
+
+Method   : void <>m__Finally1()
+Kind     : instance, private, compiler-generated
+RVA      : 0x23F4   Size: 27 bytes   Token: 0x06000015
+
+Method   : T System.Collections.Generic.IEnumerator<T>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2410   Size: 7 bytes   Token: 0x06000016
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2418   Size: 6 bytes   Token: 0x06000017
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x241F   Size: 12 bytes   Token: 0x06000018
+
+Method   : IEnumerator<T> System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x242C   Size: 60 bytes   Token: 0x06000019
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2474   Size: 7 bytes   Token: 0x0600001A
+
+Type     : Ref.NetFx35.Ledger+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x247C   Size: 11 bytes   Token: 0x0600001B
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2488   Size: 7 bytes   Token: 0x0600001C
+
+Method   : bool <CitiesWithDebt>b__3_0(Customer c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2490   Size: 17 bytes   Token: 0x0600001D
+
+Method   : string <CitiesWithDebt>b__3_1(Customer c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x24A2   Size: 7 bytes   Token: 0x0600001E
+
+Method   : string <CitiesWithDebt>b__3_2(IGrouping<string, Customer> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x24AA   Size: 7 bytes   Token: 0x0600001F
+
+Method   : string <CitiesWithDebt>b__3_3(IGrouping<string, Customer> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x24B4   Size: 31 bytes   Token: 0x06000020
+
+Method   : Decimal <Total>b__4_0(Customer c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x24DF   Size: 7 bytes   Token: 0x06000021
+
+Type     : Ref.NetFx35.Ledger+<>c__DisplayClass7_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x24E7   Size: 7 bytes   Token: 0x06000022
+
+Method   : bool <FindByName>b__0(Customer c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x24EF   Size: 19 bytes   Token: 0x06000023

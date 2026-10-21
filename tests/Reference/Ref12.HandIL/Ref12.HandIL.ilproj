@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk.IL/10.0.13">
+  <!-- 12. Hand-written IL: fault, filter, jmp, tail., switch without default — constructs C# does not emit.
+       Compiled with ilasm from the Microsoft.NETCore.ILAsm package (pulled in by this SDK). -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+</Project>

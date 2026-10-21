@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 8. Iterators and async streams (IAsyncEnumerable): IteratorStateMachine, AsyncIteratorStateMachine. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Ref.Iterators</RootNamespace>
+  </PropertyGroup>
+</Project>

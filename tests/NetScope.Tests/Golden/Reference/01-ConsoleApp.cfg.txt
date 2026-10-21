@@ -1,0 +1,635 @@
+Assembly : Ref01.ConsoleApp.dll
+Name     : Ref01.ConsoleApp, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 21
+
+Type     : Ref.ConsoleApp.Program
+
+Method   : int Main(string[] args)
+Kind     : static, private, entry-point
+RVA      : 0x2050   Size: 284 bytes   Token: 0x06000001
+
+[Branches]  complexity=9  blocks=22  loops=2
+  B0 IL_0000..IL_000E  -> B1 (V_0.ShowHelp) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  call       class Ref.ConsoleApp.Options Ref.ConsoleApp.Options::Parse(string[])
+       IL_0006  stloc.0
+       IL_0007  ldloc.0
+       IL_0008  callvirt   instance bool Ref.ConsoleApp.Options::get_ShowHelp()
+       IL_000D  brfalse.s  IL_001B
+  B1 IL_000F..IL_001A  -> exit
+       IL_000F  ldstr      "usage: wc [--top N] [--ignore-case] <file>..."
+       IL_0014  call       void [System.Console]System.Console::WriteLine(string)
+       IL_0019  ldc.i4.0
+       IL_001A  ret
+  B2 IL_001B..IL_0022  -> B3 (V_0.Error != null) | B4 (else)
+       IL_001B  ldloc.0
+       IL_001C  callvirt   instance string Ref.ConsoleApp.Options::get_Error()
+       IL_0021  brfalse.s  IL_0035
+  B3 IL_0023..IL_0034  -> exit
+       IL_0023  call       class [System.Runtime]System.IO.TextWriter [System.Console]System.Console::get_Error()
+       IL_0028  ldloc.0
+       IL_0029  callvirt   instance string Ref.ConsoleApp.Options::get_Error()
+       IL_002E  callvirt   instance void [System.Runtime]System.IO.TextWriter::WriteLine(string)
+       IL_0033  ldc.i4.2
+       IL_0034  ret
+  B4 IL_0035..IL_004C  -> B5
+       IL_0035  ldloc.0
+       IL_0036  callvirt   instance bool Ref.ConsoleApp.Options::get_IgnoreCase()
+       IL_003B  newobj     instance void Ref.ConsoleApp.WordCounter::.ctor(bool)
+       IL_0040  stloc.1
+       IL_0041  ldloc.0
+       IL_0042  callvirt   instance class [System.Collections]System.Collections.Generic.List`1<string> Ref.ConsoleApp.Options::get_Files()
+       IL_0047  callvirt   instance valuetype [System.Collections]System.Collections.Generic.List`1/Enumerator<!0> class [System.Collections]System.Collections.Generic.List`1<string>::GetEnumerator()
+       IL_004C  stloc.2
+  B5 IL_004D..IL_004E  -> B9 | B11 (finally)  [try]
+       IL_004D  br.s       IL_0088
+  B6 IL_004F..IL_005E  -> B7 (!File.Exists(V_3)) | B8 (else)  [try]
+       IL_004F  ldloca.s   V_2
+       IL_0051  call       instance !0 valuetype [System.Collections]System.Collections.Generic.List`1/Enumerator<string>::get_Current()
+       IL_0056  stloc.3
+       IL_0057  ldloc.3
+       IL_0058  call       bool [System.Runtime]System.IO.File::Exists(string)
+       IL_005D  brtrue.s   IL_007C
+  B7 IL_005F..IL_007B  -> B21 (leave)  [try]
+       IL_005F  call       class [System.Runtime]System.IO.TextWriter [System.Console]System.Console::get_Error()
+       IL_0064  ldstr      "not found: "
+       IL_0069  ldloc.3
+       IL_006A  call       string [System.Runtime]System.String::Concat(string, string)
+       IL_006F  callvirt   instance void [System.Runtime]System.IO.TextWriter::WriteLine(string)
+       IL_0074  ldc.i4.3
+       IL_0075  stloc.s    V_4
+       IL_0077  leave      IL_0119
+  B8 IL_007C..IL_0087  -> B9 (loop)  [try]
+       IL_007C  ldloc.1
+       IL_007D  ldloc.3
+       IL_007E  call       string [System.Runtime]System.IO.File::ReadAllText(string)
+       IL_0083  callvirt   instance void Ref.ConsoleApp.WordCounter::Add(string)
+  B9 IL_0088..IL_0090  -> B6 (V_2.MoveNext()) | B10 (else)  [loop, try]
+       IL_0088  ldloca.s   V_2
+       IL_008A  call       instance bool valuetype [System.Collections]System.Collections.Generic.List`1/Enumerator<string>::MoveNext()
+       IL_008F  brtrue.s   IL_004F
+  B10 IL_0091..IL_0092  -> B12 (leave)  [try]
+       IL_0091  leave.s    IL_00A1
+  B11 IL_0093..IL_00A0  -> endfinally  [finally]
+       IL_0093  ldloca.s   V_2
+       IL_0095  constrained. valuetype [System.Collections]System.Collections.Generic.List`1/Enumerator<string>
+       IL_009B  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+       IL_00A0  endfinally
+  B12 IL_00A1..IL_00B3  -> B13
+       IL_00A1  ldloc.1
+       IL_00A2  ldloc.0
+       IL_00A3  callvirt   instance int32 Ref.ConsoleApp.Options::get_Top()
+       IL_00A8  callvirt   instance class [System.Runtime]System.Collections.Generic.IEnumerable`1<valuetype [System.Runtime]System.ValueTuple`2<string, int32>> Ref.ConsoleApp.WordCounter::Top(int32)
+       IL_00AD  callvirt   instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class [System.Runtime]System.Collections.Generic.IEnumerable`1<valuetype [System.Runtime]System.ValueTuple`2<string, int32>>::GetEnumerator()
+       IL_00B2  stloc.s    V_5
+  B13 IL_00B4..IL_00B5  -> B15 | B17 (finally)  [try]
+       IL_00B4  br.s       IL_0100
+  B14 IL_00B6..IL_00FF  -> B15 (loop)  [try]
+       IL_00B6  ldloc.s    V_5
+       IL_00B8  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IEnumerator`1<valuetype [System.Runtime]System.ValueTuple`2<string, int32>>::get_Current()
+       IL_00BD  dup
+       IL_00BE  ldfld      !0 valuetype [System.Runtime]System.ValueTuple`2<string, int32>::Item1
+       IL_00C3  stloc.s    V_6
+       IL_00C5  ldfld      !1 valuetype [System.Runtime]System.ValueTuple`2<string, int32>::Item2
+       IL_00CA  stloc.s    V_7
+       IL_00CC  ldc.i4.1
+       IL_00CD  ldc.i4.2
+       IL_00CE  newobj     instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int32, int32)
+       IL_00D3  stloc.s    V_8
+       IL_00D5  ldloca.s   V_8
+       IL_00D7  ldloc.s    V_7
+       IL_00D9  ldc.i4.6
+       IL_00DA  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<int32>(!!0, int32)
+       IL_00DF  ldloca.s   V_8
+       IL_00E1  ldstr      " "
+       IL_00E6  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)
+       IL_00EB  ldloca.s   V_8
+       IL_00ED  ldloc.s    V_6
+       IL_00EF  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(string)
+       IL_00F4  ldloca.s   V_8
+       IL_00F6  call       instance string [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+       IL_00FB  call       void [System.Console]System.Console::WriteLine(string)
+  B15 IL_0100..IL_0108  -> B14 (V_5.MoveNext()) | B16 (else)  [loop, try]
+       IL_0100  ldloc.s    V_5
+       IL_0102  callvirt   instance bool [System.Runtime]System.Collections.IEnumerator::MoveNext()
+       IL_0107  brtrue.s   IL_00B6
+  B16 IL_0109..IL_010A  -> B20 (leave)  [try]
+       IL_0109  leave.s    IL_0117
+  B17 IL_010B..IL_010E  -> B18 (V_5 != null) | B19 (else)  [finally]
+       IL_010B  ldloc.s    V_5
+       IL_010D  brfalse.s  IL_0116
+  B18 IL_010F..IL_0115  -> B19  [finally]
+       IL_010F  ldloc.s    V_5
+       IL_0111  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  B19 IL_0116..IL_0116  -> endfinally  [finally]
+       IL_0116  endfinally
+  B20 IL_0117..IL_0118  -> exit
+       IL_0117  ldc.i4.0
+       IL_0118  ret
+  B21 IL_0119..IL_011B  -> exit
+       IL_0119  ldloc.s    V_4
+       IL_011B  ret
+  loop: header B9, back edges from B8, body B6 B8 B9
+  loop: header B15, back edges from B14, body B14 B15
+  exits: B1 (return), B3 (return), B20 (return), B21 (return)
+  regions:
+    try IL_004D..IL_0092  [B5 B6 B7 B8 B9 B10]
+    finally IL_0093..IL_00A0  [B11]  (handler of try IL_004D)
+    try IL_00B4..IL_010A  [B13 B14 B15 B16]
+    finally IL_010B..IL_0116  [B17 B18 B19]  (handler of try IL_00B4)
+
+Type     : Ref.ConsoleApp.Options
+
+Method   : bool get_ShowHelp()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2194   Size: 7 bytes   Token: 0x06000002
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      bool Ref.ConsoleApp.Options::'<ShowHelp>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_ShowHelp(bool value)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x219C   Size: 8 bytes   Token: 0x06000003
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      bool Ref.ConsoleApp.Options::'<ShowHelp>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : bool get_IgnoreCase()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x21A5   Size: 7 bytes   Token: 0x06000004
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      bool Ref.ConsoleApp.Options::'<IgnoreCase>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_IgnoreCase(bool value)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x21AD   Size: 8 bytes   Token: 0x06000005
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      bool Ref.ConsoleApp.Options::'<IgnoreCase>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : int get_Top()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x21B6   Size: 7 bytes   Token: 0x06000006
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      int32 Ref.ConsoleApp.Options::'<Top>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_Top(int value)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x21BE   Size: 8 bytes   Token: 0x06000007
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      int32 Ref.ConsoleApp.Options::'<Top>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : string get_Error()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x21C7   Size: 7 bytes   Token: 0x06000008
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      string Ref.ConsoleApp.Options::'<Error>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : void set_Error(string value)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x21CF   Size: 8 bytes   Token: 0x06000009
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldarg.1
+       IL_0002  stfld      string Ref.ConsoleApp.Options::'<Error>k__BackingField'
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : List<string> get_Files()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x21D8   Size: 7 bytes   Token: 0x0600000A
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class [System.Collections]System.Collections.Generic.List`1<string> Ref.ConsoleApp.Options::'<Files>k__BackingField'
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : Options Parse(string[] args)
+Kind     : static, public
+RVA      : 0x21E0   Size: 250 bytes   Token: 0x0600000B
+
+[Branches]  complexity=13  blocks=23  loops=1
+  B0 IL_0000..IL_000C  -> B18
+       IL_0000  newobj     instance void Ref.ConsoleApp.Options::.ctor()
+       IL_0005  stloc.0
+       IL_0006  ldc.i4.0
+       IL_0007  stloc.1
+       IL_0008  br         IL_00CF
+  B1 IL_000D..IL_001D  -> B2 (V_3 != "-h") | B7 (else)
+       IL_000D  ldarg.0
+       IL_000E  ldloc.1
+       IL_000F  ldelem.ref
+       IL_0010  stloc.3
+       IL_0011  ldloc.3
+       IL_0012  ldstr      "-h"
+       IL_0017  call       bool [System.Runtime]System.String::op_Equality(string, string)
+       IL_001C  brtrue.s   IL_0054
+  B2 IL_001E..IL_002A  -> B3 (V_3 != "--help") | B7 (else)
+       IL_001E  ldloc.3
+       IL_001F  ldstr      "--help"
+       IL_0024  call       bool [System.Runtime]System.String::op_Equality(string, string)
+       IL_0029  brtrue.s   IL_0054
+  B3 IL_002B..IL_0037  -> B4 (V_3 != "-i") | B8 (else)
+       IL_002B  ldloc.3
+       IL_002C  ldstr      "-i"
+       IL_0031  call       bool [System.Runtime]System.String::op_Equality(string, string)
+       IL_0036  brtrue.s   IL_005D
+  B4 IL_0038..IL_0044  -> B5 (V_3 != "--ignore-case") | B8 (else)
+       IL_0038  ldloc.3
+       IL_0039  ldstr      "--ignore-case"
+       IL_003E  call       bool [System.Runtime]System.String::op_Equality(string, string)
+       IL_0043  brtrue.s   IL_005D
+  B5 IL_0045..IL_0051  -> B6 (V_3 != "--top") | B9 (else)
+       IL_0045  ldloc.3
+       IL_0046  ldstr      "--top"
+       IL_004B  call       bool [System.Runtime]System.String::op_Equality(string, string)
+       IL_0050  brtrue.s   IL_0066
+  B6 IL_0052..IL_0053  -> B14
+       IL_0052  br.s       IL_0098
+  B7 IL_0054..IL_005C  -> B17
+       IL_0054  ldloc.0
+       IL_0055  ldc.i4.1
+       IL_0056  callvirt   instance void Ref.ConsoleApp.Options::set_ShowHelp(bool)
+       IL_005B  br.s       IL_00CB
+  B8 IL_005D..IL_0065  -> B17
+       IL_005D  ldloc.0
+       IL_005E  ldc.i4.1
+       IL_005F  callvirt   instance void Ref.ConsoleApp.Options::set_IgnoreCase(bool)
+       IL_0064  br.s       IL_00CB
+  B9 IL_0066..IL_006D  -> B10 (V_1 + 1 < (int)args.Length) | B12 (else)
+       IL_0066  ldloc.1
+       IL_0067  ldc.i4.1
+       IL_0068  add
+       IL_0069  ldarg.0
+       IL_006A  ldlen
+       IL_006B  conv.i4
+       IL_006C  bge.s      IL_0082
+  B10 IL_006E..IL_007D  -> B11 (Int32.TryParse(args[V_1 + 1], ref V_2)) | B12 (else)
+       IL_006E  ldarg.0
+       IL_006F  ldloc.1
+       IL_0070  ldc.i4.1
+       IL_0071  add
+       IL_0072  dup
+       IL_0073  stloc.1
+       IL_0074  ldelem.ref
+       IL_0075  ldloca.s   V_2
+       IL_0077  call       bool [System.Runtime]System.Int32::TryParse(string, int32&)
+       IL_007C  brfalse.s  IL_0082
+  B11 IL_007E..IL_0081  -> B12 (V_2 <= 0) | B13 (else)
+       IL_007E  ldloc.2
+       IL_007F  ldc.i4.0
+       IL_0080  bgt.s      IL_008F
+  B12 IL_0082..IL_008E  -> exit
+       IL_0082  ldloc.0
+       IL_0083  ldstr      "--top expects a positive number"
+       IL_0088  callvirt   instance void Ref.ConsoleApp.Options::set_Error(string)
+       IL_008D  ldloc.0
+       IL_008E  ret
+  B13 IL_008F..IL_0097  -> B17
+       IL_008F  ldloc.0
+       IL_0090  ldloc.2
+       IL_0091  callvirt   instance void Ref.ConsoleApp.Options::set_Top(int32)
+       IL_0096  br.s       IL_00CB
+  B14 IL_0098..IL_00A7  -> B15 (args[V_1].StartsWith("-", 4)) | B16 (else)
+       IL_0098  ldarg.0
+       IL_0099  ldloc.1
+       IL_009A  ldelem.ref
+       IL_009B  ldstr      "-"
+       IL_00A0  ldc.i4.4
+       IL_00A1  callvirt   instance bool [System.Runtime]System.String::StartsWith(string, valuetype [System.Runtime]System.StringComparison)
+       IL_00A6  brfalse.s  IL_00BD
+  B15 IL_00A8..IL_00BC  -> exit
+       IL_00A8  ldloc.0
+       IL_00A9  ldstr      "unknown option "
+       IL_00AE  ldarg.0
+       IL_00AF  ldloc.1
+       IL_00B0  ldelem.ref
+       IL_00B1  call       string [System.Runtime]System.String::Concat(string, string)
+       IL_00B6  callvirt   instance void Ref.ConsoleApp.Options::set_Error(string)
+       IL_00BB  ldloc.0
+       IL_00BC  ret
+  B16 IL_00BD..IL_00CA  -> B17
+       IL_00BD  ldloc.0
+       IL_00BE  callvirt   instance class [System.Collections]System.Collections.Generic.List`1<string> Ref.ConsoleApp.Options::get_Files()
+       IL_00C3  ldarg.0
+       IL_00C4  ldloc.1
+       IL_00C5  ldelem.ref
+       IL_00C6  callvirt   instance void class [System.Collections]System.Collections.Generic.List`1<string>::Add(!0)
+  B17 IL_00CB..IL_00CE  -> B18 (loop)
+       IL_00CB  ldloc.1
+       IL_00CC  ldc.i4.1
+       IL_00CD  add
+       IL_00CE  stloc.1
+  B18 IL_00CF..IL_00D7  -> B1 (V_1 < (int)args.Length) | B19 (else)  [loop]
+       IL_00CF  ldloc.1
+       IL_00D0  ldarg.0
+       IL_00D1  ldlen
+       IL_00D2  conv.i4
+       IL_00D3  blt        IL_000D
+  B19 IL_00D8..IL_00E4  -> B20 (V_0.Files.Count == 0) | B22 (else)
+       IL_00D8  ldloc.0
+       IL_00D9  callvirt   instance class [System.Collections]System.Collections.Generic.List`1<string> Ref.ConsoleApp.Options::get_Files()
+       IL_00DE  callvirt   instance int32 class [System.Collections]System.Collections.Generic.List`1<string>::get_Count()
+       IL_00E3  brtrue.s   IL_00F8
+  B20 IL_00E5..IL_00EC  -> B21 (!V_0.ShowHelp) | B22 (else)
+       IL_00E5  ldloc.0
+       IL_00E6  callvirt   instance bool Ref.ConsoleApp.Options::get_ShowHelp()
+       IL_00EB  brtrue.s   IL_00F8
+  B21 IL_00ED..IL_00F7  -> B22
+       IL_00ED  ldloc.0
+       IL_00EE  ldstr      "no input files"
+       IL_00F3  callvirt   instance void Ref.ConsoleApp.Options::set_Error(string)
+  B22 IL_00F8..IL_00F9  -> exit
+       IL_00F8  ldloc.0
+       IL_00F9  ret
+  loop: header B18, back edges from B17, body B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 B13 B14 B16 B17 B18
+  exits: B12 (return), B15 (return), B22 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x22E6   Size: 26 bytes   Token: 0x0600000C
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0019  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldc.i4.s   10
+       IL_0003  stfld      int32 Ref.ConsoleApp.Options::'<Top>k__BackingField'
+       IL_0008  ldarg.0
+       IL_0009  newobj     instance void class [System.Collections]System.Collections.Generic.List`1<string>::.ctor()
+       IL_000E  stfld      class [System.Collections]System.Collections.Generic.List`1<string> Ref.ConsoleApp.Options::'<Files>k__BackingField'
+       IL_0013  ldarg.0
+       IL_0014  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0019  ret
+  exits: B0 (return)
+
+Type     : Ref.ConsoleApp.WordCounter
+
+Method   : void .ctor(bool ignoreCase)
+Kind     : ctor, instance, public
+RVA      : 0x2301   Size: 33 bytes   Token: 0x0600000D
+
+[Branches]  complexity=2  blocks=4  loops=0
+  B0 IL_0000..IL_0009  -> B1 (!ignoreCase) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  ldarg.0
+       IL_0007  ldarg.1
+       IL_0008  brtrue.s   IL_0011
+  B1 IL_000A..IL_0010  -> B3
+       IL_000A  call       class [System.Runtime]System.StringComparer [System.Runtime]System.StringComparer::get_Ordinal()
+       IL_000F  br.s       IL_0016
+  B2 IL_0011..IL_0015  -> B3
+       IL_0011  call       class [System.Runtime]System.StringComparer [System.Runtime]System.StringComparer::get_OrdinalIgnoreCase()
+  B3 IL_0016..IL_0020  -> exit
+       IL_0016  newobj     instance void class [System.Collections]System.Collections.Generic.Dictionary`2<string, int32>::.ctor(class [System.Runtime]System.Collections.Generic.IEqualityComparer`1<!0>)
+       IL_001B  stfld      class [System.Collections]System.Collections.Generic.Dictionary`2<string, int32> Ref.ConsoleApp.WordCounter::_counts
+       IL_0020  ret
+  exits: B3 (return)
+
+Method   : int get_Distinct()
+Kind     : property-get, instance, public
+RVA      : 0x2323   Size: 12 bytes   Token: 0x0600000E
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000B  -> exit
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class [System.Collections]System.Collections.Generic.Dictionary`2<string, int32> Ref.ConsoleApp.WordCounter::_counts
+       IL_0006  callvirt   instance int32 class [System.Collections]System.Collections.Generic.Dictionary`2<string, int32>::get_Count()
+       IL_000B  ret
+  exits: B0 (return)
+
+Method   : void Add(string text)
+Kind     : instance, public
+RVA      : 0x2330   Size: 111 bytes   Token: 0x0600000F
+
+[Branches]  complexity=8  blocks=16  loops=1
+  B0 IL_0000..IL_0005  -> B14
+       IL_0000  ldc.i4.m1
+       IL_0001  stloc.0
+       IL_0002  ldc.i4.0
+       IL_0003  stloc.1
+       IL_0004  br.s       IL_0065
+  B1 IL_0006..IL_000E  -> B2 (V_1 < text.Length) | B3 (else)
+       IL_0006  ldloc.1
+       IL_0007  ldarg.1
+       IL_0008  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+       IL_000D  bge.s      IL_001D
+  B2 IL_000F..IL_001C  -> B4
+       IL_000F  ldarg.1
+       IL_0010  ldloc.1
+       IL_0011  callvirt   instance char [System.Runtime]System.String::get_Chars(int32)
+       IL_0016  call       bool [System.Runtime]System.Char::IsLetter(char)
+       IL_001B  br.s       IL_001E
+  B3 IL_001D..IL_001D  -> B4
+       IL_001D  ldc.i4.0
+  B4 IL_001E..IL_0021  -> B5 (V_2) | B7 (else)
+       IL_001E  stloc.2
+       IL_001F  ldloc.2
+       IL_0020  brfalse.s  IL_002A
+  B5 IL_0022..IL_0025  -> B6 (V_0 < 0) | B7 (else)
+       IL_0022  ldloc.0
+       IL_0023  ldc.i4.0
+       IL_0024  bge.s      IL_002A
+  B6 IL_0026..IL_0029  -> B13
+       IL_0026  ldloc.1
+       IL_0027  stloc.0
+       IL_0028  br.s       IL_0061
+  B7 IL_002A..IL_002C  -> B8 (!V_2) | B13 (else)
+       IL_002A  ldloc.2
+       IL_002B  brtrue.s   IL_0061
+  B8 IL_002D..IL_0030  -> B9 (V_0 >= 0) | B13 (else)
+       IL_002D  ldloc.0
+       IL_002E  ldc.i4.0
+       IL_002F  blt.s      IL_0061
+  B9 IL_0031..IL_0052  -> B10 (!this._counts.TryGetValue(V_3, ref V_4)) | B11 (else)
+       IL_0031  ldarg.1
+       IL_0032  ldloc.0
+       IL_0033  ldloc.1
+       IL_0034  ldloc.0
+       IL_0035  sub
+       IL_0036  callvirt   instance string [System.Runtime]System.String::Substring(int32, int32)
+       IL_003B  stloc.3
+       IL_003C  ldarg.0
+       IL_003D  ldfld      class [System.Collections]System.Collections.Generic.Dictionary`2<string, int32> Ref.ConsoleApp.WordCounter::_counts
+       IL_0042  ldloc.3
+       IL_0043  ldarg.0
+       IL_0044  ldfld      class [System.Collections]System.Collections.Generic.Dictionary`2<string, int32> Ref.ConsoleApp.WordCounter::_counts
+       IL_0049  ldloc.3
+       IL_004A  ldloca.s   V_4
+       IL_004C  callvirt   instance bool class [System.Collections]System.Collections.Generic.Dictionary`2<string, int32>::TryGetValue(!0, !1&)
+       IL_0051  brtrue.s   IL_0056
+  B10 IL_0053..IL_0055  -> B12
+       IL_0053  ldc.i4.1
+       IL_0054  br.s       IL_005A
+  B11 IL_0056..IL_0059  -> B12
+       IL_0056  ldloc.s    V_4
+       IL_0058  ldc.i4.1
+       IL_0059  add
+  B12 IL_005A..IL_0060  -> B13
+       IL_005A  callvirt   instance void class [System.Collections]System.Collections.Generic.Dictionary`2<string, int32>::set_Item(!0, !1)
+       IL_005F  ldc.i4.m1
+       IL_0060  stloc.0
+  B13 IL_0061..IL_0064  -> B14 (loop)
+       IL_0061  ldloc.1
+       IL_0062  ldc.i4.1
+       IL_0063  add
+       IL_0064  stloc.1
+  B14 IL_0065..IL_006D  -> B1 (V_1 <= text.Length) | B15 (else)  [loop]
+       IL_0065  ldloc.1
+       IL_0066  ldarg.1
+       IL_0067  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+       IL_006C  ble.s      IL_0006
+  B15 IL_006E..IL_006E  -> exit
+       IL_006E  ret
+  loop: header B14, back edges from B13, body B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 B12 B13 B14
+  exits: B15 (return)
+
+Method   : IEnumerable<ValueTuple<string, int>> Top(int n)
+Kind     : instance, public
+RVA      : 0x23AC   Size: 126 bytes   Token: 0x06000010
+
+[Branches]  complexity=4  blocks=7  loops=0
+  B0 IL_0000..IL_000D  -> B1 (<>c.<>9__5_0 == null) | B2 (else)
+       IL_0000  ldarg.0
+       IL_0001  ldfld      class [System.Collections]System.Collections.Generic.Dictionary`2<string, int32> Ref.ConsoleApp.WordCounter::_counts
+       IL_0006  ldsfld     class [System.Runtime]System.Func`2<valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>, int32> Ref.ConsoleApp.WordCounter/<>c::'<>9__5_0'
+       IL_000B  dup
+       IL_000C  brtrue.s   IL_0025
+  B1 IL_000E..IL_0024  -> B2
+       IL_000E  pop
+       IL_000F  ldsfld     class Ref.ConsoleApp.WordCounter/<>c Ref.ConsoleApp.WordCounter/<>c::'<>9'
+       IL_0014  ldftn      instance int32 Ref.ConsoleApp.WordCounter/<>c::'<Top>b__5_0'(valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>)
+       IL_001A  newobj     instance void class [System.Runtime]System.Func`2<valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>, int32>::.ctor(object, native int)
+       IL_001F  dup
+       IL_0020  stsfld     class [System.Runtime]System.Func`2<valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>, int32> Ref.ConsoleApp.WordCounter/<>c::'<>9__5_0'
+  B2 IL_0025..IL_0031  -> B3 (<>c.<>9__5_1 == null) | B4 (else)
+       IL_0025  call       class [System.Linq]System.Linq.IOrderedEnumerable`1<!!0> [System.Linq]System.Linq.Enumerable::OrderByDescending<valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>, int32>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>)
+       IL_002A  ldsfld     class [System.Runtime]System.Func`2<valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>, string> Ref.ConsoleApp.WordCounter/<>c::'<>9__5_1'
+       IL_002F  dup
+       IL_0030  brtrue.s   IL_0049
+  B3 IL_0032..IL_0048  -> B4
+       IL_0032  pop
+       IL_0033  ldsfld     class Ref.ConsoleApp.WordCounter/<>c Ref.ConsoleApp.WordCounter/<>c::'<>9'
+       IL_0038  ldftn      instance string Ref.ConsoleApp.WordCounter/<>c::'<Top>b__5_1'(valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>)
+       IL_003E  newobj     instance void class [System.Runtime]System.Func`2<valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>, string>::.ctor(object, native int)
+       IL_0043  dup
+       IL_0044  stsfld     class [System.Runtime]System.Func`2<valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>, string> Ref.ConsoleApp.WordCounter/<>c::'<>9__5_1'
+  B4 IL_0049..IL_0060  -> B5 (<>c.<>9__5_2 == null) | B6 (else)
+       IL_0049  call       class [System.Runtime]System.StringComparer [System.Runtime]System.StringComparer::get_Ordinal()
+       IL_004E  call       class [System.Linq]System.Linq.IOrderedEnumerable`1<!!0> [System.Linq]System.Linq.Enumerable::ThenBy<valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>, string>(class [System.Linq]System.Linq.IOrderedEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>, class [System.Runtime]System.Collections.Generic.IComparer`1<!!1>)
+       IL_0053  ldarg.1
+       IL_0054  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0> [System.Linq]System.Linq.Enumerable::Take<valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, int32)
+       IL_0059  ldsfld     class [System.Runtime]System.Func`2<valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>, valuetype [System.Runtime]System.ValueTuple`2<string, int32>> Ref.ConsoleApp.WordCounter/<>c::'<>9__5_2'
+       IL_005E  dup
+       IL_005F  brtrue.s   IL_0078
+  B5 IL_0061..IL_0077  -> B6
+       IL_0061  pop
+       IL_0062  ldsfld     class Ref.ConsoleApp.WordCounter/<>c Ref.ConsoleApp.WordCounter/<>c::'<>9'
+       IL_0067  ldftn      instance valuetype [System.Runtime]System.ValueTuple`2<string, int32> Ref.ConsoleApp.WordCounter/<>c::'<Top>b__5_2'(valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>)
+       IL_006D  newobj     instance void class [System.Runtime]System.Func`2<valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>, valuetype [System.Runtime]System.ValueTuple`2<string, int32>>::.ctor(object, native int)
+       IL_0072  dup
+       IL_0073  stsfld     class [System.Runtime]System.Func`2<valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>, valuetype [System.Runtime]System.ValueTuple`2<string, int32>> Ref.ConsoleApp.WordCounter/<>c::'<>9__5_2'
+  B6 IL_0078..IL_007D  -> exit
+       IL_0078  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!1> [System.Linq]System.Linq.Enumerable::Select<valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>, valuetype [System.Runtime]System.ValueTuple`2<string, int32>>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>)
+       IL_007D  ret
+  exits: B6 (return)
+
+Type     : Ref.ConsoleApp.WordCounter+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2436   Size: 11 bytes   Token: 0x06000011
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_000A  -> exit
+       IL_0000  newobj     instance void Ref.ConsoleApp.WordCounter/<>c::.ctor()
+       IL_0005  stsfld     class Ref.ConsoleApp.WordCounter/<>c Ref.ConsoleApp.WordCounter/<>c::'<>9'
+       IL_000A  ret
+  exits: B0 (return)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2442   Size: 7 bytes   Token: 0x06000012
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0006  -> exit
+       IL_0000  ldarg.0
+       IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+       IL_0006  ret
+  exits: B0 (return)
+
+Method   : int <Top>b__5_0(KeyValuePair<string, int> p)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x244A   Size: 8 bytes   Token: 0x06000013
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarga.s   p
+       IL_0002  call       instance !1 valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>::get_Value()
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : string <Top>b__5_1(KeyValuePair<string, int> p)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2453   Size: 8 bytes   Token: 0x06000014
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0007  -> exit
+       IL_0000  ldarga.s   p
+       IL_0002  call       instance !0 valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>::get_Key()
+       IL_0007  ret
+  exits: B0 (return)
+
+Method   : ValueTuple<string, int> <Top>b__5_2(KeyValuePair<string, int> p)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x245C   Size: 20 bytes   Token: 0x06000015
+
+[Branches]  complexity=1  blocks=1  loops=0
+  B0 IL_0000..IL_0013  -> exit
+       IL_0000  ldarga.s   p
+       IL_0002  call       instance !0 valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>::get_Key()
+       IL_0007  ldarga.s   p
+       IL_0009  call       instance !1 valuetype [System.Runtime]System.Collections.Generic.KeyValuePair`2<string, int32>::get_Value()
+       IL_000E  newobj     instance void valuetype [System.Runtime]System.ValueTuple`2<string, int32>::.ctor(!0, !1)
+       IL_0013  ret
+  exits: B0 (return)

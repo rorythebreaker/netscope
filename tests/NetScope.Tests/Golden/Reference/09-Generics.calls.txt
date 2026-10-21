@@ -1,0 +1,402 @@
+Assembly : Ref09.Generics.dll
+Name     : Ref09.Generics, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 36
+
+Type     : Ref.Generics.IProducer`1
+
+Method   : T Produce()
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000001
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Generics.IConsumer`1
+
+Method   : void Consume(T item)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000002
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Generics.IConverter`2
+
+Method   : TOut Convert(TIn value)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000003
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Generics.Algorithms::Apply  IL_0002  callvirt  (Ref09.Generics.dll)
+
+Type     : Ref.Generics.Constant`1
+
+Method   : void .ctor(T value)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 14 bytes   Token: 0x06000004
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : T Produce()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x205F   Size: 7 bytes   Token: 0x06000005
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Generics.Collector`1
+
+Method   : List<T> get_Items()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2067   Size: 7 bytes   Token: 0x06000006
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Generics.Collector`1::Consume  IL_0001  call  (Ref09.Generics.dll)
+
+Method   : void Consume(T item)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x206F   Size: 13 bytes   Token: 0x06000007
+
+[Calls]
+  IL_0001  call      Ref.Generics.Collector<!0>::get_Items()       internal
+  IL_0007  callvirt  System.Collections.Generic.List<!0>::Add(!0)  external System.Collections
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x207D   Size: 18 bytes   Token: 0x06000008
+
+[Calls]
+  IL_0001  newobj    System.Collections.Generic.List<!0>::.ctor()  external System.Collections
+  IL_000C  call      System.Object::.ctor()                        external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Generics.Entity`1
+
+Method   : TKey get_Id()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2090   Size: 7 bytes   Token: 0x06000009
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Generics.Entity`1::SameAs  IL_0004  call  (Ref09.Generics.dll)
+  Ref.Generics.Entity`1::SameAs  IL_000D  callvirt  (Ref09.Generics.dll)
+
+Method   : void set_Id(TKey value)
+Kind     : property-set, instance, protected, compiler-generated
+RVA      : 0x2098   Size: 8 bytes   Token: 0x0600000A
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Generics.User::.ctor  IL_0008  call  (Ref09.Generics.dll)
+
+Method   : bool SameAs(Entity<TKey> other)
+Kind     : instance, public
+RVA      : 0x20A4   Size: 32 bytes   Token: 0x0600000B
+
+[Calls]
+  IL_0004  call      Ref.Generics.Entity<!0>::get_Id()  internal
+  IL_000D  callvirt  Ref.Generics.Entity<!0>::get_Id()  internal
+  IL_0018  callvirt  System.IEquatable<!0>::Equals(!0)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor()
+Kind     : ctor, instance, protected
+RVA      : 0x20D0   Size: 7 bytes   Token: 0x0600000C
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  Ref.Generics.User::.ctor  IL_0001  call  (Ref09.Generics.dll)
+
+Type     : Ref.Generics.User
+
+Method   : void .ctor(int id, string name)
+Kind     : ctor, instance, public
+RVA      : 0x20D8   Size: 21 bytes   Token: 0x0600000D
+
+[Calls]
+  IL_0001  call      Ref.Generics.Entity<int>::.ctor()      internal
+  IL_0008  call      Ref.Generics.Entity<int>::set_Id(int)  internal
+[Callers]
+  (none in the input files)
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20EE   Size: 7 bytes   Token: 0x0600000E
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Generics.Pool`1
+
+Method   : T Rent()
+Kind     : instance, public
+RVA      : 0x20F6   Size: 32 bytes   Token: 0x0600000F
+
+[Calls]
+  IL_0006  callvirt  System.Collections.Generic.Stack<!0>::get_Count()  external System.Collections
+  IL_000E  call      System.Activator::CreateInstance<!0>()             external System.Runtime
+  IL_001A  callvirt  System.Collections.Generic.Stack<!0>::Pop()        external System.Collections
+[Callers]
+  Ref.Generics.Algorithms::UseMany  IL_0092  callvirt  (Ref09.Generics.dll)
+
+Method   : void Return(T item)
+Kind     : instance, public
+RVA      : 0x2118   Size: 33 bytes   Token: 0x06000010
+
+[Calls]
+  IL_0015  newobj    System.ArgumentNullException::.ctor(string)     external System.Runtime
+  IL_001B  callvirt  System.Collections.Generic.Stack<!0>::Push(!0)  external System.Collections
+[Callers]
+  Ref.Generics.Algorithms::UseMany  IL_0097  callvirt  (Ref09.Generics.dll)
+
+Method   : int get_Free()
+Kind     : property-get, instance, public
+RVA      : 0x2145   Size: 12 bytes   Token: 0x06000011
+
+[Calls]
+  IL_0006  callvirt  System.Collections.Generic.Stack<!0>::get_Count()  external System.Collections
+[Callers]
+  Ref.Generics.Algorithms::UseMany  IL_00AE  callvirt  (Ref09.Generics.dll)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2152   Size: 18 bytes   Token: 0x06000012
+
+[Calls]
+  IL_0001  newobj    System.Collections.Generic.Stack<!0>::.ctor()  external System.Collections
+  IL_000C  call      System.Object::.ctor()                         external System.Runtime
+[Callers]
+  Ref.Generics.Algorithms::UseMany  IL_0087  newobj  (Ref09.Generics.dll)
+
+Type     : Ref.Generics.Pair`2
+
+Method   : void .ctor(TFirst first, TSecond second)
+Kind     : ctor, instance, public
+RVA      : 0x2165   Size: 15 bytes   Token: 0x06000013
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Generics.Pair`2::Swap  IL_000C  newobj  (Ref09.Generics.dll)
+  Ref.Generics.Algorithms::UseMany  IL_0077  newobj  (Ref09.Generics.dll)
+
+Method   : Pair<TSecond, TFirst> Swap()
+Kind     : instance, public
+RVA      : 0x2175   Size: 18 bytes   Token: 0x06000014
+
+[Calls]
+  IL_000C  newobj    Ref.Generics.Pair<!1, !0>::.ctor(!1, !0)  internal
+[Callers]
+  Ref.Generics.Algorithms::UseMany  IL_0080  call  (Ref09.Generics.dll)
+
+Method   : string ToString()
+Kind     : instance, public, override
+RVA      : 0x2188   Size: 79 bytes   Token: 0x06000015
+
+[Calls]
+  IL_0004  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int, int)          external System.Runtime
+  IL_0010  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)    external System.Runtime
+  IL_001D  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<!0>(!0)  external System.Runtime
+  IL_0029  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)    external System.Runtime
+  IL_0036  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<!1>(!1)  external System.Runtime
+  IL_0042  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)    external System.Runtime
+  IL_0049  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()       external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Generics.Node`1
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x21E3   Size: 7 bytes   Token: 0x06000016
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Generics.Algorithms
+
+Method   : void Swap<T>(ref T a, ref T b)
+Kind     : static, public, generic
+RVA      : 0x21EC   Size: 27 bytes   Token: 0x06000017
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Generics.Algorithms::UseMany  IL_0008  call  (Ref09.Generics.dll)
+
+Method   : TOut[] Map<TIn, TOut>(TIn[] source, Func<TIn, TOut> f)
+Kind     : static, public, generic
+RVA      : 0x2214   Size: 45 bytes   Token: 0x06000018
+
+[Calls]
+  IL_0017  callvirt  System.Func<!!0, !!1>::Invoke(!!0)  external System.Runtime
+[Callers]
+  Ref.Generics.Algorithms::UseMany  IL_0042  call  (Ref09.Generics.dll)
+
+Method   : T Sum<T>(IEnumerable<T> values)
+Kind     : static, public, generic
+RVA      : 0x2250   Size: 64 bytes   Token: 0x06000019
+
+[Calls]
+  IL_0006  call      System.Numerics.INumberBase<!!0>::get_Zero()                              external System.Runtime
+  IL_000D  callvirt  System.Collections.Generic.IEnumerable<!!0>::GetEnumerator()              external System.Runtime
+  IL_0016  callvirt  System.Collections.Generic.IEnumerator<!!0>::get_Current()                external System.Runtime
+  IL_0024  call      System.Numerics.IAdditionOperators<!!0, !!0, !!0>::op_Addition(!!0, !!0)  external System.Runtime
+  IL_002B  callvirt  System.Collections.IEnumerator::MoveNext()                                external System.Runtime
+  IL_0038  callvirt  System.IDisposable::Dispose()                                             external System.Runtime
+[Callers]
+  Ref.Generics.Algorithms::UseMany  IL_006B  call  (Ref09.Generics.dll)
+
+Method   : TResult Apply<TIn, TResult>(IConverter<TIn, TResult> converter, TIn value)
+Kind     : static, public, generic
+RVA      : 0x22AC   Size: 8 bytes   Token: 0x0600001A
+
+[Calls]
+  IL_0002  callvirt  Ref.Generics.IConverter<!!0, !!1>::Convert(!!0)  internal
+[Callers]
+  (none in the input files)
+
+Method   : IProducer<object> Widen(IProducer<string> producer)
+Kind     : static, public
+RVA      : 0x22B5   Size: 2 bytes   Token: 0x0600001B
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : IConsumer<string> Narrow(IConsumer<object> consumer)
+Kind     : static, public
+RVA      : 0x22B8   Size: 2 bytes   Token: 0x0600001C
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : Dictionary<TKey, List<TValue>> GroupBy<TKey, TValue>(IEnumerable<TValue> values, Func<TValue, TKey> key)
+Kind     : static, public, generic
+RVA      : 0x22BC   Size: 86 bytes   Token: 0x0600001D
+
+[Calls]
+  IL_0000  newobj    System.Collections.Generic.Dictionary<!!0, System.Collections.Generic.List<!!1>>::.ctor()                          external System.Collections
+  IL_0007  callvirt  System.Collections.Generic.IEnumerable<!!1>::GetEnumerator()                                                       external System.Runtime
+  IL_0010  callvirt  System.Collections.Generic.IEnumerator<!!1>::get_Current()                                                         external System.Runtime
+  IL_0018  callvirt  System.Func<!!1, !!0>::Invoke(!!1)                                                                                 external System.Runtime
+  IL_0022  callvirt  System.Collections.Generic.Dictionary<!!0, System.Collections.Generic.List<!!1>>::TryGetValue(!!0, ref List<!!1>)  external System.Collections
+  IL_002B  newobj    System.Collections.Generic.List<!!1>::.ctor()                                                                      external System.Collections
+  IL_0033  callvirt  System.Collections.Generic.Dictionary<!!0, System.Collections.Generic.List<!!1>>::set_Item(!!0, List<!!1>)         external System.Collections
+  IL_003B  callvirt  System.Collections.Generic.List<!!1>::Add(!!1)                                                                     external System.Collections
+  IL_0041  callvirt  System.Collections.IEnumerator::MoveNext()                                                                         external System.Runtime
+  IL_004E  callvirt  System.IDisposable::Dispose()                                                                                      external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : T Max<T>(T a, T b)
+Kind     : static, public, generic
+RVA      : 0x2330   Size: 21 bytes   Token: 0x0600001E
+
+[Calls]
+  IL_0009  callvirt  System.IComparable<!!0>::CompareTo(!!0)  external System.Runtime
+[Callers]
+  Ref.Generics.Algorithms::UseMany  IL_00B6  call  (Ref09.Generics.dll)
+  Ref.Generics.Algorithms::UseMany  IL_00C6  call  (Ref09.Generics.dll)
+
+Method   : int UseMany()
+Kind     : static, public
+RVA      : 0x2348   Size: 210 bytes   Token: 0x0600001F
+
+[Calls]
+  IL_0008  call      Ref.Generics.Algorithms::Swap<int>(ref int, ref int)                        internal
+  IL_0031  ldftn     Ref.Generics.Algorithms.<>c::<UseMany>b__8_0(string)                        internal
+  IL_0037  newobj    System.Func<string, int>::.ctor(object, nint)                               external System.Runtime
+  IL_0042  call      Ref.Generics.Algorithms::Map<string, int>(string[], Func<string, int>)      internal
+  IL_0048  newobj    System.Collections.Generic.List<double>::.ctor()                            external System.Collections
+  IL_0057  callvirt  System.Collections.Generic.List<double>::Add(double)                        external System.Collections
+  IL_0066  callvirt  System.Collections.Generic.List<double>::Add(double)                        external System.Collections
+  IL_006B  call      Ref.Generics.Algorithms::Sum<double>(IEnumerable<double>)                   internal
+  IL_0077  newobj    Ref.Generics.Pair<int, string>::.ctor(int, string)                          internal
+  IL_0080  call      Ref.Generics.Pair<int, string>::Swap()                                      internal
+  IL_0087  newobj    Ref.Generics.Pool<System.Collections.Generic.List<int>>::.ctor()            internal
+  IL_0092  callvirt  Ref.Generics.Pool<System.Collections.Generic.List<int>>::Rent()             internal
+  IL_0097  callvirt  Ref.Generics.Pool<System.Collections.Generic.List<int>>::Return(List<int>)  internal
+  IL_00AE  callvirt  Ref.Generics.Pool<System.Collections.Generic.List<int>>::get_Free()         internal
+  IL_00B6  call      Ref.Generics.Algorithms::Max<int>(int, int)                                 internal
+  IL_00C6  call      Ref.Generics.Algorithms::Max<string>(string, string)                        internal
+  IL_00CB  callvirt  System.String::get_Length()                                                 external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Generics.Node`1+Enumerator
+
+Method   : void .ctor(Node<T> head)
+Kind     : ctor, instance, public
+RVA      : 0x2426   Size: 14 bytes   Token: 0x06000020
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : bool Next(out T value)
+Kind     : instance, public
+RVA      : 0x2435   Size: 53 bytes   Token: 0x06000021
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Generics.Algorithms+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x246B   Size: 11 bytes   Token: 0x06000022
+
+[Calls]
+  IL_0000  newobj    Ref.Generics.Algorithms.<>c::.ctor()  internal
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2477   Size: 7 bytes   Token: 0x06000023
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  Ref.Generics.Algorithms+<>c::.cctor  IL_0000  newobj  (Ref09.Generics.dll)
+
+Method   : int <UseMany>b__8_0(string s)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x247F   Size: 7 bytes   Token: 0x06000024
+
+[Calls]
+  IL_0001  callvirt  System.String::get_Length()  external System.Runtime
+[Callers]
+  Ref.Generics.Algorithms::UseMany  IL_0031  ldftn  (Ref09.Generics.dll)

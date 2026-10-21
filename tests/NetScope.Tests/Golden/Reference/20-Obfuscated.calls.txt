@@ -1,0 +1,1261 @@
+Assembly : confuserex-normal.exe
+Name     : ObfuscationSample, Version=1.0.0.0
+Runtime  : .NETFramework,Version=v4.7.2   Machine: anycpu
+Methods  : 93
+
+Type     : <Module>
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2358   Size: 1638 bytes   Token: 0x06000001
+
+[Calls]
+  IL_0000  call      <Module>::​‎‪‮‬‎‌⁯‍​‍‬‏‮⁫‭‭‪⁬‪‏‪‍⁮⁯‭‭​⁯⁮‌⁮‍‎⁫‌‫⁯‍⁯‮()                                       internal
+  IL_0134  call      System.Type::GetTypeFromHandle(RuntimeTypeHandle)                                           external mscorlib
+  IL_0140  call      <Module>::⁯‫‮⁬⁮⁯‪‍​‬⁫‪⁯‭‭‮⁪‬⁭‬‍‪‭‌‫⁯⁮‍⁬‭‏‌‏‪‎‪‍‌‏‏‮<string>(int)                            internal
+  IL_0152  call      System.Type::GetTypeFromHandle(RuntimeTypeHandle)                                           external mscorlib
+  IL_0158  callvirt  System.Type::GetMethod(string, Type[])                                                      external mscorlib
+  IL_0211  call      <Module>::⁫⁪‏⁫‏⁯​‎⁬‫‮⁬‮‮⁭⁯‫⁪‫​⁮‍⁬‍⁫‭⁮⁬‎⁮‭‍‪‭‍‮‮‌‎‮(byte[])                                  internal
+  IL_027C  ldftn     <Module>::‫⁬‭⁬‌⁭​⁯‮‏‏‬‬⁭⁫‌‫‬‌‍⁯⁭‍‪‬‎​‬‬‬‫⁭⁬⁯⁮‏‬⁫‏‭‮(object)                                 internal
+  IL_0282  newobj    System.Threading.ParameterizedThreadStart::.ctor(object, nint)                              external mscorlib
+  IL_0287  newobj    System.Threading.Thread::.ctor(ParameterizedThreadStart)                                    external mscorlib
+  IL_028E  callvirt  System.Threading.Thread::set_IsBackground(bool)                                             external mscorlib
+  IL_0294  callvirt  System.Threading.Thread::Start(object)                                                      external mscorlib
+  IL_02B3  call      System.Runtime.CompilerServices.RuntimeHelpers::InitializeArray(Array, RuntimeFieldHandle)  external mscorlib
+  IL_02FB  call      System.Environment::FailFast(string)                                                        external mscorlib
+  IL_0565  call      <Module>::⁯‫‮⁬⁮⁯‪‍​‬⁫‪⁯‭‭‮⁪‬⁭‬‍‪‭‌‫⁯⁮‍⁬‭‏‌‏‪‎‪‍‌‏‏‮<string>(int)                            internal
+  IL_057B  call      <Module>::⁫⁮‍‍⁯‬⁯‪‍⁭⁮⁭⁮‌‬‮‬⁯⁮‬​‮‎⁮​‍⁯‌⁬⁬⁫‪‍⁬‏‍​⁯‎‮<string>(int)                             internal
+  IL_0581  callvirt  System.Reflection.MethodBase::Invoke(object, object[])                                      external mscorlib
+  IL_0586  callvirt  System.Object::Equals(object)                                                               external mscorlib
+[Callers]
+  (none in the input files)
+
+Method   : void \u202B\u206C\u202D\u206C\u200C\u206D\u200B\u206F\u202E\u200F\u200F\u202C\u202C\u206D\u206B\u200C\u202B\u202C\u200C\u200D\u206F\u206D\u200D\u202A\u202C\u200E\u200B\u202C\u202C\u202C\u202B\u206D\u206C\u206F\u206E\u200F\u202C\u206B\u200F\u202D\u202E(object thread)
+Kind     : static, private, compiler-generated
+RVA      : 0x29CC   Size: 307 bytes   Token: 0x06000002
+
+[Calls]
+  IL_0054  call      System.Threading.Thread::Sleep(int)                             external mscorlib
+  IL_0062  callvirt  System.Threading.Thread::set_IsBackground(bool)                 external mscorlib
+  IL_0068  call      System.Threading.Thread::get_CurrentThread()                    external mscorlib
+  IL_006D  callvirt  System.Threading.Thread::Start(object)                          external mscorlib
+  IL_0077  call      System.Threading.Thread::Sleep(int)                             external mscorlib
+  IL_008C  ldftn     <Module>::‫⁬‭⁬‌⁭​⁯‮‏‏‬‬⁭⁫‌‫‬‌‍⁯⁭‍‪‬‎​‬‬‬‫⁭⁬⁯⁮‏‬⁫‏‭‮(object)     internal
+  IL_0092  newobj    System.Threading.ParameterizedThreadStart::.ctor(object, nint)  external mscorlib
+  IL_0097  newobj    System.Threading.Thread::.ctor(ParameterizedThreadStart)        external mscorlib
+  IL_00B0  call      System.Environment::FailFast(string)                            external mscorlib
+  IL_00C0  call      System.Environment::FailFast(string)                            external mscorlib
+  IL_00D7  call      System.Diagnostics.Debugger::get_IsAttached()                   external mscorlib
+  IL_00F3  callvirt  System.Threading.Thread::get_IsAlive()                          external mscorlib
+  IL_010E  call      System.Diagnostics.Debugger::IsLogging()                        external mscorlib
+[Callers]
+  <Module>::.cctor  IL_027C  ldftn  (confuserex-normal.exe)
+  <Module>::‫⁬‭⁬‌⁭​⁯‮‏‏‬‬⁭⁫‌‫‬‌‍⁯⁭‍‪‬‎​‬‬‬‫⁭⁬⁯⁮‏‬⁫‏‭‮  IL_008C  ldftn  (confuserex-normal.exe)
+
+Method   : byte[] \u206B\u206A\u200F\u206B\u200F\u206F\u200B\u200E\u206C\u202B\u202E\u206C\u202E\u202E\u206D\u206F\u202B\u206A\u202B\u200B\u206E\u200D\u206C\u200D\u206B\u202D\u206E\u206C\u200E\u206E\u202D\u200D\u202A\u202D\u200D\u202E\u202E\u200C\u200E\u202E(byte[] data)
+Kind     : static, internal, compiler-generated
+RVA      : 0x2B0C   Size: 435 bytes   Token: 0x06000003
+
+[Calls]
+  IL_0001  newobj    System.IO.MemoryStream::.ctor(byte[])                                                                                      external mscorlib
+  IL_005A  newobj    <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::.ctor()                                                                internal
+  IL_00A4  callvirt  System.IO.Stream::Read(byte[], int, int)                                                                                   external mscorlib
+  IL_00B7  callvirt  <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::‭⁮⁪⁪⁮‮‌‪⁮‭​‬‏‎‏‏⁫‍⁭‮‭⁮​‫‪⁮⁯‎⁪‫‬‌‭‭‭‫‎‍‍‫‮(byte[])                      internal
+  IL_0114  callvirt  System.IO.Stream::Read(byte[], int, int)                                                                                   external mscorlib
+  IL_0128  call      System.Array::Reverse(Array, int, int)                                                                                     external mscorlib
+  IL_017F  call      System.BitConverter::ToInt32(byte[], int)                                                                                  external mscorlib
+  IL_018F  newobj    System.IO.MemoryStream::.ctor(byte[], bool)                                                                                external mscorlib
+  IL_0197  callvirt  System.IO.Stream::get_Length()                                                                                             external mscorlib
+  IL_01AD  callvirt  <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮(Stream, Stream, long, long)  internal
+[Callers]
+  <Module>::.cctor  IL_0211  call  (confuserex-normal.exe)
+  <Module>::​‎‪‮‬‎‌⁯‍​‍‬‏‮⁫‭‭‪⁬‪‏‪‍⁮⁯‭‭​⁯⁮‌⁮‍‎⁫‌‫⁯‍⁯‮  IL_03CA  call  (confuserex-normal.exe)
+
+Method   : - \u206F\u202B\u202E\u206C\u206E\u206F\u202A\u200D\u200B\u202C\u206B\u202A\u206F\u202D\u202D\u202E\u206A\u202C\u206D\u202C\u200D\u202A\u202D\u200C\u202B\u206F\u206E\u200D\u206C\u202D\u200F\u200C\u200F\u202A\u200E\u202A\u200D\u200C\u200F\u200F\u202E<->(int id)
+Kind     : static, internal, compiler-generated, generic
+RVA      : 0x2CCC   Size: 762 bytes   Token: 0x06000004
+
+[Calls]
+  IL_0000  call      System.Reflection.Assembly::GetExecutingAssembly()     external mscorlib
+  IL_0005  call      System.Reflection.Assembly::GetCallingAssembly()       external mscorlib
+  IL_000A  callvirt  System.Object::Equals(object)                          external mscorlib
+  IL_008A  call      System.Buffer::BlockCopy(Array, int, Array, int, int)  external mscorlib
+  IL_01F3  call      System.Buffer::BlockCopy(Array, int, Array, int, int)  external mscorlib
+  IL_0210  call      System.Type::GetTypeFromHandle(RuntimeTypeHandle)      external mscorlib
+  IL_0215  callvirt  System.Type::GetElementType()                          external mscorlib
+  IL_021C  call      System.Array::CreateInstance(Type, int)                external mscorlib
+  IL_0236  call      System.Text.Encoding::get_UTF8()                       external mscorlib
+  IL_0244  callvirt  System.Text.Encoding::GetString(byte[], int, int)      external mscorlib
+  IL_0249  call      System.String::Intern(string)                          external mscorlib
+[Callers]
+  <Module>::.cctor  IL_0140  call  (confuserex-normal.exe)
+  <Module>::.cctor  IL_0565  call  (confuserex-normal.exe)
+  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‎‎‪‬⁬‏‌‎⁬‍‬⁫⁫⁫‎⁫‎‭‏‬⁪‍​⁫‬​⁫⁭‌⁫⁮‌​‮‎​‎‪‍‮  IL_0041  call  (confuserex-normal.exe)
+  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‎‎‪‬⁬‏‌‎⁬‍‬⁫⁫⁫‎⁫‎‭‏‬⁪‍​⁫‬​⁫⁭‌⁫⁮‌​‮‎​‎‪‍‮  IL_005A  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‮⁭‎⁯‌‌⁬‮⁯‏‭​‏‌‫‬⁮⁫​‮⁯⁬‬​⁮‫‭⁭⁯‮‬‎​‎⁭⁪⁮⁬⁫⁫‮  IL_0040  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‫⁬⁮‎‫‫‌‪‫‮‏⁭​‌‬‍⁫⁭⁫‎‭‎⁫⁭​‪‍‪⁪​‭​‍⁮‌‏‭⁫​⁮‮  IL_008E  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‫⁬⁮‎‫‫‌‪‫‮‏⁭​‌‬‍⁫⁭⁫‎‭‎⁫⁭​‪‍‪⁪​‭​‍⁮‌‏‭⁫​⁮‮  IL_00B9  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_00C9  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_012A  call  (confuserex-normal.exe)
+
+Method   : - \u202C\u206D\u200B\u202A\u202A\u206C\u200C\u202D\u202D\u202D\u202B\u200F\u206E\u206D\u200C\u200B\u202E\u206B\u206E\u200D\u202D\u200E\u206E\u200D\u200C\u206B\u202A\u202E\u200B\u206C\u200B\u206F\u202B\u200E\u202E\u206E\u202D\u206D\u202E\u202D\u202E<->(int id)
+Kind     : static, internal, compiler-generated, generic
+RVA      : 0x2FD4   Size: 736 bytes   Token: 0x06000005
+
+[Calls]
+  IL_0000  call      System.Reflection.Assembly::GetExecutingAssembly()     external mscorlib
+  IL_0005  call      System.Reflection.Assembly::GetCallingAssembly()       external mscorlib
+  IL_000A  callvirt  System.Object::Equals(object)                          external mscorlib
+  IL_00D6  call      System.Type::GetTypeFromHandle(RuntimeTypeHandle)      external mscorlib
+  IL_00DB  callvirt  System.Type::GetElementType()                          external mscorlib
+  IL_00E2  call      System.Array::CreateInstance(Type, int)                external mscorlib
+  IL_00F8  call      System.Buffer::BlockCopy(Array, int, Array, int, int)  external mscorlib
+  IL_0206  call      System.Buffer::BlockCopy(Array, int, Array, int, int)  external mscorlib
+  IL_02A4  call      System.Text.Encoding::get_UTF8()                       external mscorlib
+  IL_02B2  callvirt  System.Text.Encoding::GetString(byte[], int, int)      external mscorlib
+  IL_02B7  call      System.String::Intern(string)                          external mscorlib
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‫⁬⁮‎‫‫‌‪‫‮‏⁭​‌‬‍⁫⁭⁫‎‭‎⁫⁭​‪‍‪⁪​‭​‍⁮‌‏‭⁫​⁮‮  IL_00D0  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_000E  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_00BB  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_0113  call  (confuserex-normal.exe)
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_000E  call  (confuserex-normal.exe)
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_0031  call  (confuserex-normal.exe)
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_0053  call  (confuserex-normal.exe)
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_00AC  call  (confuserex-normal.exe)
+
+Method   : - \u206E\u206A\u202E\u202A\u200F\u202D\u206F\u202A\u202B\u202D\u200E\u206A\u202B\u200B\u202B\u202B\u200B\u200E\u206F\u206A\u206E\u202E\u202E\u202E\u200C\u206B\u200D\u206C\u206D\u200C\u206D\u206D\u206E\u200D\u206B\u202C\u206B\u206D\u200C\u202A\u202E<->(int id)
+Kind     : static, internal, compiler-generated, generic
+RVA      : 0x32C0   Size: 776 bytes   Token: 0x06000006
+
+[Calls]
+  IL_0000  call      System.Reflection.Assembly::GetExecutingAssembly()     external mscorlib
+  IL_0005  call      System.Reflection.Assembly::GetCallingAssembly()       external mscorlib
+  IL_000A  callvirt  System.Object::Equals(object)                          external mscorlib
+  IL_0186  call      System.Buffer::BlockCopy(Array, int, Array, int, int)  external mscorlib
+  IL_01AD  call      System.Buffer::BlockCopy(Array, int, Array, int, int)  external mscorlib
+  IL_0207  call      System.Type::GetTypeFromHandle(RuntimeTypeHandle)      external mscorlib
+  IL_020C  callvirt  System.Type::GetElementType()                          external mscorlib
+  IL_0213  call      System.Array::CreateInstance(Type, int)                external mscorlib
+  IL_02D4  call      System.Text.Encoding::get_UTF8()                       external mscorlib
+  IL_02E2  callvirt  System.Text.Encoding::GetString(byte[], int, int)      external mscorlib
+  IL_02E7  call      System.String::Intern(string)                          external mscorlib
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‍‏‮‌‌⁫‎‮‪‌⁮‮‫‍‬⁪‍‬⁬‬‮‌⁪​⁯⁬‌‏‬‍‫‭⁬‬‭‏‌⁬‌‍‮  IL_007A  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‫⁬⁮‎‫‫‌‪‫‮‏⁭​‌‬‍⁫⁭⁫‎‭‎⁫⁭​‪‍‪⁪​‭​‍⁮‌‏‭⁫​⁮‮  IL_00A2  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_0216  call  (confuserex-normal.exe)
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_00D2  call  (confuserex-normal.exe)
+
+Method   : - \u202C\u200C\u206B\u206C\u200C\u206C\u200B\u206C\u200C\u200E\u206D\u206C\u200C\u206C\u200D\u202A\u206F\u206E\u200E\u202E\u206B\u200B\u206D\u202A\u206E\u206B\u202B\u206E\u200D\u206B\u206B\u200B\u202E\u202E\u202C\u202E\u206C\u206B\u206D\u200D\u202E<->(int id)
+Kind     : static, internal, compiler-generated, generic
+RVA      : 0x35D4   Size: 707 bytes   Token: 0x06000007
+
+[Calls]
+  IL_0000  call      System.Reflection.Assembly::GetExecutingAssembly()     external mscorlib
+  IL_0005  call      System.Reflection.Assembly::GetCallingAssembly()       external mscorlib
+  IL_000A  callvirt  System.Object::Equals(object)                          external mscorlib
+  IL_0078  call      System.Type::GetTypeFromHandle(RuntimeTypeHandle)      external mscorlib
+  IL_007D  callvirt  System.Type::GetElementType()                          external mscorlib
+  IL_0084  call      System.Array::CreateInstance(Type, int)                external mscorlib
+  IL_0111  call      System.Text.Encoding::get_UTF8()                       external mscorlib
+  IL_011F  callvirt  System.Text.Encoding::GetString(byte[], int, int)      external mscorlib
+  IL_0124  call      System.String::Intern(string)                          external mscorlib
+  IL_0150  call      System.Buffer::BlockCopy(Array, int, Array, int, int)  external mscorlib
+  IL_01A1  call      System.Buffer::BlockCopy(Array, int, Array, int, int)  external mscorlib
+[Callers]
+  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‎‎‪‬⁬‏‌‎⁬‍‬⁫⁫⁫‎⁫‎‭‏‬⁪‍​⁫‬​⁫⁭‌⁫⁮‌​‮‎​‎‪‍‮  IL_0035  call  (confuserex-normal.exe)
+  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‎‎‪‬⁬‏‌‎⁬‍‬⁫⁫⁫‎⁫‎‭‏‬⁪‍​⁫‬​⁫⁭‌⁫⁮‌​‮‎​‎‪‍‮  IL_006C  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‍‏‮‌‌⁫‎‮‪‌⁮‮‫‍‬⁪‍‬⁬‬‮‌⁪​⁯⁬‌‏‬‍‫‭⁬‬‭‏‌⁬‌‍‮  IL_00B6  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‫⁬⁮‎‫‫‌‪‫‮‏⁭​‌‬‍⁫⁭⁫‎‭‎⁫⁭​‪‍‪⁪​‭​‍⁮‌‏‭⁫​⁮‮  IL_007A  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_0232  call  (confuserex-normal.exe)
+
+Method   : - \u206B\u206E\u200D\u200D\u206F\u202C\u206F\u202A\u200D\u206D\u206E\u206D\u206E\u200C\u202C\u202E\u202C\u206F\u206E\u202C\u200B\u202E\u200E\u206E\u200B\u200D\u206F\u200C\u206C\u206C\u206B\u202A\u200D\u206C\u200F\u200D\u200B\u206F\u200E\u202E<->(int id)
+Kind     : static, internal, compiler-generated, generic
+RVA      : 0x38A4   Size: 716 bytes   Token: 0x06000008
+
+[Calls]
+  IL_0000  call      System.Reflection.Assembly::GetExecutingAssembly()     external mscorlib
+  IL_0005  call      System.Reflection.Assembly::GetCallingAssembly()       external mscorlib
+  IL_000A  callvirt  System.Object::Equals(object)                          external mscorlib
+  IL_0073  call      System.Text.Encoding::get_UTF8()                       external mscorlib
+  IL_0081  callvirt  System.Text.Encoding::GetString(byte[], int, int)      external mscorlib
+  IL_0086  call      System.String::Intern(string)                          external mscorlib
+  IL_00CD  call      System.Buffer::BlockCopy(Array, int, Array, int, int)  external mscorlib
+  IL_01B3  call      System.Type::GetTypeFromHandle(RuntimeTypeHandle)      external mscorlib
+  IL_01B8  callvirt  System.Type::GetElementType()                          external mscorlib
+  IL_01BF  call      System.Array::CreateInstance(Type, int)                external mscorlib
+  IL_01D5  call      System.Buffer::BlockCopy(Array, int, Array, int, int)  external mscorlib
+[Callers]
+  <Module>::.cctor  IL_057B  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‮⁭‎⁯‌‌⁬‮⁯‏‭​‏‌‫‬⁮⁫​‮⁯⁬‬​⁮‫‭⁭⁯‮‬‎​‎⁭⁪⁮⁬⁫⁫‮  IL_0083  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‍‏‮‌‌⁫‎‮‪‌⁮‮‫‍‬⁪‍‬⁬‬‮‌⁪​⁯⁬‌‏‬‍‫‭⁬‬‭‏‌⁬‌‍‮  IL_008D  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‫⁬⁮‎‫‫‌‪‫‮‏⁭​‌‬‍⁫⁭⁫‎‭‎⁫⁭​‪‍‪⁪​‭​‍⁮‌‏‭⁫​⁮‮  IL_0066  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_00D7  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_00F1  call  (confuserex-normal.exe)
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_0076  call  (confuserex-normal.exe)
+
+Method   : void \u200B\u200E\u202A\u202E\u202C\u200E\u200C\u206F\u200D\u200B\u200D\u202C\u200F\u202E\u206B\u202D\u202D\u202A\u206C\u202A\u200F\u202A\u200D\u206E\u206F\u202D\u202D\u200B\u206F\u206E\u200C\u206E\u200D\u200E\u206B\u200C\u202B\u206F\u200D\u206F\u202E()
+Kind     : static, internal, compiler-generated
+RVA      : 0x3B7C   Size: 1283 bytes   Token: 0x06000009
+
+[Calls]
+  IL_0016  call      System.Runtime.CompilerServices.RuntimeHelpers::InitializeArray(Array, RuntimeFieldHandle)  external mscorlib
+  IL_0231  call      System.AppDomain::get_CurrentDomain()                                                       external mscorlib
+  IL_0237  ldftn     <Module>::⁮⁯‪‌‫⁯⁬‭⁮‎‫‎⁫‮‭⁬⁫⁯‭⁮‍‪⁫‎‍‏⁪⁯‏​‌‌⁭‌⁯​⁬⁫⁪⁬‮(object, ResolveEventArgs)               internal
+  IL_023D  newobj    System.ResolveEventHandler::.ctor(object, nint)                                             external mscorlib
+  IL_0242  callvirt  System.AppDomain::add_AssemblyResolve(ResolveEventHandler)                                  external mscorlib
+  IL_03CA  call      <Module>::⁫⁪‏⁫‏⁯​‎⁬‫‮⁬‮‮⁭⁯‫⁪‫​⁮‍⁬‍⁫‭⁮⁬‎⁮‭‍‪‭‍‮‮‌‎‮(byte[])                                  internal
+  IL_03CF  call      System.Reflection.Assembly::Load(byte[])                                                    external mscorlib
+[Callers]
+  <Module>::.cctor  IL_0000  call  (confuserex-normal.exe)
+
+Method   : Assembly \u206E\u206F\u202A\u200C\u202B\u206F\u206C\u202D\u206E\u200E\u202B\u200E\u206B\u202E\u202D\u206C\u206B\u206F\u202D\u206E\u200D\u202A\u206B\u200E\u200D\u200F\u206A\u206F\u200F\u200B\u200C\u200C\u206D\u200C\u206F\u200B\u206C\u206B\u206A\u206C\u202E(object sender, ResolveEventArgs args)
+Kind     : static, internal, compiler-generated
+RVA      : 0x408C   Size: 80 bytes   Token: 0x0600000A
+
+[Calls]
+  IL_0005  callvirt  System.Reflection.Assembly::get_FullName()  external mscorlib
+  IL_000B  callvirt  System.ResolveEventArgs::get_Name()         external mscorlib
+  IL_0010  call      System.String::op_Equality(string, string)  external mscorlib
+[Callers]
+  <Module>::​‎‪‮‬‎‌⁯‍​‍‬‏‮⁫‭‭‪⁬‪‏‪‍⁮⁯‭‭​⁯⁮‌⁮‍‎⁫‌‫⁯‍⁯‮  IL_0237  ldftn  (confuserex-normal.exe)
+
+Type     : <Module>+\u206E\u202A\u202E\u206C\u206F\u206C\u206E\u202B\u206C\u200D\u206A\u206F\u200E\u206D\u202D\u206E\u202C\u206E\u206E\u206A\u200D\u202C\u202B\u200D\u206A\u206D\u200C\u202C\u200E\u200E\u200F\u206D\u200D\u202D\u202C\u206D\u202B\u200B\u200C\u200D\u202E
+
+Method   : void \u202A\u206A\u206C\u206F\u200E\u200C\u206D\u200B\u206F\u202B\u206C\u200B\u202E\u202E\u206C\u206A\u200E\u202A\u206D\u206E\u200C\u206A\u206D\u202D\u202C\u202A\u202A\u206F\u200C\u200D\u200E\u206F\u206A\u202D\u206A\u202E\u200C\u206F\u206A\u202C\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x40E8   Size: 12 bytes   Token: 0x0600000B
+
+[Calls]
+  (none)
+[Callers]
+  <Module>+⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::‮⁭⁪‫‏‬‬⁪‬‪⁮⁪⁮⁪‭⁫‮‮⁯⁬⁮​⁪⁫⁯‮‍‮⁯‫‌⁯‮⁪‎⁮⁬⁬⁮‍‮  IL_0059  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‫‌⁬⁬‭‪‬‪⁮‎⁮‍⁬‌‎‏⁪⁮⁫‎​⁫⁫‭‬‏⁬‎‎‮⁭⁬‏‏⁫‫‭‏‍‮  IL_00B2  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‫‌⁬⁬‭‪‬‪⁮‎⁮‍⁬‌‎‏⁪⁮⁫‎​⁫⁫‭‬‏⁬‎‎‮⁭⁬‏‏⁫‫‭‏‍‮  IL_0113  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‫‌⁬⁬‭‪‬‪⁮‎⁮‍⁬‌‎‏⁪⁮⁫‎​⁫⁫‭‬‏⁬‎‎‮⁭⁬‏‏⁫‫‭‏‍‮  IL_0124  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‫‌⁬⁬‭‪‬‪⁮‎⁮‍⁬‌‎‏⁪⁮⁫‎​⁫⁫‭‬‏⁬‎‎‮⁭⁬‏‏⁫‫‭‏‍‮  IL_014B  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‫‌⁬⁬‭‪‬‪⁮‎⁮‍⁬‌‎‏⁪⁮⁫‎​⁫⁫‭‬‏⁬‎‎‮⁭⁬‏‏⁫‫‭‏‍‮  IL_01EA  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‫‌⁬⁬‭‪‬‪⁮‎⁮‍⁬‌‎‏⁪⁮⁫‎​⁫⁫‭‬‏⁬‎‎‮⁭⁬‏‏⁫‫‭‏‍‮  IL_022E  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‫‌⁬⁬‭‪‬‪⁮‎⁮‍⁬‌‎‏⁪⁮⁫‎​⁫⁫‭‬‏⁬‎‎‮⁭⁬‏‏⁫‫‭‏‍‮  IL_028D  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::⁪⁮⁯‌‍‫​‏⁬‌⁬‭​‭⁭‌‏​​‮⁭‬​‮⁪‍‍‏‭⁮‍‮⁪⁮‌‮⁭⁬⁯⁫‮  IL_0006  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::⁪⁮⁯‌‍‫​‏⁬‌⁬‭​‭⁭‌‏​​‮⁭‬​‮⁪‍‍‏‭⁮‍‮⁪⁮‌‮⁭⁬⁯⁫‮  IL_0088  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮+⁬​‏⁭‭‬‪‬‍‫‏‏‮‫‬‫‪‫‏‪⁬⁫​⁪⁪‪⁯‮‎⁯⁫‪⁮‍‫‌‎‍⁪⁫‮::‫⁫‪‎‪‬​‍‍⁫‏‌‮⁭‎⁪⁫⁭‮‪‎‬‌‬⁮⁯‪⁭‎⁮⁭‍⁮‭⁪⁪‪‏​⁮‮  IL_0066  call  (confuserex-normal.exe)
+
+Method   : uint \u202A\u200B\u206A\u202A\u200E\u200F\u200C\u200C\u200B\u202D\u202E\u206A\u200F\u206D\u200D\u202B\u202C\u202C\u206E\u206F\u200F\u202C\u206F\u206C\u206E\u202C\u206F\u206F\u206B\u202C\u200F\u200B\u200B\u200F\u202E\u200B\u200C\u206C\u206B\u200C\u202E(<Module>+\u202C\u202D\u200E\u206B\u200F\u202B\u202A\u202A\u206B\u206C\u200F\u206E\u200F\u206B\u202B\u200D\u202A\u200E\u202D\u200D\u200D\u206A\u202E\u200F\u206D\u202B\u206C\u206D\u202E\u202C\u206F\u202C\u200B\u202D\u206C\u206E\u200B\u206A\u206F\u200C\u202E rangeDecoder)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x4100   Size: 435 bytes   Token: 0x0600000C
+
+[Calls]
+  IL_00D8  callvirt  System.IO.Stream::ReadByte()  external mscorlib
+  IL_0145  callvirt  System.IO.Stream::ReadByte()  external mscorlib
+[Callers]
+  <Module>+⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::​​⁭⁪⁭⁪​‍⁯‏‌⁪⁭‏⁯‬⁭‬⁮‍‎⁫⁫‪‫‭‎‌‏⁮⁭⁯⁯‪⁯⁯‫‮‮⁪‮  IL_007B  call  (confuserex-normal.exe)
+  <Module>+⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::⁯⁪⁬‎​⁬‪​‎​‬⁪‪⁯‮‬‍‏‬‪‎⁬‮⁭‫⁮‎⁬‌‍‮‮‌‮⁫‫‍‮⁪‪‮  IL_00C3  call  (confuserex-normal.exe)
+  <Module>+⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::‭‍‭‌‌⁯⁪‭​⁬⁯​⁯‎‫‏⁭‭‏⁬‬⁭⁮​‬⁯‏⁫⁪‍‪⁬​‎⁭‏‮‮‎‮  IL_0066  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_012F  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_01F8  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_02E3  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_03D0  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_0478  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_06CE  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_07C0  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::‎‬‎‍​‌⁪‫‫⁫‬‌‎‫​‌⁮⁫‏‭⁪⁮‎‌‍‬⁮⁯‭⁯‬⁬‫‏⁯‍‬‭⁬‌‮  IL_0007  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::‎‬‎‍​‌⁪‫‫⁫‬‌‎‫​‌⁮⁫‏‭⁪⁮‎‌‍‬⁮⁯‭⁯‬⁬‫‏⁯‍‬‭⁬‌‮  IL_0075  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮+⁬​‏⁭‭‬‪‬‍‫‏‏‮‫‬‫‪‫‏‪⁬⁫​⁪⁪‪⁯‮‎⁯⁫‪⁮‍‫‌‎‍⁪⁫‮::‮⁮‮⁬‌‬‮‮‌‏⁮‮‭‬‫‍⁫‎⁯‌⁭⁮‬‫⁪⁯⁭‮‏⁪‫‫‏‬⁮‍⁭​⁪‍‮  IL_0038  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮+⁬​‏⁭‭‬‪‬‍‫‏‏‮‫‬‫‪‫‏‪⁬⁫​⁪⁪‪⁯‮‎⁯⁫‪⁮‍‫‌‎‍⁪⁫‮::⁪‏⁭‎⁭⁭‏⁬‏‫⁫‍⁭⁭⁫‬‭‭‎⁭⁭‭⁭‌⁪⁯‍‫‎‫‍‬​⁯‭⁭⁪‭‌‪‮  IL_0062  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮+⁬​‏⁭‭‬‪‬‍‫‏‏‮‫‬‫‪‫‏‪⁬⁫​⁪⁪‪⁯‮‎⁯⁫‪⁮‍‫‌‎‍⁪⁫‮::⁪‏⁭‎⁭⁭‏⁬‏‫⁫‍⁭⁭⁫‬‭‭‎⁭⁭‭⁭‌⁪⁯‍‫‎‫‍‬​⁯‭⁭⁪‭‌‪‮  IL_00BA  call  (confuserex-normal.exe)
+
+Type     : <Module>+\u206D\u206D\u200C\u202A\u206D\u200C\u200E\u206D\u200C\u206D\u206A\u202B\u200D\u202B\u206F\u200F\u200B\u202A\u200E\u202B\u206F\u206E\u202D\u206B\u206F\u206D\u202B\u206C\u206F\u202B\u200D\u202D\u206C\u200D\u206E\u202B\u202C\u202B\u206E\u206F\u202E
+
+Method   : void .ctor(int numBitLevels)
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x42C0   Size: 25 bytes   Token: 0x0600000D
+
+[Calls]
+  (none)
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::.ctor  IL_00A6  newobj  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::.ctor  IL_00C9  newobj  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::‫⁪‍‭‏‏⁮⁪⁫‎‮‪⁯‫⁯‪⁪‭‭‬‬‭‮⁪⁯‭‌⁯‏‌⁬​‮‭‏‫‮​​⁯‮  IL_0050  newobj  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::‫⁪‍‭‏‏⁮⁪⁫‎‮‪⁯‫⁯‪⁪‭‭‬‬‭‮⁪⁯‭‌⁯‏‌⁬​‮‭‏‫‮​​⁯‮  IL_0075  newobj  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::.ctor  IL_001C  newobj  (confuserex-normal.exe)
+
+Method   : void \u202E\u206D\u206A\u202B\u200F\u202C\u202C\u206A\u202C\u202A\u206E\u206A\u206E\u206A\u202D\u206B\u202E\u202E\u206F\u206C\u206E\u200B\u206A\u206B\u206F\u202E\u200D\u202E\u206F\u202B\u200C\u206F\u202E\u206A\u200E\u206E\u206C\u206C\u206E\u200D\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x42E8   Size: 121 bytes   Token: 0x0600000E
+
+[Calls]
+  IL_0059  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪⁪⁬⁯‎‌⁭​⁯‫⁬​‮‮⁬⁪‎‪⁭⁮‌⁪⁭‭‬‪‪⁯‌‍‎⁯⁪‭⁪‮‌⁯⁪‬‮()  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‫‌⁬⁬‭‪‬‪⁮‎⁮‍⁬‌‎‏⁪⁮⁫‎​⁫⁫‭‬‏⁬‎‎‮⁭⁬‏‏⁫‫‭‏‍‮  IL_00F0  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‫‌⁬⁬‭‪‬‪⁮‎⁮‍⁬‌‎‏⁪⁮⁫‎​⁫⁫‭‬‏⁬‎‎‮⁭⁬‏‏⁫‫‭‏‍‮  IL_01AE  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::⁪⁮⁯‌‍‫​‏⁬‌⁬‭​‭⁭‌‏​​‮⁭‬​‮⁪‍‍‏‭⁮‍‮⁪⁮‌‮⁭⁬⁯⁫‮  IL_006E  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::⁪⁮⁯‌‍‫​‏⁬‌⁬‭​‭⁭‌‏​​‮⁭‬​‮⁪‍‍‏‭⁮‍‮⁪⁮‌‮⁭⁬⁯⁫‮  IL_00C1  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::⁪⁮⁯‌‍‫​‏⁬‌⁬‭​‭⁭‌‏​​‮⁭‬​‮⁪‍‍‏‭⁮‍‮⁪⁮‌‮⁭⁬⁯⁫‮  IL_00D6  call  (confuserex-normal.exe)
+
+Method   : uint \u200B\u200B\u206D\u206A\u206D\u206A\u200B\u200D\u206F\u200F\u200C\u206A\u206D\u200F\u206F\u202C\u206D\u202C\u206E\u200D\u200E\u206B\u206B\u202A\u202B\u202D\u200E\u200C\u200F\u206E\u206D\u206F\u206F\u202A\u206F\u206F\u202B\u202E\u202E\u206A\u202E(<Module>+\u202C\u202D\u200E\u206B\u200F\u202B\u202A\u202A\u206B\u206C\u200F\u206E\u200F\u206B\u202B\u200D\u202A\u200E\u202D\u200D\u200D\u206A\u202E\u200F\u206D\u202B\u206C\u206D\u202E\u202C\u206F\u202C\u200B\u202D\u206C\u206E\u200B\u206A\u206F\u200C\u202E rangeDecoder)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x4370   Size: 179 bytes   Token: 0x0600000F
+
+[Calls]
+  IL_007B  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪​⁪‪‎‏‌‌​‭‮⁪‏⁭‍‫‬‬⁮⁯‏‬⁯⁬⁮‬⁯⁯⁫‬‏​​‏‮​‌⁬⁫‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_041E  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::‎‬‎‍​‌⁪‫‫⁫‬‌‎‫​‌⁮⁫‏‭⁪⁮‎‌‍‬⁮⁯‭⁯‬⁬‫‏⁯‍‬‭⁬‌‮  IL_0058  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::‎‬‎‍​‌⁪‫‫⁫‬‌‎‫​‌⁮⁫‏‭⁪⁮‎‌‍‬⁮⁯‭⁯‬⁬‫‏⁯‍‬‭⁬‌‮  IL_00AE  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::‎‬‎‍​‌⁪‫‫⁫‬‌‎‫​‌⁮⁫‏‭⁪⁮‎‌‍‬⁮⁯‭⁯‬⁬‫‏⁯‍‬‭⁬‌‮  IL_00DC  call  (confuserex-normal.exe)
+
+Method   : uint \u206F\u206A\u206C\u200E\u200B\u206C\u202A\u200B\u200E\u200B\u202C\u206A\u202A\u206F\u202E\u202C\u200D\u200F\u202C\u202A\u200E\u206C\u202E\u206D\u202B\u206E\u200E\u206C\u200C\u200D\u202E\u202E\u200C\u202E\u206B\u202B\u200D\u202E\u206A\u202A\u202E(<Module>+\u202C\u202D\u200E\u206B\u200F\u202B\u202A\u202A\u206B\u206C\u200F\u206E\u200F\u206B\u202B\u200D\u202A\u200E\u202D\u200D\u200D\u206A\u202E\u200F\u206D\u202B\u206C\u206D\u202E\u202C\u206F\u202C\u200B\u202D\u206C\u206E\u200B\u206A\u206F\u200C\u202E rangeDecoder)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x4430   Size: 236 bytes   Token: 0x06000010
+
+[Calls]
+  IL_00C3  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪​⁪‪‎‏‌‌​‭‮⁪‏⁭‍‫‬‬⁮⁯‏‬⁯⁬⁮‬⁯⁯⁫‬‏​​‏‮​‌⁬⁫‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_04DE  call  (confuserex-normal.exe)
+
+Method   : uint \u202D\u200D\u202D\u200C\u200C\u206F\u206A\u202D\u200B\u206C\u206F\u200B\u206F\u200E\u202B\u200F\u206D\u202D\u200F\u206C\u202C\u206D\u206E\u200B\u202C\u206F\u200F\u206B\u206A\u200D\u202A\u206C\u200B\u200E\u206D\u200F\u202E\u202E\u200E\u202E(<Module>+\u206E\u202A\u202E\u206C\u206F\u206C\u206E\u202B\u206C\u200D\u206A\u206F\u200E\u206D\u202D\u206E\u202C\u206E\u206E\u206A\u200D\u202C\u202B\u200D\u206A\u206D\u200C\u202C\u200E\u200E\u200F\u206D\u200D\u202D\u202C\u206D\u202B\u200B\u200C\u200D\u202E[] Models, uint startIndex, <Module>+\u202C\u202D\u200E\u206B\u200F\u202B\u202A\u202A\u206B\u206C\u200F\u206E\u200F\u206B\u202B\u200D\u202A\u200E\u202D\u200D\u200D\u206A\u202E\u200F\u206D\u202B\u206C\u206D\u202E\u202C\u206F\u202C\u200B\u202D\u206C\u206E\u200B\u206A\u206F\u200C\u202E rangeDecoder, int NumBitLevels)
+Kind     : static, internal, compiler-generated
+RVA      : 0x4528   Size: 181 bytes   Token: 0x06000011
+
+[Calls]
+  IL_0066  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪​⁪‪‎‏‌‌​‭‮⁪‏⁭‍‫‬‬⁮⁯‏‬⁯⁬⁮‬⁯⁯⁫‬‏​​‏‮​‌⁬⁫‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_06FE  call  (confuserex-normal.exe)
+
+Type     : <Module>+\u202C\u202D\u200E\u206B\u200F\u202B\u202A\u202A\u206B\u206C\u200F\u206E\u200F\u206B\u202B\u200D\u202A\u200E\u202D\u200D\u200D\u206A\u202E\u200F\u206D\u202B\u206C\u206D\u202E\u202C\u206F\u202C\u200B\u202D\u206C\u206E\u200B\u206A\u206F\u200C\u202E
+
+Method   : void \u200D\u200B\u202E\u206B\u200D\u206F\u206B\u202C\u200D\u206C\u200F\u202D\u206C\u206A\u206A\u202A\u206B\u200F\u200D\u200B\u206F\u200D\u200C\u206B\u206A\u200F\u206C\u202C\u202E\u202D\u202D\u202A\u200F\u206B\u200B\u202B\u202A\u206E\u200D\u202C\u202E(Stream stream)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x45EC   Size: 162 bytes   Token: 0x06000012
+
+[Calls]
+  IL_0052  callvirt  System.IO.Stream::ReadByte()  external mscorlib
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‫‌⁬⁬‭‪‬‪⁮‎⁮‍⁬‌‎‏⁪⁮⁫‎​⁫⁫‭‬‏⁬‎‎‮⁭⁬‏‏⁫‫‭‏‍‮  IL_0007  callvirt  (confuserex-normal.exe)
+
+Method   : void \u202B\u202A\u200C\u200D\u202A\u202B\u202A\u202D\u206A\u202D\u200D\u206A\u200C\u202B\u206E\u200D\u202D\u206B\u206B\u206D\u200B\u206B\u206C\u200B\u202E\u202A\u202E\u200C\u202B\u206E\u200F\u200E\u206F\u202B\u206B\u206F\u206D\u200D\u202B\u202B\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x469C   Size: 8 bytes   Token: 0x06000013
+
+[Calls]
+  (none)
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_07EA  callvirt  (confuserex-normal.exe)
+
+Method   : void \u206E\u200C\u206E\u200D\u200C\u206B\u200D\u200B\u202D\u202B\u200F\u200C\u206B\u202D\u206D\u200F\u202C\u206E\u206E\u206F\u202D\u206D\u202B\u202D\u206D\u200B\u200C\u206D\u202D\u202E\u200D\u200E\u206E\u206C\u202E\u206E\u206A\u206D\u206F\u200F\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x46B0   Size: 119 bytes   Token: 0x06000014
+
+[Calls]
+  IL_0037  callvirt  System.IO.Stream::ReadByte()  external mscorlib
+[Callers]
+  (none in the input files)
+
+Method   : uint \u202A\u206C\u206F\u200B\u202B\u202A\u202D\u200F\u200C\u200B\u202D\u206A\u206A\u206B\u202D\u202E\u200B\u202E\u206D\u206F\u200F\u202C\u206B\u206B\u206A\u202A\u206F\u206B\u202D\u202C\u202D\u202D\u206D\u202A\u200D\u202E\u202A\u202D\u202D\u200D\u202E(int numTotalBits)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x4734   Size: 356 bytes   Token: 0x06000015
+
+[Calls]
+  IL_007B  callvirt  System.IO.Stream::ReadByte()  external mscorlib
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_038C  callvirt  (confuserex-normal.exe)
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x48A4   Size: 7 bytes   Token: 0x06000016
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external mscorlib
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::.ctor  IL_008F  newobj  (confuserex-normal.exe)
+
+Type     : <Module>+\u200F\u200D\u206B\u206F\u206C\u206F\u202C\u202A\u200E\u202A\u202E\u200D\u206C\u202D\u206B\u200E\u200E\u202D\u206A\u206E\u206E\u200E\u200C\u206B\u206B\u206C\u206D\u206F\u202D\u206E\u200B\u202D\u200D\u200C\u206F\u200D\u200E\u206E\u206D\u200F\u202E
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x48B8   Size: 222 bytes   Token: 0x06000017
+
+[Calls]
+  IL_0055  newobj    <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::.ctor()  internal
+  IL_0060  newobj    <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮::.ctor()  internal
+  IL_006B  newobj    <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::.ctor()                                            internal
+  IL_008F  newobj    <Module>.‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮::.ctor()                                            internal
+  IL_009A  newobj    <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::.ctor()  internal
+  IL_00A6  newobj    <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::.ctor(int)                                         internal
+  IL_00B1  call      System.Object::.ctor()                                                                                 external mscorlib
+  IL_00C9  newobj    <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::.ctor(int)                                         internal
+[Callers]
+  <Module>::⁫⁪‏⁫‏⁯​‎⁬‫‮⁬‮‮⁭⁯‫⁪‫​⁮‍⁬‍⁫‭⁮⁬‎⁮‭‍‪‭‍‮‮‌‎‮  IL_005A  newobj  (confuserex-normal.exe)
+
+Method   : void \u200C\u200B\u202D\u206D\u206D\u200F\u200B\u200D\u206B\u202C\u206B\u206A\u200E\u206C\u200C\u200C\u202B\u206D\u202E\u206D\u202C\u202E\u206D\u202C\u202E\u200B\u202C\u202B\u206E\u202C\u200D\u200E\u202E\u202C\u206D\u200C\u202B\u206D\u200B\u202D\u202E(uint dictionarySize)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x49A4   Size: 176 bytes   Token: 0x06000018
+
+[Calls]
+  IL_0045  call      System.Math::Max(uint, uint)                                                                         external mscorlib
+  IL_0061  callvirt  <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::‭​⁮‭‭‌‭⁮⁭⁯‌‍‮‮​‪⁫⁬‫‏​‪‍⁭‭⁯⁪‎⁬‎⁮‬‭‍‬‌‍⁭⁭⁮‮(uint)  internal
+  IL_0093  call      System.Math::Max(uint, uint)                                                                         external mscorlib
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::‭⁮⁪⁪⁮‮‌‪⁮‭​‬‏‎‏‏⁫‍⁭‮‭⁮​‫‪⁮⁯‎⁪‫‬‌‭‭‭‫‎‍‍‫‮  IL_00F9  call  (confuserex-normal.exe)
+
+Method   : void \u206D\u200D\u206E\u202C\u202B\u202C\u206A\u202A\u206E\u206C\u206E\u202C\u202B\u202E\u200D\u206C\u202D\u200C\u202C\u202B\u200F\u206D\u200D\u206A\u206B\u200B\u206D\u206D\u206D\u202C\u202C\u200C\u200F\u202D\u200B\u200B\u206F\u200C\u202C\u200E\u202E(int lp, int lc)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x4A60   Size: 14 bytes   Token: 0x06000019
+
+[Calls]
+  IL_0008  callvirt  <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮::‭‌‫‎‬⁫‪⁮⁯‌‬‭⁮‎‎‎​⁯‬‏‎‭⁪‬‏⁫⁬​⁬‍‭‫‍‭‬⁫‭⁮‌⁮‮(int, int)  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::‭⁮⁪⁪⁮‮‌‪⁮‭​‬‏‎‏‏⁫‍⁭‮‭⁮​‫‪⁮⁯‎⁪‫‬‌‭‭‭‫‎‍‍‫‮  IL_0101  call  (confuserex-normal.exe)
+
+Method   : void \u206E\u200C\u206F\u206F\u206B\u206F\u202A\u200B\u206D\u200F\u202B\u200E\u206C\u206B\u202A\u200C\u200B\u206C\u206D\u206A\u200D\u202E\u202C\u202C\u200D\u200D\u202D\u206F\u200C\u200D\u206D\u206D\u202D\u206B\u202A\u200C\u200C\u200E\u206D\u206C\u202E(int pb)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x4A7C   Size: 90 bytes   Token: 0x0600001A
+
+[Calls]
+  IL_0030  callvirt  <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::‫⁪‍‭‏‏⁮⁪⁫‎‮‪⁯‫⁯‪⁪‭‭‬‬‭‮⁪⁯‭‌⁯‏‌⁬​‮‭‏‫‮​​⁯‮(uint)  internal
+  IL_003C  callvirt  <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::‫⁪‍‭‏‏⁮⁪⁫‎‮‪⁯‫⁯‪⁪‭‭‬‬‭‮⁪⁯‭‌⁯‏‌⁬​‮‭‏‫‮​​⁯‮(uint)  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::‭⁮⁪⁪⁮‮‌‪⁮‭​‬‏‎‏‏⁫‍⁭‮‭⁮​‫‪⁮⁯‎⁪‫‬‌‭‭‭‫‎‍‍‫‮  IL_0097  call  (confuserex-normal.exe)
+
+Method   : void \u206D\u202B\u200C\u206C\u206C\u202D\u202A\u202C\u202A\u206E\u200E\u206E\u200D\u206C\u200C\u200E\u200F\u206A\u206E\u206B\u200E\u200B\u206B\u206B\u202D\u202C\u200F\u206C\u200E\u200E\u202E\u206D\u206C\u200F\u200F\u206B\u202B\u202D\u200F\u200D\u202E(Stream inStream, Stream outStream)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x4AE4   Size: 691 bytes   Token: 0x0600001B
+
+[Calls]
+  IL_0007  callvirt  <Module>.‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮::‍​‮⁫‍⁯⁫‬‍⁬‏‭⁬⁪⁪‪⁫‏‍​⁯‍‌⁫⁪‏⁬‬‮‭‭‪‏⁫​‫‪⁮‍‬‮(Stream)                                      internal
+  IL_0019  callvirt  <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::​‎‏‌‌⁮⁬⁯‍⁫​‫‬‭​‍‍‭⁪⁯⁮‫⁭⁬‎​‮⁮‎⁭⁭‪⁪‭‬‭‎‌‎⁮‮(Stream, bool)                                internal
+  IL_00B2  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪⁪⁬⁯‎‌⁭​⁯‫⁬​‮‮⁬⁪‎‪⁭⁮‌⁪⁭‭‬‪‪⁯‌‍‎⁯⁪‭⁪‮‌⁯⁪‬‮()                                            internal
+  IL_00D3  callvirt  <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::⁪⁮⁯‌‍‫​‏⁬‌⁬‭​‭⁭‌‏​​‮⁭‬​‮⁪‍‍‏‭⁮‍‮⁪⁮‌‮⁭⁬⁯⁫‮()  internal
+  IL_00F0  call      <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::‮⁭⁪‫‏‬‬⁪‬‪⁮⁪⁮⁪‭⁫‮‮⁯⁬⁮​⁪⁫⁯‮‍‮⁯‫‌⁯‮⁪‎⁮⁬⁬⁮‍‮()                                            internal
+  IL_0113  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪⁪⁬⁯‎‌⁭​⁯‫⁬​‮‮⁬⁪‎‪⁭⁮‌⁪⁭‭‬‪‪⁯‌‍‎⁯⁪‭⁪‮‌⁯⁪‬‮()                                            internal
+  IL_0124  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪⁪⁬⁯‎‌⁭​⁯‫⁬​‮‮⁬⁪‎‪⁭⁮‌⁪⁭‭‬‪‪⁯‌‍‎⁯⁪‭⁪‮‌⁯⁪‬‮()                                            internal
+  IL_014B  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪⁪⁬⁯‎‌⁭​⁯‫⁬​‮‮⁬⁪‎‪⁭⁮‌⁪⁭‭‬‪‪⁯‌‍‎⁯⁪‭⁪‮‌⁯⁪‬‮()                                            internal
+  IL_01AE  call      <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::‮⁭⁪‫‏‬‬⁪‬‪⁮⁪⁮⁪‭⁫‮‮⁯⁬⁮​⁪⁫⁯‮‍‮⁯‫‌⁯‮⁪‎⁮⁬⁬⁮‍‮()                                            internal
+  IL_01C7  callvirt  <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::⁪⁮⁯‌‍‫​‏⁬‌⁬‭​‭⁭‌‏​​‮⁭‬​‮⁪‍‍‏‭⁮‍‮⁪⁮‌‮⁭⁬⁯⁫‮()  internal
+  IL_01EA  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪⁪⁬⁯‎‌⁭​⁯‫⁬​‮‮⁬⁪‎‪⁭⁮‌⁪⁭‭‬‪‪⁯‌‍‎⁯⁪‭⁪‮‌⁯⁪‬‮()                                            internal
+  IL_022E  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪⁪⁬⁯‎‌⁭​⁯‫⁬​‮‮⁬⁪‎‪⁭⁮‌⁪⁭‭‬‪‪⁯‌‍‎⁯⁪‭⁪‮‌⁯⁪‬‮()                                            internal
+  IL_024B  callvirt  <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮::​⁫⁬⁫‫⁮‮​⁭‎‪‍‭‌‬⁮‬‭‭‍‪‏⁭⁪‭⁮‎‪​⁯⁪‮‍‏‫‪⁫​‭⁮‮()  internal
+  IL_028D  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪⁪⁬⁯‎‌⁭​⁯‫⁬​‮‮⁬⁪‎‪⁭⁮‌⁪⁭‭‬‪‪⁯‌‍‎⁯⁪‭⁪‮‌⁯⁪‬‮()                                            internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_0003  call  (confuserex-normal.exe)
+
+Method   : void \u206B\u206B\u202E\u206F\u200D\u202C\u202D\u206B\u202E\u206E\u200D\u206A\u202B\u206D\u200D\u202A\u202E\u202B\u200B\u202D\u200C\u200B\u200C\u200C\u206A\u202D\u206C\u200B\u202E\u206D\u206C\u206B\u202D\u202B\u200C\u200D\u202E\u206F\u200C\u200C\u202E(Stream inStream, Stream outStream, long inSize, long outSize)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x4DA4   Size: 2032 bytes   Token: 0x0600001C
+
+[Calls]
+  IL_0003  call      <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‫‌⁬⁬‭‪‬‪⁮‎⁮‍⁬‌‎‏⁪⁮⁫‎​⁫⁫‭‬‏⁬‎‎‮⁭⁬‏‏⁫‫‭‏‍‮(Stream, Stream)                                                                                                      internal
+  IL_012F  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪​⁪‪‎‏‌‌​‭‮⁪‏⁭‍‫‬‬⁮⁯‏‬⁯⁬⁮‬⁯⁯⁫‬‏​​‏‮​‌⁬⁫‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)                                                                  internal
+  IL_0137  call      <Module>.‍‎⁬‭⁪‭‬‬‮⁪‫‏⁭‫‍‏⁪‭‪⁭⁯‪‬​⁫⁪‭⁭⁭‮⁫⁯⁬‮‭‍‪⁫‎⁪‮::​‏‫‌‍‏⁫‭‌‪‭⁭⁫⁭⁮‬‎⁫⁯‬‫‏⁬‮⁭‪‏‌​⁮‪‌‪‭​‎⁯‫‪‍‮()                                                                                                                    internal
+  IL_016D  callvirt  <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::‎‬‎‍​‌⁪‫‫⁫‬‌‎‫​‌⁮⁫‏‭⁪⁮‎‌‍‬⁮⁯‭⁯‬⁬‫‏⁯‍‬‭⁬‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮, uint)                  internal
+  IL_0196  callvirt  <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮::‎‏‭⁮‍‮‬⁮‌‏‭​⁪‭⁭⁮‭‏⁯⁭‌⁭‍‭⁭⁭⁬⁪⁯‮⁬⁪‭​⁮‫‌⁮‭⁫‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮, uint, byte)            internal
+  IL_01A5  callvirt  <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::‬⁯‌⁪‬⁮⁮⁪‍⁫‍‬‬‪‬⁬⁮⁮⁮⁯‎‬‮‭⁭⁫‎⁫‭‭⁭​‎⁮‌‫‪⁮‫⁭‮(byte)                                                                                                                internal
+  IL_01F8  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪​⁪‪‎‏‌‌​‭‮⁪‏⁭‍‫‬‬⁮⁯‏‬⁯⁬⁮‬⁯⁯⁫‬‏​​‏‮​‌⁬⁫‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)                                                                  internal
+  IL_0251  callvirt  <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::⁪‫⁯⁫⁯⁬‬⁯⁫⁪⁪‏‫⁫⁪⁪⁭‮‪​‎‎‍‌‍⁬⁫⁪‫⁬‪⁭‮⁪‏‭⁯‫⁭⁯‮(uint)                                                                                                                internal
+  IL_0256  callvirt  <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::‬⁯‌⁪‬⁮⁮⁪‍⁫‍‬‬‪‬⁬⁮⁮⁮⁯‎‬‮‭⁭⁫‎⁫‭‭⁭​‎⁮‌‫‪⁮‫⁭‮(byte)                                                                                                                internal
+  IL_0288  callvirt  <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::‍‎‎‮⁪‬⁪⁯⁯⁯​‌⁭‮​⁯‏‍⁯‍‍⁭⁭‬‏⁬‫‮⁫‭​‍⁮⁬⁮⁯⁯⁭‮‭‮()                                                                                                                    internal
+  IL_02AF  call      <Module>.‍‎⁬‭⁪‭‬‬‮⁪‫‏⁭‫‍‏⁪‭‪⁭⁯‪‬​⁫⁪‭⁭⁭‮⁫⁯⁬‮‭‍‪⁫‎⁪‮::⁮⁭⁭⁭‪⁮⁪‍⁮‬​⁯⁫‫‍​‫‭​⁫⁬⁯‎‪⁬‎⁯‬‬​‍​⁯⁭‫‍⁫‫‬‌‮()                                                                                                                    internal
+  IL_02E3  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪​⁪‪‎‏‌‌​‭‮⁪‏⁭‍‫‬‬⁮⁯‏‬⁯⁬⁮‬⁯⁯⁫‬‏​​‏‮​‌⁬⁫‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)                                                                  internal
+  IL_0310  callvirt  <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::‪‫⁫‭‏⁫⁯⁮⁮‍⁯⁯‬‬‏⁭⁬‌‎‍⁭⁬‎⁬‎⁮‫‎⁮‮‫‎‮‌⁭‫‪⁯⁯⁫‮(uint, uint)                                                                                                          internal
+  IL_0369  call      <Module>.‍‎⁬‭⁪‭‬‬‮⁪‫‏⁭‫‍‏⁪‭‪⁭⁯‪‬​⁫⁪‭⁭⁭‮⁫⁯⁬‮‭‍‪⁫‎⁪‮::⁪⁮⁭‫‭⁯⁫⁮‫‌⁬⁭‎‫‪⁪‍​‎​‍‍‫⁪‍‭‏‎⁪⁮⁭‌‬‌⁯⁯‬‮‎⁯‮()                                                                                                                    internal
+  IL_038C  callvirt  <Module>.‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮::‪⁬⁯​‫‪‭‏‌​‭⁪⁪⁫‭‮​‮⁭⁯‏‬⁫⁫⁪‪⁯⁫‭‬‭‭⁭‪‍‮‪‭‭‍‮(int)                                                                                                                 internal
+  IL_03A1  call      <Module>.‍‎⁬‭⁪‭‬‬‮⁪‫‏⁭‫‍‏⁪‭‪⁭⁯‪‬​⁫⁪‭⁭⁭‮⁫⁯⁬‮‭‍‪⁫‎⁪‮::‌‏⁫‬⁫⁯⁬⁭‭⁯⁫‮‍‮‬‮‫‮‍‌⁫⁮⁪⁬⁯⁮‬⁯⁪⁭⁫‎‪‍‬‭‍‪⁯‫‮()                                                                                                                    internal
+  IL_03D0  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪​⁪‪‎‏‌‌​‭‮⁪‏⁭‍‫‬‬⁮⁯‏‬⁯⁬⁮‬⁯⁯⁫‬‏​​‏‮​‌⁬⁫‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)                                                                  internal
+  IL_040E  call      <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::‫‬‬‌⁬⁫‏‮‌‬​‪‫‌‎⁯⁪⁬‬⁮‭‎‎‫⁪‫‎⁪⁪⁬⁬⁯‌⁫⁬⁪​‬⁭‭‮(uint)                                                                                                                internal
+  IL_041E  call      <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::​​⁭⁪⁭⁪​‍⁯‏‌⁪⁭‏⁯‬⁭‬⁮‍‎⁫⁫‪‫‭‎‌‏⁮⁭⁯⁯‪⁯⁯‫‮‮⁪‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)                                                                  internal
+  IL_0478  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪​⁪‪‎‏‌‌​‭‮⁪‏⁭‍‫‬‬⁮⁯‏‬⁯⁬⁮‬⁯⁯⁫‬‏​​‏‮​‌⁬⁫‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)                                                                  internal
+  IL_04AD  callvirt  <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮::‎‏‭⁮‍‮‬⁮‌‏‭​⁪‭⁭⁮‭‏⁯⁭‌⁭‍‭⁭⁭⁬⁪⁯‮⁬⁪‭​⁮‫‌⁮‭⁫‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮, uint, byte)            internal
+  IL_04DE  call      <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::⁯⁪⁬‎​⁬‪​‎​‬⁪‪⁯‮‬‍‏‬‪‎⁬‮⁭‫⁮‎⁬‌‍‮‮‌‮⁫‫‍‮⁪‪‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)                                                                  internal
+  IL_0521  call      <Module>.‍‎⁬‭⁪‭‬‬‮⁪‫‏⁭‫‍‏⁪‭‪⁭⁯‪‬​⁫⁪‭⁭⁭‮⁫⁯⁬‮‭‍‪⁫‎⁪‮::​‭‎‏⁬‏⁬⁮‬‍‭‮⁮​⁫⁭‮‪⁬⁮⁫⁭‬‌‭‌⁬‎‏⁪‌⁫⁬‬‪⁮‮‪⁮‮‮()                                                                                                                    internal
+  IL_060E  callvirt  <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::⁪‫⁯⁫⁯⁬‬⁯⁫⁪⁪‏‫⁫⁪⁪⁭‮‪​‎‎‍‌‍⁬⁫⁪‫⁬‪⁭‮⁪‏‭⁯‫⁭⁯‮(uint)                                                                                                                internal
+  IL_0617  call      <Module>.‍‎⁬‭⁪‭‬‬‮⁪‫‏⁭‫‍‏⁪‭‪⁭⁯‪‬​⁫⁪‭⁭⁭‮⁫⁯⁬‮‭‍‪⁫‎⁪‮::‮‪⁬‭⁯‎⁭⁫⁪⁭​‌‮‮‌‫⁪⁫​⁬‪‍‎‭‏⁪‮‫‏‌​‬‮⁭‪‫⁪‏‬‮‮()                                                                                                                    internal
+  IL_0679  callvirt  <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‌⁯⁭‌‫‪⁬‍​‌⁪‫⁯⁬‪​​⁭​​‭‫‌‮⁪‬‪⁫‭⁫‭⁬‪‫‍‌‬​⁯‮‮::‎‬‎‍​‌⁪‫‫⁫‬‌‎‫​‌⁮⁫‏‭⁪⁮‎‌‍‬⁮⁯‭⁯‬⁬‫‏⁯‍‬‭⁬‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮, uint)                  internal
+  IL_06A8  callvirt  <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::‌⁭‏​‫‬⁮‭⁯⁫⁫‬‎⁭‮⁯‏‍⁯⁬‪⁭​⁯‍‎‌​‌⁭‏‏‍‭‌‮‪‭‎‮‮()                                                                                                                    internal
+  IL_06CE  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪​⁪‪‎‏‌‌​‭‮⁪‏⁭‍‫‬‬⁮⁯‏‬⁯⁬⁮‬⁯⁯⁫‬‏​​‏‮​‌⁬⁫‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)                                                                  internal
+  IL_06FE  call      <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::‭‍‭‌‌⁯⁪‭​⁬⁯​⁯‎‫‏⁭‭‏⁬‬⁭⁮​‬⁯‏⁫⁪‍‪⁬​‎⁭‏‮‮‎‮(<Module>+⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮[], uint, <Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮, int)  internal
+  IL_0765  callvirt  <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::⁪‫⁯⁫⁯⁬‬⁯⁫⁪⁪‏‫⁫⁪⁪⁭‮‪​‎‎‍‌‍⁬⁫⁪‫⁬‪⁭‮⁪‏‭⁯‫⁭⁯‮(uint)                                                                                                                internal
+  IL_076A  callvirt  <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮::‌‫‎⁮‬⁮⁮⁯‬‫⁮​‬⁫⁭⁭‌‭‪⁯⁫‍‍⁯⁬⁮⁬​‭​‍‮‮‫‏⁯​‪‪⁭‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮, uint, byte, byte)      internal
+  IL_078C  callvirt  <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::‬⁯‌⁪‬⁮⁮⁪‍⁫‍‬‬‪‬⁬⁮⁮⁮⁯‎‬‮‭⁭⁫‎⁫‭‭⁭​‎⁮‌‫‪⁮‫⁭‮(byte)                                                                                                                internal
+  IL_0793  call      <Module>.‍‎⁬‭⁪‭‬‬‮⁪‫‏⁭‫‍‏⁪‭‪⁭⁯‪‬​⁫⁪‭⁭⁭‮⁫⁯⁬‮‭‍‪⁫‎⁪‮::​‏‫‌‍‏⁫‭‌‪‭⁭⁫⁭⁮‬‎⁫⁯‬‫‏⁬‮⁭‪‏‌​⁮‪‌‪‭​‎⁯‫‪‍‮()                                                                                                                    internal
+  IL_07C0  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪​⁪‪‎‏‌‌​‭‮⁪‏⁭‍‫‬‬⁮⁯‏‬⁯⁬⁮‬⁯⁯⁫‬‏​​‏‮​‌⁬⁫‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)                                                                  internal
+  IL_07EA  callvirt  <Module>.‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮::‫‪‌‍‪‫‪‭⁪‭‍⁪‌‫⁮‍‭⁫⁫⁭​⁫⁬​‮‪‮‌‫⁮‏‎⁯‫⁫⁯⁭‍‫‫‮()                                                                                                                    internal
+[Callers]
+  <Module>::⁫⁪‏⁫‏⁯​‎⁬‫‮⁬‮‮⁭⁯‫⁪‫​⁮‍⁬‍⁫‭⁮⁬‎⁮‭‍‪‭‍‮‮‌‎‮  IL_01AD  callvirt  (confuserex-normal.exe)
+
+Method   : void \u202D\u206E\u206A\u206A\u206E\u202E\u200C\u202A\u206E\u202D\u200B\u202C\u200F\u200E\u200F\u200F\u206B\u200D\u206D\u202E\u202D\u206E\u200B\u202B\u202A\u206E\u206F\u200E\u206A\u202B\u202C\u200C\u202D\u202D\u202D\u202B\u200E\u200D\u200D\u202B\u202E(byte[] properties)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x55A0   Size: 304 bytes   Token: 0x0600001D
+
+[Calls]
+  IL_0097  call      <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁮‌⁯⁯⁫⁯‪​⁭‏‫‎⁬⁫‪‌​⁬⁭⁪‍‮‬‬‍‍‭⁯‌‍⁭⁭‭⁫‪‌‌‎⁭⁬‮(int)       internal
+  IL_00F9  call      <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::‌​‭⁭⁭‏​‍⁫‬⁫⁪‎⁬‌‌‫⁭‮⁭‬‮⁭‬‮​‬‫⁮‬‍‎‮‬⁭‌‫⁭​‭‮(uint)      internal
+  IL_0101  call      <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‍⁮‬‫‬⁪‪⁮⁬⁮‬‫‮‍⁬‭‌‬‫‏⁭‍⁪⁫​⁭⁭⁭‬‬‌‏‭​​⁯‌‬‎‮(int, int)  internal
+[Callers]
+  <Module>::⁫⁪‏⁫‏⁯​‎⁬‫‮⁬‮‮⁭⁯‫⁪‫​⁮‍⁬‍⁫‭⁮⁬‎⁮‭‍‪‭‍‮‮‌‎‮  IL_00B7  callvirt  (confuserex-normal.exe)
+
+Method   : uint \u202B\u202C\u202C\u200C\u206C\u206B\u200F\u202E\u200C\u202C\u200B\u202A\u202B\u200C\u200E\u206F\u206A\u206C\u202C\u206E\u202D\u200E\u200E\u202B\u206A\u202B\u200E\u206A\u206A\u206C\u206C\u206F\u200C\u206B\u206C\u206A\u200B\u202C\u206D\u202D\u202E(uint len)
+Kind     : static, internal, compiler-generated
+RVA      : 0x56DC   Size: 62 bytes   Token: 0x0600001E
+
+[Calls]
+  (none)
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_040E  call  (confuserex-normal.exe)
+
+Type     : <Module>+\u200F\u200D\u206B\u206F\u206C\u206F\u202C\u202A\u200E\u202A\u202E\u200D\u206C\u202D\u206B\u200E\u200E\u202D\u206A\u206E\u206E\u200E\u200C\u206B\u206B\u206C\u206D\u206F\u202D\u206E\u200B\u202D\u200D\u200C\u206F\u200D\u200E\u206E\u206D\u200F\u202E+\u200C\u206F\u206D\u200C\u202B\u202A\u206C\u200D\u200B\u200C\u206A\u202B\u206F\u206C\u202A\u200B\u200B\u206D\u200B\u200B\u202D\u202B\u200C\u202E\u206A\u202C\u202A\u206B\u202D\u206B\u202D\u206C\u202A\u202B\u200D\u200C\u202C\u200B\u206F\u202E\u202E
+
+Method   : void \u202B\u206A\u200D\u202D\u200F\u200F\u206E\u206A\u206B\u200E\u202E\u202A\u206F\u202B\u206F\u202A\u206A\u202D\u202D\u202C\u202C\u202D\u202E\u206A\u206F\u202D\u200C\u206F\u200F\u200C\u206C\u200B\u202E\u202D\u200F\u202B\u202E\u200B\u200B\u206F\u202E(uint numPosStates)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x5728   Size: 142 bytes   Token: 0x0600001F
+
+[Calls]
+  IL_0050  newobj    <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::.ctor(int)  internal
+  IL_0075  newobj    <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::.ctor(int)  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁮‌⁯⁯⁫⁯‪​⁭‏‫‎⁬⁫‪‌​⁬⁭⁪‍‮‬‬‍‍‭⁯‌‍⁭⁭‭⁫‪‌‌‎⁭⁬‮  IL_0030  callvirt  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁮‌⁯⁯⁫⁯‪​⁭‏‫‎⁬⁫‪‌​⁬⁭⁪‍‮‬‬‍‍‭⁯‌‍⁭⁭‭⁫‪‌‌‎⁭⁬‮  IL_003C  callvirt  (confuserex-normal.exe)
+
+Method   : void \u206A\u206E\u206F\u200C\u200D\u202B\u200B\u200F\u206C\u200C\u206C\u202D\u200B\u202D\u206D\u200C\u200F\u200B\u200B\u202E\u206D\u202C\u200B\u202E\u206A\u200D\u200D\u200F\u202D\u206E\u200D\u202E\u206A\u206E\u200C\u202E\u206D\u206C\u206F\u206B\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x57C4   Size: 238 bytes   Token: 0x06000020
+
+[Calls]
+  IL_0006  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪⁪⁬⁯‎‌⁭​⁯‫⁬​‮‮⁬⁪‎‪⁭⁮‌⁪⁭‭‬‪‪⁯‌‍‎⁯⁪‭⁪‮‌⁯⁪‬‮()  internal
+  IL_006E  call      <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::‮⁭⁪‫‏‬‬⁪‬‪⁮⁪⁮⁪‭⁫‮‮⁯⁬⁮​⁪⁫⁯‮‍‮⁯‫‌⁯‮⁪‎⁮⁬⁬⁮‍‮()  internal
+  IL_0088  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪⁪⁬⁯‎‌⁭​⁯‫⁬​‮‮⁬⁪‎‪⁭⁮‌⁪⁭‭‬‪‪⁯‌‍‎⁯⁪‭⁪‮‌⁯⁪‬‮()  internal
+  IL_00C1  call      <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::‮⁭⁪‫‏‬‬⁪‬‪⁮⁪⁮⁪‭⁫‮‮⁯⁬⁮​⁪⁫⁯‮‍‮⁯‫‌⁯‮⁪‎⁮⁬⁬⁮‍‮()  internal
+  IL_00D6  call      <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::‮⁭⁪‫‏‬‬⁪‬‪⁮⁪⁮⁪‭⁫‮‮⁯⁬⁮​⁪⁫⁯‮‍‮⁯‫‌⁯‮⁪‎⁮⁬⁬⁮‍‮()  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‫‌⁬⁬‭‪‬‪⁮‎⁮‍⁬‌‎‏⁪⁮⁫‎​⁫⁫‭‬‏⁬‎‎‮⁭⁬‏‏⁫‫‭‏‍‮  IL_00D3  callvirt  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‫‌⁬⁬‭‪‬‪⁮‎⁮‍⁬‌‎‏⁪⁮⁫‎​⁫⁫‭‬‏⁬‎‎‮⁭⁬‏‏⁫‫‭‏‍‮  IL_01C7  callvirt  (confuserex-normal.exe)
+
+Method   : uint \u200E\u202C\u200E\u200D\u200B\u200C\u206A\u202B\u202B\u206B\u202C\u200C\u200E\u202B\u200B\u200C\u206E\u206B\u200F\u202D\u206A\u206E\u200E\u200C\u200D\u202C\u206E\u206F\u202D\u206F\u202C\u206C\u202B\u200F\u206F\u200D\u202C\u202D\u206C\u200C\u202E(<Module>+\u202C\u202D\u200E\u206B\u200F\u202B\u202A\u202A\u206B\u206C\u200F\u206E\u200F\u206B\u202B\u200D\u202A\u200E\u202D\u200D\u200D\u206A\u202E\u200F\u206D\u202B\u206C\u206D\u202E\u202C\u206F\u202C\u200B\u202D\u206C\u206E\u200B\u206A\u206F\u200C\u202E rangeDecoder, uint posState)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x58C0   Size: 247 bytes   Token: 0x06000021
+
+[Calls]
+  IL_0007  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪​⁪‪‎‏‌‌​‭‮⁪‏⁭‍‫‬‬⁮⁯‏‬⁯⁬⁮‬⁯⁯⁫‬‏​​‏‮​‌⁬⁫‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)  internal
+  IL_0058  call      <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::​​⁭⁪⁭⁪​‍⁯‏‌⁪⁭‏⁯‬⁭‬⁮‍‎⁫⁫‪‫‭‎‌‏⁮⁭⁯⁯‪⁯⁯‫‮‮⁪‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)  internal
+  IL_0075  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪​⁪‪‎‏‌‌​‭‮⁪‏⁭‍‫‬‬⁮⁯‏‬⁯⁬⁮‬⁯⁯⁫‬‏​​‏‮​‌⁬⁫‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)  internal
+  IL_00AE  call      <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::​​⁭⁪⁭⁪​‍⁯‏‌⁪⁭‏⁯‬⁭‬⁮‍‎⁫⁫‪‫‭‎‌‏⁮⁭⁯⁯‪⁯⁯‫‮‮⁪‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)  internal
+  IL_00DC  call      <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::​​⁭⁪⁭⁪​‍⁯‏‌⁪⁭‏⁯‬⁭‬⁮‍‎⁫⁫‪‫‭‎‌‏⁮⁭⁯⁯‪⁯⁯‫‮‮⁪‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_016D  callvirt  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_0679  callvirt  (confuserex-normal.exe)
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x59C4   Size: 45 bytes   Token: 0x06000022
+
+[Calls]
+  IL_001C  newobj    <Module>.⁭⁭‌‪⁭‌‎⁭‌⁭⁪‫‍‫⁯‏​‪‎‫⁯⁮‭⁫⁯⁭‫⁬⁯‫‍‭⁬‍⁮‫‬‫⁮⁯‮::.ctor(int)  internal
+  IL_0027  call      System.Object::.ctor()                                          external mscorlib
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::.ctor  IL_0055  newobj  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::.ctor  IL_009A  newobj  (confuserex-normal.exe)
+
+Type     : <Module>+\u200F\u200D\u206B\u206F\u206C\u206F\u202C\u202A\u200E\u202A\u202E\u200D\u206C\u202D\u206B\u200E\u200E\u202D\u206A\u206E\u206E\u200E\u200C\u206B\u206B\u206C\u206D\u206F\u202D\u206E\u200B\u202D\u200D\u200C\u206F\u200D\u200E\u206E\u206D\u200F\u202E+\u202B\u200D\u202C\u206E\u206B\u206C\u202A\u200B\u200C\u206C\u200C\u206E\u200B\u200E\u206E\u200D\u202C\u202C\u200B\u206C\u206D\u200E\u202C\u206D\u206D\u206D\u200C\u206B\u206C\u202B\u206E\u200D\u202E\u206A\u206B\u206F\u206F\u200B\u200D\u206C\u202E
+
+Method   : void \u202D\u200C\u202B\u200E\u202C\u206B\u202A\u206E\u206F\u200C\u202C\u202D\u206E\u200E\u200E\u200E\u200B\u206F\u202C\u200F\u200E\u202D\u206A\u202C\u200F\u206B\u206C\u200B\u206C\u200D\u202D\u202B\u200D\u202D\u202C\u206B\u202D\u206E\u200C\u206E\u202E(int numPosBits, int numPrevBits)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x5A00   Size: 393 bytes   Token: 0x06000023
+
+[Calls]
+  IL_0179  call      <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮.⁬​‏⁭‭‬‪‬‍‫‏‏‮‫‬‫‪‫‏‪⁬⁫​⁪⁪‪⁯‮‎⁯⁫‪⁮‍‫‌‎‍⁪⁫‮::‪‬​‫‏‍‍‬‬‭⁫‮‌‪‍‏‏‪‫‪⁯⁬‎⁮‭⁫‍‎‏​⁫⁬⁬⁬‌⁬⁯‭⁫‍‮()  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‍⁮‬‫‬⁪‪⁮⁬⁮‬‫‮‍⁬‭‌‬‫‏⁭‍⁪⁫​⁭⁭⁭‬‬‌‏‭​​⁯‌‬‎‮  IL_0008  callvirt  (confuserex-normal.exe)
+
+Method   : void \u200B\u206B\u206C\u206B\u202B\u206E\u202E\u200B\u206D\u200E\u202A\u200D\u202D\u200C\u202C\u206E\u202C\u202D\u202D\u200D\u202A\u200F\u206D\u206A\u202D\u206E\u200E\u202A\u200B\u206F\u206A\u202E\u200D\u200F\u202B\u202A\u206B\u200B\u202D\u206E\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x5B98   Size: 128 bytes   Token: 0x06000024
+
+[Calls]
+  IL_005A  call      <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮.⁬​‏⁭‭‬‪‬‍‫‏‏‮‫‬‫‪‫‏‪⁬⁫​⁪⁪‪⁯‮‎⁯⁫‪⁮‍‫‌‎‍⁪⁫‮::‫⁫‪‎‪‬​‍‍⁫‏‌‮⁭‎⁪⁫⁭‮‪‎‬‌‬⁮⁯‪⁭‎⁮⁭‍⁮‭⁪⁪‪‏​⁮‮()  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‫‌⁬⁬‭‪‬‪⁮‎⁮‍⁬‌‎‏⁪⁮⁫‎​⁫⁫‭‬‏⁬‎‎‮⁭⁬‏‏⁫‫‭‏‍‮  IL_024B  callvirt  (confuserex-normal.exe)
+
+Method   : uint \u206B\u202B\u202B\u200F\u206D\u206E\u202E\u202C\u200C\u206B\u206D\u200F\u206A\u206F\u206C\u206D\u206C\u202C\u202E\u202B\u206A\u206B\u202E\u206C\u200F\u200B\u202B\u206F\u206B\u200E\u202B\u206A\u200C\u202E\u206A\u202A\u206B\u206F\u206D\u202B\u202E(uint pos, byte prevByte)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x5C24   Size: 33 bytes   Token: 0x06000025
+
+[Calls]
+  (none)
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮::‎‏‭⁮‍‮‬⁮‌‏‭​⁪‭⁭⁮‭‏⁯⁭‌⁭‍‭⁭⁭⁬⁪⁯‮⁬⁪‭​⁮‫‌⁮‭⁫‮  IL_0009  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮::‌‫‎⁮‬⁮⁮⁯‬‫⁮​‬⁫⁭⁭‌‭‪⁯⁫‍‍⁯⁬⁮⁬​‭​‍‮‮‫‏⁯​‪‪⁭‮  IL_0009  call  (confuserex-normal.exe)
+
+Method   : byte \u200E\u200F\u202D\u206E\u200D\u202E\u202C\u206E\u200C\u200F\u202D\u200B\u206A\u202D\u206D\u206E\u202D\u200F\u206F\u206D\u200C\u206D\u200D\u202D\u206D\u206D\u206C\u206A\u206F\u202E\u206C\u206A\u202D\u200B\u206E\u202B\u200C\u206E\u202D\u206B\u202E(<Module>+\u202C\u202D\u200E\u206B\u200F\u202B\u202A\u202A\u206B\u206C\u200F\u206E\u200F\u206B\u202B\u200D\u202A\u200E\u202D\u200D\u200D\u206A\u202E\u200F\u206D\u202B\u206C\u206D\u202E\u202C\u206F\u202C\u200B\u202D\u206C\u206E\u200B\u206A\u206F\u200C\u202E rangeDecoder, uint pos, byte prevByte)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x5C54   Size: 26 bytes   Token: 0x06000026
+
+[Calls]
+  IL_0009  call      <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮::⁫‫‫‏⁭⁮‮‬‌⁫⁭‏⁪⁯⁬⁭⁬‬‮‫⁪⁫‮⁬‏​‫⁯⁫‎‫⁪‌‮⁪‪⁫⁯⁭‫‮(uint, byte)                                                                                    internal
+  IL_0014  call      <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮.⁬​‏⁭‭‬‪‬‍‫‏‏‮‫‬‫‪‫‏‪⁬⁫​⁪⁪‪⁯‮‎⁯⁫‪⁮‍‫‌‎‍⁪⁫‮::‮⁮‮⁬‌‬‮‮‌‏⁮‮‭‬‫‍⁫‎⁯‌⁭⁮‬‫⁪⁯⁭‮‏⁪‫‫‏‬⁮‍⁭​⁪‍‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_0196  callvirt  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_04AD  callvirt  (confuserex-normal.exe)
+
+Method   : byte \u200C\u202B\u200E\u206E\u202C\u206E\u206E\u206F\u202C\u202B\u206E\u200B\u202C\u206B\u206D\u206D\u200C\u202D\u202A\u206F\u206B\u200D\u200D\u206F\u206C\u206E\u206C\u200B\u202D\u200B\u200D\u202E\u202E\u202B\u200F\u206F\u200B\u202A\u202A\u206D\u202E(<Module>+\u202C\u202D\u200E\u206B\u200F\u202B\u202A\u202A\u206B\u206C\u200F\u206E\u200F\u206B\u202B\u200D\u202A\u200E\u202D\u200D\u200D\u206A\u202E\u200F\u206D\u202B\u206C\u206D\u202E\u202C\u206F\u202C\u200B\u202D\u206C\u206E\u200B\u206A\u206F\u200C\u202E rangeDecoder, uint pos, byte prevByte, byte matchByte)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x5C7C   Size: 28 bytes   Token: 0x06000027
+
+[Calls]
+  IL_0009  call      <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮::⁫‫‫‏⁭⁮‮‬‌⁫⁭‏⁪⁯⁬⁭⁬‬‮‫⁪⁫‮⁬‏​‫⁯⁫‎‫⁪‌‮⁪‪⁫⁯⁭‫‮(uint, byte)                                                                                          internal
+  IL_0016  call      <Module>.‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮.‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮.⁬​‏⁭‭‬‪‬‍‫‏‏‮‫‬‫‪‫‏‪⁬⁫​⁪⁪‪⁯‮‎⁯⁫‪⁮‍‫‌‎‍⁪⁫‮::⁪‏⁭‎⁭⁭‏⁬‏‫⁫‍⁭⁭⁫‬‭‭‎⁭⁭‭⁭‌⁪⁯‍‫‎‫‍‬​⁯‭⁭⁪‭‌‪‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮, byte)  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_076A  callvirt  (confuserex-normal.exe)
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x48A4   Size: 7 bytes   Token: 0x06000028
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external mscorlib
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::.ctor  IL_0060  newobj  (confuserex-normal.exe)
+
+Type     : <Module>+\u200F\u200D\u206B\u206F\u206C\u206F\u202C\u202A\u200E\u202A\u202E\u200D\u206C\u202D\u206B\u200E\u200E\u202D\u206A\u206E\u206E\u200E\u200C\u206B\u206B\u206C\u206D\u206F\u202D\u206E\u200B\u202D\u200D\u200C\u206F\u200D\u200E\u206E\u206D\u200F\u202E+\u202B\u200D\u202C\u206E\u206B\u206C\u202A\u200B\u200C\u206C\u200C\u206E\u200B\u200E\u206E\u200D\u202C\u202C\u200B\u206C\u206D\u200E\u202C\u206D\u206D\u206D\u200C\u206B\u206C\u202B\u206E\u200D\u202E\u206A\u206B\u206F\u206F\u200B\u200D\u206C\u202E+\u206C\u200B\u200F\u206D\u202D\u202C\u202A\u202C\u200D\u202B\u200F\u200F\u202E\u202B\u202C\u202B\u202A\u202B\u200F\u202A\u206C\u206B\u200B\u206A\u206A\u202A\u206F\u202E\u200E\u206F\u206B\u202A\u206E\u200D\u202B\u200C\u200E\u200D\u206A\u206B\u202E
+
+Method   : void \u202A\u202C\u200B\u202B\u200F\u200D\u200D\u202C\u202C\u202D\u206B\u202E\u200C\u202A\u200D\u200F\u200F\u202A\u202B\u202A\u206F\u206C\u200E\u206E\u202D\u206B\u200D\u200E\u200F\u200B\u206B\u206C\u206C\u206C\u200C\u206C\u206F\u202D\u206B\u200D\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x5CA4   Size: 17 bytes   Token: 0x06000029
+
+[Calls]
+  (none)
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮::‭‌‫‎‬⁫‪⁮⁯‌‬‭⁮‎‎‎​⁯‬‏‎‭⁪‬‏⁫⁬​⁬‍‭‫‍‭‬⁫‭⁮‌⁮‮  IL_0179  call  (confuserex-normal.exe)
+
+Method   : void \u202B\u206B\u202A\u200E\u202A\u202C\u200B\u200D\u200D\u206B\u200F\u200C\u202E\u206D\u200E\u206A\u206B\u206D\u202E\u202A\u200E\u202C\u200C\u202C\u206E\u206F\u202A\u206D\u200E\u206E\u206D\u200D\u206E\u202D\u206A\u206A\u202A\u200F\u200B\u206E\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x5CC4   Size: 115 bytes   Token: 0x0600002A
+
+[Calls]
+  IL_0066  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪⁪⁬⁯‎‌⁭​⁯‫⁬​‮‮⁬⁪‎‪⁭⁮‌⁪⁭‭‬‪‪⁯‌‍‎⁯⁪‭⁪‮‌⁯⁪‬‮()  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮::​⁫⁬⁫‫⁮‮​⁭‎‪‍‭‌‬⁮‬‭‭‍‪‏⁭⁪‭⁮‎‪​⁯⁪‮‍‏‫‪⁫​‭⁮‮  IL_005A  call  (confuserex-normal.exe)
+
+Method   : byte \u202E\u206E\u202E\u206C\u200C\u202C\u202E\u202E\u200C\u200F\u206E\u202E\u202D\u202C\u202B\u200D\u206B\u200E\u206F\u200C\u206D\u206E\u202C\u202B\u206A\u206F\u206D\u202E\u200F\u206A\u202B\u202B\u200F\u202C\u206E\u200D\u206D\u200B\u206A\u200D\u202E(<Module>+\u202C\u202D\u200E\u206B\u200F\u202B\u202A\u202A\u206B\u206C\u200F\u206E\u200F\u206B\u202B\u200D\u202A\u200E\u202D\u200D\u200D\u206A\u202E\u200F\u206D\u202B\u206C\u206D\u202E\u202C\u206F\u202C\u200B\u202D\u206C\u206E\u200B\u206A\u206F\u200C\u202E rangeDecoder)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x5D44   Size: 106 bytes   Token: 0x0600002B
+
+[Calls]
+  IL_0038  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪​⁪‪‎‏‌‌​‭‮⁪‏⁭‍‫‬‬⁮⁯‏‬⁯⁬⁮‬⁯⁯⁫‬‏​​‏‮​‌⁬⁫‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮::‎‏‭⁮‍‮‬⁮‌‏‭​⁪‭⁭⁮‭‏⁯⁭‌⁭‍‭⁭⁭⁬⁪⁯‮⁬⁪‭​⁮‫‌⁮‭⁫‮  IL_0014  call  (confuserex-normal.exe)
+
+Method   : byte \u206A\u200F\u206D\u200E\u206D\u206D\u200F\u206C\u200F\u202B\u206B\u200D\u206D\u206D\u206B\u202C\u202D\u202D\u200E\u206D\u206D\u202D\u206D\u200C\u206A\u206F\u200D\u202B\u200E\u202B\u200D\u202C\u200B\u206F\u202D\u206D\u206A\u202D\u200C\u202A\u202E(<Module>+\u202C\u202D\u200E\u206B\u200F\u202B\u202A\u202A\u206B\u206C\u200F\u206E\u200F\u206B\u202B\u200D\u202A\u200E\u202D\u200D\u200D\u206A\u202E\u200F\u206D\u202B\u206C\u206D\u202E\u202C\u206F\u202C\u200B\u202D\u206C\u206E\u200B\u206A\u206F\u200C\u202E rangeDecoder, byte matchByte)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x5DBC   Size: 274 bytes   Token: 0x0600002C
+
+[Calls]
+  IL_0062  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪​⁪‪‎‏‌‌​‭‮⁪‏⁭‍‫‬‬⁮⁯‏‬⁯⁬⁮‬⁯⁯⁫‬‏​​‏‮​‌⁬⁫‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)  internal
+  IL_00BA  call      <Module>.⁮‪‮⁬⁯⁬⁮‫⁬‍⁪⁯‎⁭‭⁮‬⁮⁮⁪‍‬‫‍⁪⁭‌‬‎‎‏⁭‍‭‬⁭‫​‌‍‮::‪​⁪‪‎‏‌‌​‭‮⁪‏⁭‍‫‬‬⁮⁯‏‬⁯⁬⁮‬⁯⁯⁫‬‏​​‏‮​‌⁬⁫‌‮(<Module>+‬‭‎⁫‏‫‪‪⁫⁬‏⁮‏⁫‫‍‪‎‭‍‍⁪‮‏⁭‫⁬⁭‮‬⁯‬​‭⁬⁮​⁪⁯‌‮)  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮+‫‍‬⁮⁫⁬‪​‌⁬‌⁮​‎⁮‍‬‬​⁬⁭‎‬⁭⁭⁭‌⁫⁬‫⁮‍‮⁪⁫⁯⁯​‍⁬‮::‌‫‎⁮‬⁮⁮⁯‬‫⁮​‬⁫⁭⁭‌‭‪⁯⁫‍‍⁯⁬⁮⁬​‭​‍‮‮‫‏⁯​‪‪⁭‮  IL_0016  call  (confuserex-normal.exe)
+
+Type     : <Module>+\u200E\u206F\u200F\u206B\u200F\u206F\u206A\u200E\u202D\u206A\u202C\u200F\u206E\u202C\u206D\u206C\u206B\u202A\u202A\u202D\u206F\u206B\u200D\u206C\u202B\u206B\u206A\u202A\u200F\u202D\u206D\u202C\u202D\u206B\u200B\u202C\u206C\u206E\u206A\u206E\u202E
+
+Method   : void \u202D\u200B\u206E\u202D\u202D\u200C\u202D\u206E\u206D\u206F\u200C\u200D\u202E\u202E\u200B\u202A\u206B\u206C\u202B\u200F\u200B\u202A\u200D\u206D\u202D\u206F\u206A\u200E\u206C\u200E\u206E\u202C\u202D\u200D\u202C\u200C\u200D\u206D\u206D\u206E\u202E(uint windowSize)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x5EDC   Size: 92 bytes   Token: 0x0600002D
+
+[Calls]
+  (none)
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::‌​‭⁭⁭‏​‍⁫‬⁫⁪‎⁬‌‌‫⁭‮⁭‬‮⁭‬‮​‬‫⁮‬‍‎‮‬⁭‌‫⁭​‭‮  IL_0061  callvirt  (confuserex-normal.exe)
+
+Method   : void \u200B\u200E\u200F\u200C\u200C\u206E\u206C\u206F\u200D\u206B\u200B\u202B\u202C\u202D\u200B\u200D\u200D\u202D\u206A\u206F\u206E\u202B\u206D\u206C\u200E\u200B\u202E\u206E\u200E\u206D\u206D\u202A\u206A\u202D\u202C\u202D\u200E\u200C\u200E\u206E\u202E(Stream stream, bool solid)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x5F44   Size: 150 bytes   Token: 0x0600002E
+
+[Calls]
+  IL_0001  call      <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::‍‎‎‮⁪‬⁪⁯⁯⁯​‌⁭‮​⁯‏‍⁯‍‍⁭⁭‬‏⁬‫‮⁫‭​‍⁮⁬⁮⁯⁯⁭‮‭‮()  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁭‫‌⁬⁬‭‪‬‪⁮‎⁮‍⁬‌‎‏⁪⁮⁫‎​⁫⁫‭‬‏⁬‎‎‮⁭⁬‏‏⁫‫‭‏‍‮  IL_0019  callvirt  (confuserex-normal.exe)
+
+Method   : void \u200D\u200E\u200E\u202E\u206A\u202C\u206A\u206F\u206F\u206F\u200B\u200C\u206D\u202E\u200B\u206F\u200F\u200D\u206F\u200D\u200D\u206D\u206D\u202C\u200F\u206C\u202B\u202E\u206B\u202D\u200B\u200D\u206E\u206C\u206E\u206F\u206F\u206D\u202E\u202D\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x5FE8   Size: 48 bytes   Token: 0x0600002F
+
+[Calls]
+  IL_0001  call      <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::‌⁭‏​‫‬⁮‭⁯⁫⁫‬‎⁭‮⁯‏‍⁯⁬‪⁭​⁯‍‎‌​‌⁭‏‏‍‭‌‮‪‭‎‮‮()  internal
+  IL_002A  call      System.Buffer::BlockCopy(Array, int, Array, int, int)                                            external mscorlib
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_0288  callvirt  (confuserex-normal.exe)
+  <Module>+‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::​‎‏‌‌⁮⁬⁯‍⁫​‫‬‭​‍‍‭⁪⁯⁮‫⁭⁬‎​‮⁮‎⁭⁭‪⁪‭‬‭‎‌‎⁮‮  IL_0001  call  (confuserex-normal.exe)
+
+Method   : void \u200C\u206D\u200F\u200B\u202B\u202C\u206E\u202D\u206F\u206B\u206B\u202C\u200E\u206D\u202E\u206F\u200F\u200D\u206F\u206C\u202A\u206D\u200B\u206F\u200D\u200E\u200C\u200B\u200C\u206D\u200F\u200F\u200D\u202D\u200C\u202E\u202A\u202D\u200E\u202E\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x6024   Size: 204 bytes   Token: 0x06000030
+
+[Calls]
+  IL_006F  callvirt  System.IO.Stream::Write(byte[], int, int)  external mscorlib
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_06A8  callvirt  (confuserex-normal.exe)
+  <Module>+‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::‍‎‎‮⁪‬⁪⁯⁯⁯​‌⁭‮​⁯‏‍⁯‍‍⁭⁭‬‏⁬‫‮⁫‭​‍⁮⁬⁮⁯⁯⁭‮‭‮  IL_0001  call  (confuserex-normal.exe)
+  <Module>+‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::‪‫⁫‭‏⁫⁯⁮⁮‍⁯⁯‬‬‏⁭⁬‌‎‍⁭⁬‎⁬‎⁮‫‎⁮‮‫‎‮‌⁭‫‪⁯⁯⁫‮  IL_0061  call  (confuserex-normal.exe)
+  <Module>+‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::‬⁯‌⁪‬⁮⁮⁪‍⁫‍‬‬‪‬⁬⁮⁮⁮⁯‎‬‮‭⁭⁫‎⁫‭‭⁭​‎⁮‌‫‪⁮‫⁭‮  IL_0067  call  (confuserex-normal.exe)
+
+Method   : void \u202A\u202B\u206B\u202D\u200F\u206B\u206F\u206E\u206E\u200D\u206F\u206F\u202C\u202C\u200F\u206D\u206C\u200C\u200E\u200D\u206D\u206C\u200E\u206C\u200E\u206E\u202B\u200E\u206E\u202E\u202B\u200E\u202E\u200C\u206D\u202B\u202A\u206F\u206F\u206B\u202E(uint distance, uint len)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x60FC   Size: 340 bytes   Token: 0x06000031
+
+[Calls]
+  IL_0061  call      <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::‌⁭‏​‫‬⁮‭⁯⁫⁫‬‎⁭‮⁯‏‍⁯⁬‪⁭​⁯‍‎‌​‌⁭‏‏‍‭‌‮‪‭‎‮‮()  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_0310  callvirt  (confuserex-normal.exe)
+
+Method   : void \u202C\u206F\u200C\u206A\u202C\u206E\u206E\u206A\u200D\u206B\u200D\u202C\u202C\u202A\u202C\u206C\u206E\u206E\u206E\u206F\u200E\u202C\u202E\u202D\u206D\u206B\u200E\u206B\u202D\u202D\u206D\u200B\u200E\u206E\u200C\u202B\u202A\u206E\u202B\u206D\u202E(byte b)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x625C   Size: 124 bytes   Token: 0x06000032
+
+[Calls]
+  IL_0067  call      <Module>.‎⁯‏⁫‏⁯⁪‎‭⁪‬‏⁮‬⁭⁬⁫‪‪‭⁯⁫‍⁬‫⁫⁪‪‏‭⁭‬‭⁫​‬⁬⁮⁪⁮‮::‌⁭‏​‫‬⁮‭⁯⁫⁫‬‎⁭‮⁯‏‍⁯⁬‪⁭​⁯‍‎‌​‌⁭‏‏‍‭‌‮‪‭‎‮‮()  internal
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_01A5  callvirt  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_0256  callvirt  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_078C  callvirt  (confuserex-normal.exe)
+
+Method   : byte \u206A\u202B\u206F\u206B\u206F\u206C\u202C\u206F\u206B\u206A\u206A\u200F\u202B\u206B\u206A\u206A\u206D\u202E\u202A\u200B\u200E\u200E\u200D\u200C\u200D\u206C\u206B\u206A\u202B\u206C\u202A\u206D\u202E\u206A\u200F\u202D\u206F\u202B\u206D\u206F\u202E(uint distance)
+Kind     : instance, internal, compiler-generated
+RVA      : 0x62E4   Size: 116 bytes   Token: 0x06000033
+
+[Calls]
+  (none)
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_0251  callvirt  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_060E  callvirt  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_0765  callvirt  (confuserex-normal.exe)
+
+Method   : void .ctor()
+Kind     : ctor, instance, internal, compiler-generated
+RVA      : 0x48A4   Size: 7 bytes   Token: 0x06000034
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external mscorlib
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::.ctor  IL_006B  newobj  (confuserex-normal.exe)
+
+Type     : <Module>+\u200D\u200E\u206C\u202D\u206A\u202D\u202C\u202C\u202E\u206A\u202B\u200F\u206D\u202B\u200D\u200F\u206A\u202D\u202A\u206D\u206F\u202A\u202C\u200B\u206B\u206A\u202D\u206D\u206D\u202E\u206B\u206F\u206C\u202E\u202D\u200D\u202A\u206B\u200E\u206A\u202E
+
+Method   : void \u200B\u202D\u200E\u200F\u206C\u200F\u206C\u206E\u202C\u200D\u202D\u202E\u206E\u200B\u206B\u206D\u202E\u202A\u206C\u206E\u206B\u206D\u202C\u200C\u202D\u200C\u206C\u200E\u200F\u206A\u200C\u206B\u206C\u202C\u202A\u206E\u202E\u202A\u206E\u202E\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x6364   Size: 8 bytes   Token: 0x06000035
+
+[Calls]
+  (none)
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_0521  call  (confuserex-normal.exe)
+
+Method   : void \u200B\u200F\u202B\u200C\u200D\u200F\u206B\u202D\u200C\u202A\u202D\u206D\u206B\u206D\u206E\u202C\u200E\u206B\u206F\u202C\u202B\u200F\u206C\u202E\u206D\u202A\u200F\u200C\u200B\u206E\u202A\u200C\u202A\u202D\u200B\u200E\u206F\u202B\u202A\u200D\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x6378   Size: 168 bytes   Token: 0x06000036
+
+[Calls]
+  (none)
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_0137  call  (confuserex-normal.exe)
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_0793  call  (confuserex-normal.exe)
+
+Method   : void \u200C\u200F\u206B\u202C\u206B\u206F\u206C\u206D\u202D\u206F\u206B\u202E\u200D\u202E\u202C\u202E\u202B\u202E\u200D\u200C\u206B\u206E\u206A\u206C\u206F\u206E\u202C\u206F\u206A\u206D\u206B\u200E\u202A\u200D\u202C\u202D\u200D\u202A\u206F\u202B\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x642C   Size: 21 bytes   Token: 0x06000037
+
+[Calls]
+  (none)
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_03A1  call  (confuserex-normal.exe)
+
+Method   : void \u206A\u206E\u206D\u202B\u202D\u206F\u206B\u206E\u202B\u200C\u206C\u206D\u200E\u202B\u202A\u206A\u200D\u200B\u200E\u200B\u200D\u200D\u202B\u206A\u200D\u202D\u200F\u200E\u206A\u206E\u206D\u200C\u202C\u200C\u206F\u206F\u202C\u202E\u200E\u206F\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x6450   Size: 21 bytes   Token: 0x06000038
+
+[Calls]
+  (none)
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_0369  call  (confuserex-normal.exe)
+
+Method   : void \u206E\u206D\u206D\u206D\u202A\u206E\u206A\u200D\u206E\u202C\u200B\u206F\u206B\u202B\u200D\u200B\u202B\u202D\u200B\u206B\u206C\u206F\u200E\u202A\u206C\u200E\u206F\u202C\u202C\u200B\u200D\u200B\u206F\u206D\u202B\u200D\u206B\u202B\u202C\u200C\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x6474   Size: 22 bytes   Token: 0x06000039
+
+[Calls]
+  (none)
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_02AF  call  (confuserex-normal.exe)
+
+Method   : bool \u202E\u202A\u206C\u202D\u206F\u200E\u206D\u206B\u206A\u206D\u200B\u200C\u202E\u202E\u200C\u202B\u206A\u206B\u200B\u206C\u202A\u200D\u200E\u202D\u200F\u206A\u202E\u202B\u200F\u200C\u200B\u202C\u202E\u206D\u202A\u202B\u206A\u200F\u202C\u202E\u202E()
+Kind     : instance, internal, compiler-generated
+RVA      : 0x6498   Size: 10 bytes   Token: 0x0600003A
+
+[Calls]
+  (none)
+[Callers]
+  <Module>+‏‍⁫⁯⁬⁯‬‪‎‪‮‍⁬‭⁫‎‎‭⁪⁮⁮‎‌⁫⁫⁬⁭⁯‭⁮​‭‍‌⁯‍‎⁮⁭‏‮::⁫⁫‮⁯‍‬‭⁫‮⁮‍⁪‫⁭‍‪‮‫​‭‌​‌‌⁪‭⁬​‮⁭⁬⁫‭‫‌‍‮⁯‌‌‮  IL_0617  call  (confuserex-normal.exe)
+
+Type     : P2%?l\?QdZ(A<eO,+$<_7*}i4
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x64B0   Size: 7 bytes   Token: 0x0600003B
+
+[Calls]
+  IL_0001  call      System.Attribute::.ctor()  external mscorlib
+[Callers]
+  (none in the input files)
+
+Type     : C,Zd{1!XlUG%ue91HH^Aq,@t1
+
+Method   : void .ctor(int arg1)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x64C4   Size: 63 bytes   Token: 0x0600003C
+
+[Calls]
+  IL_0001  call      System.Attribute::.ctor()  external mscorlib
+[Callers]
+  (none in the input files)
+
+Type     : \u202D\u202B\u202E\u200F\u202D\u206B\u202B\u206B\u206E\u206B\u206B\u200E\u202D\u202E\u206B\u200E\u200C\u202E\u202E\u202D\u206C\u200E\u206C\u202E\u200C\u206D\u200F\u202B\u202D\u206D\u206A\u206F\u206D\u206A\u206A\u200F\u206C\u200C\u200E\u202E
+
+Method   : void .ctor(string arg1, int arg2, Decimal arg3)
+Kind     : ctor, instance, public
+RVA      : 0x6510   Size: 115 bytes   Token: 0x0600003D
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()                                                                    external mscorlib
+  IL_0048  call      ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::⁮‏‮‫⁯⁬‪‏⁮‍‍‭⁪‌⁭‭‌⁪‬‍‏‪⁬⁬‪‬‌‬⁮⁫‫⁮⁫‫​‭​‬⁫⁯‮(int)  internal
+[Callers]
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_001F  newobj  (confuserex-normal.exe)
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_0041  newobj  (confuserex-normal.exe)
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_0064  newobj  (confuserex-normal.exe)
+
+Method   : string \u200F\u202D\u200D\u202B\u206C\u202B\u202B\u202D\u200D\u200F\u206E\u200E\u202C\u200C\u206C\u206A\u200C\u200D\u202A\u206F\u202C\u206F\u202A\u200B\u202A\u202E\u200E\u202E\u200E\u206D\u202E\u206B\u206A\u200F\u202E\u200F\u206A\u206D\u202B\u202B\u202E()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x6590   Size: 7 bytes   Token: 0x0600003E
+
+[Calls]
+  (none)
+[Callers]
+  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‎‎‪‬⁬‏‌‎⁬‍‬⁫⁫⁫‎⁫‎‭‏‬⁪‍​⁫‬​⁫⁭‌⁫⁮‌​‮‎​‎‪‍‮  IL_0060  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‮⁭‎⁯‌‌⁬‮⁯‏‭​‏‌‫‬⁮⁫​‮⁯⁬‬​⁮‫‭⁭⁯‮‬‎​‎⁭⁪⁮⁬⁫⁫‮  IL_0007  callvirt  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‮⁭‎⁯‌‌⁬‮⁯‏‭​‏‌‫‬⁮⁫​‮⁯⁬‬​⁮‫‭⁭⁯‮‬‎​‎⁭⁪⁮⁬⁫⁫‮  IL_0046  callvirt  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‮⁭‎⁯‌‌⁬‮⁯‏‭​‏‌‫‬⁮⁫​‮⁯⁬‬​⁮‫‭⁭⁯‮‬‎​‎⁭⁪⁮⁬⁫⁫‮  IL_0064  callvirt  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‮⁭‎⁯‌‌⁬‮⁯‏‭​‏‌‫‬⁮⁫​‮⁯⁬‬​⁮‫‭⁭⁯‮‬‎​‎⁭⁪⁮⁬⁫⁫‮  IL_0089  callvirt  (confuserex-normal.exe)
+
+Method   : int \u200B\u206C\u202C\u200E\u202C\u206A\u202C\u206A\u200B\u202D\u206E\u202E\u202C\u202C\u200D\u206B\u200E\u202A\u200E\u200F\u200C\u202E\u206B\u206A\u202A\u200F\u202A\u202C\u202A\u202A\u202A\u206A\u200F\u206F\u202E\u200B\u200D\u202E\u200E\u206E\u202E()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x65A4   Size: 7 bytes   Token: 0x0600003F
+
+[Calls]
+  (none)
+[Callers]
+  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‎‎‪‬⁬‏‌‎⁬‍‬⁫⁫⁫‎⁫‎‭‏‬⁪‍​⁫‬​⁫⁭‌⁫⁮‌​‮‎​‎‪‍‮  IL_0085  call  (confuserex-normal.exe)
+  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‎‎‪‬⁬‏‌‎⁬‍‬⁫⁫⁫‎⁫‎‭‏‬⁪‍​⁫‬​⁫⁭‌⁫⁮‌​‮‎​‎‪‍‮  IL_00A2  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁯‌‪⁪‭‪⁯⁯‌‫⁮​​‎‮‏‪⁬‌​‏⁬‌‭⁬⁫‏⁭⁯‭⁮⁮‮⁪⁭‫⁭⁮‎‌‮  IL_004E  callvirt  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁯‌‪⁪‭‪⁯⁯‌‫⁮​​‎‮‏‪⁬‌​‏⁬‌‭⁬⁫‏⁭⁯‭⁮⁮‮⁪⁭‫⁭⁮‎‌‮  IL_0079  callvirt  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_0068  callvirt  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_007E  callvirt  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_0102  callvirt  (confuserex-normal.exe)
+
+Method   : void \u206E\u200F\u202E\u202B\u206F\u206C\u202A\u200F\u206E\u200D\u200D\u202D\u206A\u200C\u206D\u202D\u200C\u206A\u202C\u200D\u200F\u202A\u206C\u206C\u202A\u202C\u200C\u202C\u206E\u206B\u202B\u206E\u206B\u202B\u200B\u202D\u200B\u202C\u206B\u206F\u202E(int arg1)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x65B8   Size: 8 bytes   Token: 0x06000040
+
+[Calls]
+  (none)
+[Callers]
+  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::.ctor  IL_0048  call  (confuserex-normal.exe)
+  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‎‎‪‬⁬‏‌‎⁬‍‬⁫⁫⁫‎⁫‎‭‏‬⁪‍​⁫‬​⁫⁭‌⁫⁮‌​‮‎​‎‪‍‮  IL_00A9  call  (confuserex-normal.exe)
+
+Method   : Decimal \u206F\u206F\u202A\u202E\u200F\u206D\u206F\u202A\u200D\u202E\u202C\u202B\u202A\u206C\u202E\u206F\u202A\u200C\u200C\u206D\u202C\u202D\u206F\u202C\u206D\u202E\u202E\u202A\u200E\u206E\u206B\u206D\u202D\u206C\u200E\u202A\u206A\u200C\u200F\u202C\u202E()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x65CC   Size: 7 bytes   Token: 0x06000041
+
+[Calls]
+  (none)
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁯‌‪⁪‭‪⁯⁯‌‫⁮​​‎‮‏‪⁬‌​‏⁬‌‭⁬⁫‏⁭⁯‭⁮⁮‮⁪⁭‫⁭⁮‎‌‮  IL_0059  callvirt  (confuserex-normal.exe)
+
+Method   : void \u200E\u200E\u202A\u202C\u206C\u200F\u200C\u200E\u206C\u200D\u202C\u206B\u206B\u206B\u200E\u206B\u200E\u202D\u200F\u202C\u206A\u200D\u200B\u206B\u202C\u200B\u206B\u206D\u200C\u206B\u206E\u200C\u200B\u202E\u200E\u200B\u200E\u202A\u200D\u202E(int arg1)
+Kind     : instance, public
+RVA      : 0x65E0   Size: 175 bytes   Token: 0x06000042
+
+[Calls]
+  IL_0035  call      <Module>::‬‌⁫⁬‌⁬​⁬‌‎⁭⁬‌⁬‍‪⁯⁮‎‮⁫​⁭‪⁮⁫‫⁮‍⁫⁫​‮‮‬‮⁬⁫⁭‍‮<string>(int)                                             internal
+  IL_0041  call      <Module>::⁯‫‮⁬⁮⁯‪‍​‬⁫‪⁯‭‭‮⁪‬⁭‬‍‪‭‌‫⁯⁮‍⁬‭‏‌‏‪‎‪‍‌‏‏‮<string>(int)                                             internal
+  IL_0046  call      ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::⁭‎⁭⁮‍‬‫‪⁫​​‎‏⁫⁭⁯‭‮⁬⁫⁪‮⁭‭‍‍⁬⁬‏⁬​⁮⁯⁯⁯⁪⁬⁯⁬⁮‮(string, string)          internal
+  IL_005A  call      <Module>::⁯‫‮⁬⁮⁯‪‍​‬⁫‪⁯‭‭‮⁪‬⁭‬‍‪‭‌‫⁯⁮‍⁬‭‏‌‏‪‎‪‍‌‏‏‮<string>(int)                                             internal
+  IL_0060  call      ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‏‭‍‫⁬‫‫‭‍‏⁮‎‬‌⁬⁪‌‍‪⁯‬⁯‪​‪‮‎‮‎⁭‮⁫⁪‏‮‏⁪⁭‫‫‮()                        internal
+  IL_006C  call      <Module>::‬‌⁫⁬‌⁬​⁬‌‎⁭⁬‌⁬‍‪⁯⁮‎‮⁫​⁭‪⁮⁫‫⁮‍⁫⁫​‮‮‬‮⁬⁫⁭‍‮<string>(int)                                             internal
+  IL_0071  call      ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::⁯​⁫⁪‭‍‌⁯‪⁫‪⁫‎⁫⁭‫‎‭‭‪‮‬⁪‮⁮⁭​‏⁫⁭‍‬‌‌‏⁬‭‫‏‬‮(string, string, string)  internal
+  IL_0076  call      ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::⁫‌‭‍‬⁮⁮⁬⁬‍‫⁮⁮‌⁬⁮‫‬‮⁯⁭⁬⁪⁪⁯‌⁯‏‬‏⁫‍⁫‮‎‪‎‌‮‬‮(string)                  internal
+  IL_0085  call      ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::​⁬‬‎‬⁪‬⁪​‭⁮‮‬‬‍⁫‎‪‎‏‌‮⁫⁪‪‏‪‬‪‪‪⁪‏⁯‮​‍‮‎⁮‮()                        internal
+  IL_00A2  call      ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::​⁬‬‎‬⁪‬⁪​‭⁮‮‬‬‍⁫‎‪‎‏‌‮⁫⁪‪‏‪‬‪‪‪⁪‏⁯‮​‍‮‎⁮‮()                        internal
+  IL_00A9  call      ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::⁮‏‮‫⁯⁬‪‏⁮‍‍‭⁪‌⁭‭‌⁪‬‍‏‪⁬⁬‪‬‌‬⁮⁫‫⁮⁫‫​‭​‬⁫⁯‮(int)                     internal
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‍‏‮‌‌⁫‎‮‪‌⁮‮‫‍‬⁪‍‬⁬‬‮‌⁪​⁯⁬‌‏‬‍‫‭⁬‬‭‏‌⁬‌‍‮  IL_0046  callvirt  (confuserex-normal.exe)
+
+Method   : ArgumentOutOfRangeException \u206D\u200E\u206D\u206E\u200D\u202C\u202B\u202A\u206B\u200B\u200B\u200E\u200F\u206B\u206D\u206F\u202D\u202E\u206C\u206B\u206A\u202E\u206D\u202D\u200D\u200D\u206C\u206C\u200F\u206C\u200B\u206E\u206F\u206F\u206F\u206A\u206C\u206F\u206C\u206E\u202E(string arg1, string arg2)
+Kind     : static, privatescope
+RVA      : 0x669C   Size: 8 bytes   Token: 0x06000043
+
+[Calls]
+  IL_0002  newobj    System.ArgumentOutOfRangeException::.ctor(string, string)  external mscorlib
+[Callers]
+  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‎‎‪‬⁬‏‌‎⁬‍‬⁫⁫⁫‎⁫‎‭‏‬⁪‍​⁫‬​⁫⁭‌⁫⁮‌​‮‎​‎‪‍‮  IL_0046  call  (confuserex-normal.exe)
+
+Method   : string \u206F\u200B\u206B\u206A\u202D\u200D\u200C\u206F\u202A\u206B\u202A\u206B\u200E\u206B\u206D\u202B\u200E\u202D\u202D\u202A\u202E\u202C\u206A\u202E\u206E\u206D\u200B\u200F\u206B\u206D\u200D\u202C\u200C\u200C\u200F\u206C\u202D\u202B\u200F\u202C\u202E(string arg1, string arg2, string arg3)
+Kind     : static, privatescope
+RVA      : 0x66B0   Size: 9 bytes   Token: 0x06000044
+
+[Calls]
+  IL_0003  call      System.String::Concat(string, string, string)  external mscorlib
+[Callers]
+  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‎‎‪‬⁬‏‌‎⁬‍‬⁫⁫⁫‎⁫‎‭‏‬⁪‍​⁫‬​⁫⁭‌⁫⁮‌​‮‎​‎‪‍‮  IL_0071  call  (confuserex-normal.exe)
+
+Method   : InvalidOperationException \u206B\u200C\u202D\u200D\u202C\u206E\u206E\u206C\u206C\u200D\u202B\u206E\u206E\u200C\u206C\u206E\u202B\u202C\u202E\u206F\u206D\u206C\u206A\u206A\u206F\u200C\u206F\u200F\u202C\u200F\u206B\u200D\u206B\u202E\u200E\u202A\u200E\u200C\u202E\u202C\u202E(string arg1)
+Kind     : static, privatescope
+RVA      : 0x66C8   Size: 7 bytes   Token: 0x06000045
+
+[Calls]
+  IL_0001  newobj    System.InvalidOperationException::.ctor(string)  external mscorlib
+[Callers]
+  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‎‎‪‬⁬‏‌‎⁬‍‬⁫⁫⁫‎⁫‎‭‏‬⁪‍​⁫‬​⁫⁭‌⁫⁮‌​‮‎​‎‪‍‮  IL_0076  call  (confuserex-normal.exe)
+
+Type     : \u202E\u206E\u200E\u206D\u202B\u200C\u200C\u206E\u202D\u202D\u206D\u206E\u200F\u202A\u206A\u200B\u206F\u200E\u202E\u202E\u206F\u202B\u200F\u206D\u200E\u202D\u206B\u200B\u206C\u206B\u206D\u200D\u206F\u206E\u206C\u202D\u206A\u206F\u200F\u200E\u202E
+
+Method   : void \u202E\u206D\u200E\u206F\u200C\u200C\u206C\u202E\u206F\u200F\u202D\u200B\u200F\u200C\u202B\u202C\u206E\u206B\u200B\u202E\u206F\u206C\u202C\u200B\u206E\u202B\u202D\u206D\u206F\u202E\u202C\u200E\u200B\u200E\u206D\u206A\u206E\u206C\u206B\u206B\u202E(\u202D\u202B\u202E\u200F\u202D\u206B\u202B\u206B\u206E\u206B\u206B\u200E\u202D\u202E\u206B\u200E\u200C\u202E\u202E\u202D\u206C\u200E\u206C\u202E\u200C\u206D\u200F\u202B\u202D\u206D\u206A\u206F\u206D\u206A\u206A\u200F\u206C\u200C\u200E\u202E arg1)
+Kind     : instance, public
+RVA      : 0x66DC   Size: 153 bytes   Token: 0x06000046
+
+[Calls]
+  IL_0007  callvirt  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‏‭‍‫⁬‫‫‭‍‏⁮‎‬‌⁬⁪‌‍‪⁯‬⁯‪​‪‮‎‮‎⁭‮⁫⁪‏‮‏⁪⁭‫‫‮()                                                           internal
+  IL_000C  callvirt  System.Collections.Generic.Dictionary<string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮>::ContainsKey(string)                                    external mscorlib
+  IL_0040  call      <Module>::⁯‫‮⁬⁮⁯‪‍​‬⁫‪⁯‭‭‮⁪‬⁭‬‍‪‭‌‫⁯⁮‍⁬‭‏‌‏‪‎‪‍‌‏‏‮<string>(int)                                                                                internal
+  IL_0046  callvirt  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‏‭‍‫⁬‫‫‭‍‏⁮‎‬‌⁬⁪‌‍‪⁯‬⁯‪​‪‮‎‮‎⁭‮⁫⁪‏‮‏⁪⁭‫‫‮()                                                           internal
+  IL_004B  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁪⁪⁬​⁯‫⁫‍⁭⁭⁮⁮‬⁭‫⁮‪‍‪⁬⁪‏‫⁬⁭​⁯‪‏⁭‎‬⁭‫⁫‮‎‪⁭‮(string, string)                                            internal
+  IL_0050  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‎‭‍‍‌⁬⁮‪‎⁫⁯‬⁬⁬‎⁯​⁬⁪⁫‏‮​​‎‏‮‭‍⁭‬‮‬⁯‭⁮⁮‭‌⁮‮(string)                                                    internal
+  IL_0064  callvirt  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‏‭‍‫⁬‫‫‭‍‏⁮‎‬‌⁬⁪‌‍‪⁯‬⁯‪​‪‮‎‮‎⁭‮⁫⁪‏‮‏⁪⁭‫‫‮()                                                           internal
+  IL_006A  callvirt  System.Collections.Generic.Dictionary<string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮>::Add(string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮)  external mscorlib
+  IL_0083  call      <Module>::⁫⁮‍‍⁯‬⁯‪‍⁭⁮⁭⁮‌‬‮‬⁯⁮‬​‮‎⁮​‍⁯‌⁬⁬⁫‪‍⁬‏‍​⁯‎‮<string>(int)                                                                                 internal
+  IL_0089  callvirt  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‏‭‍‫⁬‫‫‭‍‏⁮‎‬‌⁬⁪‌‍‪⁯‬⁯‪​‪‮‎‮‎⁭‮⁫⁪‏‮‏⁪⁭‫‫‮()                                                           internal
+  IL_008E  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁪⁪⁬​⁯‫⁫‍⁭⁭⁮⁮‬⁭‫⁮‪‍‪⁬⁪‏‫⁬⁭​⁯‪‏⁭‎‬⁭‫⁫‮‎‪⁭‮(string, string)                                            internal
+  IL_0093  callvirt  System.Collections.Generic.List<string>::Add(string)                                                                                            external mscorlib
+[Callers]
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_0024  callvirt  (confuserex-normal.exe)
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_0046  callvirt  (confuserex-normal.exe)
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_0069  callvirt  (confuserex-normal.exe)
+
+Method   : bool \u200D\u200F\u202E\u200C\u200C\u206B\u200E\u202E\u202A\u200C\u206E\u202E\u202B\u200D\u202C\u206A\u200D\u202C\u206C\u202C\u202E\u200C\u206A\u200B\u206F\u206C\u200C\u200F\u202C\u200D\u202B\u202D\u206C\u202C\u202D\u200F\u200C\u206C\u200C\u200D\u202E(string arg1, int arg2)
+Kind     : instance, public
+RVA      : 0x6784   Size: 209 bytes   Token: 0x06000047
+
+[Calls]
+  IL_0009  callvirt  System.Collections.Generic.Dictionary<string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮>::TryGetValue(string, ref ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮)  external mscorlib
+  IL_0046  callvirt  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::‎‎‪‬⁬‏‌‎⁬‍‬⁫⁫⁫‎⁫‎‭‏‬⁪‍​⁫‬​⁫⁭‌⁫⁮‌​‮‎​‎‪‍‮(int)                                                                     internal
+  IL_007A  call      <Module>::⁮⁪‮‪‏‭⁯‪‫‭‎⁪‫​‫‫​‎⁯⁪⁮‮‮‮‌⁫‍⁬⁭‌⁭⁭⁮‍⁫‬⁫⁭‌‪‮<string>(int)                                                                                            internal
+  IL_0081  call      System.Int32::ToString()                                                                                                                                    external mscorlib
+  IL_008D  call      <Module>::⁫⁮‍‍⁯‬⁯‪‍⁭⁮⁭⁮‌‬‮‬⁯⁮‬​‮‎⁮​‍⁯‌⁬⁬⁫‪‍⁬‏‍​⁯‎‮<string>(int)                                                                                             internal
+  IL_0093  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‌⁬‮‬⁮⁫‬‭‌‏‏​‏⁬⁫‎⁪‮⁬‬‮⁪‎‬⁪‭‏‫⁬⁯⁫‮‏⁪⁬⁬⁪‬‮⁫‮(string, string, string, string)                                        internal
+  IL_0098  callvirt  System.Collections.Generic.List<string>::Add(string)                                                                                                        external mscorlib
+  IL_00B6  call      <Module>::‬‌⁫⁬‌⁬​⁬‌‎⁭⁬‌⁬‍‪⁯⁮‎‮⁫​⁭‪⁮⁫‫⁮‍⁫⁫​‮‮‬‮⁬⁫⁭‍‮<string>(int)                                                                                            internal
+  IL_00BC  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁭‬⁪⁯‎⁮‌⁭‫⁬‮⁭⁬‏‫‫‮‍​⁪‫‭‏‪⁯​⁮⁯‬‎⁯⁫‎⁮⁪⁭‮⁫‌‌‮(Exception)                                                             internal
+  IL_00C1  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁪⁪⁬​⁯‫⁫‍⁭⁭⁮⁮‬⁭‫⁮‪‍‪⁬⁪‏‫⁬⁭​⁯‪‏⁭‎‬⁭‫⁫‮‎‪⁭‮(string, string)                                                        internal
+  IL_00C6  callvirt  System.Collections.Generic.List<string>::Add(string)                                                                                                        external mscorlib
+[Callers]
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_007C  callvirt  (confuserex-normal.exe)
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_00B3  callvirt  (confuserex-normal.exe)
+
+Method   : Decimal \u206F\u200C\u202A\u206A\u202D\u202A\u206F\u206F\u200C\u202B\u206E\u200B\u200B\u200E\u202E\u200F\u202A\u206C\u200C\u200B\u200F\u206C\u200C\u202D\u206C\u206B\u200F\u206D\u206F\u202D\u206E\u206E\u202E\u206A\u206D\u202B\u206D\u206E\u200E\u200C\u202E()
+Kind     : instance, public
+RVA      : 0x6874   Size: 218 bytes   Token: 0x06000048
+
+[Calls]
+  IL_000E  callvirt  System.Collections.Generic.Dictionary<string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮>::get_Values()                              external mscorlib
+  IL_0013  callvirt  System.Collections.Generic.Dictionary.ValueCollection<string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮>::GetEnumerator()           external mscorlib
+  IL_004E  callvirt  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::​⁬‬‎‬⁪‬⁪​‭⁮‮‬‬‍⁫‎‪‎‏‌‮⁫⁪‪‏‪‬‪‪‪⁪‏⁯‮​‍‮‎⁮‮()                                              internal
+  IL_0053  call      System.Decimal::op_Implicit(int)                                                                                                   external mscorlib
+  IL_0059  callvirt  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::⁯⁯‪‮‏⁭⁯‪‍‮‬‫‪⁬‮⁯‪‌‌⁭‬‭⁯‬⁭‮‮‪‎⁮⁫⁭‭⁬‎‪⁪‌‏‬‮()                                              internal
+  IL_005E  call      System.Decimal::op_Multiply(Decimal, Decimal)                                                                                      external mscorlib
+  IL_0063  call      System.Decimal::op_Addition(Decimal, Decimal)                                                                                      external mscorlib
+  IL_0079  callvirt  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::​⁬‬‎‬⁪‬⁪​‭⁮‮‬‬‍⁫‎‪‎‏‌‮⁫⁪‪‏‪‬‪‪‪⁪‏⁯‮​‍‮‎⁮‮()                                              internal
+  IL_009B  call      System.Collections.Generic.Dictionary.ValueCollection.Enumerator<string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮>::get_Current()  external mscorlib
+  IL_00AD  call      System.Collections.Generic.Dictionary.ValueCollection.Enumerator<string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮>::MoveNext()     external mscorlib
+  IL_00D2  callvirt  System.IDisposable::Dispose()                                                                                                      external mscorlib
+[Callers]
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_00D8  callvirt  (confuserex-normal.exe)
+
+Method   : string \u202B\u206C\u206E\u200E\u202B\u202B\u200C\u202A\u202B\u202E\u200F\u206D\u200B\u200C\u202C\u200D\u206B\u206D\u206B\u200E\u202D\u200E\u206B\u206D\u200B\u202A\u200D\u202A\u206A\u200B\u202D\u200B\u200D\u206E\u200C\u200F\u202D\u206B\u200B\u206E\u202E(int arg1)
+Kind     : instance, public
+RVA      : 0x696C   Size: 214 bytes   Token: 0x06000049
+
+[Calls]
+  IL_0066  call      <Module>::⁫⁮‍‍⁯‬⁯‪‍⁭⁮⁭⁮‌‬‮‬⁯⁮‬​‮‎⁮​‍⁯‌⁬⁬⁫‪‍⁬‏‍​⁯‎‮<string>(int)   internal
+  IL_007A  call      <Module>::‬‌⁫⁬‌⁬​⁬‌‎⁭⁬‌⁬‍‪⁯⁮‎‮⁫​⁭‪⁮⁫‫⁮‍⁫⁫​‮‮‬‮⁬⁫⁭‍‮<string>(int)  internal
+  IL_008E  call      <Module>::⁯‫‮⁬⁮⁯‪‍​‬⁫‪⁯‭‭‮⁪‬⁭‬‍‪‭‌‫⁯⁮‍⁬‭‏‌‏‪‎‪‍‌‏‏‮<string>(int)  internal
+  IL_00A2  call      <Module>::⁮⁪‮‪‏‭⁯‪‫‭‎⁪‫​‫‫​‎⁯⁪⁮‮‮‮‌⁫‍⁬⁭‌⁭⁭⁮‍⁫‬⁫⁭‌‪‮<string>(int)  internal
+  IL_00B9  call      <Module>::⁯‫‮⁬⁮⁯‪‍​‬⁫‪⁯‭‭‮⁪‬⁭‬‍‪‭‌‫⁯⁮‍⁬‭‏‌‏‪‎‪‍‌‏‏‮<string>(int)  internal
+  IL_00D0  call      <Module>::‬⁭​‪‪⁬‌‭‭‭‫‏⁮⁭‌​‮⁫⁮‍‭‎⁮‍‌⁫‪‮​⁬​⁯‫‎‮⁮‭⁭‮‭‮<string>(int)  internal
+[Callers]
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_00F3  callvirt  (confuserex-normal.exe)
+
+Method   : string \u206E\u206D\u202E\u206D\u202E\u200D\u206B\u206E\u202A\u206B\u200E\u200B\u202D\u202D\u200B\u206A\u200B\u202A\u200B\u202D\u200F\u200B\u200C\u206E\u202D\u206F\u200F\u202A\u200E\u206E\u202D\u202A\u202C\u202A\u202E\u206E\u206D\u200C\u206B\u200E\u202E()
+Kind     : instance, public
+RVA      : 0x6A50   Size: 595 bytes   Token: 0x0600004A
+
+[Calls]
+  IL_0000  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‎‌⁬⁫‪‏‮‏‬⁪⁫‍‬‫‌‮⁪‭⁮‪‬‎‫‏‍​⁫‌⁬⁬‏⁪‏⁮‍​‭‌‪⁮‮()                             internal
+  IL_000E  call      <Module>::‬⁭​‪‪⁬‌‭‭‭‫‏⁮⁭‌​‮⁫⁮‍‭‎⁮‍‌⁫‪‮​⁬​⁯‫‎‮⁮‭⁭‮‭‮<string>(int)                                                   internal
+  IL_0013  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‏⁪‌‮⁭⁫‏⁫‭‌⁮⁭⁯‎⁪‬⁯‬‌⁯⁬‎‍​‫⁯⁯‌‮⁮⁫⁬‬‌‍⁮⁮‎‍⁯‮(StringBuilder, string)        internal
+  IL_001F  callvirt  System.Collections.Generic.Dictionary<string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮>::GetEnumerator()           external mscorlib
+  IL_005B  call      System.Collections.Generic.Dictionary.Enumerator<string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮>::get_Current()  external mscorlib
+  IL_0063  call      System.Collections.Generic.KeyValuePair<string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮>::get_Value()             external mscorlib
+  IL_0068  callvirt  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::​⁬‬‎‬⁪‬⁪​‭⁮‮‬‬‍⁫‎‪‎‏‌‮⁫⁪‪‏‪‬‪‪‪⁪‏⁯‮​‍‮‎⁮‮()                              internal
+  IL_0079  call      System.Collections.Generic.KeyValuePair<string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮>::get_Value()             external mscorlib
+  IL_007E  callvirt  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::​⁬‬‎‬⁪‬⁪​‭⁮‮‬‬‍⁫‎‪‎‏‌‮⁫⁪‪‏‪‬‪‪‪⁪‏⁯‮​‍‮‎⁮‮()                              internal
+  IL_0099  call      System.Collections.Generic.Dictionary.Enumerator<string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮>::MoveNext()     external mscorlib
+  IL_00BB  call      <Module>::‬⁭​‪‪⁬‌‭‭‭‫‏⁮⁭‌​‮⁫⁮‍‭‎⁮‍‌⁫‪‮​⁬​⁯‫‎‮⁮‭⁭‮‭‮<string>(int)                                                   internal
+  IL_00C9  call      <Module>::⁯‫‮⁬⁮⁯‪‍​‬⁫‪⁯‭‭‮⁪‬⁭‬‍‪‭‌‫⁯⁮‍⁬‭‏‌‏‪‎‪‍‌‏‏‮<string>(int)                                                   internal
+  IL_00D7  call      <Module>::⁫⁮‍‍⁯‬⁯‪‍⁭⁮⁭⁮‌‬‮‬⁯⁮‬​‮‎⁮​‍⁯‌⁬⁬⁫‪‍⁬‏‍​⁯‎‮<string>(int)                                                    internal
+  IL_00E0  call      System.Collections.Generic.KeyValuePair<string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮>::get_Key()               external mscorlib
+  IL_00E5  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮‫⁬‪⁫‍‎‍‮​⁬⁪⁫⁪‭‌‭⁯‍‮‮​⁯⁯‍⁫‭⁯‍‬⁮‫‍⁮‮‬⁯‎‫‌‮(StringBuilder, string)        internal
+  IL_00F1  call      <Module>::⁫⁮‍‍⁯‬⁯‪‍⁭⁮⁭⁮‌‬‮‬⁯⁮‬​‮‎⁮​‍⁯‌⁬⁬⁫‪‍⁬‏‍​⁯‎‮<string>(int)                                                    internal
+  IL_00F6  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮‫⁬‪⁫‍‎‍‮​⁬⁪⁫⁪‭‌‭⁯‍‮‮​⁯⁯‍⁫‭⁯‍‬⁮‫‍⁮‮‬⁯‎‫‌‮(StringBuilder, string)        internal
+  IL_00FD  call      System.Collections.Generic.KeyValuePair<string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮>::get_Value()             external mscorlib
+  IL_0102  callvirt  ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::​⁬‬‎‬⁪‬⁪​‭⁮‮‬‬‍⁫‎‪‎‏‌‮⁫⁪‪‏‪‬‪‪‪⁪‏⁯‮​‍‮‎⁮‮()                              internal
+  IL_0107  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮‎‌​‭⁭‫⁬‏⁪‬‭‬‏⁫‌⁭‬⁯⁬​​​‎‍⁫‏‪‌‏‪‬‍‌⁫‍⁮‎⁪‫‮(StringBuilder, int)           internal
+  IL_0113  call      <Module>::‬⁭​‪‪⁬‌‭‭‭‫‏⁮⁭‌​‮⁫⁮‍‭‎⁮‍‌⁫‪‮​⁬​⁯‫‎‮⁮‭⁭‮‭‮<string>(int)                                                   internal
+  IL_0118  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮‫⁬‪⁫‍‎‍‮​⁬⁪⁫⁪‭‌‭⁯‍‮‮​⁯⁯‍⁫‭⁯‍‬⁮‫‍⁮‮‬⁯‎‫‌‮(StringBuilder, string)        internal
+  IL_011E  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮‫⁬‪⁫‍‎‍‮​⁬⁪⁫⁪‭‌‭⁯‍‮‮​⁯⁯‍⁫‭⁯‍‬⁮‫‍⁮‮‬⁯‎‫‌‮(StringBuilder, string)        internal
+  IL_012A  call      <Module>::⁯‫‮⁬⁮⁯‪‍​‬⁫‪⁯‭‭‮⁪‬⁭‬‍‪‭‌‫⁯⁮‍⁬‭‏‌‏‪‎‪‍‌‏‏‮<string>(int)                                                   internal
+  IL_012F  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‏⁪‌‮⁭⁫‏⁫‭‌⁮⁭⁯‎⁪‬⁯‬‌⁯⁬‎‍​‫⁯⁯‌‮⁮⁫⁬‬‌‍⁮⁮‎‍⁯‮(StringBuilder, string)        internal
+  IL_0149  callvirt  System.IDisposable::Dispose()                                                                                      external mscorlib
+  IL_01AA  callvirt  System.Collections.Generic.List<string>::get_Count()                                                               external mscorlib
+  IL_01E6  callvirt  System.Collections.Generic.List<string>::get_Item(int)                                                             external mscorlib
+  IL_01EB  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‏⁪‌‮⁭⁫‏⁫‭‌⁮⁭⁯‎⁪‬⁯‬‌⁯⁬‎‍​‫⁯⁯‌‮⁮⁫⁬‬‌‍⁮⁮‎‍⁯‮(StringBuilder, string)        internal
+  IL_0216  call      <Module>::⁮⁪‮‪‏‭⁯‪‫‭‎⁪‫​‫‫​‎⁯⁪⁮‮‮‮‌⁫‍⁬⁭‌⁭⁭⁮‍⁫‬⁫⁭‌‪‮<string>(int)                                                   internal
+  IL_0226  call      System.Int32::ToString()                                                                                           external mscorlib
+  IL_0232  call      <Module>::‬‌⁫⁬‌⁬​⁬‌‎⁭⁬‌⁬‍‪⁯⁮‎‮⁫​⁭‪⁮⁫‫⁮‍⁫⁫​‮‮‬‮⁬⁫⁭‍‮<string>(int)                                                   internal
+  IL_0237  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‬‎‎⁫‭‫⁭⁬‮‬‮‏‭⁪‍⁪​‌‏‭‍⁫‪​‭⁮‫⁫⁯⁬⁭‏‪‬⁭​‍​⁭‎‮(string, string, string)       internal
+  IL_023C  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‏⁪‌‮⁭⁫‏⁫‭‌⁮⁭⁯‎⁪‬⁯‬‌⁯⁬‎‍​‫⁯⁯‌‮⁮⁫⁬‬‌‍⁮⁮‎‍⁯‮(StringBuilder, string)        internal
+  IL_024D  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮‬‪‏‍‎⁯⁫⁯‎​‮⁪​⁫‮‫⁪‪‏‭‭‏‍‪‍‌​‌​‮​⁫⁬‍⁫⁪‬⁫‬‮(object)                       internal
+[Callers]
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_00BA  callvirt  (confuserex-normal.exe)
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_00FE  callvirt  (confuserex-normal.exe)
+
+Method   : int \u206B\u206D\u200C\u206C\u200D\u200B\u202E\u200C\u206C\u200C\u200B\u202A\u200B\u206F\u206D\u206A\u200B\u206B\u206C\u200E\u206B\u206E\u202D\u200B\u206C\u200E\u202C\u206C\u206C\u200C\u206C\u202B\u206B\u202B\u206B\u202E\u206D\u200B\u206E\u202D\u202E(string arg1)
+Kind     : static, public
+RVA      : 0x6CCC   Size: 253 bytes   Token: 0x0600004B
+
+[Calls]
+  IL_0053  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‪‭‏⁫⁯⁭⁮⁪‌‮‏‏⁫‪‏​‪‍⁭​​‍⁬‫‭‪‍‮‬‬‏‮‍‌​‭‭⁪⁫⁭‮(string)       internal
+  IL_006D  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‌⁭‎‌‍⁫‬⁫‍‌⁮‫‍⁭‏⁮‏‫‌⁭‮‎⁪‌⁪‍⁮​⁬‍‏‍​‍⁯​‪‬⁭⁮‮(string, int)  internal
+[Callers]
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_0103  call  (confuserex-normal.exe)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x6DD8   Size: 34 bytes   Token: 0x0600004C
+
+[Calls]
+  IL_0001  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‎‪⁬⁪‌‏‎⁬⁮⁬‭⁫⁬‫‍‬​‌‪‮⁯⁬⁫‍⁮‮‫⁫⁫‎⁯‌‭‎‮‏‬⁬​⁫‮()                                     internal
+  IL_0006  newobj    System.Collections.Generic.Dictionary<string, ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮>::.ctor(IEqualityComparer<string>)  external mscorlib
+  IL_0011  newobj    System.Collections.Generic.List<string>::.ctor()                                                                           external mscorlib
+  IL_001C  call      System.Object::.ctor()                                                                                                     external mscorlib
+[Callers]
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_0000  newobj  (confuserex-normal.exe)
+
+Method   : string \u206E\u206A\u206A\u206C\u200B\u206F\u202B\u206B\u200D\u206D\u206D\u206E\u206E\u202C\u206D\u202B\u206E\u202A\u200D\u202A\u206C\u206A\u200F\u202B\u206C\u206D\u200B\u206F\u202A\u200F\u206D\u200E\u202C\u206D\u202B\u206B\u202E\u200E\u202A\u206D\u202E(string arg1, string arg2)
+Kind     : static, privatescope
+RVA      : 0x6E08   Size: 8 bytes   Token: 0x0600004D
+
+[Calls]
+  IL_0002  call      System.String::Concat(string, string)  external mscorlib
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‮⁭‎⁯‌‌⁬‮⁯‏‭​‏‌‫‬⁮⁫​‮⁯⁬‬​⁮‫‭⁭⁯‮‬‎​‎⁭⁪⁮⁬⁫⁫‮  IL_004B  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‮⁭‎⁯‌‌⁬‮⁯‏‭​‏‌‫‬⁮⁫​‮⁯⁬‬​⁮‫‭⁭⁯‮‬‎​‎⁭⁪⁮⁬⁫⁫‮  IL_008E  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‍‏‮‌‌⁫‎‮‪‌⁮‮‫‍‬⁪‍‬⁬‬‮‌⁪​⁯⁬‌‏‬‍‫‭⁬‬‭‏‌⁬‌‍‮  IL_00C1  call  (confuserex-normal.exe)
+
+Method   : ArgumentException \u200E\u202D\u200D\u200D\u200C\u206C\u206E\u202A\u200E\u206B\u206F\u202C\u206C\u206C\u200E\u206F\u200B\u206C\u206A\u206B\u200F\u202E\u200B\u200B\u200E\u200F\u202E\u202D\u200D\u206D\u202C\u202E\u202C\u206F\u202D\u206E\u206E\u202D\u200C\u206E\u202E(string arg1)
+Kind     : static, privatescope
+RVA      : 0x6E1C   Size: 7 bytes   Token: 0x0600004E
+
+[Calls]
+  IL_0001  newobj    System.ArgumentException::.ctor(string)  external mscorlib
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‮⁭‎⁯‌‌⁬‮⁯‏‭​‏‌‫‬⁮⁫​‮⁯⁬‬​⁮‫‭⁭⁯‮‬‎​‎⁭⁪⁮⁬⁫⁫‮  IL_0050  call  (confuserex-normal.exe)
+
+Method   : string \u200C\u206C\u202E\u202C\u206E\u206B\u202C\u202D\u200C\u200F\u200F\u200B\u200F\u206C\u206B\u200E\u206A\u202E\u206C\u202C\u202E\u206A\u200E\u202C\u206A\u202D\u200F\u202B\u206C\u206F\u206B\u202E\u200F\u206A\u206C\u206C\u206A\u202C\u202E\u206B\u202E(string arg1, string arg2, string arg3, string arg4)
+Kind     : static, privatescope
+RVA      : 0x6E30   Size: 10 bytes   Token: 0x0600004F
+
+[Calls]
+  IL_0004  call      System.String::Concat(string, string, string, string)  external mscorlib
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‍‏‮‌‌⁫‎‮‪‌⁮‮‫‍‬⁪‍‬⁬‬‮‌⁪​⁯⁬‌‏‬‍‫‭⁬‬‭‏‌⁬‌‍‮  IL_0093  call  (confuserex-normal.exe)
+
+Method   : string \u206D\u202C\u206A\u206F\u200E\u206E\u200C\u206D\u202B\u206C\u202E\u206D\u206C\u200F\u202B\u202B\u202E\u200D\u200B\u206A\u202B\u202D\u200F\u202A\u206F\u200B\u206E\u206F\u202C\u200E\u206F\u206B\u200E\u206E\u206A\u206D\u202E\u206B\u200C\u200C\u202E(Exception arg1)
+Kind     : static, privatescope
+RVA      : 0x6E48   Size: 7 bytes   Token: 0x06000050
+
+[Calls]
+  IL_0001  callvirt  System.Exception::get_Message()  external mscorlib
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‍‏‮‌‌⁫‎‮‪‌⁮‮‫‍‬⁪‍‬⁬‬‮‌⁪​⁯⁬‌‏‬‍‫‭⁬‬‭‏‌⁬‌‍‮  IL_00BC  call  (confuserex-normal.exe)
+
+Method   : StringBuilder \u200E\u200C\u206C\u206B\u202A\u200F\u202E\u200F\u202C\u206A\u206B\u200D\u202C\u202B\u200C\u202E\u206A\u202D\u206E\u202A\u202C\u200E\u202B\u200F\u200D\u200B\u206B\u200C\u206C\u206C\u200F\u206A\u200F\u206E\u200D\u200B\u202D\u200C\u202A\u206E\u202E()
+Kind     : static, privatescope
+RVA      : 0x6E5C   Size: 6 bytes   Token: 0x06000051
+
+[Calls]
+  IL_0000  newobj    System.Text.StringBuilder::.ctor()  external mscorlib
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_0000  call  (confuserex-normal.exe)
+
+Method   : StringBuilder \u200F\u206A\u200C\u202E\u206D\u206B\u200F\u206B\u202D\u200C\u206E\u206D\u206F\u200E\u206A\u202C\u206F\u202C\u200C\u206F\u206C\u200E\u200D\u200B\u202B\u206F\u206F\u200C\u202E\u206E\u206B\u206C\u202C\u200C\u200D\u206E\u206E\u200E\u200D\u206F\u202E(StringBuilder arg1, string arg2)
+Kind     : static, privatescope
+RVA      : 0x6E70   Size: 8 bytes   Token: 0x06000052
+
+[Calls]
+  IL_0002  callvirt  System.Text.StringBuilder::AppendLine(string)  external mscorlib
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_0013  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_012F  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_01EB  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_023C  call  (confuserex-normal.exe)
+
+Method   : StringBuilder \u206E\u202B\u206C\u202A\u206B\u200D\u200E\u200D\u202E\u200B\u206C\u206A\u206B\u206A\u202D\u200C\u202D\u206F\u200D\u202E\u202E\u200B\u206F\u206F\u200D\u206B\u202D\u206F\u200D\u202C\u206E\u202B\u200D\u206E\u202E\u202C\u206F\u200E\u202B\u200C\u202E(StringBuilder arg1, string arg2)
+Kind     : static, privatescope
+RVA      : 0x6E84   Size: 8 bytes   Token: 0x06000053
+
+[Calls]
+  IL_0002  callvirt  System.Text.StringBuilder::Append(string)  external mscorlib
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_00E5  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_00F6  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_0118  call  (confuserex-normal.exe)
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_011E  call  (confuserex-normal.exe)
+
+Method   : StringBuilder \u206E\u200E\u200C\u200B\u202D\u206D\u202B\u206C\u200F\u206A\u202C\u202D\u202C\u200F\u206B\u200C\u206D\u202C\u206F\u206C\u200B\u200B\u200B\u200E\u200D\u206B\u200F\u202A\u200C\u200F\u202A\u202C\u200D\u200C\u206B\u200D\u206E\u200E\u206A\u202B\u202E(StringBuilder arg1, int arg2)
+Kind     : static, privatescope
+RVA      : 0x6E98   Size: 8 bytes   Token: 0x06000054
+
+[Calls]
+  IL_0002  callvirt  System.Text.StringBuilder::Append(int)  external mscorlib
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_0107  call  (confuserex-normal.exe)
+
+Method   : string \u202C\u200E\u200E\u206B\u202D\u202B\u206D\u206C\u202E\u202C\u202E\u200F\u202D\u206A\u200D\u206A\u200B\u200C\u200F\u202D\u200D\u206B\u202A\u200B\u202D\u206E\u202B\u206B\u206F\u206C\u206D\u200F\u202A\u202C\u206D\u200B\u200D\u200B\u206D\u200E\u202E(string arg1, string arg2, string arg3)
+Kind     : static, privatescope
+RVA      : 0x66B0   Size: 9 bytes   Token: 0x06000055
+
+[Calls]
+  IL_0003  call      System.String::Concat(string, string, string)  external mscorlib
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_0237  call  (confuserex-normal.exe)
+
+Method   : string \u206E\u202C\u202A\u200F\u200D\u200E\u206F\u206B\u206F\u200E\u200B\u202E\u206A\u200B\u206B\u202E\u202B\u206A\u202A\u200F\u202D\u202D\u200F\u200D\u202A\u200D\u200C\u200B\u200C\u200B\u202E\u200B\u206B\u206C\u200D\u206B\u206A\u202C\u206B\u202C\u202E(object arg1)
+Kind     : static, privatescope
+RVA      : 0x6EAC   Size: 7 bytes   Token: 0x06000056
+
+[Calls]
+  IL_0001  callvirt  System.Object::ToString()  external mscorlib
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮  IL_024D  call  (confuserex-normal.exe)
+
+Method   : char \u200C\u206D\u200E\u200C\u200D\u206B\u202C\u206B\u200D\u200C\u206E\u202B\u200D\u206D\u200F\u206E\u200F\u202B\u200C\u206D\u202E\u200E\u206A\u200C\u206A\u200D\u206E\u200B\u206C\u200D\u200F\u200D\u200B\u200D\u206F\u200B\u202A\u202C\u206D\u206E\u202E(string arg1, int arg2)
+Kind     : static, privatescope
+RVA      : 0x6EC0   Size: 8 bytes   Token: 0x06000057
+
+[Calls]
+  IL_0002  callvirt  System.String::get_Chars(int)  external mscorlib
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁫⁭‌⁬‍​‮‌⁬‌​‪​⁯⁭⁪​⁫⁬‎⁫⁮‭​⁬‎‬⁬⁬‌⁬‫⁫‫⁫‮⁭​⁮‭‮  IL_006D  call  (confuserex-normal.exe)
+
+Method   : int \u202A\u202D\u200F\u206B\u206F\u206D\u206E\u206A\u200C\u202E\u200F\u200F\u206B\u202A\u200F\u200B\u202A\u200D\u206D\u200B\u200B\u200D\u206C\u202B\u202D\u202A\u200D\u202E\u202C\u202C\u200F\u202E\u200D\u200C\u200B\u202D\u202D\u206A\u206B\u206D\u202E(string arg1)
+Kind     : static, privatescope
+RVA      : 0x6ED4   Size: 7 bytes   Token: 0x06000058
+
+[Calls]
+  IL_0001  callvirt  System.String::get_Length()  external mscorlib
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁫⁭‌⁬‍​‮‌⁬‌​‪​⁯⁭⁪​⁫⁬‎⁫⁮‭​⁬‎‬⁬⁬‌⁬‫⁫‫⁫‮⁭​⁮‭‮  IL_0053  call  (confuserex-normal.exe)
+
+Method   : StringComparer \u200E\u202A\u206C\u206A\u200C\u200F\u200E\u206C\u206E\u206C\u202D\u206B\u206C\u202B\u200D\u202C\u200B\u200C\u202A\u202E\u206F\u206C\u206B\u200D\u206E\u202E\u202B\u206B\u206B\u200E\u206F\u200C\u202D\u200E\u202E\u200F\u202C\u206C\u200B\u206B\u202E()
+Kind     : static, privatescope
+RVA      : 0x6EE8   Size: 6 bytes   Token: 0x06000059
+
+[Calls]
+  IL_0000  call      System.StringComparer::get_OrdinalIgnoreCase()  external mscorlib
+[Callers]
+  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::.ctor  IL_0001  call  (confuserex-normal.exe)
+
+Type     : \u206A\u200D\u200E\u200C\u202C\u206B\u202C\u200B\u200E\u206A\u206D\u206A\u206B\u206D\u202A\u206E\u200E\u206C\u206A\u200B\u202B\u200D\u206E\u206D\u206A\u202E\u200F\u200F\u202C\u206F\u202A\u200D\u202B\u206C\u206E\u202B\u206C\u202A\u206D\u206C\u202E
+
+Method   : int \u202D\u206B\u202B\u200D\u206D\u206A\u206B\u206B\u202B\u202A\u200F\u206E\u202A\u206B\u206B\u202B\u206F\u202A\u200F\u206A\u206C\u202E\u206B\u206B\u202E\u206A\u206C\u202E\u202D\u206A\u206B\u202D\u200D\u202B\u200D\u200E\u206B\u200B\u200C\u200E\u202E(string[] arg1)
+Kind     : static, public, entry-point
+RVA      : 0x6EFC   Size: 271 bytes   Token: 0x0600005A
+
+[Calls]
+  IL_0000  newobj    ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::.ctor()                                                                              internal
+  IL_000E  call      <Module>::‬⁭​‪‪⁬‌‭‭‭‫‏⁮⁭‌​‮⁫⁮‍‭‎⁮‍‌⁫‪‮​⁬​⁯‫‎‮⁮‭⁭‮‭‮<string>(int)                                                                internal
+  IL_001A  newobj    System.Decimal::.ctor(int, int, int, bool, byte)                                                                                external mscorlib
+  IL_001F  newobj    ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::.ctor(string, int, Decimal)                                                           internal
+  IL_0024  callvirt  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‮⁭‎⁯‌‌⁬‮⁯‏‭​‏‌‫‬⁮⁫​‮⁯⁬‬​⁮‫‭⁭⁯‮‬‎​‎⁭⁪⁮⁬⁫⁫‮(‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮)  internal
+  IL_0031  call      <Module>::‬⁭​‪‪⁬‌‭‭‭‫‏⁮⁭‌​‮⁫⁮‍‭‎⁮‍‌⁫‪‮​⁬​⁯‫‎‮⁮‭⁭‮‭‮<string>(int)                                                                internal
+  IL_003C  newobj    System.Decimal::.ctor(int, int, int, bool, byte)                                                                                external mscorlib
+  IL_0041  newobj    ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::.ctor(string, int, Decimal)                                                           internal
+  IL_0046  callvirt  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‮⁭‎⁯‌‌⁬‮⁯‏‭​‏‌‫‬⁮⁫​‮⁯⁬‬​⁮‫‭⁭⁯‮‬‎​‎⁭⁪⁮⁬⁫⁫‮(‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮)  internal
+  IL_0053  call      <Module>::‬⁭​‪‪⁬‌‭‭‭‫‏⁮⁭‌​‮⁫⁮‍‭‎⁮‍‌⁫‪‮​⁬​⁯‫‎‮⁮‭⁭‮‭‮<string>(int)                                                                internal
+  IL_005F  newobj    System.Decimal::.ctor(int, int, int, bool, byte)                                                                                external mscorlib
+  IL_0064  newobj    ‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮::.ctor(string, int, Decimal)                                                           internal
+  IL_0069  callvirt  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‮⁭‎⁯‌‌⁬‮⁯‏‭​‏‌‫‬⁮⁫​‮⁯⁬‬​⁮‫‭⁭⁯‮‬‎​‎⁭⁪⁮⁬⁫⁫‮(‭‫‮‏‭⁫‫⁫⁮⁫⁫‎‭‮⁫‎‌‮‮‭⁬‎⁬‮‌⁭‏‫‭⁭⁪⁯⁭⁪⁪‏⁬‌‎‮)  internal
+  IL_0076  call      <Module>::⁫⁮‍‍⁯‬⁯‪‍⁭⁮⁭⁮‌‬‮‬⁯⁮‬​‮‎⁮​‍⁯‌⁬⁬⁫‪‍⁬‏‍​⁯‎‮<string>(int)                                                                 internal
+  IL_007C  callvirt  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‍‏‮‌‌⁫‎‮‪‌⁮‮‫‍‬⁪‍‬⁬‬‮‌⁪​⁯⁬‌‏‬‍‫‭⁬‬‭‏‌⁬‌‍‮(string, int)                               internal
+  IL_00AC  call      <Module>::‬⁭​‪‪⁬‌‭‭‭‫‏⁮⁭‌​‮⁫⁮‍‭‎⁮‍‌⁫‪‮​⁬​⁯‫‎‮⁮‭⁭‮‭‮<string>(int)                                                                internal
+  IL_00B3  callvirt  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‍‏‮‌‌⁫‎‮‪‌⁮‮‫‍‬⁪‍‬⁬‬‮‌⁪​⁯⁬‌‏‬‍‫‭⁬‬‭‏‌⁬‌‍‮(string, int)                               internal
+  IL_00BA  callvirt  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮()                                          internal
+  IL_00BF  call      ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭‬‫‎⁪‎⁭‪‎⁪‫‎‭‌‏‫⁮‪‮⁯⁯⁪‭‌​​‍⁬‌‏⁪‬‭⁫‭⁫‪‍⁪⁬‮(string)                                    internal
+  IL_00D2  call      <Module>::⁮⁪‮‪‏‭⁯‪‫‭‎⁪‫​‫‫​‎⁯⁪⁮‮‮‮‌⁫‍⁬⁭‌⁭⁭⁮‍⁫‬⁫⁭‌‪‮<string>(int)                                                                internal
+  IL_00D8  callvirt  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁯‌‪⁪‭‪⁯⁯‌‫⁮​​‎‮‏‪⁬‌​‏⁬‌‭⁬⁫‏⁭⁯‭⁮⁮‮⁪⁭‫⁭⁮‎‌‮()                                          internal
+  IL_00E0  call      System.Decimal::ToString()                                                                                                      external mscorlib
+  IL_00E5  call      ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::​‍‬⁫⁮‪⁯‫‭‍‍‎⁫‏‫⁫‬‎‭⁮⁪‪⁫‍‮⁪‬‌‫‌⁮‮⁬⁭‏‏⁬⁭⁭‪‮(string, string)                            internal
+  IL_00EA  call      ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭‬‫‎⁪‎⁭‪‎⁪‫‎‭‌‏‫⁮‪‮⁯⁯⁪‭‌​​‍⁬‌‏⁪‬‭⁫‭⁫‪‍⁪⁬‮(string)                                    internal
+  IL_00F3  callvirt  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::‫⁬⁮‎‫‫‌‪‫‮‏⁭​‌‬‍⁫⁭⁫‎‭‎⁫⁭​‪‍‪⁪​‭​‍⁮‌‏‭⁫​⁮‮(int)                                       internal
+  IL_00F8  call      ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭‬‫‎⁪‎⁭‪‎⁪‫‎‭‌‏‫⁮‪‮⁯⁯⁪‭‌​​‍⁬‌‏⁪‬‭⁫‭⁫‪‍⁪⁬‮(string)                                    internal
+  IL_00FE  callvirt  ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁮⁭‮⁭‮‍⁫⁮‪⁫‎​‭‭​⁪​‪​‭‏​‌⁮‭⁯‏‪‎⁮‭‪‬‪‮⁮⁭‌⁫‎‮()                                          internal
+  IL_0103  call      ‮⁮‎⁭‫‌‌⁮‭‭⁭⁮‏‪⁪​⁯‎‮‮⁯‫‏⁭‎‭⁫​⁬⁫⁭‍⁯⁮⁬‭⁪⁯‏‎‮::⁫⁭‌⁬‍​‮‌⁬‌​‪​⁯⁭⁪​⁫⁬‎⁫⁮‭​⁬‎‬⁬⁬‌⁬‫⁫‫⁫‮⁭​⁮‭‮(string)                                    internal
+[Callers]
+  (none in the input files)
+
+Method   : void \u202D\u202C\u202B\u200E\u206A\u200E\u206D\u202A\u200E\u206A\u202B\u200E\u202D\u200C\u200F\u202B\u206E\u202A\u202E\u206F\u206F\u206A\u202D\u200C\u200B\u200B\u200D\u206C\u200C\u200F\u206A\u202C\u202D\u206B\u202D\u206B\u202A\u200D\u206A\u206C\u202E(string arg1)
+Kind     : static, privatescope
+RVA      : 0x7018   Size: 7 bytes   Token: 0x0600005B
+
+[Calls]
+  IL_0001  call      System.Console::WriteLine(string)  external mscorlib
+[Callers]
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_00BF  call  (confuserex-normal.exe)
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_00EA  call  (confuserex-normal.exe)
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_00F8  call  (confuserex-normal.exe)
+
+Method   : string \u200B\u200D\u202C\u206B\u206E\u202A\u206F\u202B\u202D\u200D\u200D\u200E\u206B\u200F\u202B\u206B\u202C\u200E\u202D\u206E\u206A\u202A\u206B\u200D\u202E\u206A\u202C\u200C\u202B\u200C\u206E\u202E\u206C\u206D\u200F\u200F\u206C\u206D\u206D\u202A\u202E(string arg1, string arg2)
+Kind     : static, privatescope
+RVA      : 0x6E08   Size: 8 bytes   Token: 0x0600005C
+
+[Calls]
+  IL_0002  call      System.String::Concat(string, string)  external mscorlib
+[Callers]
+  ⁪‍‎‌‬⁫‬​‎⁪⁭⁪⁫⁭‪⁮‎⁬⁪​‫‍⁮⁭⁪‮‏‏‬⁯‪‍‫⁬⁮‫⁬‪⁭⁬‮::‭⁫‫‍⁭⁪⁫⁫‫‪‏⁮‪⁫⁫‫⁯‪‏⁪⁬‮⁫⁫‮⁪⁬‮‭⁪⁫‭‍‫‍‎⁫​‌‎‮  IL_00E5  call  (confuserex-normal.exe)
+
+Type     : ConfusedByAttribute
+
+Method   : void .ctor(string arg1)
+Kind     : ctor, instance, public
+RVA      : 0x2350   Size: 7 bytes   Token: 0x0600005D
+
+[Calls]
+  IL_0001  call      System.Attribute::.ctor()  external mscorlib
+[Callers]
+  (none in the input files)
