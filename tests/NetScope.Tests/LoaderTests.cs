@@ -126,6 +126,39 @@ public sealed class LoaderTests : IDisposable
         Assert.True(asm!.IsMixedMode);
     }
 
+    // --- §6.4 on real OS binaries (Windows): complements the synthesized fixtures above ---
+
+    /// <summary>§6.4 names the real kernel32.dll: it must be skipped with a clear reason and exit code 3.</summary>
+    [Fact]
+    public void RealKernel32IsSkippedAsNativePe()
+    {
+        var kernel32 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "kernel32.dll");
+        if (!OperatingSystem.IsWindows() || !File.Exists(kernel32)) return;
+
+        using var asm = Load(kernel32, out var reason);
+        Assert.Null(asm);
+        Assert.Contains("no CLR header", reason, StringComparison.OrdinalIgnoreCase);
+
+        var r = TestEnv.Run(kernel32, "--no-color");
+        Assert.Equal(Analyzer.ExitNothingOpened, r.ExitCode);
+        Assert.Contains("kernel32.dll", r.Stderr, StringComparison.OrdinalIgnoreCase);
+        Assert.Contains("no CLR header", r.Stderr, StringComparison.OrdinalIgnoreCase);
+        Assert.Equal("", r.Stdout);
+    }
+
+    /// <summary>A real C++/CLI image shipped with .NET Framework: CLR header and native code together.</summary>
+    [Fact]
+    public void RealMixedModeImageIsAccepted()
+    {
+        var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), "Microsoft.NET", "Framework64", "v4.0.30319", "System.EnterpriseServices.Wrapper.dll");
+        if (!OperatingSystem.IsWindows() || !File.Exists(path)) return;
+
+        using var asm = Load(path, out var reason);
+        Assert.NotNull(asm);
+        Assert.Null(reason);
+        Assert.True(asm!.IsMixedMode);
+    }
+
     // --- §6.3: empty file / directory caught by a mask — skipped without an error ---
 
     [Fact]
