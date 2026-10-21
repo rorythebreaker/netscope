@@ -9,8 +9,7 @@ A command-line static analyzer for .NET assemblies. For each method it shows the
 ## Getting it
 
 - **Single-file binary** for `win-x64`, `linux-x64`, `win-arm64` or `linux-arm64` from the [Releases](https://github.com/rorythebreaker/netscope/releases) page. It is self-contained, so .NET does not need to be installed. Builds of every commit are also attached to its CI run as artifacts.
-- **dotnet tool** (needs the .NET 8 runtime or later): `dotnet tool install -g NetScope.Tool`.
-- **Scoop** (Windows): `scoop bucket add rorythebreaker https://github.com/rorythebreaker/scoop-bucket`, then `scoop install netscope`.
+- **dotnet tool** (needs the .NET 8 runtime or later): download `NetScope.Tool.<version>.nupkg` from the release and run `dotnet tool install -g NetScope.Tool --add-source <folder> --version <version>`. Publishing to nuget.org (`dotnet tool install -g NetScope.Tool`) and a Scoop bucket is prepared in CI and starts once the repository secrets are configured (see below).
 
 Every release file is listed with its hash in `SHA256SUMS.txt` and has a GitHub build provenance attestation. To check that a binary was built by this repository's CI from the tagged commit:
 
