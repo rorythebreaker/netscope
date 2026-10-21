@@ -60,6 +60,18 @@ internal static class TestEnv
         }
     }
 
+    /// <summary>A runnable console assembly the debugger tests launch (Windows only).</summary>
+    public static string DebugTargetPath
+    {
+        get
+        {
+            var config = AppContext.BaseDirectory.Contains($"{Path.DirectorySeparatorChar}Release{Path.DirectorySeparatorChar}") ? "Release" : "Debug";
+            var path = Path.Combine(RepoRoot, "tests", "NetScope.Samples.DebugTarget", "bin", config, "net8.0", "NetScope.Samples.DebugTarget.dll");
+            if (!File.Exists(path)) throw new FileNotFoundException("build tests/NetScope.Samples.DebugTarget first", path);
+            return path;
+        }
+    }
+
     /// <summary>Pre-built obfuscation fixtures (tests/Fixtures/Obfuscated, see its README).</summary>
     public static string ObfuscatedFixture(string name) => Path.Combine(RepoRoot, "tests", "Fixtures", "Obfuscated", name);
 

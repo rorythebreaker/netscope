@@ -207,6 +207,26 @@ In text output the parts are separated by headers such as `; funclet 1 (address,
 
 C++/CLI support was checked against .NET Framework images that ship with Windows: `System.EnterpriseServices.Wrapper.dll` and `System.Data.dll`. Their managed parts are fully analyzed, and all 73 native methods are disassembled. IJW imports, which have no DLL in metadata, show up as `jmp [IAT]` thunks.
 
+## Debugging (read-only)
+
+`netscope debug` runs an assembly as a child process under a read-only debugger, stops on its entry point and shows the call stack. The analyzed code is executed, so `--allow-run` is required.
+
+```
+netscope debug app.dll --allow-run                       # stop on Main, show the stack (interactive)
+netscope debug app.dll --allow-run --script steps.txt    # run commands from a file, then exit
+netscope debug app.dll --allow-run --format json         # each stop as a JSON object
+netscope debug app.dll --allow-run -- arg1 arg2          # arguments after -- go to the program
+```
+
+It is strictly an observer. There is no memory write, no set-variable, no `setip` and no func-eval anywhere in the protocol: the target is only read. The design keeps the debug API out of the analyzer:
+
+- The ICorDebug session lives in a separate `__debug-host` process, reached over pipes (no TCP, no DAP port); a fault in the debug API never reaches NetScope.
+- The target is launched suspended and confined before it runs: a memory limit, no child processes, and it is killed when NetScope exits (Windows Job Object).
+- `--allow-run` is mandatory — without it no process is created. NetScope refuses to run while elevated unless `--i-know-running-as-admin` is given (and logged). The file's SHA-256 is shown before launch, and the run is aborted if the file changes between inspection and launch.
+- Every session is journaled (`%LOCALAPPDATA%\NetScope\logs`, or `--audit-log <file>`): time, user, path and SHA-256, arguments, the restrictions applied, the target PID and the exit code. Variable values are never written to the log.
+
+Stage 2 supports `stack`, `continue` and `quit`; breakpoints, stepping and variable inspection follow. The backend is Windows x64 in this version (on other platforms the host reports a clear error rather than crashing).
+
 ## Design
 
 Analysis runs as a pipeline. The analysis stages (catalog through native code) run only for the groups you request, and each stage sits behind an interface.

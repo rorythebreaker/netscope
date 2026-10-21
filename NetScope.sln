@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetScope.Samples.Hostile", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetScope.Samples.Pdb", "tests\NetScope.Samples.Pdb\NetScope.Samples.Pdb.csproj", "{EC2462E6-B298-448B-B5EB-9BB25CF49153}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetScope.Samples.DebugTarget", "tests\NetScope.Samples.DebugTarget\NetScope.Samples.DebugTarget.csproj", "{5F68F449-D012-4B89-88BC-1127E4EE048B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,18 @@ Global
 		{EC2462E6-B298-448B-B5EB-9BB25CF49153}.Release|x64.Build.0 = Release|Any CPU
 		{EC2462E6-B298-448B-B5EB-9BB25CF49153}.Release|x86.ActiveCfg = Release|Any CPU
 		{EC2462E6-B298-448B-B5EB-9BB25CF49153}.Release|x86.Build.0 = Release|Any CPU
+		{5F68F449-D012-4B89-88BC-1127E4EE048B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F68F449-D012-4B89-88BC-1127E4EE048B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F68F449-D012-4B89-88BC-1127E4EE048B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5F68F449-D012-4B89-88BC-1127E4EE048B}.Debug|x64.Build.0 = Debug|Any CPU
+		{5F68F449-D012-4B89-88BC-1127E4EE048B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5F68F449-D012-4B89-88BC-1127E4EE048B}.Debug|x86.Build.0 = Debug|Any CPU
+		{5F68F449-D012-4B89-88BC-1127E4EE048B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F68F449-D012-4B89-88BC-1127E4EE048B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F68F449-D012-4B89-88BC-1127E4EE048B}.Release|x64.ActiveCfg = Release|Any CPU
+		{5F68F449-D012-4B89-88BC-1127E4EE048B}.Release|x64.Build.0 = Release|Any CPU
+		{5F68F449-D012-4B89-88BC-1127E4EE048B}.Release|x86.ActiveCfg = Release|Any CPU
+		{5F68F449-D012-4B89-88BC-1127E4EE048B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,5 +111,6 @@ Global
 		{E4DA1853-3739-4770-A43B-2639374263DC} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 		{EE813CF9-AFE9-4155-8C88-F5D936169F47} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 		{EC2462E6-B298-448B-B5EB-9BB25CF49153} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
+		{5F68F449-D012-4B89-88BC-1127E4EE048B} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 	EndGlobalSection
 EndGlobal

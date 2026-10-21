@@ -21,6 +21,8 @@ public static class Program
     {
         // Hidden mode used by --native --allow-run: runs in a separate process only.
         if (args.Length > 0 && args[0] == JitRunner.HelperCommand) return JitRunner.HelperMain(args);
+        // Hidden mode: the debugger host process (netscope debug). Holds the debug API, speaks pipes only.
+        if (args.Length > 0 && args[0] == Debugging.DebugProtocol.HostCommand) return Debugging.DebugHost.HostMain(args[1..]);
 
         var stderr = new StreamWriter(Console.OpenStandardError(), OutputSink.Utf8) { AutoFlush = true };
         Console.SetError(stderr);
@@ -46,6 +48,7 @@ public static class Program
         Log.Reset();
         // Subcommand: a file named "diff" is analyzed as ./diff.
         if (args.Length > 0 && args[0] == Diff.DiffCommand.Name) return Diff.DiffCommand.Run(args[1..], stdout);
+        if (args.Length > 0 && args[0] == Debugging.DebugCommand.Name) return Debugging.DebugCommand.Run(args[1..], stdout);
         var cli = new Cli();
         // The parser treats a first argument that looks like the tool itself (e.g. a file named "netscope")
         // as the command name and drops it. Passing the command name explicitly keeps every argument.
