@@ -207,6 +207,27 @@ In text output the parts are separated by headers such as `; funclet 1 (address,
 
 C++/CLI support was checked against .NET Framework images that ship with Windows: `System.EnterpriseServices.Wrapper.dll` and `System.Data.dll`. Their managed parts are fully analyzed, and all 73 native methods are disassembled. IJW imports, which have no DLL in metadata, show up as `jmp [IAT]` thunks.
 
+## Export to Ghidra
+
+For deeper native analysis, hand the native code to Ghidra. `export-ghidra` computes the addresses and names and writes a script that names Ghidra's unnamed functions:
+
+```
+netscope export-ghidra app.dll --out annotate.py            # Ghidrathon / Jython (default)
+netscope export-ghidra app.dll --out Annotate.java --lang java   # GhidraScript
+netscope export-ghidra app.dll --out annotate.py --audit    # also bookmark P/Invoke and unsafe calls
+```
+
+Run it in Ghidra, for example `analyzeHeadless <proj> <name> -import app.dll -postScript annotate.py`, or with `-process app.dll` on a project that already contains the file. A Java script must keep the file name it was exported with: GhidraScript requires the public class to match the file name, so NetScope names the class after `--out` and rejects names that are not valid Java class names.
+
+Both languages are checked in CI with `analyzeHeadless` on Ghidra 11.1.2 (Jython for `.py`). After the script runs, a verification script confirms that every function from `--native --format json` exists at its address with the expected name. The script:
+
+- names each ReadyToRun / C++/CLI function at its address and sets a plate comment with the .NET signature. Ghidra does not allow whitespace in symbol names, so `List<KeyValuePair<char, __Canon>>::Add` becomes `List<KeyValuePair<char,___Canon>>::Add`; the plate comment keeps the original signature;
+- labels funclets and links them to their parent method;
+- labels IAT import thunks with their `DLL!function` name;
+- with `--audit`, drops a bookmark at each point of interest.
+
+This is pure static analysis: the assembly is **never executed** and never modified, and the only output is the text script. Addresses are offsets from the image base, so Ghidra rebases them automatically; names and comments are escaped (Unicode from obfuscated assemblies included); and re-running the script updates the labels instead of duplicating them. An entry Ghidra rejects is counted and skipped; it does not stop the rest, and the script prints how many failed. The script only calls the Ghidra API — it never touches the network, reads other files or runs external commands. A pure-IL assembly with no native code produces a warning that there is nothing to annotate.
+
 ## Design
 
 Analysis runs as a pipeline. The analysis stages (catalog through native code) run only for the groups you request, and each stage sits behind an interface.
