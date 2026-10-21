@@ -68,6 +68,50 @@ public class NativeTests
         Assert.Equal("main", parts[0].GetProperty("name").GetString());
     }
 
+    /// <summary>2.1: overloads share "Type:Method" in JIT listings; the token marker gives each its own code.</summary>
+    [Fact]
+    public void JitListingsOfOverloadsAreBoundByToken()
+    {
+        var r = TestEnv.Run(TestEnv.SamplesPath, "--native", "--allow-run", "--format", "json", "--filter", "MyApp.Flow.Overloaded::Foo");
+        Assert.Equal(0, r.ExitCode);
+        using var doc = JsonDocument.Parse(r.Stdout);
+        var methods = doc.RootElement.GetProperty("assemblies")[0].GetProperty("methods").EnumerateArray().ToList();
+        Assert.Equal(3, methods.Count);
+        var sizes = methods.Select(m =>
+        {
+            var info = m.GetProperty("nativeInfo");
+            Assert.True(info.GetProperty("available").GetBoolean(), m.GetProperty("signature").GetString() + ": " + (info.TryGetProperty("reason", out var why) ? why.GetString() : ""));
+            Assert.Equal("JIT", info.GetProperty("source").GetString());
+            return info.GetProperty("size").GetInt32();
+        }).ToList();
+        Assert.Equal(3, sizes.Distinct().Count());
+    }
+
+    [Fact]
+    public void ListingParserPrefersTokenMarkersOverNames()
+    {
+        const string output = """
+            ##NETSCOPE-TOKEN 06000003
+            ; Assembly listing for method A.B:Foo(System.String):int (FullOpts)
+            ret
+            ; Total bytes of code 30
+            ##NETSCOPE-TOKEN 06000001
+            ; Assembly listing for method A.B:Other():int (FullOpts)
+            nop
+            ; Total bytes of code 1
+            ; Assembly listing for method A.B:Foo(int):int (FullOpts)
+            ret
+            ; Total bytes of code 10
+            """;
+        var expected = new Dictionary<int, string> { [0x06000001] = "A.B:Foo", [0x06000003] = "A.B:Foo" };
+        var parsed = Native.JitRunner.ParseListings(output, expected);
+        Assert.Equal(30, parsed.ByToken[0x06000003].Size);
+        // A method JIT-ed meanwhile (e.g. by a type initializer) is skipped.
+        Assert.Equal(10, parsed.ByToken[0x06000001].Size);
+        // Listings bound to a token are not offered again by name.
+        Assert.Empty(parsed.ByName["A.B:Foo"]);
+    }
+
     /// <summary>C++/CLI image from .NET Framework (Windows only): managed part analyzed, native methods disassembled from the image.</summary>
     [Fact]
     public void MixedModeAssembly()

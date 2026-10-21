@@ -23,7 +23,7 @@ public sealed unsafe class LoadedAssembly : IDisposable
         FileName = System.IO.Path.GetFileName(path);
         _map = map;
         _view = view;
-        Pointer = pointer;
+        ImageStart = pointer;
         Length = length;
         PE = new PEReader(pointer, length);
         _decompilerFile = new Lazy<PEFile>(() => new PEFile(FilePath, PE, MetadataReaderOptions.ApplyWindowsRuntimeProjections), LazyThreadSafetyMode.ExecutionAndPublication);
@@ -33,7 +33,7 @@ public sealed unsafe class LoadedAssembly : IDisposable
     public int Index { get; }
     public string FilePath { get; }
     public string FileName { get; }
-    public byte* Pointer { get; }
+    public byte* ImageStart { get; }
     public int Length { get; }
     public PEReader PE { get; }
     public MetadataReader Metadata { get; internal set; } = null!;

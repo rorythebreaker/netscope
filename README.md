@@ -89,6 +89,8 @@ RVA      : 0x23A0   Size: 36 bytes   Token: 0x06000022
 | `--raw` | Show lambdas, async methods and iterators in pseudocode in the form the compiler generated |
 | `--threads <n>` | Number of files processed in parallel (default: number of cores) |
 | `--decompile-timeout <s>` | Time limit for decompiling one method (default 20 s) |
+| `--max-abandoned <n>` | After this many decompilations exceed the time limit, the remaining methods get the simplified pseudocode (default 4) |
+| `--run-memory <size>` | Memory limit of the `--allow-run` helper process, e.g. `512M`, `2G` (default `1G`) |
 | `--run-timeout <s>` | Time limit for the `--allow-run` helper process (default 30 s) |
 | `--no-color`, `--quiet`, `--verbose`, `--help`, `--version` | Presentation and message level |
 
@@ -142,7 +144,18 @@ Metadata is read with `System.Reflection.Metadata`, the same layer the decompile
 ## Safety
 
 - Without `--allow-run`, assemblies are only read as files. They are never loaded into a process or executed. The test `AnalyzedCodeIsNeverExecutedWithoutAllowRun` checks this: the sample assembly has a module initializer that leaves a marker file if its code ever runs.
-- With `--allow-run`, NetScope starts itself as a separate process (`__jit-helper`). That process loads the assembly and JIT-compiles the selected methods through `RuntimeHelpers.PrepareMethod`. If it exceeds `--run-timeout`, NetScope kills it together with its child processes. Loading an assembly can run its initializers, so use this mode in a VM or container.
+- With `--allow-run`, NetScope starts itself as a separate process (`__jit-helper`). That process loads the assembly and JIT-compiles the selected methods through `RuntimeHelpers.PrepareMethod`. Loading an assembly can run its initializers, so the helper runs in a sandbox (`Sandboxing/Sandbox.cs`), and the restrictions are in place before any analyzed code runs:
+
+  | Restriction | Windows | Linux |
+  | --- | --- | --- |
+  | Dies with NetScope | Job Object, `KILL_ON_JOB_CLOSE` | `PR_SET_PDEATHSIG` |
+  | Memory (`--run-memory`, default 1 GB) | Job Object, `JOB_OBJECT_LIMIT_PROCESS_MEMORY` | `RLIMIT_AS` on growth beyond the runtime's initial reservation, plus `DOTNET_GCHeapHardLimit` |
+  | No child processes | Job Object, active process limit 1 | seccomp filter on `fork`/`clone`/`execve` (EPERM); `RLIMIT_NPROC` if seccomp is unavailable |
+  | Time (`--run-timeout`) | NetScope timer | NetScope timer |
+  | Working directory | New temporary directory, deleted afterwards | Same |
+  | Environment | Only `PATH`, `DOTNET_*` (and `SystemRoot` on Windows) | Only `PATH`, `DOTNET_*` |
+
+  If a restriction cannot be applied, the helper does not run and the native code of the methods shows the reason. The test `JitHelperBlocksChildProcessesAndLargeAllocations` uses an assembly whose module initializer tries to start `cmd`/`sh` and allocate 4 GB. The sandbox limits the damage an assembly can do, but it is not a security boundary against a determined attacker: analyze unknown assemblies in a VM or container.
 - NetScope makes no network requests.
 
 ## Limitations

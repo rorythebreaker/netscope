@@ -79,7 +79,7 @@ public sealed class MemberResolver
         });
     }
 
-    private MethodRef Unknown(EntityHandle handle) => new()
+    private static MethodRef Unknown(EntityHandle handle) => new()
     {
         DeclaringType = "?",
         Name = $"<token 0x{MetadataTokens.GetToken(handle):X8}>",
@@ -97,7 +97,7 @@ public sealed class MemberResolver
         var name = _md.GetString(m.Name);
         var typeFull = Names.TypeDefFullName(_md, typeHandle);
 
-        var display = m.DecodeSignature(CSharpTypeProvider.Short, Instantiate(ctx, methodArgsShort));
+        var display = m.DecodeSignature(CSharpTypeProvider.Brief, Instantiate(ctx, methodArgsShort));
         var key = m.DecodeSignature(CSharpTypeProvider.Key, GenericContext.Empty);
         // ildasm keeps !!N in the signature and shows the instantiation after the name.
         var il = m.DecodeSignature(ILTypeProvider.Instance, ctx);
@@ -126,7 +126,7 @@ public sealed class MemberResolver
     private MethodRef FromSpecification(MethodSpecificationHandle handle)
     {
         var spec = _md.GetMethodSpecification(handle);
-        var argsShort = spec.DecodeSignature(CSharpTypeProvider.Short, GenericContext.Empty);
+        var argsShort = spec.DecodeSignature(CSharpTypeProvider.Brief, GenericContext.Empty);
         var argsIL = spec.DecodeSignature(ILTypeProvider.Instance, GenericContext.Empty);
         return spec.Method.Kind switch
         {
@@ -176,7 +176,7 @@ public sealed class MemberResolver
             blob.ReadCompressedInteger(); // class / valuetype
             var genericType = blob.ReadTypeHandle();
             int count = blob.ReadCompressedInteger();
-            var decoder = new SignatureDecoder<string, GenericContext>(CSharpTypeProvider.Short, _md, GenericContext.Empty);
+            var decoder = new SignatureDecoder<string, GenericContext>(CSharpTypeProvider.Brief, _md, GenericContext.Empty);
             var args = new string[count];
             for (int i = 0; i < count; i++) args[i] = decoder.DecodeType(ref blob);
             string keyName = Names.TypeFullName(_md, genericType);
@@ -198,7 +198,7 @@ public sealed class MemberResolver
         MethodSignature<string> display, key, il;
         try
         {
-            display = mr.DecodeMethodSignature(CSharpTypeProvider.Short, ctxShort);
+            display = mr.DecodeMethodSignature(CSharpTypeProvider.Brief, ctxShort);
             key = mr.DecodeMethodSignature(CSharpTypeProvider.Key, GenericContext.Empty);
             il = mr.DecodeMethodSignature(ILTypeProvider.Instance, GenericContext.Empty);
         }
@@ -242,7 +242,7 @@ public sealed class MemberResolver
         if (core is ".ctor" or ".cctor") return name;
         foreach (var c in core)
             if (!(char.IsLetterOrDigit(c) || c == '_' || c == '.' || c == '$' || c == '@' || c == '`' || c == '?'))
-                return "'" + core + "'" + name.Substring(core.Length);
+                return string.Concat("'", core, "'", name.AsSpan(core.Length));
         return name;
     }
 
@@ -266,7 +266,7 @@ public sealed class MemberResolver
                     {
                         DeclaringType = Names.StripArity(Names.TypeDefFullName(_md, typeHandle)).Replace('+', '.'),
                         Name = name,
-                        FieldType = f.DecodeSignature(CSharpTypeProvider.Short, ctx),
+                        FieldType = f.DecodeSignature(CSharpTypeProvider.Brief, ctx),
                         IL = $"{ilType} {ilDecl}::{QuoteIL(name)}",
                     };
                 }
@@ -280,7 +280,7 @@ public sealed class MemberResolver
                     {
                         DeclaringType = parent.Display,
                         Name = name,
-                        FieldType = mr.DecodeFieldSignature(CSharpTypeProvider.Short, ctx),
+                        FieldType = mr.DecodeFieldSignature(CSharpTypeProvider.Brief, ctx),
                         IL = $"{mr.DecodeFieldSignature(ILTypeProvider.Instance, GenericContext.Empty)} {parent.IL}::{QuoteIL(name)}",
                     };
                 }
@@ -300,7 +300,7 @@ public sealed class MemberResolver
             try
             {
                 var spec = _md.GetTypeSpecification((TypeSpecificationHandle)handle);
-                return (spec.DecodeSignature(CSharpTypeProvider.Short, context), spec.DecodeSignature(ILTypeProvider.Instance, context));
+                return (spec.DecodeSignature(CSharpTypeProvider.Brief, context), spec.DecodeSignature(ILTypeProvider.Instance, context));
             }
             catch (BadImageFormatException)
             {
@@ -318,7 +318,7 @@ public sealed class MemberResolver
     public string ResolveStandaloneSignature(StandaloneSignatureHandle handle, out MethodSignature<string> display)
     {
         var sig = _md.GetStandaloneSignature(handle);
-        display = sig.DecodeMethodSignature(CSharpTypeProvider.Short, GenericContext.Empty);
+        display = sig.DecodeMethodSignature(CSharpTypeProvider.Brief, GenericContext.Empty);
         var il = sig.DecodeMethodSignature(ILTypeProvider.Instance, GenericContext.Empty);
         var conv = il.Header.CallingConvention switch
         {

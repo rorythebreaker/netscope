@@ -24,8 +24,10 @@ public sealed class MethodIL
     public string[] ArgTypes { get; private set; } = Array.Empty<string>();
     public string[] LocalTypes { get; private set; } = Array.Empty<string>();
     public string ReturnType { get; private set; } = "void";
+    /// <summary>Local variable names by slot (null where unknown); filled from debug symbols when they are available.</summary>
+    public string?[] LocalNames { get; internal set; } = Array.Empty<string?>();
 
-    public string LocalName(int index) => "V_" + index;
+    public string LocalName(int index) => index < LocalNames.Length && LocalNames[index] is { Length: > 0 } n ? n : "V_" + index;
 
     public string ArgName(int index) => index < ArgNames.Length ? ArgNames[index] : "arg" + index;
 
@@ -57,7 +59,7 @@ public sealed class MethodIL
         var def = md.GetMethodDefinition(method.Handle);
         try
         {
-            var sig = def.DecodeSignature(CSharpTypeProvider.Short, ctx);
+            var sig = def.DecodeSignature(CSharpTypeProvider.Brief, ctx);
             il.ReturnType = sig.ReturnType;
             int shift = method.IsStatic ? 0 : 1;
             var names = new string[sig.ParameterTypes.Length + shift];
@@ -91,7 +93,7 @@ public sealed class MethodIL
         {
             try
             {
-                il.LocalTypes = md.GetStandaloneSignature(body.LocalSignature).DecodeLocalSignature(CSharpTypeProvider.Short, ctx).ToArray();
+                il.LocalTypes = md.GetStandaloneSignature(body.LocalSignature).DecodeLocalSignature(CSharpTypeProvider.Brief, ctx).ToArray();
             }
             catch (BadImageFormatException) { }
         }

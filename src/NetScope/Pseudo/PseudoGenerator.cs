@@ -18,6 +18,31 @@ public sealed class PseudoResult
     public string? Reason { get; init; }
 }
 
+/// <summary>
+/// Counts decompilations abandoned after their time limit (their threads may keep running).
+/// Shared by all generators of one run; once the limit is reached, the decompiler is no longer started.
+/// </summary>
+public sealed class AbandonedDecompilations
+{
+    private int _count;
+    private int _alive;
+
+    public AbandonedDecompilations(int limit) => Limit = limit;
+
+    public int Limit { get; }
+    public int Count => Volatile.Read(ref _count);
+    /// <summary>Abandoned tasks that are still running.</summary>
+    public int Alive => Volatile.Read(ref _alive);
+    public bool Exhausted => Count >= Limit;
+
+    internal void Add(Task task)
+    {
+        Interlocked.Increment(ref _count);
+        Interlocked.Increment(ref _alive);
+        task.ContinueWith(_ => Interlocked.Decrement(ref _alive), CancellationToken.None, TaskContinuationOptions.ExecuteSynchronously, TaskScheduler.Default);
+    }
+}
+
 public interface IPseudoGenerator
 {
     PseudoResult Generate(MethodModel method, MethodIL? il, ControlFlowGraph? cfg);
@@ -34,17 +59,31 @@ public sealed class PseudoGenerator : IPseudoGenerator
     private readonly MemberResolver _members;
     private readonly bool _raw;
     private readonly TimeSpan _timeout;
+    private readonly AbandonedDecompilations _abandoned;
+    private readonly Func<MethodModel, CancellationToken, string>? _decompile;
     private CSharpDecompiler? _decompiler;
     private string? _initError;
 
-    public PseudoGenerator(LoadedAssembly asm, IAssemblyResolver resolver, MemberResolver members, bool raw, TimeSpan timeout)
+    public PseudoGenerator(LoadedAssembly asm, IAssemblyResolver resolver, MemberResolver members, bool raw, TimeSpan timeout, AbandonedDecompilations abandoned)
     {
         _asm = asm;
         _resolver = resolver;
         _members = members;
         _raw = raw;
         _timeout = timeout;
+        _abandoned = abandoned;
     }
+
+    /// <summary>For tests: a replacement decompiler and a shorter grace period.</summary>
+    internal PseudoGenerator(MemberResolver members, TimeSpan timeout, AbandonedDecompilations abandoned, Func<MethodModel, CancellationToken, string> decompile, TimeSpan grace)
+        : this(null!, null!, members, false, timeout, abandoned)
+    {
+        _decompile = decompile;
+        Grace = grace;
+    }
+
+    /// <summary>Extra wait for decompiler code that does not check the cancellation token.</summary>
+    internal TimeSpan Grace { get; } = TimeSpan.FromSeconds(2);
 
     public static DecompilerSettings CreateSettings(bool raw)
     {
@@ -87,38 +126,67 @@ public sealed class PseudoGenerator : IPseudoGenerator
         return _decompiler;
     }
 
-    public PseudoResult Generate(MethodModel method, MethodIL? il, ControlFlowGraph? cfg)
+    public PseudoResult Generate(MethodModel method, MethodIL? il, ControlFlowGraph? cfg) =>
+        Decompile(method, out var text) ? new PseudoResult { Text = text, Source = "decompiler" } : Fallback(method, il, cfg, text);
+
+    /// <summary>Returns true with the text, or false with the reason the decompiler was not used.</summary>
+    private bool Decompile(MethodModel method, out string result)
     {
-        string reason;
-        var decompiler = GetDecompiler();
-        if (decompiler == null)
+        if (_abandoned.Exhausted)
         {
-            reason = _initError!;
+            result = $"decompiler disabled after {_abandoned.Count} decompilation(s) exceeded the time limit (--max-abandoned {_abandoned.Limit})";
+            return false;
+        }
+        Func<CancellationToken, string> run;
+        if (_decompile != null)
+        {
+            run = token => _decompile(method, token);
         }
         else
         {
-            using var cts = new CancellationTokenSource(_timeout);
-            decompiler.CancellationToken = cts.Token;
-            var task = Task.Run(() => decompiler.DecompileAsString(method.Handle), cts.Token);
-            try
+            var decompiler = GetDecompiler();
+            if (decompiler == null)
             {
-                // The decompiler checks the token cooperatively; the extra wait covers code that does not.
-                if (task.Wait(_timeout + TimeSpan.FromSeconds(2)))
-                    return new PseudoResult { Text = Clean(task.Result), Source = "decompiler" };
-                _decompiler = null; // still busy in the abandoned task: use a fresh instance next time
-                reason = $"decompilation exceeded the time limit of {_timeout.TotalSeconds:0} s";
+                result = _initError!;
+                return false;
             }
-            catch (AggregateException ex) when (ex.InnerException is OperationCanceledException)
+            run = token =>
             {
-                reason = $"decompilation exceeded the time limit of {_timeout.TotalSeconds:0} s";
-            }
-            catch (AggregateException ex)
-            {
-                var inner = ex.InnerException ?? ex;
-                reason = "decompiler failed: " + inner.GetType().Name + ": " + FirstLine(inner.Message);
-            }
+                decompiler.CancellationToken = token;
+                return Clean(decompiler.DecompileAsString(method.Handle));
+            };
         }
 
+        using var cts = new CancellationTokenSource(_timeout);
+        // A dedicated thread: an abandoned decompilation must not hold a thread pool thread.
+        var task = Task.Factory.StartNew(() => run(cts.Token), cts.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
+        var limitText = $"decompilation exceeded the time limit of {_timeout.TotalSeconds:0.###} s";
+        try
+        {
+            // The decompiler checks the token cooperatively; the extra wait covers code that does not.
+            if (task.Wait(_timeout + Grace))
+            {
+                result = task.Result;
+                return true;
+            }
+            _decompiler = null; // still busy in the abandoned task: use a fresh instance next time
+            _abandoned.Add(task);
+            result = limitText;
+        }
+        catch (AggregateException ex) when (ex.InnerException is OperationCanceledException)
+        {
+            result = limitText;
+        }
+        catch (AggregateException ex)
+        {
+            var inner = ex.InnerException ?? ex;
+            result = "decompiler failed: " + inner.GetType().Name + ": " + FirstLine(inner.Message);
+        }
+        return false;
+    }
+
+    private PseudoResult Fallback(MethodModel method, MethodIL? il, ControlFlowGraph? cfg, string reason)
+    {
         if (il == null)
         {
             return new PseudoResult { Text = method.Signature + ";", Source = "fallback", Reason = reason };
@@ -145,7 +213,7 @@ public sealed class PseudoGenerator : IPseudoGenerator
 
     private static string FirstLine(string s)
     {
-        int nl = s.IndexOfAny(new[] { '\r', '\n' });
+        int nl = s.AsSpan().IndexOfAny('\r', '\n');
         return nl < 0 ? s : s.Substring(0, nl);
     }
 }

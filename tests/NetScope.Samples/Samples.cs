@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace MyApp
@@ -183,6 +183,25 @@ namespace MyApp.Flow
 
         [DllImport("kernel32.dll", EntryPoint = "GetTickCount")]
         public static extern uint Ticks();
+    }
+
+    /// <summary>Overloads share "Type:Method" in JIT listings; each must still get its own native code.</summary>
+    public static class Overloaded
+    {
+        public static int Foo(int x) => x + 1;
+
+        public static int Foo(string s)
+        {
+            int h = 0;
+            foreach (var c in s) h = h * 31 + c;
+            return h;
+        }
+
+        public static int Foo<T>(T value)
+        {
+            var text = value?.ToString() ?? "";
+            return text.Length > 10 ? text.GetHashCode() ^ text.Length : string.Concat(text, text).Length * 3;
+        }
     }
 
     public abstract class Shape

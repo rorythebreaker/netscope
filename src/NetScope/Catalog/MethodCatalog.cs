@@ -9,16 +9,16 @@ namespace NetScope.Catalog;
 public interface IMethodCatalog
 {
     /// <summary>All methods of the assembly in metadata order; <see cref="MethodModel.Selected"/> reflects the filters.</summary>
-    IReadOnlyList<MethodModel> Build(LoadedAssembly asm, MemberResolver resolver, MethodFilter filter);
+    IReadOnlyList<MethodModel> Build(LoadedAssembly assembly, MemberResolver resolver, MethodFilter filter);
 }
 
 public sealed class MethodCatalog : IMethodCatalog
 {
-    public IReadOnlyList<MethodModel> Build(LoadedAssembly asm, MemberResolver resolver, MethodFilter filter)
+    public IReadOnlyList<MethodModel> Build(LoadedAssembly assembly, MemberResolver resolver, MethodFilter filter)
     {
-        var md = asm.Metadata;
+        var md = assembly.Metadata;
         var list = new List<MethodModel>(md.MethodDefinitions.Count);
-        int entryPointToken = asm.PE.PEHeaders.CorHeader!.EntryPointTokenOrRelativeVirtualAddress;
+        int entryPointToken = assembly.PE.PEHeaders.CorHeader!.EntryPointTokenOrRelativeVirtualAddress;
 
         foreach (var typeHandle in md.TypeDefinitions)
         {
@@ -30,7 +30,7 @@ public sealed class MethodCatalog : IMethodCatalog
 
             foreach (var methodHandle in type.GetMethods())
             {
-                var model = Describe(asm, resolver, typeHandle, typeName, ns, methodHandle, accessors, typeGenerated, entryPointToken);
+                var model = Describe(assembly, resolver, typeHandle, typeName, ns, methodHandle, accessors, typeGenerated, entryPointToken);
                 model.Selected = filter.Matches(model);
                 list.Add(model);
             }
@@ -191,7 +191,7 @@ public sealed class MethodCatalog : IMethodCatalog
         var ctx = resolver.ContextFor(handle);
         try
         {
-            sig = m.DecodeSignature(CSharpTypeProvider.Short, ctx);
+            sig = m.DecodeSignature(CSharpTypeProvider.Brief, ctx);
         }
         catch (BadImageFormatException)
         {
@@ -216,7 +216,7 @@ public sealed class MethodCatalog : IMethodCatalog
         for (int i = 0; i < sig.ParameterTypes.Length; i++)
         {
             var type = sig.ParameterTypes[i];
-            if (modifiers[i] == "out") type = "out " + type.Substring(4);
+            if (modifiers[i] == "out") type = string.Concat("out ", type.AsSpan(4));
             else if (modifiers[i] == "params") type = "params " + type;
             var pname = string.IsNullOrEmpty(names[i]) ? "arg" + (i + 1) : names[i];
             ps.Add(type + " " + pname);

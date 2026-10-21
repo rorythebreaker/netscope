@@ -7,7 +7,7 @@ namespace NetScope.Reporting;
 
 internal static class GraphText
 {
-    public static string Clip(string s, int max) => s.Length <= max ? s : s.Substring(0, max - 3) + "...";
+    public static string Clip(string s, int max) => s.Length <= max ? s : string.Concat(s.AsSpan(0, max - 3), "...");
 }
 
 /// <summary>Graphviz output: one digraph per method CFG, plus the call graph.</summary>

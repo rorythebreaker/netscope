@@ -319,5 +319,5 @@ public sealed class CfgBuilder : ICfgBuilder
         return entry;
     }
 
-    private static string Shorten(string text) => text.Length <= 80 ? text : text.Substring(0, 77) + "...";
+    private static string Shorten(string text) => text.Length <= 80 ? text : string.Concat(text.AsSpan(0, 77), "...");
 }

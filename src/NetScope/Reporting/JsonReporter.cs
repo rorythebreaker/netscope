@@ -62,7 +62,7 @@ public sealed class JsonReporter : IReporter
         return string.Join(Environment.NewLine, TextReporter.SplitLines(text).Select(l => pad + l));
     }
 
-    private void WriteAssembly(Utf8JsonWriter w, AssemblyReport report)
+    private static void WriteAssembly(Utf8JsonWriter w, AssemblyReport report)
     {
         var asm = report.Assembly;
         w.WriteStartObject();
@@ -83,7 +83,7 @@ public sealed class JsonReporter : IReporter
         w.WriteEndObject();
     }
 
-    private void WriteMethod(Utf8JsonWriter w, MethodReport r)
+    private static void WriteMethod(Utf8JsonWriter w, MethodReport r)
     {
         var m = r.Method;
         w.WriteStartObject();

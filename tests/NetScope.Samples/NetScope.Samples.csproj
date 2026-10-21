@@ -8,8 +8,9 @@
     <RootNamespace>MyApp</RootNamespace>
     <!-- Reference sample: its compiled IL is the input of the tests. -->
     <IsPackable>false</IsPackable>
-    <!-- The module initializer is intentional: tests use it to prove that analyzed code never runs. -->
-    <NoWarn>$(NoWarn);CA2255</NoWarn>
+    <!-- The module initializer is intentional: tests use it to prove that analyzed code never runs.
+         The other rules flag code shapes the samples exist to show (public P/Invoke, static members of generics, explicit throws). -->
+    <NoWarn>$(NoWarn);CA2255;CA1000;CA1401;CA1510;CA1822</NoWarn>
   </PropertyGroup>
 
 </Project>

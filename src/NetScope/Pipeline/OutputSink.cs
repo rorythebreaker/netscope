@@ -18,9 +18,9 @@ public abstract class OutputSink
 
     public abstract bool FirstFlag(int index);
     public abstract void Begin();
-    public abstract void WriteAssembly(LoadedAssembly asm, string text);
+    public abstract void WriteAssembly(LoadedAssembly assembly, string text);
     public abstract void WriteCallGraph(IReadOnlyList<CallGraphEdge> edges, bool afterAssemblies);
-    public abstract void End();
+    public abstract void Finish();
 
     public static OutputSink Create(AnalysisOptions o, TextWriter stdout, Func<IReporter> reporterFactory)
     {
@@ -46,7 +46,7 @@ public abstract class OutputSink
         public override bool FirstFlag(int index) => index == 0;
         public override void Begin() => _writer.Write(Reporter.BeginDocument());
 
-        public override void WriteAssembly(LoadedAssembly asm, string text)
+        public override void WriteAssembly(LoadedAssembly assembly, string text)
         {
             _writer.Write(text);
             _writer.Flush();
@@ -55,7 +55,7 @@ public abstract class OutputSink
         public override void WriteCallGraph(IReadOnlyList<CallGraphEdge> edges, bool afterAssemblies) =>
             _writer.Write(Reporter.RenderCallGraph(edges, afterAssemblies));
 
-        public override void End()
+        public override void Finish()
         {
             _writer.Write(Reporter.EndDocument());
             _writer.Flush();
@@ -78,7 +78,7 @@ public abstract class OutputSink
 
         public override bool FirstFlag(int index) => true;
         public override void Begin() { }
-        public override void End() { }
+        public override void Finish() { }
 
         private string UniquePath(string baseName)
         {
@@ -87,10 +87,10 @@ public abstract class OutputSink
             return Path.Combine(_dir, name);
         }
 
-        public override void WriteAssembly(LoadedAssembly asm, string text)
+        public override void WriteAssembly(LoadedAssembly assembly, string text)
         {
             var reporter = _factory();
-            var path = UniquePath($"{asm.FileName}.{reporter.Extension}");
+            var path = UniquePath($"{assembly.FileName}.{reporter.Extension}");
             File.WriteAllText(path, reporter.BeginDocument() + text + reporter.EndDocument(), Utf8);
             Log.Info("written " + path);
         }

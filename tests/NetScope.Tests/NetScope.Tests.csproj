@@ -5,6 +5,8 @@
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
     <RollForward>Major</RollForward>
+    <!-- Inline expected-value arrays keep assertions readable; tests are not performance sensitive. -->
+    <NoWarn>$(NoWarn);CA1861</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +19,7 @@
     <ProjectReference Include="..\..\src\NetScope\NetScope.csproj" />
     <!-- Built first, but never loaded into the test process: it is analyzed as a file. -->
     <ProjectReference Include="..\NetScope.Samples\NetScope.Samples.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\NetScope.Samples.Hostile\NetScope.Samples.Hostile.csproj" ReferenceOutputAssembly="false" />
   </ItemGroup>
 
   <ItemGroup>
