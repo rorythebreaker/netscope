@@ -45,6 +45,16 @@ public static class ExportGhidraCommand
             var lang = p.GetValue(langOpt) ?? "python";
             bool audit = p.GetValue(auditOpt);
 
+            // GhidraScript compiles a .java file only if its public class has the same name as the file.
+            var javaClass = Path.GetFileNameWithoutExtension(outPath);
+            if (lang == "java" && !GhidraScriptWriter.IsValidJavaClassName(javaClass))
+            {
+                Console.Error.WriteLine($"netscope export-ghidra: error: '{Path.GetFileName(outPath)}' cannot hold a GhidraScript: " +
+                                        "the file name must be a valid Java class name (e.g. NetScopeAnnotate.java)");
+                code = Analyzer.ExitBadArguments;
+                return;
+            }
+
             var paths = new InputResolver().Resolve(new[] { new InputItem(InputKind.Path, file) }, recursive: false);
             if (paths.Count == 0)
             {
@@ -80,7 +90,7 @@ public static class ExportGhidraCommand
                 // Still write the script (it may carry the mscoree import label) so a pipeline step does not fail.
             }
 
-            var script = GhidraScriptWriter.Write(ann, lang);
+            var script = GhidraScriptWriter.Write(ann, lang, javaClass);
             try
             {
                 var dir = Path.GetDirectoryName(Path.GetFullPath(outPath));

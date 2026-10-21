@@ -132,6 +132,69 @@ public sealed class GhidraTests : IDisposable
         Assert.NotEmpty(withAudit.Bookmarks);
     }
 
+    private static GhidraAnnotations Fabricated(params (int Rva, string Name, string? Signature)[] functions)
+    {
+        var ann = new GhidraAnnotations { SourceFile = "x.dll", AssemblyName = "x", Architecture = "x64" };
+        foreach (var f in functions) ann.Functions.Add(new GhidraFunction(f.Rva, f.Name, f.Signature));
+        return ann;
+    }
+
+    /// <summary>Regression: Ghidra rejects whitespace in symbol names; "A&lt;char, char&gt;" aborted the whole script.</summary>
+    [Theory]
+    [InlineData("python")]
+    [InlineData("java")]
+    public void SymbolNamesHaveNoWhitespaceButCommentsKeepTheSignature(string lang)
+    {
+        var text = GhidraScriptWriter.Write(Fabricated((0x1000, "SelectEnumerableIterator<char, char>::ToArray", "TResult[] ToArray()")), lang);
+        Assert.Contains("\"SelectEnumerableIterator<char,_char>::ToArray\"", text);
+        Assert.DoesNotContain("<char, char>", text);
+        Assert.Contains("\"TResult[] ToArray()\"", text); // the plate comment is not a symbol
+        Assert.Equal("a_b_c", GhidraScriptWriter.SymbolName("a b\tc"));
+    }
+
+    /// <summary>Regression: without the u prefix Jython (Ghidra's default Python) kept "С" as six literal characters.</summary>
+    [Fact]
+    public void PythonStringsAreUnicodeLiterals()
+    {
+        var text = GhidraScriptWriter.Write(Fabricated((0x1000, "Счёт", null)), "python");
+        Assert.Contains("_name_function(4096, u\"\\u0421\\u0447\\u0451\\u0442\", None)", text);
+    }
+
+    /// <summary>Regression: GhidraScript needs the public class to match the file name ("Annotate.java" did not compile).</summary>
+    [Fact]
+    public void JavaClassIsNamedAfterTheOutputFile()
+    {
+        var script = Path.Combine(_dir, "Annotate.java");
+        var r = TestEnv.Run(ExportGhidraCommand.Name, TestEnv.SamplesR2RPath, "--out", script, "--lang", "java", "-q");
+        Assert.Equal(Analyzer.ExitOk, r.ExitCode);
+        Assert.Contains("public class Annotate extends GhidraScript", File.ReadAllText(script));
+    }
+
+    [Theory]
+    [InlineData("my-script.java")]
+    [InlineData("1annotate.java")]
+    [InlineData("class.java")]
+    public void JavaFileNameThatCannotBeAClassIsRejected(string fileName)
+    {
+        var script = Path.Combine(_dir, fileName);
+        var r = TestEnv.Run(ExportGhidraCommand.Name, TestEnv.SamplesR2RPath, "--out", script, "--lang", "java");
+        Assert.Equal(Analyzer.ExitBadArguments, r.ExitCode);
+        Assert.Contains("valid Java class name", r.Stderr);
+        Assert.False(File.Exists(script));
+    }
+
+    /// <summary>One entry that Ghidra rejects is counted and skipped instead of aborting the script.</summary>
+    [Theory]
+    [InlineData("python", "except:", "_failed.append(rva)")]
+    [InlineData("java", "catch (Exception e)", "fail(rva);")]
+    public void EntriesFailIndependently(string lang, string handler, string record)
+    {
+        var text = GhidraScriptWriter.Write(Fabricated((0x1000, "A", null)), lang);
+        Assert.Contains(handler, text);
+        Assert.Contains(record, text);
+        Assert.Contains("failed", text);
+    }
+
     // --- helpers ---
 
     private static List<int> ReadIntArgs(string script, string func)

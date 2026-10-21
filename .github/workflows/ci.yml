@@ -46,6 +46,56 @@ jobs:
           sarif_file: netscope.sarif
           category: netscope-samples
 
+  # TZ-2 §5.5: the export-ghidra scripts are run in a real Ghidra (analyzeHeadless), Python (Jython) and Java.
+  # Every function from --native must end up at its RVA with the expected name, and a second run must not add
+  # anything. Windows runner: its ReadyToRun images are plain PE files that Ghidra's loader reads.
+  ghidra:
+    needs: test
+    runs-on: windows-latest
+    env:
+      GHIDRA_VERSION: 11.1.2
+      GHIDRA_BUILD: 11.1.2_PUBLIC_20240709
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+          dotnet-version: 8.0.x
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/cache@v6
+        id: ghidra-cache
+        with:
+          path: ${{ runner.temp }}/ghidra
+          key: ghidra-${{ env.GHIDRA_BUILD }}
+      - name: Download Ghidra
+        if: steps.ghidra-cache.outputs.cache-hit != 'true'
+        shell: pwsh
+        run: |
+          $zip = Join-Path $env:RUNNER_TEMP 'ghidra.zip'
+          Invoke-WebRequest "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_${env:GHIDRA_VERSION}_build/ghidra_${env:GHIDRA_BUILD}.zip" -OutFile $zip
+          Expand-Archive $zip (Join-Path $env:RUNNER_TEMP 'ghidra')
+      - name: Build (also publishes the ReadyToRun sample)
+        run: dotnet build NetScope.sln -c Release
+      - name: Run the scripts in Ghidra
+        shell: pwsh
+        run: |
+          $root = if ($env:DOTNET_ROOT) { $env:DOTNET_ROOT } else { Split-Path (Get-Command dotnet).Source }
+          # A framework ReadyToRun image with generic names that contain spaces (they once aborted the script).
+          $linq = Get-ChildItem "$root/shared/Microsoft.NETCore.App/8.*/System.Linq.dll" | Select-Object -First 1
+          ./tests/Ghidra/Check-Ghidra.ps1 `
+            -GhidraDir (Join-Path $env:RUNNER_TEMP "ghidra/ghidra_${env:GHIDRA_VERSION}_PUBLIC") `
+            -NetScopeDll src/NetScope/bin/Release/net8.0/netscope.dll `
+            -Targets tests/NetScope.Samples/bin/r2r/Release/NetScope.Samples.dll, $linq.FullName `
+            -WorkDir (Join-Path $env:RUNNER_TEMP 'ghidra-check')
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: ghidra-logs
+          path: ${{ runner.temp }}/ghidra-check/*.log
+
   publish:
     needs: test
     strategy:
@@ -118,7 +168,7 @@ jobs:
   # On a version tag: package the binaries built above, attest them and publish a GitHub release.
   release:
     if: startsWith(github.ref, 'refs/tags/v')
-    needs: [publish, pack]
+    needs: [publish, pack, ghidra]
     runs-on: ubuntu-latest
     permissions:
       contents: write
