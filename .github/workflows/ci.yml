@@ -96,6 +96,77 @@ jobs:
           name: ghidra-logs
           path: ${{ runner.temp }}/ghidra-check/*.log
 
+  # TZ-3 §4.1: the same check with the Python script run by Ghidrathon (Python 3 through Jep) instead of Jython.
+  # Ghidrathon is installed into a copy of the cached Ghidra, and Jython is removed from that copy, so `.py`
+  # scripts can only run in Python 3. Check-Ghidra.ps1 -PythonMajor 3 also checks the version the script reports.
+  ghidra-python3:
+    needs: test
+    runs-on: windows-latest
+    env:
+      GHIDRA_VERSION: 11.1.2
+      GHIDRA_BUILD: 11.1.2_PUBLIC_20240709
+      GHIDRATHON_VERSION: 4.0.0
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+          dotnet-version: 8.0.x
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/cache@v6
+        id: ghidra-cache
+        with:
+          path: ${{ runner.temp }}/ghidra
+          key: ghidra-${{ env.GHIDRA_BUILD }}
+      - name: Download Ghidra
+        if: steps.ghidra-cache.outputs.cache-hit != 'true'
+        shell: pwsh
+        run: |
+          $zip = Join-Path $env:RUNNER_TEMP 'ghidra.zip'
+          Invoke-WebRequest "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_${env:GHIDRA_VERSION}_build/ghidra_${env:GHIDRA_BUILD}.zip" -OutFile $zip
+          Expand-Archive $zip (Join-Path $env:RUNNER_TEMP 'ghidra')
+      - name: Install Ghidrathon
+        shell: pwsh
+        run: |
+          # A copy: the cached Ghidra stays untouched for the Jython job.
+          $ghidra = Join-Path $env:RUNNER_TEMP "ghidra-py3/ghidra_${env:GHIDRA_VERSION}_PUBLIC"
+          New-Item -ItemType Directory -Force (Split-Path $ghidra) | Out-Null
+          Copy-Item (Join-Path $env:RUNNER_TEMP "ghidra/ghidra_${env:GHIDRA_VERSION}_PUBLIC") $ghidra -Recurse
+          $dl = Join-Path $env:RUNNER_TEMP 'ghidrathon'
+          Invoke-WebRequest "https://github.com/mandiant/Ghidrathon/releases/download/v${env:GHIDRATHON_VERSION}/Ghidrathon-v${env:GHIDRATHON_VERSION}.zip" -OutFile "$dl.zip"
+          Expand-Archive "$dl.zip" $dl
+          python -m pip install -r (Join-Path $dl 'requirements.txt')          # Jep 4.2.0, built against JAVA_HOME
+          Expand-Archive (Join-Path $dl "Ghidrathon-v${env:GHIDRATHON_VERSION}.zip") (Join-Path $ghidra 'Ghidra/Extensions')
+          # The release is marked for Ghidra 11.0; Ghidra loads only extensions whose version equals its own.
+          $props = Join-Path $ghidra 'Ghidra/Extensions/Ghidrathon/extension.properties'
+          (Get-Content $props) -replace '^version=.*', "version=${env:GHIDRA_VERSION}" | Set-Content $props
+          python (Join-Path $dl 'ghidrathon_configure.py') $ghidra             # writes ghidrathon.save (the interpreter)
+          # Ghidra 11.1.2 ships Jython as the "Python" feature (later versions call it "Jython").
+          Remove-Item (Join-Path $ghidra 'Ghidra/Features/Python') -Recurse -Force
+      - name: Build (also publishes the ReadyToRun sample)
+        run: dotnet build NetScope.sln -c Release
+      - name: Run the scripts in Ghidra with Ghidrathon
+        shell: pwsh
+        run: |
+          $root = if ($env:DOTNET_ROOT) { $env:DOTNET_ROOT } else { Split-Path (Get-Command dotnet).Source }
+          $linq = Get-ChildItem "$root/shared/Microsoft.NETCore.App/8.*/System.Linq.dll" | Select-Object -First 1
+          ./tests/Ghidra/Check-Ghidra.ps1 `
+            -GhidraDir (Join-Path $env:RUNNER_TEMP "ghidra-py3/ghidra_${env:GHIDRA_VERSION}_PUBLIC") `
+            -NetScopeDll src/NetScope/bin/Release/net8.0/netscope.dll `
+            -Targets tests/NetScope.Samples/bin/r2r/Release/NetScope.Samples.dll, $linq.FullName `
+            -WorkDir (Join-Path $env:RUNNER_TEMP 'ghidra-check') -PythonMajor 3
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: ghidra-python3-logs
+          path: ${{ runner.temp }}/ghidra-check/*.log
+
   publish:
     needs: test
     strategy:
@@ -168,7 +239,7 @@ jobs:
   # On a version tag: package the binaries built above, attest them and publish a GitHub release.
   release:
     if: startsWith(github.ref, 'refs/tags/v')
-    needs: [publish, pack, ghidra]
+    needs: [publish, pack, ghidra, ghidra-python3]
     runs-on: ubuntu-latest
     permissions:
       contents: write

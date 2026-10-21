@@ -160,6 +160,18 @@ public sealed class GhidraTests : IDisposable
         Assert.Contains("_name_function(4096, u\"\\u0421\\u0447\\u0451\\u0442\", None)", text);
     }
 
+    /// <summary>TZ-3 §4.1: Ghidrathon exposes the script state as functions (currentProgram()), Jython as variables.
+    /// The script must use neither form directly, and must report the interpreter it ran in.</summary>
+    [Fact]
+    public void PythonScriptRunsInJythonAndGhidrathon()
+    {
+        var text = GhidraScriptWriter.Write(Fabricated((0x1000, "M", null)), "python");
+        Assert.Contains("_program = currentProgram() if callable(currentProgram) else currentProgram", text);
+        Assert.DoesNotContain("currentProgram.", text);
+        Assert.Contains("[%s]' % _python", text);
+        Assert.Contains("Ghidrathon " + GhidraScriptWriter.GhidrathonVersion, text);
+    }
+
     /// <summary>Regression: GhidraScript needs the public class to match the file name ("Annotate.java" did not compile).</summary>
     [Fact]
     public void JavaClassIsNamedAfterTheOutputFile()
