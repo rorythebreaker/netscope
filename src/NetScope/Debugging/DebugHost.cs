@@ -71,11 +71,17 @@ public static class DebugHost
     {
         private readonly HostConfig _config;
         private readonly Dictionary<string, MetadataReader?> _metadata = new(StringComparer.OrdinalIgnoreCase);
+        private readonly Dictionary<string, CorDebugModule> _modules = new(StringComparer.OrdinalIgnoreCase);
+        private readonly Dictionary<int, (CorDebugBreakpoint Bp, string Desc)> _breakpoints = new();
         private readonly ManualResetEventSlim _exited = new();
         private CorDebugProcess? _process;
         private CorDebugThread? _stoppedThread;
         private WindowsJob? _job;
         private int _exitCode;
+        private int _nextBreakId = 1;
+        private int _frameIndex;
+        private bool _breakOnException;
+        private DebugValues? _values;
 
         public HostSession(HostConfig config) => _config = config;
 
@@ -131,11 +137,19 @@ public static class DebugHost
             var callback = new CorDebugManagedCallback();
             callback.OnLoadModule += OnLoadModule;
             callback.OnBreakpoint += OnBreakpoint;
+            callback.OnStepComplete += (_, e) => Park(StopReason.Step, e.Thread);
+            callback.OnException += (_, e) =>
+            {
+                if (_breakOnException) Park(StopReason.Exception, e.Thread);
+                else { try { e.Controller.Continue(false); } catch { } }
+            };
             callback.OnExitProcess += (_, e) => { _exitCode = 0; Emit(DebugProtocol.Exited(_exitCode)); _exited.Set(); };
             // Every event must be continued or the target stalls; the stops we surface are continued by the command loop.
             callback.OnAnyEvent += (_, e) =>
             {
-                if (e.Kind is CorDebugManagedCallbackKind.Breakpoint or CorDebugManagedCallbackKind.ExitProcess) return;
+                // The stops we surface (and Exception when we are catching it) are continued by the command loop.
+                if (e.Kind is CorDebugManagedCallbackKind.Breakpoint or CorDebugManagedCallbackKind.StepComplete or CorDebugManagedCallbackKind.ExitProcess) return;
+                if (e.Kind is CorDebugManagedCallbackKind.Exception && _breakOnException) return;
                 try { e.Controller.Continue(false); } catch { /* process may be exiting */ }
             };
             cor.SetManagedHandler(callback);
@@ -169,6 +183,9 @@ public static class DebugHost
         private void OnLoadModule(object? sender, LoadModuleCorDebugManagedCallbackEventArgs e)
         {
             var module = e.Module;
+            try { _modules[Path.GetFileName(module.Name)] = module; } catch { }
+            // Make the JIT emit debuggable code so arguments and locals are available to read (§3.3).
+            try { module.JITCompilerFlags = CorDebugJITCompilerFlags.CORDEBUG_JIT_DISABLE_OPTIMIZATION; } catch { }
             if (module.Name.EndsWith(_config.TargetName, StringComparison.OrdinalIgnoreCase))
             {
                 try
@@ -187,31 +204,68 @@ public static class DebugHost
 
         private void OnBreakpoint(object? sender, BreakpointCorDebugManagedCallbackEventArgs e)
         {
-            // Parked: we do NOT continue here. The command loop resumes on "continue". The target stays stopped
-            // and read-only; nothing is written back into it.
-            _stoppedThread = e.Thread;
-            var reason = _process != null && !_announcedEntry ? StopReason.Entry : StopReason.Breakpoint;
+            var reason = !_announcedEntry ? StopReason.Entry : StopReason.Breakpoint;
             _announcedEntry = true;
-            Emit(DebugProtocol.Stopped(reason, SafeThreadId(e.Thread), WalkStack(e.Thread)));
+            Park(reason, e.Thread);
         }
 
         private bool _announcedEntry;
+
+        /// <summary>Surface a stop without continuing: the target stays stopped and read-only until the
+        /// command loop resumes it. Nothing is written back into the process.</summary>
+        private void Park(StopReason reason, CorDebugThread thread)
+        {
+            _stoppedThread = thread;
+            _frameIndex = 0; // the newest frame is selected at every stop
+            Emit(DebugProtocol.Stopped(reason, SafeThreadId(thread), WalkStack(thread)));
+        }
 
         private void CommandLoop()
         {
             string? line;
             while (!_exited.IsSet && (line = Console.In.ReadLine()) != null)
             {
-                string cmd;
-                try { cmd = DebugProtocol.Parse(line).Text("cmd") ?? ""; }
-                catch { continue; }
-                switch (cmd)
+                JsonElement c;
+                try { c = DebugProtocol.Parse(line); } catch { continue; }
+                switch (c.Text("cmd"))
                 {
                     case "stack":
                         if (_stoppedThread != null) Emit(DebugProtocol.Stack(WalkStack(_stoppedThread)));
                         break;
                     case "continue":
                         try { _process?.Continue(false); } catch (Exception ex) { Emit(DebugProtocol.ErrorEvent("continue failed: " + ex.Message)); }
+                        break;
+                    case "break":
+                        SetBreakpoint(c.Text("module") ?? "", c.Number("token"), c.TryGetProperty("offset", out var off) && off.ValueKind == JsonValueKind.Number ? off.GetInt32() : (int?)null);
+                        break;
+                    case "delete":
+                        DeleteBreakpoint(c.Number("id"));
+                        break;
+                    case "breaks":
+                        Emit(DebugProtocol.Breaks(_breakpoints.OrderBy(k => k.Key).Select(k => (k.Key, k.Value.Desc, true)).ToList()));
+                        break;
+                    case "step":
+                        DoStep(c.Text("kind") ?? "in");
+                        break;
+                    case "threads":
+                        EmitThreads();
+                        break;
+                    case "exceptions":
+                        _breakOnException = c.TryGetProperty("on", out var on) && on.ValueKind == JsonValueKind.True;
+                        Emit(DebugProtocol.Info("exceptions " + (_breakOnException ? "on" : "off")));
+                        break;
+                    case "frame":
+                        _frameIndex = Math.Max(0, c.Number("n"));
+                        Emit(DebugProtocol.Info("frame " + _frameIndex));
+                        break;
+                    case "args":
+                        EmitVariables("args");
+                        break;
+                    case "locals":
+                        EmitVariables("locals");
+                        break;
+                    case "print":
+                        PrintPath(c.Text("path") ?? "");
                         break;
                     case "quit":
                     case "kill":
@@ -221,6 +275,167 @@ public static class DebugHost
                         return;
                 }
             }
+        }
+
+        private void SetBreakpoint(string moduleName, int token, int? offset)
+        {
+            try
+            {
+                if (!_modules.TryGetValue(Path.GetFileName(moduleName), out var module))
+                {
+                    Emit(DebugProtocol.ErrorEvent($"module '{Path.GetFileName(moduleName)}' is not loaded yet; cannot set the breakpoint"));
+                    return;
+                }
+                var fn = module.GetFunctionFromToken((mdMethodDef)token);
+                CorDebugBreakpoint bp = offset is int o ? fn.ILCode.CreateBreakpoint(o) : fn.CreateBreakpoint();
+                bp.Activate(true);
+                int id = _nextBreakId++;
+                string desc = ResolveMethod(module.Name, token) + (offset is int off ? $"+IL_{off:X4}" : "");
+                _breakpoints[id] = (bp, desc);
+                Emit(DebugProtocol.BreakpointSet(id, desc));
+            }
+            catch (Exception ex) { Emit(DebugProtocol.ErrorEvent("cannot set breakpoint: " + ex.Message)); }
+        }
+
+        private void DeleteBreakpoint(int id)
+        {
+            if (_breakpoints.Remove(id, out var b))
+            {
+                try { b.Bp.Activate(false); } catch { }
+                Emit(DebugProtocol.Info($"deleted breakpoint {id}"));
+            }
+            else Emit(DebugProtocol.ErrorEvent($"no breakpoint {id}"));
+        }
+
+        private void DoStep(string kind)
+        {
+            if (_stoppedThread == null) { Emit(DebugProtocol.ErrorEvent("not stopped")); return; }
+            try
+            {
+                var stepper = _stoppedThread.CreateStepper();
+                switch (kind)
+                {
+                    case "out": stepper.StepOut(); break;
+                    case "over": stepper.Step(false); break;
+                    default: stepper.Step(true); break; // in / inst
+                }
+                _process?.Continue(false); // run until the step completes (OnStepComplete parks again)
+            }
+            catch (Exception ex) { Emit(DebugProtocol.ErrorEvent("step failed: " + ex.Message)); }
+        }
+
+        private void EmitThreads()
+        {
+            var ids = new List<int>();
+            try { foreach (var t in _process!.Threads) ids.Add(SafeThreadId(t)); } catch { }
+            int current = _stoppedThread != null ? SafeThreadId(_stoppedThread) : 0;
+            if (ids.Count == 0 && current != 0) ids.Add(current); // at least the stopped thread
+            Emit(DebugProtocol.Threads(current, ids));
+        }
+
+        /// <summary>The selected IL frame (newest = 0). Uses ActiveFrame for the leaf (the canonical frame for
+        /// value reads) and the stackwalk for deeper frames. CreateStackWalk frames crash ClrDebug 0.4.2's
+        /// argument/local enumerators, so value reads use the index-based Try* API below instead.</summary>
+        private CorDebugILFrame? SelectedFrame()
+        {
+            if (_stoppedThread == null) return null;
+            try
+            {
+                var sw = _stoppedThread.CreateStackWalk();
+                int seen = 0;
+                while (true)
+                {
+                    sw.TryGetFrame(out var frame);
+                    if (frame is CorDebugILFrame)
+                    {
+                        if (seen == _frameIndex) return (CorDebugILFrame)frame;
+                        seen++;
+                    }
+                    if (sw.TryNext() != HRESULT.S_OK) break;
+                }
+            }
+            catch { }
+            return null;
+        }
+
+        private void EmitVariables(string kind)
+        {
+            var items = new List<(string, string)>();
+            var frame = SelectedFrame();
+            if (frame == null) { Emit(DebugProtocol.ErrorEvent("the selected frame has no IL (native/internal)")); return; }
+            _values ??= new DebugValues(MetadataOf);
+            if (kind == "args")
+            {
+                var names = ArgumentNames(frame);
+                for (int i = 0; i < 256; i++)
+                {
+                    if (frame.TryGetArgument(i, out var v) != HRESULT.S_OK || v == null) break;
+                    items.Add((i < names.Count ? names[i] : "arg" + i, _values.Format(v)));
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 1024; i++)
+                {
+                    if (frame.TryGetLocalVariable(i, out var v) != HRESULT.S_OK || v == null) break;
+                    items.Add(("local_" + i, _values.Format(v)));
+                }
+            }
+            if (items.Count == 0)
+            {
+                // ICorDebug's GetArgument/GetLocalVariable return E_INVALIDARG for these frames in this
+                // environment; value materialization is the remaining Stage-3 item (see the module remarks).
+                Emit(DebugProtocol.Info($"({kind}: no values available — value inspection is not yet enabled in this build)"));
+                return;
+            }
+            Emit(DebugProtocol.Variables(kind, items));
+        }
+
+        private void PrintPath(string path)
+        {
+            if (path.Length == 0) { Emit(DebugProtocol.ErrorEvent("usage: print <name>[.field...]")); return; }
+            var frame = SelectedFrame();
+            if (frame == null) { Emit(DebugProtocol.ErrorEvent("the selected frame has no IL")); return; }
+            _values ??= new DebugValues(MetadataOf);
+            var segments = path.Split('.', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+            try
+            {
+                // Resolve the first segment as an argument or a local (index-based Try* reads only).
+                CorDebugValue? root = null;
+                var names = ArgumentNames(frame);
+                for (int ai = 0; ai < names.Count; ai++)
+                    if (names[ai] == segments[0] && frame.TryGetArgument(ai, out var av) == HRESULT.S_OK) { root = av; break; }
+                if (root == null && segments[0].StartsWith("local_", StringComparison.Ordinal) && int.TryParse(segments[0].AsSpan(6), out int li))
+                    if (frame.TryGetLocalVariable(li, out var lv) == HRESULT.S_OK) root = lv;
+                if (root == null) { Emit(DebugProtocol.ErrorEvent($"no argument or local named '{segments[0]}'")); return; }
+
+                string formatted = _values.FormatPath(root, segments.Skip(1).ToArray(), out var err);
+                if (err != null) { Emit(DebugProtocol.ErrorEvent(err)); return; }
+                Emit(DebugProtocol.Variables("print", new[] { (path, formatted) }));
+            }
+            catch (Exception ex) { Emit(DebugProtocol.ErrorEvent("print failed: " + ex.Message)); }
+        }
+
+        private List<string> ArgumentNames(CorDebugILFrame frame)
+        {
+            var names = new List<string>();
+            try
+            {
+                var fn = frame.Function;
+                var md = MetadataOf(fn.Module.Name);
+                if (md == null) return names;
+                var method = md.GetMethodDefinition(MetadataTokens.MethodDefinitionHandle((int)fn.Token & 0x00FFFFFF));
+                bool isStatic = (method.Attributes & System.Reflection.MethodAttributes.Static) != 0;
+                if (!isStatic) names.Add("this");
+                foreach (var ph in method.GetParameters())
+                {
+                    var p = md.GetParameter(ph);
+                    if (p.SequenceNumber == 0) continue; // the return parameter
+                    names.Add(md.GetString(p.Name));
+                }
+            }
+            catch { }
+            return names;
         }
 
         /// <summary>Walks the managed call stack with the Stage-1 fix: ICorDebugThread3::CreateStackWalk.</summary>
