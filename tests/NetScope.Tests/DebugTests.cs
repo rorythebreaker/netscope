@@ -86,4 +86,54 @@ public sealed class DebugTests
         Assert.Contains("\"event\":\"stopped\"", r.Stdout);
         Assert.Contains("\"method\":\"NetScope.Samples.DebugTarget.Program::Main\"", r.Stdout);
     }
+
+    // --- §3.2/§3.3 Stage 3: breakpoints, stepping, code views ---
+
+    [Fact]
+    public void BreakpointOnAMethodIsHitWithTheRightStack()
+    {
+        if (!OperatingSystem.IsWindows() || RuntimeInformation.ProcessArchitecture != Architecture.X64)
+            return;
+
+        var script = Path.Combine(TestEnv.TempDir(), "bp.txt");
+        File.WriteAllText(script, "break NetScope.Samples.DebugTarget.Program::Add\nbreaks\ncontinue\nstack\ncontinue\n");
+        var r = TestEnv.Run(Debug, TestEnv.DebugTargetPath, "--allow-run", "--script", script);
+
+        Assert.Equal(Analyzer.ExitOk, r.ExitCode);
+        Assert.Contains("Breakpoint 1 at NetScope.Samples.DebugTarget.Program::Add", r.Stdout);
+        Assert.Contains("Stopped (breakpoint) at NetScope.Samples.DebugTarget.Program::Add", r.Stdout);
+        // The stack at Add is Add -> Main.
+        Assert.Contains("#0  NetScope.Samples.DebugTarget.Program::Add", r.Stdout);
+        Assert.Contains("#1  NetScope.Samples.DebugTarget.Program::Main", r.Stdout);
+    }
+
+    [Fact]
+    public void StepProducesAStepStop()
+    {
+        if (!OperatingSystem.IsWindows() || RuntimeInformation.ProcessArchitecture != Architecture.X64)
+            return;
+
+        var script = Path.Combine(TestEnv.TempDir(), "step.txt");
+        File.WriteAllText(script, "break NetScope.Samples.DebugTarget.Program::Add\ncontinue\nstep\ncontinue\n");
+        var r = TestEnv.Run(Debug, TestEnv.DebugTargetPath, "--allow-run", "--script", script);
+
+        Assert.Equal(Analyzer.ExitOk, r.ExitCode);
+        Assert.Contains("Stopped (step)", r.Stdout);
+    }
+
+    [Fact]
+    public void CodeViewsRenderTheStoppedMethod()
+    {
+        if (!OperatingSystem.IsWindows() || RuntimeInformation.ProcessArchitecture != Architecture.X64)
+            return;
+
+        var script = Path.Combine(TestEnv.TempDir(), "code.txt");
+        File.WriteAllText(script, "break NetScope.Samples.DebugTarget.Program::Add\ncontinue\nil\ncfg\npseudo\ncontinue\n");
+        var r = TestEnv.Run(Debug, TestEnv.DebugTargetPath, "--allow-run", "--script", script);
+
+        Assert.Equal(Analyzer.ExitOk, r.ExitCode);
+        Assert.Contains("IL_0000", r.Stdout);                 // il
+        Assert.Contains("complexity", r.Stdout);              // cfg
+        Assert.Contains("int Add(int a, int b)", r.Stdout);   // pseudo (decompiled)
+    }
 }

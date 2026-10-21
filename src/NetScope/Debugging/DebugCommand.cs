@@ -5,10 +5,16 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using NetScope.Asm;
+using NetScope.Catalog;
+using NetScope.Cfg;
 using NetScope.Diagnostics;
+using NetScope.IL;
 using NetScope.Loading;
+using NetScope.Metadata;
 using NetScope.Native;
 using NetScope.Pipeline;
+using NetScope.Pseudo;
 using NetScope.Sandboxing;
 
 namespace NetScope.Debugging;
@@ -182,6 +188,17 @@ public static class DebugCommand
         private readonly TextWriter _out;
         private readonly BlockingCollection<JsonElement> _events = new();
         private Process? _host;
+        private IReadOnlyList<DebugFrame> _lastFrames = Array.Empty<DebugFrame>();
+
+        // Static-analysis context (parent side): used to resolve breakpoint masks to method tokens and to
+        // render il/cfg/pseudo of the stopped method. Reading metadata here is the analyzer's normal job; the
+        // assembly is never executed in this process.
+        private LoadedAssembly? _asm;
+        private MemberResolver? _resolver;
+        private IReadOnlyList<MethodModel>? _methods;
+        private bool _staticTried;
+
+        private enum CommandResult { Prompt, Resume, Quit }
 
         public DebugSession(string file, string sha, string[] args, long memory, bool allowChildren, string? script, string format, bool interactive, TimeSpan timeout, DebugAuditLog audit, TextWriter sink)
         {
@@ -256,7 +273,9 @@ public static class DebugCommand
             try { return _events.Take(); } catch (InvalidOperationException) { return null; }
         }
 
-        private void Send(string cmd) { try { _host!.StandardInput.WriteLine(DebugProtocol.Command(cmd)); _host.StandardInput.Flush(); } catch { } }
+        private void Send(string cmd) => SendJson(DebugProtocol.Command(cmd));
+
+        private void SendJson(string json) { try { _host!.StandardInput.WriteLine(json); _host.StandardInput.Flush(); } catch { } }
 
         private int Drive()
         {
@@ -300,11 +319,11 @@ public static class DebugCommand
             {
                 while (scriptCommands.Count > 0)
                 {
-                    var cmd = scriptCommands.Dequeue();
-                    if (cmd is "continue" or "c" or "run") { Send("continue"); return true; }
-                    if (cmd is "quit" or "q" or "kill") return false;
-                    if (cmd is "stack" or "bt" or "where") Send("stack");
-                    else Console.Error.WriteLine($"(script) unknown command '{cmd}' (stage 2 supports: stack, continue, quit)");
+                    switch (RunCommand(scriptCommands.Dequeue()))
+                    {
+                        case CommandResult.Resume: return true;
+                        case CommandResult.Quit: return false;
+                    }
                 }
                 return false; // script exhausted
             }
@@ -314,43 +333,181 @@ public static class DebugCommand
                 Send("continue");
                 return true;
             }
-            return Repl();
-        }
-
-        private bool Repl()
-        {
             while (true)
             {
                 Console.Error.Write("(ns) ");
                 var input = Console.ReadLine();
                 if (input == null) return false;
-                switch (input.Trim())
+                switch (RunCommand(input))
                 {
-                    case "":
-                        break;
-                    case "stack" or "bt" or "where":
-                        Send("stack");
-                        var ev = Wait();
-                        if (ev is { } s && s.Text("event") == "stack") RenderStack(s.Frames());
-                        break;
-                    case "continue" or "c" or "run":
-                        Send("continue");
-                        return true;
-                    case "quit" or "q" or "kill":
-                        return false;
-                    case "help" or "?":
-                        Console.Error.WriteLine("Commands: stack, continue, quit (stage 2). Steps and variables come in stage 3.");
-                        break;
-                    default:
-                        Console.Error.WriteLine($"unknown command '{input.Trim()}' — try 'help'");
-                        break;
+                    case CommandResult.Resume: return true;
+                    case CommandResult.Quit: return false;
                 }
             }
         }
 
+        /// <summary>One debugger command (§3.2). Query/view commands render in place and return Prompt;
+        /// continue/step return Resume to let the driver await the next stop; quit returns Quit.</summary>
+        private CommandResult RunCommand(string input)
+        {
+            input = input.Trim();
+            if (input.Length == 0) return CommandResult.Prompt;
+            var parts = input.Split(' ', 2, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+            var cmd = parts[0];
+            var arg = parts.Length > 1 ? parts[1] : "";
+            switch (cmd)
+            {
+                case "continue" or "c" or "run": Send("continue"); return CommandResult.Resume;
+                case "step" or "s": SendJson(DebugProtocol.StepCommand("in")); return CommandResult.Resume;
+                case "next" or "n": SendJson(DebugProtocol.StepCommand("over")); return CommandResult.Resume;
+                case "out" or "finish": SendJson(DebugProtocol.StepCommand("out")); return CommandResult.Resume;
+                case "stepi" or "si": SendJson(DebugProtocol.StepCommand("inst")); return CommandResult.Resume;
+                case "quit" or "q" or "kill": Send("quit"); return CommandResult.Quit;
+                case "stack" or "bt" or "where": RenderStack(_lastFrames); return CommandResult.Prompt;
+                case "break" or "b": AddBreak(arg); return CommandResult.Prompt;
+                case "breaks": Send("breaks"); RenderNext("breaks"); return CommandResult.Prompt;
+                case "delete" or "d":
+                    if (int.TryParse(arg, out int id)) { SendJson(DebugProtocol.IntCommand("delete", "id", id)); RenderNext("info"); }
+                    else Console.Error.WriteLine("usage: delete <n>");
+                    return CommandResult.Prompt;
+                case "threads": Send("threads"); RenderNext("threads"); return CommandResult.Prompt;
+                case "exceptions":
+                    SendJson(DebugProtocol.BoolCommand("exceptions", "on", arg == "on")); RenderNext("info");
+                    return CommandResult.Prompt;
+                case "args": Send("args"); RenderNext("variables"); return CommandResult.Prompt;
+                case "locals": Send("locals"); RenderNext("variables"); return CommandResult.Prompt;
+                case "print" or "p":
+                    if (arg.Length == 0) Console.Error.WriteLine("usage: print <name>[.field...]");
+                    else { SendJson(DebugProtocol.PrintCommand(arg)); RenderNext("variables"); }
+                    return CommandResult.Prompt;
+                case "frame" or "f":
+                    if (int.TryParse(arg, out int fn)) { SendJson(DebugProtocol.IntCommand("frame", "n", fn)); RenderNext("info"); }
+                    else Console.Error.WriteLine("usage: frame <n>");
+                    return CommandResult.Prompt;
+                case "il" or "cfg" or "pseudo" or "asm": RenderCode(cmd); return CommandResult.Prompt;
+                case "help" or "?": PrintHelp(); return CommandResult.Prompt;
+                default:
+                    Console.Error.WriteLine($"unknown command '{cmd}' — try 'help'");
+                    return CommandResult.Prompt;
+            }
+        }
+
+        /// <summary>Resolves a `mask[+IL_xxxx]` (as in --filter) to method tokens and sets a breakpoint on each.</summary>
+        private void AddBreak(string arg)
+        {
+            if (arg.Length == 0) { Console.Error.WriteLine("usage: break <method-mask>[+IL_xxxx]  (file:line not supported in this stage)"); return; }
+            int? offset = null;
+            int plus = arg.IndexOf("+IL_", StringComparison.OrdinalIgnoreCase);
+            string mask = arg;
+            if (plus >= 0)
+            {
+                if (int.TryParse(arg[(plus + 4)..], System.Globalization.NumberStyles.HexNumber, null, out int off)) offset = off;
+                mask = arg[..plus];
+            }
+            if (mask.Contains(':') && !mask.Contains("::")) { Console.Error.WriteLine("break <file>:<line> is not supported in this stage; use a method mask"); return; }
+
+            if (!LoadStatics() || _asm == null || _methods == null) { Console.Error.WriteLine("cannot read the assembly to resolve the mask"); return; }
+            MethodModel[] matched;
+            try { var filter = new MethodFilter(new[] { mask }, Array.Empty<string>()); matched = _methods.Where(filter.Matches).ToArray(); }
+            catch (ArgumentException ex) { Console.Error.WriteLine("bad mask: " + ex.Message); return; }
+            if (matched.Length == 0) { Console.Error.WriteLine($"no method matches '{mask}'"); return; }
+            foreach (var m in matched)
+            {
+                SendJson(DebugProtocol.BreakCommand(_asm.FileName, m.Token, offset));
+                RenderNext("breakpoint-set");
+            }
+        }
+
+        private void RenderCode(string kind)
+        {
+            if (_lastFrames.Count == 0) { Console.Error.WriteLine("not stopped in a managed method"); return; }
+            var top = _lastFrames[0];
+            if (top.Token == 0) { Console.Error.WriteLine("the current frame has no managed method"); return; }
+            if (!LoadStatics() || _asm == null || _methods == null || _resolver == null) { Console.Error.WriteLine("cannot read the assembly for code view"); return; }
+            var method = _methods.FirstOrDefault(m => m.Token == top.Token);
+            if (method == null) { Console.Error.WriteLine("the current method is not in the debugged assembly (" + top.Module + ")"); return; }
+            try
+            {
+                switch (kind)
+                {
+                    case "il":
+                    {
+                        var il = MethodIL.Load(method, _resolver, out var err, out _);
+                        if (il == null) { Console.Error.WriteLine("no IL: " + err); return; }
+                        var listing = new AsmProvider(_resolver, false, Array.Empty<string>(), TimeSpan.Zero).GetIL(il);
+                        foreach (var l in listing.Lines) Write($"  IL_{l.Offset:X4}  {l.OpCode} {l.Operand}".TrimEnd());
+                        break;
+                    }
+                    case "cfg":
+                    {
+                        var il = MethodIL.Load(method, _resolver, out var err, out _);
+                        if (il == null) { Console.Error.WriteLine("no IL: " + err); return; }
+                        var g = new CfgBuilder().Build(il, _resolver);
+                        Write($"  {g.Blocks.Count} block(s), complexity {g.CyclomaticComplexity}");
+                        foreach (var b in g.Blocks) Write($"  BB{b.Index}  IL_{b.StartOffset:X4}..IL_{b.EndOffset:X4}  -> {string.Join(", ", b.Successors.Select(e => "BB" + e.To.Index))}");
+                        break;
+                    }
+                    case "pseudo":
+                    {
+                        var il = MethodIL.Load(method, _resolver, out _, out _);
+                        using var refs = new ReferenceResolver(new[] { _asm }, Array.Empty<string>());
+                        var gen = new PseudoGenerator(_asm, refs.For(_asm), _resolver, false, TimeSpan.FromSeconds(10), new AbandonedDecompilations(4));
+                        var cfg = il != null ? new CfgBuilder().Build(il, _resolver) : null;
+                        var result = gen.Generate(method, il, cfg);
+                        foreach (var line in result.Text.Split('\n')) Write("  " + line.TrimEnd());
+                        break;
+                    }
+                    default:
+                        Console.Error.WriteLine("asm in the debugger (JITted native of the running method) is not available in this stage; use 'netscope <file> --native' for ReadyToRun/mixed code");
+                        break;
+                }
+            }
+            catch (Exception ex) { Console.Error.WriteLine($"cannot render {kind}: " + ex.Message); }
+        }
+
+        private bool LoadStatics()
+        {
+            if (_staticTried) return _asm != null;
+            _staticTried = true;
+            _asm = new AssemblyLoader().TryLoad(0, _file, out _);
+            if (_asm == null) return false;
+            _resolver = new MemberResolver(_asm.Metadata, _asm.Name);
+            _methods = new MethodCatalog().Build(_asm, _resolver, MethodFilter.All);
+            return true;
+        }
+
+        /// <summary>Waits for the host's reply to a query and renders it.</summary>
+        private void RenderNext(string expected)
+        {
+            var ev = Wait();
+            if (ev is not { } e) return;
+            switch (e.Text("event"))
+            {
+                case "breakpoint-set": Write($"Breakpoint {e.Number("id")} at {e.Text("description")}"); break;
+                case "breaks":
+                    if (e.TryGetProperty("items", out var items))
+                        foreach (var b in items.EnumerateArray()) Write($"  #{b.Number("id")}  {b.Text("description")}  {(b.TryGetProperty("active", out var a) && a.ValueKind == JsonValueKind.True ? "active" : "disabled")}");
+                    break;
+                case "threads":
+                    Write("Threads: " + string.Join(", ", e.TryGetProperty("ids", out var ids) ? ids.EnumerateArray().Select(x => (x.GetInt32() == e.Number("current") ? "*" : "") + x.GetInt32()) : Array.Empty<string>()));
+                    break;
+                case "info": Write(e.Text("text") ?? ""); break;
+                case "variables":
+                    if (e.TryGetProperty("items", out var vars))
+                        foreach (var v in vars.EnumerateArray()) Write($"  {v.Text("name")} = {v.Text("value")}");
+                    break;
+                case "error": Console.Error.WriteLine("netscope debug: " + e.Text("message")); break;
+            }
+        }
+
+        private static void PrintHelp() => Console.Error.WriteLine(
+            "Commands: break <mask>[+IL_xxxx], breaks, delete <n>, continue, step, next, out, stepi, " +
+            "stack, frame <n>, args, locals, print <name>[.field], threads, exceptions on|off, il, cfg, pseudo, quit.");
+
         private void RenderStop(JsonElement e)
         {
             var frames = e.Frames();
+            _lastFrames = frames;
             _audit.Line("stop", $"{e.Text("reason")} thread={e.Number("thread")} frames={frames.Count}");
             if (_format == "json") { Write(RawJson(e)); return; }
             string where = frames.Count > 0 ? frames[0].Method : "?";

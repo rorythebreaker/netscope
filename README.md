@@ -225,7 +225,19 @@ It is strictly an observer. There is no memory write, no set-variable, no `setip
 - `--allow-run` is mandatory — without it no process is created. NetScope refuses to run while elevated unless `--i-know-running-as-admin` is given (and logged). The file's SHA-256 is shown before launch, and the run is aborted if the file changes between inspection and launch.
 - Every session is journaled (`%LOCALAPPDATA%\NetScope\logs`, or `--audit-log <file>`): time, user, path and SHA-256, arguments, the restrictions applied, the target PID and the exit code. Variable values are never written to the log.
 
-Stage 2 supports `stack`, `continue` and `quit`; breakpoints, stepping and variable inspection follow. The backend is Windows x64 in this version (on other platforms the host reports a clear error rather than crashing).
+Commands (`--script` file, interactive REPL, or one per stop in the default run):
+
+| Command | Action |
+|---|---|
+| `break <mask>[+IL_xxxx]` | Breakpoint on every method matching the mask (as in `--filter`), optionally at an IL offset |
+| `breaks`, `delete <n>` | List / remove breakpoints |
+| `continue`, `step`, `next`, `out`, `stepi` | Resume; step in / over / out / one instruction |
+| `stack`, `frame <n>`, `threads` | Call stack, select a frame, list threads |
+| `args`, `locals`, `print <name>[.field]` | Read arguments, locals and fields (read-only, bounded, escaped) |
+| `il`, `cfg`, `pseudo` | IL, basic blocks, and decompiled pseudocode of the stopped method (static analysis in the analyzer process) |
+| `exceptions on|off`, `quit` | Stop on first-chance exceptions; end the session |
+
+The backend is Windows x64 in this version (on other platforms the host reports a clear error rather than crashing). Breakpoints, stepping, the stack, and the `il`/`cfg`/`pseudo` code views are working; value inspection (`args`/`locals`/`print`) is wired end-to-end but currently reports values as unavailable, pending a fix to ICorDebug argument/local materialization. `break <file>:<line>` and `--attach` are not yet implemented.
 
 ## Design
 

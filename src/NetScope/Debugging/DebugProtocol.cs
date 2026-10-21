@@ -8,7 +8,7 @@ namespace NetScope.Debugging;
 public sealed record DebugFrame(int Index, string Method, int Token, string Module, int? Il);
 
 /// <summary>Why the target stopped.</summary>
-public enum StopReason { Entry, Breakpoint }
+public enum StopReason { Entry, Breakpoint, Step, Exception }
 
 /// <summary>
 /// The line-delimited JSON protocol spoken between NetScope and the <c>__debug-host</c> process
@@ -27,7 +27,7 @@ public static class DebugProtocol
     public static string Stopped(StopReason reason, int threadId, IReadOnlyList<DebugFrame> frames) => Obj(w =>
     {
         w.WriteString("event", "stopped");
-        w.WriteString("reason", reason == StopReason.Entry ? "entry" : "breakpoint");
+        w.WriteString("reason", reason switch { StopReason.Entry => "entry", StopReason.Step => "step", StopReason.Exception => "exception", _ => "breakpoint" });
         w.WriteNumber("thread", threadId);
         WriteFrames(w, frames);
     });
@@ -42,9 +42,81 @@ public static class DebugProtocol
 
     public static string ErrorEvent(string message) => Obj(w => { w.WriteString("event", "error"); w.WriteString("message", message); });
 
+    public static string BreakpointSet(int id, string description) => Obj(w =>
+    {
+        w.WriteString("event", "breakpoint-set");
+        w.WriteNumber("id", id);
+        w.WriteString("description", description);
+    });
+
+    public static string Breaks(IReadOnlyList<(int Id, string Description, bool Active)> breaks) => Obj(w =>
+    {
+        w.WriteString("event", "breaks");
+        w.WriteStartArray("items");
+        foreach (var b in breaks)
+        {
+            w.WriteStartObject();
+            w.WriteNumber("id", b.Id);
+            w.WriteString("description", b.Description);
+            w.WriteBoolean("active", b.Active);
+            w.WriteEndObject();
+        }
+        w.WriteEndArray();
+    });
+
+    public static string Threads(int current, IReadOnlyList<int> ids) => Obj(w =>
+    {
+        w.WriteString("event", "threads");
+        w.WriteNumber("current", current);
+        w.WriteStartArray("ids");
+        foreach (var id in ids) w.WriteNumberValue(id);
+        w.WriteEndArray();
+    });
+
+    public static string Info(string text) => Obj(w => { w.WriteString("event", "info"); w.WriteString("text", text); });
+
+    public static string Variables(string kind, IReadOnlyList<(string Name, string Value)> items) => Obj(w =>
+    {
+        w.WriteString("event", "variables");
+        w.WriteString("kind", kind);
+        w.WriteStartArray("items");
+        foreach (var (name, value) in items)
+        {
+            w.WriteStartObject();
+            w.WriteString("name", name);
+            w.WriteString("value", value);
+            w.WriteEndObject();
+        }
+        w.WriteEndArray();
+    });
+
     // ---- messages (parent -> host) -------------------------------------------------
 
     public static string Command(string cmd) => Obj(w => w.WriteString("cmd", cmd));
+
+    public static string BreakCommand(string module, int token, int? offset) => Obj(w =>
+    {
+        w.WriteString("cmd", "break");
+        w.WriteString("module", module);
+        w.WriteNumber("token", token);
+        if (offset is int o) w.WriteNumber("offset", o);
+    });
+
+    public static string IntCommand(string cmd, string name, int value) => Obj(w =>
+    {
+        w.WriteString("cmd", cmd);
+        w.WriteNumber(name, value);
+    });
+
+    public static string StepCommand(string kind) => Obj(w => { w.WriteString("cmd", "step"); w.WriteString("kind", kind); });
+
+    public static string PrintCommand(string path) => Obj(w => { w.WriteString("cmd", "print"); w.WriteString("path", path); });
+
+    public static string BoolCommand(string cmd, string name, bool value) => Obj(w =>
+    {
+        w.WriteString("cmd", cmd);
+        w.WriteBoolean(name, value);
+    });
 
     // ---- parsing -------------------------------------------------------------------
 
