@@ -64,13 +64,13 @@ function Mangle([string] $s) { ($s -replace '[^A-Za-z0-9]', '_') }
 
 $atSymbol = 0; $named = 0; $bad = New-Object System.Collections.Generic.List[string]
 foreach ($f in $functions) {
-    if (-not $symbols.ContainsKey($f.Rva)) { $bad.Add("no symbol at RVA 0x{0:X}: {1}" -f $f.Rva, $f.Name); continue }
+    if (-not $symbols.ContainsKey($f.Rva)) { $bad.Add(("no symbol at RVA 0x{0:X}: {1}" -f $f.Rva, $f.Name)); continue }
     $atSymbol++
     $sep = $f.Name.LastIndexOf('::')
     $method = Mangle($f.Name.Substring($sep + 2))
     $type = Mangle(($f.Name.Substring(0, [Math]::Max(0, $sep)) -split '[.+]')[-1])
     if ($symbols[$f.Rva] | Where-Object { $_.Contains($method) -and $_.Contains($type) }) { $named++ }
-    else { $bad.Add("0x{0:X}: {1} vs {2}" -f $f.Rva, $f.Name, ($symbols[$f.Rva] -join ' | ')) }
+    else { $bad.Add(("0x{0:X}: {1} vs {2}" -f $f.Rva, $f.Name, ($symbols[$f.Rva] -join ' | '))) }
 }
 $bad | Select-Object -First 20 | ForEach-Object { Write-Host "        $_" }
 Assert-Check ($functions.Count -gt 0) "export-ghidra named functions in the NativeAOT image"
