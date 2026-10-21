@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  TZ-NetScope-2 §5.5 acceptance check in a real Ghidra (analyzeHeadless), for Python (Jython) and Java scripts.
+  TZ-NetScope-2 §5.5 acceptance check in a real Ghidra (analyzeHeadless), for Python (Jython or Ghidrathon) and Java scripts.
 
 .DESCRIPTION
   For each target assembly:
@@ -10,6 +10,8 @@
        and requires every expected function to exist at its RVA with the expected name.
     4. Python only: runs the script twice and requires the same number of user symbols and bookmarks
        as after a single run (idempotency).
+  The Python script reports the interpreter it ran in; -PythonMajor 2 expects Jython (Ghidra's default for .py),
+  -PythonMajor 3 expects Ghidrathon. Checked with Ghidra 11.1.2, Jython 2.7 and Ghidrathon 4.0.0 (Jep 4.2.0).
   Exits with 1 if any check fails. Works with Windows PowerShell 5.1 and PowerShell 7.
 
 .EXAMPLE
@@ -20,7 +22,8 @@ param(
     [Parameter(Mandatory)] [string] $GhidraDir,
     [Parameter(Mandatory)] [string] $NetScopeDll,
     [Parameter(Mandatory)] [string[]] $Targets,
-    [Parameter(Mandatory)] [string] $WorkDir
+    [Parameter(Mandatory)] [string] $WorkDir,
+    [ValidateSet('2', '3')] [string] $PythonMajor = '2'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -54,6 +57,7 @@ function Invoke-Ghidra([string] $target, [string] $name, [string[]] $scripts, [s
         Missing = [int]$m.Groups[3].Value; Wrong = [int]$m.Groups[4].Value
         Symbols = [int]$m.Groups[5].Value; Bookmarks = [int]$m.Groups[6].Value
         ScriptFailed = $text -match 'NetScope: annotations applied, \d+ failed'
+        Python = [regex]::Match($text, 'NetScope: annotations applied.*\[Python (\d+)\.\d+\]').Groups[1].Value
         Log = $log
     }
 }
@@ -96,7 +100,11 @@ foreach ($target in $Targets) {
         $r = Invoke-Ghidra $target "$base-$([IO.Path]::GetExtension($script).TrimStart('.'))" @($script) $expected
         Assert-Check ($r.Expected -eq $rows.Count -and $r.Ok -eq $rows.Count) "$script names $($r.Ok)/$($rows.Count) functions at the --native RVAs (missing $($r.Missing), wrong $($r.Wrong))"
         Assert-Check (-not $r.ScriptFailed) "$script applied every annotation"
-        if ($script -eq $py) { $once = $r }
+        if ($script -eq $py)
+        {
+            Assert-Check ($r.Python -eq $PythonMajor) "$script ran in Python $PythonMajor (reported: '$($r.Python)')"
+            $once = $r
+        }
     }
 
     # 4. Idempotency: a second run in the same session must not add anything.

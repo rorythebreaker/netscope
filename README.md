@@ -219,7 +219,11 @@ netscope export-ghidra app.dll --out annotate.py --audit    # also bookmark P/In
 
 Run it in Ghidra, for example `analyzeHeadless <proj> <name> -import app.dll -postScript annotate.py`, or with `-process app.dll` on a project that already contains the file. A Java script must keep the file name it was exported with: GhidraScript requires the public class to match the file name, so NetScope names the class after `--out` and rejects names that are not valid Java class names.
 
-Both languages are checked in CI with `analyzeHeadless` on Ghidra 11.1.2 (Jython for `.py`). After the script runs, a verification script confirms that every function from `--native --format json` exists at its address with the expected name. The script:
+Both languages are checked in CI with `analyzeHeadless` on Ghidra 11.1.2. The Python script is run twice: by Jython 2.7, Ghidra's default for `.py`, and by Ghidrathon 4.0.0 (Python 3.12 through Jep 4.2.0) in a Ghidra copy without Jython. The same script works in both: it takes the script state as a variable (Jython) or as a function, `currentProgram()` (Ghidrathon), and its last line names the interpreter, e.g. `NetScope: annotations applied [Python 3.12]`. After the script runs, a verification script confirms that every function from `--native --format json` exists at its address with the expected name.
+
+To use Ghidrathon 4.0.0 with Ghidra 11.1.2: `pip install jep==4.2.0`, unpack the extension from the release into `<ghidra>/Ghidra/Extensions`, set `version=11.1.2` in its `extension.properties` (the release is marked 11.0, and Ghidra loads only extensions of its own version), and run `python ghidrathon_configure.py <ghidra>`. The CI job `ghidra-python3` does exactly this.
+
+The script:
 
 - names each ReadyToRun / C++/CLI function at its address and sets a plate comment with the .NET signature. Ghidra does not allow whitespace in symbol names, so `List<KeyValuePair<char, __Canon>>::Add` becomes `List<KeyValuePair<char,___Canon>>::Add`; the plate comment keeps the original signature;
 - labels funclets and links them to their parent method;

@@ -10,8 +10,11 @@ namespace NetScope.Ghidra;
 /// </summary>
 public static class GhidraScriptWriter
 {
-    /// <summary>The Ghidra version this output was checked against (analyzeHeadless, Jython and GhidraScript).</summary>
+    /// <summary>The Ghidra version this output was checked against (analyzeHeadless; Jython, Ghidrathon and GhidraScript).</summary>
     public const string GhidraVersion = "11.1.2";
+
+    /// <summary>The Ghidrathon version the Python script was checked against (Python 3 through Jep).</summary>
+    public const string GhidrathonVersion = "4.0.0";
 
     /// <summary>Class name used when the caller does not derive one from the output file name.</summary>
     public const string DefaultJavaClass = "NetScopeAnnotate";
@@ -51,7 +54,7 @@ public static class GhidraScriptWriter
         "",
         "Source assembly : " + ann.AssemblyName,
         "Architecture    : " + (ann.Architecture ?? "unknown"),
-        "Ghidra version  : " + GhidraVersion,
+        "Ghidra version  : " + GhidraVersion + " (Python: Jython 2.7, or Ghidrathon " + GhidrathonVersion + " with Python 3)",
         "",
         "This script ONLY does the following, and nothing else:",
         $"  - name {ann.Functions.Count} function(s) at their image-base-relative address",
@@ -72,13 +75,16 @@ public static class GhidraScriptWriter
         var sb = new StringBuilder();
         foreach (var line in HeaderLines(ann)) sb.Append("# ").AppendLine(line);
         sb.AppendLine();
+        sb.AppendLine("import sys");
         sb.AppendLine("from ghidra.program.flatapi import FlatProgramAPI");
         sb.AppendLine("from ghidra.util.task import ConsoleTaskMonitor");
         sb.AppendLine("from ghidra.program.model.symbol import SourceType");
         sb.AppendLine();
-        sb.AppendLine("_api = FlatProgramAPI(currentProgram, ConsoleTaskMonitor())");
-        sb.AppendLine("_base = currentProgram.getImageBase()");
-        sb.AppendLine("_bm = currentProgram.getBookmarkManager()");
+        sb.AppendLine("# Jython exposes the script state as variables, Ghidrathon (Python 3) as functions: currentProgram().");
+        sb.AppendLine("_program = currentProgram() if callable(currentProgram) else currentProgram");
+        sb.AppendLine("_api = FlatProgramAPI(_program, ConsoleTaskMonitor())");
+        sb.AppendLine("_base = _program.getImageBase()");
+        sb.AppendLine("_bm = _program.getBookmarkManager()");
         sb.AppendLine("_failed = []");
         sb.AppendLine();
         sb.AppendLine("def _ea(rva):");
@@ -127,10 +133,11 @@ public static class GhidraScriptWriter
         foreach (var b in ann.Bookmarks)
             sb.AppendLine($"_bookmark({b.Rva}, {Py(b.Category)}, {Py(b.Note)})");
         sb.AppendLine();
+        sb.AppendLine("_python = 'Python %d.%d' % (sys.version_info[0], sys.version_info[1])");
         sb.AppendLine("if _failed:");
-        sb.AppendLine("    print('NetScope: annotations applied, %d failed (first RVA %d)' % (len(_failed), _failed[0]))");
+        sb.AppendLine("    print('NetScope: annotations applied, %d failed (first RVA %d) [%s]' % (len(_failed), _failed[0], _python))");
         sb.AppendLine("else:");
-        sb.AppendLine("    print('NetScope: annotations applied')");
+        sb.AppendLine("    print('NetScope: annotations applied [%s]' % _python)");
         return sb.ToString();
     }
 
