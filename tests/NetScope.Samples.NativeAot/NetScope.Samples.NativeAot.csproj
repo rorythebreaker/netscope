@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- NativeAOT sample (TZ-3 §4.3): published in CI with PublishAot (it needs the platform linker), never part of
+       NetScope.sln. The method names are distinctive so their recovery from the image can be checked. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
+    <RootNamespace>AotSample</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <PublishAot>true</PublishAot>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <DebugType>none</DebugType>
+    <!-- No PDB/DWARF next to the image: names must come from the image itself. -->
+    <StripSymbols>true</StripSymbols>
+  </PropertyGroup>
+
+</Project>
