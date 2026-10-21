@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>NetScope.Samples.DebugTarget</AssemblyName>
+    <Nullable>enable</Nullable>
+    <!-- A deterministic little program the debugger tests launch and stop at Main. -->
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+</Project>

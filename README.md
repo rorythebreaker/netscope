@@ -244,6 +244,25 @@ The script:
 - with `--audit`, drops a bookmark at each point of interest.
 
 This is pure static analysis: the assembly is **never executed** and never modified, and the only output is the text script. Addresses are offsets from the image base, so Ghidra rebases them automatically; names and comments are escaped (Unicode from obfuscated assemblies included); and re-running the script updates the labels instead of duplicating them. An entry Ghidra rejects is counted and skipped; it does not stop the rest, and the script prints how many failed. The script only calls the Ghidra API — it never touches the network, reads other files or runs external commands. A pure-IL assembly with no native code produces a warning that there is nothing to annotate.
+## Debugging (read-only)
+
+`netscope debug` runs an assembly as a child process under a read-only debugger, stops on its entry point and shows the call stack. The analyzed code is executed, so `--allow-run` is required.
+
+```
+netscope debug app.dll --allow-run                       # stop on Main, show the stack (interactive)
+netscope debug app.dll --allow-run --script steps.txt    # run commands from a file, then exit
+netscope debug app.dll --allow-run --format json         # each stop as a JSON object
+netscope debug app.dll --allow-run -- arg1 arg2          # arguments after -- go to the program
+```
+
+It is strictly an observer. There is no memory write, no set-variable, no `setip` and no func-eval anywhere in the protocol: the target is only read. The design keeps the debug API out of the analyzer:
+
+- The ICorDebug session lives in a separate `__debug-host` process, reached over pipes (no TCP, no DAP port); a fault in the debug API never reaches NetScope.
+- The target is launched suspended and confined before it runs: a memory limit, no child processes, and it is killed when NetScope exits (Windows Job Object).
+- `--allow-run` is mandatory — without it no process is created. NetScope refuses to run while elevated unless `--i-know-running-as-admin` is given (and logged). The file's SHA-256 is shown before launch, and the run is aborted if the file changes between inspection and launch.
+- Every session is journaled (`%LOCALAPPDATA%\NetScope\logs`, or `--audit-log <file>`): time, user, path and SHA-256, arguments, the restrictions applied, the target PID and the exit code. Variable values are never written to the log.
+
+Stage 2 supports `stack`, `continue` and `quit`; breakpoints, stepping and variable inspection follow. The backend is Windows x64 in this version (on other platforms the host reports a clear error rather than crashing).
 
 ## Design
 

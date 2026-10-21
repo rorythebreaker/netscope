@@ -19,6 +19,9 @@ public sealed record SelfCommand(string FileName, IReadOnlyList<string> PrefixAr
         return new SelfCommand(FindDotnetHost(exe), new[] { dll });
     }
 
+    /// <summary>The dotnet host (muxer) used to launch a framework-dependent `app.dll`.</summary>
+    public static string DotnetHost() => FindDotnetHost(Environment.ProcessPath ?? (OperatingSystem.IsWindows() ? "dotnet.exe" : "dotnet"));
+
     private static string FindDotnetHost(string currentExe)
     {
         if (Path.GetFileNameWithoutExtension(currentExe).Equals("dotnet", StringComparison.OrdinalIgnoreCase)) return currentExe;

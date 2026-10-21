@@ -53,6 +53,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Ref16.VbLibrary", "tests\Re
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Ref17.FSharpLibrary", "tests\Reference\Ref17.FSharpLibrary\Ref17.FSharpLibrary.fsproj", "{6247F864-63B9-46B6-8F7C-585731CF5E4D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetScope.Samples.DebugTarget", "tests\NetScope.Samples.DebugTarget\NetScope.Samples.DebugTarget.csproj", "{ED299AB7-BF58-4334-B694-DCC4F1C31C45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -327,6 +329,18 @@ Global
 		{6247F864-63B9-46B6-8F7C-585731CF5E4D}.Release|x64.Build.0 = Release|Any CPU
 		{6247F864-63B9-46B6-8F7C-585731CF5E4D}.Release|x86.ActiveCfg = Release|Any CPU
 		{6247F864-63B9-46B6-8F7C-585731CF5E4D}.Release|x86.Build.0 = Release|Any CPU
+		{ED299AB7-BF58-4334-B694-DCC4F1C31C45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED299AB7-BF58-4334-B694-DCC4F1C31C45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED299AB7-BF58-4334-B694-DCC4F1C31C45}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{ED299AB7-BF58-4334-B694-DCC4F1C31C45}.Debug|x64.Build.0 = Debug|Any CPU
+		{ED299AB7-BF58-4334-B694-DCC4F1C31C45}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ED299AB7-BF58-4334-B694-DCC4F1C31C45}.Debug|x86.Build.0 = Debug|Any CPU
+		{ED299AB7-BF58-4334-B694-DCC4F1C31C45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED299AB7-BF58-4334-B694-DCC4F1C31C45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED299AB7-BF58-4334-B694-DCC4F1C31C45}.Release|x64.ActiveCfg = Release|Any CPU
+		{ED299AB7-BF58-4334-B694-DCC4F1C31C45}.Release|x64.Build.0 = Release|Any CPU
+		{ED299AB7-BF58-4334-B694-DCC4F1C31C45}.Release|x86.ActiveCfg = Release|Any CPU
+		{ED299AB7-BF58-4334-B694-DCC4F1C31C45}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -354,5 +368,6 @@ Global
 		{3AC0BD33-D5C0-4CC5-824F-F10ABE2CBB53} = {BDE35A5A-67E2-89B5-F696-3D963A037A75}
 		{F6314135-651C-4B8A-A824-BE03B56863CF} = {BDE35A5A-67E2-89B5-F696-3D963A037A75}
 		{6247F864-63B9-46B6-8F7C-585731CF5E4D} = {BDE35A5A-67E2-89B5-F696-3D963A037A75}
+		{ED299AB7-BF58-4334-B694-DCC4F1C31C45} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 	EndGlobalSection
 EndGlobal
