@@ -1,0 +1,609 @@
+Assembly : Ref09.Generics.dll
+Name     : Ref09.Generics, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 36
+
+Type     : Ref.Generics.IProducer`1
+
+Method   : T Produce()
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000001
+
+Type     : Ref.Generics.IConsumer`1
+
+Method   : void Consume(T item)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000002
+
+Type     : Ref.Generics.IConverter`2
+
+Method   : TOut Convert(TIn value)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000003
+
+Type     : Ref.Generics.Constant`1
+
+Method   : void .ctor(T value)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 14 bytes   Token: 0x06000004
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      !0 class Ref.Generics.Constant`1<!0>::_value
+  IL_000D  ret
+
+Method   : T Produce()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x205F   Size: 7 bytes   Token: 0x06000005
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      !0 class Ref.Generics.Constant`1<!0>::_value
+  IL_0006  ret
+
+Type     : Ref.Generics.Collector`1
+
+Method   : List<T> get_Items()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2067   Size: 7 bytes   Token: 0x06000006
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Collections]System.Collections.Generic.List`1<!0> class Ref.Generics.Collector`1<!0>::'<Items>k__BackingField'
+  IL_0006  ret
+
+Method   : void Consume(T item)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x206F   Size: 13 bytes   Token: 0x06000007
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance class [System.Collections]System.Collections.Generic.List`1<!0> class Ref.Generics.Collector`1<!0>::get_Items()
+  IL_0006  ldarg.1
+  IL_0007  callvirt   instance void class [System.Collections]System.Collections.Generic.List`1<!0>::Add(!0)
+  IL_000C  ret
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x207D   Size: 18 bytes   Token: 0x06000008
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  newobj     instance void class [System.Collections]System.Collections.Generic.List`1<!0>::.ctor()
+  IL_0006  stfld      class [System.Collections]System.Collections.Generic.List`1<!0> class Ref.Generics.Collector`1<!0>::'<Items>k__BackingField'
+  IL_000B  ldarg.0
+  IL_000C  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0011  ret
+
+Type     : Ref.Generics.Entity`1
+
+Method   : TKey get_Id()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2090   Size: 7 bytes   Token: 0x06000009
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      !0 class Ref.Generics.Entity`1<!0>::'<Id>k__BackingField'
+  IL_0006  ret
+
+Method   : void set_Id(TKey value)
+Kind     : property-set, instance, protected, compiler-generated
+RVA      : 0x2098   Size: 8 bytes   Token: 0x0600000A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      !0 class Ref.Generics.Entity`1<!0>::'<Id>k__BackingField'
+  IL_0007  ret
+
+Method   : bool SameAs(Entity<TKey> other)
+Kind     : instance, public
+RVA      : 0x20A4   Size: 32 bytes   Token: 0x0600000B
+
+[IL]  .maxstack 2
+  .locals init ([0] !TKey V_0)
+  IL_0000  ldarg.1
+  IL_0001  brfalse.s  IL_001E
+  IL_0003  ldarg.0
+  IL_0004  call       instance !0 class Ref.Generics.Entity`1<!0>::get_Id()
+  IL_0009  stloc.0
+  IL_000A  ldloca.s   V_0
+  IL_000C  ldarg.1
+  IL_000D  callvirt   instance !0 class Ref.Generics.Entity`1<!0>::get_Id()
+  IL_0012  constrained. !TKey
+  IL_0018  callvirt   instance bool class [System.Runtime]System.IEquatable`1<!0>::Equals(!0)
+  IL_001D  ret
+  IL_001E  ldc.i4.0
+  IL_001F  ret
+
+Method   : void .ctor()
+Kind     : ctor, instance, protected
+RVA      : 0x20D0   Size: 7 bytes   Token: 0x0600000C
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Type     : Ref.Generics.User
+
+Method   : void .ctor(int id, string name)
+Kind     : ctor, instance, public
+RVA      : 0x20D8   Size: 21 bytes   Token: 0x0600000D
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void class Ref.Generics.Entity`1<int32>::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  call       instance void class Ref.Generics.Entity`1<int32>::set_Id(!0)
+  IL_000D  ldarg.0
+  IL_000E  ldarg.2
+  IL_000F  stfld      string Ref.Generics.User::'<Name>k__BackingField'
+  IL_0014  ret
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20EE   Size: 7 bytes   Token: 0x0600000E
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      string Ref.Generics.User::'<Name>k__BackingField'
+  IL_0006  ret
+
+Type     : Ref.Generics.Pool`1
+
+Method   : T Rent()
+Kind     : instance, public
+RVA      : 0x20F6   Size: 32 bytes   Token: 0x0600000F
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Collections]System.Collections.Generic.Stack`1<!0> class Ref.Generics.Pool`1<!0>::_free
+  IL_0006  callvirt   instance int32 class [System.Collections]System.Collections.Generic.Stack`1<!0>::get_Count()
+  IL_000B  ldc.i4.0
+  IL_000C  bgt.s      IL_0014
+  IL_000E  call       !!0 [System.Runtime]System.Activator::CreateInstance<!0>()
+  IL_0013  ret
+  IL_0014  ldarg.0
+  IL_0015  ldfld      class [System.Collections]System.Collections.Generic.Stack`1<!0> class Ref.Generics.Pool`1<!0>::_free
+  IL_001A  callvirt   instance !0 class [System.Collections]System.Collections.Generic.Stack`1<!0>::Pop()
+  IL_001F  ret
+
+Method   : void Return(T item)
+Kind     : instance, public
+RVA      : 0x2118   Size: 33 bytes   Token: 0x06000010
+
+[IL]  .maxstack 3
+  .locals init ([0] !T V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Collections]System.Collections.Generic.Stack`1<!0> class Ref.Generics.Pool`1<!0>::_free
+  IL_0006  ldarg.1
+  IL_0007  dup
+  IL_0008  box        !T
+  IL_000D  brtrue.s   IL_001B
+  IL_000F  pop
+  IL_0010  ldstr      "item"
+  IL_0015  newobj     instance void [System.Runtime]System.ArgumentNullException::.ctor(string)
+  IL_001A  throw
+  IL_001B  callvirt   instance void class [System.Collections]System.Collections.Generic.Stack`1<!0>::Push(!0)
+  IL_0020  ret
+
+Method   : int get_Free()
+Kind     : property-get, instance, public
+RVA      : 0x2145   Size: 12 bytes   Token: 0x06000011
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Collections]System.Collections.Generic.Stack`1<!0> class Ref.Generics.Pool`1<!0>::_free
+  IL_0006  callvirt   instance int32 class [System.Collections]System.Collections.Generic.Stack`1<!0>::get_Count()
+  IL_000B  ret
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2152   Size: 18 bytes   Token: 0x06000012
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  newobj     instance void class [System.Collections]System.Collections.Generic.Stack`1<!0>::.ctor()
+  IL_0006  stfld      class [System.Collections]System.Collections.Generic.Stack`1<!0> class Ref.Generics.Pool`1<!0>::_free
+  IL_000B  ldarg.0
+  IL_000C  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0011  ret
+
+Type     : Ref.Generics.Pair`2
+
+Method   : void .ctor(TFirst first, TSecond second)
+Kind     : ctor, instance, public
+RVA      : 0x2165   Size: 15 bytes   Token: 0x06000013
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      !0 valuetype Ref.Generics.Pair`2<!0, !1>::First
+  IL_0007  ldarg.0
+  IL_0008  ldarg.2
+  IL_0009  stfld      !1 valuetype Ref.Generics.Pair`2<!0, !1>::Second
+  IL_000E  ret
+
+Method   : Pair<TSecond, TFirst> Swap()
+Kind     : instance, public
+RVA      : 0x2175   Size: 18 bytes   Token: 0x06000014
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      !1 valuetype Ref.Generics.Pair`2<!0, !1>::Second
+  IL_0006  ldarg.0
+  IL_0007  ldfld      !0 valuetype Ref.Generics.Pair`2<!0, !1>::First
+  IL_000C  newobj     instance void valuetype Ref.Generics.Pair`2<!1, !0>::.ctor(!0, !1)
+  IL_0011  ret
+
+Method   : string ToString()
+Kind     : instance, public, override
+RVA      : 0x2188   Size: 79 bytes   Token: 0x06000015
+
+[IL]  .maxstack 3
+  .locals init ([0] valuetype [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler V_0)
+  IL_0000  ldloca.s   V_0
+  IL_0002  ldc.i4.4
+  IL_0003  ldc.i4.2
+  IL_0004  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int32, int32)
+  IL_0009  ldloca.s   V_0
+  IL_000B  ldstr      "("
+  IL_0010  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)
+  IL_0015  ldloca.s   V_0
+  IL_0017  ldarg.0
+  IL_0018  ldfld      !0 valuetype Ref.Generics.Pair`2<!0, !1>::First
+  IL_001D  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<!0>(!!0)
+  IL_0022  ldloca.s   V_0
+  IL_0024  ldstr      ", "
+  IL_0029  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)
+  IL_002E  ldloca.s   V_0
+  IL_0030  ldarg.0
+  IL_0031  ldfld      !1 valuetype Ref.Generics.Pair`2<!0, !1>::Second
+  IL_0036  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<!1>(!!0)
+  IL_003B  ldloca.s   V_0
+  IL_003D  ldstr      ")"
+  IL_0042  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)
+  IL_0047  ldloca.s   V_0
+  IL_0049  call       instance string [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+  IL_004E  ret
+
+Type     : Ref.Generics.Node`1
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x21E3   Size: 7 bytes   Token: 0x06000016
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Type     : Ref.Generics.Algorithms
+
+Method   : void Swap<T>(ref T a, ref T b)
+Kind     : static, public, generic
+RVA      : 0x21EC   Size: 27 bytes   Token: 0x06000017
+
+[IL]  .maxstack 2
+  .locals init ([0] !!T V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldobj      !!T
+  IL_0006  stloc.0
+  IL_0007  ldarg.0
+  IL_0008  ldarg.1
+  IL_0009  ldobj      !!T
+  IL_000E  stobj      !!T
+  IL_0013  ldarg.1
+  IL_0014  ldloc.0
+  IL_0015  stobj      !!T
+  IL_001A  ret
+
+Method   : TOut[] Map<TIn, TOut>(TIn[] source, Func<TIn, TOut> f)
+Kind     : static, public, generic
+RVA      : 0x2214   Size: 45 bytes   Token: 0x06000018
+
+[IL]  .maxstack 5
+  .locals init ([0] !!TOut[] V_0, [1] int32 V_1)
+  IL_0000  ldarg.0
+  IL_0001  ldlen
+  IL_0002  conv.i4
+  IL_0003  newarr     !!TOut
+  IL_0008  stloc.0
+  IL_0009  ldc.i4.0
+  IL_000A  stloc.1
+  IL_000B  br.s       IL_0025
+  IL_000D  ldloc.0
+  IL_000E  ldloc.1
+  IL_000F  ldarg.1
+  IL_0010  ldarg.0
+  IL_0011  ldloc.1
+  IL_0012  ldelem     !!TIn
+  IL_0017  callvirt   instance !1 class [System.Runtime]System.Func`2<!!0, !!1>::Invoke(!0)
+  IL_001C  stelem     !!TOut
+  IL_0021  ldloc.1
+  IL_0022  ldc.i4.1
+  IL_0023  add
+  IL_0024  stloc.1
+  IL_0025  ldloc.1
+  IL_0026  ldarg.0
+  IL_0027  ldlen
+  IL_0028  conv.i4
+  IL_0029  blt.s      IL_000D
+  IL_002B  ldloc.0
+  IL_002C  ret
+
+Method   : T Sum<T>(IEnumerable<T> values)
+Kind     : static, public, generic
+RVA      : 0x2250   Size: 64 bytes   Token: 0x06000019
+
+[IL]  .maxstack 2
+  .locals init ([0] !!T V_0, [1] class [System.Runtime]System.Collections.Generic.IEnumerator`1<!!T> V_1, [2] !!T V_2)
+  IL_0000  constrained. !!T
+  IL_0006  call       !0 class [System.Runtime]System.Numerics.INumberBase`1<!!0>::get_Zero()
+  IL_000B  stloc.0
+  IL_000C  ldarg.0
+  IL_000D  callvirt   instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>::GetEnumerator()
+  IL_0012  stloc.1
+  IL_0013  br.s       IL_002A
+  IL_0015  ldloc.1
+  IL_0016  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IEnumerator`1<!!0>::get_Current()
+  IL_001B  stloc.2
+  IL_001C  ldloc.0
+  IL_001D  ldloc.2
+  IL_001E  constrained. !!T
+  IL_0024  call       !2 class [System.Runtime]System.Numerics.IAdditionOperators`3<!!0, !!0, !!0>::op_Addition(!0, !1)
+  IL_0029  stloc.0
+  IL_002A  ldloc.1
+  IL_002B  callvirt   instance bool [System.Runtime]System.Collections.IEnumerator::MoveNext()
+  IL_0030  brtrue.s   IL_0015
+  IL_0032  leave.s    IL_003E
+  IL_0034  ldloc.1
+  IL_0035  brfalse.s  IL_003D
+  IL_0037  ldloc.1
+  IL_0038  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  IL_003D  endfinally
+  IL_003E  ldloc.0
+  IL_003F  ret
+  .try IL_0013 to IL_0034 finally handler IL_0034 to IL_003E
+
+Method   : TResult Apply<TIn, TResult>(IConverter<TIn, TResult> converter, TIn value)
+Kind     : static, public, generic
+RVA      : 0x22AC   Size: 8 bytes   Token: 0x0600001A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  callvirt   instance !1 class Ref.Generics.IConverter`2<!!0, !!1>::Convert(!0)
+  IL_0007  ret
+
+Method   : IProducer<object> Widen(IProducer<string> producer)
+Kind     : static, public
+RVA      : 0x22B5   Size: 2 bytes   Token: 0x0600001B
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ret
+
+Method   : IConsumer<string> Narrow(IConsumer<object> consumer)
+Kind     : static, public
+RVA      : 0x22B8   Size: 2 bytes   Token: 0x0600001C
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ret
+
+Method   : Dictionary<TKey, List<TValue>> GroupBy<TKey, TValue>(IEnumerable<TValue> values, Func<TValue, TKey> key)
+Kind     : static, public, generic
+RVA      : 0x22BC   Size: 86 bytes   Token: 0x0600001D
+
+[IL]  .maxstack 4
+  .locals init ([0] class [System.Collections]System.Collections.Generic.Dictionary`2<!!TKey, class [System.Collections]System.Collections.Generic.List`1<!!TValue>> V_0, [1] class [System.Runtime]System.Collections.Generic.IEnumerator`1<!!TValue> V_1, [2] !!TValue V_2, [3] !!TKey V_3, [4] class [System.Collections]System.Collections.Generic.List`1<!!TValue> V_4)
+  IL_0000  newobj     instance void class [System.Collections]System.Collections.Generic.Dictionary`2<!!0, class [System.Collections]System.Collections.Generic.List`1<!!1>>::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldarg.0
+  IL_0007  callvirt   instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!1>::GetEnumerator()
+  IL_000C  stloc.1
+  IL_000D  br.s       IL_0040
+  IL_000F  ldloc.1
+  IL_0010  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IEnumerator`1<!!1>::get_Current()
+  IL_0015  stloc.2
+  IL_0016  ldarg.1
+  IL_0017  ldloc.2
+  IL_0018  callvirt   instance !1 class [System.Runtime]System.Func`2<!!1, !!0>::Invoke(!0)
+  IL_001D  stloc.3
+  IL_001E  ldloc.0
+  IL_001F  ldloc.3
+  IL_0020  ldloca.s   V_4
+  IL_0022  callvirt   instance bool class [System.Collections]System.Collections.Generic.Dictionary`2<!!0, class [System.Collections]System.Collections.Generic.List`1<!!1>>::TryGetValue(!0, !1&)
+  IL_0027  brtrue.s   IL_0038
+  IL_0029  ldloc.0
+  IL_002A  ldloc.3
+  IL_002B  newobj     instance void class [System.Collections]System.Collections.Generic.List`1<!!1>::.ctor()
+  IL_0030  dup
+  IL_0031  stloc.s    V_4
+  IL_0033  callvirt   instance void class [System.Collections]System.Collections.Generic.Dictionary`2<!!0, class [System.Collections]System.Collections.Generic.List`1<!!1>>::set_Item(!0, !1)
+  IL_0038  ldloc.s    V_4
+  IL_003A  ldloc.2
+  IL_003B  callvirt   instance void class [System.Collections]System.Collections.Generic.List`1<!!1>::Add(!0)
+  IL_0040  ldloc.1
+  IL_0041  callvirt   instance bool [System.Runtime]System.Collections.IEnumerator::MoveNext()
+  IL_0046  brtrue.s   IL_000F
+  IL_0048  leave.s    IL_0054
+  IL_004A  ldloc.1
+  IL_004B  brfalse.s  IL_0053
+  IL_004D  ldloc.1
+  IL_004E  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  IL_0053  endfinally
+  IL_0054  ldloc.0
+  IL_0055  ret
+  .try IL_000D to IL_004A finally handler IL_004A to IL_0054
+
+Method   : T Max<T>(T a, T b)
+Kind     : static, public, generic
+RVA      : 0x2330   Size: 21 bytes   Token: 0x0600001E
+
+[IL]  .maxstack 8
+  IL_0000  ldarga.s   a
+  IL_0002  ldarg.1
+  IL_0003  constrained. !!T
+  IL_0009  callvirt   instance int32 class [System.Runtime]System.IComparable`1<!!0>::CompareTo(!0)
+  IL_000E  ldc.i4.0
+  IL_000F  bge.s      IL_0013
+  IL_0011  ldarg.1
+  IL_0012  ret
+  IL_0013  ldarg.0
+  IL_0014  ret
+
+Method   : int UseMany()
+Kind     : static, public
+RVA      : 0x2348   Size: 210 bytes   Token: 0x0600001F
+
+[IL]  .maxstack 4
+  .locals init ([0] int32 V_0, [1] int32 V_1, [2] int32[] V_2, [3] float64 V_3, [4] valuetype Ref.Generics.Pair`2<string, int32> V_4, [5] class Ref.Generics.Pool`1<class [System.Collections]System.Collections.Generic.List`1<int32>> V_5, [6] valuetype Ref.Generics.Pair`2<int32, string> V_6)
+  IL_0000  ldc.i4.1
+  IL_0001  stloc.0
+  IL_0002  ldc.i4.2
+  IL_0003  stloc.1
+  IL_0004  ldloca.s   V_0
+  IL_0006  ldloca.s   V_1
+  IL_0008  call       void Ref.Generics.Algorithms::Swap<int32>(!!T&, !!T&)
+  IL_000D  ldc.i4.2
+  IL_000E  newarr     [System.Runtime]System.String
+  IL_0013  dup
+  IL_0014  ldc.i4.0
+  IL_0015  ldstr      "a"
+  IL_001A  stelem.ref
+  IL_001B  dup
+  IL_001C  ldc.i4.1
+  IL_001D  ldstr      "bb"
+  IL_0022  stelem.ref
+  IL_0023  ldsfld     class [System.Runtime]System.Func`2<string, int32> Ref.Generics.Algorithms/<>c::'<>9__8_0'
+  IL_0028  dup
+  IL_0029  brtrue.s   IL_0042
+  IL_002B  pop
+  IL_002C  ldsfld     class Ref.Generics.Algorithms/<>c Ref.Generics.Algorithms/<>c::'<>9'
+  IL_0031  ldftn      instance int32 Ref.Generics.Algorithms/<>c::'<UseMany>b__8_0'(string)
+  IL_0037  newobj     instance void class [System.Runtime]System.Func`2<string, int32>::.ctor(object, native int)
+  IL_003C  dup
+  IL_003D  stsfld     class [System.Runtime]System.Func`2<string, int32> Ref.Generics.Algorithms/<>c::'<>9__8_0'
+  IL_0042  call       !!TOut[] Ref.Generics.Algorithms::Map<string, int32>(!!TIn[], class [System.Runtime]System.Func`2<!!TIn, !!TOut>)
+  IL_0047  stloc.2
+  IL_0048  newobj     instance void class [System.Collections]System.Collections.Generic.List`1<float64>::.ctor()
+  IL_004D  dup
+  IL_004E  ldc.r8     1.5
+  IL_0057  callvirt   instance void class [System.Collections]System.Collections.Generic.List`1<float64>::Add(!0)
+  IL_005C  dup
+  IL_005D  ldc.r8     2.5
+  IL_0066  callvirt   instance void class [System.Collections]System.Collections.Generic.List`1<float64>::Add(!0)
+  IL_006B  call       !!T Ref.Generics.Algorithms::Sum<float64>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!T>)
+  IL_0070  stloc.3
+  IL_0071  ldc.i4.1
+  IL_0072  ldstr      "one"
+  IL_0077  newobj     instance void valuetype Ref.Generics.Pair`2<int32, string>::.ctor(!0, !1)
+  IL_007C  stloc.s    V_6
+  IL_007E  ldloca.s   V_6
+  IL_0080  call       instance valuetype Ref.Generics.Pair`2<!1, !0> valuetype Ref.Generics.Pair`2<int32, string>::Swap()
+  IL_0085  stloc.s    V_4
+  IL_0087  newobj     instance void class Ref.Generics.Pool`1<class [System.Collections]System.Collections.Generic.List`1<int32>>::.ctor()
+  IL_008C  stloc.s    V_5
+  IL_008E  ldloc.s    V_5
+  IL_0090  ldloc.s    V_5
+  IL_0092  callvirt   instance !0 class Ref.Generics.Pool`1<class [System.Collections]System.Collections.Generic.List`1<int32>>::Rent()
+  IL_0097  callvirt   instance void class Ref.Generics.Pool`1<class [System.Collections]System.Collections.Generic.List`1<int32>>::Return(!0)
+  IL_009C  ldloc.0
+  IL_009D  ldloc.2
+  IL_009E  ldlen
+  IL_009F  conv.i4
+  IL_00A0  add
+  IL_00A1  ldloc.3
+  IL_00A2  conv.i4
+  IL_00A3  add
+  IL_00A4  ldloc.s    V_4
+  IL_00A6  ldfld      !1 valuetype Ref.Generics.Pair`2<string, int32>::Second
+  IL_00AB  add
+  IL_00AC  ldloc.s    V_5
+  IL_00AE  callvirt   instance int32 class Ref.Generics.Pool`1<class [System.Collections]System.Collections.Generic.List`1<int32>>::get_Free()
+  IL_00B3  add
+  IL_00B4  ldc.i4.3
+  IL_00B5  ldc.i4.4
+  IL_00B6  call       !!T Ref.Generics.Algorithms::Max<int32>(!!T, !!T)
+  IL_00BB  add
+  IL_00BC  ldstr      "a"
+  IL_00C1  ldstr      "b"
+  IL_00C6  call       !!T Ref.Generics.Algorithms::Max<string>(!!T, !!T)
+  IL_00CB  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+  IL_00D0  add
+  IL_00D1  ret
+
+Type     : Ref.Generics.Node`1+Enumerator
+
+Method   : void .ctor(Node<T> head)
+Kind     : ctor, instance, public
+RVA      : 0x2426   Size: 14 bytes   Token: 0x06000020
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      class Ref.Generics.Node`1<!0> class Ref.Generics.Node`1/Enumerator<!0>::_current
+  IL_000D  ret
+
+Method   : bool Next(out T value)
+Kind     : instance, public
+RVA      : 0x2435   Size: 53 bytes   Token: 0x06000021
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class Ref.Generics.Node`1<!0> class Ref.Generics.Node`1/Enumerator<!0>::_current
+  IL_0006  brtrue.s   IL_0011
+  IL_0008  ldarg.1
+  IL_0009  initobj    !T
+  IL_000F  ldc.i4.0
+  IL_0010  ret
+  IL_0011  ldarg.1
+  IL_0012  ldarg.0
+  IL_0013  ldfld      class Ref.Generics.Node`1<!0> class Ref.Generics.Node`1/Enumerator<!0>::_current
+  IL_0018  ldfld      !0 class Ref.Generics.Node`1<!0>::Value
+  IL_001D  stobj      !T
+  IL_0022  ldarg.0
+  IL_0023  ldarg.0
+  IL_0024  ldfld      class Ref.Generics.Node`1<!0> class Ref.Generics.Node`1/Enumerator<!0>::_current
+  IL_0029  ldfld      class Ref.Generics.Node`1<!0> class Ref.Generics.Node`1<!0>::Next
+  IL_002E  stfld      class Ref.Generics.Node`1<!0> class Ref.Generics.Node`1/Enumerator<!0>::_current
+  IL_0033  ldc.i4.1
+  IL_0034  ret
+
+Type     : Ref.Generics.Algorithms+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x246B   Size: 11 bytes   Token: 0x06000022
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void Ref.Generics.Algorithms/<>c::.ctor()
+  IL_0005  stsfld     class Ref.Generics.Algorithms/<>c Ref.Generics.Algorithms/<>c::'<>9'
+  IL_000A  ret
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2477   Size: 7 bytes   Token: 0x06000023
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Method   : int <UseMany>b__8_0(string s)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x247F   Size: 7 bytes   Token: 0x06000024
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  callvirt   instance int32 [System.Runtime]System.String::get_Length()
+  IL_0006  ret

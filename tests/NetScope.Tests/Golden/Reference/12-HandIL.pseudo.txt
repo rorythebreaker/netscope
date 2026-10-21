@@ -1,0 +1,192 @@
+Assembly : Ref12.HandIL.dll
+Name     : Ref12.HandIL, Version=1.0.0.0
+Runtime  : v4.0.30319   Machine: anycpu
+Methods  : 10
+
+Type     : Ref.HandIL.Constructs
+
+Method   : int WithFault(int x)
+Kind     : static, public
+RVA      : 0x2050   Size: 31 bytes   Token: 0x06000001
+
+[Pseudocode]
+  public static int WithFault(int x)
+  {
+      try
+      {
+          if (x < 0)
+          {
+              throw new ArgumentOutOfRangeException();
+          }
+          return x * 2;
+      }
+      catch
+      {
+          //try-fault
+          Cleanups++;
+          throw;
+      }
+  }
+
+Method   : int WithFilter(string s)
+Kind     : static, public
+RVA      : 0x208C   Size: 40 bytes   Token: 0x06000002
+
+[Pseudocode]
+  public static int WithFilter(string s)
+  {
+      try
+      {
+          return int.Parse(s);
+      }
+      catch (FormatException) when (s.Length > 0)
+      {
+          return -1;
+      }
+  }
+
+Method   : int NestedInHandlers(int x)
+Kind     : static, public
+RVA      : 0x20D0   Size: 38 bytes   Token: 0x06000003
+
+[Pseudocode]
+  public static int NestedInHandlers(int x)
+  {
+      int result;
+      try
+      {
+          result = x / 0;
+      }
+      catch (DivideByZeroException)
+      {
+          try
+          {
+              result = 7;
+          }
+          catch
+          {
+              //try-fault
+              result = 0;
+              throw;
+          }
+      }
+      finally
+      {
+          try
+          {
+              Cleanups++;
+          }
+          catch
+          {
+          }
+      }
+      return result;
+  }
+
+Method   : int JumpTarget(int x)
+Kind     : static, public
+RVA      : 0x2138   Size: 5 bytes   Token: 0x06000004
+
+[Pseudocode]
+  public static int JumpTarget(int x)
+  {
+      return x + 10;
+  }
+
+Method   : int Jumper(int x)
+Kind     : static, public
+RVA      : 0x2149   Size: 5 bytes   Token: 0x06000005
+
+[Pseudocode]
+  public static int Jumper(int x)
+  {
+      return /*tail.*/JumpTarget(x);
+  }
+
+Method   : long Factorial(int n, long acc)
+Kind     : static, public
+RVA      : 0x2150   Size: 21 bytes   Token: 0x06000006
+
+[Pseudocode]
+  public static long Factorial(int n, long acc)
+  {
+      if (n <= 1)
+      {
+          return acc;
+      }
+      return /*tail.*/Factorial(n - 1, acc * n);
+  }
+
+Method   : string SwitchFallThrough(int x)
+Kind     : static, public
+RVA      : 0x2174   Size: 40 bytes   Token: 0x06000007
+
+[Pseudocode]
+  public static string SwitchFallThrough(int x)
+  {
+      switch (x)
+      {
+      default:
+          return "zero or out of range";
+      case 1:
+      case 3:
+          return "one or three";
+      case 2:
+          return "two";
+      }
+  }
+
+Method   : int SwitchLoop(int[] ops)
+Kind     : static, public
+RVA      : 0x21A8   Size: 54 bytes   Token: 0x06000008
+
+[Pseudocode]
+  public static int SwitchLoop(int[] ops)
+  {
+      int num = 0;
+      for (int i = 0; i < ops.Length; i++)
+      {
+          switch (ops[i])
+          {
+          default:
+              num--;
+              break;
+          case 0:
+              num++;
+              break;
+          case 1:
+              num *= 2;
+              break;
+          case 2:
+              break;
+          }
+      }
+      return num;
+  }
+
+Method   : void Rethrows()
+Kind     : static, public
+RVA      : 0x21EC   Size: 13 bytes   Token: 0x06000009
+
+[Pseudocode]
+  public static void Rethrows()
+  {
+      try
+      {
+          throw new InvalidOperationException();
+      }
+      catch (InvalidOperationException)
+      {
+          throw;
+      }
+  }
+
+Method   : int IndirectCall(int x)
+Kind     : static, public
+RVA      : 0x2218   Size: 13 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  public unsafe static int IndirectCall(int x)
+  {
+      return ((delegate*<int, int>)(&JumpTarget))(x);
+  }

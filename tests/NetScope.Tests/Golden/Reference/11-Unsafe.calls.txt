@@ -1,0 +1,161 @@
+Assembly : Ref11.Unsafe.dll
+Name     : Ref11.Unsafe, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 16
+
+Type     : Ref.Unsafe.FixedHeader
+
+Method   : bool HasMagic(byte a, byte b, byte c, byte d)
+Kind     : instance, public
+RVA      : 0x2050   Size: 70 bytes   Token: 0x06000001
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Unsafe.Vector3
+
+Method   : float Dot(Vector3* a, Vector3* b)
+Kind     : static, public
+RVA      : 0x20A2   Size: 42 bytes   Token: 0x06000002
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Unsafe.Memory
+
+Method   : int Sum(int[] values)
+Kind     : static, public
+RVA      : 0x20D0   Size: 61 bytes   Token: 0x06000003
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void Fill(byte* destination, int length, byte value)
+Kind     : static, public
+RVA      : 0x211C   Size: 18 bytes   Token: 0x06000004
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : string Reverse(string s)
+Kind     : static, public
+RVA      : 0x213C   Size: 79 bytes   Token: 0x06000005
+
+[Calls]
+  IL_0001  callvirt  System.String::get_Length()            external System.Runtime
+  IL_0016  call      System.String::GetPinnableReference()  external System.Runtime
+  IL_0049  newobj    System.String::.ctor(char*, int, int)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : long Checksum(ReadOnlySpan<byte> data)
+Kind     : static, public
+RVA      : 0x2198   Size: 94 bytes   Token: 0x06000006
+
+[Calls]
+  IL_0005  call      System.ReadOnlySpan<byte>::GetPinnableReference()  external System.Runtime
+  IL_0012  call      System.ReadOnlySpan<byte>::get_Length()            external System.Runtime
+  IL_0052  call      System.ReadOnlySpan<byte>::get_Length()            external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void Copy(void* from, void* to, int bytes)
+Kind     : static, public
+RVA      : 0x2202   Size: 12 bytes   Token: 0x06000007
+
+[Calls]
+  IL_0006  call      System.Buffer::MemoryCopy(void*, void*, long, long)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : int ReadInt(byte[] data, int offset)
+Kind     : static, public
+RVA      : 0x2210   Size: 12 bytes   Token: 0x06000008
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void Write(ref int target, int value)
+Kind     : static, public
+RVA      : 0x2228   Size: 4 bytes   Token: 0x06000009
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : ref int Element(int[] array, int index)
+Kind     : static, public
+RVA      : 0x222D   Size: 8 bytes   Token: 0x0600000A
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : void Increment(int* p)
+Kind     : static, public
+RVA      : 0x2236   Size: 7 bytes   Token: 0x0600000B
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : nint Allocate(int bytes)
+Kind     : static, public
+RVA      : 0x223E   Size: 19 bytes   Token: 0x0600000C
+
+[Calls]
+  IL_0002  call      System.Runtime.InteropServices.NativeMemory::AllocZeroed(nuint)  external System.Runtime.InteropServices
+  IL_000C  newobj    System.OutOfMemoryException::.ctor()                             external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void Release(nint p)
+Kind     : static, public
+RVA      : 0x2252   Size: 7 bytes   Token: 0x0600000D
+
+[Calls]
+  IL_0001  call      System.Runtime.InteropServices.NativeMemory::Free(void*)  external System.Runtime.InteropServices
+[Callers]
+  (none in the input files)
+
+Method   : int SizeOfHeader()
+Kind     : static, public
+RVA      : 0x225A   Size: 7 bytes   Token: 0x0600000E
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : T ReadUnaligned<T>(byte* p)
+Kind     : static, public, generic
+RVA      : 0x2262   Size: 7 bytes   Token: 0x0600000F
+
+[Calls]
+  IL_0001  call      System.Runtime.CompilerServices.Unsafe::ReadUnaligned<!!0>(void*)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : int Pinned(string text)
+Kind     : static, public
+RVA      : 0x226C   Size: 31 bytes   Token: 0x06000010
+
+[Calls]
+  IL_0002  call      System.Runtime.InteropServices.GCHandle::Alloc(object, GCHandleType)  external System.Runtime
+  IL_000A  call      System.Runtime.InteropServices.GCHandle::AddrOfPinnedObject()         external System.Runtime
+  IL_0017  call      System.Runtime.InteropServices.GCHandle::Free()                       external System.Runtime
+[Callers]
+  (none in the input files)

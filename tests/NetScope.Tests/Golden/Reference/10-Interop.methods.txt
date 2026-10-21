@@ -1,0 +1,104 @@
+Assembly : Ref10.Interop.dll
+Name     : Ref10.Interop, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 21
+
+Type     : Ref.Interop.Kernel32
+
+Method   : void GetSystemTime(out SystemTime time)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000001
+PInvoke  : kernel32.dll!GetSystemTime
+
+Method   : uint GetEnvironmentVariableW(string name, StringBuilder buffer, uint size)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000002
+PInvoke  : kernel32.dll!GetEnvironmentVariableW
+
+Method   : ulong Ticks()
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000003
+PInvoke  : kernel32.dll!GetTickCount64
+
+Type     : Ref.Interop.LibC
+
+Method   : int GetPid()
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000004
+PInvoke  : libc!getpid
+
+Method   : nuint StrLen(string s)
+Kind     : static, public
+RVA      : 0x2050   Size: 66 bytes   Token: 0x06000005
+
+Method   : void QSort(void* data, nuint count, nuint size, delegate*<void*, void*, int> compare)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000006
+PInvoke  : libc!qsort
+
+Method   : nuint <StrLen>g____PInvoke|1_0(byte* __s_native)
+Kind     : static, internal, pinvoke, local-function, compiler-generated, no-body
+RVA      : 0x0000   Token: 0x06000007
+PInvoke  : libc!strlen
+
+Type     : Ref.Interop.Callbacks
+
+Method   : int CompareInts(void* a, void* b)
+Kind     : static, private
+RVA      : 0x20B0   Size: 9 bytes   Token: 0x06000008
+
+Method   : void Sort(int[] values)
+Kind     : static, public
+RVA      : 0x20BC   Size: 45 bytes   Token: 0x06000009
+
+Method   : int Apply(delegate*<int, int, int> op, int a, int b)
+Kind     : static, public
+RVA      : 0x20F8   Size: 11 bytes   Token: 0x0600000A
+
+Method   : int Add(int a, int b)
+Kind     : static, private
+RVA      : 0x210F   Size: 4 bytes   Token: 0x0600000B
+
+Method   : int AddViaPointer(int a, int b)
+Kind     : static, public
+RVA      : 0x2114   Size: 14 bytes   Token: 0x0600000C
+
+Method   : int CallNative(nint fn, int a, int b)
+Kind     : static, public
+RVA      : 0x2123   Size: 14 bytes   Token: 0x0600000D
+
+Method   : nint Export(BinaryOp op)
+Kind     : static, public
+RVA      : 0x2132   Size: 7 bytes   Token: 0x0600000E
+
+Type     : Ref.Interop.Platform
+
+Method   : string Describe()
+Kind     : static, public
+RVA      : 0x213C   Size: 268 bytes   Token: 0x0600000F
+
+Method   : float Reinterpret(int bits)
+Kind     : static, public
+RVA      : 0x2254   Size: 23 bytes   Token: 0x06000010
+
+Method   : string PtrToString(nint p)
+Kind     : static, public
+RVA      : 0x2277   Size: 16 bytes   Token: 0x06000011
+
+Type     : Ref.Interop.Callbacks+BinaryOp
+
+Method   : void .ctor(object object, nint method)
+Kind     : ctor, instance, public, runtime, no-body
+RVA      : 0x0000   Token: 0x06000012
+
+Method   : int Invoke(int a, int b)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x06000013
+
+Method   : IAsyncResult BeginInvoke(int a, int b, AsyncCallback callback, object object)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x06000014
+
+Method   : int EndInvoke(IAsyncResult result)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x06000015

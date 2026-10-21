@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 1. Console application, .NET 8: entry point and apphost. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Ref.ConsoleApp</RootNamespace>
+  </PropertyGroup>
+</Project>

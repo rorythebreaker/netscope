@@ -1,0 +1,174 @@
+Assembly : Ref09.Generics.dll
+Name     : Ref09.Generics, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 36
+
+Type     : Ref.Generics.IProducer`1
+
+Method   : T Produce()
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000001
+
+Type     : Ref.Generics.IConsumer`1
+
+Method   : void Consume(T item)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000002
+
+Type     : Ref.Generics.IConverter`2
+
+Method   : TOut Convert(TIn value)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000003
+
+Type     : Ref.Generics.Constant`1
+
+Method   : void .ctor(T value)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 14 bytes   Token: 0x06000004
+
+Method   : T Produce()
+Kind     : instance, public, virtual, sealed
+RVA      : 0x205F   Size: 7 bytes   Token: 0x06000005
+
+Type     : Ref.Generics.Collector`1
+
+Method   : List<T> get_Items()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2067   Size: 7 bytes   Token: 0x06000006
+
+Method   : void Consume(T item)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x206F   Size: 13 bytes   Token: 0x06000007
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x207D   Size: 18 bytes   Token: 0x06000008
+
+Type     : Ref.Generics.Entity`1
+
+Method   : TKey get_Id()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2090   Size: 7 bytes   Token: 0x06000009
+
+Method   : void set_Id(TKey value)
+Kind     : property-set, instance, protected, compiler-generated
+RVA      : 0x2098   Size: 8 bytes   Token: 0x0600000A
+
+Method   : bool SameAs(Entity<TKey> other)
+Kind     : instance, public
+RVA      : 0x20A4   Size: 32 bytes   Token: 0x0600000B
+
+Method   : void .ctor()
+Kind     : ctor, instance, protected
+RVA      : 0x20D0   Size: 7 bytes   Token: 0x0600000C
+
+Type     : Ref.Generics.User
+
+Method   : void .ctor(int id, string name)
+Kind     : ctor, instance, public
+RVA      : 0x20D8   Size: 21 bytes   Token: 0x0600000D
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20EE   Size: 7 bytes   Token: 0x0600000E
+
+Type     : Ref.Generics.Pool`1
+
+Method   : T Rent()
+Kind     : instance, public
+RVA      : 0x20F6   Size: 32 bytes   Token: 0x0600000F
+
+Method   : void Return(T item)
+Kind     : instance, public
+RVA      : 0x2118   Size: 33 bytes   Token: 0x06000010
+
+Method   : int get_Free()
+Kind     : property-get, instance, public
+RVA      : 0x2145   Size: 12 bytes   Token: 0x06000011
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2152   Size: 18 bytes   Token: 0x06000012
+
+Type     : Ref.Generics.Pair`2
+
+Method   : void .ctor(TFirst first, TSecond second)
+Kind     : ctor, instance, public
+RVA      : 0x2165   Size: 15 bytes   Token: 0x06000013
+
+Method   : Pair<TSecond, TFirst> Swap()
+Kind     : instance, public
+RVA      : 0x2175   Size: 18 bytes   Token: 0x06000014
+
+Method   : string ToString()
+Kind     : instance, public, override
+RVA      : 0x2188   Size: 79 bytes   Token: 0x06000015
+
+Type     : Ref.Generics.Node`1
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x21E3   Size: 7 bytes   Token: 0x06000016
+
+Type     : Ref.Generics.Algorithms
+
+Method   : void Swap<T>(ref T a, ref T b)
+Kind     : static, public, generic
+RVA      : 0x21EC   Size: 27 bytes   Token: 0x06000017
+
+Method   : TOut[] Map<TIn, TOut>(TIn[] source, Func<TIn, TOut> f)
+Kind     : static, public, generic
+RVA      : 0x2214   Size: 45 bytes   Token: 0x06000018
+
+Method   : T Sum<T>(IEnumerable<T> values)
+Kind     : static, public, generic
+RVA      : 0x2250   Size: 64 bytes   Token: 0x06000019
+
+Method   : TResult Apply<TIn, TResult>(IConverter<TIn, TResult> converter, TIn value)
+Kind     : static, public, generic
+RVA      : 0x22AC   Size: 8 bytes   Token: 0x0600001A
+
+Method   : IProducer<object> Widen(IProducer<string> producer)
+Kind     : static, public
+RVA      : 0x22B5   Size: 2 bytes   Token: 0x0600001B
+
+Method   : IConsumer<string> Narrow(IConsumer<object> consumer)
+Kind     : static, public
+RVA      : 0x22B8   Size: 2 bytes   Token: 0x0600001C
+
+Method   : Dictionary<TKey, List<TValue>> GroupBy<TKey, TValue>(IEnumerable<TValue> values, Func<TValue, TKey> key)
+Kind     : static, public, generic
+RVA      : 0x22BC   Size: 86 bytes   Token: 0x0600001D
+
+Method   : T Max<T>(T a, T b)
+Kind     : static, public, generic
+RVA      : 0x2330   Size: 21 bytes   Token: 0x0600001E
+
+Method   : int UseMany()
+Kind     : static, public
+RVA      : 0x2348   Size: 210 bytes   Token: 0x0600001F
+
+Type     : Ref.Generics.Node`1+Enumerator
+
+Method   : void .ctor(Node<T> head)
+Kind     : ctor, instance, public
+RVA      : 0x2426   Size: 14 bytes   Token: 0x06000020
+
+Method   : bool Next(out T value)
+Kind     : instance, public
+RVA      : 0x2435   Size: 53 bytes   Token: 0x06000021
+
+Type     : Ref.Generics.Algorithms+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x246B   Size: 11 bytes   Token: 0x06000022
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2477   Size: 7 bytes   Token: 0x06000023
+
+Method   : int <UseMany>b__8_0(string s)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x247F   Size: 7 bytes   Token: 0x06000024

@@ -1,0 +1,1293 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref03.NetStandard.dll",
+      "assembly": "Ref03.NetStandard",
+      "version": "1.0.0.0",
+      "targetFramework": ".NETStandard,Version=v2.0",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil",
+          "name": "Slug",
+          "signature": "string Slug(string text)",
+          "token": 100663297,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8272,
+          "size": 150,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.String::IsNullOrEmpty(string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 16,
+              "opcode": "callvirt",
+              "target": "System.String::Normalize(NormalizationForm)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 22,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 27,
+              "opcode": "newobj",
+              "target": "System.Text.StringBuilder::.ctor(int)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 40,
+              "opcode": "callvirt",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 47,
+              "opcode": "call",
+              "target": "System.Globalization.CharUnicodeInfo::GetUnicodeCategory(char)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 56,
+              "opcode": "call",
+              "target": "System.Char::IsLetterOrDigit(char)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 65,
+              "opcode": "call",
+              "target": "System.Char::ToLowerInvariant(char)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 70,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 79,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 89,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 96,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 108,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 120,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 128,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 144,
+              "opcode": "callvirt",
+              "target": "System.String::Trim(char[])",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil",
+          "name": "CollapseSpaces",
+          "signature": "string CollapseSpaces(string text)",
+          "token": 100663298,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8434,
+          "size": 31,
+          "calls": [
+            {
+              "offset": 20,
+              "opcode": "callvirt",
+              "target": "System.Text.RegularExpressions.Regex::Replace(string, string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 25,
+              "opcode": "callvirt",
+              "target": "System.String::Trim()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref03.NetStandard",
+              "method": "Ref.NetStandard.TextUtil+<Wrap>d__3::MoveNext",
+              "signature": "bool MoveNext()",
+              "offset": 72,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil",
+          "name": "Wrap",
+          "signature": "IEnumerable<string> Wrap(string text, int width)",
+          "token": 100663299,
+          "access": "public",
+          "kinds": [
+            "static",
+            "iterator"
+          ],
+          "rva": 8466,
+          "size": 22,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "newobj",
+              "target": "Ref.NetStandard.TextUtil.<Wrap>d__3::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref03.NetStandard.dll",
+              "groupToken": 100663313
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil",
+          "name": "Levenshtein",
+          "signature": "int Levenshtein(string a, string b)",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8492,
+          "size": 167,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 15,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 42,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 66,
+              "opcode": "callvirt",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 76,
+              "opcode": "callvirt",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 105,
+              "opcode": "call",
+              "target": "System.Math::Min(int, int)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 119,
+              "opcode": "call",
+              "target": "System.Math::Min(int, int)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 134,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 151,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 160,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref03.NetStandard",
+              "method": "Ref.NetStandard.TextUtil+<>c__DisplayClass5_0::<Closest>b__0",
+              "signature": "int <Closest>b__0(string c)",
+              "offset": 7,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil",
+          "name": "Closest",
+          "signature": "string Closest(string word, IEnumerable<string> candidates)",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8672,
+          "size": 78,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.NetStandard.TextUtil.<>c__DisplayClass5_0::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref03.NetStandard.dll",
+              "groupToken": 100663311
+            },
+            {
+              "offset": 15,
+              "opcode": "ldftn",
+              "target": "Ref.NetStandard.TextUtil.<>c__DisplayClass5_0::<Closest>b__0(string)",
+              "scope": "internal",
+              "groupFile": "Ref03.NetStandard.dll",
+              "groupToken": 100663312
+            },
+            {
+              "offset": 21,
+              "opcode": "newobj",
+              "target": "System.Func<string, int>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 26,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::OrderBy<string, int>(IEnumerable<string>, Func<string, int>)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 45,
+              "opcode": "ldftn",
+              "target": "Ref.NetStandard.TextUtil.<>c::<Closest>b__5_1(string)",
+              "scope": "internal",
+              "groupFile": "Ref03.NetStandard.dll",
+              "groupToken": 100663310
+            },
+            {
+              "offset": 51,
+              "opcode": "newobj",
+              "target": "System.Func<string, string>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 62,
+              "opcode": "call",
+              "target": "System.StringComparer::get_Ordinal()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 67,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::ThenBy<string, string>(IOrderedEnumerable<string>, Func<string, string>, IComparer<string>)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 72,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::FirstOrDefault<string>(IEnumerable<string>)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663302,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static"
+          ],
+          "rva": 8762,
+          "size": 17,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "newobj",
+              "target": "System.Text.RegularExpressions.Regex::.ctor(string, RegexOptions)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.CsvRow",
+          "name": ".ctor",
+          "signature": "void .ctor(List<string> fields)",
+          "token": 100663303,
+          "access": "private",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8780,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref03.NetStandard",
+              "method": "Ref.NetStandard.CsvRow::Parse",
+              "signature": "CsvRow Parse(string line, char separator)",
+              "offset": 184,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.CsvRow",
+          "name": "get_Count",
+          "signature": "int get_Count()",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance"
+          ],
+          "rva": 8795,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<string>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.CsvRow",
+          "name": "get_Item",
+          "signature": "string get_Item(int index)",
+          "token": 100663305,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance"
+          ],
+          "rva": 8808,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<string>::get_Item(int)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.CsvRow",
+          "name": "Parse",
+          "signature": "CsvRow Parse(string line, char separator)",
+          "token": 100663306,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8824,
+          "size": 190,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.List<string>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 6,
+              "opcode": "newobj",
+              "target": "System.Text.StringBuilder::.ctor()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 20,
+              "opcode": "callvirt",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 40,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 51,
+              "opcode": "callvirt",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 63,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 88,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 113,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 118,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<string>::Add(string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 124,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Clear()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 135,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 147,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 165,
+              "opcode": "newobj",
+              "target": "System.FormatException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 173,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 178,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<string>::Add(string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 184,
+              "opcode": "newobj",
+              "target": "Ref.NetStandard.CsvRow::.ctor(List<string>)",
+              "scope": "internal",
+              "groupFile": "Ref03.NetStandard.dll",
+              "groupToken": 100663303
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.CsvRow",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663307,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 9026,
+          "size": 53,
+          "calls": [
+            {
+              "offset": 25,
+              "opcode": "ldftn",
+              "target": "Ref.NetStandard.CsvRow.<>c::<ToString>b__7_0(string)",
+              "scope": "internal",
+              "groupFile": "Ref03.NetStandard.dll",
+              "groupToken": 100663323
+            },
+            {
+              "offset": 31,
+              "opcode": "newobj",
+              "target": "System.Func<string, string>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 42,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Select<string, string>(IEnumerable<string>, Func<string, string>)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 47,
+              "opcode": "call",
+              "target": "System.String::Join(string, IEnumerable<string>)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil+<>c",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663308,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9080,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.NetStandard.TextUtil.<>c::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref03.NetStandard.dll",
+              "groupToken": 100663309
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil+<>c",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663309,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9092,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref03.NetStandard",
+              "method": "Ref.NetStandard.TextUtil+<>c::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil+<>c",
+          "name": "<Closest>b__5_1",
+          "signature": "string <Closest>b__5_1(string c)",
+          "token": 100663310,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 9100,
+          "size": 2,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref03.NetStandard",
+              "method": "Ref.NetStandard.TextUtil::Closest",
+              "signature": "string Closest(string word, IEnumerable<string> candidates)",
+              "offset": 45,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil+<>c__DisplayClass5_0",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663311,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9103,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref03.NetStandard",
+              "method": "Ref.NetStandard.TextUtil::Closest",
+              "signature": "string Closest(string word, IEnumerable<string> candidates)",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil+<>c__DisplayClass5_0",
+          "name": "<Closest>b__0",
+          "signature": "int <Closest>b__0(string c)",
+          "token": 100663312,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 9111,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "Ref.NetStandard.TextUtil::Levenshtein(string, string)",
+              "scope": "internal",
+              "groupFile": "Ref03.NetStandard.dll",
+              "groupToken": 100663300
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref03.NetStandard",
+              "method": "Ref.NetStandard.TextUtil::Closest",
+              "signature": "string Closest(string word, IEnumerable<string> candidates)",
+              "offset": 15,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil+<Wrap>d__3",
+          "name": ".ctor",
+          "signature": "void .ctor(int <>1__state)",
+          "token": 100663313,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9125,
+          "size": 25,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref03.NetStandard",
+              "method": "Ref.NetStandard.TextUtil::Wrap",
+              "signature": "IEnumerable<string> Wrap(string text, int width)",
+              "offset": 2,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref03.NetStandard",
+              "method": "Ref.NetStandard.TextUtil+<Wrap>d__3::System.Collections.Generic.IEnumerable<System.String>.GetEnumerator",
+              "signature": "IEnumerator<string> System.Collections.Generic.IEnumerable<System.String>.GetEnumerator()",
+              "offset": 35,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil+<Wrap>d__3",
+          "name": "System.IDisposable.Dispose",
+          "signature": "void System.IDisposable.Dispose()",
+          "token": 100663314,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9151,
+          "size": 30,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil+<Wrap>d__3",
+          "name": "MoveNext",
+          "signature": "bool MoveNext()",
+          "token": 100663315,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 9184,
+          "size": 363,
+          "calls": [
+            {
+              "offset": 48,
+              "opcode": "newobj",
+              "target": "System.ArgumentOutOfRangeException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 55,
+              "opcode": "newobj",
+              "target": "System.Text.StringBuilder::.ctor()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 72,
+              "opcode": "call",
+              "target": "Ref.NetStandard.TextUtil::CollapseSpaces(string)",
+              "scope": "internal",
+              "groupFile": "Ref03.NetStandard.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 88,
+              "opcode": "callvirt",
+              "target": "System.String::Split(char[])",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 135,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 149,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 162,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 183,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 215,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Clear()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 227,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 243,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(char)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 261,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 320,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::get_Length()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 335,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil+<Wrap>d__3",
+          "name": "System.Collections.Generic.IEnumerator<System.String>.get_Current",
+          "signature": "string System.Collections.Generic.IEnumerator<System.String>.get_Current()",
+          "token": 100663316,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9559,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil+<Wrap>d__3",
+          "name": "System.Collections.IEnumerator.Reset",
+          "signature": "void System.Collections.IEnumerator.Reset()",
+          "token": 100663317,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9567,
+          "size": 6,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.NotSupportedException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil+<Wrap>d__3",
+          "name": "System.Collections.IEnumerator.get_Current",
+          "signature": "object System.Collections.IEnumerator.get_Current()",
+          "token": 100663318,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9574,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil+<Wrap>d__3",
+          "name": "System.Collections.Generic.IEnumerable<System.String>.GetEnumerator",
+          "signature": "IEnumerator<string> System.Collections.Generic.IEnumerable<System.String>.GetEnumerator()",
+          "token": 100663319,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9584,
+          "size": 67,
+          "calls": [
+            {
+              "offset": 16,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 35,
+              "opcode": "newobj",
+              "target": "Ref.NetStandard.TextUtil.<Wrap>d__3::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref03.NetStandard.dll",
+              "groupToken": 100663313
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref03.NetStandard",
+              "method": "Ref.NetStandard.TextUtil+<Wrap>d__3::System.Collections.IEnumerable.GetEnumerator",
+              "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.TextUtil+<Wrap>d__3",
+          "name": "System.Collections.IEnumerable.GetEnumerator",
+          "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+          "token": 100663320,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9663,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.NetStandard.TextUtil.<Wrap>d__3::System.Collections.Generic.IEnumerable<System.String>.GetEnumerator()",
+              "scope": "internal",
+              "groupFile": "Ref03.NetStandard.dll",
+              "groupToken": 100663319
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.CsvRow+<>c",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663321,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9671,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.NetStandard.CsvRow.<>c::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref03.NetStandard.dll",
+              "groupToken": 100663322
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.CsvRow+<>c",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663322,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9683,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref03.NetStandard",
+              "method": "Ref.NetStandard.CsvRow+<>c::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref03.NetStandard",
+          "namespace": "Ref.NetStandard",
+          "type": "Ref.NetStandard.CsvRow+<>c",
+          "name": "<ToString>b__7_0",
+          "signature": "string <ToString>b__7_0(string f)",
+          "token": 100663323,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 9691,
+          "size": 59,
+          "calls": [
+            {
+              "offset": 17,
+              "opcode": "callvirt",
+              "target": "System.String::IndexOfAny(char[])",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 43,
+              "opcode": "callvirt",
+              "target": "System.String::Replace(string, string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            },
+            {
+              "offset": 53,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string, string)",
+              "scope": "external",
+              "targetAssembly": "netstandard"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref03.NetStandard",
+              "method": "Ref.NetStandard.CsvRow::ToString",
+              "signature": "string ToString()",
+              "offset": 25,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,275 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref12.HandIL.dll",
+      "assembly": "Ref12.HandIL",
+      "version": "1.0.0.0",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref12.HandIL",
+          "namespace": "Ref.HandIL",
+          "type": "Ref.HandIL.Constructs",
+          "name": "WithFault",
+          "signature": "int WithFault(int x)",
+          "token": 100663297,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8272,
+          "size": 31,
+          "calls": [
+            {
+              "offset": 4,
+              "opcode": "newobj",
+              "target": "System.ArgumentOutOfRangeException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref12.HandIL",
+          "namespace": "Ref.HandIL",
+          "type": "Ref.HandIL.Constructs",
+          "name": "WithFilter",
+          "signature": "int WithFilter(string s)",
+          "token": 100663298,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8332,
+          "size": 40,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Int32::Parse(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 23,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref12.HandIL",
+          "namespace": "Ref.HandIL",
+          "type": "Ref.HandIL.Constructs",
+          "name": "NestedInHandlers",
+          "signature": "int NestedInHandlers(int x)",
+          "token": 100663299,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8400,
+          "size": 38,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref12.HandIL",
+          "namespace": "Ref.HandIL",
+          "type": "Ref.HandIL.Constructs",
+          "name": "JumpTarget",
+          "signature": "int JumpTarget(int x)",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8504,
+          "size": 5,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref12.HandIL",
+              "method": "Ref.HandIL.Constructs::Jumper",
+              "signature": "int Jumper(int x)",
+              "offset": 0,
+              "opcode": "jmp"
+            },
+            {
+              "assembly": "Ref12.HandIL",
+              "method": "Ref.HandIL.Constructs::IndirectCall",
+              "signature": "int IndirectCall(int x)",
+              "offset": 1,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref12.HandIL",
+          "namespace": "Ref.HandIL",
+          "type": "Ref.HandIL.Constructs",
+          "name": "Jumper",
+          "signature": "int Jumper(int x)",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8521,
+          "size": 5,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "jmp",
+              "target": "Ref.HandIL.Constructs::JumpTarget(int)",
+              "scope": "internal",
+              "groupFile": "Ref12.HandIL.dll",
+              "groupToken": 100663300
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref12.HandIL",
+          "namespace": "Ref.HandIL",
+          "type": "Ref.HandIL.Constructs",
+          "name": "Factorial",
+          "signature": "long Factorial(int n, long acc)",
+          "token": 100663302,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8528,
+          "size": 21,
+          "calls": [
+            {
+              "offset": 15,
+              "opcode": "call",
+              "target": "Ref.HandIL.Constructs::Factorial(int, long)",
+              "scope": "internal",
+              "groupFile": "Ref12.HandIL.dll",
+              "groupToken": 100663302
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref12.HandIL",
+              "method": "Ref.HandIL.Constructs::Factorial",
+              "signature": "long Factorial(int n, long acc)",
+              "offset": 15,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref12.HandIL",
+          "namespace": "Ref.HandIL",
+          "type": "Ref.HandIL.Constructs",
+          "name": "SwitchFallThrough",
+          "signature": "string SwitchFallThrough(int x)",
+          "token": 100663303,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8564,
+          "size": 40,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref12.HandIL",
+          "namespace": "Ref.HandIL",
+          "type": "Ref.HandIL.Constructs",
+          "name": "SwitchLoop",
+          "signature": "int SwitchLoop(int[] ops)",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8616,
+          "size": 54,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref12.HandIL",
+          "namespace": "Ref.HandIL",
+          "type": "Ref.HandIL.Constructs",
+          "name": "Rethrows",
+          "signature": "void Rethrows()",
+          "token": 100663305,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8684,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.InvalidOperationException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref12.HandIL",
+          "namespace": "Ref.HandIL",
+          "type": "Ref.HandIL.Constructs",
+          "name": "IndirectCall",
+          "signature": "int IndirectCall(int x)",
+          "token": 100663306,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8728,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "ldftn",
+              "target": "Ref.HandIL.Constructs::JumpTarget(int)",
+              "scope": "internal",
+              "groupFile": "Ref12.HandIL.dll",
+              "groupToken": 100663300
+            },
+            {
+              "offset": 7,
+              "opcode": "calli",
+              "target": "(indirect) int32(int32)",
+              "scope": "indirect"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

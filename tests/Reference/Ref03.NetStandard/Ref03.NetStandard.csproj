@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 3. .NET Standard 2.0 library: references to netstandard. -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Ref.NetStandard</RootNamespace>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+</Project>

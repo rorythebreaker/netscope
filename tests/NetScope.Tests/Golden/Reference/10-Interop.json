@@ -1,0 +1,796 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref10.Interop.dll",
+      "assembly": "Ref10.Interop",
+      "version": "1.0.0.0",
+      "targetFramework": ".NETCoreApp,Version=v8.0",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Kernel32",
+          "name": "GetSystemTime",
+          "signature": "void GetSystemTime(out SystemTime time)",
+          "token": 100663297,
+          "access": "public",
+          "kinds": [
+            "static",
+            "pinvoke",
+            "no-body"
+          ],
+          "rva": 0,
+          "pinvoke": {
+            "dll": "kernel32.dll",
+            "entryPoint": "GetSystemTime"
+          },
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref10.Interop",
+              "method": "Ref.Interop.Platform::Describe",
+              "signature": "string Describe()",
+              "offset": 12,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Kernel32",
+          "name": "GetEnvironmentVariableW",
+          "signature": "uint GetEnvironmentVariableW(string name, StringBuilder buffer, uint size)",
+          "token": 100663298,
+          "access": "public",
+          "kinds": [
+            "static",
+            "pinvoke",
+            "no-body"
+          ],
+          "rva": 0,
+          "pinvoke": {
+            "dll": "kernel32.dll",
+            "entryPoint": "GetEnvironmentVariableW"
+          },
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref10.Interop",
+              "method": "Ref.Interop.Platform::Describe",
+              "signature": "string Describe()",
+              "offset": 40,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Kernel32",
+          "name": "Ticks",
+          "signature": "ulong Ticks()",
+          "token": 100663299,
+          "access": "public",
+          "kinds": [
+            "static",
+            "pinvoke",
+            "no-body"
+          ],
+          "rva": 0,
+          "pinvoke": {
+            "dll": "kernel32.dll",
+            "entryPoint": "GetTickCount64"
+          },
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref10.Interop",
+              "method": "Ref.Interop.Platform::Describe",
+              "signature": "string Describe()",
+              "offset": 163,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.LibC",
+          "name": "GetPid",
+          "signature": "int GetPid()",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "static",
+            "pinvoke",
+            "no-body"
+          ],
+          "rva": 0,
+          "pinvoke": {
+            "dll": "libc",
+            "entryPoint": "getpid"
+          },
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref10.Interop",
+              "method": "Ref.Interop.Platform::Describe",
+              "signature": "string Describe()",
+              "offset": 209,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.LibC",
+          "name": "StrLen",
+          "signature": "nuint StrLen(string s)",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8272,
+          "size": 66,
+          "calls": [
+            {
+              "offset": 13,
+              "opcode": "call",
+              "target": "System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller.ManagedToUnmanagedIn::get_BufferSize()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime.InteropServices"
+            },
+            {
+              "offset": 24,
+              "opcode": "newobj",
+              "target": "System.Span<byte>::.ctor(void*, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 36,
+              "opcode": "call",
+              "target": "System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller.ManagedToUnmanagedIn::FromManaged(string, Span<byte>)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime.InteropServices"
+            },
+            {
+              "offset": 43,
+              "opcode": "call",
+              "target": "System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller.ManagedToUnmanagedIn::ToUnmanaged()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime.InteropServices"
+            },
+            {
+              "offset": 48,
+              "opcode": "call",
+              "target": "Ref.Interop.LibC::<StrLen>g____PInvoke|1_0(byte*)",
+              "scope": "internal",
+              "groupFile": "Ref10.Interop.dll",
+              "groupToken": 100663303
+            },
+            {
+              "offset": 58,
+              "opcode": "call",
+              "target": "System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller.ManagedToUnmanagedIn::Free()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime.InteropServices"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref10.Interop",
+              "method": "Ref.Interop.Platform::Describe",
+              "signature": "string Describe()",
+              "offset": 239,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.LibC",
+          "name": "QSort",
+          "signature": "void QSort(void* data, nuint count, nuint size, delegate*<void*, void*, int> compare)",
+          "token": 100663302,
+          "access": "public",
+          "kinds": [
+            "static",
+            "pinvoke",
+            "no-body"
+          ],
+          "rva": 0,
+          "pinvoke": {
+            "dll": "libc",
+            "entryPoint": "qsort"
+          },
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref10.Interop",
+              "method": "Ref.Interop.Callbacks::Sort",
+              "signature": "void Sort(int[] values)",
+              "offset": 37,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.LibC",
+          "name": "<StrLen>g____PInvoke|1_0",
+          "signature": "nuint <StrLen>g____PInvoke|1_0(byte* __s_native)",
+          "token": 100663303,
+          "access": "internal",
+          "kinds": [
+            "static",
+            "pinvoke",
+            "local-function",
+            "compiler-generated",
+            "no-body"
+          ],
+          "rva": 0,
+          "pinvoke": {
+            "dll": "libc",
+            "entryPoint": "strlen"
+          },
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref10.Interop",
+              "method": "Ref.Interop.LibC::StrLen",
+              "signature": "nuint StrLen(string s)",
+              "offset": 48,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Callbacks",
+          "name": "CompareInts",
+          "signature": "int CompareInts(void* a, void* b)",
+          "token": 100663304,
+          "access": "private",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8368,
+          "size": 9,
+          "calls": [
+            {
+              "offset": 3,
+              "opcode": "call",
+              "target": "System.Int32::CompareTo(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref10.Interop",
+              "method": "Ref.Interop.Callbacks::Sort",
+              "signature": "void Sort(int[] values)",
+              "offset": 31,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Callbacks",
+          "name": "Sort",
+          "signature": "void Sort(int[] values)",
+          "token": 100663305,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8380,
+          "size": 45,
+          "calls": [
+            {
+              "offset": 31,
+              "opcode": "ldftn",
+              "target": "Ref.Interop.Callbacks::CompareInts(void*, void*)",
+              "scope": "internal",
+              "groupFile": "Ref10.Interop.dll",
+              "groupToken": 100663304
+            },
+            {
+              "offset": 37,
+              "opcode": "call",
+              "target": "Ref.Interop.LibC::QSort(void*, nuint, nuint, delegate*<void*, void*, int>)",
+              "scope": "internal",
+              "groupFile": "Ref10.Interop.dll",
+              "groupToken": 100663302
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Callbacks",
+          "name": "Apply",
+          "signature": "int Apply(delegate*<int, int, int> op, int a, int b)",
+          "token": 100663306,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8440,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 5,
+              "opcode": "calli",
+              "target": "(indirect) int32(int32, int32)",
+              "scope": "indirect"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref10.Interop",
+              "method": "Ref.Interop.Callbacks::AddViaPointer",
+              "signature": "int AddViaPointer(int a, int b)",
+              "offset": 8,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Callbacks",
+          "name": "Add",
+          "signature": "int Add(int a, int b)",
+          "token": 100663307,
+          "access": "private",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8463,
+          "size": 4,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref10.Interop",
+              "method": "Ref.Interop.Callbacks::AddViaPointer",
+              "signature": "int AddViaPointer(int a, int b)",
+              "offset": 0,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Callbacks",
+          "name": "AddViaPointer",
+          "signature": "int AddViaPointer(int a, int b)",
+          "token": 100663308,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8468,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "ldftn",
+              "target": "Ref.Interop.Callbacks::Add(int, int)",
+              "scope": "internal",
+              "groupFile": "Ref10.Interop.dll",
+              "groupToken": 100663307
+            },
+            {
+              "offset": 8,
+              "opcode": "call",
+              "target": "Ref.Interop.Callbacks::Apply(delegate*<int, int, int>, int, int)",
+              "scope": "internal",
+              "groupFile": "Ref10.Interop.dll",
+              "groupToken": 100663306
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Callbacks",
+          "name": "CallNative",
+          "signature": "int CallNative(nint fn, int a, int b)",
+          "token": 100663309,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8483,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Runtime.InteropServices.Marshal::GetDelegateForFunctionPointer<BinaryOp>(nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime.InteropServices"
+            },
+            {
+              "offset": 8,
+              "opcode": "callvirt",
+              "target": "Ref.Interop.Callbacks.BinaryOp::Invoke(int, int)",
+              "scope": "internal",
+              "groupFile": "Ref10.Interop.dll",
+              "groupToken": 100663315
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Callbacks",
+          "name": "Export",
+          "signature": "nint Export(BinaryOp op)",
+          "token": 100663310,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8498,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Runtime.InteropServices.Marshal::GetFunctionPointerForDelegate<BinaryOp>(BinaryOp)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime.InteropServices"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Platform",
+          "name": "Describe",
+          "signature": "string Describe()",
+          "token": 100663311,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8508,
+          "size": 268,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "call",
+              "target": "System.OperatingSystem::IsWindows()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "Ref.Interop.Kernel32::GetSystemTime(ref SystemTime)",
+              "scope": "internal",
+              "groupFile": "Ref10.Interop.dll",
+              "groupToken": 100663297
+            },
+            {
+              "offset": 22,
+              "opcode": "newobj",
+              "target": "System.Text.StringBuilder::.ctor(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 35,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::get_Capacity()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 40,
+              "opcode": "call",
+              "target": "Ref.Interop.Kernel32::GetEnvironmentVariableW(string, StringBuilder, uint)",
+              "scope": "internal",
+              "groupFile": "Ref10.Interop.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 51,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 64,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<ushort>(ushort)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 76,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 94,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<ushort>(ushort, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 106,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 124,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<ushort>(ushort, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 136,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 144,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<uint>(uint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 156,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 163,
+              "opcode": "call",
+              "target": "Ref.Interop.Kernel32::Ticks()",
+              "scope": "internal",
+              "groupFile": "Ref10.Interop.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 168,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<ulong>(ulong)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 180,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 187,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 209,
+              "opcode": "call",
+              "target": "Ref.Interop.LibC::GetPid()",
+              "scope": "internal",
+              "groupFile": "Ref10.Interop.dll",
+              "groupToken": 100663300
+            },
+            {
+              "offset": 218,
+              "opcode": "call",
+              "target": "System.Int32::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 239,
+              "opcode": "call",
+              "target": "Ref.Interop.LibC::StrLen(string)",
+              "scope": "internal",
+              "groupFile": "Ref10.Interop.dll",
+              "groupToken": 100663301
+            },
+            {
+              "offset": 248,
+              "opcode": "call",
+              "target": "System.UIntPtr::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 262,
+              "opcode": "call",
+              "target": "System.String::Concat(string[])",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Platform",
+          "name": "Reinterpret",
+          "signature": "float Reinterpret(int bits)",
+          "token": 100663312,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8788,
+          "size": 23,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Platform",
+          "name": "PtrToString",
+          "signature": "string PtrToString(nint p)",
+          "token": 100663313,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8823,
+          "size": 16,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Runtime.InteropServices.Marshal::PtrToStringUTF8(nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime.InteropServices"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Callbacks+BinaryOp",
+          "name": ".ctor",
+          "signature": "void .ctor(object object, nint method)",
+          "token": 100663314,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "runtime",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Callbacks+BinaryOp",
+          "name": "Invoke",
+          "signature": "int Invoke(int a, int b)",
+          "token": 100663315,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "runtime",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref10.Interop",
+              "method": "Ref.Interop.Callbacks::CallNative",
+              "signature": "int CallNative(nint fn, int a, int b)",
+              "offset": 8,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Callbacks+BinaryOp",
+          "name": "BeginInvoke",
+          "signature": "IAsyncResult BeginInvoke(int a, int b, AsyncCallback callback, object object)",
+          "token": 100663316,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "runtime",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref10.Interop",
+          "namespace": "Ref.Interop",
+          "type": "Ref.Interop.Callbacks+BinaryOp",
+          "name": "EndInvoke",
+          "signature": "int EndInvoke(IAsyncResult result)",
+          "token": 100663317,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "runtime",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

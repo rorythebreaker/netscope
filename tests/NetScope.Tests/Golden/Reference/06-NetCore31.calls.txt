@@ -1,0 +1,254 @@
+Assembly : Ref06.NetCore31.dll
+Name     : Ref06.NetCore31, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v3.1   Machine: anycpu
+Methods  : 17
+
+Type     : Microsoft.CodeAnalysis.EmbeddedAttribute
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2050   Size: 7 bytes   Token: 0x06000001
+
+[Calls]
+  IL_0001  call      System.Attribute::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : System.Runtime.CompilerServices.NullableAttribute
+
+Method   : void .ctor(byte arg1)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2058   Size: 23 bytes   Token: 0x06000002
+
+[Calls]
+  IL_0001  call      System.Attribute::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void .ctor(byte[] arg1)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2070   Size: 14 bytes   Token: 0x06000003
+
+[Calls]
+  IL_0001  call      System.Attribute::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : System.Runtime.CompilerServices.NullableContextAttribute
+
+Method   : void .ctor(byte arg1)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x207F   Size: 14 bytes   Token: 0x06000004
+
+[Calls]
+  IL_0001  call      System.Attribute::.ctor()  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.NetCore31.Measurement
+
+Method   : void .ctor(string name, double value, string unit)
+Kind     : ctor, instance, public
+RVA      : 0x208E   Size: 28 bytes   Token: 0x06000005
+
+[Calls]
+  IL_0001  call      System.Object::.ctor()  external System.Runtime
+[Callers]
+  Ref.NetCore31.JsonExport::Read  IL_008C  newobj  (Ref06.NetCore31.dll)
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20AB   Size: 7 bytes   Token: 0x06000006
+
+[Calls]
+  (none)
+[Callers]
+  Ref.NetCore31.Measurement::Describe  IL_000E  call  (Ref06.NetCore31.dll)
+  Ref.NetCore31.Measurement::Describe  IL_0030  call  (Ref06.NetCore31.dll)
+  Ref.NetCore31.JsonExport::Write  IL_003B  callvirt  (Ref06.NetCore31.dll)
+
+Method   : double get_Value()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20B3   Size: 7 bytes   Token: 0x06000007
+
+[Calls]
+  (none)
+[Callers]
+  Ref.NetCore31.Measurement::Describe  IL_0014  call  (Ref06.NetCore31.dll)
+  Ref.NetCore31.Measurement::Describe  IL_0036  call  (Ref06.NetCore31.dll)
+  Ref.NetCore31.JsonExport::Write  IL_004D  callvirt  (Ref06.NetCore31.dll)
+
+Method   : string get_Unit()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20BB   Size: 7 bytes   Token: 0x06000008
+
+[Calls]
+  (none)
+[Callers]
+  Ref.NetCore31.Measurement::Describe  IL_0001  call  (Ref06.NetCore31.dll)
+  Ref.NetCore31.Measurement::Describe  IL_001F  call  (Ref06.NetCore31.dll)
+  Ref.NetCore31.JsonExport::Write  IL_0059  callvirt  (Ref06.NetCore31.dll)
+  Ref.NetCore31.JsonExport::Write  IL_0068  callvirt  (Ref06.NetCore31.dll)
+
+Method   : string Describe()
+Kind     : instance, public
+RVA      : 0x20C4   Size: 70 bytes   Token: 0x06000009
+
+[Calls]
+  IL_0001  call      Ref.NetCore31.Measurement::get_Unit()                  internal
+  IL_000E  call      Ref.NetCore31.Measurement::get_Name()                  internal
+  IL_0014  call      Ref.NetCore31.Measurement::get_Value()                 internal
+  IL_001F  call      Ref.NetCore31.Measurement::get_Unit()                  internal
+  IL_0024  call      System.String::Format(string, object, object, object)  external System.Runtime
+  IL_0030  call      Ref.NetCore31.Measurement::get_Name()                  internal
+  IL_0036  call      Ref.NetCore31.Measurement::get_Value()                 internal
+  IL_0040  call      System.String::Format(string, object, object)          external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.NetCore31.Geometry
+
+Method   : double Area(Shape shape, double size)
+Kind     : static, public
+RVA      : 0x2118   Size: 86 bytes   Token: 0x0600000A
+
+[Calls]
+  IL_0033  call      System.Math::Sqrt(double)                          external System.Runtime.Extensions
+  IL_004E  newobj    System.ArgumentOutOfRangeException::.ctor(string)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : string Classify(object value)
+Kind     : static, public
+RVA      : 0x217C   Size: 252 bytes   Token: 0x0600000B
+
+[Calls]
+  IL_0029  callvirt  System.String::get_Length()                            external System.Runtime
+  IL_0047  callvirt  System.Runtime.CompilerServices.ITuple::get_Length()   external System.Runtime
+  IL_0055  callvirt  System.Runtime.CompilerServices.ITuple::get_Item(int)  external System.Runtime
+  IL_0073  callvirt  System.Runtime.CompilerServices.ITuple::get_Item(int)  external System.Runtime
+  IL_00BB  callvirt  System.String::get_Length()                            external System.Runtime
+  IL_00C4  call      System.Int32::ToString()                               external System.Runtime
+  IL_00C9  call      System.String::Concat(string, string)                  external System.Runtime
+  IL_00E3  call      System.String::Format(string, object, object)          external System.Runtime
+  IL_00ED  callvirt  System.Object::GetType()                               external System.Runtime
+  IL_00F2  callvirt  System.Reflection.MemberInfo::get_Name()               external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.NetCore31.Binary
+
+Method   : int ReadHeader(ReadOnlySpan<byte> data, out ushort version)
+Kind     : static, public
+RVA      : 0x2284   Size: 57 bytes   Token: 0x0600000C
+
+[Calls]
+  IL_0002  call      System.ReadOnlySpan<byte>::get_Length()                                             external System.Runtime
+  IL_0014  newobj    System.ArgumentException::.ctor(string, string)                                     external System.Runtime
+  IL_001E  call      System.ReadOnlySpan<byte>::Slice(int, int)                                          external System.Runtime
+  IL_0023  call      System.Buffers.Binary.BinaryPrimitives::ReadInt32LittleEndian(ReadOnlySpan<byte>)   external System.Memory
+  IL_002D  call      System.ReadOnlySpan<byte>::Slice(int, int)                                          external System.Runtime
+  IL_0032  call      System.Buffers.Binary.BinaryPrimitives::ReadUInt16LittleEndian(ReadOnlySpan<byte>)  external System.Memory
+[Callers]
+  (none in the input files)
+
+Method   : string Hex(ReadOnlySpan<byte> data)
+Kind     : static, public
+RVA      : 0x22C0   Size: 155 bytes   Token: 0x0600000D
+
+[Calls]
+  IL_0002  call      System.ReadOnlySpan<byte>::get_Length()     external System.Runtime
+  IL_000D  call      System.ReadOnlySpan<byte>::get_Length()     external System.Runtime
+  IL_001C  newobj    System.Span<char>::.ctor(void*, int)        external System.Runtime
+  IL_0026  call      System.ReadOnlySpan<byte>::get_Length()     external System.Runtime
+  IL_0032  call      System.Span<char>::op_Implicit(char[])      external System.Runtime
+  IL_0043  call      System.Span<char>::get_Item(int)            external System.Runtime
+  IL_0050  call      System.ReadOnlySpan<byte>::get_Item(int)    external System.Runtime
+  IL_0058  call      System.String::get_Chars(int)               external System.Runtime
+  IL_0065  call      System.Span<char>::get_Item(int)            external System.Runtime
+  IL_0072  call      System.ReadOnlySpan<byte>::get_Item(int)    external System.Runtime
+  IL_007B  call      System.String::get_Chars(int)               external System.Runtime
+  IL_0088  call      System.ReadOnlySpan<byte>::get_Length()     external System.Runtime
+  IL_0090  call      System.Span<char>::op_Implicit(Span<char>)  external System.Runtime
+  IL_0095  newobj    System.String::.ctor(ReadOnlySpan<char>)    external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.NetCore31.JsonExport
+
+Method   : string Write(IEnumerable<Measurement> items)
+Kind     : static, public
+RVA      : 0x2368   Size: 191 bytes   Token: 0x0600000E
+
+[Calls]
+  IL_0000  newobj    System.IO.MemoryStream::.ctor()                                                     external System.Runtime.Extensions
+  IL_0010  newobj    System.Text.Json.Utf8JsonWriter::.ctor(Stream, JsonWriterOptions)                   external System.Text.Json
+  IL_0017  callvirt  System.Text.Json.Utf8JsonWriter::WriteStartArray()                                  external System.Text.Json
+  IL_001D  callvirt  System.Collections.Generic.IEnumerable<Ref.NetCore31.Measurement>::GetEnumerator()  external System.Runtime
+  IL_0026  callvirt  System.Collections.Generic.IEnumerator<Ref.NetCore31.Measurement>::get_Current()    external System.Runtime
+  IL_002E  callvirt  System.Text.Json.Utf8JsonWriter::WriteStartObject()                                 external System.Text.Json
+  IL_003B  callvirt  Ref.NetCore31.Measurement::get_Name()                                               internal
+  IL_0040  callvirt  System.Text.Json.Utf8JsonWriter::WriteString(string, string)                        external System.Text.Json
+  IL_004D  callvirt  Ref.NetCore31.Measurement::get_Value()                                              internal
+  IL_0052  callvirt  System.Text.Json.Utf8JsonWriter::WriteNumber(string, double)                        external System.Text.Json
+  IL_0059  callvirt  Ref.NetCore31.Measurement::get_Unit()                                               internal
+  IL_0068  callvirt  Ref.NetCore31.Measurement::get_Unit()                                               internal
+  IL_006D  callvirt  System.Text.Json.Utf8JsonWriter::WriteString(string, string)                        external System.Text.Json
+  IL_0073  callvirt  System.Text.Json.Utf8JsonWriter::WriteEndObject()                                   external System.Text.Json
+  IL_0079  callvirt  System.Collections.IEnumerator::MoveNext()                                          external System.Runtime
+  IL_0086  callvirt  System.IDisposable::Dispose()                                                       external System.Runtime
+  IL_008D  callvirt  System.Text.Json.Utf8JsonWriter::WriteEndArray()                                    external System.Text.Json
+  IL_0098  callvirt  System.IDisposable::Dispose()                                                       external System.Runtime
+  IL_009E  call      System.Text.Encoding::get_UTF8()                                                    external System.Runtime
+  IL_00A4  callvirt  System.IO.MemoryStream::ToArray()                                                   external System.Runtime.Extensions
+  IL_00A9  callvirt  System.Text.Encoding::GetString(byte[])                                             external System.Runtime
+  IL_00B6  callvirt  System.IDisposable::Dispose()                                                       external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : List<Measurement> Read(string json)
+Kind     : static, public
+RVA      : 0x245C   Size: 193 bytes   Token: 0x0600000F
+
+[Calls]
+  IL_000A  call      System.Text.Json.JsonDocument::Parse(string, JsonDocumentOptions)             external System.Text.Json
+  IL_0010  newobj    System.Collections.Generic.List<Ref.NetCore31.Measurement>::.ctor()           external System.Collections
+  IL_0017  callvirt  System.Text.Json.JsonDocument::get_RootElement()                              external System.Text.Json
+  IL_0020  call      System.Text.Json.JsonElement::EnumerateArray()                                external System.Text.Json
+  IL_0029  call      System.Text.Json.JsonElement.ArrayEnumerator::GetEnumerator()                 external System.Text.Json
+  IL_0033  call      System.Text.Json.JsonElement.ArrayEnumerator::get_Current()                   external System.Text.Json
+  IL_0043  call      System.Text.Json.JsonElement::TryGetProperty(string, ref JsonElement)         external System.Text.Json
+  IL_004F  call      System.Text.Json.JsonElement::GetString()                                     external System.Text.Json
+  IL_005E  call      System.Text.Json.JsonElement::GetProperty(string)                             external System.Text.Json
+  IL_0067  call      System.Text.Json.JsonElement::GetString()                                     external System.Text.Json
+  IL_007C  call      System.Text.Json.JsonElement::GetProperty(string)                             external System.Text.Json
+  IL_0085  call      System.Text.Json.JsonElement::GetDouble()                                     external System.Text.Json
+  IL_008C  newobj    Ref.NetCore31.Measurement::.ctor(string, double, string)                      internal
+  IL_0091  callvirt  System.Collections.Generic.List<Ref.NetCore31.Measurement>::Add(Measurement)  external System.Collections
+  IL_0098  call      System.Text.Json.JsonElement.ArrayEnumerator::MoveNext()                      external System.Text.Json
+  IL_00A9  callvirt  System.IDisposable::Dispose()                                                 external System.Runtime
+  IL_00B8  callvirt  System.IDisposable::Dispose()                                                 external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.NetCore31.ILogger
+
+Method   : void Log(string message)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000010
+
+[Calls]
+  (none)
+[Callers]
+  Ref.NetCore31.ILogger::LogError  IL_0011  callvirt  (Ref06.NetCore31.dll)
+
+Method   : void LogError(Exception ex)
+Kind     : instance, public, virtual
+RVA      : 0x2548   Size: 23 bytes   Token: 0x06000011
+
+[Calls]
+  IL_0007  callvirt  System.Exception::get_Message()        external System.Runtime
+  IL_000C  call      System.String::Concat(string, string)  external System.Runtime
+  IL_0011  callvirt  Ref.NetCore31.ILogger::Log(string)     internal
+[Callers]
+  (none in the input files)

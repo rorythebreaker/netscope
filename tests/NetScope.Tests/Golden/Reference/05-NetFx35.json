@@ -1,0 +1,1396 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref05.NetFx35.dll",
+      "assembly": "Ref05.NetFx35",
+      "version": "1.0.0.0",
+      "metadataVersion": "v2.0.50727",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Extensions",
+          "name": "IsBlank",
+          "signature": "bool IsBlank(string s)",
+          "token": 100663297,
+          "access": "public",
+          "kinds": [
+            "static",
+            "extension"
+          ],
+          "rva": 8272,
+          "size": 20,
+          "calls": [
+            {
+              "offset": 4,
+              "opcode": "callvirt",
+              "target": "System.String::Trim()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Extensions",
+          "name": "EveryOther",
+          "signature": "IEnumerable<T> EveryOther<T>(IEnumerable<T> source)",
+          "token": 100663298,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic",
+            "extension"
+          ],
+          "rva": 8293,
+          "size": 15,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "newobj",
+              "target": "Ref.NetFx35.Extensions.<EveryOther>d__1<!!0>::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663314
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Extensions",
+          "name": "Join",
+          "signature": "string Join(IEnumerable<string> parts, string separator)",
+          "token": 100663299,
+          "access": "public",
+          "kinds": [
+            "static",
+            "extension"
+          ],
+          "rva": 8312,
+          "size": 74,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.Text.StringBuilder::.ctor()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<string>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 16,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<string>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 23,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::get_Length()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 33,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 41,
+              "opcode": "callvirt",
+              "target": "System.Text.StringBuilder::Append(string)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 48,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 61,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 68,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Customer",
+          "name": "get_Name",
+          "signature": "string get_Name()",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance"
+          ],
+          "rva": 8416,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Ledger::Add",
+              "signature": "void Add(Customer customer)",
+              "offset": 24,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Ledger+<>c__DisplayClass7_0::<FindByName>b__0",
+              "signature": "bool <FindByName>b__0(Customer c)",
+              "offset": 1,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Customer",
+          "name": "set_Name",
+          "signature": "void set_Name(string value)",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance"
+          ],
+          "rva": 8424,
+          "size": 22,
+          "calls": [
+            {
+              "offset": 8,
+              "opcode": "newobj",
+              "target": "System.ArgumentNullException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Customer",
+          "name": "get_City",
+          "signature": "string get_City()",
+          "token": 100663302,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8447,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Ledger+<>c::<CitiesWithDebt>b__3_1",
+              "signature": "string <CitiesWithDebt>b__3_1(Customer c)",
+              "offset": 1,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Customer",
+          "name": "set_City",
+          "signature": "void set_City(string value)",
+          "token": 100663303,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8455,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Customer",
+          "name": "get_Balance",
+          "signature": "Decimal get_Balance()",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8464,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Ledger+<>c::<CitiesWithDebt>b__3_0",
+              "signature": "bool <CitiesWithDebt>b__3_0(Customer c)",
+              "offset": 1,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Ledger+<>c::<Total>b__4_0",
+              "signature": "Decimal <Total>b__4_0(Customer c)",
+              "offset": 1,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Customer",
+          "name": "set_Balance",
+          "signature": "void set_Balance(Decimal value)",
+          "token": 100663305,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8472,
+          "size": 8,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Customer",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663306,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8481,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger",
+          "name": "Add",
+          "signature": "void Add(Customer customer)",
+          "token": 100663307,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8489,
+          "size": 41,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<Ref.NetFx35.Customer>::Add(Customer)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 24,
+              "opcode": "callvirt",
+              "target": "Ref.NetFx35.Customer::get_Name()",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663300
+            },
+            {
+              "offset": 29,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 34,
+              "opcode": "callvirt",
+              "target": "System.Collections.ArrayList::Add(object)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger",
+          "name": "CitiesWithDebt",
+          "signature": "IEnumerable<string> CitiesWithDebt()",
+          "token": 100663308,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8532,
+          "size": 156,
+          "calls": [
+            {
+              "offset": 20,
+              "opcode": "ldftn",
+              "target": "Ref.NetFx35.Ledger.<>c::<CitiesWithDebt>b__3_0(Customer)",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663325
+            },
+            {
+              "offset": 26,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.NetFx35.Customer, bool>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Core"
+            },
+            {
+              "offset": 37,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Where<Customer>(IEnumerable<Customer>, Func<Customer, bool>)",
+              "scope": "external",
+              "targetAssembly": "System.Core"
+            },
+            {
+              "offset": 56,
+              "opcode": "ldftn",
+              "target": "Ref.NetFx35.Ledger.<>c::<CitiesWithDebt>b__3_1(Customer)",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663326
+            },
+            {
+              "offset": 62,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.NetFx35.Customer, string>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Core"
+            },
+            {
+              "offset": 73,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::GroupBy<Customer, string>(IEnumerable<Customer>, Func<Customer, string>)",
+              "scope": "external",
+              "targetAssembly": "System.Core"
+            },
+            {
+              "offset": 92,
+              "opcode": "ldftn",
+              "target": "Ref.NetFx35.Ledger.<>c::<CitiesWithDebt>b__3_2(IGrouping<string, Customer>)",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663327
+            },
+            {
+              "offset": 98,
+              "opcode": "newobj",
+              "target": "System.Func<System.Linq.IGrouping<string, Ref.NetFx35.Customer>, string>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Core"
+            },
+            {
+              "offset": 109,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::OrderBy<IGrouping<string, Customer>, string>(IEnumerable<IGrouping<string, Customer>>, Func<IGrouping<string, Customer>, string>)",
+              "scope": "external",
+              "targetAssembly": "System.Core"
+            },
+            {
+              "offset": 128,
+              "opcode": "ldftn",
+              "target": "Ref.NetFx35.Ledger.<>c::<CitiesWithDebt>b__3_3(IGrouping<string, Customer>)",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663328
+            },
+            {
+              "offset": 134,
+              "opcode": "newobj",
+              "target": "System.Func<System.Linq.IGrouping<string, Ref.NetFx35.Customer>, string>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Core"
+            },
+            {
+              "offset": 145,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Select<IGrouping<string, Customer>, string>(IEnumerable<IGrouping<string, Customer>>, Func<IGrouping<string, Customer>, string>)",
+              "scope": "external",
+              "targetAssembly": "System.Core"
+            },
+            {
+              "offset": 150,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::ToList<string>(IEnumerable<string>)",
+              "scope": "external",
+              "targetAssembly": "System.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger",
+          "name": "Total",
+          "signature": "Decimal Total()",
+          "token": 100663309,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8700,
+          "size": 43,
+          "calls": [
+            {
+              "offset": 20,
+              "opcode": "ldftn",
+              "target": "Ref.NetFx35.Ledger.<>c::<Total>b__4_0(Customer)",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663329
+            },
+            {
+              "offset": 26,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.NetFx35.Customer, System.Decimal>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Core"
+            },
+            {
+              "offset": 37,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Sum<Customer>(IEnumerable<Customer>, Func<Customer, Decimal>)",
+              "scope": "external",
+              "targetAssembly": "System.Core"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger",
+          "name": "Log",
+          "signature": "string[] Log()",
+          "token": 100663310,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8744,
+          "size": 61,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.Collections.ArrayList::get_Count()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 30,
+              "opcode": "callvirt",
+              "target": "System.Collections.ArrayList::get_Item(int)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 52,
+              "opcode": "callvirt",
+              "target": "System.Collections.ArrayList::get_Count()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger",
+          "name": "Find",
+          "signature": "Customer Find(Predicate<Customer> match)",
+          "token": 100663311,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8817,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<Ref.NetFx35.Customer>::Find(Predicate<Customer>)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Ledger::FindByName",
+              "signature": "Customer FindByName(string name)",
+              "offset": 26,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger",
+          "name": "FindByName",
+          "signature": "Customer FindByName(string name)",
+          "token": 100663312,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8832,
+          "size": 32,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.NetFx35.Ledger.<>c__DisplayClass7_0::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663330
+            },
+            {
+              "offset": 15,
+              "opcode": "ldftn",
+              "target": "Ref.NetFx35.Ledger.<>c__DisplayClass7_0::<FindByName>b__0(Customer)",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663331
+            },
+            {
+              "offset": 21,
+              "opcode": "newobj",
+              "target": "System.Predicate<Ref.NetFx35.Customer>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 26,
+              "opcode": "call",
+              "target": "Ref.NetFx35.Ledger::Find(Predicate<Customer>)",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663311
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663313,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8876,
+          "size": 29,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "System.Collections.ArrayList::.ctor()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 12,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.List<Ref.NetFx35.Customer>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 23,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Extensions+<EveryOther>d__1`1",
+          "name": ".ctor",
+          "signature": "void .ctor(int <>1__state)",
+          "token": 100663314,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8906,
+          "size": 30,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "System.Threading.Thread::get_CurrentThread()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 19,
+              "opcode": "callvirt",
+              "target": "System.Threading.Thread::get_ManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Extensions::EveryOther",
+              "signature": "IEnumerable<T> EveryOther<T>(IEnumerable<T> source)",
+              "offset": 2,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Extensions+<EveryOther>d__1`1::System.Collections.Generic.IEnumerable<T>.GetEnumerator",
+              "signature": "IEnumerator<T> System.Collections.Generic.IEnumerable<T>.GetEnumerator()",
+              "offset": 40,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Extensions+<EveryOther>d__1`1",
+          "name": "System.IDisposable.Dispose",
+          "signature": "void System.IDisposable.Dispose()",
+          "token": 100663315,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 8940,
+          "size": 42,
+          "calls": [
+            {
+              "offset": 20,
+              "opcode": "call",
+              "target": "Ref.NetFx35.Extensions.<EveryOther>d__1<!0>::<>m__Finally1()",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663317
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Extensions+<EveryOther>d__1`1::MoveNext",
+              "signature": "bool MoveNext()",
+              "offset": 154,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Extensions+<EveryOther>d__1`1",
+          "name": "MoveNext",
+          "signature": "bool MoveNext()",
+          "token": 100663316,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 9012,
+          "size": 162,
+          "calls": [
+            {
+              "offset": 42,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<!0>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 68,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<!0>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 129,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 137,
+              "opcode": "call",
+              "target": "Ref.NetFx35.Extensions.<EveryOther>d__1<!0>::<>m__Finally1()",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663317
+            },
+            {
+              "offset": 154,
+              "opcode": "call",
+              "target": "Ref.NetFx35.Extensions.<EveryOther>d__1<!0>::System.IDisposable.Dispose()",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663315
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Extensions+<EveryOther>d__1`1",
+          "name": "<>m__Finally1",
+          "signature": "void <>m__Finally1()",
+          "token": 100663317,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9204,
+          "size": 27,
+          "calls": [
+            {
+              "offset": 21,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Extensions+<EveryOther>d__1`1::System.IDisposable.Dispose",
+              "signature": "void System.IDisposable.Dispose()",
+              "offset": 20,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Extensions+<EveryOther>d__1`1::MoveNext",
+              "signature": "bool MoveNext()",
+              "offset": 137,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Extensions+<EveryOther>d__1`1",
+          "name": "System.Collections.Generic.IEnumerator<T>.get_Current",
+          "signature": "T System.Collections.Generic.IEnumerator<T>.get_Current()",
+          "token": 100663318,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9232,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Extensions+<EveryOther>d__1`1",
+          "name": "System.Collections.IEnumerator.Reset",
+          "signature": "void System.Collections.IEnumerator.Reset()",
+          "token": 100663319,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9240,
+          "size": 6,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.NotSupportedException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Extensions+<EveryOther>d__1`1",
+          "name": "System.Collections.IEnumerator.get_Current",
+          "signature": "object System.Collections.IEnumerator.get_Current()",
+          "token": 100663320,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9247,
+          "size": 12,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Extensions+<EveryOther>d__1`1",
+          "name": "System.Collections.Generic.IEnumerable<T>.GetEnumerator",
+          "signature": "IEnumerator<T> System.Collections.Generic.IEnumerable<T>.GetEnumerator()",
+          "token": 100663321,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9260,
+          "size": 60,
+          "calls": [
+            {
+              "offset": 16,
+              "opcode": "call",
+              "target": "System.Threading.Thread::get_CurrentThread()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 21,
+              "opcode": "callvirt",
+              "target": "System.Threading.Thread::get_ManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 40,
+              "opcode": "newobj",
+              "target": "Ref.NetFx35.Extensions.<EveryOther>d__1<!0>::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663314
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Extensions+<EveryOther>d__1`1::System.Collections.IEnumerable.GetEnumerator",
+              "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Extensions+<EveryOther>d__1`1",
+          "name": "System.Collections.IEnumerable.GetEnumerator",
+          "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+          "token": 100663322,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9332,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.NetFx35.Extensions.<EveryOther>d__1<!0>::System.Collections.Generic.IEnumerable<T>.GetEnumerator()",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663321
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger+<>c",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663323,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 9340,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.NetFx35.Ledger.<>c::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663324
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger+<>c",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663324,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9352,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Ledger+<>c::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger+<>c",
+          "name": "<CitiesWithDebt>b__3_0",
+          "signature": "bool <CitiesWithDebt>b__3_0(Customer c)",
+          "token": 100663325,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 9360,
+          "size": 17,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.NetFx35.Customer::get_Balance()",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663304
+            },
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.Decimal::op_LessThan(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Ledger::CitiesWithDebt",
+              "signature": "IEnumerable<string> CitiesWithDebt()",
+              "offset": 20,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger+<>c",
+          "name": "<CitiesWithDebt>b__3_1",
+          "signature": "string <CitiesWithDebt>b__3_1(Customer c)",
+          "token": 100663326,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 9378,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.NetFx35.Customer::get_City()",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663302
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Ledger::CitiesWithDebt",
+              "signature": "IEnumerable<string> CitiesWithDebt()",
+              "offset": 56,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger+<>c",
+          "name": "<CitiesWithDebt>b__3_2",
+          "signature": "string <CitiesWithDebt>b__3_2(IGrouping<string, Customer> g)",
+          "token": 100663327,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 9386,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "System.Linq.IGrouping<string, Ref.NetFx35.Customer>::get_Key()",
+              "scope": "external",
+              "targetAssembly": "System.Core"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Ledger::CitiesWithDebt",
+              "signature": "IEnumerable<string> CitiesWithDebt()",
+              "offset": 92,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger+<>c",
+          "name": "<CitiesWithDebt>b__3_3",
+          "signature": "string <CitiesWithDebt>b__3_3(IGrouping<string, Customer> g)",
+          "token": 100663328,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 9396,
+          "size": 31,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "System.Linq.IGrouping<string, Ref.NetFx35.Customer>::get_Key()",
+              "scope": "external",
+              "targetAssembly": "System.Core"
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.Linq.Enumerable::Count<Customer>(IEnumerable<Customer>)",
+              "scope": "external",
+              "targetAssembly": "System.Core"
+            },
+            {
+              "offset": 20,
+              "opcode": "call",
+              "target": "System.Int32::ToString()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            },
+            {
+              "offset": 25,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string, string)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Ledger::CitiesWithDebt",
+              "signature": "IEnumerable<string> CitiesWithDebt()",
+              "offset": 128,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger+<>c",
+          "name": "<Total>b__4_0",
+          "signature": "Decimal <Total>b__4_0(Customer c)",
+          "token": 100663329,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 9439,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.NetFx35.Customer::get_Balance()",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663304
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Ledger::Total",
+              "signature": "Decimal Total()",
+              "offset": 20,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger+<>c__DisplayClass7_0",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663330,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9447,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Ledger::FindByName",
+              "signature": "Customer FindByName(string name)",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref05.NetFx35",
+          "namespace": "Ref.NetFx35",
+          "type": "Ref.NetFx35.Ledger+<>c__DisplayClass7_0",
+          "name": "<FindByName>b__0",
+          "signature": "bool <FindByName>b__0(Customer c)",
+          "token": 100663331,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 9455,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.NetFx35.Customer::get_Name()",
+              "scope": "internal",
+              "groupFile": "Ref05.NetFx35.dll",
+              "groupToken": 100663300
+            },
+            {
+              "offset": 13,
+              "opcode": "call",
+              "target": "System.String::Equals(string, string, StringComparison)",
+              "scope": "external",
+              "targetAssembly": "mscorlib"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref05.NetFx35",
+              "method": "Ref.NetFx35.Ledger::FindByName",
+              "signature": "Customer FindByName(string name)",
+              "offset": 15,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+Assembly : Ref11.Unsafe.dll
+Name     : Ref11.Unsafe, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 16
+
+Type     : Ref.Unsafe.FixedHeader
+
+Method   : bool HasMagic(byte a, byte b, byte c, byte d)
+Kind     : instance, public
+RVA      : 0x2050   Size: 70 bytes   Token: 0x06000001
+
+[Pseudocode]
+  public unsafe bool HasMagic(byte a, byte b, byte c, byte d)
+  {
+      if (Magic[0] == a && Magic[1] == b && Magic[2] == c)
+      {
+          return Magic[3] == d;
+      }
+      return false;
+  }
+
+Type     : Ref.Unsafe.Vector3
+
+Method   : float Dot(Vector3* a, Vector3* b)
+Kind     : static, public
+RVA      : 0x20A2   Size: 42 bytes   Token: 0x06000002
+
+[Pseudocode]
+  public unsafe static float Dot(Vector3* a, Vector3* b)
+  {
+      return a->X * b->X + a->Y * b->Y + a->Z * b->Z;
+  }
+
+Type     : Ref.Unsafe.Memory
+
+Method   : int Sum(int[] values)
+Kind     : static, public
+RVA      : 0x20D0   Size: 61 bytes   Token: 0x06000003
+
+[Pseudocode]
+  public unsafe static int Sum(int[] values)
+  {
+      int num = 0;
+      fixed (int* ptr = values)
+      {
+          int* ptr2 = ptr + values.Length;
+          for (int* ptr3 = ptr; ptr3 < ptr2; ptr3++)
+          {
+              num += *ptr3;
+          }
+      }
+      return num;
+  }
+
+Method   : void Fill(byte* destination, int length, byte value)
+Kind     : static, public
+RVA      : 0x211C   Size: 18 bytes   Token: 0x06000004
+
+[Pseudocode]
+  public unsafe static void Fill(byte* destination, int length, byte value)
+  {
+      for (int i = 0; i < length; i++)
+      {
+          destination[i] = value;
+      }
+  }
+
+Method   : string Reverse(string s)
+Kind     : static, public
+RVA      : 0x213C   Size: 79 bytes   Token: 0x06000005
+
+[Pseudocode]
+  public unsafe static string Reverse(string s)
+  {
+      int length = s.Length;
+      char* ptr = stackalloc char[length];
+      fixed (char* ptr2 = s)
+      {
+          for (int i = 0; i < length; i++)
+          {
+              ptr[i] = ptr2[length - 1 - i];
+          }
+      }
+      return new string(ptr, 0, length);
+  }
+
+Method   : long Checksum(ReadOnlySpan<byte> data)
+Kind     : static, public
+RVA      : 0x2198   Size: 94 bytes   Token: 0x06000006
+
+[Pseudocode]
+  public unsafe static long Checksum(ReadOnlySpan<byte> data)
+  {
+      long num = 0L;
+      fixed (byte* ptr = data)
+      {
+          long* ptr2 = (long*)ptr;
+          int num2 = data.Length / 8;
+          for (int i = 0; i < num2; i++)
+          {
+              num ^= ptr2[i];
+          }
+          for (int j = num2 * 8; j < data.Length; j++)
+          {
+              num ^= ptr[j];
+          }
+      }
+      return num;
+  }
+
+Method   : void Copy(void* from, void* to, int bytes)
+Kind     : static, public
+RVA      : 0x2202   Size: 12 bytes   Token: 0x06000007
+
+[Pseudocode]
+  public unsafe static void Copy(void* from, void* to, int bytes)
+  {
+      Buffer.MemoryCopy(from, to, bytes, bytes);
+  }
+
+Method   : int ReadInt(byte[] data, int offset)
+Kind     : static, public
+RVA      : 0x2210   Size: 12 bytes   Token: 0x06000008
+
+[Pseudocode]
+  public unsafe static int ReadInt(byte[] data, int offset)
+  {
+      fixed (byte* ptr = &data[offset])
+      {
+          return *(int*)ptr;
+      }
+  }
+
+Method   : void Write(ref int target, int value)
+Kind     : static, public
+RVA      : 0x2228   Size: 4 bytes   Token: 0x06000009
+
+[Pseudocode]
+  public static void Write(ref int target, int value)
+  {
+      target = value;
+  }
+
+Method   : ref int Element(int[] array, int index)
+Kind     : static, public
+RVA      : 0x222D   Size: 8 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  public static ref int Element(int[] array, int index)
+  {
+      return ref array[index];
+  }
+
+Method   : void Increment(int* p)
+Kind     : static, public
+RVA      : 0x2236   Size: 7 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  public unsafe static void Increment(int* p)
+  {
+      (*p)++;
+  }
+
+Method   : nint Allocate(int bytes)
+Kind     : static, public
+RVA      : 0x223E   Size: 19 bytes   Token: 0x0600000C
+
+[Pseudocode]
+  public unsafe static nint Allocate(int bytes)
+  {
+      void* ptr = NativeMemory.AllocZeroed((nuint)bytes);
+      if (ptr == null)
+      {
+          throw new OutOfMemoryException();
+      }
+      return (nint)ptr;
+  }
+
+Method   : void Release(nint p)
+Kind     : static, public
+RVA      : 0x2252   Size: 7 bytes   Token: 0x0600000D
+
+[Pseudocode]
+  public unsafe static void Release(nint p)
+  {
+      NativeMemory.Free((void*)p);
+  }
+
+Method   : int SizeOfHeader()
+Kind     : static, public
+RVA      : 0x225A   Size: 7 bytes   Token: 0x0600000E
+
+[Pseudocode]
+  public unsafe static int SizeOfHeader()
+  {
+      return sizeof(FixedHeader);
+  }
+
+Method   : T ReadUnaligned<T>(byte* p)
+Kind     : static, public, generic
+RVA      : 0x2262   Size: 7 bytes   Token: 0x0600000F
+
+[Pseudocode]
+  public unsafe static T ReadUnaligned<T>(byte* p) where T : unmanaged
+  {
+      return System.Runtime.CompilerServices.Unsafe.ReadUnaligned<T>(p);
+  }
+
+Method   : int Pinned(string text)
+Kind     : static, public
+RVA      : 0x226C   Size: 31 bytes   Token: 0x06000010
+
+[Pseudocode]
+  public unsafe static int Pinned(string text)
+  {
+      GCHandle gCHandle = GCHandle.Alloc(text, GCHandleType.Pinned);
+      try
+      {
+          char* ptr = (char*)gCHandle.AddrOfPinnedObject();
+          return *ptr;
+      }
+      finally
+      {
+          gCHandle.Free();
+      }
+  }

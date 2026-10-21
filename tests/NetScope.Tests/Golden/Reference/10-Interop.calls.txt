@@ -1,0 +1,239 @@
+Assembly : Ref10.Interop.dll
+Name     : Ref10.Interop, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 21
+
+Type     : Ref.Interop.Kernel32
+
+Method   : void GetSystemTime(out SystemTime time)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000001
+PInvoke  : kernel32.dll!GetSystemTime
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Interop.Platform::Describe  IL_000C  call  (Ref10.Interop.dll)
+
+Method   : uint GetEnvironmentVariableW(string name, StringBuilder buffer, uint size)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000002
+PInvoke  : kernel32.dll!GetEnvironmentVariableW
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Interop.Platform::Describe  IL_0028  call  (Ref10.Interop.dll)
+
+Method   : ulong Ticks()
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000003
+PInvoke  : kernel32.dll!GetTickCount64
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Interop.Platform::Describe  IL_00A3  call  (Ref10.Interop.dll)
+
+Type     : Ref.Interop.LibC
+
+Method   : int GetPid()
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000004
+PInvoke  : libc!getpid
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Interop.Platform::Describe  IL_00D1  call  (Ref10.Interop.dll)
+
+Method   : nuint StrLen(string s)
+Kind     : static, public
+RVA      : 0x2050   Size: 66 bytes   Token: 0x06000005
+
+[Calls]
+  IL_000D  call      System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller.ManagedToUnmanagedIn::get_BufferSize()                 external System.Runtime.InteropServices
+  IL_0018  newobj    System.Span<byte>::.ctor(void*, int)                                                                                   external System.Runtime
+  IL_0024  call      System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller.ManagedToUnmanagedIn::FromManaged(string, Span<byte>)  external System.Runtime.InteropServices
+  IL_002B  call      System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller.ManagedToUnmanagedIn::ToUnmanaged()                    external System.Runtime.InteropServices
+  IL_0030  call      Ref.Interop.LibC::<StrLen>g____PInvoke|1_0(byte*)                                                                      internal
+  IL_003A  call      System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller.ManagedToUnmanagedIn::Free()                           external System.Runtime.InteropServices
+[Callers]
+  Ref.Interop.Platform::Describe  IL_00EF  call  (Ref10.Interop.dll)
+
+Method   : void QSort(void* data, nuint count, nuint size, delegate*<void*, void*, int> compare)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000006
+PInvoke  : libc!qsort
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Interop.Callbacks::Sort  IL_0025  call  (Ref10.Interop.dll)
+
+Method   : nuint <StrLen>g____PInvoke|1_0(byte* __s_native)
+Kind     : static, internal, pinvoke, local-function, compiler-generated, no-body
+RVA      : 0x0000   Token: 0x06000007
+PInvoke  : libc!strlen
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Interop.LibC::StrLen  IL_0030  call  (Ref10.Interop.dll)
+
+Type     : Ref.Interop.Callbacks
+
+Method   : int CompareInts(void* a, void* b)
+Kind     : static, private
+RVA      : 0x20B0   Size: 9 bytes   Token: 0x06000008
+
+[Calls]
+  IL_0003  call      System.Int32::CompareTo(int)  external System.Runtime
+[Callers]
+  Ref.Interop.Callbacks::Sort  IL_001F  ldftn  (Ref10.Interop.dll)
+
+Method   : void Sort(int[] values)
+Kind     : static, public
+RVA      : 0x20BC   Size: 45 bytes   Token: 0x06000009
+
+[Calls]
+  IL_001F  ldftn     Ref.Interop.Callbacks::CompareInts(void*, void*)                            internal
+  IL_0025  call      Ref.Interop.LibC::QSort(void*, nuint, nuint, delegate*<void*, void*, int>)  internal
+[Callers]
+  (none in the input files)
+
+Method   : int Apply(delegate*<int, int, int> op, int a, int b)
+Kind     : static, public
+RVA      : 0x20F8   Size: 11 bytes   Token: 0x0600000A
+
+[Calls]
+  IL_0005  calli     (indirect) int32(int32, int32)  indirect
+[Callers]
+  Ref.Interop.Callbacks::AddViaPointer  IL_0008  call  (Ref10.Interop.dll)
+
+Method   : int Add(int a, int b)
+Kind     : static, private
+RVA      : 0x210F   Size: 4 bytes   Token: 0x0600000B
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Interop.Callbacks::AddViaPointer  IL_0000  ldftn  (Ref10.Interop.dll)
+
+Method   : int AddViaPointer(int a, int b)
+Kind     : static, public
+RVA      : 0x2114   Size: 14 bytes   Token: 0x0600000C
+
+[Calls]
+  IL_0000  ldftn     Ref.Interop.Callbacks::Add(int, int)                              internal
+  IL_0008  call      Ref.Interop.Callbacks::Apply(delegate*<int, int, int>, int, int)  internal
+[Callers]
+  (none in the input files)
+
+Method   : int CallNative(nint fn, int a, int b)
+Kind     : static, public
+RVA      : 0x2123   Size: 14 bytes   Token: 0x0600000D
+
+[Calls]
+  IL_0001  call      System.Runtime.InteropServices.Marshal::GetDelegateForFunctionPointer<BinaryOp>(nint)  external System.Runtime.InteropServices
+  IL_0008  callvirt  Ref.Interop.Callbacks.BinaryOp::Invoke(int, int)                                       internal
+[Callers]
+  (none in the input files)
+
+Method   : nint Export(BinaryOp op)
+Kind     : static, public
+RVA      : 0x2132   Size: 7 bytes   Token: 0x0600000E
+
+[Calls]
+  IL_0001  call      System.Runtime.InteropServices.Marshal::GetFunctionPointerForDelegate<BinaryOp>(BinaryOp)  external System.Runtime.InteropServices
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Interop.Platform
+
+Method   : string Describe()
+Kind     : static, public
+RVA      : 0x213C   Size: 268 bytes   Token: 0x0600000F
+
+[Calls]
+  IL_0000  call      System.OperatingSystem::IsWindows()                                                                        external System.Runtime
+  IL_000C  call      Ref.Interop.Kernel32::GetSystemTime(ref SystemTime)                                                        internal
+  IL_0016  newobj    System.Text.StringBuilder::.ctor(int)                                                                      external System.Runtime
+  IL_0023  callvirt  System.Text.StringBuilder::get_Capacity()                                                                  external System.Runtime
+  IL_0028  call      Ref.Interop.Kernel32::GetEnvironmentVariableW(string, StringBuilder, uint)                                 internal
+  IL_0033  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int, int)                          external System.Runtime
+  IL_0040  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<ushort>(ushort)          external System.Runtime
+  IL_004C  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)                    external System.Runtime
+  IL_005E  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<ushort>(ushort, string)  external System.Runtime
+  IL_006A  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)                    external System.Runtime
+  IL_007C  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<ushort>(ushort, string)  external System.Runtime
+  IL_0088  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)                    external System.Runtime
+  IL_0090  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<uint>(uint)              external System.Runtime
+  IL_009C  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)                    external System.Runtime
+  IL_00A3  call      Ref.Interop.Kernel32::Ticks()                                                                              internal
+  IL_00A8  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<ulong>(ulong)            external System.Runtime
+  IL_00B4  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)                    external System.Runtime
+  IL_00BB  call      System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()                       external System.Runtime
+  IL_00D1  call      Ref.Interop.LibC::GetPid()                                                                                 internal
+  IL_00DA  call      System.Int32::ToString()                                                                                   external System.Runtime
+  IL_00EF  call      Ref.Interop.LibC::StrLen(string)                                                                           internal
+  IL_00F8  call      System.UIntPtr::ToString()                                                                                 external System.Runtime
+  IL_0106  call      System.String::Concat(string[])                                                                            external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : float Reinterpret(int bits)
+Kind     : static, public
+RVA      : 0x2254   Size: 23 bytes   Token: 0x06000010
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : string PtrToString(nint p)
+Kind     : static, public
+RVA      : 0x2277   Size: 16 bytes   Token: 0x06000011
+
+[Calls]
+  IL_0001  call      System.Runtime.InteropServices.Marshal::PtrToStringUTF8(nint)  external System.Runtime.InteropServices
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Interop.Callbacks+BinaryOp
+
+Method   : void .ctor(object object, nint method)
+Kind     : ctor, instance, public, runtime, no-body
+RVA      : 0x0000   Token: 0x06000012
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : int Invoke(int a, int b)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x06000013
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Interop.Callbacks::CallNative  IL_0008  callvirt  (Ref10.Interop.dll)
+
+Method   : IAsyncResult BeginInvoke(int a, int b, AsyncCallback callback, object object)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x06000014
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)
+
+Method   : int EndInvoke(IAsyncResult result)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x06000015
+
+[Calls]
+  (none)
+[Callers]
+  (none in the input files)

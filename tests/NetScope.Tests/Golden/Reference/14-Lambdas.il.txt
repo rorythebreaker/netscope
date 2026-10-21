@@ -1,0 +1,1662 @@
+Assembly : Ref14.Lambdas.dll
+Name     : Ref14.Lambdas, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 84
+
+Type     : <>f__AnonymousType0`2
+
+Method   : <o>j__TPar get_o()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2050   Size: 7 bytes   Token: 0x06000001
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      !0 class <>f__AnonymousType0`2<!0, !1>::'<o>i__Field'
+  IL_0006  ret
+
+Method   : <v>j__TPar get_v()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2058   Size: 7 bytes   Token: 0x06000002
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      !1 class <>f__AnonymousType0`2<!0, !1>::'<v>i__Field'
+  IL_0006  ret
+
+Method   : void .ctor(<o>j__TPar o, <v>j__TPar v)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2060   Size: 21 bytes   Token: 0x06000003
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      !0 class <>f__AnonymousType0`2<!0, !1>::'<o>i__Field'
+  IL_000D  ldarg.0
+  IL_000E  ldarg.2
+  IL_000F  stfld      !1 class <>f__AnonymousType0`2<!0, !1>::'<v>i__Field'
+  IL_0014  ret
+
+Method   : bool Equals(object value)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2078   Size: 65 bytes   Token: 0x06000004
+
+[IL]  .maxstack 3
+  .locals init ([0] class <>f__AnonymousType0`2<!<o>j__TPar, !<v>j__TPar> V_0)
+  IL_0000  ldarg.1
+  IL_0001  isinst     class <>f__AnonymousType0`2<!<o>j__TPar, !<v>j__TPar>
+  IL_0006  stloc.0
+  IL_0007  ldarg.0
+  IL_0008  ldloc.0
+  IL_0009  beq.s      IL_003F
+  IL_000B  ldloc.0
+  IL_000C  brfalse.s  IL_003D
+  IL_000E  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0>::get_Default()
+  IL_0013  ldarg.0
+  IL_0014  ldfld      !0 class <>f__AnonymousType0`2<!0, !1>::'<o>i__Field'
+  IL_0019  ldloc.0
+  IL_001A  ldfld      !0 class <>f__AnonymousType0`2<!0, !1>::'<o>i__Field'
+  IL_001F  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0>::Equals(!0, !0)
+  IL_0024  brfalse.s  IL_003D
+  IL_0026  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<!1>::get_Default()
+  IL_002B  ldarg.0
+  IL_002C  ldfld      !1 class <>f__AnonymousType0`2<!0, !1>::'<v>i__Field'
+  IL_0031  ldloc.0
+  IL_0032  ldfld      !1 class <>f__AnonymousType0`2<!0, !1>::'<v>i__Field'
+  IL_0037  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<!1>::Equals(!0, !0)
+  IL_003C  ret
+  IL_003D  ldc.i4.0
+  IL_003E  ret
+  IL_003F  ldc.i4.1
+  IL_0040  ret
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20C5   Size: 52 bytes   Token: 0x06000005
+
+[IL]  .maxstack 8
+  IL_0000  ldc.i4     0x51e6ed7d
+  IL_0005  ldc.i4     0xa5555529
+  IL_000A  mul
+  IL_000B  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0>::get_Default()
+  IL_0010  ldarg.0
+  IL_0011  ldfld      !0 class <>f__AnonymousType0`2<!0, !1>::'<o>i__Field'
+  IL_0016  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0>::GetHashCode(!0)
+  IL_001B  add
+  IL_001C  ldc.i4     0xa5555529
+  IL_0021  mul
+  IL_0022  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<!1>::get_Default()
+  IL_0027  ldarg.0
+  IL_0028  ldfld      !1 class <>f__AnonymousType0`2<!0, !1>::'<v>i__Field'
+  IL_002D  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<!1>::GetHashCode(!0)
+  IL_0032  add
+  IL_0033  ret
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20FC   Size: 98 bytes   Token: 0x06000006
+
+[IL]  .maxstack 7
+  .locals init ([0] !<o>j__TPar V_0, [1] !<v>j__TPar V_1)
+  IL_0000  ldnull
+  IL_0001  ldstr      "{{ o = {0}, v = {1} }}"
+  IL_0006  ldc.i4.2
+  IL_0007  newarr     [System.Runtime]System.Object
+  IL_000C  dup
+  IL_000D  ldc.i4.0
+  IL_000E  ldarg.0
+  IL_000F  ldfld      !0 class <>f__AnonymousType0`2<!0, !1>::'<o>i__Field'
+  IL_0014  stloc.0
+  IL_0015  ldloca.s   V_0
+  IL_0017  dup
+  IL_0018  ldobj      !<o>j__TPar
+  IL_001D  box        !<o>j__TPar
+  IL_0022  brtrue.s   IL_0028
+  IL_0024  pop
+  IL_0025  ldnull
+  IL_0026  br.s       IL_0033
+  IL_0028  constrained. !<o>j__TPar
+  IL_002E  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_0033  stelem.ref
+  IL_0034  dup
+  IL_0035  ldc.i4.1
+  IL_0036  ldarg.0
+  IL_0037  ldfld      !1 class <>f__AnonymousType0`2<!0, !1>::'<v>i__Field'
+  IL_003C  stloc.1
+  IL_003D  ldloca.s   V_1
+  IL_003F  dup
+  IL_0040  ldobj      !<v>j__TPar
+  IL_0045  box        !<v>j__TPar
+  IL_004A  brtrue.s   IL_0050
+  IL_004C  pop
+  IL_004D  ldnull
+  IL_004E  br.s       IL_005B
+  IL_0050  constrained. !<v>j__TPar
+  IL_0056  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_005B  stelem.ref
+  IL_005C  call       string [System.Runtime]System.String::Format(class [System.Runtime]System.IFormatProvider, string, object[])
+  IL_0061  ret
+
+Type     : <>f__AnonymousType1`2
+
+Method   : <g>j__TPar get_g()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x216A   Size: 7 bytes   Token: 0x06000007
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      !0 class <>f__AnonymousType1`2<!0, !1>::'<g>i__Field'
+  IL_0006  ret
+
+Method   : <total>j__TPar get_total()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2172   Size: 7 bytes   Token: 0x06000008
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      !1 class <>f__AnonymousType1`2<!0, !1>::'<total>i__Field'
+  IL_0006  ret
+
+Method   : void .ctor(<g>j__TPar g, <total>j__TPar total)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x217A   Size: 21 bytes   Token: 0x06000009
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      !0 class <>f__AnonymousType1`2<!0, !1>::'<g>i__Field'
+  IL_000D  ldarg.0
+  IL_000E  ldarg.2
+  IL_000F  stfld      !1 class <>f__AnonymousType1`2<!0, !1>::'<total>i__Field'
+  IL_0014  ret
+
+Method   : bool Equals(object value)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2190   Size: 65 bytes   Token: 0x0600000A
+
+[IL]  .maxstack 3
+  .locals init ([0] class <>f__AnonymousType1`2<!<g>j__TPar, !<total>j__TPar> V_0)
+  IL_0000  ldarg.1
+  IL_0001  isinst     class <>f__AnonymousType1`2<!<g>j__TPar, !<total>j__TPar>
+  IL_0006  stloc.0
+  IL_0007  ldarg.0
+  IL_0008  ldloc.0
+  IL_0009  beq.s      IL_003F
+  IL_000B  ldloc.0
+  IL_000C  brfalse.s  IL_003D
+  IL_000E  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0>::get_Default()
+  IL_0013  ldarg.0
+  IL_0014  ldfld      !0 class <>f__AnonymousType1`2<!0, !1>::'<g>i__Field'
+  IL_0019  ldloc.0
+  IL_001A  ldfld      !0 class <>f__AnonymousType1`2<!0, !1>::'<g>i__Field'
+  IL_001F  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0>::Equals(!0, !0)
+  IL_0024  brfalse.s  IL_003D
+  IL_0026  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<!1>::get_Default()
+  IL_002B  ldarg.0
+  IL_002C  ldfld      !1 class <>f__AnonymousType1`2<!0, !1>::'<total>i__Field'
+  IL_0031  ldloc.0
+  IL_0032  ldfld      !1 class <>f__AnonymousType1`2<!0, !1>::'<total>i__Field'
+  IL_0037  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<!1>::Equals(!0, !0)
+  IL_003C  ret
+  IL_003D  ldc.i4.0
+  IL_003E  ret
+  IL_003F  ldc.i4.1
+  IL_0040  ret
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x21DD   Size: 52 bytes   Token: 0x0600000B
+
+[IL]  .maxstack 8
+  IL_0000  ldc.i4     0x49b469
+  IL_0005  ldc.i4     0xa5555529
+  IL_000A  mul
+  IL_000B  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0>::get_Default()
+  IL_0010  ldarg.0
+  IL_0011  ldfld      !0 class <>f__AnonymousType1`2<!0, !1>::'<g>i__Field'
+  IL_0016  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0>::GetHashCode(!0)
+  IL_001B  add
+  IL_001C  ldc.i4     0xa5555529
+  IL_0021  mul
+  IL_0022  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<!1>::get_Default()
+  IL_0027  ldarg.0
+  IL_0028  ldfld      !1 class <>f__AnonymousType1`2<!0, !1>::'<total>i__Field'
+  IL_002D  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<!1>::GetHashCode(!0)
+  IL_0032  add
+  IL_0033  ret
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2214   Size: 98 bytes   Token: 0x0600000C
+
+[IL]  .maxstack 7
+  .locals init ([0] !<g>j__TPar V_0, [1] !<total>j__TPar V_1)
+  IL_0000  ldnull
+  IL_0001  ldstr      "{{ g = {0}, total = {1} }}"
+  IL_0006  ldc.i4.2
+  IL_0007  newarr     [System.Runtime]System.Object
+  IL_000C  dup
+  IL_000D  ldc.i4.0
+  IL_000E  ldarg.0
+  IL_000F  ldfld      !0 class <>f__AnonymousType1`2<!0, !1>::'<g>i__Field'
+  IL_0014  stloc.0
+  IL_0015  ldloca.s   V_0
+  IL_0017  dup
+  IL_0018  ldobj      !<g>j__TPar
+  IL_001D  box        !<g>j__TPar
+  IL_0022  brtrue.s   IL_0028
+  IL_0024  pop
+  IL_0025  ldnull
+  IL_0026  br.s       IL_0033
+  IL_0028  constrained. !<g>j__TPar
+  IL_002E  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_0033  stelem.ref
+  IL_0034  dup
+  IL_0035  ldc.i4.1
+  IL_0036  ldarg.0
+  IL_0037  ldfld      !1 class <>f__AnonymousType1`2<!0, !1>::'<total>i__Field'
+  IL_003C  stloc.1
+  IL_003D  ldloca.s   V_1
+  IL_003F  dup
+  IL_0040  ldobj      !<total>j__TPar
+  IL_0045  box        !<total>j__TPar
+  IL_004A  brtrue.s   IL_0050
+  IL_004C  pop
+  IL_004D  ldnull
+  IL_004E  br.s       IL_005B
+  IL_0050  constrained. !<total>j__TPar
+  IL_0056  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_005B  stelem.ref
+  IL_005C  call       string [System.Runtime]System.String::Format(class [System.Runtime]System.IFormatProvider, string, object[])
+  IL_0061  ret
+
+Type     : Ref.Lambdas.Order
+
+Method   : void .ctor(int Id, string Customer, Decimal Amount, DateTime Date)
+Kind     : ctor, instance, public
+RVA      : 0x2282   Size: 36 bytes   Token: 0x0600000D
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      int32 Ref.Lambdas.Order::'<Id>k__BackingField'
+  IL_0007  ldarg.0
+  IL_0008  ldarg.2
+  IL_0009  stfld      string Ref.Lambdas.Order::'<Customer>k__BackingField'
+  IL_000E  ldarg.0
+  IL_000F  ldarg.3
+  IL_0010  stfld      valuetype [System.Runtime]System.Decimal Ref.Lambdas.Order::'<Amount>k__BackingField'
+  IL_0015  ldarg.0
+  IL_0016  ldarg.s    Date
+  IL_0018  stfld      valuetype [System.Runtime]System.DateTime Ref.Lambdas.Order::'<Date>k__BackingField'
+  IL_001D  ldarg.0
+  IL_001E  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0023  ret
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, private, compiler-generated
+RVA      : 0x22A7   Size: 11 bytes   Token: 0x0600000E
+
+[IL]  .maxstack 8
+  IL_0000  ldtoken    Ref.Lambdas.Order
+  IL_0005  call       class [System.Runtime]System.Type [System.Runtime]System.Type::GetTypeFromHandle(valuetype [System.Runtime]System.RuntimeTypeHandle)
+  IL_000A  ret
+
+Method   : int get_Id()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22B3   Size: 7 bytes   Token: 0x0600000F
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Lambdas.Order::'<Id>k__BackingField'
+  IL_0006  ret
+
+Method   : void set_Id(int value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22BB   Size: 8 bytes   Token: 0x06000010
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      int32 Ref.Lambdas.Order::'<Id>k__BackingField'
+  IL_0007  ret
+
+Method   : string get_Customer()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22C4   Size: 7 bytes   Token: 0x06000011
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      string Ref.Lambdas.Order::'<Customer>k__BackingField'
+  IL_0006  ret
+
+Method   : void set_Customer(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22CC   Size: 8 bytes   Token: 0x06000012
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      string Ref.Lambdas.Order::'<Customer>k__BackingField'
+  IL_0007  ret
+
+Method   : Decimal get_Amount()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22D5   Size: 7 bytes   Token: 0x06000013
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      valuetype [System.Runtime]System.Decimal Ref.Lambdas.Order::'<Amount>k__BackingField'
+  IL_0006  ret
+
+Method   : void set_Amount(Decimal value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22DD   Size: 8 bytes   Token: 0x06000014
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      valuetype [System.Runtime]System.Decimal Ref.Lambdas.Order::'<Amount>k__BackingField'
+  IL_0007  ret
+
+Method   : DateTime get_Date()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22E6   Size: 7 bytes   Token: 0x06000015
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      valuetype [System.Runtime]System.DateTime Ref.Lambdas.Order::'<Date>k__BackingField'
+  IL_0006  ret
+
+Method   : void set_Date(DateTime value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22EE   Size: 8 bytes   Token: 0x06000016
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      valuetype [System.Runtime]System.DateTime Ref.Lambdas.Order::'<Date>k__BackingField'
+  IL_0007  ret
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x22F8   Size: 64 bytes   Token: 0x06000017
+
+[IL]  .maxstack 2
+  .locals init ([0] class [System.Runtime]System.Text.StringBuilder V_0)
+  IL_0000  newobj     instance void [System.Runtime]System.Text.StringBuilder::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldloc.0
+  IL_0007  ldstr      "Order"
+  IL_000C  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0011  pop
+  IL_0012  ldloc.0
+  IL_0013  ldstr      " { "
+  IL_0018  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_001D  pop
+  IL_001E  ldarg.0
+  IL_001F  ldloc.0
+  IL_0020  call       instance bool Ref.Lambdas.Order::PrintMembers(class [System.Runtime]System.Text.StringBuilder)
+  IL_0025  brfalse.s  IL_0030
+  IL_0027  ldloc.0
+  IL_0028  ldc.i4.s   32
+  IL_002A  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+  IL_002F  pop
+  IL_0030  ldloc.0
+  IL_0031  ldc.i4.s   125
+  IL_0033  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(char)
+  IL_0038  pop
+  IL_0039  ldloc.0
+  IL_003A  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_003F  ret
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, private, compiler-generated
+RVA      : 0x2344   Size: 149 bytes   Token: 0x06000018
+
+[IL]  .maxstack 2
+  .locals init ([0] int32 V_0, [1] valuetype [System.Runtime]System.Decimal V_1, [2] valuetype [System.Runtime]System.DateTime V_2)
+  IL_0000  call       void [System.Runtime]System.Runtime.CompilerServices.RuntimeHelpers::EnsureSufficientExecutionStack()
+  IL_0005  ldarg.1
+  IL_0006  ldstr      "Id = "
+  IL_000B  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0010  pop
+  IL_0011  ldarg.1
+  IL_0012  ldarg.0
+  IL_0013  call       instance int32 Ref.Lambdas.Order::get_Id()
+  IL_0018  stloc.0
+  IL_0019  ldloca.s   V_0
+  IL_001B  constrained. [System.Runtime]System.Int32
+  IL_0021  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_0026  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_002B  pop
+  IL_002C  ldarg.1
+  IL_002D  ldstr      ", Customer = "
+  IL_0032  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0037  pop
+  IL_0038  ldarg.1
+  IL_0039  ldarg.0
+  IL_003A  call       instance string Ref.Lambdas.Order::get_Customer()
+  IL_003F  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(object)
+  IL_0044  pop
+  IL_0045  ldarg.1
+  IL_0046  ldstr      ", Amount = "
+  IL_004B  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0050  pop
+  IL_0051  ldarg.1
+  IL_0052  ldarg.0
+  IL_0053  call       instance valuetype [System.Runtime]System.Decimal Ref.Lambdas.Order::get_Amount()
+  IL_0058  stloc.1
+  IL_0059  ldloca.s   V_1
+  IL_005B  constrained. [System.Runtime]System.Decimal
+  IL_0061  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_0066  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_006B  pop
+  IL_006C  ldarg.1
+  IL_006D  ldstr      ", Date = "
+  IL_0072  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0077  pop
+  IL_0078  ldarg.1
+  IL_0079  ldarg.0
+  IL_007A  call       instance valuetype [System.Runtime]System.DateTime Ref.Lambdas.Order::get_Date()
+  IL_007F  stloc.2
+  IL_0080  ldloca.s   V_2
+  IL_0082  constrained. [System.Runtime]System.DateTime
+  IL_0088  callvirt   instance string [System.Runtime]System.Object::ToString()
+  IL_008D  callvirt   instance class [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder::Append(string)
+  IL_0092  pop
+  IL_0093  ldc.i4.1
+  IL_0094  ret
+
+Method   : bool op_Inequality(Order left, Order right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x23E5   Size: 11 bytes   Token: 0x06000019
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  call       bool Ref.Lambdas.Order::op_Equality(class Ref.Lambdas.Order, class Ref.Lambdas.Order)
+  IL_0007  ldc.i4.0
+  IL_0008  ceq
+  IL_000A  ret
+
+Method   : bool op_Equality(Order left, Order right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x23F1   Size: 19 bytes   Token: 0x0600001A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  beq.s      IL_0011
+  IL_0004  ldarg.0
+  IL_0005  brfalse.s  IL_000F
+  IL_0007  ldarg.0
+  IL_0008  ldarg.1
+  IL_0009  callvirt   instance bool Ref.Lambdas.Order::Equals(class Ref.Lambdas.Order)
+  IL_000E  ret
+  IL_000F  ldc.i4.0
+  IL_0010  ret
+  IL_0011  ldc.i4.1
+  IL_0012  ret
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2408   Size: 109 bytes   Token: 0x0600001B
+
+[IL]  .maxstack 3
+  IL_0000  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<class [System.Runtime]System.Type>::get_Default()
+  IL_0005  ldarg.0
+  IL_0006  call       instance class [System.Runtime]System.Type Ref.Lambdas.Order::get_EqualityContract()
+  IL_000B  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<class [System.Runtime]System.Type>::GetHashCode(!0)
+  IL_0010  ldc.i4     0xa5555529
+  IL_0015  mul
+  IL_0016  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<int32>::get_Default()
+  IL_001B  ldarg.0
+  IL_001C  ldfld      int32 Ref.Lambdas.Order::'<Id>k__BackingField'
+  IL_0021  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<int32>::GetHashCode(!0)
+  IL_0026  add
+  IL_0027  ldc.i4     0xa5555529
+  IL_002C  mul
+  IL_002D  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<string>::get_Default()
+  IL_0032  ldarg.0
+  IL_0033  ldfld      string Ref.Lambdas.Order::'<Customer>k__BackingField'
+  IL_0038  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<string>::GetHashCode(!0)
+  IL_003D  add
+  IL_003E  ldc.i4     0xa5555529
+  IL_0043  mul
+  IL_0044  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<valuetype [System.Runtime]System.Decimal>::get_Default()
+  IL_0049  ldarg.0
+  IL_004A  ldfld      valuetype [System.Runtime]System.Decimal Ref.Lambdas.Order::'<Amount>k__BackingField'
+  IL_004F  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<valuetype [System.Runtime]System.Decimal>::GetHashCode(!0)
+  IL_0054  add
+  IL_0055  ldc.i4     0xa5555529
+  IL_005A  mul
+  IL_005B  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<valuetype [System.Runtime]System.DateTime>::get_Default()
+  IL_0060  ldarg.0
+  IL_0061  ldfld      valuetype [System.Runtime]System.DateTime Ref.Lambdas.Order::'<Date>k__BackingField'
+  IL_0066  callvirt   instance int32 class [System.Collections]System.Collections.Generic.EqualityComparer`1<valuetype [System.Runtime]System.DateTime>::GetHashCode(!0)
+  IL_006B  add
+  IL_006C  ret
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2481   Size: 13 bytes   Token: 0x0600001C
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  isinst     Ref.Lambdas.Order
+  IL_0007  call       instance bool Ref.Lambdas.Order::Equals(class Ref.Lambdas.Order)
+  IL_000C  ret
+
+Method   : bool Equals(Order other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x2490   Size: 125 bytes   Token: 0x0600001D
+
+[IL]  .maxstack 3
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  beq.s      IL_007B
+  IL_0004  ldarg.1
+  IL_0005  brfalse.s  IL_0079
+  IL_0007  ldarg.0
+  IL_0008  call       instance class [System.Runtime]System.Type Ref.Lambdas.Order::get_EqualityContract()
+  IL_000D  ldarg.1
+  IL_000E  callvirt   instance class [System.Runtime]System.Type Ref.Lambdas.Order::get_EqualityContract()
+  IL_0013  call       bool [System.Runtime]System.Type::op_Equality(class [System.Runtime]System.Type, class [System.Runtime]System.Type)
+  IL_0018  brfalse.s  IL_0079
+  IL_001A  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<int32>::get_Default()
+  IL_001F  ldarg.0
+  IL_0020  ldfld      int32 Ref.Lambdas.Order::'<Id>k__BackingField'
+  IL_0025  ldarg.1
+  IL_0026  ldfld      int32 Ref.Lambdas.Order::'<Id>k__BackingField'
+  IL_002B  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<int32>::Equals(!0, !0)
+  IL_0030  brfalse.s  IL_0079
+  IL_0032  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<string>::get_Default()
+  IL_0037  ldarg.0
+  IL_0038  ldfld      string Ref.Lambdas.Order::'<Customer>k__BackingField'
+  IL_003D  ldarg.1
+  IL_003E  ldfld      string Ref.Lambdas.Order::'<Customer>k__BackingField'
+  IL_0043  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<string>::Equals(!0, !0)
+  IL_0048  brfalse.s  IL_0079
+  IL_004A  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<valuetype [System.Runtime]System.Decimal>::get_Default()
+  IL_004F  ldarg.0
+  IL_0050  ldfld      valuetype [System.Runtime]System.Decimal Ref.Lambdas.Order::'<Amount>k__BackingField'
+  IL_0055  ldarg.1
+  IL_0056  ldfld      valuetype [System.Runtime]System.Decimal Ref.Lambdas.Order::'<Amount>k__BackingField'
+  IL_005B  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<valuetype [System.Runtime]System.Decimal>::Equals(!0, !0)
+  IL_0060  brfalse.s  IL_0079
+  IL_0062  call       class [System.Collections]System.Collections.Generic.EqualityComparer`1<!0> class [System.Collections]System.Collections.Generic.EqualityComparer`1<valuetype [System.Runtime]System.DateTime>::get_Default()
+  IL_0067  ldarg.0
+  IL_0068  ldfld      valuetype [System.Runtime]System.DateTime Ref.Lambdas.Order::'<Date>k__BackingField'
+  IL_006D  ldarg.1
+  IL_006E  ldfld      valuetype [System.Runtime]System.DateTime Ref.Lambdas.Order::'<Date>k__BackingField'
+  IL_0073  callvirt   instance bool class [System.Collections]System.Collections.Generic.EqualityComparer`1<valuetype [System.Runtime]System.DateTime>::Equals(!0, !0)
+  IL_0078  ret
+  IL_0079  ldc.i4.0
+  IL_007A  ret
+  IL_007B  ldc.i4.1
+  IL_007C  ret
+
+Method   : Order <Clone>$()
+Kind     : instance, public, compiler-generated
+RVA      : 0x2519   Size: 7 bytes   Token: 0x0600001E
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  newobj     instance void Ref.Lambdas.Order::.ctor(class Ref.Lambdas.Order)
+  IL_0006  ret
+
+Method   : void .ctor(Order original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x2521   Size: 55 bytes   Token: 0x0600001F
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ldarg.0
+  IL_0007  ldarg.1
+  IL_0008  ldfld      int32 Ref.Lambdas.Order::'<Id>k__BackingField'
+  IL_000D  stfld      int32 Ref.Lambdas.Order::'<Id>k__BackingField'
+  IL_0012  ldarg.0
+  IL_0013  ldarg.1
+  IL_0014  ldfld      string Ref.Lambdas.Order::'<Customer>k__BackingField'
+  IL_0019  stfld      string Ref.Lambdas.Order::'<Customer>k__BackingField'
+  IL_001E  ldarg.0
+  IL_001F  ldarg.1
+  IL_0020  ldfld      valuetype [System.Runtime]System.Decimal Ref.Lambdas.Order::'<Amount>k__BackingField'
+  IL_0025  stfld      valuetype [System.Runtime]System.Decimal Ref.Lambdas.Order::'<Amount>k__BackingField'
+  IL_002A  ldarg.0
+  IL_002B  ldarg.1
+  IL_002C  ldfld      valuetype [System.Runtime]System.DateTime Ref.Lambdas.Order::'<Date>k__BackingField'
+  IL_0031  stfld      valuetype [System.Runtime]System.DateTime Ref.Lambdas.Order::'<Date>k__BackingField'
+  IL_0036  ret
+
+Method   : void Deconstruct(out int Id, out string Customer, out Decimal Amount, out DateTime Date)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2559   Size: 42 bytes   Token: 0x06000020
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  ldarg.0
+  IL_0002  call       instance int32 Ref.Lambdas.Order::get_Id()
+  IL_0007  stind.i4
+  IL_0008  ldarg.2
+  IL_0009  ldarg.0
+  IL_000A  call       instance string Ref.Lambdas.Order::get_Customer()
+  IL_000F  stind.ref
+  IL_0010  ldarg.3
+  IL_0011  ldarg.0
+  IL_0012  call       instance valuetype [System.Runtime]System.Decimal Ref.Lambdas.Order::get_Amount()
+  IL_0017  stobj      [System.Runtime]System.Decimal
+  IL_001C  ldarg.s    Date
+  IL_001E  ldarg.0
+  IL_001F  call       instance valuetype [System.Runtime]System.DateTime Ref.Lambdas.Order::get_Date()
+  IL_0024  stobj      [System.Runtime]System.DateTime
+  IL_0029  ret
+
+Type     : Ref.Lambdas.Reports
+
+Method   : void .ctor(IEnumerable<Order> orders)
+Kind     : ctor, instance, public
+RVA      : 0x2584   Size: 32 bytes   Token: 0x06000021
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.s   100
+  IL_0003  newobj     instance void [System.Runtime]System.Decimal::.ctor(int32)
+  IL_0008  stfld      valuetype [System.Runtime]System.Decimal Ref.Lambdas.Reports::_threshold
+  IL_000D  ldarg.0
+  IL_000E  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0013  ldarg.0
+  IL_0014  ldarg.1
+  IL_0015  call       class [System.Collections]System.Collections.Generic.List`1<!!0> [System.Linq]System.Linq.Enumerable::ToList<class Ref.Lambdas.Order>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>)
+  IL_001A  stfld      class [System.Collections]System.Collections.Generic.List`1<class Ref.Lambdas.Order> Ref.Lambdas.Reports::_orders
+  IL_001F  ret
+
+Method   : void add_Logged(Action<string> value)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x25A8   Size: 41 bytes   Token: 0x06000022
+
+[IL]  .maxstack 3
+  .locals init ([0] class [System.Runtime]System.Action`1<string> V_0, [1] class [System.Runtime]System.Action`1<string> V_1, [2] class [System.Runtime]System.Action`1<string> V_2)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Runtime]System.Action`1<string> Ref.Lambdas.Reports::Logged
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  stloc.1
+  IL_0009  ldloc.1
+  IL_000A  ldarg.1
+  IL_000B  call       class [System.Runtime]System.Delegate [System.Runtime]System.Delegate::Combine(class [System.Runtime]System.Delegate, class [System.Runtime]System.Delegate)
+  IL_0010  castclass  class [System.Runtime]System.Action`1<string>
+  IL_0015  stloc.2
+  IL_0016  ldarg.0
+  IL_0017  ldflda     class [System.Runtime]System.Action`1<string> Ref.Lambdas.Reports::Logged
+  IL_001C  ldloc.2
+  IL_001D  ldloc.1
+  IL_001E  call       !!0 [System.Threading]System.Threading.Interlocked::CompareExchange<class [System.Runtime]System.Action`1<string>>(!!0&, !!0, !!0)
+  IL_0023  stloc.0
+  IL_0024  ldloc.0
+  IL_0025  ldloc.1
+  IL_0026  bne.un.s   IL_0007
+  IL_0028  ret
+
+Method   : void remove_Logged(Action<string> value)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x25E0   Size: 41 bytes   Token: 0x06000023
+
+[IL]  .maxstack 3
+  .locals init ([0] class [System.Runtime]System.Action`1<string> V_0, [1] class [System.Runtime]System.Action`1<string> V_1, [2] class [System.Runtime]System.Action`1<string> V_2)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Runtime]System.Action`1<string> Ref.Lambdas.Reports::Logged
+  IL_0006  stloc.0
+  IL_0007  ldloc.0
+  IL_0008  stloc.1
+  IL_0009  ldloc.1
+  IL_000A  ldarg.1
+  IL_000B  call       class [System.Runtime]System.Delegate [System.Runtime]System.Delegate::Remove(class [System.Runtime]System.Delegate, class [System.Runtime]System.Delegate)
+  IL_0010  castclass  class [System.Runtime]System.Action`1<string>
+  IL_0015  stloc.2
+  IL_0016  ldarg.0
+  IL_0017  ldflda     class [System.Runtime]System.Action`1<string> Ref.Lambdas.Reports::Logged
+  IL_001C  ldloc.2
+  IL_001D  ldloc.1
+  IL_001E  call       !!0 [System.Threading]System.Threading.Interlocked::CompareExchange<class [System.Runtime]System.Action`1<string>>(!!0&, !!0, !!0)
+  IL_0023  stloc.0
+  IL_0024  ldloc.0
+  IL_0025  ldloc.1
+  IL_0026  bne.un.s   IL_0007
+  IL_0028  ret
+
+Method   : IEnumerable<string> Customers()
+Kind     : instance, public
+RVA      : 0x2618   Size: 89 bytes   Token: 0x06000024
+
+[IL]  .maxstack 3
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Collections]System.Collections.Generic.List`1<class Ref.Lambdas.Order> Ref.Lambdas.Reports::_orders
+  IL_0006  ldsfld     class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, string> Ref.Lambdas.Reports/<>c::'<>9__6_0'
+  IL_000B  dup
+  IL_000C  brtrue.s   IL_0025
+  IL_000E  pop
+  IL_000F  ldsfld     class Ref.Lambdas.Reports/<>c Ref.Lambdas.Reports/<>c::'<>9'
+  IL_0014  ldftn      instance string Ref.Lambdas.Reports/<>c::'<Customers>b__6_0'(class Ref.Lambdas.Order)
+  IL_001A  newobj     instance void class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, string>::.ctor(object, native int)
+  IL_001F  dup
+  IL_0020  stsfld     class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, string> Ref.Lambdas.Reports/<>c::'<>9__6_0'
+  IL_0025  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!1> [System.Linq]System.Linq.Enumerable::Select<class Ref.Lambdas.Order, string>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>)
+  IL_002A  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0> [System.Linq]System.Linq.Enumerable::Distinct<string>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>)
+  IL_002F  ldsfld     class [System.Runtime]System.Func`2<string, string> Ref.Lambdas.Reports/<>c::'<>9__6_1'
+  IL_0034  dup
+  IL_0035  brtrue.s   IL_004E
+  IL_0037  pop
+  IL_0038  ldsfld     class Ref.Lambdas.Reports/<>c Ref.Lambdas.Reports/<>c::'<>9'
+  IL_003D  ldftn      instance string Ref.Lambdas.Reports/<>c::'<Customers>b__6_1'(string)
+  IL_0043  newobj     instance void class [System.Runtime]System.Func`2<string, string>::.ctor(object, native int)
+  IL_0048  dup
+  IL_0049  stsfld     class [System.Runtime]System.Func`2<string, string> Ref.Lambdas.Reports/<>c::'<>9__6_1'
+  IL_004E  call       class [System.Runtime]System.StringComparer [System.Runtime]System.StringComparer::get_Ordinal()
+  IL_0053  call       class [System.Linq]System.Linq.IOrderedEnumerable`1<!!0> [System.Linq]System.Linq.Enumerable::OrderBy<string, string>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>, class [System.Runtime]System.Collections.Generic.IComparer`1<!!1>)
+  IL_0058  ret
+
+Method   : IEnumerable<Order> Large()
+Kind     : instance, public
+RVA      : 0x267D   Size: 24 bytes   Token: 0x06000025
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Collections]System.Collections.Generic.List`1<class Ref.Lambdas.Order> Ref.Lambdas.Reports::_orders
+  IL_0006  ldarg.0
+  IL_0007  ldftn      instance bool Ref.Lambdas.Reports::'<Large>b__7_0'(class Ref.Lambdas.Order)
+  IL_000D  newobj     instance void class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, bool>::.ctor(object, native int)
+  IL_0012  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0> [System.Linq]System.Linq.Enumerable::Where<class Ref.Lambdas.Order>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, bool>)
+  IL_0017  ret
+
+Method   : IEnumerable<Order> Between(DateTime from, int days)
+Kind     : instance, public
+RVA      : 0x2698   Size: 56 bytes   Token: 0x06000026
+
+[IL]  .maxstack 3
+  .locals init ([0] class Ref.Lambdas.Reports/<>c__DisplayClass8_0 V_0)
+  IL_0000  newobj     instance void Ref.Lambdas.Reports/<>c__DisplayClass8_0::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldloc.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      valuetype [System.Runtime]System.DateTime Ref.Lambdas.Reports/<>c__DisplayClass8_0::from
+  IL_000D  ldloc.0
+  IL_000E  ldloc.0
+  IL_000F  ldflda     valuetype [System.Runtime]System.DateTime Ref.Lambdas.Reports/<>c__DisplayClass8_0::from
+  IL_0014  ldarg.2
+  IL_0015  conv.r8
+  IL_0016  call       instance valuetype [System.Runtime]System.DateTime [System.Runtime]System.DateTime::AddDays(float64)
+  IL_001B  stfld      valuetype [System.Runtime]System.DateTime Ref.Lambdas.Reports/<>c__DisplayClass8_0::to
+  IL_0020  ldarg.0
+  IL_0021  ldfld      class [System.Collections]System.Collections.Generic.List`1<class Ref.Lambdas.Order> Ref.Lambdas.Reports::_orders
+  IL_0026  ldloc.0
+  IL_0027  ldftn      instance bool Ref.Lambdas.Reports/<>c__DisplayClass8_0::'<Between>b__0'(class Ref.Lambdas.Order)
+  IL_002D  newobj     instance void class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, bool>::.ctor(object, native int)
+  IL_0032  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0> [System.Linq]System.Linq.Enumerable::Where<class Ref.Lambdas.Order>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, bool>)
+  IL_0037  ret
+
+Method   : IEnumerable<ValueTuple<string, Decimal, int>> Totals(IEnumerable<string> vip)
+Kind     : instance, public
+RVA      : 0x26DC   Size: 281 bytes   Token: 0x06000027
+
+[IL]  .maxstack 6
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Collections]System.Collections.Generic.List`1<class Ref.Lambdas.Order> Ref.Lambdas.Reports::_orders
+  IL_0006  ldarg.1
+  IL_0007  ldsfld     class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, string> Ref.Lambdas.Reports/<>c::'<>9__9_0'
+  IL_000C  dup
+  IL_000D  brtrue.s   IL_0026
+  IL_000F  pop
+  IL_0010  ldsfld     class Ref.Lambdas.Reports/<>c Ref.Lambdas.Reports/<>c::'<>9'
+  IL_0015  ldftn      instance string Ref.Lambdas.Reports/<>c::'<Totals>b__9_0'(class Ref.Lambdas.Order)
+  IL_001B  newobj     instance void class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, string>::.ctor(object, native int)
+  IL_0020  dup
+  IL_0021  stsfld     class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, string> Ref.Lambdas.Reports/<>c::'<>9__9_0'
+  IL_0026  ldsfld     class [System.Runtime]System.Func`2<string, string> Ref.Lambdas.Reports/<>c::'<>9__9_1'
+  IL_002B  dup
+  IL_002C  brtrue.s   IL_0045
+  IL_002E  pop
+  IL_002F  ldsfld     class Ref.Lambdas.Reports/<>c Ref.Lambdas.Reports/<>c::'<>9'
+  IL_0034  ldftn      instance string Ref.Lambdas.Reports/<>c::'<Totals>b__9_1'(string)
+  IL_003A  newobj     instance void class [System.Runtime]System.Func`2<string, string>::.ctor(object, native int)
+  IL_003F  dup
+  IL_0040  stsfld     class [System.Runtime]System.Func`2<string, string> Ref.Lambdas.Reports/<>c::'<>9__9_1'
+  IL_0045  ldsfld     class [System.Runtime]System.Func`3<class Ref.Lambdas.Order, string, class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>> Ref.Lambdas.Reports/<>c::'<>9__9_2'
+  IL_004A  dup
+  IL_004B  brtrue.s   IL_0064
+  IL_004D  pop
+  IL_004E  ldsfld     class Ref.Lambdas.Reports/<>c Ref.Lambdas.Reports/<>c::'<>9'
+  IL_0053  ldftn      instance class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string> Ref.Lambdas.Reports/<>c::'<Totals>b__9_2'(class Ref.Lambdas.Order, string)
+  IL_0059  newobj     instance void class [System.Runtime]System.Func`3<class Ref.Lambdas.Order, string, class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>>::.ctor(object, native int)
+  IL_005E  dup
+  IL_005F  stsfld     class [System.Runtime]System.Func`3<class Ref.Lambdas.Order, string, class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>> Ref.Lambdas.Reports/<>c::'<>9__9_2'
+  IL_0064  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!3> [System.Linq]System.Linq.Enumerable::Join<class Ref.Lambdas.Order, string, string, class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!1>, class [System.Runtime]System.Func`2<!!0, !!2>, class [System.Runtime]System.Func`2<!!1, !!2>, class [System.Runtime]System.Func`3<!!0, !!1, !!3>)
+  IL_0069  ldsfld     class [System.Runtime]System.Func`2<class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>, string> Ref.Lambdas.Reports/<>c::'<>9__9_3'
+  IL_006E  dup
+  IL_006F  brtrue.s   IL_0088
+  IL_0071  pop
+  IL_0072  ldsfld     class Ref.Lambdas.Reports/<>c Ref.Lambdas.Reports/<>c::'<>9'
+  IL_0077  ldftn      instance string Ref.Lambdas.Reports/<>c::'<Totals>b__9_3'(class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>)
+  IL_007D  newobj     instance void class [System.Runtime]System.Func`2<class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>, string>::.ctor(object, native int)
+  IL_0082  dup
+  IL_0083  stsfld     class [System.Runtime]System.Func`2<class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>, string> Ref.Lambdas.Reports/<>c::'<>9__9_3'
+  IL_0088  ldsfld     class [System.Runtime]System.Func`2<class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>, class Ref.Lambdas.Order> Ref.Lambdas.Reports/<>c::'<>9__9_4'
+  IL_008D  dup
+  IL_008E  brtrue.s   IL_00A7
+  IL_0090  pop
+  IL_0091  ldsfld     class Ref.Lambdas.Reports/<>c Ref.Lambdas.Reports/<>c::'<>9'
+  IL_0096  ldftn      instance class Ref.Lambdas.Order Ref.Lambdas.Reports/<>c::'<Totals>b__9_4'(class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>)
+  IL_009C  newobj     instance void class [System.Runtime]System.Func`2<class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>, class Ref.Lambdas.Order>::.ctor(object, native int)
+  IL_00A1  dup
+  IL_00A2  stsfld     class [System.Runtime]System.Func`2<class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>, class Ref.Lambdas.Order> Ref.Lambdas.Reports/<>c::'<>9__9_4'
+  IL_00A7  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<class [System.Linq]System.Linq.IGrouping`2<!!1, !!2>> [System.Linq]System.Linq.Enumerable::GroupBy<class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>, string, class Ref.Lambdas.Order>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>, class [System.Runtime]System.Func`2<!!0, !!2>)
+  IL_00AC  ldsfld     class [System.Runtime]System.Func`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>> Ref.Lambdas.Reports/<>c::'<>9__9_5'
+  IL_00B1  dup
+  IL_00B2  brtrue.s   IL_00CB
+  IL_00B4  pop
+  IL_00B5  ldsfld     class Ref.Lambdas.Reports/<>c Ref.Lambdas.Reports/<>c::'<>9'
+  IL_00BA  ldftn      instance class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal> Ref.Lambdas.Reports/<>c::'<Totals>b__9_5'(class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>)
+  IL_00C0  newobj     instance void class [System.Runtime]System.Func`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>>::.ctor(object, native int)
+  IL_00C5  dup
+  IL_00C6  stsfld     class [System.Runtime]System.Func`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>> Ref.Lambdas.Reports/<>c::'<>9__9_5'
+  IL_00CB  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!1> [System.Linq]System.Linq.Enumerable::Select<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>)
+  IL_00D0  ldsfld     class [System.Runtime]System.Func`2<class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>, valuetype [System.Runtime]System.Decimal> Ref.Lambdas.Reports/<>c::'<>9__9_6'
+  IL_00D5  dup
+  IL_00D6  brtrue.s   IL_00EF
+  IL_00D8  pop
+  IL_00D9  ldsfld     class Ref.Lambdas.Reports/<>c Ref.Lambdas.Reports/<>c::'<>9'
+  IL_00DE  ldftn      instance valuetype [System.Runtime]System.Decimal Ref.Lambdas.Reports/<>c::'<Totals>b__9_6'(class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>)
+  IL_00E4  newobj     instance void class [System.Runtime]System.Func`2<class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>, valuetype [System.Runtime]System.Decimal>::.ctor(object, native int)
+  IL_00E9  dup
+  IL_00EA  stsfld     class [System.Runtime]System.Func`2<class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>, valuetype [System.Runtime]System.Decimal> Ref.Lambdas.Reports/<>c::'<>9__9_6'
+  IL_00EF  call       class [System.Linq]System.Linq.IOrderedEnumerable`1<!!0> [System.Linq]System.Linq.Enumerable::OrderByDescending<class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>, valuetype [System.Runtime]System.Decimal>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>)
+  IL_00F4  ldsfld     class [System.Runtime]System.Func`2<class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>, valuetype [System.Runtime]System.ValueTuple`3<string, valuetype [System.Runtime]System.Decimal, int32>> Ref.Lambdas.Reports/<>c::'<>9__9_7'
+  IL_00F9  dup
+  IL_00FA  brtrue.s   IL_0113
+  IL_00FC  pop
+  IL_00FD  ldsfld     class Ref.Lambdas.Reports/<>c Ref.Lambdas.Reports/<>c::'<>9'
+  IL_0102  ldftn      instance valuetype [System.Runtime]System.ValueTuple`3<string, valuetype [System.Runtime]System.Decimal, int32> Ref.Lambdas.Reports/<>c::'<Totals>b__9_7'(class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>)
+  IL_0108  newobj     instance void class [System.Runtime]System.Func`2<class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>, valuetype [System.Runtime]System.ValueTuple`3<string, valuetype [System.Runtime]System.Decimal, int32>>::.ctor(object, native int)
+  IL_010D  dup
+  IL_010E  stsfld     class [System.Runtime]System.Func`2<class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>, valuetype [System.Runtime]System.ValueTuple`3<string, valuetype [System.Runtime]System.Decimal, int32>> Ref.Lambdas.Reports/<>c::'<>9__9_7'
+  IL_0113  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!1> [System.Linq]System.Linq.Enumerable::Select<class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>, valuetype [System.Runtime]System.ValueTuple`3<string, valuetype [System.Runtime]System.Decimal, int32>>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>)
+  IL_0118  ret
+
+Method   : Func<int, Func<Decimal, bool>> Rules()
+Kind     : instance, public
+RVA      : 0x2801   Size: 31 bytes   Token: 0x06000028
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void Ref.Lambdas.Reports/<>c__DisplayClass10_0::.ctor()
+  IL_0005  dup
+  IL_0006  ldarg.0
+  IL_0007  stfld      class Ref.Lambdas.Reports Ref.Lambdas.Reports/<>c__DisplayClass10_0::'<>4__this'
+  IL_000C  dup
+  IL_000D  ldc.i4.0
+  IL_000E  stfld      int32 Ref.Lambdas.Reports/<>c__DisplayClass10_0::calls
+  IL_0013  ldftn      instance class [System.Runtime]System.Func`2<valuetype [System.Runtime]System.Decimal, bool> Ref.Lambdas.Reports/<>c__DisplayClass10_0::'<Rules>b__0'(int32)
+  IL_0019  newobj     instance void class [System.Runtime]System.Func`2<int32, class [System.Runtime]System.Func`2<valuetype [System.Runtime]System.Decimal, bool>>::.ctor(object, native int)
+  IL_001E  ret
+
+Method   : Decimal Median()
+Kind     : instance, public
+RVA      : 0x2824   Size: 113 bytes   Token: 0x06000029
+
+[IL]  .maxstack 4
+  .locals init ([0] valuetype Ref.Lambdas.Reports/<>c__DisplayClass11_0 V_0)
+  IL_0000  ldloca.s   V_0
+  IL_0002  ldarg.0
+  IL_0003  ldfld      class [System.Collections]System.Collections.Generic.List`1<class Ref.Lambdas.Order> Ref.Lambdas.Reports::_orders
+  IL_0008  ldsfld     class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, valuetype [System.Runtime]System.Decimal> Ref.Lambdas.Reports/<>c::'<>9__11_0'
+  IL_000D  dup
+  IL_000E  brtrue.s   IL_0027
+  IL_0010  pop
+  IL_0011  ldsfld     class Ref.Lambdas.Reports/<>c Ref.Lambdas.Reports/<>c::'<>9'
+  IL_0016  ldftn      instance valuetype [System.Runtime]System.Decimal Ref.Lambdas.Reports/<>c::'<Median>b__11_0'(class Ref.Lambdas.Order)
+  IL_001C  newobj     instance void class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, valuetype [System.Runtime]System.Decimal>::.ctor(object, native int)
+  IL_0021  dup
+  IL_0022  stsfld     class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, valuetype [System.Runtime]System.Decimal> Ref.Lambdas.Reports/<>c::'<>9__11_0'
+  IL_0027  call       class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!1> [System.Linq]System.Linq.Enumerable::Select<class Ref.Lambdas.Order, valuetype [System.Runtime]System.Decimal>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>)
+  IL_002C  ldsfld     class [System.Runtime]System.Func`2<valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal> Ref.Lambdas.Reports/<>c::'<>9__11_1'
+  IL_0031  dup
+  IL_0032  brtrue.s   IL_004B
+  IL_0034  pop
+  IL_0035  ldsfld     class Ref.Lambdas.Reports/<>c Ref.Lambdas.Reports/<>c::'<>9'
+  IL_003A  ldftn      instance valuetype [System.Runtime]System.Decimal Ref.Lambdas.Reports/<>c::'<Median>b__11_1'(valuetype [System.Runtime]System.Decimal)
+  IL_0040  newobj     instance void class [System.Runtime]System.Func`2<valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal>::.ctor(object, native int)
+  IL_0045  dup
+  IL_0046  stsfld     class [System.Runtime]System.Func`2<valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal> Ref.Lambdas.Reports/<>c::'<>9__11_1'
+  IL_004B  call       class [System.Linq]System.Linq.IOrderedEnumerable`1<!!0> [System.Linq]System.Linq.Enumerable::OrderBy<valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, !!1>)
+  IL_0050  call       !!0[] [System.Linq]System.Linq.Enumerable::ToArray<valuetype [System.Runtime]System.Decimal>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>)
+  IL_0055  stfld      valuetype [System.Runtime]System.Decimal[] Ref.Lambdas.Reports/<>c__DisplayClass11_0::sorted
+  IL_005A  ldloc.0
+  IL_005B  ldfld      valuetype [System.Runtime]System.Decimal[] Ref.Lambdas.Reports/<>c__DisplayClass11_0::sorted
+  IL_0060  ldlen
+  IL_0061  brfalse.s  IL_006B
+  IL_0063  ldloca.s   V_0
+  IL_0065  call       valuetype [System.Runtime]System.Decimal Ref.Lambdas.Reports::'<Median>g__Middle|11_2'(valuetype Ref.Lambdas.Reports/<>c__DisplayClass11_0&)
+  IL_006A  ret
+  IL_006B  ldsfld     valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::Zero
+  IL_0070  ret
+
+Method   : long Fib(int n)
+Kind     : static, public
+RVA      : 0x28A1   Size: 7 bytes   Token: 0x0600002A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       int64 Ref.Lambdas.Reports::'<Fib>g__Go|12_0'(int32)
+  IL_0006  ret
+
+Method   : void Log(IEnumerable<string> lines)
+Kind     : instance, public
+RVA      : 0x28AC   Size: 95 bytes   Token: 0x0600002B
+
+[IL]  .maxstack 4
+  .locals init ([0] class Ref.Lambdas.Reports/<>c__DisplayClass13_0 V_0, [1] class [System.Runtime]System.Collections.Generic.IEnumerator`1<string> V_1, [2] string V_2)
+  IL_0000  newobj     instance void Ref.Lambdas.Reports/<>c__DisplayClass13_0::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldloc.0
+  IL_0007  ldarg.0
+  IL_0008  stfld      class Ref.Lambdas.Reports Ref.Lambdas.Reports/<>c__DisplayClass13_0::'<>4__this'
+  IL_000D  ldloc.0
+  IL_000E  ldc.i4.0
+  IL_000F  stfld      int32 Ref.Lambdas.Reports/<>c__DisplayClass13_0::n
+  IL_0014  ldarg.1
+  IL_0015  callvirt   instance class [System.Runtime]System.Collections.Generic.IEnumerator`1<!0> class [System.Runtime]System.Collections.Generic.IEnumerable`1<string>::GetEnumerator()
+  IL_001A  stloc.1
+  IL_001B  br.s       IL_002B
+  IL_001D  ldloc.1
+  IL_001E  callvirt   instance !0 class [System.Runtime]System.Collections.Generic.IEnumerator`1<string>::get_Current()
+  IL_0023  stloc.2
+  IL_0024  ldloc.0
+  IL_0025  ldloc.2
+  IL_0026  callvirt   instance void Ref.Lambdas.Reports/<>c__DisplayClass13_0::'<Log>g__Write|0'(string)
+  IL_002B  ldloc.1
+  IL_002C  callvirt   instance bool [System.Runtime]System.Collections.IEnumerator::MoveNext()
+  IL_0031  brtrue.s   IL_001D
+  IL_0033  leave.s    IL_003F
+  IL_0035  ldloc.1
+  IL_0036  brfalse.s  IL_003E
+  IL_0038  ldloc.1
+  IL_0039  callvirt   instance void [System.Runtime]System.IDisposable::Dispose()
+  IL_003E  endfinally
+  IL_003F  ldc.i4.1
+  IL_0040  newarr     [System.Runtime]System.String
+  IL_0045  dup
+  IL_0046  ldc.i4.0
+  IL_0047  ldstr      "done"
+  IL_004C  stelem.ref
+  IL_004D  ldloc.0
+  IL_004E  ldftn      instance void Ref.Lambdas.Reports/<>c__DisplayClass13_0::'<Log>g__Write|0'(string)
+  IL_0054  newobj     instance void class [System.Runtime]System.Action`1<string>::.ctor(object, native int)
+  IL_0059  call       void [System.Runtime]System.Array::ForEach<string>(!!0[], class [System.Runtime]System.Action`1<!!0>)
+  IL_005E  ret
+  .try IL_001B to IL_0035 finally handler IL_0035 to IL_003F
+
+Method   : List<Func<int>> Counters(int count)
+Kind     : instance, public
+RVA      : 0x2928   Size: 51 bytes   Token: 0x0600002C
+
+[IL]  .maxstack 3
+  .locals init ([0] class [System.Collections]System.Collections.Generic.List`1<class [System.Runtime]System.Func`1<int32>> V_0, [1] int32 V_1, [2] class Ref.Lambdas.Reports/<>c__DisplayClass14_0 V_2)
+  IL_0000  newobj     instance void class [System.Collections]System.Collections.Generic.List`1<class [System.Runtime]System.Func`1<int32>>::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldc.i4.0
+  IL_0007  stloc.1
+  IL_0008  br.s       IL_002D
+  IL_000A  newobj     instance void Ref.Lambdas.Reports/<>c__DisplayClass14_0::.ctor()
+  IL_000F  stloc.2
+  IL_0010  ldloc.2
+  IL_0011  ldloc.1
+  IL_0012  stfld      int32 Ref.Lambdas.Reports/<>c__DisplayClass14_0::captured
+  IL_0017  ldloc.0
+  IL_0018  ldloc.2
+  IL_0019  ldftn      instance int32 Ref.Lambdas.Reports/<>c__DisplayClass14_0::'<Counters>b__0'()
+  IL_001F  newobj     instance void class [System.Runtime]System.Func`1<int32>::.ctor(object, native int)
+  IL_0024  callvirt   instance void class [System.Collections]System.Collections.Generic.List`1<class [System.Runtime]System.Func`1<int32>>::Add(!0)
+  IL_0029  ldloc.1
+  IL_002A  ldc.i4.1
+  IL_002B  add
+  IL_002C  stloc.1
+  IL_002D  ldloc.1
+  IL_002E  ldarg.1
+  IL_002F  blt.s      IL_000A
+  IL_0031  ldloc.0
+  IL_0032  ret
+
+Method   : Expression<Func<Order, bool>> Filter(string customer)
+Kind     : static, public
+RVA      : 0x2968   Size: 164 bytes   Token: 0x0600002D
+
+[IL]  .maxstack 5
+  .locals init ([0] class Ref.Lambdas.Reports/<>c__DisplayClass15_0 V_0, [1] class [System.Linq.Expressions]System.Linq.Expressions.ParameterExpression V_1)
+  IL_0000  newobj     instance void Ref.Lambdas.Reports/<>c__DisplayClass15_0::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldloc.0
+  IL_0007  ldarg.0
+  IL_0008  stfld      string Ref.Lambdas.Reports/<>c__DisplayClass15_0::customer
+  IL_000D  ldtoken    Ref.Lambdas.Order
+  IL_0012  call       class [System.Runtime]System.Type [System.Runtime]System.Type::GetTypeFromHandle(valuetype [System.Runtime]System.RuntimeTypeHandle)
+  IL_0017  ldstr      "o"
+  IL_001C  call       class [System.Linq.Expressions]System.Linq.Expressions.ParameterExpression [System.Linq.Expressions]System.Linq.Expressions.Expression::Parameter(class [System.Runtime]System.Type, string)
+  IL_0021  stloc.1
+  IL_0022  ldloc.1
+  IL_0023  ldtoken    method instance string Ref.Lambdas.Order::get_Customer()
+  IL_0028  call       class [System.Runtime]System.Reflection.MethodBase [System.Runtime]System.Reflection.MethodBase::GetMethodFromHandle(valuetype [System.Runtime]System.RuntimeMethodHandle)
+  IL_002D  castclass  [System.Runtime]System.Reflection.MethodInfo
+  IL_0032  call       class [System.Linq.Expressions]System.Linq.Expressions.MemberExpression [System.Linq.Expressions]System.Linq.Expressions.Expression::Property(class [System.Linq.Expressions]System.Linq.Expressions.Expression, class [System.Runtime]System.Reflection.MethodInfo)
+  IL_0037  ldloc.0
+  IL_0038  ldtoken    Ref.Lambdas.Reports/<>c__DisplayClass15_0
+  IL_003D  call       class [System.Runtime]System.Type [System.Runtime]System.Type::GetTypeFromHandle(valuetype [System.Runtime]System.RuntimeTypeHandle)
+  IL_0042  call       class [System.Linq.Expressions]System.Linq.Expressions.ConstantExpression [System.Linq.Expressions]System.Linq.Expressions.Expression::Constant(object, class [System.Runtime]System.Type)
+  IL_0047  ldtoken    field string Ref.Lambdas.Reports/<>c__DisplayClass15_0::customer
+  IL_004C  call       class [System.Runtime]System.Reflection.FieldInfo [System.Runtime]System.Reflection.FieldInfo::GetFieldFromHandle(valuetype [System.Runtime]System.RuntimeFieldHandle)
+  IL_0051  call       class [System.Linq.Expressions]System.Linq.Expressions.MemberExpression [System.Linq.Expressions]System.Linq.Expressions.Expression::Field(class [System.Linq.Expressions]System.Linq.Expressions.Expression, class [System.Runtime]System.Reflection.FieldInfo)
+  IL_0056  call       class [System.Linq.Expressions]System.Linq.Expressions.BinaryExpression [System.Linq.Expressions]System.Linq.Expressions.Expression::Equal(class [System.Linq.Expressions]System.Linq.Expressions.Expression, class [System.Linq.Expressions]System.Linq.Expressions.Expression)
+  IL_005B  ldloc.1
+  IL_005C  ldtoken    method instance valuetype [System.Runtime]System.Decimal Ref.Lambdas.Order::get_Amount()
+  IL_0061  call       class [System.Runtime]System.Reflection.MethodBase [System.Runtime]System.Reflection.MethodBase::GetMethodFromHandle(valuetype [System.Runtime]System.RuntimeMethodHandle)
+  IL_0066  castclass  [System.Runtime]System.Reflection.MethodInfo
+  IL_006B  call       class [System.Linq.Expressions]System.Linq.Expressions.MemberExpression [System.Linq.Expressions]System.Linq.Expressions.Expression::Property(class [System.Linq.Expressions]System.Linq.Expressions.Expression, class [System.Runtime]System.Reflection.MethodInfo)
+  IL_0070  ldc.i4.0
+  IL_0071  newobj     instance void [System.Runtime]System.Decimal::.ctor(int32)
+  IL_0076  box        [System.Runtime]System.Decimal
+  IL_007B  ldtoken    [System.Runtime]System.Decimal
+  IL_0080  call       class [System.Runtime]System.Type [System.Runtime]System.Type::GetTypeFromHandle(valuetype [System.Runtime]System.RuntimeTypeHandle)
+  IL_0085  call       class [System.Linq.Expressions]System.Linq.Expressions.ConstantExpression [System.Linq.Expressions]System.Linq.Expressions.Expression::Constant(object, class [System.Runtime]System.Type)
+  IL_008A  call       class [System.Linq.Expressions]System.Linq.Expressions.BinaryExpression [System.Linq.Expressions]System.Linq.Expressions.Expression::GreaterThan(class [System.Linq.Expressions]System.Linq.Expressions.Expression, class [System.Linq.Expressions]System.Linq.Expressions.Expression)
+  IL_008F  call       class [System.Linq.Expressions]System.Linq.Expressions.BinaryExpression [System.Linq.Expressions]System.Linq.Expressions.Expression::AndAlso(class [System.Linq.Expressions]System.Linq.Expressions.Expression, class [System.Linq.Expressions]System.Linq.Expressions.Expression)
+  IL_0094  ldc.i4.1
+  IL_0095  newarr     [System.Linq.Expressions]System.Linq.Expressions.ParameterExpression
+  IL_009A  dup
+  IL_009B  ldc.i4.0
+  IL_009C  ldloc.1
+  IL_009D  stelem.ref
+  IL_009E  call       class [System.Linq.Expressions]System.Linq.Expressions.Expression`1<!!0> [System.Linq.Expressions]System.Linq.Expressions.Expression::Lambda<class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, bool>>(class [System.Linq.Expressions]System.Linq.Expressions.Expression, class [System.Linq.Expressions]System.Linq.Expressions.ParameterExpression[])
+  IL_00A3  ret
+
+Method   : void SetThreshold(Decimal value)
+Kind     : instance, public
+RVA      : 0x2A18   Size: 8 bytes   Token: 0x0600002E
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  stfld      valuetype [System.Runtime]System.Decimal Ref.Lambdas.Reports::_threshold
+  IL_0007  ret
+
+Method   : Func<T, TResult> Memoize<T, TResult>(Func<T, TResult> f)
+Kind     : static, public, generic
+RVA      : 0x2A21   Size: 35 bytes   Token: 0x0600002F
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void class Ref.Lambdas.Reports/<>c__DisplayClass17_0`2<!!0, !!1>::.ctor()
+  IL_0005  dup
+  IL_0006  ldarg.0
+  IL_0007  stfld      class [System.Runtime]System.Func`2<!0, !1> class Ref.Lambdas.Reports/<>c__DisplayClass17_0`2<!!0, !!1>::f
+  IL_000C  dup
+  IL_000D  newobj     instance void class [System.Collections]System.Collections.Generic.Dictionary`2<!!0, !!1>::.ctor()
+  IL_0012  stfld      class [System.Collections]System.Collections.Generic.Dictionary`2<!0, !1> class Ref.Lambdas.Reports/<>c__DisplayClass17_0`2<!!0, !!1>::cache
+  IL_0017  ldftn      instance !1 class Ref.Lambdas.Reports/<>c__DisplayClass17_0`2<!!0, !!1>::'<Memoize>b__0'(!0)
+  IL_001D  newobj     instance void class [System.Runtime]System.Func`2<!!0, !!1>::.ctor(object, native int)
+  IL_0022  ret
+
+Method   : Action Compose(params Action[] actions)
+Kind     : static, public
+RVA      : 0x2A45   Size: 24 bytes   Token: 0x06000030
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void Ref.Lambdas.Reports/<>c__DisplayClass18_0::.ctor()
+  IL_0005  dup
+  IL_0006  ldarg.0
+  IL_0007  stfld      class [System.Runtime]System.Action[] Ref.Lambdas.Reports/<>c__DisplayClass18_0::actions
+  IL_000C  ldftn      instance void Ref.Lambdas.Reports/<>c__DisplayClass18_0::'<Compose>b__0'()
+  IL_0012  newobj     instance void [System.Runtime]System.Action::.ctor(object, native int)
+  IL_0017  ret
+
+Method   : bool <Large>b__7_0(Order o)
+Kind     : instance, private, lambda, compiler-generated
+RVA      : 0x2A5E   Size: 18 bytes   Token: 0x06000031
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  callvirt   instance valuetype [System.Runtime]System.Decimal Ref.Lambdas.Order::get_Amount()
+  IL_0006  ldarg.0
+  IL_0007  ldfld      valuetype [System.Runtime]System.Decimal Ref.Lambdas.Reports::_threshold
+  IL_000C  call       bool [System.Runtime]System.Decimal::op_GreaterThanOrEqual(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+  IL_0011  ret
+
+Method   : Decimal <Median>g__Middle|11_2(ref <>c__DisplayClass11_0 arg1)
+Kind     : static, internal, local-function, compiler-generated
+RVA      : 0x2A74   Size: 69 bytes   Token: 0x06000032
+
+[IL]  .maxstack 3
+  .locals init ([0] int32 V_0)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      valuetype [System.Runtime]System.Decimal[] Ref.Lambdas.Reports/<>c__DisplayClass11_0::sorted
+  IL_0006  ldlen
+  IL_0007  conv.i4
+  IL_0008  ldc.i4.2
+  IL_0009  div
+  IL_000A  stloc.0
+  IL_000B  ldarg.0
+  IL_000C  ldfld      valuetype [System.Runtime]System.Decimal[] Ref.Lambdas.Reports/<>c__DisplayClass11_0::sorted
+  IL_0011  ldlen
+  IL_0012  conv.i4
+  IL_0013  ldc.i4.2
+  IL_0014  rem
+  IL_0015  ldc.i4.1
+  IL_0016  beq.s      IL_0038
+  IL_0018  ldarg.0
+  IL_0019  ldfld      valuetype [System.Runtime]System.Decimal[] Ref.Lambdas.Reports/<>c__DisplayClass11_0::sorted
+  IL_001E  ldloc.0
+  IL_001F  ldc.i4.1
+  IL_0020  sub
+  IL_0021  ldelem     [System.Runtime]System.Decimal
+  IL_0026  ldarg.0
+  IL_0027  ldfld      valuetype [System.Runtime]System.Decimal[] Ref.Lambdas.Reports/<>c__DisplayClass11_0::sorted
+  IL_002C  ldloc.0
+  IL_002D  ldelem     [System.Runtime]System.Decimal
+  IL_0032  call       valuetype [System.Runtime]System.Decimal Ref.Lambdas.Reports::'<Median>g__Average|11_3'(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+  IL_0037  ret
+  IL_0038  ldarg.0
+  IL_0039  ldfld      valuetype [System.Runtime]System.Decimal[] Ref.Lambdas.Reports/<>c__DisplayClass11_0::sorted
+  IL_003E  ldloc.0
+  IL_003F  ldelem     [System.Runtime]System.Decimal
+  IL_0044  ret
+
+Method   : Decimal <Median>g__Average|11_3(Decimal a, Decimal b)
+Kind     : static, internal, local-function, compiler-generated
+RVA      : 0x2AC5   Size: 19 bytes   Token: 0x06000033
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldarg.1
+  IL_0002  call       valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::op_Addition(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+  IL_0007  ldc.i4.2
+  IL_0008  newobj     instance void [System.Runtime]System.Decimal::.ctor(int32)
+  IL_000D  call       valuetype [System.Runtime]System.Decimal [System.Runtime]System.Decimal::op_Division(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+  IL_0012  ret
+
+Method   : long <Fib>g__Go|12_0(int k)
+Kind     : static, internal, local-function, compiler-generated
+RVA      : 0x2AD9   Size: 25 bytes   Token: 0x06000034
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldc.i4.2
+  IL_0002  blt.s      IL_0016
+  IL_0004  ldarg.0
+  IL_0005  ldc.i4.1
+  IL_0006  sub
+  IL_0007  call       int64 Ref.Lambdas.Reports::'<Fib>g__Go|12_0'(int32)
+  IL_000C  ldarg.0
+  IL_000D  ldc.i4.2
+  IL_000E  sub
+  IL_000F  call       int64 Ref.Lambdas.Reports::'<Fib>g__Go|12_0'(int32)
+  IL_0014  add
+  IL_0015  ret
+  IL_0016  ldarg.0
+  IL_0017  conv.i8
+  IL_0018  ret
+
+Type     : Ref.Lambdas.Reports+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2AF3   Size: 11 bytes   Token: 0x06000035
+
+[IL]  .maxstack 8
+  IL_0000  newobj     instance void Ref.Lambdas.Reports/<>c::.ctor()
+  IL_0005  stsfld     class Ref.Lambdas.Reports/<>c Ref.Lambdas.Reports/<>c::'<>9'
+  IL_000A  ret
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2AFF   Size: 7 bytes   Token: 0x06000036
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Method   : string <Customers>b__6_0(Order o)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B07   Size: 7 bytes   Token: 0x06000037
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  callvirt   instance string Ref.Lambdas.Order::get_Customer()
+  IL_0006  ret
+
+Method   : string <Customers>b__6_1(string c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B0F   Size: 2 bytes   Token: 0x06000038
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  ret
+
+Method   : string <Totals>b__9_0(Order o)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B12   Size: 7 bytes   Token: 0x06000039
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  callvirt   instance string Ref.Lambdas.Order::get_Customer()
+  IL_0006  ret
+
+Method   : string <Totals>b__9_1(string v)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B1A   Size: 2 bytes   Token: 0x0600003A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  ret
+
+Method   : <>f__AnonymousType0<Order, string> <Totals>b__9_2(Order o, string v)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B1D   Size: 8 bytes   Token: 0x0600003B
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  ldarg.2
+  IL_0002  newobj     instance void class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>::.ctor(!0, !1)
+  IL_0007  ret
+
+Method   : string <Totals>b__9_3(<>f__AnonymousType0<Order, string> <>h__TransparentIdentifier0)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B26   Size: 12 bytes   Token: 0x0600003C
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  callvirt   instance !0 class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>::get_o()
+  IL_0006  callvirt   instance string Ref.Lambdas.Order::get_Customer()
+  IL_000B  ret
+
+Method   : Order <Totals>b__9_4(<>f__AnonymousType0<Order, string> <>h__TransparentIdentifier0)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B33   Size: 7 bytes   Token: 0x0600003D
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  callvirt   instance !0 class <>f__AnonymousType0`2<class Ref.Lambdas.Order, string>::get_o()
+  IL_0006  ret
+
+Method   : <>f__AnonymousType1<IGrouping<string, Order>, Decimal> <Totals>b__9_5(IGrouping<string, Order> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B3B   Size: 44 bytes   Token: 0x0600003E
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  ldarg.1
+  IL_0002  ldsfld     class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, valuetype [System.Runtime]System.Decimal> Ref.Lambdas.Reports/<>c::'<>9__9_8'
+  IL_0007  dup
+  IL_0008  brtrue.s   IL_0021
+  IL_000A  pop
+  IL_000B  ldsfld     class Ref.Lambdas.Reports/<>c Ref.Lambdas.Reports/<>c::'<>9'
+  IL_0010  ldftn      instance valuetype [System.Runtime]System.Decimal Ref.Lambdas.Reports/<>c::'<Totals>b__9_8'(class Ref.Lambdas.Order)
+  IL_0016  newobj     instance void class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, valuetype [System.Runtime]System.Decimal>::.ctor(object, native int)
+  IL_001B  dup
+  IL_001C  stsfld     class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, valuetype [System.Runtime]System.Decimal> Ref.Lambdas.Reports/<>c::'<>9__9_8'
+  IL_0021  call       valuetype [System.Runtime]System.Decimal [System.Linq]System.Linq.Enumerable::Sum<class Ref.Lambdas.Order>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, valuetype [System.Runtime]System.Decimal>)
+  IL_0026  newobj     instance void class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>::.ctor(!0, !1)
+  IL_002B  ret
+
+Method   : Decimal <Totals>b__9_8(Order x)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B68   Size: 7 bytes   Token: 0x0600003F
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  callvirt   instance valuetype [System.Runtime]System.Decimal Ref.Lambdas.Order::get_Amount()
+  IL_0006  ret
+
+Method   : Decimal <Totals>b__9_6(<>f__AnonymousType1<IGrouping<string, Order>, Decimal> <>h__TransparentIdentifier1)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B70   Size: 7 bytes   Token: 0x06000040
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  callvirt   instance !1 class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>::get_total()
+  IL_0006  ret
+
+Method   : ValueTuple<string, Decimal, int> <Totals>b__9_7(<>f__AnonymousType1<IGrouping<string, Order>, Decimal> <>h__TransparentIdentifier1)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B78   Size: 34 bytes   Token: 0x06000041
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  callvirt   instance !0 class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>::get_g()
+  IL_0006  callvirt   instance !0 class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>::get_Key()
+  IL_000B  ldarg.1
+  IL_000C  callvirt   instance !1 class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>::get_total()
+  IL_0011  ldarg.1
+  IL_0012  callvirt   instance !0 class <>f__AnonymousType1`2<class [System.Linq]System.Linq.IGrouping`2<string, class Ref.Lambdas.Order>, valuetype [System.Runtime]System.Decimal>::get_g()
+  IL_0017  call       int32 [System.Linq]System.Linq.Enumerable::Count<class Ref.Lambdas.Order>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>)
+  IL_001C  newobj     instance void valuetype [System.Runtime]System.ValueTuple`3<string, valuetype [System.Runtime]System.Decimal, int32>::.ctor(!0, !1, !2)
+  IL_0021  ret
+
+Method   : Decimal <Median>b__11_0(Order o)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B9B   Size: 7 bytes   Token: 0x06000042
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  callvirt   instance valuetype [System.Runtime]System.Decimal Ref.Lambdas.Order::get_Amount()
+  IL_0006  ret
+
+Method   : Decimal <Median>b__11_1(Decimal a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2BA3   Size: 2 bytes   Token: 0x06000043
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  ret
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass10_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2BA6   Size: 7 bytes   Token: 0x06000044
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Method   : Func<Decimal, bool> <Rules>b__0(int minCount)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2BB0   Size: 47 bytes   Token: 0x06000045
+
+[IL]  .maxstack 4
+  .locals init ([0] int32 V_0)
+  IL_0000  newobj     instance void Ref.Lambdas.Reports/<>c__DisplayClass10_1::.ctor()
+  IL_0005  dup
+  IL_0006  ldarg.0
+  IL_0007  stfld      class Ref.Lambdas.Reports/<>c__DisplayClass10_0 Ref.Lambdas.Reports/<>c__DisplayClass10_1::'CS$<>8__locals1'
+  IL_000C  dup
+  IL_000D  ldarg.1
+  IL_000E  stfld      int32 Ref.Lambdas.Reports/<>c__DisplayClass10_1::minCount
+  IL_0013  ldarg.0
+  IL_0014  ldfld      int32 Ref.Lambdas.Reports/<>c__DisplayClass10_0::calls
+  IL_0019  stloc.0
+  IL_001A  ldarg.0
+  IL_001B  ldloc.0
+  IL_001C  ldc.i4.1
+  IL_001D  add
+  IL_001E  stfld      int32 Ref.Lambdas.Reports/<>c__DisplayClass10_0::calls
+  IL_0023  ldftn      instance bool Ref.Lambdas.Reports/<>c__DisplayClass10_1::'<Rules>b__1'(valuetype [System.Runtime]System.Decimal)
+  IL_0029  newobj     instance void class [System.Runtime]System.Func`2<valuetype [System.Runtime]System.Decimal, bool>::.ctor(object, native int)
+  IL_002E  ret
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass10_1
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2BEB   Size: 7 bytes   Token: 0x06000046
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Method   : bool <Rules>b__1(Decimal amount)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2BF4   Size: 100 bytes   Token: 0x06000047
+
+[IL]  .maxstack 3
+  .locals init ([0] class Ref.Lambdas.Reports/<>c__DisplayClass10_2 V_0)
+  IL_0000  newobj     instance void Ref.Lambdas.Reports/<>c__DisplayClass10_2::.ctor()
+  IL_0005  stloc.0
+  IL_0006  ldloc.0
+  IL_0007  ldarg.1
+  IL_0008  stfld      valuetype [System.Runtime]System.Decimal Ref.Lambdas.Reports/<>c__DisplayClass10_2::amount
+  IL_000D  ldloc.0
+  IL_000E  ldfld      valuetype [System.Runtime]System.Decimal Ref.Lambdas.Reports/<>c__DisplayClass10_2::amount
+  IL_0013  ldarg.0
+  IL_0014  ldfld      class Ref.Lambdas.Reports/<>c__DisplayClass10_0 Ref.Lambdas.Reports/<>c__DisplayClass10_1::'CS$<>8__locals1'
+  IL_0019  ldfld      class Ref.Lambdas.Reports Ref.Lambdas.Reports/<>c__DisplayClass10_0::'<>4__this'
+  IL_001E  ldfld      valuetype [System.Runtime]System.Decimal Ref.Lambdas.Reports::_threshold
+  IL_0023  call       bool [System.Runtime]System.Decimal::op_GreaterThan(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+  IL_0028  brfalse.s  IL_0062
+  IL_002A  ldarg.0
+  IL_002B  ldfld      class Ref.Lambdas.Reports/<>c__DisplayClass10_0 Ref.Lambdas.Reports/<>c__DisplayClass10_1::'CS$<>8__locals1'
+  IL_0030  ldfld      class Ref.Lambdas.Reports Ref.Lambdas.Reports/<>c__DisplayClass10_0::'<>4__this'
+  IL_0035  ldfld      class [System.Collections]System.Collections.Generic.List`1<class Ref.Lambdas.Order> Ref.Lambdas.Reports::_orders
+  IL_003A  ldloc.0
+  IL_003B  ldftn      instance bool Ref.Lambdas.Reports/<>c__DisplayClass10_2::'<Rules>b__2'(class Ref.Lambdas.Order)
+  IL_0041  newobj     instance void class [System.Runtime]System.Func`2<class Ref.Lambdas.Order, bool>::.ctor(object, native int)
+  IL_0046  call       int32 [System.Linq]System.Linq.Enumerable::Count<class Ref.Lambdas.Order>(class [System.Runtime]System.Collections.Generic.IEnumerable`1<!!0>, class [System.Runtime]System.Func`2<!!0, bool>)
+  IL_004B  ldarg.0
+  IL_004C  ldfld      int32 Ref.Lambdas.Reports/<>c__DisplayClass10_1::minCount
+  IL_0051  blt.s      IL_0062
+  IL_0053  ldarg.0
+  IL_0054  ldfld      class Ref.Lambdas.Reports/<>c__DisplayClass10_0 Ref.Lambdas.Reports/<>c__DisplayClass10_1::'CS$<>8__locals1'
+  IL_0059  ldfld      int32 Ref.Lambdas.Reports/<>c__DisplayClass10_0::calls
+  IL_005E  ldc.i4.0
+  IL_005F  cgt
+  IL_0061  ret
+  IL_0062  ldc.i4.0
+  IL_0063  ret
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass10_2
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2C64   Size: 7 bytes   Token: 0x06000048
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Method   : bool <Rules>b__2(Order o)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2C6C   Size: 18 bytes   Token: 0x06000049
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  callvirt   instance valuetype [System.Runtime]System.Decimal Ref.Lambdas.Order::get_Amount()
+  IL_0006  ldarg.0
+  IL_0007  ldfld      valuetype [System.Runtime]System.Decimal Ref.Lambdas.Reports/<>c__DisplayClass10_2::amount
+  IL_000C  call       bool [System.Runtime]System.Decimal::op_Equality(valuetype [System.Runtime]System.Decimal, valuetype [System.Runtime]System.Decimal)
+  IL_0011  ret
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass13_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2C7F   Size: 7 bytes   Token: 0x0600004A
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Method   : void <Log>g__Write|0(string line)
+Kind     : instance, internal, local-function, compiler-generated
+RVA      : 0x2C88   Size: 82 bytes   Token: 0x0600004B
+
+[IL]  .maxstack 4
+  .locals init ([0] valuetype [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler V_0, [1] int32 V_1)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class Ref.Lambdas.Reports Ref.Lambdas.Reports/<>c__DisplayClass13_0::'<>4__this'
+  IL_0006  ldfld      class [System.Runtime]System.Action`1<string> Ref.Lambdas.Reports::Logged
+  IL_000B  dup
+  IL_000C  brtrue.s   IL_0010
+  IL_000E  pop
+  IL_000F  ret
+  IL_0010  ldloca.s   V_0
+  IL_0012  ldc.i4.2
+  IL_0013  ldc.i4.2
+  IL_0014  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int32, int32)
+  IL_0019  ldloca.s   V_0
+  IL_001B  ldarg.0
+  IL_001C  ldfld      int32 Ref.Lambdas.Reports/<>c__DisplayClass13_0::n
+  IL_0021  ldc.i4.1
+  IL_0022  add
+  IL_0023  stloc.1
+  IL_0024  ldarg.0
+  IL_0025  ldloc.1
+  IL_0026  stfld      int32 Ref.Lambdas.Reports/<>c__DisplayClass13_0::n
+  IL_002B  ldloc.1
+  IL_002C  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<int32>(!!0)
+  IL_0031  ldloca.s   V_0
+  IL_0033  ldstr      ": "
+  IL_0038  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)
+  IL_003D  ldloca.s   V_0
+  IL_003F  ldarg.1
+  IL_0040  call       instance void [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(string)
+  IL_0045  ldloca.s   V_0
+  IL_0047  call       instance string [System.Runtime]System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+  IL_004C  callvirt   instance void class [System.Runtime]System.Action`1<string>::Invoke(!0)
+  IL_0051  ret
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass14_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2CE6   Size: 7 bytes   Token: 0x0600004C
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Method   : int <Counters>b__0()
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2CEE   Size: 14 bytes   Token: 0x0600004D
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  ldfld      int32 Ref.Lambdas.Reports/<>c__DisplayClass14_0::captured
+  IL_0006  ldarg.0
+  IL_0007  ldfld      int32 Ref.Lambdas.Reports/<>c__DisplayClass14_0::captured
+  IL_000C  mul
+  IL_000D  ret
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass15_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2CFD   Size: 7 bytes   Token: 0x0600004E
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass17_0`2
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2D05   Size: 7 bytes   Token: 0x0600004F
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Method   : TResult <Memoize>b__0(T x)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2D10   Size: 46 bytes   Token: 0x06000050
+
+[IL]  .maxstack 4
+  .locals init ([0] !TResult V_0, [1] !TResult V_1)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Collections]System.Collections.Generic.Dictionary`2<!0, !1> class Ref.Lambdas.Reports/<>c__DisplayClass17_0`2<!0, !1>::cache
+  IL_0006  ldarg.1
+  IL_0007  ldloca.s   V_0
+  IL_0009  callvirt   instance bool class [System.Collections]System.Collections.Generic.Dictionary`2<!0, !1>::TryGetValue(!0, !1&)
+  IL_000E  brtrue.s   IL_002C
+  IL_0010  ldarg.0
+  IL_0011  ldfld      class [System.Collections]System.Collections.Generic.Dictionary`2<!0, !1> class Ref.Lambdas.Reports/<>c__DisplayClass17_0`2<!0, !1>::cache
+  IL_0016  ldarg.1
+  IL_0017  ldarg.0
+  IL_0018  ldfld      class [System.Runtime]System.Func`2<!0, !1> class Ref.Lambdas.Reports/<>c__DisplayClass17_0`2<!0, !1>::f
+  IL_001D  ldarg.1
+  IL_001E  callvirt   instance !1 class [System.Runtime]System.Func`2<!0, !1>::Invoke(!0)
+  IL_0023  dup
+  IL_0024  stloc.1
+  IL_0025  callvirt   instance void class [System.Collections]System.Collections.Generic.Dictionary`2<!0, !1>::set_Item(!0, !1)
+  IL_002A  ldloc.1
+  IL_002B  ret
+  IL_002C  ldloc.0
+  IL_002D  ret
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass18_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2D4A   Size: 7 bytes   Token: 0x06000051
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Method   : void <Compose>b__0()
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2D54   Size: 30 bytes   Token: 0x06000052
+
+[IL]  .maxstack 2
+  .locals init ([0] class [System.Runtime]System.Action[] V_0, [1] int32 V_1)
+  IL_0000  ldarg.0
+  IL_0001  ldfld      class [System.Runtime]System.Action[] Ref.Lambdas.Reports/<>c__DisplayClass18_0::actions
+  IL_0006  stloc.0
+  IL_0007  ldc.i4.0
+  IL_0008  stloc.1
+  IL_0009  br.s       IL_0017
+  IL_000B  ldloc.0
+  IL_000C  ldloc.1
+  IL_000D  ldelem.ref
+  IL_000E  callvirt   instance void [System.Runtime]System.Action::Invoke()
+  IL_0013  ldloc.1
+  IL_0014  ldc.i4.1
+  IL_0015  add
+  IL_0016  stloc.1
+  IL_0017  ldloc.1
+  IL_0018  ldloc.0
+  IL_0019  ldlen
+  IL_001A  conv.i4
+  IL_001B  blt.s      IL_000B
+  IL_001D  ret
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass8_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2D7E   Size: 7 bytes   Token: 0x06000053
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.0
+  IL_0001  call       instance void [System.Runtime]System.Object::.ctor()
+  IL_0006  ret
+
+Method   : bool <Between>b__0(Order o)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2D86   Size: 39 bytes   Token: 0x06000054
+
+[IL]  .maxstack 8
+  IL_0000  ldarg.1
+  IL_0001  callvirt   instance valuetype [System.Runtime]System.DateTime Ref.Lambdas.Order::get_Date()
+  IL_0006  ldarg.0
+  IL_0007  ldfld      valuetype [System.Runtime]System.DateTime Ref.Lambdas.Reports/<>c__DisplayClass8_0::from
+  IL_000C  call       bool [System.Runtime]System.DateTime::op_GreaterThanOrEqual(valuetype [System.Runtime]System.DateTime, valuetype [System.Runtime]System.DateTime)
+  IL_0011  brfalse.s  IL_0025
+  IL_0013  ldarg.1
+  IL_0014  callvirt   instance valuetype [System.Runtime]System.DateTime Ref.Lambdas.Order::get_Date()
+  IL_0019  ldarg.0
+  IL_001A  ldfld      valuetype [System.Runtime]System.DateTime Ref.Lambdas.Reports/<>c__DisplayClass8_0::to
+  IL_001F  call       bool [System.Runtime]System.DateTime::op_LessThan(valuetype [System.Runtime]System.DateTime, valuetype [System.Runtime]System.DateTime)
+  IL_0024  ret
+  IL_0025  ldc.i4.0
+  IL_0026  ret

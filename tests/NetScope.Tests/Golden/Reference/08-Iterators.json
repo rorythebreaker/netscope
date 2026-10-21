@@ -1,0 +1,3711 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref08.Iterators.dll",
+      "assembly": "Ref08.Iterators",
+      "version": "1.0.0.0",
+      "targetFramework": ".NETCoreApp,Version=v8.0",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences",
+          "name": "Range",
+          "signature": "IEnumerable<int> Range(int start, int count)",
+          "token": 100663297,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8272,
+          "size": 23,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "newobj",
+              "target": "System.ArgumentOutOfRangeException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 17,
+              "opcode": "call",
+              "target": "Ref.Iterators.Sequences::RangeIterator(int, int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663298
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences",
+          "name": "RangeIterator",
+          "signature": "IEnumerable<int> RangeIterator(int start, int count)",
+          "token": 100663298,
+          "access": "private",
+          "kinds": [
+            "static",
+            "iterator"
+          ],
+          "rva": 8296,
+          "size": 22,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Sequences.<RangeIterator>d__1::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663347
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences::Range",
+              "signature": "IEnumerable<int> Range(int start, int count)",
+              "offset": 17,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences",
+          "name": "Fibonacci",
+          "signature": "IEnumerable<long> Fibonacci()",
+          "token": 100663299,
+          "access": "public",
+          "kinds": [
+            "static",
+            "iterator"
+          ],
+          "rva": 8319,
+          "size": 8,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Sequences.<Fibonacci>d__2::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663324
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences",
+          "name": "Chunk",
+          "signature": "IEnumerable<T[]> Chunk<T>(IEnumerable<T> source, int size)",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "static",
+            "iterator",
+            "generic"
+          ],
+          "rva": 8328,
+          "size": 22,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Sequences.<Chunk>d__3<!!0>::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663315
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences",
+          "name": "Lines",
+          "signature": "IEnumerable<string> Lines(TextReader reader)",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "static",
+            "iterator"
+          ],
+          "rva": 8351,
+          "size": 15,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Sequences.<Lines>d__4::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663338
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences",
+          "name": "Letters",
+          "signature": "IEnumerator<char> Letters(string s)",
+          "token": 100663302,
+          "access": "public",
+          "kinds": [
+            "static",
+            "iterator"
+          ],
+          "rva": 8367,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Sequences.<Letters>d__5::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663332
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences",
+          "name": "TicksAsync",
+          "signature": "IAsyncEnumerable<int> TicksAsync(int count, TimeSpan interval, CancellationToken token)",
+          "token": 100663303,
+          "access": "public",
+          "kinds": [
+            "static",
+            "async",
+            "iterator"
+          ],
+          "rva": 8382,
+          "size": 29,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Sequences.<TicksAsync>d__6::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663370
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences",
+          "name": "ReadLinesAsync",
+          "signature": "IAsyncEnumerable<string> ReadLinesAsync(Stream stream, CancellationToken token)",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "static",
+            "async",
+            "iterator"
+          ],
+          "rva": 8412,
+          "size": 22,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Sequences.<ReadLinesAsync>d__7::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663355
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences",
+          "name": "SumAsync",
+          "signature": "Task<int> SumAsync(IAsyncEnumerable<int> source, CancellationToken token)",
+          "token": 100663305,
+          "access": "public",
+          "kinds": [
+            "static",
+            "async"
+          ],
+          "rva": 8436,
+          "size": 63,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::Create()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 45,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::Start<<SumAsync>d__8>(ref <SumAsync>d__8)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 57,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::get_Task()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Countdown",
+          "name": ".ctor",
+          "signature": "void .ctor(int from)",
+          "token": 100663306,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8511,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Countdown",
+          "name": "GetEnumerator",
+          "signature": "IEnumerator<int> GetEnumerator()",
+          "token": 100663307,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "iterator"
+          ],
+          "rva": 8526,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Countdown.<GetEnumerator>d__2::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663383
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Countdown::System.Collections.IEnumerable.GetEnumerator",
+              "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Countdown",
+          "name": "System.Collections.IEnumerable.GetEnumerator",
+          "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+          "token": 100663308,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed"
+          ],
+          "rva": 8541,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Iterators.Countdown::GetEnumerator()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663307
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Tree`1",
+          "name": ".ctor",
+          "signature": "void .ctor(T value, params Tree<T>[] children)",
+          "token": 100663309,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8549,
+          "size": 21,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Tree`1",
+          "name": "get_Value",
+          "signature": "T get_Value()",
+          "token": 100663310,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8571,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Tree`1+<DepthFirst>d__7::MoveNext",
+              "signature": "bool MoveNext()",
+              "offset": 79,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Tree`1",
+          "name": "get_Children",
+          "signature": "Tree<T>[] get_Children()",
+          "token": 100663311,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8579,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Tree`1+<DepthFirst>d__7::MoveNext",
+              "signature": "bool MoveNext()",
+              "offset": 111,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Tree`1+<DepthFirst>d__7::MoveNext",
+              "signature": "bool MoveNext()",
+              "offset": 135,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Tree`1",
+          "name": "DepthFirst",
+          "signature": "IEnumerable<T> DepthFirst()",
+          "token": 100663312,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "iterator"
+          ],
+          "rva": 8587,
+          "size": 15,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Tree.<DepthFirst>d__7<!0>::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663389
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Tree`1::GetEnumerator",
+              "signature": "IEnumerator<T> GetEnumerator()",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Tree`1",
+          "name": "GetEnumerator",
+          "signature": "IEnumerator<T> GetEnumerator()",
+          "token": 100663313,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed"
+          ],
+          "rva": 8603,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Iterators.Tree<!0>::DepthFirst()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663312
+            },
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<!0>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Tree`1::System.Collections.IEnumerable.GetEnumerator",
+              "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Tree`1",
+          "name": "System.Collections.IEnumerable.GetEnumerator",
+          "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+          "token": 100663314,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed"
+          ],
+          "rva": 8616,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Iterators.Tree<!0>::GetEnumerator()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663313
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Chunk>d__3`1",
+          "name": ".ctor",
+          "signature": "void .ctor(int <>1__state)",
+          "token": 100663315,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8624,
+          "size": 25,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences::Chunk",
+              "signature": "IEnumerable<T[]> Chunk<T>(IEnumerable<T> source, int size)",
+              "offset": 2,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<Chunk>d__3`1::System.Collections.Generic.IEnumerable<T[]>.GetEnumerator",
+              "signature": "IEnumerator<T[]> System.Collections.Generic.IEnumerable<T[]>.GetEnumerator()",
+              "offset": 35,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Chunk>d__3`1",
+          "name": "System.IDisposable.Dispose",
+          "signature": "void System.IDisposable.Dispose()",
+          "token": 100663316,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 8652,
+          "size": 49,
+          "calls": [
+            {
+              "offset": 20,
+              "opcode": "call",
+              "target": "Ref.Iterators.Sequences.<Chunk>d__3<!0>::<>m__Finally1()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663318
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<Chunk>d__3`1::MoveNext",
+              "signature": "bool MoveNext()",
+              "offset": 253,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Chunk>d__3`1",
+          "name": "MoveNext",
+          "signature": "bool MoveNext()",
+          "token": 100663317,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 8732,
+          "size": 261,
+          "calls": [
+            {
+              "offset": 46,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.List<!0>::.ctor(int)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 63,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<!0>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 89,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<!0>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 102,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<!0>::Add(!0)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 113,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<!0>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 133,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<!0>::ToArray()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 168,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<!0>::Clear()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 179,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 187,
+              "opcode": "call",
+              "target": "Ref.Iterators.Sequences.<Chunk>d__3<!0>::<>m__Finally1()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663318
+            },
+            {
+              "offset": 205,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<!0>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 220,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<!0>::ToArray()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 253,
+              "opcode": "call",
+              "target": "Ref.Iterators.Sequences.<Chunk>d__3<!0>::System.IDisposable.Dispose()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663316
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Chunk>d__3`1",
+          "name": "<>m__Finally1",
+          "signature": "void <>m__Finally1()",
+          "token": 100663318,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9024,
+          "size": 27,
+          "calls": [
+            {
+              "offset": 21,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<Chunk>d__3`1::System.IDisposable.Dispose",
+              "signature": "void System.IDisposable.Dispose()",
+              "offset": 20,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<Chunk>d__3`1::MoveNext",
+              "signature": "bool MoveNext()",
+              "offset": 187,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Chunk>d__3`1",
+          "name": "System.Collections.Generic.IEnumerator<T[]>.get_Current",
+          "signature": "T[] System.Collections.Generic.IEnumerator<T[]>.get_Current()",
+          "token": 100663319,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9052,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Chunk>d__3`1",
+          "name": "System.Collections.IEnumerator.Reset",
+          "signature": "void System.Collections.IEnumerator.Reset()",
+          "token": 100663320,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9060,
+          "size": 6,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.NotSupportedException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Chunk>d__3`1",
+          "name": "System.Collections.IEnumerator.get_Current",
+          "signature": "object System.Collections.IEnumerator.get_Current()",
+          "token": 100663321,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9067,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Chunk>d__3`1",
+          "name": "System.Collections.Generic.IEnumerable<T[]>.GetEnumerator",
+          "signature": "IEnumerator<T[]> System.Collections.Generic.IEnumerable<T[]>.GetEnumerator()",
+          "token": 100663322,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9076,
+          "size": 67,
+          "calls": [
+            {
+              "offset": 16,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 35,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Sequences.<Chunk>d__3<!0>::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663315
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<Chunk>d__3`1::System.Collections.IEnumerable.GetEnumerator",
+              "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Chunk>d__3`1",
+          "name": "System.Collections.IEnumerable.GetEnumerator",
+          "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+          "token": 100663323,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9155,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Iterators.Sequences.<Chunk>d__3<!0>::System.Collections.Generic.IEnumerable<T[]>.GetEnumerator()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663322
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Fibonacci>d__2",
+          "name": ".ctor",
+          "signature": "void .ctor(int <>1__state)",
+          "token": 100663324,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9163,
+          "size": 25,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences::Fibonacci",
+              "signature": "IEnumerable<long> Fibonacci()",
+              "offset": 2,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<Fibonacci>d__2::System.Collections.Generic.IEnumerable<System.Int64>.GetEnumerator",
+              "signature": "IEnumerator<long> System.Collections.Generic.IEnumerable<System.Int64>.GetEnumerator()",
+              "offset": 35,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Fibonacci>d__2",
+          "name": "System.IDisposable.Dispose",
+          "signature": "void System.IDisposable.Dispose()",
+          "token": 100663325,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9189,
+          "size": 9,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Fibonacci>d__2",
+          "name": "MoveNext",
+          "signature": "bool MoveNext()",
+          "token": 100663326,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 9200,
+          "size": 104,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Fibonacci>d__2",
+          "name": "System.Collections.Generic.IEnumerator<System.Int64>.get_Current",
+          "signature": "long System.Collections.Generic.IEnumerator<System.Int64>.get_Current()",
+          "token": 100663327,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9316,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Fibonacci>d__2",
+          "name": "System.Collections.IEnumerator.Reset",
+          "signature": "void System.Collections.IEnumerator.Reset()",
+          "token": 100663328,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9324,
+          "size": 6,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.NotSupportedException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Fibonacci>d__2",
+          "name": "System.Collections.IEnumerator.get_Current",
+          "signature": "object System.Collections.IEnumerator.get_Current()",
+          "token": 100663329,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9331,
+          "size": 12,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Fibonacci>d__2",
+          "name": "System.Collections.Generic.IEnumerable<System.Int64>.GetEnumerator",
+          "signature": "IEnumerator<long> System.Collections.Generic.IEnumerable<System.Int64>.GetEnumerator()",
+          "token": 100663330,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9344,
+          "size": 43,
+          "calls": [
+            {
+              "offset": 16,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 35,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Sequences.<Fibonacci>d__2::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663324
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<Fibonacci>d__2::System.Collections.IEnumerable.GetEnumerator",
+              "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Fibonacci>d__2",
+          "name": "System.Collections.IEnumerable.GetEnumerator",
+          "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+          "token": 100663331,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9399,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Iterators.Sequences.<Fibonacci>d__2::System.Collections.Generic.IEnumerable<System.Int64>.GetEnumerator()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663330
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Letters>d__5",
+          "name": ".ctor",
+          "signature": "void .ctor(int <>1__state)",
+          "token": 100663332,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9407,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences::Letters",
+              "signature": "IEnumerator<char> Letters(string s)",
+              "offset": 1,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Letters>d__5",
+          "name": "System.IDisposable.Dispose",
+          "signature": "void System.IDisposable.Dispose()",
+          "token": 100663333,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9422,
+          "size": 16,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Letters>d__5",
+          "name": "MoveNext",
+          "signature": "bool MoveNext()",
+          "token": 100663334,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 9440,
+          "size": 135,
+          "calls": [
+            {
+              "offset": 56,
+              "opcode": "callvirt",
+              "target": "System.String::get_Chars(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 63,
+              "opcode": "call",
+              "target": "System.Char::IsLetter(char)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 119,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Letters>d__5",
+          "name": "System.Collections.Generic.IEnumerator<System.Char>.get_Current",
+          "signature": "char System.Collections.Generic.IEnumerator<System.Char>.get_Current()",
+          "token": 100663335,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9587,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Letters>d__5",
+          "name": "System.Collections.IEnumerator.Reset",
+          "signature": "void System.Collections.IEnumerator.Reset()",
+          "token": 100663336,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9595,
+          "size": 6,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.NotSupportedException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Letters>d__5",
+          "name": "System.Collections.IEnumerator.get_Current",
+          "signature": "object System.Collections.IEnumerator.get_Current()",
+          "token": 100663337,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9602,
+          "size": 12,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Lines>d__4",
+          "name": ".ctor",
+          "signature": "void .ctor(int <>1__state)",
+          "token": 100663338,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9615,
+          "size": 25,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences::Lines",
+              "signature": "IEnumerable<string> Lines(TextReader reader)",
+              "offset": 2,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<Lines>d__4::System.Collections.Generic.IEnumerable<System.String>.GetEnumerator",
+              "signature": "IEnumerator<string> System.Collections.Generic.IEnumerable<System.String>.GetEnumerator()",
+              "offset": 35,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Lines>d__4",
+          "name": "System.IDisposable.Dispose",
+          "signature": "void System.IDisposable.Dispose()",
+          "token": 100663339,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9644,
+          "size": 35,
+          "calls": [
+            {
+              "offset": 20,
+              "opcode": "call",
+              "target": "Ref.Iterators.Sequences.<Lines>d__4::<>m__Finally1()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663341
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<Lines>d__4::MoveNext",
+              "signature": "bool MoveNext()",
+              "offset": 109,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Lines>d__4",
+          "name": "MoveNext",
+          "signature": "bool MoveNext()",
+          "token": 100663340,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 9708,
+          "size": 117,
+          "calls": [
+            {
+              "offset": 36,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 79,
+              "opcode": "callvirt",
+              "target": "System.IO.TextReader::ReadLine()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 89,
+              "opcode": "call",
+              "target": "Ref.Iterators.Sequences.<Lines>d__4::<>m__Finally1()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663341
+            },
+            {
+              "offset": 97,
+              "opcode": "call",
+              "target": "Ref.Iterators.Sequences.<Lines>d__4::<>m__Finally1()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663341
+            },
+            {
+              "offset": 109,
+              "opcode": "call",
+              "target": "Ref.Iterators.Sequences.<Lines>d__4::System.IDisposable.Dispose()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663339
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Lines>d__4",
+          "name": "<>m__Finally1",
+          "signature": "void <>m__Finally1()",
+          "token": 100663341,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9856,
+          "size": 19,
+          "calls": [
+            {
+              "offset": 13,
+              "opcode": "callvirt",
+              "target": "System.IO.TextReader::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<Lines>d__4::System.IDisposable.Dispose",
+              "signature": "void System.IDisposable.Dispose()",
+              "offset": 20,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<Lines>d__4::MoveNext",
+              "signature": "bool MoveNext()",
+              "offset": 89,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<Lines>d__4::MoveNext",
+              "signature": "bool MoveNext()",
+              "offset": 97,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Lines>d__4",
+          "name": "System.Collections.Generic.IEnumerator<System.String>.get_Current",
+          "signature": "string System.Collections.Generic.IEnumerator<System.String>.get_Current()",
+          "token": 100663342,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9876,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Lines>d__4",
+          "name": "System.Collections.IEnumerator.Reset",
+          "signature": "void System.Collections.IEnumerator.Reset()",
+          "token": 100663343,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9884,
+          "size": 6,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.NotSupportedException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Lines>d__4",
+          "name": "System.Collections.IEnumerator.get_Current",
+          "signature": "object System.Collections.IEnumerator.get_Current()",
+          "token": 100663344,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9891,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Lines>d__4",
+          "name": "System.Collections.Generic.IEnumerable<System.String>.GetEnumerator",
+          "signature": "IEnumerator<string> System.Collections.Generic.IEnumerable<System.String>.GetEnumerator()",
+          "token": 100663345,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9900,
+          "size": 55,
+          "calls": [
+            {
+              "offset": 16,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 35,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Sequences.<Lines>d__4::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663338
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<Lines>d__4::System.Collections.IEnumerable.GetEnumerator",
+              "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<Lines>d__4",
+          "name": "System.Collections.IEnumerable.GetEnumerator",
+          "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+          "token": 100663346,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9967,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Iterators.Sequences.<Lines>d__4::System.Collections.Generic.IEnumerable<System.String>.GetEnumerator()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663345
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<RangeIterator>d__1",
+          "name": ".ctor",
+          "signature": "void .ctor(int <>1__state)",
+          "token": 100663347,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 9975,
+          "size": 25,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences::RangeIterator",
+              "signature": "IEnumerable<int> RangeIterator(int start, int count)",
+              "offset": 2,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<RangeIterator>d__1::System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator",
+              "signature": "IEnumerator<int> System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator()",
+              "offset": 35,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<RangeIterator>d__1",
+          "name": "System.IDisposable.Dispose",
+          "signature": "void System.IDisposable.Dispose()",
+          "token": 100663348,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10001,
+          "size": 9,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<RangeIterator>d__1",
+          "name": "MoveNext",
+          "signature": "bool MoveNext()",
+          "token": 100663349,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 10012,
+          "size": 99,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<RangeIterator>d__1",
+          "name": "System.Collections.Generic.IEnumerator<System.Int32>.get_Current",
+          "signature": "int System.Collections.Generic.IEnumerator<System.Int32>.get_Current()",
+          "token": 100663350,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10123,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<RangeIterator>d__1",
+          "name": "System.Collections.IEnumerator.Reset",
+          "signature": "void System.Collections.IEnumerator.Reset()",
+          "token": 100663351,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10131,
+          "size": 6,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.NotSupportedException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<RangeIterator>d__1",
+          "name": "System.Collections.IEnumerator.get_Current",
+          "signature": "object System.Collections.IEnumerator.get_Current()",
+          "token": 100663352,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10138,
+          "size": 12,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<RangeIterator>d__1",
+          "name": "System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator",
+          "signature": "IEnumerator<int> System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator()",
+          "token": 100663353,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10152,
+          "size": 67,
+          "calls": [
+            {
+              "offset": 16,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 35,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Sequences.<RangeIterator>d__1::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663347
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<RangeIterator>d__1::System.Collections.IEnumerable.GetEnumerator",
+              "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<RangeIterator>d__1",
+          "name": "System.Collections.IEnumerable.GetEnumerator",
+          "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+          "token": 100663354,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10231,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Iterators.Sequences.<RangeIterator>d__1::System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663353
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<ReadLinesAsync>d__7",
+          "name": ".ctor",
+          "signature": "void .ctor(int <>1__state)",
+          "token": 100663355,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10239,
+          "size": 36,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Create()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 25,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences::ReadLinesAsync",
+              "signature": "IAsyncEnumerable<string> ReadLinesAsync(Stream stream, CancellationToken token)",
+              "offset": 2,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<ReadLinesAsync>d__7::System.Collections.Generic.IAsyncEnumerable<System.String>.GetAsyncEnumerator",
+              "signature": "IAsyncEnumerator<string> System.Collections.Generic.IAsyncEnumerable<System.String>.GetAsyncEnumerator(CancellationToken cancellationToken)",
+              "offset": 55,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<ReadLinesAsync>d__7",
+          "name": "MoveNext",
+          "signature": "void MoveNext()",
+          "token": 100663356,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 10276,
+          "size": 459,
+          "calls": [
+            {
+              "offset": 65,
+              "opcode": "newobj",
+              "target": "System.IO.StreamReader::.ctor(Stream)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 149,
+              "opcode": "callvirt",
+              "target": "System.IO.TextReader::ReadLineAsync(CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 157,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.ValueTask<string>::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 165,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ValueTaskAwaiter<string>::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 201,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::AwaitUnsafeOnCompleted<ValueTaskAwaiter<string>, <ReadLinesAsync>d__7>(ref ValueTaskAwaiter<string>, ref <ReadLinesAsync>d__7)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 241,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ValueTaskAwaiter<string>::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 273,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 329,
+              "opcode": "callvirt",
+              "target": "System.Threading.CancellationTokenSource::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 354,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Complete()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 367,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::SetException(Exception)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 403,
+              "opcode": "callvirt",
+              "target": "System.Threading.CancellationTokenSource::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 428,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Complete()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 440,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::SetResult(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 453,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::SetResult(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<ReadLinesAsync>d__7",
+          "name": "SetStateMachine",
+          "signature": "void SetStateMachine(IAsyncStateMachine stateMachine)",
+          "token": 100663357,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10800,
+          "size": 1,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<ReadLinesAsync>d__7",
+          "name": "System.Collections.Generic.IAsyncEnumerable<System.String>.GetAsyncEnumerator",
+          "signature": "IAsyncEnumerator<string> System.Collections.Generic.IAsyncEnumerable<System.String>.GetAsyncEnumerator(CancellationToken cancellationToken)",
+          "token": 100663358,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10804,
+          "size": 188,
+          "calls": [
+            {
+              "offset": 16,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 32,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Create()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 55,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Sequences.<ReadLinesAsync>d__7::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663355
+            },
+            {
+              "offset": 88,
+              "opcode": "call",
+              "target": "System.Threading.CancellationToken::Equals(CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 112,
+              "opcode": "call",
+              "target": "System.Threading.CancellationToken::Equals(CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 130,
+              "opcode": "call",
+              "target": "System.Threading.CancellationToken::Equals(CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 159,
+              "opcode": "call",
+              "target": "System.Threading.CancellationTokenSource::CreateLinkedTokenSource(CancellationToken, CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 176,
+              "opcode": "callvirt",
+              "target": "System.Threading.CancellationTokenSource::get_Token()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<ReadLinesAsync>d__7",
+          "name": "System.Collections.Generic.IAsyncEnumerator<System.String>.MoveNextAsync",
+          "signature": "ValueTask<bool> System.Collections.Generic.IAsyncEnumerator<System.String>.MoveNextAsync()",
+          "token": 100663359,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11004,
+          "size": 99,
+          "calls": [
+            {
+              "offset": 26,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::Reset()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 41,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::MoveNext<<ReadLinesAsync>d__7>(ref <ReadLinesAsync>d__7)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 52,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::get_Version()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 65,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetStatus(short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 80,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetResult(short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 85,
+              "opcode": "newobj",
+              "target": "System.Threading.Tasks.ValueTask<bool>::.ctor(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 93,
+              "opcode": "newobj",
+              "target": "System.Threading.Tasks.ValueTask<bool>::.ctor(IValueTaskSource<bool>, short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<ReadLinesAsync>d__7",
+          "name": "System.Collections.Generic.IAsyncEnumerator<System.String>.get_Current",
+          "signature": "string System.Collections.Generic.IAsyncEnumerator<System.String>.get_Current()",
+          "token": 100663360,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11115,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<ReadLinesAsync>d__7",
+          "name": "System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetResult",
+          "signature": "bool System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetResult(short token)",
+          "token": 100663361,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11123,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetResult(short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<ReadLinesAsync>d__7",
+          "name": "System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetStatus",
+          "signature": "ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetStatus(short token)",
+          "token": 100663362,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11137,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetStatus(short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<ReadLinesAsync>d__7",
+          "name": "System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.OnCompleted",
+          "signature": "void System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)",
+          "token": 100663363,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11151,
+          "size": 17,
+          "calls": [
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::OnCompleted(Action<object>, object, short, ValueTaskSourceOnCompletedFlags)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<ReadLinesAsync>d__7",
+          "name": "System.Threading.Tasks.Sources.IValueTaskSource.GetResult",
+          "signature": "void System.Threading.Tasks.Sources.IValueTaskSource.GetResult(short token)",
+          "token": 100663364,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11169,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetResult(short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<ReadLinesAsync>d__7",
+          "name": "System.Threading.Tasks.Sources.IValueTaskSource.GetStatus",
+          "signature": "ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource.GetStatus(short token)",
+          "token": 100663365,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11184,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetStatus(short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<ReadLinesAsync>d__7",
+          "name": "System.Threading.Tasks.Sources.IValueTaskSource.OnCompleted",
+          "signature": "void System.Threading.Tasks.Sources.IValueTaskSource.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)",
+          "token": 100663366,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11198,
+          "size": 17,
+          "calls": [
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::OnCompleted(Action<object>, object, short, ValueTaskSourceOnCompletedFlags)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<ReadLinesAsync>d__7",
+          "name": "System.IAsyncDisposable.DisposeAsync",
+          "signature": "ValueTask System.IAsyncDisposable.DisposeAsync()",
+          "token": 100663367,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11216,
+          "size": 86,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "newobj",
+              "target": "System.NotSupportedException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 48,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::Reset()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 63,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::MoveNext<<ReadLinesAsync>d__7>(ref <ReadLinesAsync>d__7)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 75,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::get_Version()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 80,
+              "opcode": "newobj",
+              "target": "System.Threading.Tasks.ValueTask::.ctor(IValueTaskSource, short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<SumAsync>d__8",
+          "name": "MoveNext",
+          "signature": "void MoveNext()",
+          "token": 100663368,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 11316,
+          "size": 444,
+          "calls": [
+            {
+              "offset": 37,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.TaskAsyncEnumerableExtensions::WithCancellation<int>(IAsyncEnumerable<int>, CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 46,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable<int>::ConfigureAwait(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 54,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable<int>::GetAsyncEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 90,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable.Enumerator<int>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 116,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable.Enumerator<int>::MoveNextAsync()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 125,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<bool>::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 134,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter<bool>::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 167,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::AwaitUnsafeOnCompleted<ConfiguredValueTaskAwaiter<bool>, <SumAsync>d__8>(ref ConfiguredValueTaskAwaiter<bool>, ref <SumAsync>d__8)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 208,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter<bool>::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 238,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable.Enumerator<int>::DisposeAsync()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 247,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 256,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 289,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::AwaitUnsafeOnCompleted<ConfiguredValueTaskAwaiter, <SumAsync>d__8>(ref ConfiguredValueTaskAwaiter, ref <SumAsync>d__8)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 330,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 360,
+              "opcode": "call",
+              "target": "System.Runtime.ExceptionServices.ExceptionDispatchInfo::Capture(Exception)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 365,
+              "opcode": "callvirt",
+              "target": "System.Runtime.ExceptionServices.ExceptionDispatchInfo::Throw()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 416,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::SetException(Exception)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 438,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::SetResult(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<SumAsync>d__8",
+          "name": "SetStateMachine",
+          "signature": "void SetStateMachine(IAsyncStateMachine stateMachine)",
+          "token": 100663369,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11824,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<int>::SetStateMachine(IAsyncStateMachine)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<TicksAsync>d__6",
+          "name": ".ctor",
+          "signature": "void .ctor(int <>1__state)",
+          "token": 100663370,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 11838,
+          "size": 36,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Create()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 25,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences::TicksAsync",
+              "signature": "IAsyncEnumerable<int> TicksAsync(int count, TimeSpan interval, CancellationToken token)",
+              "offset": 2,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Sequences+<TicksAsync>d__6::System.Collections.Generic.IAsyncEnumerable<System.Int32>.GetAsyncEnumerator",
+              "signature": "IAsyncEnumerator<int> System.Collections.Generic.IAsyncEnumerable<System.Int32>.GetAsyncEnumerator(CancellationToken cancellationToken)",
+              "offset": 55,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<TicksAsync>d__6",
+          "name": "MoveNext",
+          "signature": "void MoveNext()",
+          "token": 100663371,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 11876,
+          "size": 414,
+          "calls": [
+            {
+              "offset": 82,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Task::Delay(TimeSpan, CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 88,
+              "opcode": "callvirt",
+              "target": "System.Threading.Tasks.Task::ConfigureAwait(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 96,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 104,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 139,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::AwaitUnsafeOnCompleted<ConfiguredTaskAwaiter, <TicksAsync>d__6>(ref ConfiguredTaskAwaiter, ref <TicksAsync>d__6)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 179,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 291,
+              "opcode": "callvirt",
+              "target": "System.Threading.CancellationTokenSource::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 316,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Complete()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 329,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::SetException(Exception)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 358,
+              "opcode": "callvirt",
+              "target": "System.Threading.CancellationTokenSource::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 383,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Complete()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 395,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::SetResult(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 408,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::SetResult(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<TicksAsync>d__6",
+          "name": "SetStateMachine",
+          "signature": "void SetStateMachine(IAsyncStateMachine stateMachine)",
+          "token": 100663372,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 12332,
+          "size": 1,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<TicksAsync>d__6",
+          "name": "System.Collections.Generic.IAsyncEnumerable<System.Int32>.GetAsyncEnumerator",
+          "signature": "IAsyncEnumerator<int> System.Collections.Generic.IAsyncEnumerable<System.Int32>.GetAsyncEnumerator(CancellationToken cancellationToken)",
+          "token": 100663373,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 12336,
+          "size": 200,
+          "calls": [
+            {
+              "offset": 16,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 32,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::Create()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 55,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Sequences.<TicksAsync>d__6::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663370
+            },
+            {
+              "offset": 100,
+              "opcode": "call",
+              "target": "System.Threading.CancellationToken::Equals(CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 124,
+              "opcode": "call",
+              "target": "System.Threading.CancellationToken::Equals(CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 142,
+              "opcode": "call",
+              "target": "System.Threading.CancellationToken::Equals(CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 171,
+              "opcode": "call",
+              "target": "System.Threading.CancellationTokenSource::CreateLinkedTokenSource(CancellationToken, CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 188,
+              "opcode": "callvirt",
+              "target": "System.Threading.CancellationTokenSource::get_Token()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<TicksAsync>d__6",
+          "name": "System.Collections.Generic.IAsyncEnumerator<System.Int32>.MoveNextAsync",
+          "signature": "ValueTask<bool> System.Collections.Generic.IAsyncEnumerator<System.Int32>.MoveNextAsync()",
+          "token": 100663374,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 12548,
+          "size": 99,
+          "calls": [
+            {
+              "offset": 26,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::Reset()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 41,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::MoveNext<<TicksAsync>d__6>(ref <TicksAsync>d__6)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 52,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::get_Version()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 65,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetStatus(short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 80,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetResult(short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 85,
+              "opcode": "newobj",
+              "target": "System.Threading.Tasks.ValueTask<bool>::.ctor(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 93,
+              "opcode": "newobj",
+              "target": "System.Threading.Tasks.ValueTask<bool>::.ctor(IValueTaskSource<bool>, short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<TicksAsync>d__6",
+          "name": "System.Collections.Generic.IAsyncEnumerator<System.Int32>.get_Current",
+          "signature": "int System.Collections.Generic.IAsyncEnumerator<System.Int32>.get_Current()",
+          "token": 100663375,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 12659,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<TicksAsync>d__6",
+          "name": "System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetResult",
+          "signature": "bool System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetResult(short token)",
+          "token": 100663376,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 12667,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetResult(short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<TicksAsync>d__6",
+          "name": "System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetStatus",
+          "signature": "ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetStatus(short token)",
+          "token": 100663377,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 12681,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetStatus(short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<TicksAsync>d__6",
+          "name": "System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.OnCompleted",
+          "signature": "void System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)",
+          "token": 100663378,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 12695,
+          "size": 17,
+          "calls": [
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::OnCompleted(Action<object>, object, short, ValueTaskSourceOnCompletedFlags)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<TicksAsync>d__6",
+          "name": "System.Threading.Tasks.Sources.IValueTaskSource.GetResult",
+          "signature": "void System.Threading.Tasks.Sources.IValueTaskSource.GetResult(short token)",
+          "token": 100663379,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 12713,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetResult(short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<TicksAsync>d__6",
+          "name": "System.Threading.Tasks.Sources.IValueTaskSource.GetStatus",
+          "signature": "ValueTaskSourceStatus System.Threading.Tasks.Sources.IValueTaskSource.GetStatus(short token)",
+          "token": 100663380,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 12728,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::GetStatus(short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<TicksAsync>d__6",
+          "name": "System.Threading.Tasks.Sources.IValueTaskSource.OnCompleted",
+          "signature": "void System.Threading.Tasks.Sources.IValueTaskSource.OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)",
+          "token": 100663381,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 12742,
+          "size": 17,
+          "calls": [
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::OnCompleted(Action<object>, object, short, ValueTaskSourceOnCompletedFlags)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Sequences+<TicksAsync>d__6",
+          "name": "System.IAsyncDisposable.DisposeAsync",
+          "signature": "ValueTask System.IAsyncDisposable.DisposeAsync()",
+          "token": 100663382,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 12760,
+          "size": 86,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "newobj",
+              "target": "System.NotSupportedException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 48,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::Reset()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 63,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncIteratorMethodBuilder::MoveNext<<TicksAsync>d__6>(ref <TicksAsync>d__6)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 75,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore<bool>::get_Version()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 80,
+              "opcode": "newobj",
+              "target": "System.Threading.Tasks.ValueTask::.ctor(IValueTaskSource, short)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Countdown+<GetEnumerator>d__2",
+          "name": ".ctor",
+          "signature": "void .ctor(int <>1__state)",
+          "token": 100663383,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 12858,
+          "size": 14,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Countdown::GetEnumerator",
+              "signature": "IEnumerator<int> GetEnumerator()",
+              "offset": 1,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Countdown+<GetEnumerator>d__2",
+          "name": "System.IDisposable.Dispose",
+          "signature": "void System.IDisposable.Dispose()",
+          "token": 100663384,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 12873,
+          "size": 9,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Countdown+<GetEnumerator>d__2",
+          "name": "MoveNext",
+          "signature": "bool MoveNext()",
+          "token": 100663385,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 12884,
+          "size": 99,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Countdown+<GetEnumerator>d__2",
+          "name": "System.Collections.Generic.IEnumerator<System.Int32>.get_Current",
+          "signature": "int System.Collections.Generic.IEnumerator<System.Int32>.get_Current()",
+          "token": 100663386,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 12995,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Countdown+<GetEnumerator>d__2",
+          "name": "System.Collections.IEnumerator.Reset",
+          "signature": "void System.Collections.IEnumerator.Reset()",
+          "token": 100663387,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 13003,
+          "size": 6,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.NotSupportedException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Countdown+<GetEnumerator>d__2",
+          "name": "System.Collections.IEnumerator.get_Current",
+          "signature": "object System.Collections.IEnumerator.get_Current()",
+          "token": 100663388,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 13010,
+          "size": 12,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Tree`1+<DepthFirst>d__7",
+          "name": ".ctor",
+          "signature": "void .ctor(int <>1__state)",
+          "token": 100663389,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 13023,
+          "size": 25,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Tree`1::DepthFirst",
+              "signature": "IEnumerable<T> DepthFirst()",
+              "offset": 2,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Tree`1+<DepthFirst>d__7::System.Collections.Generic.IEnumerable<T>.GetEnumerator",
+              "signature": "IEnumerator<T> System.Collections.Generic.IEnumerable<T>.GetEnumerator()",
+              "offset": 35,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Tree`1+<DepthFirst>d__7",
+          "name": "System.IDisposable.Dispose",
+          "signature": "void System.IDisposable.Dispose()",
+          "token": 100663390,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 13049,
+          "size": 23,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Tree`1+<DepthFirst>d__7",
+          "name": "MoveNext",
+          "signature": "bool MoveNext()",
+          "token": 100663391,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 13076,
+          "size": 178,
+          "calls": [
+            {
+              "offset": 31,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.Stack<Ref.Iterators.Tree<!0>>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 48,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Stack<Ref.Iterators.Tree<!0>>::Push(Tree<!0>)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 62,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Stack<Ref.Iterators.Tree<!0>>::Pop()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 79,
+              "opcode": "callvirt",
+              "target": "Ref.Iterators.Tree<!0>::get_Value()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663310
+            },
+            {
+              "offset": 111,
+              "opcode": "callvirt",
+              "target": "Ref.Iterators.Tree<!0>::get_Children()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663311
+            },
+            {
+              "offset": 135,
+              "opcode": "callvirt",
+              "target": "Ref.Iterators.Tree<!0>::get_Children()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663311
+            },
+            {
+              "offset": 142,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Stack<Ref.Iterators.Tree<!0>>::Push(Tree<!0>)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 168,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Stack<Ref.Iterators.Tree<!0>>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Tree`1+<DepthFirst>d__7",
+          "name": "System.Collections.Generic.IEnumerator<T>.get_Current",
+          "signature": "T System.Collections.Generic.IEnumerator<T>.get_Current()",
+          "token": 100663392,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 13266,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Tree`1+<DepthFirst>d__7",
+          "name": "System.Collections.IEnumerator.Reset",
+          "signature": "void System.Collections.IEnumerator.Reset()",
+          "token": 100663393,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 13274,
+          "size": 6,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.NotSupportedException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Tree`1+<DepthFirst>d__7",
+          "name": "System.Collections.IEnumerator.get_Current",
+          "signature": "object System.Collections.IEnumerator.get_Current()",
+          "token": 100663394,
+          "access": "private",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 13281,
+          "size": 12,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Tree`1+<DepthFirst>d__7",
+          "name": "System.Collections.Generic.IEnumerable<T>.GetEnumerator",
+          "signature": "IEnumerator<T> System.Collections.Generic.IEnumerable<T>.GetEnumerator()",
+          "token": 100663395,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 13296,
+          "size": 55,
+          "calls": [
+            {
+              "offset": 16,
+              "opcode": "call",
+              "target": "System.Environment::get_CurrentManagedThreadId()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 35,
+              "opcode": "newobj",
+              "target": "Ref.Iterators.Tree.<DepthFirst>d__7<!0>::.ctor(int)",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663389
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref08.Iterators",
+              "method": "Ref.Iterators.Tree`1+<DepthFirst>d__7::System.Collections.IEnumerable.GetEnumerator",
+              "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref08.Iterators",
+          "namespace": "Ref.Iterators",
+          "type": "Ref.Iterators.Tree`1+<DepthFirst>d__7",
+          "name": "System.Collections.IEnumerable.GetEnumerator",
+          "signature": "IEnumerator System.Collections.IEnumerable.GetEnumerator()",
+          "token": 100663396,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 13363,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Iterators.Tree.<DepthFirst>d__7<!0>::System.Collections.Generic.IEnumerable<T>.GetEnumerator()",
+              "scope": "internal",
+              "groupFile": "Ref08.Iterators.dll",
+              "groupToken": 100663395
+            }
+          ],
+          "callers": [],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

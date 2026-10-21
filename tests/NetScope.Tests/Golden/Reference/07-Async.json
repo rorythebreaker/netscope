@@ -1,0 +1,1676 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref07.Async.dll",
+      "assembly": "Ref07.Async",
+      "version": "1.0.0.0",
+      "targetFramework": ".NETCoreApp,Version=v8.0",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.ISource",
+          "name": "FetchAsync",
+          "signature": "Task<byte[]> FetchAsync(string key, CancellationToken token)",
+          "token": 100663297,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "abstract",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref07.Async",
+              "method": "Ref.Async.CachedSource+<FetchAsync>d__7::MoveNext",
+              "signature": "void MoveNext()",
+              "offset": 230,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref07.Async",
+              "method": "Ref.Async.Batch+<SizesAsync>d__0::MoveNext",
+              "signature": "void MoveNext()",
+              "offset": 58,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.CachedSource",
+          "name": ".ctor",
+          "signature": "void .ctor(ISource inner)",
+          "token": 100663298,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8272,
+          "size": 37,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "newobj",
+              "target": "System.Collections.Concurrent.ConcurrentDictionary<string, byte[]>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Collections.Concurrent"
+            },
+            {
+              "offset": 13,
+              "opcode": "newobj",
+              "target": "System.Threading.SemaphoreSlim::.ctor(int)",
+              "scope": "external",
+              "targetAssembly": "System.Threading"
+            },
+            {
+              "offset": 24,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.CachedSource",
+          "name": "get_Misses",
+          "signature": "int get_Misses()",
+          "token": 100663299,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance"
+          ],
+          "rva": 8310,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "System.Threading.Volatile::Read(ref int)",
+              "scope": "external",
+              "targetAssembly": "System.Threading"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.CachedSource",
+          "name": "FetchAsync",
+          "signature": "Task<byte[]> FetchAsync(string key, CancellationToken token)",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "async"
+          ],
+          "rva": 8324,
+          "size": 71,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::Create()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 53,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::Start<<FetchAsync>d__7>(ref <FetchAsync>d__7)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 65,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::get_Task()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref07.Async",
+              "method": "Ref.Async.CachedSource+<SlowSizeAsync>d__9::MoveNext",
+              "signature": "void MoveNext()",
+              "offset": 30,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.CachedSource",
+          "name": "SizeAsync",
+          "signature": "ValueTask<int> SizeAsync(string key, CancellationToken token)",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 8408,
+          "size": 34,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "System.Collections.Concurrent.ConcurrentDictionary<string, byte[]>::TryGetValue(string, ref byte[])",
+              "scope": "external",
+              "targetAssembly": "System.Collections.Concurrent"
+            },
+            {
+              "offset": 19,
+              "opcode": "newobj",
+              "target": "System.Threading.Tasks.ValueTask<int>::.ctor(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 28,
+              "opcode": "call",
+              "target": "Ref.Async.CachedSource::SlowSizeAsync(string, CancellationToken)",
+              "scope": "internal",
+              "groupFile": "Ref07.Async.dll",
+              "groupToken": 100663302
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.CachedSource",
+          "name": "SlowSizeAsync",
+          "signature": "ValueTask<int> SlowSizeAsync(string key, CancellationToken token)",
+          "token": 100663302,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "async"
+          ],
+          "rva": 8456,
+          "size": 71,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<int>::Create()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 53,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<int>::Start<<SlowSizeAsync>d__9>(ref <SlowSizeAsync>d__9)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 65,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<int>::get_Task()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref07.Async",
+              "method": "Ref.Async.CachedSource::SizeAsync",
+              "signature": "ValueTask<int> SizeAsync(string key, CancellationToken token)",
+              "offset": 28,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.CachedSource",
+          "name": "DisposeAsync",
+          "signature": "ValueTask DisposeAsync()",
+          "token": 100663303,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "async"
+          ],
+          "rva": 8540,
+          "size": 55,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder::Create()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 37,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder::Start<<DisposeAsync>d__10>(ref <DisposeAsync>d__10)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 49,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder::get_Task()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch",
+          "name": "SizesAsync",
+          "signature": "Task<IReadOnlyList<int>> SizesAsync(ISource source, IEnumerable<string> keys, CancellationToken token)",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "static",
+            "async"
+          ],
+          "rva": 8608,
+          "size": 71,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<System.Collections.Generic.IReadOnlyList<int>>::Create()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 53,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<System.Collections.Generic.IReadOnlyList<int>>::Start<<SizesAsync>d__0>(ref <SizesAsync>d__0)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 65,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<System.Collections.Generic.IReadOnlyList<int>>::get_Task()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch",
+          "name": "RetryAsync",
+          "signature": "Task<T> RetryAsync<T>(Func<CancellationToken, Task<T>> action, int attempts, TimeSpan delay, CancellationToken token)",
+          "token": 100663305,
+          "access": "public",
+          "kinds": [
+            "static",
+            "async",
+            "generic"
+          ],
+          "rva": 8692,
+          "size": 79,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!!0>::Create()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 61,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!!0>::Start<<RetryAsync>d__1<!!0>>(ref <RetryAsync>d__1<!!0>)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 73,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!!0>::get_Task()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch",
+          "name": "CopyAsync",
+          "signature": "Task CopyAsync(Stream from, Stream to, IProgress<long> progress, CancellationToken token)",
+          "token": 100663306,
+          "access": "public",
+          "kinds": [
+            "static",
+            "async"
+          ],
+          "rva": 8784,
+          "size": 79,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder::Create()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 61,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder::Start<<CopyAsync>d__2>(ref <CopyAsync>d__2)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 73,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder::get_Task()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch",
+          "name": "FireAndForget",
+          "signature": "void FireAndForget(Task task, Action<Exception> onError)",
+          "token": 100663307,
+          "access": "public",
+          "kinds": [
+            "static",
+            "async"
+          ],
+          "rva": 8876,
+          "size": 51,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncVoidMethodBuilder::Create()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 45,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncVoidMethodBuilder::Start<<FireAndForget>d__3>(ref <FireAndForget>d__3)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch",
+          "name": "AlreadyDone",
+          "signature": "Task<int> AlreadyDone()",
+          "token": 100663308,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 8939,
+          "size": 8,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Task::FromResult<int>(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch",
+          "name": "WithTimeoutAsync",
+          "signature": "Task<string> WithTimeoutAsync(Task<string> task, TimeSpan timeout)",
+          "token": 100663309,
+          "access": "public",
+          "kinds": [
+            "static",
+            "async"
+          ],
+          "rva": 8948,
+          "size": 63,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::Create()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 45,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::Start<<WithTimeoutAsync>d__5>(ref <WithTimeoutAsync>d__5)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 57,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::get_Task()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.CachedSource+<DisposeAsync>d__10",
+          "name": "MoveNext",
+          "signature": "void MoveNext()",
+          "token": 100663310,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 9024,
+          "size": 176,
+          "calls": [
+            {
+              "offset": 17,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Task::Yield()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 25,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.YieldAwaitable::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 33,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.YieldAwaitable.YieldAwaiter::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 65,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder::AwaitUnsafeOnCompleted<YieldAwaiter, <DisposeAsync>d__10>(ref YieldAwaiter, ref <DisposeAsync>d__10)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 102,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.YieldAwaitable.YieldAwaiter::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 113,
+              "opcode": "callvirt",
+              "target": "System.Threading.SemaphoreSlim::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Threading"
+            },
+            {
+              "offset": 124,
+              "opcode": "callvirt",
+              "target": "System.Collections.Concurrent.ConcurrentDictionary<string, byte[]>::Clear()",
+              "scope": "external",
+              "targetAssembly": "System.Collections.Concurrent"
+            },
+            {
+              "offset": 149,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder::SetException(Exception)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 170,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder::SetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.CachedSource+<DisposeAsync>d__10",
+          "name": "SetStateMachine",
+          "signature": "void SetStateMachine(IAsyncStateMachine stateMachine)",
+          "token": 100663311,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9228,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder::SetStateMachine(IAsyncStateMachine)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.CachedSource+<FetchAsync>d__7",
+          "name": "MoveNext",
+          "signature": "void MoveNext()",
+          "token": 100663312,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 9244,
+          "size": 419,
+          "calls": [
+            {
+              "offset": 38,
+              "opcode": "callvirt",
+              "target": "System.Collections.Concurrent.ConcurrentDictionary<string, byte[]>::TryGetValue(string, ref byte[])",
+              "scope": "external",
+              "targetAssembly": "System.Collections.Concurrent"
+            },
+            {
+              "offset": 64,
+              "opcode": "callvirt",
+              "target": "System.Threading.SemaphoreSlim::WaitAsync(CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Threading"
+            },
+            {
+              "offset": 70,
+              "opcode": "callvirt",
+              "target": "System.Threading.Tasks.Task::ConfigureAwait(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 79,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 88,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 121,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::AwaitUnsafeOnCompleted<ConfiguredTaskAwaiter, <FetchAsync>d__7>(ref ConfiguredTaskAwaiter, ref <FetchAsync>d__7)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 162,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 186,
+              "opcode": "callvirt",
+              "target": "System.Collections.Concurrent.ConcurrentDictionary<string, byte[]>::TryGetValue(string, ref byte[])",
+              "scope": "external",
+              "targetAssembly": "System.Collections.Concurrent"
+            },
+            {
+              "offset": 206,
+              "opcode": "call",
+              "target": "System.Threading.Interlocked::Increment(ref int)",
+              "scope": "external",
+              "targetAssembly": "System.Threading"
+            },
+            {
+              "offset": 230,
+              "opcode": "callvirt",
+              "target": "Ref.Async.ISource::FetchAsync(string, CancellationToken)",
+              "scope": "internal",
+              "groupFile": "Ref07.Async.dll",
+              "groupToken": 100663297
+            },
+            {
+              "offset": 236,
+              "opcode": "callvirt",
+              "target": "System.Threading.Tasks.Task<byte[]>::ConfigureAwait(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 245,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable<byte[]>::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 254,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<byte[]>::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 287,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::AwaitUnsafeOnCompleted<ConfiguredTaskAwaiter<byte[]>, <FetchAsync>d__7>(ref ConfiguredTaskAwaiter<byte[]>, ref <FetchAsync>d__7)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 325,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<byte[]>::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 346,
+              "opcode": "callvirt",
+              "target": "System.Collections.Concurrent.ConcurrentDictionary<string, byte[]>::set_Item(string, byte[])",
+              "scope": "external",
+              "targetAssembly": "System.Collections.Concurrent"
+            },
+            {
+              "offset": 366,
+              "opcode": "callvirt",
+              "target": "System.Threading.SemaphoreSlim::Release()",
+              "scope": "external",
+              "targetAssembly": "System.Threading"
+            },
+            {
+              "offset": 391,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::SetException(Exception)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 413,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::SetResult(byte[])",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.CachedSource+<FetchAsync>d__7",
+          "name": "SetStateMachine",
+          "signature": "void SetStateMachine(IAsyncStateMachine stateMachine)",
+          "token": 100663313,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9728,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::SetStateMachine(IAsyncStateMachine)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.CachedSource+<SlowSizeAsync>d__9",
+          "name": "MoveNext",
+          "signature": "void MoveNext()",
+          "token": 100663314,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 9744,
+          "size": 178,
+          "calls": [
+            {
+              "offset": 30,
+              "opcode": "call",
+              "target": "Ref.Async.CachedSource::FetchAsync(string, CancellationToken)",
+              "scope": "internal",
+              "groupFile": "Ref07.Async.dll",
+              "groupToken": 100663300
+            },
+            {
+              "offset": 36,
+              "opcode": "callvirt",
+              "target": "System.Threading.Tasks.Task<byte[]>::ConfigureAwait(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 45,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable<byte[]>::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 53,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<byte[]>::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 85,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<int>::AwaitUnsafeOnCompleted<ConfiguredTaskAwaiter<byte[]>, <SlowSizeAsync>d__9>(ref ConfiguredTaskAwaiter<byte[]>, ref <SlowSizeAsync>d__9)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 122,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<byte[]>::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 150,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<int>::SetException(Exception)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 172,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<int>::SetResult(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.CachedSource+<SlowSizeAsync>d__9",
+          "name": "SetStateMachine",
+          "signature": "void SetStateMachine(IAsyncStateMachine stateMachine)",
+          "token": 100663315,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 9952,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<int>::SetStateMachine(IAsyncStateMachine)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch+<CopyAsync>d__2",
+          "name": "MoveNext",
+          "signature": "void MoveNext()",
+          "token": 100663316,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 9968,
+          "size": 438,
+          "calls": [
+            {
+              "offset": 68,
+              "opcode": "call",
+              "target": "System.MemoryExtensions::AsMemory<byte>(byte[], int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Memory"
+            },
+            {
+              "offset": 73,
+              "opcode": "call",
+              "target": "System.Memory<byte>::op_Implicit(Memory<byte>)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 84,
+              "opcode": "callvirt",
+              "target": "System.IO.Stream::WriteAsync(ReadOnlyMemory<byte>, CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 93,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.ValueTask::ConfigureAwait(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 101,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 109,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 141,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder::AwaitUnsafeOnCompleted<ConfiguredValueTaskAwaiter, <CopyAsync>d__2>(ref ConfiguredValueTaskAwaiter, ref <CopyAsync>d__2)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 181,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 224,
+              "opcode": "callvirt",
+              "target": "System.IProgress<long>::Report(long)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 241,
+              "opcode": "call",
+              "target": "System.MemoryExtensions::AsMemory<byte>(byte[])",
+              "scope": "external",
+              "targetAssembly": "System.Memory"
+            },
+            {
+              "offset": 252,
+              "opcode": "callvirt",
+              "target": "System.IO.Stream::ReadAsync(Memory<byte>, CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 262,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.ValueTask<int>::ConfigureAwait(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 271,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<int>::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 280,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter<int>::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 313,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder::AwaitUnsafeOnCompleted<ConfiguredValueTaskAwaiter<int>, <CopyAsync>d__2>(ref ConfiguredValueTaskAwaiter<int>, ref <CopyAsync>d__2)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 351,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter<int>::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 404,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder::SetException(Exception)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 432,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder::SetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch+<CopyAsync>d__2",
+          "name": "SetStateMachine",
+          "signature": "void SetStateMachine(IAsyncStateMachine stateMachine)",
+          "token": 100663317,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10448,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder::SetStateMachine(IAsyncStateMachine)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch+<FireAndForget>d__3",
+          "name": "MoveNext",
+          "signature": "void MoveNext()",
+          "token": 100663318,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 10464,
+          "size": 163,
+          "calls": [
+            {
+              "offset": 19,
+              "opcode": "callvirt",
+              "target": "System.Threading.Tasks.Task::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 27,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.TaskAwaiter::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 59,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncVoidMethodBuilder::AwaitUnsafeOnCompleted<TaskAwaiter, <FireAndForget>d__3>(ref TaskAwaiter, ref <FireAndForget>d__3)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 96,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.TaskAwaiter::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 111,
+              "opcode": "callvirt",
+              "target": "System.Action<System.Exception>::Invoke(Exception)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 136,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncVoidMethodBuilder::SetException(Exception)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 157,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncVoidMethodBuilder::SetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch+<FireAndForget>d__3",
+          "name": "SetStateMachine",
+          "signature": "void SetStateMachine(IAsyncStateMachine stateMachine)",
+          "token": 100663319,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 10668,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncVoidMethodBuilder::SetStateMachine(IAsyncStateMachine)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch+<RetryAsync>d__1`1",
+          "name": "MoveNext",
+          "signature": "void MoveNext()",
+          "token": 100663320,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 10684,
+          "size": 381,
+          "calls": [
+            {
+              "offset": 42,
+              "opcode": "callvirt",
+              "target": "System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task<!0>>::Invoke(CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 48,
+              "opcode": "callvirt",
+              "target": "System.Threading.Tasks.Task<!0>::ConfigureAwait(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 57,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable<!0>::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 65,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<!0>::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 97,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!0>::AwaitUnsafeOnCompleted<ConfiguredTaskAwaiter<!0>, <RetryAsync>d__1<!0>>(ref ConfiguredTaskAwaiter<!0>, ref <RetryAsync>d__1<!0>)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 137,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<!0>::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 203,
+              "opcode": "call",
+              "target": "System.TimeSpan::op_Multiply(TimeSpan, double)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 214,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Task::Delay(TimeSpan, CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 220,
+              "opcode": "callvirt",
+              "target": "System.Threading.Tasks.Task::ConfigureAwait(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 229,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 238,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 271,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!0>::AwaitUnsafeOnCompleted<ConfiguredTaskAwaiter, <RetryAsync>d__1<!0>>(ref ConfiguredTaskAwaiter, ref <RetryAsync>d__1<!0>)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 309,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 353,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!0>::SetException(Exception)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 375,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!0>::SetResult(!0)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch+<RetryAsync>d__1`1",
+          "name": "SetStateMachine",
+          "signature": "void SetStateMachine(IAsyncStateMachine stateMachine)",
+          "token": 100663321,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11132,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!0>::SetStateMachine(IAsyncStateMachine)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch+<SizesAsync>d__0",
+          "name": "MoveNext",
+          "signature": "void MoveNext()",
+          "token": 100663322,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 11148,
+          "size": 287,
+          "calls": [
+            {
+              "offset": 13,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.List<System.Threading.Tasks.Task<byte[]>>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 25,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<string>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 36,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<string>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 58,
+              "opcode": "callvirt",
+              "target": "Ref.Async.ISource::FetchAsync(string, CancellationToken)",
+              "scope": "internal",
+              "groupFile": "Ref07.Async.dll",
+              "groupToken": 100663297
+            },
+            {
+              "offset": 63,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<System.Threading.Tasks.Task<byte[]>>::Add(Task<byte[]>)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 70,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 89,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 96,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Task::WhenAll<byte[]>(IEnumerable<Task<byte[]>>)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 102,
+              "opcode": "callvirt",
+              "target": "System.Threading.Tasks.Task<byte[][]>::ConfigureAwait(bool)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 111,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable<byte[][]>::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 120,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<byte[][]>::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 153,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<System.Collections.Generic.IReadOnlyList<int>>::AwaitUnsafeOnCompleted<ConfiguredTaskAwaiter<byte[][]>, <SizesAsync>d__0>(ref ConfiguredTaskAwaiter<byte[][]>, ref <SizesAsync>d__0)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 191,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<byte[][]>::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 259,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<System.Collections.Generic.IReadOnlyList<int>>::SetException(Exception)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 281,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<System.Collections.Generic.IReadOnlyList<int>>::SetResult(IReadOnlyList<int>)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch+<SizesAsync>d__0",
+          "name": "SetStateMachine",
+          "signature": "void SetStateMachine(IAsyncStateMachine stateMachine)",
+          "token": 100663323,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11476,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<System.Collections.Generic.IReadOnlyList<int>>::SetStateMachine(IAsyncStateMachine)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch+<WithTimeoutAsync>d__5",
+          "name": "MoveNext",
+          "signature": "void MoveNext()",
+          "token": 100663324,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "state-machine",
+            "compiler-generated"
+          ],
+          "rva": 11492,
+          "size": 351,
+          "calls": [
+            {
+              "offset": 12,
+              "opcode": "newobj",
+              "target": "System.Threading.CancellationTokenSource::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 51,
+              "opcode": "callvirt",
+              "target": "System.Threading.CancellationTokenSource::get_Token()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 56,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Task::Delay(TimeSpan, CancellationToken)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 61,
+              "opcode": "call",
+              "target": "System.Threading.Tasks.Task::WhenAny(Task, Task)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 66,
+              "opcode": "callvirt",
+              "target": "System.Threading.Tasks.Task<System.Threading.Tasks.Task>::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 74,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.TaskAwaiter<System.Threading.Tasks.Task>::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 106,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::AwaitUnsafeOnCompleted<TaskAwaiter<Task>, <WithTimeoutAsync>d__5>(ref TaskAwaiter<Task>, ref <WithTimeoutAsync>d__5)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 146,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.TaskAwaiter<System.Threading.Tasks.Task>::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 159,
+              "opcode": "newobj",
+              "target": "System.TimeoutException::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 171,
+              "opcode": "callvirt",
+              "target": "System.Threading.CancellationTokenSource::Cancel()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 182,
+              "opcode": "callvirt",
+              "target": "System.Threading.Tasks.Task<string>::GetAwaiter()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 190,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.TaskAwaiter<string>::get_IsCompleted()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 222,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::AwaitUnsafeOnCompleted<TaskAwaiter<string>, <WithTimeoutAsync>d__5>(ref TaskAwaiter<string>, ref <WithTimeoutAsync>d__5)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 259,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.TaskAwaiter<string>::GetResult()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 285,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 316,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::SetException(Exception)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 345,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::SetResult(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref07.Async",
+          "namespace": "Ref.Async",
+          "type": "Ref.Async.Batch+<WithTimeoutAsync>d__5",
+          "name": "SetStateMachine",
+          "signature": "void SetStateMachine(IAsyncStateMachine stateMachine)",
+          "token": 100663325,
+          "access": "private",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed",
+            "compiler-generated"
+          ],
+          "rva": 11908,
+          "size": 13,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::SetStateMachine(IAsyncStateMachine)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

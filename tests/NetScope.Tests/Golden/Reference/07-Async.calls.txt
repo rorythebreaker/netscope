@@ -1,0 +1,407 @@
+Assembly : Ref07.Async.dll
+Name     : Ref07.Async, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 29
+
+Type     : Ref.Async.ISource
+
+Method   : Task<byte[]> FetchAsync(string key, CancellationToken token)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000001
+
+[Calls]
+  (none)
+[Callers]
+  Ref.Async.CachedSource+<FetchAsync>d__7::MoveNext  IL_00E6  callvirt  (Ref07.Async.dll)
+  Ref.Async.Batch+<SizesAsync>d__0::MoveNext  IL_003A  callvirt  (Ref07.Async.dll)
+
+Type     : Ref.Async.CachedSource
+
+Method   : void .ctor(ISource inner)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 37 bytes   Token: 0x06000002
+
+[Calls]
+  IL_0001  newobj    System.Collections.Concurrent.ConcurrentDictionary<string, byte[]>::.ctor()  external System.Collections.Concurrent
+  IL_000D  newobj    System.Threading.SemaphoreSlim::.ctor(int)                                   external System.Threading
+  IL_0018  call      System.Object::.ctor()                                                       external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : int get_Misses()
+Kind     : property-get, instance, public
+RVA      : 0x2076   Size: 12 bytes   Token: 0x06000003
+
+[Calls]
+  IL_0006  call      System.Threading.Volatile::Read(ref int)  external System.Threading
+[Callers]
+  (none in the input files)
+
+Method   : Task<byte[]> FetchAsync(string key, CancellationToken token)
+Kind     : instance, public, virtual, sealed, async
+RVA      : 0x2084   Size: 71 bytes   Token: 0x06000004
+
+[Calls]
+  IL_0002  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::Create()                                       external System.Runtime
+  IL_0035  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::Start<<FetchAsync>d__7>(ref <FetchAsync>d__7)  external System.Runtime
+  IL_0041  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::get_Task()                                     external System.Runtime
+[Callers]
+  Ref.Async.CachedSource+<SlowSizeAsync>d__9::MoveNext  IL_001E  call  (Ref07.Async.dll)
+
+Method   : ValueTask<int> SizeAsync(string key, CancellationToken token)
+Kind     : instance, public
+RVA      : 0x20D8   Size: 34 bytes   Token: 0x06000005
+
+[Calls]
+  IL_0009  callvirt  System.Collections.Concurrent.ConcurrentDictionary<string, byte[]>::TryGetValue(string, ref byte[])  external System.Collections.Concurrent
+  IL_0013  newobj    System.Threading.Tasks.ValueTask<int>::.ctor(int)                                                    external System.Runtime
+  IL_001C  call      Ref.Async.CachedSource::SlowSizeAsync(string, CancellationToken)                                     internal
+[Callers]
+  (none in the input files)
+
+Method   : ValueTask<int> SlowSizeAsync(string key, CancellationToken token)
+Kind     : instance, private, async
+RVA      : 0x2108   Size: 71 bytes   Token: 0x06000006
+
+[Calls]
+  IL_0002  call      System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<int>::Create()                                             external System.Runtime
+  IL_0035  call      System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<int>::Start<<SlowSizeAsync>d__9>(ref <SlowSizeAsync>d__9)  external System.Runtime
+  IL_0041  call      System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<int>::get_Task()                                           external System.Runtime
+[Callers]
+  Ref.Async.CachedSource::SizeAsync  IL_001C  call  (Ref07.Async.dll)
+
+Method   : ValueTask DisposeAsync()
+Kind     : instance, public, virtual, sealed, async
+RVA      : 0x215C   Size: 55 bytes   Token: 0x06000007
+
+[Calls]
+  IL_0002  call      System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder::Create()                                             external System.Runtime
+  IL_0025  call      System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder::Start<<DisposeAsync>d__10>(ref <DisposeAsync>d__10)  external System.Runtime
+  IL_0031  call      System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder::get_Task()                                           external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Async.Batch
+
+Method   : Task<IReadOnlyList<int>> SizesAsync(ISource source, IEnumerable<string> keys, CancellationToken token)
+Kind     : static, public, async
+RVA      : 0x21A0   Size: 71 bytes   Token: 0x06000008
+
+[Calls]
+  IL_0002  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<System.Collections.Generic.IReadOnlyList<int>>::Create()                                       external System.Runtime
+  IL_0035  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<System.Collections.Generic.IReadOnlyList<int>>::Start<<SizesAsync>d__0>(ref <SizesAsync>d__0)  external System.Runtime
+  IL_0041  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<System.Collections.Generic.IReadOnlyList<int>>::get_Task()                                     external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : Task<T> RetryAsync<T>(Func<CancellationToken, Task<T>> action, int attempts, TimeSpan delay, CancellationToken token)
+Kind     : static, public, async, generic
+RVA      : 0x21F4   Size: 79 bytes   Token: 0x06000009
+
+[Calls]
+  IL_0002  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!!0>::Create()                                                 external System.Runtime
+  IL_003D  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!!0>::Start<<RetryAsync>d__1<!!0>>(ref <RetryAsync>d__1<!!0>)  external System.Runtime
+  IL_0049  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!!0>::get_Task()                                               external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : Task CopyAsync(Stream from, Stream to, IProgress<long> progress, CancellationToken token)
+Kind     : static, public, async
+RVA      : 0x2250   Size: 79 bytes   Token: 0x0600000A
+
+[Calls]
+  IL_0002  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder::Create()                                     external System.Runtime
+  IL_003D  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder::Start<<CopyAsync>d__2>(ref <CopyAsync>d__2)  external System.Runtime
+  IL_0049  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder::get_Task()                                   external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void FireAndForget(Task task, Action<Exception> onError)
+Kind     : static, public, async
+RVA      : 0x22AC   Size: 51 bytes   Token: 0x0600000B
+
+[Calls]
+  IL_0002  call      System.Runtime.CompilerServices.AsyncVoidMethodBuilder::Create()                                             external System.Runtime
+  IL_002D  call      System.Runtime.CompilerServices.AsyncVoidMethodBuilder::Start<<FireAndForget>d__3>(ref <FireAndForget>d__3)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : Task<int> AlreadyDone()
+Kind     : static, public
+RVA      : 0x22EB   Size: 8 bytes   Token: 0x0600000C
+
+[Calls]
+  IL_0002  call      System.Threading.Tasks.Task::FromResult<int>(int)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : Task<string> WithTimeoutAsync(Task<string> task, TimeSpan timeout)
+Kind     : static, public, async
+RVA      : 0x22F4   Size: 63 bytes   Token: 0x0600000D
+
+[Calls]
+  IL_0002  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::Create()                                                   external System.Runtime
+  IL_002D  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::Start<<WithTimeoutAsync>d__5>(ref <WithTimeoutAsync>d__5)  external System.Runtime
+  IL_0039  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::get_Task()                                                 external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Async.CachedSource+<DisposeAsync>d__10
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2340   Size: 176 bytes   Token: 0x0600000E
+
+[Calls]
+  IL_0011  call      System.Threading.Tasks.Task::Yield()                                                                                                                               external System.Runtime
+  IL_0019  call      System.Runtime.CompilerServices.YieldAwaitable::GetAwaiter()                                                                                                       external System.Runtime
+  IL_0021  call      System.Runtime.CompilerServices.YieldAwaitable.YieldAwaiter::get_IsCompleted()                                                                                     external System.Runtime
+  IL_0041  call      System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder::AwaitUnsafeOnCompleted<YieldAwaiter, <DisposeAsync>d__10>(ref YieldAwaiter, ref <DisposeAsync>d__10)  external System.Runtime
+  IL_0066  call      System.Runtime.CompilerServices.YieldAwaitable.YieldAwaiter::GetResult()                                                                                           external System.Runtime
+  IL_0071  callvirt  System.Threading.SemaphoreSlim::Dispose()                                                                                                                          external System.Threading
+  IL_007C  callvirt  System.Collections.Concurrent.ConcurrentDictionary<string, byte[]>::Clear()                                                                                        external System.Collections.Concurrent
+  IL_0095  call      System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder::SetException(Exception)                                                                               external System.Runtime
+  IL_00AA  call      System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder::SetResult()                                                                                           external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x240C   Size: 13 bytes   Token: 0x0600000F
+
+[Calls]
+  IL_0007  call      System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder::SetStateMachine(IAsyncStateMachine)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Async.CachedSource+<FetchAsync>d__7
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x241C   Size: 419 bytes   Token: 0x06000010
+
+[Calls]
+  IL_0026  callvirt  System.Collections.Concurrent.ConcurrentDictionary<string, byte[]>::TryGetValue(string, ref byte[])                                                                                               external System.Collections.Concurrent
+  IL_0040  callvirt  System.Threading.SemaphoreSlim::WaitAsync(CancellationToken)                                                                                                                                      external System.Threading
+  IL_0046  callvirt  System.Threading.Tasks.Task::ConfigureAwait(bool)                                                                                                                                                 external System.Runtime
+  IL_004F  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable::GetAwaiter()                                                                                                                             external System.Runtime
+  IL_0058  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter::get_IsCompleted()                                                                                                  external System.Runtime
+  IL_0079  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::AwaitUnsafeOnCompleted<ConfiguredTaskAwaiter, <FetchAsync>d__7>(ref ConfiguredTaskAwaiter, ref <FetchAsync>d__7)                  external System.Runtime
+  IL_00A2  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter::GetResult()                                                                                                        external System.Runtime
+  IL_00BA  callvirt  System.Collections.Concurrent.ConcurrentDictionary<string, byte[]>::TryGetValue(string, ref byte[])                                                                                               external System.Collections.Concurrent
+  IL_00CE  call      System.Threading.Interlocked::Increment(ref int)                                                                                                                                                  external System.Threading
+  IL_00E6  callvirt  Ref.Async.ISource::FetchAsync(string, CancellationToken)                                                                                                                                          internal
+  IL_00EC  callvirt  System.Threading.Tasks.Task<byte[]>::ConfigureAwait(bool)                                                                                                                                         external System.Runtime
+  IL_00F5  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable<byte[]>::GetAwaiter()                                                                                                                     external System.Runtime
+  IL_00FE  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<byte[]>::get_IsCompleted()                                                                                          external System.Runtime
+  IL_011F  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::AwaitUnsafeOnCompleted<ConfiguredTaskAwaiter<byte[]>, <FetchAsync>d__7>(ref ConfiguredTaskAwaiter<byte[]>, ref <FetchAsync>d__7)  external System.Runtime
+  IL_0145  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<byte[]>::GetResult()                                                                                                external System.Runtime
+  IL_015A  callvirt  System.Collections.Concurrent.ConcurrentDictionary<string, byte[]>::set_Item(string, byte[])                                                                                                      external System.Collections.Concurrent
+  IL_016E  callvirt  System.Threading.SemaphoreSlim::Release()                                                                                                                                                         external System.Threading
+  IL_0187  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::SetException(Exception)                                                                                                           external System.Runtime
+  IL_019D  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::SetResult(byte[])                                                                                                                 external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2600   Size: 13 bytes   Token: 0x06000011
+
+[Calls]
+  IL_0007  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<byte[]>::SetStateMachine(IAsyncStateMachine)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Async.CachedSource+<SlowSizeAsync>d__9
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2610   Size: 178 bytes   Token: 0x06000012
+
+[Calls]
+  IL_001E  call      Ref.Async.CachedSource::FetchAsync(string, CancellationToken)                                                                                                                                             internal
+  IL_0024  callvirt  System.Threading.Tasks.Task<byte[]>::ConfigureAwait(bool)                                                                                                                                                 external System.Runtime
+  IL_002D  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable<byte[]>::GetAwaiter()                                                                                                                             external System.Runtime
+  IL_0035  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<byte[]>::get_IsCompleted()                                                                                                  external System.Runtime
+  IL_0055  call      System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<int>::AwaitUnsafeOnCompleted<ConfiguredTaskAwaiter<byte[]>, <SlowSizeAsync>d__9>(ref ConfiguredTaskAwaiter<byte[]>, ref <SlowSizeAsync>d__9)  external System.Runtime
+  IL_007A  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<byte[]>::GetResult()                                                                                                        external System.Runtime
+  IL_0096  call      System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<int>::SetException(Exception)                                                                                                                 external System.Runtime
+  IL_00AC  call      System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<int>::SetResult(int)                                                                                                                          external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26E0   Size: 13 bytes   Token: 0x06000013
+
+[Calls]
+  IL_0007  call      System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<int>::SetStateMachine(IAsyncStateMachine)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Async.Batch+<CopyAsync>d__2
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x26F0   Size: 438 bytes   Token: 0x06000014
+
+[Calls]
+  IL_0044  call      System.MemoryExtensions::AsMemory<byte>(byte[], int, int)                                                                                                                                   external System.Memory
+  IL_0049  call      System.Memory<byte>::op_Implicit(Memory<byte>)                                                                                                                                              external System.Runtime
+  IL_0054  callvirt  System.IO.Stream::WriteAsync(ReadOnlyMemory<byte>, CancellationToken)                                                                                                                       external System.Runtime
+  IL_005D  call      System.Threading.Tasks.ValueTask::ConfigureAwait(bool)                                                                                                                                      external System.Runtime
+  IL_0065  call      System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable::GetAwaiter()                                                                                                                  external System.Runtime
+  IL_006D  call      System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter::get_IsCompleted()                                                                                  external System.Runtime
+  IL_008D  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder::AwaitUnsafeOnCompleted<ConfiguredValueTaskAwaiter, <CopyAsync>d__2>(ref ConfiguredValueTaskAwaiter, ref <CopyAsync>d__2)            external System.Runtime
+  IL_00B5  call      System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter::GetResult()                                                                                        external System.Runtime
+  IL_00E0  callvirt  System.IProgress<long>::Report(long)                                                                                                                                                        external System.Runtime
+  IL_00F1  call      System.MemoryExtensions::AsMemory<byte>(byte[])                                                                                                                                             external System.Memory
+  IL_00FC  callvirt  System.IO.Stream::ReadAsync(Memory<byte>, CancellationToken)                                                                                                                                external System.Runtime
+  IL_0106  call      System.Threading.Tasks.ValueTask<int>::ConfigureAwait(bool)                                                                                                                                 external System.Runtime
+  IL_010F  call      System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<int>::GetAwaiter()                                                                                                             external System.Runtime
+  IL_0118  call      System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter<int>::get_IsCompleted()                                                                             external System.Runtime
+  IL_0139  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder::AwaitUnsafeOnCompleted<ConfiguredValueTaskAwaiter<int>, <CopyAsync>d__2>(ref ConfiguredValueTaskAwaiter<int>, ref <CopyAsync>d__2)  external System.Runtime
+  IL_015F  call      System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter<int>::GetResult()                                                                                   external System.Runtime
+  IL_0194  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder::SetException(Exception)                                                                                                             external System.Runtime
+  IL_01B0  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder::SetResult()                                                                                                                         external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x28D0   Size: 13 bytes   Token: 0x06000015
+
+[Calls]
+  IL_0007  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder::SetStateMachine(IAsyncStateMachine)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Async.Batch+<FireAndForget>d__3
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x28E0   Size: 163 bytes   Token: 0x06000016
+
+[Calls]
+  IL_0013  callvirt  System.Threading.Tasks.Task::GetAwaiter()                                                                                                                   external System.Runtime
+  IL_001B  call      System.Runtime.CompilerServices.TaskAwaiter::get_IsCompleted()                                                                                              external System.Runtime
+  IL_003B  call      System.Runtime.CompilerServices.AsyncVoidMethodBuilder::AwaitUnsafeOnCompleted<TaskAwaiter, <FireAndForget>d__3>(ref TaskAwaiter, ref <FireAndForget>d__3)  external System.Runtime
+  IL_0060  call      System.Runtime.CompilerServices.TaskAwaiter::GetResult()                                                                                                    external System.Runtime
+  IL_006F  callvirt  System.Action<System.Exception>::Invoke(Exception)                                                                                                          external System.Runtime
+  IL_0088  call      System.Runtime.CompilerServices.AsyncVoidMethodBuilder::SetException(Exception)                                                                             external System.Runtime
+  IL_009D  call      System.Runtime.CompilerServices.AsyncVoidMethodBuilder::SetResult()                                                                                         external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x29AC   Size: 13 bytes   Token: 0x06000017
+
+[Calls]
+  IL_0007  call      System.Runtime.CompilerServices.AsyncVoidMethodBuilder::SetStateMachine(IAsyncStateMachine)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Async.Batch+<RetryAsync>d__1`1
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x29BC   Size: 381 bytes   Token: 0x06000018
+
+[Calls]
+  IL_002A  callvirt  System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task<!0>>::Invoke(CancellationToken)                                                                                   external System.Runtime
+  IL_0030  callvirt  System.Threading.Tasks.Task<!0>::ConfigureAwait(bool)                                                                                                                                         external System.Runtime
+  IL_0039  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable<!0>::GetAwaiter()                                                                                                                     external System.Runtime
+  IL_0041  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<!0>::get_IsCompleted()                                                                                          external System.Runtime
+  IL_0061  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!0>::AwaitUnsafeOnCompleted<ConfiguredTaskAwaiter<!0>, <RetryAsync>d__1<!0>>(ref ConfiguredTaskAwaiter<!0>, ref <RetryAsync>d__1<!0>)  external System.Runtime
+  IL_0089  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<!0>::GetResult()                                                                                                external System.Runtime
+  IL_00CB  call      System.TimeSpan::op_Multiply(TimeSpan, double)                                                                                                                                                external System.Runtime
+  IL_00D6  call      System.Threading.Tasks.Task::Delay(TimeSpan, CancellationToken)                                                                                                                               external System.Runtime
+  IL_00DC  callvirt  System.Threading.Tasks.Task::ConfigureAwait(bool)                                                                                                                                             external System.Runtime
+  IL_00E5  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable::GetAwaiter()                                                                                                                         external System.Runtime
+  IL_00EE  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter::get_IsCompleted()                                                                                              external System.Runtime
+  IL_010F  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!0>::AwaitUnsafeOnCompleted<ConfiguredTaskAwaiter, <RetryAsync>d__1<!0>>(ref ConfiguredTaskAwaiter, ref <RetryAsync>d__1<!0>)          external System.Runtime
+  IL_0135  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter::GetResult()                                                                                                    external System.Runtime
+  IL_0161  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!0>::SetException(Exception)                                                                                                           external System.Runtime
+  IL_0177  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!0>::SetResult(!0)                                                                                                                     external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2B7C   Size: 13 bytes   Token: 0x06000019
+
+[Calls]
+  IL_0007  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<!0>::SetStateMachine(IAsyncStateMachine)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Async.Batch+<SizesAsync>d__0
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2B8C   Size: 287 bytes   Token: 0x0600001A
+
+[Calls]
+  IL_000D  newobj    System.Collections.Generic.List<System.Threading.Tasks.Task<byte[]>>::.ctor()                                                                                                                                                                external System.Collections
+  IL_0019  callvirt  System.Collections.Generic.IEnumerable<string>::GetEnumerator()                                                                                                                                                                              external System.Runtime
+  IL_0024  callvirt  System.Collections.Generic.IEnumerator<string>::get_Current()                                                                                                                                                                                external System.Runtime
+  IL_003A  callvirt  Ref.Async.ISource::FetchAsync(string, CancellationToken)                                                                                                                                                                                     internal
+  IL_003F  callvirt  System.Collections.Generic.List<System.Threading.Tasks.Task<byte[]>>::Add(Task<byte[]>)                                                                                                                                                      external System.Collections
+  IL_0046  callvirt  System.Collections.IEnumerator::MoveNext()                                                                                                                                                                                                   external System.Runtime
+  IL_0059  callvirt  System.IDisposable::Dispose()                                                                                                                                                                                                                external System.Runtime
+  IL_0060  call      System.Threading.Tasks.Task::WhenAll<byte[]>(IEnumerable<Task<byte[]>>)                                                                                                                                                                      external System.Runtime
+  IL_0066  callvirt  System.Threading.Tasks.Task<byte[][]>::ConfigureAwait(bool)                                                                                                                                                                                  external System.Runtime
+  IL_006F  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable<byte[][]>::GetAwaiter()                                                                                                                                                              external System.Runtime
+  IL_0078  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<byte[][]>::get_IsCompleted()                                                                                                                                   external System.Runtime
+  IL_0099  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<System.Collections.Generic.IReadOnlyList<int>>::AwaitUnsafeOnCompleted<ConfiguredTaskAwaiter<byte[][]>, <SizesAsync>d__0>(ref ConfiguredTaskAwaiter<byte[][]>, ref <SizesAsync>d__0)  external System.Runtime
+  IL_00BF  call      System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter<byte[][]>::GetResult()                                                                                                                                         external System.Runtime
+  IL_0103  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<System.Collections.Generic.IReadOnlyList<int>>::SetException(Exception)                                                                                                               external System.Runtime
+  IL_0119  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<System.Collections.Generic.IReadOnlyList<int>>::SetResult(IReadOnlyList<int>)                                                                                                         external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2CD4   Size: 13 bytes   Token: 0x0600001B
+
+[Calls]
+  IL_0007  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<System.Collections.Generic.IReadOnlyList<int>>::SetStateMachine(IAsyncStateMachine)  external System.Runtime
+[Callers]
+  (none in the input files)
+
+Type     : Ref.Async.Batch+<WithTimeoutAsync>d__5
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2CE4   Size: 351 bytes   Token: 0x0600001C
+
+[Calls]
+  IL_000C  newobj    System.Threading.CancellationTokenSource::.ctor()                                                                                                                                         external System.Runtime
+  IL_0033  callvirt  System.Threading.CancellationTokenSource::get_Token()                                                                                                                                     external System.Runtime
+  IL_0038  call      System.Threading.Tasks.Task::Delay(TimeSpan, CancellationToken)                                                                                                                           external System.Runtime
+  IL_003D  call      System.Threading.Tasks.Task::WhenAny(Task, Task)                                                                                                                                          external System.Runtime
+  IL_0042  callvirt  System.Threading.Tasks.Task<System.Threading.Tasks.Task>::GetAwaiter()                                                                                                                    external System.Runtime
+  IL_004A  call      System.Runtime.CompilerServices.TaskAwaiter<System.Threading.Tasks.Task>::get_IsCompleted()                                                                                               external System.Runtime
+  IL_006A  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::AwaitUnsafeOnCompleted<TaskAwaiter<Task>, <WithTimeoutAsync>d__5>(ref TaskAwaiter<Task>, ref <WithTimeoutAsync>d__5)      external System.Runtime
+  IL_0092  call      System.Runtime.CompilerServices.TaskAwaiter<System.Threading.Tasks.Task>::GetResult()                                                                                                     external System.Runtime
+  IL_009F  newobj    System.TimeoutException::.ctor()                                                                                                                                                          external System.Runtime
+  IL_00AB  callvirt  System.Threading.CancellationTokenSource::Cancel()                                                                                                                                        external System.Runtime
+  IL_00B6  callvirt  System.Threading.Tasks.Task<string>::GetAwaiter()                                                                                                                                         external System.Runtime
+  IL_00BE  call      System.Runtime.CompilerServices.TaskAwaiter<string>::get_IsCompleted()                                                                                                                    external System.Runtime
+  IL_00DE  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::AwaitUnsafeOnCompleted<TaskAwaiter<string>, <WithTimeoutAsync>d__5>(ref TaskAwaiter<string>, ref <WithTimeoutAsync>d__5)  external System.Runtime
+  IL_0103  call      System.Runtime.CompilerServices.TaskAwaiter<string>::GetResult()                                                                                                                          external System.Runtime
+  IL_011D  callvirt  System.IDisposable::Dispose()                                                                                                                                                             external System.Runtime
+  IL_013C  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::SetException(Exception)                                                                                                   external System.Runtime
+  IL_0159  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::SetResult(string)                                                                                                         external System.Runtime
+[Callers]
+  (none in the input files)
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2E84   Size: 13 bytes   Token: 0x0600001D
+
+[Calls]
+  IL_0007  call      System.Runtime.CompilerServices.AsyncTaskMethodBuilder<string>::SetStateMachine(IAsyncStateMachine)  external System.Runtime
+[Callers]
+  (none in the input files)

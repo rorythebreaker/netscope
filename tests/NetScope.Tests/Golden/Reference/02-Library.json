@@ -1,0 +1,2376 @@
+{
+  "tool": "NetScope",
+  "assemblies": [
+    {
+      "file": "Ref02.Library.dll",
+      "assembly": "Ref02.Library",
+      "version": "1.0.0.0",
+      "targetFramework": ".NETCoreApp,Version=v8.0",
+      "metadataVersion": "v4.0.30319",
+      "machine": "anycpu",
+      "readyToRun": false,
+      "mixedMode": false,
+      "notes": [],
+      "errors": [],
+      "methods": [
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Quantity",
+          "name": ".ctor",
+          "signature": "void .ctor(Decimal amount, Unit unit)",
+          "token": 100663297,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8272,
+          "size": 39,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "call",
+              "target": "System.Decimal::op_LessThan(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 18,
+              "opcode": "newobj",
+              "target": "System.ArgumentOutOfRangeException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::op_Addition",
+              "signature": "Quantity op_Addition(Quantity a, Quantity b)",
+              "offset": 53,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::TryShip",
+              "signature": "bool TryShip(string sku, Quantity amount, out string error)",
+              "offset": 98,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Import",
+              "signature": "Inventory Import(TextReader reader)",
+              "offset": 114,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Import",
+              "signature": "Inventory Import(TextReader reader)",
+              "offset": 174,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Quantity",
+          "name": "get_Amount",
+          "signature": "Decimal get_Amount()",
+          "token": 100663298,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8312,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::op_Addition",
+              "signature": "Quantity op_Addition(Quantity a, Quantity b)",
+              "offset": 29,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::op_Addition",
+              "signature": "Quantity op_Addition(Quantity a, Quantity b)",
+              "offset": 36,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::Equals",
+              "signature": "bool Equals(Quantity other)",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::Equals",
+              "signature": "bool Equals(Quantity other)",
+              "offset": 8,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::GetHashCode",
+              "signature": "int GetHashCode()",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::CompareTo",
+              "signature": "int CompareTo(Quantity other)",
+              "offset": 16,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::CompareTo",
+              "signature": "int CompareTo(Quantity other)",
+              "offset": 26,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::ToString",
+              "signature": "string ToString()",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::TryShip",
+              "signature": "bool TryShip(string sku, Quantity amount, out string error)",
+              "offset": 74,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::TryShip",
+              "signature": "bool TryShip(string sku, Quantity amount, out string error)",
+              "offset": 81,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::TotalValue",
+              "signature": "Decimal TotalValue()",
+              "offset": 50,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Quantity",
+          "name": "get_Unit",
+          "signature": "Unit get_Unit()",
+          "token": 100663299,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8320,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::op_Addition",
+              "signature": "Quantity op_Addition(Quantity a, Quantity b)",
+              "offset": 2,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::op_Addition",
+              "signature": "Quantity op_Addition(Quantity a, Quantity b)",
+              "offset": 9,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::op_Addition",
+              "signature": "Quantity op_Addition(Quantity a, Quantity b)",
+              "offset": 48,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::Equals",
+              "signature": "bool Equals(Quantity other)",
+              "offset": 21,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::Equals",
+              "signature": "bool Equals(Quantity other)",
+              "offset": 28,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::GetHashCode",
+              "signature": "int GetHashCode()",
+              "offset": 7,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::CompareTo",
+              "signature": "int CompareTo(Quantity other)",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::CompareTo",
+              "signature": "int CompareTo(Quantity other)",
+              "offset": 8,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::CompareTo",
+              "signature": "int CompareTo(Quantity other)",
+              "offset": 38,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::CompareTo",
+              "signature": "int CompareTo(Quantity other)",
+              "offset": 48,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::ToString",
+              "signature": "string ToString()",
+              "offset": 21,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::TryShip",
+              "signature": "bool TryShip(string sku, Quantity amount, out string error)",
+              "offset": 93,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Quantity",
+          "name": "op_Addition",
+          "signature": "Quantity op_Addition(Quantity a, Quantity b)",
+          "token": 100663300,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static"
+          ],
+          "rva": 8328,
+          "size": 59,
+          "calls": [
+            {
+              "offset": 2,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 9,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 21,
+              "opcode": "newobj",
+              "target": "System.InvalidOperationException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 29,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 36,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 41,
+              "opcode": "call",
+              "target": "System.Decimal::op_Addition(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 48,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 53,
+              "opcode": "newobj",
+              "target": "Ref.Library.Quantity::.ctor(Decimal, Unit)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663297
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Receive",
+              "signature": "void Receive(Item item)",
+              "offset": 48,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Quantity",
+          "name": "op_Equality",
+          "signature": "bool op_Equality(Quantity a, Quantity b)",
+          "token": 100663301,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static"
+          ],
+          "rva": 8388,
+          "size": 9,
+          "calls": [
+            {
+              "offset": 3,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::Equals(Quantity)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663303
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Quantity",
+          "name": "op_Inequality",
+          "signature": "bool op_Inequality(Quantity a, Quantity b)",
+          "token": 100663302,
+          "access": "public",
+          "kinds": [
+            "operator",
+            "static"
+          ],
+          "rva": 8398,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 3,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::Equals(Quantity)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663303
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Quantity",
+          "name": "Equals",
+          "signature": "bool Equals(Quantity other)",
+          "token": 100663303,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed"
+          ],
+          "rva": 8411,
+          "size": 38,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 8,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 13,
+              "opcode": "call",
+              "target": "System.Decimal::op_Equality(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 21,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 28,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663299
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::op_Equality",
+              "signature": "bool op_Equality(Quantity a, Quantity b)",
+              "offset": 3,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::op_Inequality",
+              "signature": "bool op_Inequality(Quantity a, Quantity b)",
+              "offset": 3,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Quantity::Equals",
+              "signature": "bool Equals(object obj)",
+              "offset": 17,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Quantity",
+          "name": "Equals",
+          "signature": "bool Equals(object obj)",
+          "token": 100663304,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 8452,
+          "size": 25,
+          "calls": [
+            {
+              "offset": 17,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::Equals(Quantity)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663303
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Quantity",
+          "name": "GetHashCode",
+          "signature": "int GetHashCode()",
+          "token": 100663305,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 8489,
+          "size": 18,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 12,
+              "opcode": "call",
+              "target": "System.HashCode::Combine<Decimal, Unit>(Decimal, Unit)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Quantity",
+          "name": "CompareTo",
+          "signature": "int CompareTo(Quantity other)",
+          "token": 100663306,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed"
+          ],
+          "rva": 8508,
+          "size": 70,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 8,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 16,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 26,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 31,
+              "opcode": "call",
+              "target": "System.Decimal::CompareTo(Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 38,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 48,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 64,
+              "opcode": "callvirt",
+              "target": "System.Enum::CompareTo(object)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::TryShip",
+              "signature": "bool TryShip(string sku, Quantity amount, out string error)",
+              "offset": 45,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Quantity",
+          "name": "ToString",
+          "signature": "string ToString()",
+          "token": 100663307,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "override"
+          ],
+          "rva": 8592,
+          "size": 72,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 9,
+              "opcode": "call",
+              "target": "System.Globalization.CultureInfo::get_InvariantCulture()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 14,
+              "opcode": "call",
+              "target": "System.Decimal::ToString(IFormatProvider)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 21,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 66,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Item",
+          "name": ".ctor",
+          "signature": "void .ctor(string sku, string name, Quantity stock)",
+          "token": 100663308,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8676,
+          "size": 43,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 17,
+              "opcode": "newobj",
+              "target": "System.ArgumentNullException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 30,
+              "opcode": "call",
+              "target": "Ref.Library.Item::set_Name(string)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663311
+            },
+            {
+              "offset": 37,
+              "opcode": "call",
+              "target": "Ref.Library.Item::set_Stock(Quantity)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663313
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.PricedItem::.ctor",
+              "signature": "void .ctor(string sku, string name, Quantity stock, Decimal price)",
+              "offset": 4,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Import",
+              "signature": "Inventory Import(TextReader reader)",
+              "offset": 119,
+              "opcode": "newobj"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Import",
+              "signature": "Inventory Import(TextReader reader)",
+              "offset": 179,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Item",
+          "name": "get_Sku",
+          "signature": "string get_Sku()",
+          "token": 100663309,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8720,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Receive",
+              "signature": "void Receive(Item item)",
+              "offset": 7,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Export",
+              "signature": "string Export()",
+              "offset": 51,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory+<>c::<.ctor>b__9_0",
+              "signature": "string <.ctor>b__9_0(Item i)",
+              "offset": 1,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Item",
+          "name": "get_Name",
+          "signature": "string get_Name()",
+          "token": 100663310,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8728,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Export",
+              "signature": "string Export()",
+              "offset": 57,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Item",
+          "name": "set_Name",
+          "signature": "void set_Name(string value)",
+          "token": 100663311,
+          "access": "public",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8736,
+          "size": 8,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Item::.ctor",
+              "signature": "void .ctor(string sku, string name, Quantity stock)",
+              "offset": 30,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Item",
+          "name": "get_Stock",
+          "signature": "Quantity get_Stock()",
+          "token": 100663312,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8745,
+          "size": 7,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Receive",
+              "signature": "void Receive(Item item)",
+              "offset": 37,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Receive",
+              "signature": "void Receive(Item item)",
+              "offset": 43,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::TryShip",
+              "signature": "bool TryShip(string sku, Quantity amount, out string error)",
+              "offset": 36,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::TryShip",
+              "signature": "bool TryShip(string sku, Quantity amount, out string error)",
+              "offset": 66,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::TotalValue",
+              "signature": "Decimal TotalValue()",
+              "offset": 42,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Export",
+              "signature": "string Export()",
+              "offset": 63,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Item",
+          "name": "set_Stock",
+          "signature": "void set_Stock(Quantity value)",
+          "token": 100663313,
+          "access": "internal",
+          "kinds": [
+            "property-set",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8753,
+          "size": 8,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Item::.ctor",
+              "signature": "void .ctor(string sku, string name, Quantity stock)",
+              "offset": 37,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Receive",
+              "signature": "void Receive(Item item)",
+              "offset": 53,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::TryShip",
+              "signature": "bool TryShip(string sku, Quantity amount, out string error)",
+              "offset": 103,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Item",
+          "name": "get_Price",
+          "signature": "Decimal get_Price()",
+          "token": 100663314,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual"
+          ],
+          "rva": 8762,
+          "size": 6,
+          "calls": [],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::TotalValue",
+              "signature": "Decimal TotalValue()",
+              "offset": 36,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.PricedItem",
+          "name": ".ctor",
+          "signature": "void .ctor(string sku, string name, Quantity stock, Decimal price)",
+          "token": 100663315,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8769,
+          "size": 18,
+          "calls": [
+            {
+              "offset": 4,
+              "opcode": "call",
+              "target": "Ref.Library.Item::.ctor(string, string, Quantity)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663308
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.PricedItem",
+          "name": "get_Price",
+          "signature": "Decimal get_Price()",
+          "token": 100663316,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "override"
+          ],
+          "rva": 8788,
+          "size": 7,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.IRepository`1",
+          "name": "Find",
+          "signature": "T Find(string key)",
+          "token": 100663317,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "abstract",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.IRepository`1",
+          "name": "Save",
+          "signature": "void Save(T item)",
+          "token": 100663318,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "abstract",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.IRepository`1",
+          "name": "get_All",
+          "signature": "IReadOnlyCollection<T> get_All()",
+          "token": 100663319,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "abstract",
+            "no-body"
+          ],
+          "rva": 0,
+          "calls": [],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.MemoryRepository`1",
+          "name": ".ctor",
+          "signature": "void .ctor(Func<T, string> key)",
+          "token": 100663320,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 8796,
+          "size": 30,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.StringComparer::get_Ordinal()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 6,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.Dictionary<string, !0>::.ctor(IEqualityComparer<string>)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 17,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::.ctor",
+              "signature": "void .ctor()",
+              "offset": 32,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.MemoryRepository`1",
+          "name": "add_Saved",
+          "signature": "void add_Saved(EventHandler<T> value)",
+          "token": 100663321,
+          "access": "public",
+          "kinds": [
+            "event-add",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8828,
+          "size": 41,
+          "calls": [
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.Delegate::Combine(Delegate, Delegate)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 30,
+              "opcode": "call",
+              "target": "System.Threading.Interlocked::CompareExchange<EventHandler<!0>>(ref EventHandler<!0>, EventHandler<!0>, EventHandler<!0>)",
+              "scope": "external",
+              "targetAssembly": "System.Threading"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.MemoryRepository`1",
+          "name": "remove_Saved",
+          "signature": "void remove_Saved(EventHandler<T> value)",
+          "token": 100663322,
+          "access": "public",
+          "kinds": [
+            "event-remove",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 8884,
+          "size": 41,
+          "calls": [
+            {
+              "offset": 11,
+              "opcode": "call",
+              "target": "System.Delegate::Remove(Delegate, Delegate)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 30,
+              "opcode": "call",
+              "target": "System.Threading.Interlocked::CompareExchange<EventHandler<!0>>(ref EventHandler<!0>, EventHandler<!0>, EventHandler<!0>)",
+              "scope": "external",
+              "targetAssembly": "System.Threading"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.MemoryRepository`1",
+          "name": "Find",
+          "signature": "T Find(string key)",
+          "token": 100663323,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed"
+          ],
+          "rva": 8940,
+          "size": 28,
+          "calls": [
+            {
+              "offset": 9,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Dictionary<string, !0>::TryGetValue(string, ref !0)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Receive",
+              "signature": "void Receive(Item item)",
+              "offset": 12,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::TryShip",
+              "signature": "bool TryShip(string sku, Quantity amount, out string error)",
+              "offset": 10,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.MemoryRepository`1",
+          "name": "Save",
+          "signature": "void Save(T item)",
+          "token": 100663324,
+          "access": "public",
+          "kinds": [
+            "instance",
+            "virtual",
+            "sealed"
+          ],
+          "rva": 8980,
+          "size": 43,
+          "calls": [
+            {
+              "offset": 13,
+              "opcode": "callvirt",
+              "target": "System.Func<!0, string>::Invoke(!0)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 19,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Dictionary<string, !0>::set_Item(string, !0)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 37,
+              "opcode": "callvirt",
+              "target": "System.EventHandler<!0>::Invoke(object, !0)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Receive",
+              "signature": "void Receive(Item item)",
+              "offset": 28,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.MemoryRepository`1",
+          "name": "get_All",
+          "signature": "IReadOnlyCollection<T> get_All()",
+          "token": 100663325,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance",
+            "virtual",
+            "sealed"
+          ],
+          "rva": 9024,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.Dictionary<string, !0>::get_Values()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::TotalValue",
+              "signature": "Decimal TotalValue()",
+              "offset": 14,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Export",
+              "signature": "string Export()",
+              "offset": 24,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Inventory",
+          "name": "get_Changes",
+          "signature": "int get_Changes()",
+          "token": 100663326,
+          "access": "public",
+          "kinds": [
+            "property-get",
+            "instance"
+          ],
+          "rva": 9037,
+          "size": 12,
+          "calls": [
+            {
+              "offset": 6,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<int>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Inventory",
+          "name": "Receive",
+          "signature": "void Receive(Item item)",
+          "token": 100663327,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 9052,
+          "size": 71,
+          "calls": [
+            {
+              "offset": 7,
+              "opcode": "callvirt",
+              "target": "Ref.Library.Item::get_Sku()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663309
+            },
+            {
+              "offset": 12,
+              "opcode": "callvirt",
+              "target": "Ref.Library.MemoryRepository<Ref.Library.Item>::Find(string)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663323
+            },
+            {
+              "offset": 28,
+              "opcode": "callvirt",
+              "target": "Ref.Library.MemoryRepository<Ref.Library.Item>::Save(Item)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663324
+            },
+            {
+              "offset": 37,
+              "opcode": "callvirt",
+              "target": "Ref.Library.Item::get_Stock()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663312
+            },
+            {
+              "offset": 43,
+              "opcode": "callvirt",
+              "target": "Ref.Library.Item::get_Stock()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663312
+            },
+            {
+              "offset": 48,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::op_Addition(Quantity, Quantity)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663300
+            },
+            {
+              "offset": 53,
+              "opcode": "callvirt",
+              "target": "Ref.Library.Item::set_Stock(Quantity)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663313
+            },
+            {
+              "offset": 65,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<int>::Add(int)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Import",
+              "signature": "Inventory Import(TextReader reader)",
+              "offset": 124,
+              "opcode": "callvirt"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Import",
+              "signature": "Inventory Import(TextReader reader)",
+              "offset": 184,
+              "opcode": "callvirt"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Inventory",
+          "name": "TryShip",
+          "signature": "bool TryShip(string sku, Quantity amount, out string error)",
+          "token": 100663328,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 9136,
+          "size": 152,
+          "calls": [
+            {
+              "offset": 10,
+              "opcode": "callvirt",
+              "target": "Ref.Library.MemoryRepository<Ref.Library.Item>::Find(string)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663323
+            },
+            {
+              "offset": 26,
+              "opcode": "call",
+              "target": "System.String::Concat(string, string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 36,
+              "opcode": "callvirt",
+              "target": "Ref.Library.Item::get_Stock()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663312
+            },
+            {
+              "offset": 45,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::CompareTo(Quantity)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663306
+            },
+            {
+              "offset": 58,
+              "opcode": "newobj",
+              "target": "System.InvalidOperationException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 66,
+              "opcode": "callvirt",
+              "target": "Ref.Library.Item::get_Stock()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663312
+            },
+            {
+              "offset": 74,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 81,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 86,
+              "opcode": "call",
+              "target": "System.Decimal::op_Subtraction(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 93,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Unit()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663299
+            },
+            {
+              "offset": 98,
+              "opcode": "newobj",
+              "target": "Ref.Library.Quantity::.ctor(Decimal, Unit)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663297
+            },
+            {
+              "offset": 103,
+              "opcode": "callvirt",
+              "target": "Ref.Library.Item::set_Stock(Quantity)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663313
+            },
+            {
+              "offset": 115,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<int>::Add(int)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 127,
+              "opcode": "callvirt",
+              "target": "System.Exception::get_Message()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 144,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.List<int>::Add(int)",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Inventory",
+          "name": "TotalValue",
+          "signature": "Decimal TotalValue()",
+          "token": 100663329,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 9328,
+          "size": 88,
+          "calls": [
+            {
+              "offset": 14,
+              "opcode": "callvirt",
+              "target": "Ref.Library.MemoryRepository<Ref.Library.Item>::get_All()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663325
+            },
+            {
+              "offset": 19,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<Ref.Library.Item>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 28,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<Ref.Library.Item>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 36,
+              "opcode": "callvirt",
+              "target": "Ref.Library.Item::get_Price()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663314
+            },
+            {
+              "offset": 42,
+              "opcode": "callvirt",
+              "target": "Ref.Library.Item::get_Stock()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663312
+            },
+            {
+              "offset": 50,
+              "opcode": "call",
+              "target": "Ref.Library.Quantity::get_Amount()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663298
+            },
+            {
+              "offset": 55,
+              "opcode": "call",
+              "target": "System.Decimal::op_Multiply(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 60,
+              "opcode": "call",
+              "target": "System.Decimal::op_Addition(Decimal, Decimal)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 67,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 80,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Inventory",
+          "name": "Export",
+          "signature": "string Export()",
+          "token": 100663330,
+          "access": "public",
+          "kinds": [
+            "instance"
+          ],
+          "rva": 9444,
+          "size": 115,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "System.Text.StringBuilder::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 7,
+              "opcode": "call",
+              "target": "System.Globalization.CultureInfo::get_InvariantCulture()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 12,
+              "opcode": "newobj",
+              "target": "System.IO.StringWriter::.ctor(StringBuilder, IFormatProvider)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 24,
+              "opcode": "callvirt",
+              "target": "Ref.Library.MemoryRepository<Ref.Library.Item>::get_All()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663325
+            },
+            {
+              "offset": 29,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<Ref.Library.Item>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 38,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<Ref.Library.Item>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 51,
+              "opcode": "callvirt",
+              "target": "Ref.Library.Item::get_Sku()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663309
+            },
+            {
+              "offset": 57,
+              "opcode": "callvirt",
+              "target": "Ref.Library.Item::get_Name()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663310
+            },
+            {
+              "offset": 63,
+              "opcode": "callvirt",
+              "target": "Ref.Library.Item::get_Stock()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663312
+            },
+            {
+              "offset": 73,
+              "opcode": "callvirt",
+              "target": "System.IO.TextWriter::WriteLine(string, object, object, object)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 79,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 92,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 102,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 109,
+              "opcode": "callvirt",
+              "target": "System.Object::ToString()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Inventory",
+          "name": "Import",
+          "signature": "Inventory Import(TextReader reader)",
+          "token": 100663331,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 9600,
+          "size": 206,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.Library.Inventory::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663332
+            },
+            {
+              "offset": 21,
+              "opcode": "callvirt",
+              "target": "System.String::Split(char, StringSplitOptions)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 38,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(int, int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 50,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 58,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<int>(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 70,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 77,
+              "opcode": "call",
+              "target": "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 82,
+              "opcode": "newobj",
+              "target": "System.FormatException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 92,
+              "opcode": "call",
+              "target": "System.Globalization.CultureInfo::get_InvariantCulture()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 97,
+              "opcode": "call",
+              "target": "System.Decimal::Parse(string, IFormatProvider)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 114,
+              "opcode": "newobj",
+              "target": "Ref.Library.Quantity::.ctor(Decimal, Unit)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663297
+            },
+            {
+              "offset": 119,
+              "opcode": "newobj",
+              "target": "Ref.Library.Item::.ctor(string, string, Quantity)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 124,
+              "opcode": "callvirt",
+              "target": "Ref.Library.Inventory::Receive(Item)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663327
+            },
+            {
+              "offset": 147,
+              "opcode": "callvirt",
+              "target": "System.String::get_Length()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 174,
+              "opcode": "newobj",
+              "target": "Ref.Library.Quantity::.ctor(Decimal, Unit)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663297
+            },
+            {
+              "offset": 179,
+              "opcode": "newobj",
+              "target": "Ref.Library.Item::.ctor(string, string, Quantity)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663308
+            },
+            {
+              "offset": 184,
+              "opcode": "callvirt",
+              "target": "Ref.Library.Inventory::Receive(Item)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663327
+            },
+            {
+              "offset": 192,
+              "opcode": "callvirt",
+              "target": "System.IO.TextReader::ReadLine()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Inventory",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663332,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance"
+          ],
+          "rva": 9836,
+          "size": 60,
+          "calls": [
+            {
+              "offset": 15,
+              "opcode": "ldftn",
+              "target": "Ref.Library.Inventory.<>c::<.ctor>b__9_0(Item)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663340
+            },
+            {
+              "offset": 21,
+              "opcode": "newobj",
+              "target": "System.Func<Ref.Library.Item, string>::.ctor(object, nint)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 32,
+              "opcode": "newobj",
+              "target": "Ref.Library.MemoryRepository<Ref.Library.Item>::.ctor(Func<Item, string>)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663320
+            },
+            {
+              "offset": 43,
+              "opcode": "newobj",
+              "target": "System.Collections.Generic.List<int>::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Collections"
+            },
+            {
+              "offset": 54,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::Import",
+              "signature": "Inventory Import(TextReader reader)",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Statistics",
+          "name": "Max",
+          "signature": "T Max<T>(IEnumerable<T> values)",
+          "token": 100663333,
+          "access": "public",
+          "kinds": [
+            "static",
+            "generic"
+          ],
+          "rva": 9900,
+          "size": 90,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerable<!!0>::GetEnumerator()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 8,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 20,
+              "opcode": "newobj",
+              "target": "System.InvalidOperationException::.ctor(string)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 27,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<!!0>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 36,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<!!0>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 51,
+              "opcode": "callvirt",
+              "target": "System.IComparable<!!0>::CompareTo(!!0)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 60,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IEnumerator<!!0>::get_Current()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 67,
+              "opcode": "callvirt",
+              "target": "System.Collections.IEnumerator::MoveNext()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 82,
+              "opcode": "callvirt",
+              "target": "System.IDisposable::Dispose()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Statistics::MaxInt",
+              "signature": "int MaxInt(List<int> values)",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Statistics::MaxQuantity",
+              "signature": "Quantity MaxQuantity(Quantity[] values)",
+              "offset": 1,
+              "opcode": "call"
+            },
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Statistics::MaxString",
+              "signature": "string MaxString(List<string> values)",
+              "offset": 1,
+              "opcode": "call"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Statistics",
+          "name": "MaxInt",
+          "signature": "int MaxInt(List<int> values)",
+          "token": 100663334,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 10020,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Library.Statistics::Max<int>(IEnumerable<int>)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663333
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Statistics",
+          "name": "MaxQuantity",
+          "signature": "Quantity MaxQuantity(Quantity[] values)",
+          "token": 100663335,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 10028,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Library.Statistics::Max<Quantity>(IEnumerable<Quantity>)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663333
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Statistics",
+          "name": "MaxString",
+          "signature": "string MaxString(List<string> values)",
+          "token": 100663336,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 10036,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "Ref.Library.Statistics::Max<string>(IEnumerable<string>)",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663333
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Statistics",
+          "name": "Mean",
+          "signature": "double Mean(IReadOnlyList<double> values)",
+          "token": 100663337,
+          "access": "public",
+          "kinds": [
+            "static"
+          ],
+          "rva": 10044,
+          "size": 65,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IReadOnlyCollection<double>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 35,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IReadOnlyList<double>::get_Item(int)",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 48,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IReadOnlyCollection<double>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            },
+            {
+              "offset": 57,
+              "opcode": "callvirt",
+              "target": "System.Collections.Generic.IReadOnlyCollection<double>::get_Count()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Inventory+<>c",
+          "name": ".cctor",
+          "signature": "void .cctor()",
+          "token": 100663338,
+          "access": "private",
+          "kinds": [
+            "cctor",
+            "static",
+            "compiler-generated"
+          ],
+          "rva": 10121,
+          "size": 11,
+          "calls": [
+            {
+              "offset": 0,
+              "opcode": "newobj",
+              "target": "Ref.Library.Inventory.<>c::.ctor()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663339
+            }
+          ],
+          "callers": [],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Inventory+<>c",
+          "name": ".ctor",
+          "signature": "void .ctor()",
+          "token": 100663339,
+          "access": "public",
+          "kinds": [
+            "ctor",
+            "instance",
+            "compiler-generated"
+          ],
+          "rva": 10133,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "call",
+              "target": "System.Object::.ctor()",
+              "scope": "external",
+              "targetAssembly": "System.Runtime"
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory+<>c::.cctor",
+              "signature": "void .cctor()",
+              "offset": 0,
+              "opcode": "newobj"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "assembly": "Ref02.Library",
+          "namespace": "Ref.Library",
+          "type": "Ref.Library.Inventory+<>c",
+          "name": "<.ctor>b__9_0",
+          "signature": "string <.ctor>b__9_0(Item i)",
+          "token": 100663340,
+          "access": "internal",
+          "kinds": [
+            "instance",
+            "lambda",
+            "compiler-generated"
+          ],
+          "rva": 10141,
+          "size": 7,
+          "calls": [
+            {
+              "offset": 1,
+              "opcode": "callvirt",
+              "target": "Ref.Library.Item::get_Sku()",
+              "scope": "internal",
+              "groupFile": "Ref02.Library.dll",
+              "groupToken": 100663309
+            }
+          ],
+          "callers": [
+            {
+              "assembly": "Ref02.Library",
+              "method": "Ref.Library.Inventory::.ctor",
+              "signature": "void .ctor()",
+              "offset": 15,
+              "opcode": "ldftn"
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

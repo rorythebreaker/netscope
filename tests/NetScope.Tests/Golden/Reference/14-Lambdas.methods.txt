@@ -1,0 +1,368 @@
+Assembly : Ref14.Lambdas.dll
+Name     : Ref14.Lambdas, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 84
+
+Type     : <>f__AnonymousType0`2
+
+Method   : <o>j__TPar get_o()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2050   Size: 7 bytes   Token: 0x06000001
+
+Method   : <v>j__TPar get_v()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2058   Size: 7 bytes   Token: 0x06000002
+
+Method   : void .ctor(<o>j__TPar o, <v>j__TPar v)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2060   Size: 21 bytes   Token: 0x06000003
+
+Method   : bool Equals(object value)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2078   Size: 65 bytes   Token: 0x06000004
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20C5   Size: 52 bytes   Token: 0x06000005
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x20FC   Size: 98 bytes   Token: 0x06000006
+
+Type     : <>f__AnonymousType1`2
+
+Method   : <g>j__TPar get_g()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x216A   Size: 7 bytes   Token: 0x06000007
+
+Method   : <total>j__TPar get_total()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2172   Size: 7 bytes   Token: 0x06000008
+
+Method   : void .ctor(<g>j__TPar g, <total>j__TPar total)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x217A   Size: 21 bytes   Token: 0x06000009
+
+Method   : bool Equals(object value)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2190   Size: 65 bytes   Token: 0x0600000A
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x21DD   Size: 52 bytes   Token: 0x0600000B
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2214   Size: 98 bytes   Token: 0x0600000C
+
+Type     : Ref.Lambdas.Order
+
+Method   : void .ctor(int Id, string Customer, Decimal Amount, DateTime Date)
+Kind     : ctor, instance, public
+RVA      : 0x2282   Size: 36 bytes   Token: 0x0600000D
+
+Method   : Type get_EqualityContract()
+Kind     : property-get, instance, private, compiler-generated
+RVA      : 0x22A7   Size: 11 bytes   Token: 0x0600000E
+
+Method   : int get_Id()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22B3   Size: 7 bytes   Token: 0x0600000F
+
+Method   : void set_Id(int value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22BB   Size: 8 bytes   Token: 0x06000010
+
+Method   : string get_Customer()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22C4   Size: 7 bytes   Token: 0x06000011
+
+Method   : void set_Customer(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22CC   Size: 8 bytes   Token: 0x06000012
+
+Method   : Decimal get_Amount()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22D5   Size: 7 bytes   Token: 0x06000013
+
+Method   : void set_Amount(Decimal value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22DD   Size: 8 bytes   Token: 0x06000014
+
+Method   : DateTime get_Date()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x22E6   Size: 7 bytes   Token: 0x06000015
+
+Method   : void set_Date(DateTime value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x22EE   Size: 8 bytes   Token: 0x06000016
+
+Method   : string ToString()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x22F8   Size: 64 bytes   Token: 0x06000017
+
+Method   : bool PrintMembers(StringBuilder builder)
+Kind     : instance, private, compiler-generated
+RVA      : 0x2344   Size: 149 bytes   Token: 0x06000018
+
+Method   : bool op_Inequality(Order left, Order right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x23E5   Size: 11 bytes   Token: 0x06000019
+
+Method   : bool op_Equality(Order left, Order right)
+Kind     : operator, static, public, compiler-generated
+RVA      : 0x23F1   Size: 19 bytes   Token: 0x0600001A
+
+Method   : int GetHashCode()
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2408   Size: 109 bytes   Token: 0x0600001B
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override, compiler-generated
+RVA      : 0x2481   Size: 13 bytes   Token: 0x0600001C
+
+Method   : bool Equals(Order other)
+Kind     : instance, public, virtual, sealed, compiler-generated
+RVA      : 0x2490   Size: 125 bytes   Token: 0x0600001D
+
+Method   : Order <Clone>$()
+Kind     : instance, public, compiler-generated
+RVA      : 0x2519   Size: 7 bytes   Token: 0x0600001E
+
+Method   : void .ctor(Order original)
+Kind     : ctor, instance, private, compiler-generated
+RVA      : 0x2521   Size: 55 bytes   Token: 0x0600001F
+
+Method   : void Deconstruct(out int Id, out string Customer, out Decimal Amount, out DateTime Date)
+Kind     : instance, public, compiler-generated
+RVA      : 0x2559   Size: 42 bytes   Token: 0x06000020
+
+Type     : Ref.Lambdas.Reports
+
+Method   : void .ctor(IEnumerable<Order> orders)
+Kind     : ctor, instance, public
+RVA      : 0x2584   Size: 32 bytes   Token: 0x06000021
+
+Method   : void add_Logged(Action<string> value)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x25A8   Size: 41 bytes   Token: 0x06000022
+
+Method   : void remove_Logged(Action<string> value)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x25E0   Size: 41 bytes   Token: 0x06000023
+
+Method   : IEnumerable<string> Customers()
+Kind     : instance, public
+RVA      : 0x2618   Size: 89 bytes   Token: 0x06000024
+
+Method   : IEnumerable<Order> Large()
+Kind     : instance, public
+RVA      : 0x267D   Size: 24 bytes   Token: 0x06000025
+
+Method   : IEnumerable<Order> Between(DateTime from, int days)
+Kind     : instance, public
+RVA      : 0x2698   Size: 56 bytes   Token: 0x06000026
+
+Method   : IEnumerable<ValueTuple<string, Decimal, int>> Totals(IEnumerable<string> vip)
+Kind     : instance, public
+RVA      : 0x26DC   Size: 281 bytes   Token: 0x06000027
+
+Method   : Func<int, Func<Decimal, bool>> Rules()
+Kind     : instance, public
+RVA      : 0x2801   Size: 31 bytes   Token: 0x06000028
+
+Method   : Decimal Median()
+Kind     : instance, public
+RVA      : 0x2824   Size: 113 bytes   Token: 0x06000029
+
+Method   : long Fib(int n)
+Kind     : static, public
+RVA      : 0x28A1   Size: 7 bytes   Token: 0x0600002A
+
+Method   : void Log(IEnumerable<string> lines)
+Kind     : instance, public
+RVA      : 0x28AC   Size: 95 bytes   Token: 0x0600002B
+
+Method   : List<Func<int>> Counters(int count)
+Kind     : instance, public
+RVA      : 0x2928   Size: 51 bytes   Token: 0x0600002C
+
+Method   : Expression<Func<Order, bool>> Filter(string customer)
+Kind     : static, public
+RVA      : 0x2968   Size: 164 bytes   Token: 0x0600002D
+
+Method   : void SetThreshold(Decimal value)
+Kind     : instance, public
+RVA      : 0x2A18   Size: 8 bytes   Token: 0x0600002E
+
+Method   : Func<T, TResult> Memoize<T, TResult>(Func<T, TResult> f)
+Kind     : static, public, generic
+RVA      : 0x2A21   Size: 35 bytes   Token: 0x0600002F
+
+Method   : Action Compose(params Action[] actions)
+Kind     : static, public
+RVA      : 0x2A45   Size: 24 bytes   Token: 0x06000030
+
+Method   : bool <Large>b__7_0(Order o)
+Kind     : instance, private, lambda, compiler-generated
+RVA      : 0x2A5E   Size: 18 bytes   Token: 0x06000031
+
+Method   : Decimal <Median>g__Middle|11_2(ref <>c__DisplayClass11_0 arg1)
+Kind     : static, internal, local-function, compiler-generated
+RVA      : 0x2A74   Size: 69 bytes   Token: 0x06000032
+
+Method   : Decimal <Median>g__Average|11_3(Decimal a, Decimal b)
+Kind     : static, internal, local-function, compiler-generated
+RVA      : 0x2AC5   Size: 19 bytes   Token: 0x06000033
+
+Method   : long <Fib>g__Go|12_0(int k)
+Kind     : static, internal, local-function, compiler-generated
+RVA      : 0x2AD9   Size: 25 bytes   Token: 0x06000034
+
+Type     : Ref.Lambdas.Reports+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2AF3   Size: 11 bytes   Token: 0x06000035
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2AFF   Size: 7 bytes   Token: 0x06000036
+
+Method   : string <Customers>b__6_0(Order o)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B07   Size: 7 bytes   Token: 0x06000037
+
+Method   : string <Customers>b__6_1(string c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B0F   Size: 2 bytes   Token: 0x06000038
+
+Method   : string <Totals>b__9_0(Order o)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B12   Size: 7 bytes   Token: 0x06000039
+
+Method   : string <Totals>b__9_1(string v)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B1A   Size: 2 bytes   Token: 0x0600003A
+
+Method   : <>f__AnonymousType0<Order, string> <Totals>b__9_2(Order o, string v)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B1D   Size: 8 bytes   Token: 0x0600003B
+
+Method   : string <Totals>b__9_3(<>f__AnonymousType0<Order, string> <>h__TransparentIdentifier0)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B26   Size: 12 bytes   Token: 0x0600003C
+
+Method   : Order <Totals>b__9_4(<>f__AnonymousType0<Order, string> <>h__TransparentIdentifier0)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B33   Size: 7 bytes   Token: 0x0600003D
+
+Method   : <>f__AnonymousType1<IGrouping<string, Order>, Decimal> <Totals>b__9_5(IGrouping<string, Order> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B3B   Size: 44 bytes   Token: 0x0600003E
+
+Method   : Decimal <Totals>b__9_8(Order x)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B68   Size: 7 bytes   Token: 0x0600003F
+
+Method   : Decimal <Totals>b__9_6(<>f__AnonymousType1<IGrouping<string, Order>, Decimal> <>h__TransparentIdentifier1)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B70   Size: 7 bytes   Token: 0x06000040
+
+Method   : ValueTuple<string, Decimal, int> <Totals>b__9_7(<>f__AnonymousType1<IGrouping<string, Order>, Decimal> <>h__TransparentIdentifier1)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B78   Size: 34 bytes   Token: 0x06000041
+
+Method   : Decimal <Median>b__11_0(Order o)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2B9B   Size: 7 bytes   Token: 0x06000042
+
+Method   : Decimal <Median>b__11_1(Decimal a)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2BA3   Size: 2 bytes   Token: 0x06000043
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass10_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2BA6   Size: 7 bytes   Token: 0x06000044
+
+Method   : Func<Decimal, bool> <Rules>b__0(int minCount)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2BB0   Size: 47 bytes   Token: 0x06000045
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass10_1
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2BEB   Size: 7 bytes   Token: 0x06000046
+
+Method   : bool <Rules>b__1(Decimal amount)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2BF4   Size: 100 bytes   Token: 0x06000047
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass10_2
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2C64   Size: 7 bytes   Token: 0x06000048
+
+Method   : bool <Rules>b__2(Order o)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2C6C   Size: 18 bytes   Token: 0x06000049
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass13_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2C7F   Size: 7 bytes   Token: 0x0600004A
+
+Method   : void <Log>g__Write|0(string line)
+Kind     : instance, internal, local-function, compiler-generated
+RVA      : 0x2C88   Size: 82 bytes   Token: 0x0600004B
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass14_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2CE6   Size: 7 bytes   Token: 0x0600004C
+
+Method   : int <Counters>b__0()
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2CEE   Size: 14 bytes   Token: 0x0600004D
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass15_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2CFD   Size: 7 bytes   Token: 0x0600004E
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass17_0`2
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2D05   Size: 7 bytes   Token: 0x0600004F
+
+Method   : TResult <Memoize>b__0(T x)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2D10   Size: 46 bytes   Token: 0x06000050
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass18_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2D4A   Size: 7 bytes   Token: 0x06000051
+
+Method   : void <Compose>b__0()
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2D54   Size: 30 bytes   Token: 0x06000052
+
+Type     : Ref.Lambdas.Reports+<>c__DisplayClass8_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2D7E   Size: 7 bytes   Token: 0x06000053
+
+Method   : bool <Between>b__0(Order o)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2D86   Size: 39 bytes   Token: 0x06000054

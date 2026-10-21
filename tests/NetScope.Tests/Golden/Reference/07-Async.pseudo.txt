@@ -1,0 +1,845 @@
+Assembly : Ref07.Async.dll
+Name     : Ref07.Async, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 29
+
+Type     : Ref.Async.ISource
+
+Method   : Task<byte[]> FetchAsync(string key, CancellationToken token)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000001
+
+[Pseudocode]
+  Task<byte[]> FetchAsync(string key, CancellationToken token);
+
+Type     : Ref.Async.CachedSource
+
+Method   : void .ctor(ISource inner)
+Kind     : ctor, instance, public
+RVA      : 0x2050   Size: 37 bytes   Token: 0x06000002
+
+[Pseudocode]
+  public CachedSource(ISource inner)
+  {
+      _cache = new ConcurrentDictionary<string, byte[]>();
+      _gate = new SemaphoreSlim(4);
+      base..ctor();
+      _inner = inner;
+  }
+
+Method   : int get_Misses()
+Kind     : property-get, instance, public
+RVA      : 0x2076   Size: 12 bytes   Token: 0x06000003
+
+[Pseudocode]
+  {
+      return Volatile.Read(in _misses);
+  }
+
+Method   : Task<byte[]> FetchAsync(string key, CancellationToken token)
+Kind     : instance, public, virtual, sealed, async
+RVA      : 0x2084   Size: 71 bytes   Token: 0x06000004
+
+[Pseudocode]
+  public async Task<byte[]> FetchAsync(string key, CancellationToken token)
+  {
+      if (_cache.TryGetValue(key, out var value))
+      {
+          return value;
+      }
+      await _gate.WaitAsync(token).ConfigureAwait(continueOnCapturedContext: false);
+      try
+      {
+          if (_cache.TryGetValue(key, out value))
+          {
+              return value;
+          }
+          Interlocked.Increment(ref _misses);
+          byte[] array = await _inner.FetchAsync(key, token).ConfigureAwait(continueOnCapturedContext: false);
+          _cache[key] = array;
+          return array;
+      }
+      finally
+      {
+          _gate.Release();
+      }
+  }
+
+Method   : ValueTask<int> SizeAsync(string key, CancellationToken token)
+Kind     : instance, public
+RVA      : 0x20D8   Size: 34 bytes   Token: 0x06000005
+
+[Pseudocode]
+  public ValueTask<int> SizeAsync(string key, CancellationToken token)
+  {
+      if (_cache.TryGetValue(key, out var value))
+      {
+          return new ValueTask<int>(value.Length);
+      }
+      return SlowSizeAsync(key, token);
+  }
+
+Method   : ValueTask<int> SlowSizeAsync(string key, CancellationToken token)
+Kind     : instance, private, async
+RVA      : 0x2108   Size: 71 bytes   Token: 0x06000006
+
+[Pseudocode]
+  private async ValueTask<int> SlowSizeAsync(string key, CancellationToken token)
+  {
+      return (await FetchAsync(key, token).ConfigureAwait(continueOnCapturedContext: false)).Length;
+  }
+
+Method   : ValueTask DisposeAsync()
+Kind     : instance, public, virtual, sealed, async
+RVA      : 0x215C   Size: 55 bytes   Token: 0x06000007
+
+[Pseudocode]
+  public async ValueTask DisposeAsync()
+  {
+      await Task.Yield();
+      _gate.Dispose();
+      _cache.Clear();
+  }
+
+Type     : Ref.Async.Batch
+
+Method   : Task<IReadOnlyList<int>> SizesAsync(ISource source, IEnumerable<string> keys, CancellationToken token)
+Kind     : static, public, async
+RVA      : 0x21A0   Size: 71 bytes   Token: 0x06000008
+
+[Pseudocode]
+  public static async Task<IReadOnlyList<int>> SizesAsync(ISource source, IEnumerable<string> keys, CancellationToken token = default(CancellationToken))
+  {
+      List<Task<byte[]>> list = new List<Task<byte[]>>();
+      foreach (string key in keys)
+      {
+          list.Add(source.FetchAsync(key, token));
+      }
+      byte[][] array = await Task.WhenAll(list).ConfigureAwait(continueOnCapturedContext: false);
+      int[] array2 = new int[array.Length];
+      for (int i = 0; i < array.Length; i++)
+      {
+          array2[i] = array[i].Length;
+      }
+      return array2;
+  }
+
+Method   : Task<T> RetryAsync<T>(Func<CancellationToken, Task<T>> action, int attempts, TimeSpan delay, CancellationToken token)
+Kind     : static, public, async, generic
+RVA      : 0x21F4   Size: 79 bytes   Token: 0x06000009
+
+[Pseudocode]
+  public static async Task<T> RetryAsync<T>(Func<CancellationToken, Task<T>> action, int attempts, TimeSpan delay, CancellationToken token)
+  {
+      int attempt = 1;
+      while (true)
+      {
+          try
+          {
+              return await action(token).ConfigureAwait(continueOnCapturedContext: false);
+          }
+          catch (IOException) when (attempt < attempts)
+          {
+              await Task.Delay(delay * attempt, token).ConfigureAwait(continueOnCapturedContext: false);
+          }
+          attempt++;
+      }
+  }
+
+Method   : Task CopyAsync(Stream from, Stream to, IProgress<long> progress, CancellationToken token)
+Kind     : static, public, async
+RVA      : 0x2250   Size: 79 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  public static async Task CopyAsync(Stream from, Stream to, IProgress<long> progress, CancellationToken token)
+  {
+      byte[] buffer = new byte[81920];
+      long total = 0L;
+      while (true)
+      {
+          int num;
+          int read = (num = await from.ReadAsync(buffer.AsMemory(), token).ConfigureAwait(continueOnCapturedContext: false));
+          if (num <= 0)
+          {
+              break;
+          }
+          await to.WriteAsync(buffer.AsMemory(0, read), token).ConfigureAwait(continueOnCapturedContext: false);
+          total += read;
+          progress?.Report(total);
+      }
+  }
+
+Method   : void FireAndForget(Task task, Action<Exception> onError)
+Kind     : static, public, async
+RVA      : 0x22AC   Size: 51 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  public static async void FireAndForget(Task task, Action<Exception> onError)
+  {
+      try
+      {
+          await task;
+      }
+      catch (Exception obj)
+      {
+          onError(obj);
+      }
+  }
+
+Method   : Task<int> AlreadyDone()
+Kind     : static, public
+RVA      : 0x22EB   Size: 8 bytes   Token: 0x0600000C
+
+[Pseudocode]
+  public static Task<int> AlreadyDone()
+  {
+      return Task.FromResult(42);
+  }
+
+Method   : Task<string> WithTimeoutAsync(Task<string> task, TimeSpan timeout)
+Kind     : static, public, async
+RVA      : 0x22F4   Size: 63 bytes   Token: 0x0600000D
+
+[Pseudocode]
+  public static async Task<string> WithTimeoutAsync(Task<string> task, TimeSpan timeout)
+  {
+      using CancellationTokenSource cts = new CancellationTokenSource();
+      if (await Task.WhenAny(task, Task.Delay(timeout, cts.Token)) != task)
+      {
+          throw new TimeoutException();
+      }
+      cts.Cancel();
+      return await task;
+  }
+
+Type     : Ref.Async.CachedSource+<DisposeAsync>d__10
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2340   Size: 176 bytes   Token: 0x0600000E
+
+[Pseudocode]
+  private void MoveNext()
+  {
+      int num = <>1__state;
+      CachedSource cachedSource = <>4__this;
+      try
+      {
+          YieldAwaitable.YieldAwaiter awaiter;
+          if (num != 0)
+          {
+              awaiter = Task.Yield().GetAwaiter();
+              if (!awaiter.IsCompleted)
+              {
+                  num = (<>1__state = 0);
+                  <>u__1 = awaiter;
+                  <>t__builder.AwaitUnsafeOnCompleted(ref awaiter, ref this);
+                  return;
+              }
+          }
+          else
+          {
+              awaiter = <>u__1;
+              <>u__1 = default;
+              num = (<>1__state = -1);
+          }
+          awaiter.GetResult();
+          cachedSource._gate.Dispose();
+          cachedSource._cache.Clear();
+      }
+      catch (Exception exception)
+      {
+          <>1__state = -2;
+          <>t__builder.SetException(exception);
+          return;
+      }
+      <>1__state = -2;
+      <>t__builder.SetResult();
+  }
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x240C   Size: 13 bytes   Token: 0x0600000F
+
+[Pseudocode]
+  [DebuggerHidden]
+  private void SetStateMachine(IAsyncStateMachine stateMachine)
+  {
+      <>t__builder.SetStateMachine(stateMachine);
+  }
+
+Type     : Ref.Async.CachedSource+<FetchAsync>d__7
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x241C   Size: 419 bytes   Token: 0x06000010
+
+[Pseudocode]
+  private void MoveNext()
+  {
+      int num = <>1__state;
+      CachedSource cachedSource = <>4__this;
+      byte[] result;
+      try
+      {
+          ConfiguredTaskAwaitable.ConfiguredTaskAwaiter awaiter;
+          if (num == 0)
+          {
+              awaiter = <>u__1;
+              <>u__1 = default;
+              num = (<>1__state = -1);
+              goto IL_00a0;
+          }
+          if (num == 1)
+          {
+              goto IL_00a8;
+          }
+          if (!cachedSource._cache.TryGetValue(key, out var value))
+          {
+              awaiter = cachedSource._gate.WaitAsync(token).ConfigureAwait(continueOnCapturedContext: false).GetAwaiter();
+              if (!awaiter.IsCompleted)
+              {
+                  num = (<>1__state = 0);
+                  <>u__1 = awaiter;
+                  <>t__builder.AwaitUnsafeOnCompleted(ref awaiter, ref this);
+                  return;
+              }
+              goto IL_00a0;
+          }
+          result = value;
+          goto end_IL_000e;
+          IL_00a8:
+          try
+          {
+              ConfiguredTaskAwaitable<byte[]>.ConfiguredTaskAwaiter awaiter2;
+              if (num == 1)
+              {
+                  awaiter2 = <>u__2;
+                  <>u__2 = default;
+                  num = (<>1__state = -1);
+                  goto IL_0143;
+              }
+              if (!cachedSource._cache.TryGetValue(key, out value))
+              {
+                  Interlocked.Increment(ref cachedSource._misses);
+                  awaiter2 = cachedSource._inner.FetchAsync(key, token).ConfigureAwait(continueOnCapturedContext: false).GetAwaiter();
+                  if (!awaiter2.IsCompleted)
+                  {
+                      num = (<>1__state = 1);
+                      <>u__2 = awaiter2;
+                      <>t__builder.AwaitUnsafeOnCompleted(ref awaiter2, ref this);
+                      return;
+                  }
+                  goto IL_0143;
+              }
+              result = value;
+              goto end_IL_00a8;
+              IL_0143:
+              byte[] result2 = awaiter2.GetResult();
+              cachedSource._cache[key] = result2;
+              result = result2;
+              end_IL_00a8:;
+          }
+          finally
+          {
+              if (num < 0)
+              {
+                  cachedSource._gate.Release();
+              }
+          }
+          goto end_IL_000e;
+          IL_00a0:
+          awaiter.GetResult();
+          goto IL_00a8;
+          end_IL_000e:;
+      }
+      catch (Exception exception)
+      {
+          <>1__state = -2;
+          <>t__builder.SetException(exception);
+          return;
+      }
+      <>1__state = -2;
+      <>t__builder.SetResult(result);
+  }
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2600   Size: 13 bytes   Token: 0x06000011
+
+[Pseudocode]
+  [DebuggerHidden]
+  private void SetStateMachine(IAsyncStateMachine stateMachine)
+  {
+      <>t__builder.SetStateMachine(stateMachine);
+  }
+
+Type     : Ref.Async.CachedSource+<SlowSizeAsync>d__9
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2610   Size: 178 bytes   Token: 0x06000012
+
+[Pseudocode]
+  private void MoveNext()
+  {
+      int num = <>1__state;
+      CachedSource cachedSource = <>4__this;
+      int result;
+      try
+      {
+          ConfiguredTaskAwaitable<byte[]>.ConfiguredTaskAwaiter awaiter;
+          if (num != 0)
+          {
+              awaiter = cachedSource.FetchAsync(key, token).ConfigureAwait(continueOnCapturedContext: false).GetAwaiter();
+              if (!awaiter.IsCompleted)
+              {
+                  num = (<>1__state = 0);
+                  <>u__1 = awaiter;
+                  <>t__builder.AwaitUnsafeOnCompleted(ref awaiter, ref this);
+                  return;
+              }
+          }
+          else
+          {
+              awaiter = <>u__1;
+              <>u__1 = default;
+              num = (<>1__state = -1);
+          }
+          result = awaiter.GetResult().Length;
+      }
+      catch (Exception exception)
+      {
+          <>1__state = -2;
+          <>t__builder.SetException(exception);
+          return;
+      }
+      <>1__state = -2;
+      <>t__builder.SetResult(result);
+  }
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x26E0   Size: 13 bytes   Token: 0x06000013
+
+[Pseudocode]
+  [DebuggerHidden]
+  private void SetStateMachine(IAsyncStateMachine stateMachine)
+  {
+      <>t__builder.SetStateMachine(stateMachine);
+  }
+
+Type     : Ref.Async.Batch+<CopyAsync>d__2
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x26F0   Size: 438 bytes   Token: 0x06000014
+
+[Pseudocode]
+  private void MoveNext()
+  {
+      int num = <>1__state;
+      try
+      {
+          ConfiguredValueTaskAwaitable<int>.ConfiguredValueTaskAwaiter awaiter;
+          if (num != 0)
+          {
+              if (num != 1)
+              {
+                  <buffer>5__2 = new byte[81920];
+                  <total>5__3 = 0L;
+                  goto IL_00e5;
+              }
+              awaiter = <>u__2;
+              <>u__2 = default;
+              num = (<>1__state = -1);
+              goto IL_015d;
+          }
+          ConfiguredValueTaskAwaitable.ConfiguredValueTaskAwaiter awaiter2 = <>u__1;
+          <>u__1 = default;
+          num = (<>1__state = -1);
+          goto IL_00b3;
+          IL_00e5:
+          awaiter = from.ReadAsync(<buffer>5__2.AsMemory(), token).ConfigureAwait(continueOnCapturedContext: false).GetAwaiter();
+          if (!awaiter.IsCompleted)
+          {
+              num = (<>1__state = 1);
+              <>u__2 = awaiter;
+              <>t__builder.AwaitUnsafeOnCompleted(ref awaiter, ref this);
+              return;
+          }
+          goto IL_015d;
+          IL_015d:
+          int result = awaiter.GetResult();
+          if ((<read>5__4 = result) > 0)
+          {
+              awaiter2 = to.WriteAsync(<buffer>5__2.AsMemory(0, <read>5__4), token).ConfigureAwait(continueOnCapturedContext: false).GetAwaiter();
+              if (!awaiter2.IsCompleted)
+              {
+                  num = (<>1__state = 0);
+                  <>u__1 = awaiter2;
+                  <>t__builder.AwaitUnsafeOnCompleted(ref awaiter2, ref this);
+                  return;
+              }
+              goto IL_00b3;
+          }
+          goto end_IL_0007;
+          IL_00b3:
+          awaiter2.GetResult();
+          <total>5__3 += <read>5__4;
+          progress?.Report(<total>5__3);
+          goto IL_00e5;
+          end_IL_0007:;
+      }
+      catch (Exception exception)
+      {
+          <>1__state = -2;
+          <buffer>5__2 = null;
+          <>t__builder.SetException(exception);
+          return;
+      }
+      <>1__state = -2;
+      <buffer>5__2 = null;
+      <>t__builder.SetResult();
+  }
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x28D0   Size: 13 bytes   Token: 0x06000015
+
+[Pseudocode]
+  [DebuggerHidden]
+  private void SetStateMachine(IAsyncStateMachine stateMachine)
+  {
+      <>t__builder.SetStateMachine(stateMachine);
+  }
+
+Type     : Ref.Async.Batch+<FireAndForget>d__3
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x28E0   Size: 163 bytes   Token: 0x06000016
+
+[Pseudocode]
+  private void MoveNext()
+  {
+      int num = <>1__state;
+      try
+      {
+          try
+          {
+              TaskAwaiter awaiter;
+              if (num != 0)
+              {
+                  awaiter = task.GetAwaiter();
+                  if (!awaiter.IsCompleted)
+                  {
+                      num = (<>1__state = 0);
+                      <>u__1 = awaiter;
+                      <>t__builder.AwaitUnsafeOnCompleted(ref awaiter, ref this);
+                      return;
+                  }
+              }
+              else
+              {
+                  awaiter = <>u__1;
+                  <>u__1 = default;
+                  num = (<>1__state = -1);
+              }
+              awaiter.GetResult();
+          }
+          catch (Exception obj)
+          {
+              onError(obj);
+          }
+      }
+      catch (Exception exception)
+      {
+          <>1__state = -2;
+          <>t__builder.SetException(exception);
+          return;
+      }
+      <>1__state = -2;
+      <>t__builder.SetResult();
+  }
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x29AC   Size: 13 bytes   Token: 0x06000017
+
+[Pseudocode]
+  [DebuggerHidden]
+  private void SetStateMachine(IAsyncStateMachine stateMachine)
+  {
+      <>t__builder.SetStateMachine(stateMachine);
+  }
+
+Type     : Ref.Async.Batch+<RetryAsync>d__1`1
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x29BC   Size: 381 bytes   Token: 0x06000018
+
+[Pseudocode]
+  private void MoveNext()
+  {
+      int num = <>1__state;
+      T result;
+      try
+      {
+          if (num == 0)
+          {
+              goto IL_001b;
+          }
+          if (num != 1)
+          {
+              <attempt>5__2 = 1;
+              goto IL_0018;
+          }
+          ConfiguredTaskAwaitable.ConfiguredTaskAwaiter awaiter = <>u__2;
+          <>u__2 = default;
+          num = (<>1__state = -1);
+          goto IL_0133;
+          IL_00ba:
+          int num2;
+          if (num2 == 1)
+          {
+              awaiter = Task.Delay(delay * <attempt>5__2, token).ConfigureAwait(continueOnCapturedContext: false).GetAwaiter();
+              if (!awaiter.IsCompleted)
+              {
+                  num = (<>1__state = 1);
+                  <>u__2 = awaiter;
+                  <>t__builder.AwaitUnsafeOnCompleted(ref awaiter, ref this);
+                  return;
+              }
+              goto IL_0133;
+          }
+          goto IL_013a;
+          IL_0133:
+          awaiter.GetResult();
+          goto IL_013a;
+          IL_013a:
+          <attempt>5__2++;
+          goto IL_0018;
+          IL_0018:
+          num2 = 0;
+          goto IL_001b;
+          IL_001b:
+          try
+          {
+              ConfiguredTaskAwaitable<T>.ConfiguredTaskAwaiter awaiter2;
+              if (num != 0)
+              {
+                  awaiter2 = action(token).ConfigureAwait(continueOnCapturedContext: false).GetAwaiter();
+                  if (!awaiter2.IsCompleted)
+                  {
+                      num = (<>1__state = 0);
+                      <>u__1 = awaiter2;
+                      <>t__builder.AwaitUnsafeOnCompleted(ref awaiter2, ref this);
+                      return;
+                  }
+              }
+              else
+              {
+                  awaiter2 = <>u__1;
+                  <>u__1 = default;
+                  num = (<>1__state = -1);
+              }
+              result = awaiter2.GetResult();
+          }
+          catch (IOException) when (<attempt>5__2 < attempts)
+          {
+              num2 = 1;
+              goto IL_00ba;
+          }
+      }
+      catch (Exception exception)
+      {
+          <>1__state = -2;
+          <>t__builder.SetException(exception);
+          return;
+      }
+      <>1__state = -2;
+      <>t__builder.SetResult(result);
+  }
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2B7C   Size: 13 bytes   Token: 0x06000019
+
+[Pseudocode]
+  [DebuggerHidden]
+  private void SetStateMachine(IAsyncStateMachine stateMachine)
+  {
+      <>t__builder.SetStateMachine(stateMachine);
+  }
+
+Type     : Ref.Async.Batch+<SizesAsync>d__0
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2B8C   Size: 287 bytes   Token: 0x0600001A
+
+[Pseudocode]
+  private void MoveNext()
+  {
+      int num = <>1__state;
+      IReadOnlyList<int> result2;
+      try
+      {
+          ConfiguredTaskAwaitable<byte[][]>.ConfiguredTaskAwaiter awaiter;
+          if (num != 0)
+          {
+              List<Task<byte[]>> list = new List<Task<byte[]>>();
+              IEnumerator<string> enumerator = keys.GetEnumerator();
+              try
+              {
+                  while (enumerator.MoveNext())
+                  {
+                      string current = enumerator.Current;
+                      list.Add(source.FetchAsync(current, token));
+                  }
+              }
+              finally
+              {
+                  if (num < 0)
+                  {
+                      enumerator?.Dispose();
+                  }
+              }
+              awaiter = Task.WhenAll(list).ConfigureAwait(continueOnCapturedContext: false).GetAwaiter();
+              if (!awaiter.IsCompleted)
+              {
+                  num = (<>1__state = 0);
+                  <>u__1 = awaiter;
+                  <>t__builder.AwaitUnsafeOnCompleted(ref awaiter, ref this);
+                  return;
+              }
+          }
+          else
+          {
+              awaiter = <>u__1;
+              <>u__1 = default;
+              num = (<>1__state = -1);
+          }
+          byte[][] result = awaiter.GetResult();
+          int[] array = new int[result.Length];
+          for (int i = 0; i < result.Length; i++)
+          {
+              array[i] = result[i].Length;
+          }
+          result2 = array;
+      }
+      catch (Exception exception)
+      {
+          <>1__state = -2;
+          <>t__builder.SetException(exception);
+          return;
+      }
+      <>1__state = -2;
+      <>t__builder.SetResult(result2);
+  }
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2CD4   Size: 13 bytes   Token: 0x0600001B
+
+[Pseudocode]
+  [DebuggerHidden]
+  private void SetStateMachine(IAsyncStateMachine stateMachine)
+  {
+      <>t__builder.SetStateMachine(stateMachine);
+  }
+
+Type     : Ref.Async.Batch+<WithTimeoutAsync>d__5
+
+Method   : void MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2CE4   Size: 351 bytes   Token: 0x0600001C
+
+[Pseudocode]
+  private void MoveNext()
+  {
+      int num = <>1__state;
+      string result;
+      try
+      {
+          if ((uint)num > 1u)
+          {
+              <cts>5__2 = new CancellationTokenSource();
+          }
+          try
+          {
+              TaskAwaiter<string> awaiter;
+              TaskAwaiter<Task> awaiter2;
+              if (num != 0)
+              {
+                  if (num == 1)
+                  {
+                      awaiter = <>u__2;
+                      <>u__2 = default;
+                      num = (<>1__state = -1);
+                      goto IL_0101;
+                  }
+                  awaiter2 = Task.WhenAny(task, Task.Delay(timeout, <cts>5__2.Token)).GetAwaiter();
+                  if (!awaiter2.IsCompleted)
+                  {
+                      num = (<>1__state = 0);
+                      <>u__1 = awaiter2;
+                      <>t__builder.AwaitUnsafeOnCompleted(ref awaiter2, ref this);
+                      return;
+                  }
+              }
+              else
+              {
+                  awaiter2 = <>u__1;
+                  <>u__1 = default;
+                  num = (<>1__state = -1);
+              }
+              if (awaiter2.GetResult() != task)
+              {
+                  throw new TimeoutException();
+              }
+              <cts>5__2.Cancel();
+              awaiter = task.GetAwaiter();
+              if (!awaiter.IsCompleted)
+              {
+                  num = (<>1__state = 1);
+                  <>u__2 = awaiter;
+                  <>t__builder.AwaitUnsafeOnCompleted(ref awaiter, ref this);
+                  return;
+              }
+              goto IL_0101;
+              IL_0101:
+              result = awaiter.GetResult();
+          }
+          finally
+          {
+              if (num < 0 && <cts>5__2 != null)
+              {
+                  ((IDisposable)<cts>5__2).Dispose();
+              }
+          }
+      }
+      catch (Exception exception)
+      {
+          <>1__state = -2;
+          <cts>5__2 = null;
+          <>t__builder.SetException(exception);
+          return;
+      }
+      <>1__state = -2;
+      <cts>5__2 = null;
+      <>t__builder.SetResult(result);
+  }
+
+Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2E84   Size: 13 bytes   Token: 0x0600001D
+
+[Pseudocode]
+  [DebuggerHidden]
+  private void SetStateMachine(IAsyncStateMachine stateMachine)
+  {
+      <>t__builder.SetStateMachine(stateMachine);
+  }

@@ -1,0 +1,124 @@
+Assembly : Ref03.NetStandard.dll
+Name     : Ref03.NetStandard, Version=1.0.0.0
+Runtime  : .NETStandard,Version=v2.0   Machine: anycpu
+Methods  : 27
+
+Type     : Ref.NetStandard.TextUtil
+
+Method   : string Slug(string text)
+Kind     : static, public
+RVA      : 0x2050   Size: 150 bytes   Token: 0x06000001
+
+Method   : string CollapseSpaces(string text)
+Kind     : static, public
+RVA      : 0x20F2   Size: 31 bytes   Token: 0x06000002
+
+Method   : IEnumerable<string> Wrap(string text, int width)
+Kind     : static, public, iterator
+RVA      : 0x2112   Size: 22 bytes   Token: 0x06000003
+
+Method   : int Levenshtein(string a, string b)
+Kind     : static, public
+RVA      : 0x212C   Size: 167 bytes   Token: 0x06000004
+
+Method   : string Closest(string word, IEnumerable<string> candidates)
+Kind     : static, public
+RVA      : 0x21E0   Size: 78 bytes   Token: 0x06000005
+
+Method   : void .cctor()
+Kind     : cctor, static, private
+RVA      : 0x223A   Size: 17 bytes   Token: 0x06000006
+
+Type     : Ref.NetStandard.CsvRow
+
+Method   : void .ctor(List<string> fields)
+Kind     : ctor, instance, private
+RVA      : 0x224C   Size: 14 bytes   Token: 0x06000007
+
+Method   : int get_Count()
+Kind     : property-get, instance, public
+RVA      : 0x225B   Size: 12 bytes   Token: 0x06000008
+
+Method   : string get_Item(int index)
+Kind     : property-get, instance, public
+RVA      : 0x2268   Size: 13 bytes   Token: 0x06000009
+
+Method   : CsvRow Parse(string line, char separator)
+Kind     : static, public
+RVA      : 0x2278   Size: 190 bytes   Token: 0x0600000A
+
+Method   : string ToString()
+Kind     : instance, public, override
+RVA      : 0x2342   Size: 53 bytes   Token: 0x0600000B
+
+Type     : Ref.NetStandard.TextUtil+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2378   Size: 11 bytes   Token: 0x0600000C
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2384   Size: 7 bytes   Token: 0x0600000D
+
+Method   : string <Closest>b__5_1(string c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x238C   Size: 2 bytes   Token: 0x0600000E
+
+Type     : Ref.NetStandard.TextUtil+<>c__DisplayClass5_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x238F   Size: 7 bytes   Token: 0x0600000F
+
+Method   : int <Closest>b__0(string c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2397   Size: 13 bytes   Token: 0x06000010
+
+Type     : Ref.NetStandard.TextUtil+<Wrap>d__3
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x23A5   Size: 25 bytes   Token: 0x06000011
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x23BF   Size: 30 bytes   Token: 0x06000012
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x23E0   Size: 363 bytes   Token: 0x06000013
+
+Method   : string System.Collections.Generic.IEnumerator<System.String>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2557   Size: 7 bytes   Token: 0x06000014
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x255F   Size: 6 bytes   Token: 0x06000015
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2566   Size: 7 bytes   Token: 0x06000016
+
+Method   : IEnumerator<string> System.Collections.Generic.IEnumerable<System.String>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2570   Size: 67 bytes   Token: 0x06000017
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x25BF   Size: 7 bytes   Token: 0x06000018
+
+Type     : Ref.NetStandard.CsvRow+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x25C7   Size: 11 bytes   Token: 0x06000019
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x25D3   Size: 7 bytes   Token: 0x0600001A
+
+Method   : string <ToString>b__7_0(string f)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x25DB   Size: 59 bytes   Token: 0x0600001B

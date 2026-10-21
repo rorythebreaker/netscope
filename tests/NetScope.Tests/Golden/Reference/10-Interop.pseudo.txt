@@ -1,0 +1,240 @@
+Assembly : Ref10.Interop.dll
+Name     : Ref10.Interop, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 21
+
+Type     : Ref.Interop.Kernel32
+
+Method   : void GetSystemTime(out SystemTime time)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000001
+PInvoke  : kernel32.dll!GetSystemTime
+
+[Pseudocode]
+  [DllImport("kernel32.dll", SetLastError = true)]
+  public static extern void GetSystemTime(out SystemTime time);
+
+Method   : uint GetEnvironmentVariableW(string name, StringBuilder buffer, uint size)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000002
+PInvoke  : kernel32.dll!GetEnvironmentVariableW
+
+[Pseudocode]
+  [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+  public static extern uint GetEnvironmentVariableW(string name, StringBuilder buffer, uint size);
+
+Method   : ulong Ticks()
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000003
+PInvoke  : kernel32.dll!GetTickCount64
+
+[Pseudocode]
+  [DllImport("kernel32.dll", EntryPoint = "GetTickCount64")]
+  public static extern ulong Ticks();
+
+Type     : Ref.Interop.LibC
+
+Method   : int GetPid()
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000004
+PInvoke  : libc!getpid
+
+[Pseudocode]
+  [DllImport("libc", EntryPoint = "getpid", ExactSpelling = true)]
+  [LibraryImport("libc", EntryPoint = "getpid")]
+  public static extern int GetPid();
+
+Method   : nuint StrLen(string s)
+Kind     : static, public
+RVA      : 0x2050   Size: 66 bytes   Token: 0x06000005
+
+[Pseudocode]
+  [LibraryImport("libc", EntryPoint = "strlen", StringMarshalling = StringMarshalling.Utf8)]
+  [GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "8.0.15.405")]
+  [SkipLocalsInit]
+  public unsafe static nuint StrLen(string s)
+  {
+      nuint num = 0u;
+      scoped Utf8StringMarshaller.ManagedToUnmanagedIn managedToUnmanagedIn = default;
+      try
+      {
+          Span<byte> buffer = stackalloc byte[Utf8StringMarshaller.ManagedToUnmanagedIn.BufferSize];
+          managedToUnmanagedIn.FromManaged(s, buffer);
+          return __PInvoke(managedToUnmanagedIn.ToUnmanaged());
+      }
+      finally
+      {
+          managedToUnmanagedIn.Free();
+      }
+      [DllImport("libc", EntryPoint = "strlen", ExactSpelling = true)]
+      unsafe static extern nuint __PInvoke(byte* __s_native);
+  }
+
+Method   : void QSort(void* data, nuint count, nuint size, delegate*<void*, void*, int> compare)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000006
+PInvoke  : libc!qsort
+
+[Pseudocode]
+  [DllImport("libc", EntryPoint = "qsort", ExactSpelling = true)]
+  [LibraryImport("libc", EntryPoint = "qsort")]
+  public unsafe static extern void QSort(void* data, nuint count, nuint size, delegate* unmanaged[Cdecl]<void*, void*, int> compare);
+
+Method   : nuint <StrLen>g____PInvoke|1_0(byte* __s_native)
+Kind     : static, internal, pinvoke, local-function, compiler-generated, no-body
+RVA      : 0x0000   Token: 0x06000007
+PInvoke  : libc!strlen
+
+[Pseudocode]
+  [DllImport("libc", EntryPoint = "strlen", ExactSpelling = true)]
+  [CompilerGenerated]
+  internal unsafe static extern nuint <StrLen>g____PInvoke|1_0(byte* __s_native);
+
+Type     : Ref.Interop.Callbacks
+
+Method   : int CompareInts(void* a, void* b)
+Kind     : static, private
+RVA      : 0x20B0   Size: 9 bytes   Token: 0x06000008
+
+[Pseudocode]
+  [UnmanagedCallersOnly(CallConvs = new Type[] { typeof(CallConvCdecl) })]
+  private unsafe static int CompareInts(void* a, void* b)
+  {
+      return ((int*)a)->CompareTo(*(int*)b);
+  }
+
+Method   : void Sort(int[] values)
+Kind     : static, public
+RVA      : 0x20BC   Size: 45 bytes   Token: 0x06000009
+
+[Pseudocode]
+  public unsafe static void Sort(int[] values)
+  {
+      fixed (int* data = values)
+      {
+          LibC.QSort((void*)data, (nuint)values.Length, (nuint)4u, (delegate* unmanaged[Cdecl]<void*, void*, int>)(&CompareInts));
+      }
+  }
+
+Method   : int Apply(delegate*<int, int, int> op, int a, int b)
+Kind     : static, public
+RVA      : 0x20F8   Size: 11 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  public unsafe static int Apply(delegate*<int, int, int> op, int a, int b)
+  {
+      return op(a, b);
+  }
+
+Method   : int Add(int a, int b)
+Kind     : static, private
+RVA      : 0x210F   Size: 4 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  private static int Add(int a, int b)
+  {
+      return a + b;
+  }
+
+Method   : int AddViaPointer(int a, int b)
+Kind     : static, public
+RVA      : 0x2114   Size: 14 bytes   Token: 0x0600000C
+
+[Pseudocode]
+  public unsafe static int AddViaPointer(int a, int b)
+  {
+      return Apply((delegate*<int, int, int>)(&Add), a, b);
+  }
+
+Method   : int CallNative(nint fn, int a, int b)
+Kind     : static, public
+RVA      : 0x2123   Size: 14 bytes   Token: 0x0600000D
+
+[Pseudocode]
+  public static int CallNative(nint fn, int a, int b)
+  {
+      return Marshal.GetDelegateForFunctionPointer<BinaryOp>(fn)(a, b);
+  }
+
+Method   : nint Export(BinaryOp op)
+Kind     : static, public
+RVA      : 0x2132   Size: 7 bytes   Token: 0x0600000E
+
+[Pseudocode]
+  public static nint Export(BinaryOp op)
+  {
+      return Marshal.GetFunctionPointerForDelegate(op);
+  }
+
+Type     : Ref.Interop.Platform
+
+Method   : string Describe()
+Kind     : static, public
+RVA      : 0x213C   Size: 268 bytes   Token: 0x0600000F
+
+[Pseudocode]
+  public static string Describe()
+  {
+      if (OperatingSystem.IsWindows())
+      {
+          Kernel32.GetSystemTime(out var time);
+          StringBuilder stringBuilder = new StringBuilder(260);
+          uint environmentVariableW = Kernel32.GetEnvironmentVariableW("PATH", stringBuilder, (uint)stringBuilder.Capacity);
+          return $"{time.Year}-{time.Month:00}-{time.Day:00}, PATH has {environmentVariableW} chars, up {Kernel32.Ticks()} ms";
+      }
+      return "pid " + LibC.GetPid() + ", " + (UIntPtr)LibC.StrLen("hello") + " bytes";
+  }
+
+Method   : float Reinterpret(int bits)
+Kind     : static, public
+RVA      : 0x2254   Size: 23 bytes   Token: 0x06000010
+
+[Pseudocode]
+  public static float Reinterpret(int bits)
+  {
+      Union union = new Union
+      {
+          Int = bits
+      };
+      return union.Float;
+  }
+
+Method   : string PtrToString(nint p)
+Kind     : static, public
+RVA      : 0x2277   Size: 16 bytes   Token: 0x06000011
+
+[Pseudocode]
+  public static string PtrToString(nint p)
+  {
+      return Marshal.PtrToStringUTF8(p) ?? string.Empty;
+  }
+
+Type     : Ref.Interop.Callbacks+BinaryOp
+
+Method   : void .ctor(object object, nint method)
+Kind     : ctor, instance, public, runtime, no-body
+RVA      : 0x0000   Token: 0x06000012
+
+[Pseudocode]
+  public extern BinaryOp(object @object, nint method);
+
+Method   : int Invoke(int a, int b)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x06000013
+
+[Pseudocode]
+  public virtual extern int Invoke(int a, int b);
+
+Method   : IAsyncResult BeginInvoke(int a, int b, AsyncCallback callback, object object)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x06000014
+
+[Pseudocode]
+  public virtual extern IAsyncResult BeginInvoke(int a, int b, AsyncCallback callback, object @object);
+
+Method   : int EndInvoke(IAsyncResult result)
+Kind     : instance, public, virtual, runtime, no-body
+RVA      : 0x0000   Token: 0x06000015
+
+[Pseudocode]
+  public virtual extern int EndInvoke(IAsyncResult result);

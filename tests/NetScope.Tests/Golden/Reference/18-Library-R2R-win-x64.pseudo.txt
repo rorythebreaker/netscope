@@ -1,0 +1,593 @@
+Assembly : Ref02.Library.dll
+Name     : Ref02.Library, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: x64
+Note     : ReadyToRun image: precompiled native code is present
+Methods  : 44
+
+Type     : Ref.Library.Quantity
+
+Method   : void .ctor(Decimal amount, Unit unit)
+Kind     : ctor, instance, public
+RVA      : 0x358C   Size: 39 bytes   Token: 0x06000001
+
+[Pseudocode]
+  public Quantity(decimal amount, Unit unit)
+  {
+      if (amount < 0m)
+      {
+          throw new ArgumentOutOfRangeException("amount");
+      }
+      Amount = amount;
+      Unit = unit;
+  }
+
+Method   : Decimal get_Amount()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x35B4   Size: 7 bytes   Token: 0x06000002
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Amount>k__BackingField;
+  }
+
+Method   : Unit get_Unit()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x35BC   Size: 7 bytes   Token: 0x06000003
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Unit>k__BackingField;
+  }
+
+Method   : Quantity op_Addition(Quantity a, Quantity b)
+Kind     : operator, static, public
+RVA      : 0x35C4   Size: 59 bytes   Token: 0x06000004
+
+[Pseudocode]
+  public static Quantity operator +(Quantity a, Quantity b)
+  {
+      if (a.Unit != b.Unit)
+      {
+          throw new InvalidOperationException("units differ");
+      }
+      return new Quantity(a.Amount + b.Amount, a.Unit);
+  }
+
+Method   : bool op_Equality(Quantity a, Quantity b)
+Kind     : operator, static, public
+RVA      : 0x3600   Size: 9 bytes   Token: 0x06000005
+
+[Pseudocode]
+  public static bool operator ==(Quantity a, Quantity b)
+  {
+      return a.Equals(b);
+  }
+
+Method   : bool op_Inequality(Quantity a, Quantity b)
+Kind     : operator, static, public
+RVA      : 0x360C   Size: 12 bytes   Token: 0x06000006
+
+[Pseudocode]
+  public static bool operator !=(Quantity a, Quantity b)
+  {
+      return !a.Equals(b);
+  }
+
+Method   : bool Equals(Quantity other)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x361C   Size: 38 bytes   Token: 0x06000007
+
+[Pseudocode]
+  public bool Equals(Quantity other)
+  {
+      if (Amount == other.Amount)
+      {
+          return Unit == other.Unit;
+      }
+      return false;
+  }
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override
+RVA      : 0x3644   Size: 25 bytes   Token: 0x06000008
+
+[Pseudocode]
+  public override bool Equals(object obj)
+  {
+      if (obj is Quantity other)
+      {
+          return Equals(other);
+      }
+      return false;
+  }
+
+Method   : int GetHashCode()
+Kind     : instance, public, override
+RVA      : 0x366C   Size: 18 bytes   Token: 0x06000009
+
+[Pseudocode]
+  public override int GetHashCode()
+  {
+      return HashCode.Combine(Amount, Unit);
+  }
+
+Method   : int CompareTo(Quantity other)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x3680   Size: 70 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  public int CompareTo(Quantity other)
+  {
+      if (Unit == other.Unit)
+      {
+          return Amount.CompareTo(other.Amount);
+      }
+      return Unit.CompareTo(other.Unit);
+  }
+
+Method   : string ToString()
+Kind     : instance, public, override
+RVA      : 0x36D4   Size: 72 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  public override string ToString()
+  {
+      string text = Amount.ToString(CultureInfo.InvariantCulture);
+      return text + " " + Unit switch
+      {
+          Unit.Kilogram => "kg",
+          Unit.Litre => "l",
+          _ => "pcs",
+      };
+  }
+
+Type     : Ref.Library.Item
+
+Method   : void .ctor(string sku, string name, Quantity stock)
+Kind     : ctor, instance, public
+RVA      : 0x3728   Size: 43 bytes   Token: 0x0600000C
+
+[Pseudocode]
+  public Item(string sku, string name, Quantity stock)
+  {
+      Sku = sku ?? throw new ArgumentNullException("sku");
+      Name = name;
+      Stock = stock;
+  }
+
+Method   : string get_Sku()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x3754   Size: 7 bytes   Token: 0x0600000D
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Sku>k__BackingField;
+  }
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x375C   Size: 7 bytes   Token: 0x0600000E
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Name>k__BackingField;
+  }
+
+Method   : void set_Name(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x3764   Size: 8 bytes   Token: 0x0600000F
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Name>k__BackingField = value;
+  }
+
+Method   : Quantity get_Stock()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x3770   Size: 7 bytes   Token: 0x06000010
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Stock>k__BackingField;
+  }
+
+Method   : void set_Stock(Quantity value)
+Kind     : property-set, instance, internal, compiler-generated
+RVA      : 0x3778   Size: 8 bytes   Token: 0x06000011
+
+[Pseudocode]
+  [CompilerGenerated]
+  internal
+  {
+      <Stock>k__BackingField = value;
+  }
+
+Method   : Decimal get_Price()
+Kind     : property-get, instance, public, virtual
+RVA      : 0x3784   Size: 6 bytes   Token: 0x06000012
+
+[Pseudocode]
+  {
+      return 0m;
+  }
+
+Type     : Ref.Library.PricedItem
+
+Method   : void .ctor(string sku, string name, Quantity stock, Decimal price)
+Kind     : ctor, instance, public
+RVA      : 0x378C   Size: 18 bytes   Token: 0x06000013
+
+[Pseudocode]
+  public PricedItem(string sku, string name, Quantity stock, decimal price)
+      : base(sku, name, stock)
+  {
+      _price = price;
+  }
+
+Method   : Decimal get_Price()
+Kind     : property-get, instance, public, override
+RVA      : 0x37A0   Size: 7 bytes   Token: 0x06000014
+
+[Pseudocode]
+  {
+      return _price;
+  }
+
+Type     : Ref.Library.IRepository`1
+
+Method   : T Find(string key)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000015
+
+[Pseudocode]
+  T Find(string key);
+
+Method   : void Save(T item)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000016
+
+[Pseudocode]
+  void Save(T item);
+
+Method   : IReadOnlyCollection<T> get_All()
+Kind     : property-get, instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000017
+
+[Pseudocode]
+  ;
+
+Type     : Ref.Library.MemoryRepository`1
+
+Method   : void .ctor(Func<T, string> key)
+Kind     : ctor, instance, public
+RVA      : 0x37A8   Size: 30 bytes   Token: 0x06000018
+
+[Pseudocode]
+  public MemoryRepository(Func<T, string> key)
+  {
+      _items = new Dictionary<string, T>(StringComparer.Ordinal);
+      base..ctor();
+      _key = key;
+  }
+
+Method   : void add_Saved(EventHandler<T> value)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x37C8   Size: 41 bytes   Token: 0x06000019
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      EventHandler<T> eventHandler = this.Saved;
+      EventHandler<T> eventHandler2;
+      do
+      {
+          eventHandler2 = eventHandler;
+          EventHandler<T> value2 = (EventHandler<T>)Delegate.Combine(eventHandler2, value);
+          eventHandler = Interlocked.CompareExchange(ref this.Saved, value2, eventHandler2);
+      }
+      while ((object)eventHandler != eventHandler2);
+  }
+
+Method   : void remove_Saved(EventHandler<T> value)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x3800   Size: 41 bytes   Token: 0x0600001A
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      EventHandler<T> eventHandler = this.Saved;
+      EventHandler<T> eventHandler2;
+      do
+      {
+          eventHandler2 = eventHandler;
+          EventHandler<T> value2 = (EventHandler<T>)Delegate.Remove(eventHandler2, value);
+          eventHandler = Interlocked.CompareExchange(ref this.Saved, value2, eventHandler2);
+      }
+      while ((object)eventHandler != eventHandler2);
+  }
+
+Method   : T Find(string key)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x3838   Size: 28 bytes   Token: 0x0600001B
+
+[Pseudocode]
+  public T Find(string key)
+  {
+      if (!_items.TryGetValue(key, out var value))
+      {
+          return null;
+      }
+      return value;
+  }
+
+Method   : void Save(T item)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x3860   Size: 43 bytes   Token: 0x0600001C
+
+[Pseudocode]
+  public void Save(T item)
+  {
+      _items[_key(item)] = item;
+      Saved?.Invoke(this, item);
+  }
+
+Method   : IReadOnlyCollection<T> get_All()
+Kind     : property-get, instance, public, virtual, sealed
+RVA      : 0x388C   Size: 12 bytes   Token: 0x0600001D
+
+[Pseudocode]
+  {
+      return _items.Values;
+  }
+
+Type     : Ref.Library.Inventory
+
+Method   : int get_Changes()
+Kind     : property-get, instance, public
+RVA      : 0x389C   Size: 12 bytes   Token: 0x0600001E
+
+[Pseudocode]
+  {
+      return _history.Count;
+  }
+
+Method   : void Receive(Item item)
+Kind     : instance, public
+RVA      : 0x38AC   Size: 71 bytes   Token: 0x0600001F
+
+[Pseudocode]
+  public void Receive(Item item)
+  {
+      Item item2 = _items.Find(item.Sku);
+      if (item2 == null)
+      {
+          _items.Save(item);
+      }
+      else
+      {
+          item2.Stock += item.Stock;
+      }
+      _history.Add(1);
+  }
+
+Method   : bool TryShip(string sku, Quantity amount, out string error)
+Kind     : instance, public
+RVA      : 0x3900   Size: 152 bytes   Token: 0x06000020
+
+[Pseudocode]
+  public bool TryShip(string sku, Quantity amount, out string error)
+  {
+      error = null;
+      Item item = _items.Find(sku);
+      if (item == null)
+      {
+          error = "unknown item " + sku;
+          return false;
+      }
+      try
+      {
+          if (item.Stock.CompareTo(amount) < 0)
+          {
+              throw new InvalidOperationException("not enough stock");
+          }
+          item.Stock = new Quantity(item.Stock.Amount - amount.Amount, amount.Unit);
+          _history.Add(-1);
+          return true;
+      }
+      catch (InvalidOperationException ex)
+      {
+          error = ex.Message;
+          return false;
+      }
+      finally
+      {
+          _history.Add(0);
+      }
+  }
+
+Method   : Decimal TotalValue()
+Kind     : instance, public
+RVA      : 0x39C0   Size: 88 bytes   Token: 0x06000021
+
+[Pseudocode]
+  public decimal TotalValue()
+  {
+      decimal result = 0m;
+      foreach (Item item in _items.All)
+      {
+          result += item.Price * item.Stock.Amount;
+      }
+      return result;
+  }
+
+Method   : string Export()
+Kind     : instance, public
+RVA      : 0x3A34   Size: 115 bytes   Token: 0x06000022
+
+[Pseudocode]
+  public string Export()
+  {
+      StringBuilder stringBuilder = new StringBuilder();
+      using (StringWriter stringWriter = new StringWriter(stringBuilder, CultureInfo.InvariantCulture))
+      {
+          foreach (Item item in _items.All)
+          {
+              stringWriter.WriteLine("{0};{1};{2}", item.Sku, item.Name, item.Stock);
+          }
+      }
+      return stringBuilder.ToString();
+  }
+
+Method   : Inventory Import(TextReader reader)
+Kind     : static, public
+RVA      : 0x3AD0   Size: 206 bytes   Token: 0x06000023
+
+[Pseudocode]
+  public static Inventory Import(TextReader reader)
+  {
+      Inventory inventory = new Inventory();
+      int num = 0;
+      string text;
+      while ((text = reader.ReadLine()) != null)
+      {
+          num++;
+          string[] array = text.Split(';');
+          if (array.Length != 3)
+          {
+              throw new FormatException($"line {num}: expected 3 fields");
+          }
+          try
+          {
+              decimal amount = decimal.Parse(array[2], CultureInfo.InvariantCulture);
+              inventory.Receive(new Item(array[0], array[1], new Quantity(amount, Unit.Piece)));
+          }
+          catch (FormatException) when (array[2].Length == 0)
+          {
+              inventory.Receive(new Item(array[0], array[1], new Quantity(0m, Unit.Piece)));
+          }
+      }
+      return inventory;
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x3BBC   Size: 60 bytes   Token: 0x06000024
+
+[Pseudocode]
+  public Inventory()
+  {
+      _items = new MemoryRepository<Item>((Item i) => i.Sku);
+      _history = new List<int>();
+      base..ctor();
+  }
+
+Type     : Ref.Library.Statistics
+
+Method   : T Max<T>(IEnumerable<T> values)
+Kind     : static, public, generic
+RVA      : 0x3BFC   Size: 90 bytes   Token: 0x06000025
+
+[Pseudocode]
+  public static T Max<T>(IEnumerable<T> values) where T : IComparable<T>
+  {
+      using IEnumerator<T> enumerator = values.GetEnumerator();
+      if (!enumerator.MoveNext())
+      {
+          throw new InvalidOperationException("empty");
+      }
+      T current = enumerator.Current;
+      while (enumerator.MoveNext())
+      {
+          if (enumerator.Current.CompareTo(current) > 0)
+          {
+              current = enumerator.Current;
+          }
+      }
+      return current;
+  }
+
+Method   : int MaxInt(List<int> values)
+Kind     : static, public
+RVA      : 0x3C74   Size: 7 bytes   Token: 0x06000026
+
+[Pseudocode]
+  public static int MaxInt(List<int> values)
+  {
+      return Max(values);
+  }
+
+Method   : Quantity MaxQuantity(Quantity[] values)
+Kind     : static, public
+RVA      : 0x3C7C   Size: 7 bytes   Token: 0x06000027
+
+[Pseudocode]
+  public static Quantity MaxQuantity(Quantity[] values)
+  {
+      return Max(values);
+  }
+
+Method   : string MaxString(List<string> values)
+Kind     : static, public
+RVA      : 0x3C84   Size: 7 bytes   Token: 0x06000028
+
+[Pseudocode]
+  public static string MaxString(List<string> values)
+  {
+      return Max(values);
+  }
+
+Method   : double Mean(IReadOnlyList<double> values)
+Kind     : static, public
+RVA      : 0x3C8C   Size: 65 bytes   Token: 0x06000029
+
+[Pseudocode]
+  public static double Mean(IReadOnlyList<double> values)
+  {
+      if (values.Count == 0)
+      {
+          return double.NaN;
+      }
+      double num = 0.0;
+      for (int i = 0; i < values.Count; i++)
+      {
+          num += values[i];
+      }
+      return num / (double)values.Count;
+  }
+
+Type     : Ref.Library.Inventory+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x3CDC   Size: 11 bytes   Token: 0x0600002A
+
+[Pseudocode]
+  static <>c()
+  {
+      <>9 = new <>c();
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x3CE8   Size: 7 bytes   Token: 0x0600002B
+
+[Pseudocode]
+  public <>c()
+  {
+  }
+
+Method   : string <.ctor>b__9_0(Item i)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x3CF0   Size: 7 bytes   Token: 0x0600002C
+
+[Pseudocode]
+  internal string <.ctor>b__9_0(Item i)
+  {
+      return i.Sku;
+  }

@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 9. Generics: constraints, variance, generic methods; MethodSpec and TypeSpec tokens. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Ref.Generics</RootNamespace>
+  </PropertyGroup>
+</Project>

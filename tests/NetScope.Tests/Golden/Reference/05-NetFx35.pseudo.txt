@@ -1,0 +1,470 @@
+Assembly : Ref05.NetFx35.dll
+Name     : Ref05.NetFx35, Version=1.0.0.0
+Runtime  : v2.0.50727   Machine: anycpu
+Methods  : 35
+
+Type     : Ref.NetFx35.Extensions
+
+Method   : bool IsBlank(string s)
+Kind     : static, public, extension
+RVA      : 0x2050   Size: 20 bytes   Token: 0x06000001
+
+[Pseudocode]
+  public static bool IsBlank(this string s)
+  {
+      if (s != null)
+      {
+          return s.Trim().Length == 0;
+      }
+      return true;
+  }
+
+Method   : IEnumerable<T> EveryOther<T>(IEnumerable<T> source)
+Kind     : static, public, generic, extension
+RVA      : 0x2065   Size: 15 bytes   Token: 0x06000002
+
+[Pseudocode]
+  public static IEnumerable<T> EveryOther<T>(this IEnumerable<T> source)
+  {
+      bool take = true;
+      foreach (T item in source)
+      {
+          if (take)
+          {
+              yield return item;
+          }
+          take = !take;
+      }
+  }
+
+Method   : string Join(IEnumerable<string> parts, string separator)
+Kind     : static, public, extension
+RVA      : 0x2078   Size: 74 bytes   Token: 0x06000003
+
+[Pseudocode]
+  public static string Join(this IEnumerable<string> parts, string separator)
+  {
+      StringBuilder stringBuilder = new StringBuilder();
+      foreach (string part in parts)
+      {
+          if (stringBuilder.Length > 0)
+          {
+              stringBuilder.Append(separator);
+          }
+          stringBuilder.Append(part);
+      }
+      return stringBuilder.ToString();
+  }
+
+Type     : Ref.NetFx35.Customer
+
+Method   : string get_Name()
+Kind     : property-get, instance, public
+RVA      : 0x20E0   Size: 7 bytes   Token: 0x06000004
+
+[Pseudocode]
+  {
+      return _name;
+  }
+
+Method   : void set_Name(string value)
+Kind     : property-set, instance, public
+RVA      : 0x20E8   Size: 22 bytes   Token: 0x06000005
+
+[Pseudocode]
+  {
+      if (value == null)
+      {
+          throw new ArgumentNullException("value");
+      }
+      _name = value;
+  }
+
+Method   : string get_City()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20FF   Size: 7 bytes   Token: 0x06000006
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <City>k__BackingField;
+  }
+
+Method   : void set_City(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2107   Size: 8 bytes   Token: 0x06000007
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <City>k__BackingField = value;
+  }
+
+Method   : Decimal get_Balance()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2110   Size: 7 bytes   Token: 0x06000008
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Balance>k__BackingField;
+  }
+
+Method   : void set_Balance(Decimal value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2118   Size: 8 bytes   Token: 0x06000009
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      <Balance>k__BackingField = value;
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2121   Size: 7 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  public Customer()
+  {
+  }
+
+Type     : Ref.NetFx35.Ledger
+
+Method   : void Add(Customer customer)
+Kind     : instance, public
+RVA      : 0x2129   Size: 41 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  public void Add(Customer customer)
+  {
+      _customers.Add(customer);
+      _entries.Add("added " + customer.Name);
+  }
+
+Method   : IEnumerable<string> CitiesWithDebt()
+Kind     : instance, public
+RVA      : 0x2154   Size: 156 bytes   Token: 0x0600000C
+
+[Pseudocode]
+  public IEnumerable<string> CitiesWithDebt()
+  {
+      return _customers.Where((Customer c) => c.Balance < 0m).GroupBy((Customer c) => c.City).OrderBy((IGrouping<string, Customer> g) => g.Key)
+          .Select((IGrouping<string, Customer> g) => g.Key + ": " + g.Count())
+          .ToList();
+  }
+
+Method   : Decimal Total()
+Kind     : instance, public
+RVA      : 0x21FC   Size: 43 bytes   Token: 0x0600000D
+
+[Pseudocode]
+  public decimal Total()
+  {
+      return _customers.Sum((Customer c) => c.Balance);
+  }
+
+Method   : string[] Log()
+Kind     : instance, public
+RVA      : 0x2228   Size: 61 bytes   Token: 0x0600000E
+
+[Pseudocode]
+  public string[] Log()
+  {
+      string[] array = new string[_entries.Count];
+      for (int i = 0; i < _entries.Count; i++)
+      {
+          array[i] = (string)_entries[i];
+      }
+      return array;
+  }
+
+Method   : Customer Find(Predicate<Customer> match)
+Kind     : instance, public
+RVA      : 0x2271   Size: 13 bytes   Token: 0x0600000F
+
+[Pseudocode]
+  public Customer Find(Predicate<Customer> match)
+  {
+      return _customers.Find(match);
+  }
+
+Method   : Customer FindByName(string name)
+Kind     : instance, public
+RVA      : 0x2280   Size: 32 bytes   Token: 0x06000010
+
+[Pseudocode]
+  public Customer FindByName(string name)
+  {
+      return Find((Customer c) => string.Equals(c.Name, name, StringComparison.OrdinalIgnoreCase));
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x22AC   Size: 29 bytes   Token: 0x06000011
+
+[Pseudocode]
+  public Ledger()
+  {
+      _entries = new ArrayList();
+      _customers = new List<Customer>();
+      base..ctor();
+  }
+
+Type     : Ref.NetFx35.Extensions+<EveryOther>d__1`1
+
+Method   : void .ctor(int <>1__state)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x22CA   Size: 30 bytes   Token: 0x06000012
+
+[Pseudocode]
+  [DebuggerHidden]
+  public <EveryOther>d__1(int <>1__state)
+  {
+      this.<>1__state = <>1__state;
+      <>l__initialThreadId = Thread.CurrentThread.ManagedThreadId;
+  }
+
+Method   : void System.IDisposable.Dispose()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x22EC   Size: 42 bytes   Token: 0x06000013
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IDisposable.Dispose()
+  {
+      int num = <>1__state;
+      if (num == -3 || num == 1)
+      {
+          try
+          {
+          }
+          finally
+          {
+              <>m__Finally1();
+          }
+      }
+      <>7__wrap2 = null;
+      <>1__state = -2;
+  }
+
+Method   : bool MoveNext()
+Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
+RVA      : 0x2334   Size: 162 bytes   Token: 0x06000014
+
+[Pseudocode]
+  private bool MoveNext()
+  {
+      try
+      {
+          int num = <>1__state;
+          if (num != 0)
+          {
+              if (num != 1)
+              {
+                  return false;
+              }
+              <>1__state = -3;
+              goto IL_006c;
+          }
+          <>1__state = -1;
+          <take>5__2 = true;
+          <>7__wrap2 = source.GetEnumerator();
+          <>1__state = -3;
+          goto IL_007b;
+          IL_006c:
+          <take>5__2 = !<take>5__2;
+          goto IL_007b;
+          IL_007b:
+          if (<>7__wrap2.MoveNext())
+          {
+              T current = <>7__wrap2.Current;
+              if (<take>5__2)
+              {
+                  <>2__current = current;
+                  <>1__state = 1;
+                  return true;
+              }
+              goto IL_006c;
+          }
+          <>m__Finally1();
+          <>7__wrap2 = null;
+          return false;
+      }
+      catch
+      {
+          //try-fault
+          ((IDisposable)this).Dispose();
+          throw;
+      }
+  }
+
+Method   : void <>m__Finally1()
+Kind     : instance, private, compiler-generated
+RVA      : 0x23F4   Size: 27 bytes   Token: 0x06000015
+
+[Pseudocode]
+  private void <>m__Finally1()
+  {
+      <>1__state = -1;
+      if (<>7__wrap2 != null)
+      {
+          <>7__wrap2.Dispose();
+      }
+  }
+
+Method   : T System.Collections.Generic.IEnumerator<T>.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2410   Size: 7 bytes   Token: 0x06000016
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : void System.Collections.IEnumerator.Reset()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2418   Size: 6 bytes   Token: 0x06000017
+
+[Pseudocode]
+  [DebuggerHidden]
+  void IEnumerator.Reset()
+  {
+      throw new NotSupportedException();
+  }
+
+Method   : object System.Collections.IEnumerator.get_Current()
+Kind     : property-get, instance, private, virtual, sealed, compiler-generated
+RVA      : 0x241F   Size: 12 bytes   Token: 0x06000018
+
+[Pseudocode]
+  [DebuggerHidden]
+  {
+      return <>2__current;
+  }
+
+Method   : IEnumerator<T> System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x242C   Size: 60 bytes   Token: 0x06000019
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator<T> IEnumerable<T>.GetEnumerator()
+  {
+      <EveryOther>d__1<T> obj;
+      if (<>1__state == -2 && <>l__initialThreadId == Thread.CurrentThread.ManagedThreadId)
+      {
+          <>1__state = 0;
+          obj = this;
+      }
+      else
+      {
+          obj = new <EveryOther>d__1<T>(0);
+      }
+      obj.source = <>3__source;
+      return obj;
+  }
+
+Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
+Kind     : instance, private, virtual, sealed, compiler-generated
+RVA      : 0x2474   Size: 7 bytes   Token: 0x0600001A
+
+[Pseudocode]
+  [DebuggerHidden]
+  IEnumerator IEnumerable.GetEnumerator()
+  {
+      return ((IEnumerable<T>)this).GetEnumerator();
+  }
+
+Type     : Ref.NetFx35.Ledger+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x247C   Size: 11 bytes   Token: 0x0600001B
+
+[Pseudocode]
+  static <>c()
+  {
+      <>9 = new <>c();
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2488   Size: 7 bytes   Token: 0x0600001C
+
+[Pseudocode]
+  public <>c()
+  {
+  }
+
+Method   : bool <CitiesWithDebt>b__3_0(Customer c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2490   Size: 17 bytes   Token: 0x0600001D
+
+[Pseudocode]
+  internal bool <CitiesWithDebt>b__3_0(Customer c)
+  {
+      return c.Balance < 0m;
+  }
+
+Method   : string <CitiesWithDebt>b__3_1(Customer c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x24A2   Size: 7 bytes   Token: 0x0600001E
+
+[Pseudocode]
+  internal string <CitiesWithDebt>b__3_1(Customer c)
+  {
+      return c.City;
+  }
+
+Method   : string <CitiesWithDebt>b__3_2(IGrouping<string, Customer> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x24AA   Size: 7 bytes   Token: 0x0600001F
+
+[Pseudocode]
+  internal string <CitiesWithDebt>b__3_2(IGrouping<string, Customer> g)
+  {
+      return g.Key;
+  }
+
+Method   : string <CitiesWithDebt>b__3_3(IGrouping<string, Customer> g)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x24B4   Size: 31 bytes   Token: 0x06000020
+
+[Pseudocode]
+  internal string <CitiesWithDebt>b__3_3(IGrouping<string, Customer> g)
+  {
+      return g.Key + ": " + g.Count();
+  }
+
+Method   : Decimal <Total>b__4_0(Customer c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x24DF   Size: 7 bytes   Token: 0x06000021
+
+[Pseudocode]
+  internal decimal <Total>b__4_0(Customer c)
+  {
+      return c.Balance;
+  }
+
+Type     : Ref.NetFx35.Ledger+<>c__DisplayClass7_0
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x24E7   Size: 7 bytes   Token: 0x06000022
+
+[Pseudocode]
+  public <>c__DisplayClass7_0()
+  {
+  }
+
+Method   : bool <FindByName>b__0(Customer c)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x24EF   Size: 19 bytes   Token: 0x06000023
+
+[Pseudocode]
+  internal bool <FindByName>b__0(Customer c)
+  {
+      return string.Equals(c.Name, name, StringComparison.OrdinalIgnoreCase);
+  }

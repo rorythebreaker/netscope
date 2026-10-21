@@ -1,0 +1,303 @@
+Assembly : Ref01.ConsoleApp.dll
+Name     : Ref01.ConsoleApp, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 21
+
+Type     : Ref.ConsoleApp.Program
+
+Method   : int Main(string[] args)
+Kind     : static, private, entry-point
+RVA      : 0x2050   Size: 284 bytes   Token: 0x06000001
+
+[Pseudocode]
+  private static int Main(string[] args)
+  {
+      Options options = Options.Parse(args);
+      if (options.ShowHelp)
+      {
+          Console.WriteLine("usage: wc [--top N] [--ignore-case] <file>...");
+          return 0;
+      }
+      if (options.Error != null)
+      {
+          Console.Error.WriteLine(options.Error);
+          return 2;
+      }
+      WordCounter wordCounter = new WordCounter(options.IgnoreCase);
+      foreach (string file in options.Files)
+      {
+          if (!File.Exists(file))
+          {
+              Console.Error.WriteLine("not found: " + file);
+              return 3;
+          }
+          wordCounter.Add(File.ReadAllText(file));
+      }
+      foreach (var (value, value2) in wordCounter.Top(options.Top))
+      {
+          Console.WriteLine($"{value2,6} {value}");
+      }
+      return 0;
+  }
+
+Type     : Ref.ConsoleApp.Options
+
+Method   : bool get_ShowHelp()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2194   Size: 7 bytes   Token: 0x06000002
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <ShowHelp>k__BackingField;
+  }
+
+Method   : void set_ShowHelp(bool value)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x219C   Size: 8 bytes   Token: 0x06000003
+
+[Pseudocode]
+  [CompilerGenerated]
+  private
+  {
+      <ShowHelp>k__BackingField = value;
+  }
+
+Method   : bool get_IgnoreCase()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x21A5   Size: 7 bytes   Token: 0x06000004
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <IgnoreCase>k__BackingField;
+  }
+
+Method   : void set_IgnoreCase(bool value)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x21AD   Size: 8 bytes   Token: 0x06000005
+
+[Pseudocode]
+  [CompilerGenerated]
+  private
+  {
+      <IgnoreCase>k__BackingField = value;
+  }
+
+Method   : int get_Top()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x21B6   Size: 7 bytes   Token: 0x06000006
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Top>k__BackingField;
+  }
+
+Method   : void set_Top(int value)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x21BE   Size: 8 bytes   Token: 0x06000007
+
+[Pseudocode]
+  [CompilerGenerated]
+  private
+  {
+      <Top>k__BackingField = value;
+  }
+
+Method   : string get_Error()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x21C7   Size: 7 bytes   Token: 0x06000008
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Error>k__BackingField;
+  }
+
+Method   : void set_Error(string value)
+Kind     : property-set, instance, private, compiler-generated
+RVA      : 0x21CF   Size: 8 bytes   Token: 0x06000009
+
+[Pseudocode]
+  [CompilerGenerated]
+  private
+  {
+      <Error>k__BackingField = value;
+  }
+
+Method   : List<string> get_Files()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x21D8   Size: 7 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Files>k__BackingField;
+  }
+
+Method   : Options Parse(string[] args)
+Kind     : static, public
+RVA      : 0x21E0   Size: 250 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  public static Options Parse(string[] args)
+  {
+      Options options = new Options();
+      for (int i = 0; i < args.Length; i++)
+      {
+          switch (args[i])
+          {
+          case "-h":
+          case "--help":
+              options.ShowHelp = true;
+              break;
+          case "-i":
+          case "--ignore-case":
+              options.IgnoreCase = true;
+              break;
+          case "--top":
+          {
+              if (i + 1 >= args.Length || !int.TryParse(args[++i], out var result) || result <= 0)
+              {
+                  options.Error = "--top expects a positive number";
+                  return options;
+              }
+              options.Top = result;
+              break;
+          }
+          default:
+              if (args[i].StartsWith("-", StringComparison.Ordinal))
+              {
+                  options.Error = "unknown option " + args[i];
+                  return options;
+              }
+              options.Files.Add(args[i]);
+              break;
+          }
+      }
+      if (options.Files.Count == 0 && !options.ShowHelp)
+      {
+          options.Error = "no input files";
+      }
+      return options;
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x22E6   Size: 26 bytes   Token: 0x0600000C
+
+[Pseudocode]
+  public Options()
+  {
+      Top = 10;
+      Files = new List<string>();
+      base..ctor();
+  }
+
+Type     : Ref.ConsoleApp.WordCounter
+
+Method   : void .ctor(bool ignoreCase)
+Kind     : ctor, instance, public
+RVA      : 0x2301   Size: 33 bytes   Token: 0x0600000D
+
+[Pseudocode]
+  public WordCounter(bool ignoreCase)
+  {
+      _counts = new Dictionary<string, int>(ignoreCase ? StringComparer.OrdinalIgnoreCase : StringComparer.Ordinal);
+  }
+
+Method   : int get_Distinct()
+Kind     : property-get, instance, public
+RVA      : 0x2323   Size: 12 bytes   Token: 0x0600000E
+
+[Pseudocode]
+  {
+      return _counts.Count;
+  }
+
+Method   : void Add(string text)
+Kind     : instance, public
+RVA      : 0x2330   Size: 111 bytes   Token: 0x0600000F
+
+[Pseudocode]
+  public void Add(string text)
+  {
+      int num = -1;
+      for (int i = 0; i <= text.Length; i++)
+      {
+          bool flag = i < text.Length && char.IsLetter(text[i]);
+          if (flag && num < 0)
+          {
+              num = i;
+          }
+          else if (!flag && num >= 0)
+          {
+              string key = text.Substring(num, i - num);
+              _counts[key] = ((!_counts.TryGetValue(key, out var value)) ? 1 : (value + 1));
+              num = -1;
+          }
+      }
+  }
+
+Method   : IEnumerable<ValueTuple<string, int>> Top(int n)
+Kind     : instance, public
+RVA      : 0x23AC   Size: 126 bytes   Token: 0x06000010
+
+[Pseudocode]
+  public IEnumerable<(string Word, int Count)> Top(int n)
+  {
+      return _counts.OrderByDescending((KeyValuePair<string, int> p) => p.Value).ThenBy((KeyValuePair<string, int> p) => p.Key, StringComparer.Ordinal).Take(n)
+          .Select((KeyValuePair<string, int> p) => (Key: p.Key, Value: p.Value));
+  }
+
+Type     : Ref.ConsoleApp.WordCounter+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2436   Size: 11 bytes   Token: 0x06000011
+
+[Pseudocode]
+  static <>c()
+  {
+      <>9 = new <>c();
+  }
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2442   Size: 7 bytes   Token: 0x06000012
+
+[Pseudocode]
+  public <>c()
+  {
+  }
+
+Method   : int <Top>b__5_0(KeyValuePair<string, int> p)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x244A   Size: 8 bytes   Token: 0x06000013
+
+[Pseudocode]
+  internal int <Top>b__5_0(KeyValuePair<string, int> p)
+  {
+      return p.Value;
+  }
+
+Method   : string <Top>b__5_1(KeyValuePair<string, int> p)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2453   Size: 8 bytes   Token: 0x06000014
+
+[Pseudocode]
+  internal string <Top>b__5_1(KeyValuePair<string, int> p)
+  {
+      return p.Key;
+  }
+
+Method   : ValueTuple<string, int> <Top>b__5_2(KeyValuePair<string, int> p)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x245C   Size: 20 bytes   Token: 0x06000015
+
+[Pseudocode]
+  internal (string Key, int Value) <Top>b__5_2(KeyValuePair<string, int> p)
+  {
+      return (Key: p.Key, Value: p.Value);
+  }

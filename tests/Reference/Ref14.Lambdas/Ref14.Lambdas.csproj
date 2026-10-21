@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 14. Lambdas, closures, local functions, LINQ: <>c, DisplayClass, ldftn. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Ref.Lambdas</RootNamespace>
+  </PropertyGroup>
+</Project>

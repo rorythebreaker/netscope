@@ -1,0 +1,259 @@
+Assembly : Ref06.NetCore31.dll
+Name     : Ref06.NetCore31, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v3.1   Machine: anycpu
+Methods  : 17
+
+Type     : Microsoft.CodeAnalysis.EmbeddedAttribute
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2050   Size: 7 bytes   Token: 0x06000001
+
+[Pseudocode]
+  public EmbeddedAttribute()
+  {
+  }
+
+Type     : System.Runtime.CompilerServices.NullableAttribute
+
+Method   : void .ctor(byte arg1)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2058   Size: 23 bytes   Token: 0x06000002
+
+[Pseudocode]
+  public NullableAttribute(byte P_0)
+  {
+      NullableFlags = new byte[1] { P_0 };
+  }
+
+Method   : void .ctor(byte[] arg1)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2070   Size: 14 bytes   Token: 0x06000003
+
+[Pseudocode]
+  public NullableAttribute(byte[] P_0)
+  {
+      NullableFlags = P_0;
+  }
+
+Type     : System.Runtime.CompilerServices.NullableContextAttribute
+
+Method   : void .ctor(byte arg1)
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x207F   Size: 14 bytes   Token: 0x06000004
+
+[Pseudocode]
+  public NullableContextAttribute(byte P_0)
+  {
+      Flag = P_0;
+  }
+
+Type     : Ref.NetCore31.Measurement
+
+Method   : void .ctor(string name, double value, string unit)
+Kind     : ctor, instance, public
+RVA      : 0x208E   Size: 28 bytes   Token: 0x06000005
+
+[Pseudocode]
+  public Measurement(string name, double value, string? unit = null)
+  {
+      Name = name;
+      Value = value;
+      Unit = unit;
+  }
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20AB   Size: 7 bytes   Token: 0x06000006
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Name>k__BackingField;
+  }
+
+Method   : double get_Value()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20B3   Size: 7 bytes   Token: 0x06000007
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Value>k__BackingField;
+  }
+
+Method   : string get_Unit()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x20BB   Size: 7 bytes   Token: 0x06000008
+
+[Pseudocode]
+  [CompilerGenerated]
+  {
+      return <Unit>k__BackingField;
+  }
+
+Method   : string Describe()
+Kind     : instance, public
+RVA      : 0x20C4   Size: 70 bytes   Token: 0x06000009
+
+[Pseudocode]
+  public string Describe()
+  {
+      if (Unit != null)
+      {
+          return $"{Name}={Value} {Unit}";
+      }
+      return $"{Name}={Value}";
+  }
+
+Type     : Ref.NetCore31.Geometry
+
+Method   : double Area(Shape shape, double size)
+Kind     : static, public
+RVA      : 0x2118   Size: 86 bytes   Token: 0x0600000A
+
+[Pseudocode]
+  public static double Area(Shape shape, double size)
+  {
+      return shape switch
+      {
+          Shape.Circle => Math.PI * size * size,
+          Shape.Square => size * size,
+          Shape.Triangle => Math.Sqrt(3.0) / 4.0 * size * size,
+          _ => throw new ArgumentOutOfRangeException("shape"),
+      };
+  }
+
+Method   : string Classify(object value)
+Kind     : static, public
+RVA      : 0x217C   Size: 252 bytes   Token: 0x0600000B
+
+[Pseudocode]
+  public static string Classify(object? value)
+  {
+      if (value != null)
+      {
+          if (!(value is int num))
+          {
+              if (value is string text)
+              {
+                  if (text.Length == 0)
+                  {
+                      return "empty string";
+                  }
+                  return "string of " + text.Length;
+              }
+              if (value is ITuple { Length: 2 } tuple && tuple[0] is double num2 && tuple[1] is double num3)
+              {
+                  return $"point {num2},{num3}";
+              }
+              return value.GetType().Name;
+          }
+          if (num < 0)
+          {
+              return "negative int";
+          }
+          return "int";
+      }
+      return "null";
+  }
+
+Type     : Ref.NetCore31.Binary
+
+Method   : int ReadHeader(ReadOnlySpan<byte> data, out ushort version)
+Kind     : static, public
+RVA      : 0x2284   Size: 57 bytes   Token: 0x0600000C
+
+[Pseudocode]
+  public static int ReadHeader(ReadOnlySpan<byte> data, out ushort version)
+  {
+      if (data.Length < 6)
+      {
+          throw new ArgumentException("header is 6 bytes", "data");
+      }
+      int result = BinaryPrimitives.ReadInt32LittleEndian(data.Slice(0, 4));
+      version = BinaryPrimitives.ReadUInt16LittleEndian(data.Slice(4, 2));
+      return result;
+  }
+
+Method   : string Hex(ReadOnlySpan<byte> data)
+Kind     : static, public
+RVA      : 0x22C0   Size: 155 bytes   Token: 0x0600000D
+
+[Pseudocode]
+  public static string Hex(ReadOnlySpan<byte> data)
+  {
+      Span<char> span = ((data.Length > 64) ? ((Span<char>)new char[data.Length * 2]) : stackalloc char[data.Length * 2]);
+      Span<char> span2 = span;
+      for (int i = 0; i < data.Length; i++)
+      {
+          span2[2 * i] = "0123456789abcdef"[data[i] >> 4];
+          span2[2 * i + 1] = "0123456789abcdef"[data[i] & 0xF];
+      }
+      return new string(span2);
+  }
+
+Type     : Ref.NetCore31.JsonExport
+
+Method   : string Write(IEnumerable<Measurement> items)
+Kind     : static, public
+RVA      : 0x2368   Size: 191 bytes   Token: 0x0600000E
+
+[Pseudocode]
+  public static string Write(IEnumerable<Measurement> items)
+  {
+      using MemoryStream memoryStream = new MemoryStream();
+      using (Utf8JsonWriter utf8JsonWriter = new Utf8JsonWriter(memoryStream))
+      {
+          utf8JsonWriter.WriteStartArray();
+          foreach (Measurement item in items)
+          {
+              utf8JsonWriter.WriteStartObject();
+              utf8JsonWriter.WriteString("name", item.Name);
+              utf8JsonWriter.WriteNumber("value", item.Value);
+              if (item.Unit != null)
+              {
+                  utf8JsonWriter.WriteString("unit", item.Unit);
+              }
+              utf8JsonWriter.WriteEndObject();
+          }
+          utf8JsonWriter.WriteEndArray();
+      }
+      return Encoding.UTF8.GetString(memoryStream.ToArray());
+  }
+
+Method   : List<Measurement> Read(string json)
+Kind     : static, public
+RVA      : 0x245C   Size: 193 bytes   Token: 0x0600000F
+
+[Pseudocode]
+  public static List<Measurement> Read(string json)
+  {
+      using JsonDocument jsonDocument = JsonDocument.Parse(json);
+      List<Measurement> list = new List<Measurement>();
+      foreach (JsonElement item in jsonDocument.RootElement.EnumerateArray())
+      {
+          string unit = (item.TryGetProperty("unit", out var value) ? value.GetString() : null);
+          list.Add(new Measurement(item.GetProperty("name").GetString() ?? "", item.GetProperty("value").GetDouble(), unit));
+      }
+      return list;
+  }
+
+Type     : Ref.NetCore31.ILogger
+
+Method   : void Log(string message)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000010
+
+[Pseudocode]
+  void Log(string message);
+
+Method   : void LogError(Exception ex)
+Kind     : instance, public, virtual
+RVA      : 0x2548   Size: 23 bytes   Token: 0x06000011
+
+[Pseudocode]
+  void LogError(Exception ex)
+  {
+      Log("error: " + ex.Message);
+  }

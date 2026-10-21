@@ -102,7 +102,8 @@ public sealed class MethodCatalog : IMethodCatalog
         // Virtuality.
         if ((attrs & MethodAttributes.Abstract) != 0) kinds.Add("abstract");
         else if ((attrs & MethodAttributes.Virtual) != 0)
-            kinds.Add((attrs & MethodAttributes.NewSlot) != 0 ? "virtual" : "override");
+            // A static virtual interface member is a declaration without newslot: it overrides nothing.
+            kinds.Add((attrs & (MethodAttributes.NewSlot | MethodAttributes.Static)) != 0 ? "virtual" : "override");
         if ((attrs & MethodAttributes.Virtual) != 0 && (attrs & MethodAttributes.Final) != 0) kinds.Add("sealed");
 
         // Implementation.

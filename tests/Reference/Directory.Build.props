@@ -1,0 +1,30 @@
+<Project>
+  <!--
+    Reference set (TZ-NetScope-3 §3): assemblies typical of real projects, built from source with the SDK
+    pinned in global.json. Their compiled output is the input of tests/NetScope.Tests/ReferenceSetTests.cs.
+    The root Directory.Build.props is deliberately not imported: these projects keep the shapes compilers
+    produce for ordinary code, so analyzers and warnings-as-errors stay off.
+  -->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <WarningLevel>0</WarningLevel>
+    <NoWarn>$(NoWarn);CS1591;NETSDK1138;NU1701;FS3370;BC42024</NoWarn>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <IsPackable>false</IsPackable>
+    <Optimize>true</Optimize>
+    <!-- Identical bytes on every platform: no PDB (it would carry paths), deterministic compilation. -->
+    <Deterministic>true</Deterministic>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <!-- One flat folder per assembly: tests/Reference/bin/<Configuration>/<Project>/<Project>.dll -->
+    <OutputPath>$(MSBuildThisFileDirectory)bin\$(Configuration)\$(MSBuildProjectName)\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+</Project>

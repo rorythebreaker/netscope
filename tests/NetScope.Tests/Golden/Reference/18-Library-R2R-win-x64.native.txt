@@ -1,0 +1,1780 @@
+Assembly : Ref02.Library.dll
+Name     : Ref02.Library, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: x64
+Note     : ReadyToRun image: precompiled native code is present
+Methods  : 44
+
+Type     : Ref.Library.Quantity
+
+Method   : void .ctor(Decimal amount, Unit unit)
+Kind     : ctor, instance, public
+RVA      : 0x358C   Size: 39 bytes   Token: 0x06000001
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 113 bytes
+  00001F50  57                   push    rdi
+  00001F51  56                   push    rsi
+  00001F52  53                   push    rbx
+  00001F53  4883EC40             sub     rsp, 0x40
+  00001F57  488BF1               mov     rsi, rcx
+  00001F5A  488BDA               mov     rbx, rdx
+  00001F5D  418BF8               mov     edi, r8d
+  00001F60  0F1003               movups  xmm0, [rbx]
+  00001F63  0F11442430           movups  [rsp+0x30], xmm0
+  00001F68  FF156A420000         call    qword ptr [0x61D8]
+  00001F6E  0F1000               movups  xmm0, [rax]
+  00001F71  0F11442420           movups  [rsp+0x20], xmm0
+  00001F76  488D542420           lea     rdx, [rsp+0x20]
+  00001F7B  488D4C2430           lea     rcx, [rsp+0x30]
+  00001F80  FF151A430000         call    qword ptr [0x62A0]
+  00001F86  85C0                 test    eax, eax
+  00001F88  7511                 jne     0x1F9B
+  00001F8A  0F1003               movups  xmm0, [rbx]
+  00001F8D  0F1106               movups  [rsi], xmm0
+  00001F90  897E10               mov     [rsi+0x10], edi
+  00001F93  4883C440             add     rsp, 0x40
+  00001F97  5B                   pop     rbx
+  00001F98  5E                   pop     rsi
+  00001F99  5F                   pop     rdi
+  00001F9A  C3                   ret
+  00001F9B  FF156F420000         call    qword ptr [0x6210]
+  00001FA1  488BD8               mov     rbx, rax
+  00001FA4  488B15AD440000       mov     rdx, [0x6458]
+  00001FAB  488B12               mov     rdx, [rdx]
+  00001FAE  488BCB               mov     rcx, rbx
+  00001FB1  FF1521430000         call    qword ptr [0x62D8]
+  00001FB7  488BCB               mov     rcx, rbx
+  00001FBA  FF15A0410000         call    qword ptr [0x6160]
+  00001FC0  CC                   int3
+
+Method   : Decimal get_Amount()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x35B4   Size: 7 bytes   Token: 0x06000002
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 10 bytes
+  00001FD0  0F1001               movups  xmm0, [rcx]
+  00001FD3  0F1102               movups  [rdx], xmm0
+  00001FD6  488BC2               mov     rax, rdx
+  00001FD9  C3                   ret
+
+Method   : Unit get_Unit()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x35BC   Size: 7 bytes   Token: 0x06000003
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 4 bytes
+  00001FE0  8B4110               mov     eax, [rcx+0x10]
+  00001FE3  C3                   ret
+
+Method   : Quantity op_Addition(Quantity a, Quantity b)
+Kind     : operator, static, public
+RVA      : 0x35C4   Size: 59 bytes   Token: 0x06000004
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 136 bytes
+  00001FF0  56                   push    rsi
+  00001FF1  53                   push    rbx
+  00001FF2  4883EC58             sub     rsp, 0x58
+  00001FF6  488BD9               mov     rbx, rcx
+  00001FF9  8B7210               mov     esi, [rdx+0x10]
+  00001FFC  413B7010             cmp     esi, [r8+0x10]
+  00002000  7550                 jne     0x2052
+  00002002  488D4C2448           lea     rcx, [rsp+0x48]
+  00002007  FF1573420000         call    qword ptr [0x6280]
+  0000200D  0F57C0               xorps   xmm0, xmm0
+  00002010  0F11442430           movups  [rsp+0x30], xmm0
+  00002015  0F11442438           movups  [rsp+0x38], xmm0
+  0000201A  0F10442448           movups  xmm0, [rsp+0x48]
+  0000201F  0F11442420           movups  [rsp+0x20], xmm0
+  00002024  488D542420           lea     rdx, [rsp+0x20]
+  00002029  488D4C2430           lea     rcx, [rsp+0x30]
+  0000202E  448BC6               mov     r8d, esi
+  00002031  FF1521430000         call    qword ptr [0x6358]
+  00002037  0F10442430           movups  xmm0, [rsp+0x30]
+  0000203C  0F1103               movups  [rbx], xmm0
+  0000203F  488B442440           mov     rax, [rsp+0x40]
+  00002044  48894310             mov     [rbx+0x10], rax
+  00002048  488BC3               mov     rax, rbx
+  0000204B  4883C458             add     rsp, 0x58
+  0000204F  5B                   pop     rbx
+  00002050  5E                   pop     rsi
+  00002051  C3                   ret
+  00002052  FF15C8410000         call    qword ptr [0x6220]
+  00002058  488BD8               mov     rbx, rax
+  0000205B  488B15FE430000       mov     rdx, [0x6460]
+  00002062  488B12               mov     rdx, [rdx]
+  00002065  488BCB               mov     rcx, rbx
+  00002068  FF157A420000         call    qword ptr [0x62E8]
+  0000206E  488BCB               mov     rcx, rbx
+  00002071  FF15E9400000         call    qword ptr [0x6160]
+  00002077  CC                   int3
+
+Method   : bool op_Equality(Quantity a, Quantity b)
+Kind     : operator, static, public
+RVA      : 0x3600   Size: 9 bytes   Token: 0x06000005
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 76 bytes
+  00002080  56                   push    rsi
+  00002081  53                   push    rbx
+  00002082  4883EC48             sub     rsp, 0x48
+  00002086  488BD9               mov     rbx, rcx
+  00002089  8B7210               mov     esi, [rdx+0x10]
+  0000208C  0F1002               movups  xmm0, [rdx]
+  0000208F  0F11442430           movups  [rsp+0x30], xmm0
+  00002094  488B4A10             mov     rcx, [rdx+0x10]
+  00002098  48894C2440           mov     [rsp+0x40], rcx
+  0000209D  0F1003               movups  xmm0, [rbx]
+  000020A0  0F11442420           movups  [rsp+0x20], xmm0
+  000020A5  488D4C2420           lea     rcx, [rsp+0x20]
+  000020AA  488D542430           lea     rdx, [rsp+0x30]
+  000020AF  FF15E3410000         call    qword ptr [0x6298]
+  000020B5  85C0                 test    eax, eax
+  000020B7  740A                 je      0x20C3
+  000020B9  33C0                 xor     eax, eax
+  000020BB  397310               cmp     [rbx+0x10], esi
+  000020BE  0F94C0               sete    al
+  000020C1  EB02                 jmp     0x20C5
+  000020C3  33C0                 xor     eax, eax
+  000020C5  4883C448             add     rsp, 0x48
+  000020C9  5B                   pop     rbx
+  000020CA  5E                   pop     rsi
+  000020CB  C3                   ret
+
+Method   : bool op_Inequality(Quantity a, Quantity b)
+Kind     : operator, static, public
+RVA      : 0x360C   Size: 12 bytes   Token: 0x06000006
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 84 bytes
+  000020D0  56                   push    rsi
+  000020D1  53                   push    rbx
+  000020D2  4883EC48             sub     rsp, 0x48
+  000020D6  488BD9               mov     rbx, rcx
+  000020D9  8B7210               mov     esi, [rdx+0x10]
+  000020DC  0F1002               movups  xmm0, [rdx]
+  000020DF  0F11442430           movups  [rsp+0x30], xmm0
+  000020E4  488B4A10             mov     rcx, [rdx+0x10]
+  000020E8  48894C2440           mov     [rsp+0x40], rcx
+  000020ED  0F1003               movups  xmm0, [rbx]
+  000020F0  0F11442420           movups  [rsp+0x20], xmm0
+  000020F5  488D4C2420           lea     rcx, [rsp+0x20]
+  000020FA  488D542430           lea     rdx, [rsp+0x30]
+  000020FF  FF1593410000         call    qword ptr [0x6298]
+  00002105  85C0                 test    eax, eax
+  00002107  740A                 je      0x2113
+  00002109  33C0                 xor     eax, eax
+  0000210B  397310               cmp     [rbx+0x10], esi
+  0000210E  0F94C0               sete    al
+  00002111  EB02                 jmp     0x2115
+  00002113  33C0                 xor     eax, eax
+  00002115  85C0                 test    eax, eax
+  00002117  0F94C0               sete    al
+  0000211A  0FB6C0               movzx   eax, al
+  0000211D  4883C448             add     rsp, 0x48
+  00002121  5B                   pop     rbx
+  00002122  5E                   pop     rsi
+  00002123  C3                   ret
+
+Method   : bool Equals(Quantity other)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x361C   Size: 38 bytes   Token: 0x06000007
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 76 bytes
+  00002130  56                   push    rsi
+  00002131  53                   push    rbx
+  00002132  4883EC48             sub     rsp, 0x48
+  00002136  488BF1               mov     rsi, rcx
+  00002139  488BDA               mov     rbx, rdx
+  0000213C  0F1006               movups  xmm0, [rsi]
+  0000213F  0F11442438           movups  [rsp+0x38], xmm0
+  00002144  0F1003               movups  xmm0, [rbx]
+  00002147  0F11442428           movups  [rsp+0x28], xmm0
+  0000214C  488D4C2438           lea     rcx, [rsp+0x38]
+  00002151  488D542428           lea     rdx, [rsp+0x28]
+  00002156  FF153C410000         call    qword ptr [0x6298]
+  0000215C  85C0                 test    eax, eax
+  0000215E  7413                 je      0x2173
+  00002160  8B4610               mov     eax, [rsi+0x10]
+  00002163  3B4310               cmp     eax, [rbx+0x10]
+  00002166  0F94C0               sete    al
+  00002169  0FB6C0               movzx   eax, al
+  0000216C  4883C448             add     rsp, 0x48
+  00002170  5B                   pop     rbx
+  00002171  5E                   pop     rsi
+  00002172  C3                   ret
+  00002173  33C0                 xor     eax, eax
+  00002175  4883C448             add     rsp, 0x48
+  00002179  5B                   pop     rbx
+  0000217A  5E                   pop     rsi
+  0000217B  C3                   ret
+
+Method   : bool Equals(object obj)
+Kind     : instance, public, override
+RVA      : 0x3644   Size: 25 bytes   Token: 0x06000008
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 103 bytes
+  00002180  56                   push    rsi
+  00002181  53                   push    rbx
+  00002182  4883EC38             sub     rsp, 0x38
+  00002186  488BF1               mov     rsi, rcx
+  00002189  488BDA               mov     rbx, rdx
+  0000218C  488BCB               mov     rcx, rbx
+  0000218F  FF15BB400000         call    qword ptr [0x6250]
+  00002195  4885C0               test    rax, rax
+  00002198  7444                 je      0x21DE
+  0000219A  488B0B               mov     rcx, [rbx]
+  0000219D  483B0D34420000       cmp     rcx, [0x63D8]
+  000021A4  7410                 je      0x21B6
+  000021A6  488B0D2B420000       mov     rcx, [0x63D8]
+  000021AD  488BD3               mov     rdx, rbx
+  000021B0  FF15C23F0000         call    qword ptr [0x6178]
+  000021B6  0F104308             movups  xmm0, [rbx+8]
+  000021BA  0F11442420           movups  [rsp+0x20], xmm0
+  000021BF  488B4B18             mov     rcx, [rbx+0x18]
+  000021C3  48894C2430           mov     [rsp+0x30], rcx
+  000021C8  488BCE               mov     rcx, rsi
+  000021CB  488D542420           lea     rdx, [rsp+0x20]
+  000021D0  FF1592410000         call    qword ptr [0x6368]
+  000021D6  90                   nop
+  000021D7  4883C438             add     rsp, 0x38
+  000021DB  5B                   pop     rbx
+  000021DC  5E                   pop     rsi
+  000021DD  C3                   ret
+  000021DE  33C0                 xor     eax, eax
+  000021E0  4883C438             add     rsp, 0x38
+  000021E4  5B                   pop     rbx
+  000021E5  5E                   pop     rsi
+  000021E6  C3                   ret
+
+Method   : int GetHashCode()
+Kind     : instance, public, override
+RVA      : 0x366C   Size: 18 bytes   Token: 0x06000009
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 35 bytes
+  000021F0  4883EC38             sub     rsp, 0x38
+  000021F4  488BD1               mov     rdx, rcx
+  000021F7  0F1002               movups  xmm0, [rdx]
+  000021FA  0F11442428           movups  [rsp+0x28], xmm0
+  000021FF  488D4C2428           lea     rcx, [rsp+0x28]
+  00002204  8B5210               mov     edx, [rdx+0x10]
+  00002207  FF152B410000         call    qword ptr [0x6338]
+  0000220D  90                   nop
+  0000220E  4883C438             add     rsp, 0x38
+  00002212  C3                   ret
+
+Method   : int CompareTo(Quantity other)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x3680   Size: 70 bytes   Token: 0x0600000A
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 99 bytes
+  00002220  57                   push    rdi
+  00002221  56                   push    rsi
+  00002222  53                   push    rbx
+  00002223  4883EC30             sub     rsp, 0x30
+  00002227  33C0                 xor     eax, eax
+  00002229  4889442420           mov     [rsp+0x20], rax
+  0000222E  4889442428           mov     [rsp+0x28], rax
+  00002233  8B5A10               mov     ebx, [rdx+0x10]
+  00002236  8B7110               mov     esi, [rcx+0x10]
+  00002239  3BF3                 cmp     esi, ebx
+  0000223B  751C                 jne     0x2259
+  0000223D  0F1001               movups  xmm0, [rcx]
+  00002240  0F11442420           movups  [rsp+0x20], xmm0
+  00002245  488D4C2420           lea     rcx, [rsp+0x20]
+  0000224A  FF1518400000         call    qword ptr [0x6268]
+  00002250  90                   nop
+  00002251  4883C430             add     rsp, 0x30
+  00002255  5B                   pop     rbx
+  00002256  5E                   pop     rsi
+  00002257  5F                   pop     rdi
+  00002258  C3                   ret
+  00002259  FF15813F0000         call    qword ptr [0x61E0]
+  0000225F  488BF8               mov     rdi, rax
+  00002262  895F08               mov     [rdi+8], ebx
+  00002265  FF15753F0000         call    qword ptr [0x61E0]
+  0000226B  897008               mov     [rax+8], esi
+  0000226E  488BC8               mov     rcx, rax
+  00002271  488BD7               mov     rdx, rdi
+  00002274  FF153E400000         call    qword ptr [0x62B8]
+  0000227A  90                   nop
+  0000227B  4883C430             add     rsp, 0x30
+  0000227F  5B                   pop     rbx
+  00002280  5E                   pop     rsi
+  00002281  5F                   pop     rdi
+  00002282  C3                   ret
+
+Method   : string ToString()
+Kind     : instance, public, override
+RVA      : 0x36D4   Size: 72 bytes   Token: 0x0600000B
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 111 bytes
+  00002290  53                   push    rbx
+  00002291  4883EC30             sub     rsp, 0x30
+  00002295  488BD9               mov     rbx, rcx
+  00002298  0F1003               movups  xmm0, [rbx]
+  0000229B  0F11442420           movups  [rsp+0x20], xmm0
+  000022A0  FF1552400000         call    qword ptr [0x62F8]
+  000022A6  488BD0               mov     rdx, rax
+  000022A9  488D4C2420           lea     rcx, [rsp+0x20]
+  000022AE  FF15BC3F0000         call    qword ptr [0x6270]
+  000022B4  488BC8               mov     rcx, rax
+  000022B7  8B5310               mov     edx, [rbx+0x10]
+  000022BA  83FA01               cmp     edx, 1
+  000022BD  7407                 je      0x22C6
+  000022BF  83FA02               cmp     edx, 2
+  000022C2  740E                 je      0x22D2
+  000022C4  EB18                 jmp     0x22DE
+  000022C6  488B159B410000       mov     rdx, [0x6468]
+  000022CD  4C8B02               mov     r8, [rdx]
+  000022D0  EB16                 jmp     0x22E8
+  000022D2  4C8B0597410000       mov     r8, [0x6470]
+  000022D9  4D8B00               mov     r8, [r8]
+  000022DC  EB0A                 jmp     0x22E8
+  000022DE  4C8B0593410000       mov     r8, [0x6478]
+  000022E5  4D8B00               mov     r8, [r8]
+  000022E8  488B1591410000       mov     rdx, [0x6480]
+  000022EF  488B12               mov     rdx, [rdx]
+  000022F2  FF15D03F0000         call    qword ptr [0x62C8]
+  000022F8  90                   nop
+  000022F9  4883C430             add     rsp, 0x30
+  000022FD  5B                   pop     rbx
+  000022FE  C3                   ret
+
+Type     : Ref.Library.Item
+
+Method   : void .ctor(string sku, string name, Quantity stock)
+Kind     : ctor, instance, public
+RVA      : 0x3728   Size: 43 bytes   Token: 0x0600000C
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 105 bytes
+  00002300  57                   push    rdi
+  00002301  56                   push    rsi
+  00002302  53                   push    rbx
+  00002303  4883EC20             sub     rsp, 0x20
+  00002307  488BD9               mov     rbx, rcx
+  0000230A  498BF8               mov     rdi, r8
+  0000230D  498BF1               mov     rsi, r9
+  00002310  4885D2               test    rdx, rdx
+  00002313  742E                 je      0x2343
+  00002315  488D4B08             lea     rcx, [rbx+8]
+  00002319  FF15493E0000         call    qword ptr [0x6168]
+  0000231F  488D4B10             lea     rcx, [rbx+0x10]
+  00002323  488BD7               mov     rdx, rdi
+  00002326  FF153C3E0000         call    qword ptr [0x6168]
+  0000232C  0F1006               movups  xmm0, [rsi]
+  0000232F  0F114318             movups  [rbx+0x18], xmm0
+  00002333  488B4610             mov     rax, [rsi+0x10]
+  00002337  48894328             mov     [rbx+0x28], rax
+  0000233B  4883C420             add     rsp, 0x20
+  0000233F  5B                   pop     rbx
+  00002340  5E                   pop     rsi
+  00002341  5F                   pop     rdi
+  00002342  C3                   ret
+  00002343  FF15BF3E0000         call    qword ptr [0x6208]
+  00002349  488BD8               mov     rbx, rax
+  0000234C  488B1535410000       mov     rdx, [0x6488]
+  00002353  488B12               mov     rdx, [rdx]
+  00002356  488BCB               mov     rcx, rbx
+  00002359  FF15713F0000         call    qword ptr [0x62D0]
+  0000235F  488BCB               mov     rcx, rbx
+  00002362  FF15F83D0000         call    qword ptr [0x6160]
+  00002368  CC                   int3
+
+Method   : string get_Sku()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x3754   Size: 7 bytes   Token: 0x0600000D
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 5 bytes
+  00002370  488B4108             mov     rax, [rcx+8]
+  00002374  C3                   ret
+
+Method   : string get_Name()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x375C   Size: 7 bytes   Token: 0x0600000E
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 5 bytes
+  00002380  488B4110             mov     rax, [rcx+0x10]
+  00002384  C3                   ret
+
+Method   : void set_Name(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x3764   Size: 8 bytes   Token: 0x0600000F
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 12 bytes
+  00002390  488D4910             lea     rcx, [rcx+0x10]
+  00002394  FF15CE3D0000         call    qword ptr [0x6168]
+  0000239A  90                   nop
+  0000239B  C3                   ret
+
+Method   : Quantity get_Stock()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x3770   Size: 7 bytes   Token: 0x06000010
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 19 bytes
+  000023A0  0F104118             movups  xmm0, [rcx+0x18]
+  000023A4  0F1102               movups  [rdx], xmm0
+  000023A7  488B4128             mov     rax, [rcx+0x28]
+  000023AB  48894210             mov     [rdx+0x10], rax
+  000023AF  488BC2               mov     rax, rdx
+  000023B2  C3                   ret
+
+Method   : void set_Stock(Quantity value)
+Kind     : property-set, instance, internal, compiler-generated
+RVA      : 0x3778   Size: 8 bytes   Token: 0x06000011
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 16 bytes
+  000023C0  0F1002               movups  xmm0, [rdx]
+  000023C3  0F114118             movups  [rcx+0x18], xmm0
+  000023C7  488B4210             mov     rax, [rdx+0x10]
+  000023CB  48894128             mov     [rcx+0x28], rax
+  000023CF  C3                   ret
+
+Method   : Decimal get_Price()
+Kind     : property-get, instance, public, virtual
+RVA      : 0x3784   Size: 6 bytes   Token: 0x06000012
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 29 bytes
+  000023D0  53                   push    rbx
+  000023D1  4883EC20             sub     rsp, 0x20
+  000023D5  488BDA               mov     rbx, rdx
+  000023D8  FF15FA3D0000         call    qword ptr [0x61D8]
+  000023DE  0F1000               movups  xmm0, [rax]
+  000023E1  0F1103               movups  [rbx], xmm0
+  000023E4  488BC3               mov     rax, rbx
+  000023E7  4883C420             add     rsp, 0x20
+  000023EB  5B                   pop     rbx
+  000023EC  C3                   ret
+
+Type     : Ref.Library.PricedItem
+
+Method   : void .ctor(string sku, string name, Quantity stock, Decimal price)
+Kind     : ctor, instance, public
+RVA      : 0x378C   Size: 18 bytes   Token: 0x06000013
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 120 bytes
+  000023F0  57                   push    rdi
+  000023F1  56                   push    rsi
+  000023F2  55                   push    rbp
+  000023F3  53                   push    rbx
+  000023F4  4883EC28             sub     rsp, 0x28
+  000023F8  488BD9               mov     rbx, rcx
+  000023FB  498BF8               mov     rdi, r8
+  000023FE  498BF1               mov     rsi, r9
+  00002401  488B6C2470           mov     rbp, [rsp+0x70]
+  00002406  4885D2               test    rdx, rdx
+  00002409  7437                 je      0x2442
+  0000240B  488D4B08             lea     rcx, [rbx+8]
+  0000240F  FF15533D0000         call    qword ptr [0x6168]
+  00002415  488D4B10             lea     rcx, [rbx+0x10]
+  00002419  488BD7               mov     rdx, rdi
+  0000241C  FF15463D0000         call    qword ptr [0x6168]
+  00002422  0F1006               movups  xmm0, [rsi]
+  00002425  0F114318             movups  [rbx+0x18], xmm0
+  00002429  488B4610             mov     rax, [rsi+0x10]
+  0000242D  48894328             mov     [rbx+0x28], rax
+  00002431  0F104500             movups  xmm0, [rbp]
+  00002435  0F114330             movups  [rbx+0x30], xmm0
+  00002439  4883C428             add     rsp, 0x28
+  0000243D  5B                   pop     rbx
+  0000243E  5D                   pop     rbp
+  0000243F  5E                   pop     rsi
+  00002440  5F                   pop     rdi
+  00002441  C3                   ret
+  00002442  FF15C03D0000         call    qword ptr [0x6208]
+  00002448  488BD8               mov     rbx, rax
+  0000244B  488B1536400000       mov     rdx, [0x6488]
+  00002452  488B12               mov     rdx, [rdx]
+  00002455  488BCB               mov     rcx, rbx
+  00002458  FF15723E0000         call    qword ptr [0x62D0]
+  0000245E  488BCB               mov     rcx, rbx
+  00002461  FF15F93C0000         call    qword ptr [0x6160]
+  00002467  CC                   int3
+
+Method   : Decimal get_Price()
+Kind     : property-get, instance, public, override
+RVA      : 0x37A0   Size: 7 bytes   Token: 0x06000014
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 11 bytes
+  00002470  0F104130             movups  xmm0, [rcx+0x30]
+  00002474  0F1102               movups  [rdx], xmm0
+  00002477  488BC2               mov     rax, rdx
+  0000247A  C3                   ret
+
+Type     : Ref.Library.IRepository`1
+
+Method   : T Find(string key)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000015
+
+[Native]  method has no body
+
+Method   : void Save(T item)
+Kind     : instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000016
+
+[Native]  method has no body
+
+Method   : IReadOnlyCollection<T> get_All()
+Kind     : property-get, instance, public, abstract, no-body
+RVA      : 0x0000   Token: 0x06000017
+
+[Native]  method has no body
+
+Type     : Ref.Library.MemoryRepository`1
+
+Method   : void .ctor(Func<T, string> key)
+Kind     : ctor, instance, public
+RVA      : 0x37A8   Size: 30 bytes   Token: 0x06000018
+
+[Native]  x64, R2R, precompiled (R2R), 1 instantiation(s), ReadyToRun 9.1, 97 bytes
+  ; MemoryRepository<__Canon>::.ctor  (0x00002F70, 97 bytes)
+  00002F70  57                   push    rdi
+  00002F71  56                   push    rsi
+  00002F72  55                   push    rbp
+  00002F73  53                   push    rbx
+  00002F74  4883EC28             sub     rsp, 0x28
+  00002F78  48894C2420           mov     [rsp+0x20], rcx
+  00002F7D  488BD9               mov     rbx, rcx
+  00002F80  488BF2               mov     rsi, rdx
+  00002F83  FF1567330000         call    qword ptr [0x62F0]
+  00002F89  488BF8               mov     rdi, rax
+  00002F8C  488B0B               mov     rcx, [rbx]
+  00002F8F  FF1513320000         call    qword ptr [0x61A8]
+  00002F95  488BC8               mov     rcx, rax
+  00002F98  FF15E2310000         call    qword ptr [0x6180]
+  00002F9E  488BE8               mov     rbp, rax
+  00002FA1  488BCD               mov     rcx, rbp
+  00002FA4  488BD7               mov     rdx, rdi
+  00002FA7  FF1583330000         call    qword ptr [0x6330]
+  00002FAD  488D4B08             lea     rcx, [rbx+8]
+  00002FB1  488BD5               mov     rdx, rbp
+  00002FB4  FF15AE310000         call    qword ptr [0x6168]
+  00002FBA  488D4B10             lea     rcx, [rbx+0x10]
+  00002FBE  488BD6               mov     rdx, rsi
+  00002FC1  FF15A1310000         call    qword ptr [0x6168]
+  00002FC7  90                   nop
+  00002FC8  4883C428             add     rsp, 0x28
+  00002FCC  5B                   pop     rbx
+  00002FCD  5D                   pop     rbp
+  00002FCE  5E                   pop     rsi
+  00002FCF  5F                   pop     rdi
+  00002FD0  C3                   ret
+
+Method   : void add_Saved(EventHandler<T> value)
+Kind     : event-add, instance, public, compiler-generated
+RVA      : 0x37C8   Size: 41 bytes   Token: 0x06000019
+
+[Native]  x64, R2R, precompiled (R2R), 1 instantiation(s), ReadyToRun 9.1, 131 bytes
+  ; MemoryRepository<__Canon>::add_Saved  (0x00002FE0, 131 bytes)
+  00002FE0  4157                 push    r15
+  00002FE2  4156                 push    r14
+  00002FE4  57                   push    rdi
+  00002FE5  56                   push    rsi
+  00002FE6  55                   push    rbp
+  00002FE7  53                   push    rbx
+  00002FE8  4883EC28             sub     rsp, 0x28
+  00002FEC  48894C2420           mov     [rsp+0x20], rcx
+  00002FF1  488BD9               mov     rbx, rcx
+  00002FF4  488BF2               mov     rsi, rdx
+  00002FF7  488B7B18             mov     rdi, [rbx+0x18]
+  00002FFB  488BCF               mov     rcx, rdi
+  00002FFE  488BD6               mov     rdx, rsi
+  00003001  FF15A1320000         call    qword ptr [0x62A8]
+  00003007  488BE8               mov     rbp, rax
+  0000300A  4C8BF5               mov     r14, rbp
+  0000300D  4D85F6               test    r14, r14
+  00003010  7420                 je      0x3032
+  00003012  4D8B3E               mov     r15, [r14]
+  00003015  488B0B               mov     rcx, [rbx]
+  00003018  FF1592310000         call    qword ptr [0x61B0]
+  0000301E  4C3BF8               cmp     r15, rax
+  00003021  740F                 je      0x3032
+  00003023  488BC8               mov     rcx, rax
+  00003026  488BD5               mov     rdx, rbp
+  00003029  FF1559310000         call    qword ptr [0x6188]
+  0000302F  4C8BF0               mov     r14, rax
+  00003032  488B0B               mov     rcx, [rbx]
+  00003035  FF157D310000         call    qword ptr [0x61B8]
+  0000303B  488BC8               mov     rcx, rax
+  0000303E  488D5318             lea     rdx, [rbx+0x18]
+  00003042  4D8BC6               mov     r8, r14
+  00003045  4C8BCF               mov     r9, rdi
+  00003048  FF15FA320000         call    qword ptr [0x6348]
+  0000304E  483BC7               cmp     rax, rdi
+  00003051  488BF8               mov     rdi, rax
+  00003054  75A5                 jne     0x2FFB
+  00003056  4883C428             add     rsp, 0x28
+  0000305A  5B                   pop     rbx
+  0000305B  5D                   pop     rbp
+  0000305C  5E                   pop     rsi
+  0000305D  5F                   pop     rdi
+  0000305E  415E                 pop     r14
+  00003060  415F                 pop     r15
+  00003062  C3                   ret
+
+Method   : void remove_Saved(EventHandler<T> value)
+Kind     : event-remove, instance, public, compiler-generated
+RVA      : 0x3800   Size: 41 bytes   Token: 0x0600001A
+
+[Native]  x64, R2R, precompiled (R2R), 1 instantiation(s), ReadyToRun 9.1, 131 bytes
+  ; MemoryRepository<__Canon>::remove_Saved  (0x00003070, 131 bytes)
+  00003070  4157                 push    r15
+  00003072  4156                 push    r14
+  00003074  57                   push    rdi
+  00003075  56                   push    rsi
+  00003076  55                   push    rbp
+  00003077  53                   push    rbx
+  00003078  4883EC28             sub     rsp, 0x28
+  0000307C  48894C2420           mov     [rsp+0x20], rcx
+  00003081  488BD9               mov     rbx, rcx
+  00003084  488BF2               mov     rsi, rdx
+  00003087  488B7B18             mov     rdi, [rbx+0x18]
+  0000308B  488BCF               mov     rcx, rdi
+  0000308E  488BD6               mov     rdx, rsi
+  00003091  FF1519320000         call    qword ptr [0x62B0]
+  00003097  488BE8               mov     rbp, rax
+  0000309A  4C8BF5               mov     r14, rbp
+  0000309D  4D85F6               test    r14, r14
+  000030A0  7420                 je      0x30C2
+  000030A2  4D8B3E               mov     r15, [r14]
+  000030A5  488B0B               mov     rcx, [rbx]
+  000030A8  FF1502310000         call    qword ptr [0x61B0]
+  000030AE  4C3BF8               cmp     r15, rax
+  000030B1  740F                 je      0x30C2
+  000030B3  488BC8               mov     rcx, rax
+  000030B6  488BD5               mov     rdx, rbp
+  000030B9  FF15C9300000         call    qword ptr [0x6188]
+  000030BF  4C8BF0               mov     r14, rax
+  000030C2  488B0B               mov     rcx, [rbx]
+  000030C5  FF15ED300000         call    qword ptr [0x61B8]
+  000030CB  488BC8               mov     rcx, rax
+  000030CE  488D5318             lea     rdx, [rbx+0x18]
+  000030D2  4D8BC6               mov     r8, r14
+  000030D5  4C8BCF               mov     r9, rdi
+  000030D8  FF156A320000         call    qword ptr [0x6348]
+  000030DE  483BC7               cmp     rax, rdi
+  000030E1  488BF8               mov     rdi, rax
+  000030E4  75A5                 jne     0x308B
+  000030E6  4883C428             add     rsp, 0x28
+  000030EA  5B                   pop     rbx
+  000030EB  5D                   pop     rbp
+  000030EC  5E                   pop     rsi
+  000030ED  5F                   pop     rdi
+  000030EE  415E                 pop     r14
+  000030F0  415F                 pop     r15
+  000030F2  C3                   ret
+
+Method   : T Find(string key)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x3838   Size: 28 bytes   Token: 0x0600001B
+
+[Native]  x64, R2R, precompiled (R2R), 1 instantiation(s), ReadyToRun 9.1, 50 bytes
+  ; MemoryRepository<__Canon>::Find  (0x00003100, 50 bytes)
+  00003100  4883EC28             sub     rsp, 0x28
+  00003104  33C0                 xor     eax, eax
+  00003106  4889442420           mov     [rsp+0x20], rax
+  0000310B  488B4908             mov     rcx, [rcx+8]
+  0000310F  4C8D442420           lea     r8, [rsp+0x20]
+  00003114  4C8D1DED2F0000       lea     r11, [0x6108]
+  0000311B  3909                 cmp     [rcx], ecx
+  0000311D  41FF13               call    qword ptr [r11]
+  00003120  33C9                 xor     ecx, ecx
+  00003122  85C0                 test    eax, eax
+  00003124  488BC1               mov     rax, rcx
+  00003127  480F45442420         cmovne  rax, [rsp+0x20]
+  0000312D  4883C428             add     rsp, 0x28
+  00003131  C3                   ret
+
+Method   : void Save(T item)
+Kind     : instance, public, virtual, sealed
+RVA      : 0x3860   Size: 43 bytes   Token: 0x0600001C
+
+[Native]  x64, R2R, precompiled (R2R), 1 instantiation(s), ReadyToRun 9.1, 90 bytes
+  ; MemoryRepository<__Canon>::Save  (0x00003140, 90 bytes)
+  00003140  57                   push    rdi
+  00003141  56                   push    rsi
+  00003142  53                   push    rbx
+  00003143  4883EC20             sub     rsp, 0x20
+  00003147  488BD9               mov     rbx, rcx
+  0000314A  488BF2               mov     rsi, rdx
+  0000314D  488B7B08             mov     rdi, [rbx+8]
+  00003151  488B4310             mov     rax, [rbx+0x10]
+  00003155  488BD6               mov     rdx, rsi
+  00003158  488B4808             mov     rcx, [rax+8]
+  0000315C  FF5018               call    qword ptr [rax+0x18]
+  0000315F  488BD0               mov     rdx, rax
+  00003162  488BCF               mov     rcx, rdi
+  00003165  4C8BC6               mov     r8, rsi
+  00003168  4C8D1D912F0000       lea     r11, [0x6100]
+  0000316F  3909                 cmp     [rcx], ecx
+  00003171  41FF13               call    qword ptr [r11]
+  00003174  488B4318             mov     rax, [rbx+0x18]
+  00003178  4885C0               test    rax, rax
+  0000317B  7508                 jne     0x3185
+  0000317D  4883C420             add     rsp, 0x20
+  00003181  5B                   pop     rbx
+  00003182  5E                   pop     rsi
+  00003183  5F                   pop     rdi
+  00003184  C3                   ret
+  00003185  488BD3               mov     rdx, rbx
+  00003188  4C8BC6               mov     r8, rsi
+  0000318B  488B4808             mov     rcx, [rax+8]
+  0000318F  4883C420             add     rsp, 0x20
+  00003193  5B                   pop     rbx
+  00003194  5E                   pop     rsi
+  00003195  5F                   pop     rdi
+  00003196  48FF6018             jmp     qword ptr [rax+0x18]
+
+Method   : IReadOnlyCollection<T> get_All()
+Kind     : property-get, instance, public, virtual, sealed
+RVA      : 0x388C   Size: 12 bytes   Token: 0x0600001D
+
+[Native]  x64, R2R, precompiled (R2R), 1 instantiation(s), ReadyToRun 9.1, 16 bytes
+  ; MemoryRepository<__Canon>::get_All  (0x000031A0, 16 bytes)
+  000031A0  488B4908             mov     rcx, [rcx+8]
+  000031A4  4C8D1D4D2F0000       lea     r11, [0x60F8]
+  000031AB  3909                 cmp     [rcx], ecx
+  000031AD  49FF23               jmp     qword ptr [r11]
+
+Type     : Ref.Library.Inventory
+
+Method   : int get_Changes()
+Kind     : property-get, instance, public
+RVA      : 0x389C   Size: 12 bytes   Token: 0x0600001E
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 16 bytes
+  00002480  488B4910             mov     rcx, [rcx+0x10]
+  00002484  4C8D1D953C0000       lea     r11, [0x6120]
+  0000248B  3909                 cmp     [rcx], ecx
+  0000248D  49FF23               jmp     qword ptr [r11]
+
+Method   : void Receive(Item item)
+Kind     : instance, public
+RVA      : 0x38AC   Size: 71 bytes   Token: 0x0600001F
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 159 bytes
+  00002490  57                   push    rdi
+  00002491  56                   push    rsi
+  00002492  53                   push    rbx
+  00002493  4883EC70             sub     rsp, 0x70
+  00002497  488BD9               mov     rbx, rcx
+  0000249A  488BF2               mov     rsi, rdx
+  0000249D  488B4B08             mov     rcx, [rbx+8]
+  000024A1  488B5608             mov     rdx, [rsi+8]
+  000024A5  3909                 cmp     [rcx], ecx
+  000024A7  FF15FB3E0000         call    qword ptr [0x63A8]
+  000024AD  488BF8               mov     rdi, rax
+  000024B0  4885FF               test    rdi, rdi
+  000024B3  7511                 jne     0x24C6
+  000024B5  488B4B08             mov     rcx, [rbx+8]
+  000024B9  488BD6               mov     rdx, rsi
+  000024BC  3909                 cmp     [rcx], ecx
+  000024BE  FF15EC3E0000         call    qword ptr [0x63B0]
+  000024C4  EB4B                 jmp     0x2511
+  000024C6  0F104718             movups  xmm0, [rdi+0x18]
+  000024CA  0F11442440           movups  [rsp+0x40], xmm0
+  000024CF  488B5728             mov     rdx, [rdi+0x28]
+  000024D3  4889542450           mov     [rsp+0x50], rdx
+  000024D8  0F104618             movups  xmm0, [rsi+0x18]
+  000024DC  0F11442428           movups  [rsp+0x28], xmm0
+  000024E1  488B5628             mov     rdx, [rsi+0x28]
+  000024E5  4889542438           mov     [rsp+0x38], rdx
+  000024EA  488D542440           lea     rdx, [rsp+0x40]
+  000024EF  4C8D442428           lea     r8, [rsp+0x28]
+  000024F4  488D4C2458           lea     rcx, [rsp+0x58]
+  000024F9  FF15613E0000         call    qword ptr [0x6360]
+  000024FF  0F10442458           movups  xmm0, [rsp+0x58]
+  00002504  0F114718             movups  [rdi+0x18], xmm0
+  00002508  488B4C2468           mov     rcx, [rsp+0x68]
+  0000250D  48894F28             mov     [rdi+0x28], rcx
+  00002511  488B4B10             mov     rcx, [rbx+0x10]
+  00002515  4C8D1D0C3C0000       lea     r11, [0x6128]
+  0000251C  BA01000000           mov     edx, 1
+  00002521  3909                 cmp     [rcx], ecx
+  00002523  41FF13               call    qword ptr [r11]
+  00002526  90                   nop
+  00002527  4883C470             add     rsp, 0x70
+  0000252B  5B                   pop     rbx
+  0000252C  5E                   pop     rsi
+  0000252D  5F                   pop     rdi
+  0000252E  C3                   ret
+
+Method   : bool TryShip(string sku, Quantity amount, out string error)
+Kind     : instance, public
+RVA      : 0x3900   Size: 152 bytes   Token: 0x06000020
+
+[Native]  x64, R2R, precompiled (R2R), 2 funclet(s), ReadyToRun 9.1, 521 bytes
+  ; main  (0x00002530, 396 bytes)
+  00002530  55                   push    rbp
+  00002531  56                   push    rsi
+  00002532  53                   push    rbx
+  00002533  4881ECB0000000       sub     rsp, 0xB0
+  0000253A  488DAC24C0000000     lea     rbp, [rsp+0xC0]
+  00002542  0F57E4               xorps   xmm4, xmm4
+  00002545  0F1165D8             movups  [rbp-0x28], xmm4
+  00002549  33C0                 xor     eax, eax
+  0000254B  488945E8             mov     [rbp-0x18], rax
+  0000254F  4889A560FFFFFF       mov     [rbp-0xA0], rsp
+  00002556  48894D10             mov     [rbp+0x10], rcx
+  0000255A  4C894D28             mov     [rbp+0x28], r9
+  0000255E  488BF2               mov     rsi, rdx
+  00002561  498BD8               mov     rbx, r8
+  00002564  498BC1               mov     rax, r9
+  00002567  33D2                 xor     edx, edx
+  00002569  488910               mov     [rax], rdx
+  0000256C  488B4908             mov     rcx, [rcx+8]
+  00002570  488BD6               mov     rdx, rsi
+  00002573  3909                 cmp     [rcx], ecx
+  00002575  FF152D3E0000         call    qword ptr [0x63A8]
+  0000257B  4885C0               test    rax, rax
+  0000257E  752D                 jne     0x25AD
+  00002580  488B0D093F0000       mov     rcx, [0x6490]
+  00002587  488B09               mov     rcx, [rcx]
+  0000258A  488BD6               mov     rdx, rsi
+  0000258D  FF152D3D0000         call    qword ptr [0x62C0]
+  00002593  488B4D28             mov     rcx, [rbp+0x28]
+  00002597  488BD0               mov     rdx, rax
+  0000259A  FF15D03B0000         call    qword ptr [0x6170]
+  000025A0  33C0                 xor     eax, eax
+  000025A2  4881C4B0000000       add     rsp, 0xB0
+  000025A9  5B                   pop     rbx
+  000025AA  5E                   pop     rsi
+  000025AB  5D                   pop     rbp
+  000025AC  C3                   ret
+  000025AD  488D7018             lea     rsi, [rax+0x18]
+  000025B1  0F1006               movups  xmm0, [rsi]
+  000025B4  0F1145D8             movups  [rbp-0x28], xmm0
+  000025B8  488B5610             mov     rdx, [rsi+0x10]
+  000025BC  488955E8             mov     [rbp-0x18], rdx
+  000025C0  0F1003               movups  xmm0, [rbx]
+  000025C3  0F114590             movups  [rbp-0x70], xmm0
+  000025C7  488B5310             mov     rdx, [rbx+0x10]
+  000025CB  488955A0             mov     [rbp-0x60], rdx
+  000025CF  488D5590             lea     rdx, [rbp-0x70]
+  000025D3  488D4DD8             lea     rcx, [rbp-0x28]
+  000025D7  FF15933D0000         call    qword ptr [0x6370]
+  000025DD  85C0                 test    eax, eax
+  000025DF  0F8C8C000000         jl      0x2671
+  000025E5  0F1006               movups  xmm0, [rsi]
+  000025E8  0F1145D8             movups  [rbp-0x28], xmm0
+  000025EC  488B5610             mov     rdx, [rsi+0x10]
+  000025F0  488955E8             mov     [rbp-0x18], rdx
+  000025F4  0F1045D8             movups  xmm0, [rbp-0x28]
+  000025F8  0F114580             movups  [rbp-0x80], xmm0
+  000025FC  0F1003               movups  xmm0, [rbx]
+  000025FF  0F118570FFFFFF       movups  [rbp-0x90], xmm0
+  00002606  488D5580             lea     rdx, [rbp-0x80]
+  0000260A  4C8D8570FFFFFF       lea     r8, [rbp-0x90]
+  00002611  488D4DC0             lea     rcx, [rbp-0x40]
+  00002615  FF156D3C0000         call    qword ptr [0x6288]
+  0000261B  0F57C0               xorps   xmm0, xmm0
+  0000261E  0F1145A8             movups  [rbp-0x58], xmm0
+  00002622  0F1145B0             movups  [rbp-0x50], xmm0
+  00002626  0F1045C0             movups  xmm0, [rbp-0x40]
+  0000262A  0F114580             movups  [rbp-0x80], xmm0
+  0000262E  488D5580             lea     rdx, [rbp-0x80]
+  00002632  448B4310             mov     r8d, [rbx+0x10]
+  00002636  488D4DA8             lea     rcx, [rbp-0x58]
+  0000263A  FF15183D0000         call    qword ptr [0x6358]
+  00002640  0F1045A8             movups  xmm0, [rbp-0x58]
+  00002644  0F1106               movups  [rsi], xmm0
+  00002647  488B4DB8             mov     rcx, [rbp-0x48]
+  0000264B  48894E10             mov     [rsi+0x10], rcx
+  0000264F  488B4D10             mov     rcx, [rbp+0x10]
+  00002653  488B4910             mov     rcx, [rcx+0x10]
+  00002657  4C8D1DCA3A0000       lea     r11, [0x6128]
+  0000265E  BAFFFFFFFF           mov     edx, 0xFFFFFFFF
+  00002663  3909                 cmp     [rcx], ecx
+  00002665  41FF13               call    qword ptr [r11]
+  00002668  C745D401000000       mov     dword ptr [rbp-0x2C], 1
+  0000266F  EB27                 jmp     0x2698
+  00002671  FF15A93B0000         call    qword ptr [0x6220]
+  00002677  488BD8               mov     rbx, rax
+  0000267A  488B15173E0000       mov     rdx, [0x6498]
+  00002681  488B12               mov     rdx, [rdx]
+  00002684  488BCB               mov     rcx, rbx
+  00002687  FF155B3C0000         call    qword ptr [0x62E8]
+  0000268D  488BCB               mov     rcx, rbx
+  00002690  FF15CA3A0000         call    qword ptr [0x6160]
+  00002696  CC                   int3
+  00002697  90                   nop
+  00002698  488B4D10             mov     rcx, [rbp+0x10]
+  0000269C  488B4910             mov     rcx, [rcx+0x10]
+  000026A0  4C8D1D813A0000       lea     r11, [0x6128]
+  000026A7  33D2                 xor     edx, edx
+  000026A9  3909                 cmp     [rcx], ecx
+  000026AB  41FF13               call    qword ptr [r11]
+  000026AE  8B45D4               mov     eax, [rbp-0x2C]
+  000026B1  4881C4B0000000       add     rsp, 0xB0
+  000026B8  5B                   pop     rbx
+  000026B9  5E                   pop     rsi
+  000026BA  5D                   pop     rbp
+  000026BB  C3                   ret
+  ; funclet 1  (0x000026BC, 71 bytes)
+  000026BC  55                   push    rbp
+  000026BD  56                   push    rsi
+  000026BE  53                   push    rbx
+  000026BF  4883EC30             sub     rsp, 0x30
+  000026C3  488B6920             mov     rbp, [rcx+0x20]
+  000026C7  48896C2420           mov     [rsp+0x20], rbp
+  000026CC  488DADC0000000       lea     rbp, [rbp+0xC0]
+  000026D3  488BCA               mov     rcx, rdx
+  000026D6  4C8D1DBB390000       lea     r11, [0x6098]
+  000026DD  3909                 cmp     [rcx], ecx
+  000026DF  41FF13               call    qword ptr [r11]
+  000026E2  488B4D28             mov     rcx, [rbp+0x28]
+  000026E6  488BD0               mov     rdx, rax
+  000026E9  FF15813A0000         call    qword ptr [0x6170]
+  000026EF  33C9                 xor     ecx, ecx
+  000026F1  894DD4               mov     [rbp-0x2C], ecx
+  000026F4  488D059CFFFFFF       lea     rax, [0x2697]
+  000026FB  4883C430             add     rsp, 0x30
+  000026FF  5B                   pop     rbx
+  00002700  5E                   pop     rsi
+  00002701  5D                   pop     rbp
+  00002702  C3                   ret
+  ; funclet 2  (0x00002703, 54 bytes)
+  00002703  55                   push    rbp
+  00002704  56                   push    rsi
+  00002705  53                   push    rbx
+  00002706  4883EC30             sub     rsp, 0x30
+  0000270A  488B6920             mov     rbp, [rcx+0x20]
+  0000270E  48896C2420           mov     [rsp+0x20], rbp
+  00002713  488DADC0000000       lea     rbp, [rbp+0xC0]
+  0000271A  488B4D10             mov     rcx, [rbp+0x10]
+  0000271E  488B4910             mov     rcx, [rcx+0x10]
+  00002722  4C8D1DFF390000       lea     r11, [0x6128]
+  00002729  33D2                 xor     edx, edx
+  0000272B  3909                 cmp     [rcx], ecx
+  0000272D  41FF13               call    qword ptr [r11]
+  00002730  90                   nop
+  00002731  4883C430             add     rsp, 0x30
+  00002735  5B                   pop     rbx
+  00002736  5E                   pop     rsi
+  00002737  5D                   pop     rbp
+  00002738  C3                   ret
+
+Method   : Decimal TotalValue()
+Kind     : instance, public
+RVA      : 0x39C0   Size: 88 bytes   Token: 0x06000021
+
+[Native]  x64, R2R, precompiled (R2R), 1 funclet(s), ReadyToRun 9.1, 383 bytes
+  ; main  (0x00002740, 314 bytes)
+  00002740  55                   push    rbp
+  00002741  4157                 push    r15
+  00002743  4156                 push    r14
+  00002745  57                   push    rdi
+  00002746  56                   push    rsi
+  00002747  53                   push    rbx
+  00002748  4881EC98000000       sub     rsp, 0x98
+  0000274F  488DAC24C0000000     lea     rbp, [rsp+0xC0]
+  00002757  0F57E4               xorps   xmm4, xmm4
+  0000275A  0F2965B0             movaps  [rbp-0x50], xmm4
+  0000275E  0F2965C0             movaps  [rbp-0x40], xmm4
+  00002762  33C0                 xor     eax, eax
+  00002764  488945D0             mov     [rbp-0x30], rax
+  00002768  4889A560FFFFFF       mov     [rbp-0xA0], rsp
+  0000276F  488BDA               mov     rbx, rdx
+  00002772  488B4908             mov     rcx, [rcx+8]
+  00002776  488B4908             mov     rcx, [rcx+8]
+  0000277A  4C8D1D6F390000       lea     r11, [0x60F0]
+  00002781  3909                 cmp     [rcx], ecx
+  00002783  41FF13               call    qword ptr [r11]
+  00002786  488BC8               mov     rcx, rax
+  00002789  4C8D1D50390000       lea     r11, [0x60E0]
+  00002790  41FF13               call    qword ptr [r11]
+  00002793  488BC8               mov     rcx, rax
+  00002796  48898D68FFFFFF       mov     [rbp-0x98], rcx
+  0000279D  4C8D1D24390000       lea     r11, [0x60C8]
+  000027A4  41FF13               call    qword ptr [r11]
+  000027A7  85C0                 test    eax, eax
+  000027A9  0F84A0000000         je      0x284F
+  000027AF  488B8D68FFFFFF       mov     rcx, [rbp-0x98]
+  000027B6  4C8D1D2B390000       lea     r11, [0x60E8]
+  000027BD  41FF13               call    qword ptr [r11]
+  000027C0  488BF0               mov     rsi, rax
+  000027C3  8B7DC8               mov     edi, [rbp-0x38]
+  000027C6  448B75CC             mov     r14d, [rbp-0x34]
+  000027CA  4C8B7DD0             mov     r15, [rbp-0x30]
+  000027CE  488D55A0             lea     rdx, [rbp-0x60]
+  000027D2  488BCE               mov     rcx, rsi
+  000027D5  4C8D1DB4380000       lea     r11, [0x6090]
+  000027DC  3909                 cmp     [rcx], ecx
+  000027DE  41FF13               call    qword ptr [r11]
+  000027E1  0F104618             movups  xmm0, [rsi+0x18]
+  000027E5  0F1145B0             movups  [rbp-0x50], xmm0
+  000027E9  488B5628             mov     rdx, [rsi+0x28]
+  000027ED  488955C0             mov     [rbp-0x40], rdx
+  000027F1  0F1045A0             movups  xmm0, [rbp-0x60]
+  000027F5  0F114580             movups  [rbp-0x80], xmm0
+  000027F9  488D5580             lea     rdx, [rbp-0x80]
+  000027FD  488D4D90             lea     rcx, [rbp-0x70]
+  00002801  4C8D45B0             lea     r8, [rbp-0x50]
+  00002805  FF15853A0000         call    qword ptr [0x6290]
+  0000280B  897D80               mov     [rbp-0x80], edi
+  0000280E  44897584             mov     [rbp-0x7C], r14d
+  00002812  4C897D88             mov     [rbp-0x78], r15
+  00002816  0F104590             movups  xmm0, [rbp-0x70]
+  0000281A  0F118570FFFFFF       movups  [rbp-0x90], xmm0
+  00002821  488D5580             lea     rdx, [rbp-0x80]
+  00002825  4C8D8570FFFFFF       lea     r8, [rbp-0x90]
+  0000282C  488D4DC8             lea     rcx, [rbp-0x38]
+  00002830  FF154A3A0000         call    qword ptr [0x6280]
+  00002836  488B8D68FFFFFF       mov     rcx, [rbp-0x98]
+  0000283D  4C8D1D84380000       lea     r11, [0x60C8]
+  00002844  41FF13               call    qword ptr [r11]
+  00002847  85C0                 test    eax, eax
+  00002849  0F8560FFFFFF         jne     0x27AF
+  0000284F  488B8D68FFFFFF       mov     rcx, [rbp-0x98]
+  00002856  4C8D1D53380000       lea     r11, [0x60B0]
+  0000285D  41FF13               call    qword ptr [r11]
+  00002860  0F1045C8             movups  xmm0, [rbp-0x38]
+  00002864  0F1103               movups  [rbx], xmm0
+  00002867  488BC3               mov     rax, rbx
+  0000286A  4881C498000000       add     rsp, 0x98
+  00002871  5B                   pop     rbx
+  00002872  5E                   pop     rsi
+  00002873  5F                   pop     rdi
+  00002874  415E                 pop     r14
+  00002876  415F                 pop     r15
+  00002878  5D                   pop     rbp
+  00002879  C3                   ret
+  ; funclet 1  (0x0000287A, 69 bytes)
+  0000287A  55                   push    rbp
+  0000287B  4157                 push    r15
+  0000287D  4156                 push    r14
+  0000287F  57                   push    rdi
+  00002880  56                   push    rsi
+  00002881  53                   push    rbx
+  00002882  4883EC28             sub     rsp, 0x28
+  00002886  488B6920             mov     rbp, [rcx+0x20]
+  0000288A  48896C2420           mov     [rsp+0x20], rbp
+  0000288F  488DADC0000000       lea     rbp, [rbp+0xC0]
+  00002896  4883BD68FFFFFF00     cmp     qword ptr [rbp-0x98], 0
+  0000289E  7411                 je      0x28B1
+  000028A0  488B8D68FFFFFF       mov     rcx, [rbp-0x98]
+  000028A7  4C8D1D02380000       lea     r11, [0x60B0]
+  000028AE  41FF13               call    qword ptr [r11]
+  000028B1  90                   nop
+  000028B2  4883C428             add     rsp, 0x28
+  000028B6  5B                   pop     rbx
+  000028B7  5E                   pop     rsi
+  000028B8  5F                   pop     rdi
+  000028B9  415E                 pop     r14
+  000028BB  415F                 pop     r15
+  000028BD  5D                   pop     rbp
+  000028BE  C3                   ret
+
+Method   : string Export()
+Kind     : instance, public
+RVA      : 0x3A34   Size: 115 bytes   Token: 0x06000022
+
+[Native]  x64, R2R, precompiled (R2R), 2 funclet(s), ReadyToRun 9.1, 395 bytes
+  ; main  (0x000028C0, 274 bytes)
+  000028C0  55                   push    rbp
+  000028C1  4157                 push    r15
+  000028C3  4156                 push    r14
+  000028C5  4155                 push    r13
+  000028C7  57                   push    rdi
+  000028C8  56                   push    rsi
+  000028C9  53                   push    rbx
+  000028CA  4883EC40             sub     rsp, 0x40
+  000028CE  488D6C2470           lea     rbp, [rsp+0x70]
+  000028D3  488965B8             mov     [rbp-0x48], rsp
+  000028D7  488BD9               mov     rbx, rcx
+  000028DA  FF1548390000         call    qword ptr [0x6228]
+  000028E0  488BF0               mov     rsi, rax
+  000028E3  488BCE               mov     rcx, rsi
+  000028E6  FF15143A0000         call    qword ptr [0x6300]
+  000028EC  FF15063A0000         call    qword ptr [0x62F8]
+  000028F2  488BF8               mov     rdi, rax
+  000028F5  FF1535390000         call    qword ptr [0x6230]
+  000028FB  4C8BF0               mov     r14, rax
+  000028FE  498BCE               mov     rcx, r14
+  00002901  488BD6               mov     rdx, rsi
+  00002904  4C8BC7               mov     r8, rdi
+  00002907  FF15133A0000         call    qword ptr [0x6320]
+  0000290D  4C8975C8             mov     [rbp-0x38], r14
+  00002911  488B4B08             mov     rcx, [rbx+8]
+  00002915  488B4908             mov     rcx, [rcx+8]
+  00002919  4C8D1DD0370000       lea     r11, [0x60F0]
+  00002920  3909                 cmp     [rcx], ecx
+  00002922  41FF13               call    qword ptr [r11]
+  00002925  488BC8               mov     rcx, rax
+  00002928  4C8D1DB1370000       lea     r11, [0x60E0]
+  0000292F  41FF13               call    qword ptr [r11]
+  00002932  488BD8               mov     rbx, rax
+  00002935  48895DC0             mov     [rbp-0x40], rbx
+  00002939  EB50                 jmp     0x298B
+  0000293B  488BCB               mov     rcx, rbx
+  0000293E  4C8D1DA3370000       lea     r11, [0x60E8]
+  00002945  41FF13               call    qword ptr [r11]
+  00002948  488BF8               mov     rdi, rax
+  0000294B  4C8B7F08             mov     r15, [rdi+8]
+  0000294F  4C8B6F10             mov     r13, [rdi+0x10]
+  00002953  FF158F380000         call    qword ptr [0x61E8]
+  00002959  0F104718             movups  xmm0, [rdi+0x18]
+  0000295D  0F114008             movups  [rax+8], xmm0
+  00002961  488B5728             mov     rdx, [rdi+0x28]
+  00002965  48895018             mov     [rax+0x18], rdx
+  00002969  4889442420           mov     [rsp+0x20], rax
+  0000296E  488B152B3B0000       mov     rdx, [0x64A0]
+  00002975  488B12               mov     rdx, [rdx]
+  00002978  498BCE               mov     rcx, r14
+  0000297B  4D8BC7               mov     r8, r15
+  0000297E  4D8BCD               mov     r9, r13
+  00002981  4C8D1D38370000       lea     r11, [0x60C0]
+  00002988  41FF13               call    qword ptr [r11]
+  0000298B  488BCB               mov     rcx, rbx
+  0000298E  4C8D1D33370000       lea     r11, [0x60C8]
+  00002995  41FF13               call    qword ptr [r11]
+  00002998  85C0                 test    eax, eax
+  0000299A  759F                 jne     0x293B
+  0000299C  488BCB               mov     rcx, rbx
+  0000299F  4C8D1D0A370000       lea     r11, [0x60B0]
+  000029A6  41FF13               call    qword ptr [r11]
+  000029A9  90                   nop
+  000029AA  498BCE               mov     rcx, r14
+  000029AD  4C8D1DFC360000       lea     r11, [0x60B0]
+  000029B4  41FF13               call    qword ptr [r11]
+  000029B7  488BCE               mov     rcx, rsi
+  000029BA  4C8D1DDF360000       lea     r11, [0x60A0]
+  000029C1  4883C440             add     rsp, 0x40
+  000029C5  5B                   pop     rbx
+  000029C6  5E                   pop     rsi
+  000029C7  5F                   pop     rdi
+  000029C8  415D                 pop     r13
+  000029CA  415E                 pop     r14
+  000029CC  415F                 pop     r15
+  000029CE  5D                   pop     rbp
+  000029CF  49FF23               jmp     qword ptr [r11]
+  ; funclet 1  (0x000029D2, 64 bytes)
+  000029D2  55                   push    rbp
+  000029D3  4157                 push    r15
+  000029D5  4156                 push    r14
+  000029D7  4155                 push    r13
+  000029D9  57                   push    rdi
+  000029DA  56                   push    rsi
+  000029DB  53                   push    rbx
+  000029DC  4883EC30             sub     rsp, 0x30
+  000029E0  488B6928             mov     rbp, [rcx+0x28]
+  000029E4  48896C2428           mov     [rsp+0x28], rbp
+  000029E9  488D6D70             lea     rbp, [rbp+0x70]
+  000029ED  48837DC000           cmp     qword ptr [rbp-0x40], 0
+  000029F2  740E                 je      0x2A02
+  000029F4  488B4DC0             mov     rcx, [rbp-0x40]
+  000029F8  4C8D1DB1360000       lea     r11, [0x60B0]
+  000029FF  41FF13               call    qword ptr [r11]
+  00002A02  90                   nop
+  00002A03  4883C430             add     rsp, 0x30
+  00002A07  5B                   pop     rbx
+  00002A08  5E                   pop     rsi
+  00002A09  5F                   pop     rdi
+  00002A0A  415D                 pop     r13
+  00002A0C  415E                 pop     r14
+  00002A0E  415F                 pop     r15
+  00002A10  5D                   pop     rbp
+  00002A11  C3                   ret
+  ; funclet 2  (0x00002A12, 57 bytes)
+  00002A12  55                   push    rbp
+  00002A13  4157                 push    r15
+  00002A15  4156                 push    r14
+  00002A17  4155                 push    r13
+  00002A19  57                   push    rdi
+  00002A1A  56                   push    rsi
+  00002A1B  53                   push    rbx
+  00002A1C  4883EC30             sub     rsp, 0x30
+  00002A20  488B6928             mov     rbp, [rcx+0x28]
+  00002A24  48896C2428           mov     [rsp+0x28], rbp
+  00002A29  488D6D70             lea     rbp, [rbp+0x70]
+  00002A2D  488B4DC8             mov     rcx, [rbp-0x38]
+  00002A31  4C8D1D78360000       lea     r11, [0x60B0]
+  00002A38  41FF13               call    qword ptr [r11]
+  00002A3B  90                   nop
+  00002A3C  4883C430             add     rsp, 0x30
+  00002A40  5B                   pop     rbx
+  00002A41  5E                   pop     rsi
+  00002A42  5F                   pop     rdi
+  00002A43  415D                 pop     r13
+  00002A45  415E                 pop     r14
+  00002A47  415F                 pop     r15
+  00002A49  5D                   pop     rbp
+  00002A4A  C3                   ret
+
+Method   : Inventory Import(TextReader reader)
+Kind     : static, public
+RVA      : 0x3AD0   Size: 206 bytes   Token: 0x06000023
+
+[Native]  x64, R2R, precompiled (R2R), 2 funclet(s), ReadyToRun 9.1, 864 bytes
+  ; main  (0x00002A50, 574 bytes)
+  00002A50  55                   push    rbp
+  00002A51  4156                 push    r14
+  00002A53  57                   push    rdi
+  00002A54  56                   push    rsi
+  00002A55  53                   push    rbx
+  00002A56  4881ECF0000000       sub     rsp, 0xF0
+  00002A5D  488DAC2410010000     lea     rbp, [rsp+0x110]
+  00002A65  0F57E4               xorps   xmm4, xmm4
+  00002A68  0F2965A0             movaps  [rbp-0x60], xmm4
+  00002A6C  0F2965B0             movaps  [rbp-0x50], xmm4
+  00002A70  0F2965C0             movaps  [rbp-0x40], xmm4
+  00002A74  33C0                 xor     eax, eax
+  00002A76  488945D0             mov     [rbp-0x30], rax
+  00002A7A  4889A510FFFFFF       mov     [rbp-0xF0], rsp
+  00002A81  48894D10             mov     [rbp+0x10], rcx
+  00002A85  FF156D370000         call    qword ptr [0x61F8]
+  00002A8B  488BD8               mov     rbx, rax
+  00002A8E  488BCB               mov     rcx, rbx
+  00002A91  FF15F9380000         call    qword ptr [0x6390]
+  00002A97  48899D28FFFFFF       mov     [rbp-0xD8], rbx
+  00002A9E  33C9                 xor     ecx, ecx
+  00002AA0  894DDC               mov     [rbp-0x24], ecx
+  00002AA3  488B4D10             mov     rcx, [rbp+0x10]
+  00002AA7  4C8D1D0A360000       lea     r11, [0x60B8]
+  00002AAE  3909                 cmp     [rcx], ecx
+  00002AB0  41FF13               call    qword ptr [r11]
+  00002AB3  488BC8               mov     rcx, rax
+  00002AB6  4885C9               test    rcx, rcx
+  00002AB9  0F8444010000         je      0x2C03
+  00002ABF  488B9D28FFFFFF       mov     rbx, [rbp-0xD8]
+  00002AC6  448B5DDC             mov     r11d, [rbp-0x24]
+  00002ACA  41FFC3               inc     r11d
+  00002ACD  44895DDC             mov     [rbp-0x24], r11d
+  00002AD1  4C8D1DD0350000       lea     r11, [0x60A8]
+  00002AD8  BA3B000000           mov     edx, 0x3B
+  00002ADD  4533C0               xor     r8d, r8d
+  00002AE0  3909                 cmp     [rcx], ecx
+  00002AE2  41FF13               call    qword ptr [r11]
+  00002AE5  48898520FFFFFF       mov     [rbp-0xE0], rax
+  00002AEC  488B8520FFFFFF       mov     rax, [rbp-0xE0]
+  00002AF3  8B4008               mov     eax, [rax+8]
+  00002AF6  83F803               cmp     eax, 3
+  00002AF9  0F8519010000         jne     0x2C18
+  00002AFF  488B8520FFFFFF       mov     rax, [rbp-0xE0]
+  00002B06  488B7020             mov     rsi, [rax+0x20]
+  00002B0A  FF15E8370000         call    qword ptr [0x62F8]
+  00002B10  4C8BC0               mov     r8, rax
+  00002B13  488BD6               mov     rdx, rsi
+  00002B16  488D4DA0             lea     rcx, [rbp-0x60]
+  00002B1A  FF1558370000         call    qword ptr [0x6278]
+  00002B20  0F57C0               xorps   xmm0, xmm0
+  00002B23  0F114588             movups  [rbp-0x78], xmm0
+  00002B27  0F114590             movups  [rbp-0x70], xmm0
+  00002B2B  488B9520FFFFFF       mov     rdx, [rbp-0xE0]
+  00002B32  488B7210             mov     rsi, [rdx+0x10]
+  00002B36  488B9520FFFFFF       mov     rdx, [rbp-0xE0]
+  00002B3D  488B7A18             mov     rdi, [rdx+0x18]
+  00002B41  0F1045A0             movups  xmm0, [rbp-0x60]
+  00002B45  0F118548FFFFFF       movups  [rbp-0xB8], xmm0
+  00002B4C  488D9548FFFFFF       lea     rdx, [rbp-0xB8]
+  00002B53  488D4D88             lea     rcx, [rbp-0x78]
+  00002B57  4533C0               xor     r8d, r8d
+  00002B5A  FF15F8370000         call    qword ptr [0x6358]
+  00002B60  FF158A360000         call    qword ptr [0x61F0]
+  00002B66  4C8BF0               mov     r14, rax
+  00002B69  0F104588             movups  xmm0, [rbp-0x78]
+  00002B6D  0F118558FFFFFF       movups  [rbp-0xA8], xmm0
+  00002B74  488B4D98             mov     rcx, [rbp-0x68]
+  00002B78  48898D68FFFFFF       mov     [rbp-0x98], rcx
+  00002B7F  488BD6               mov     rdx, rsi
+  00002B82  4885D2               test    rdx, rdx
+  00002B85  7430                 je      0x2BB7
+  00002B87  498D4E08             lea     rcx, [r14+8]
+  00002B8B  FF15D7350000         call    qword ptr [0x6168]
+  00002B91  498D4E10             lea     rcx, [r14+0x10]
+  00002B95  488BD7               mov     rdx, rdi
+  00002B98  FF15CA350000         call    qword ptr [0x6168]
+  00002B9E  0F108558FFFFFF       movups  xmm0, [rbp-0xA8]
+  00002BA5  410F114618           movups  [r14+0x18], xmm0
+  00002BAA  488B8D68FFFFFF       mov     rcx, [rbp-0x98]
+  00002BB1  49894E28             mov     [r14+0x28], rcx
+  00002BB5  EB25                 jmp     0x2BDC
+  00002BB7  FF154B360000         call    qword ptr [0x6208]
+  00002BBD  488BF0               mov     rsi, rax
+  00002BC0  488B15C1380000       mov     rdx, [0x6488]
+  00002BC7  488B12               mov     rdx, [rdx]
+  00002BCA  488BCE               mov     rcx, rsi
+  00002BCD  FF15FD360000         call    qword ptr [0x62D0]
+  00002BD3  488BCE               mov     rcx, rsi
+  00002BD6  FF1584350000         call    qword ptr [0x6160]
+  00002BDC  488BCB               mov     rcx, rbx
+  00002BDF  498BD6               mov     rdx, r14
+  00002BE2  FF15A0370000         call    qword ptr [0x6388]
+  00002BE8  90                   nop
+  00002BE9  488B4D10             mov     rcx, [rbp+0x10]
+  00002BED  4C8D1DC4340000       lea     r11, [0x60B8]
+  00002BF4  41FF13               call    qword ptr [r11]
+  00002BF7  488BC8               mov     rcx, rax
+  00002BFA  4885C9               test    rcx, rcx
+  00002BFD  0F85BCFEFFFF         jne     0x2ABF
+  00002C03  488B8528FFFFFF       mov     rax, [rbp-0xD8]
+  00002C0A  4881C4F0000000       add     rsp, 0xF0
+  00002C11  5B                   pop     rbx
+  00002C12  5E                   pop     rsi
+  00002C13  5F                   pop     rdi
+  00002C14  415E                 pop     r14
+  00002C16  5D                   pop     rbp
+  00002C17  C3                   ret
+  00002C18  488D4DB0             lea     rcx, [rbp-0x50]
+  00002C1C  BA18000000           mov     edx, 0x18
+  00002C21  41B801000000         mov     r8d, 1
+  00002C27  FF15DB360000         call    qword ptr [0x6308]
+  00002C2D  488B1574380000       mov     rdx, [0x64A8]
+  00002C34  488B12               mov     rdx, [rdx]
+  00002C37  488D4DB0             lea     rcx, [rbp-0x50]
+  00002C3B  FF15D7360000         call    qword ptr [0x6318]
+  00002C41  488D4DB0             lea     rcx, [rbp-0x50]
+  00002C45  8B55DC               mov     edx, [rbp-0x24]
+  00002C48  FF15F2360000         call    qword ptr [0x6340]
+  00002C4E  488B155B380000       mov     rdx, [0x64B0]
+  00002C55  488B12               mov     rdx, [rdx]
+  00002C58  488D4DB0             lea     rcx, [rbp-0x50]
+  00002C5C  FF15B6360000         call    qword ptr [0x6318]
+  00002C62  488D4DB0             lea     rcx, [rbp-0x50]
+  00002C66  FF15A4360000         call    qword ptr [0x6310]
+  00002C6C  488BD8               mov     rbx, rax
+  00002C6F  FF15A3350000         call    qword ptr [0x6218]
+  00002C75  488BF0               mov     rsi, rax
+  00002C78  488BCE               mov     rcx, rsi
+  00002C7B  488BD3               mov     rdx, rbx
+  00002C7E  FF155C360000         call    qword ptr [0x62E0]
+  00002C84  488BCE               mov     rcx, rsi
+  00002C87  FF15D3340000         call    qword ptr [0x6160]
+  00002C8D  CC                   int3
+  ; funclet 1  (0x00002C8E, 86 bytes)
+  00002C8E  55                   push    rbp
+  00002C8F  4156                 push    r14
+  00002C91  57                   push    rdi
+  00002C92  56                   push    rsi
+  00002C93  53                   push    rbx
+  00002C94  4883EC30             sub     rsp, 0x30
+  00002C98  488B6920             mov     rbp, [rcx+0x20]
+  00002C9C  48896C2420           mov     [rsp+0x20], rbp
+  00002CA1  488DAD10010000       lea     rbp, [rbp+0x110]
+  00002CA8  488BCA               mov     rcx, rdx
+  00002CAB  FF15A7350000         call    qword ptr [0x6258]
+  00002CB1  4885C0               test    rax, rax
+  00002CB4  7504                 jne     0x2CBA
+  00002CB6  33C0                 xor     eax, eax
+  00002CB8  EB1F                 jmp     0x2CD9
+  00002CBA  488B8520FFFFFF       mov     rax, [rbp-0xE0]
+  00002CC1  8B4008               mov     eax, [rax+8]
+  00002CC4  488B8520FFFFFF       mov     rax, [rbp-0xE0]
+  00002CCB  488B4020             mov     rax, [rax+0x20]
+  00002CCF  83780800             cmp     dword ptr [rax+8], 0
+  00002CD3  0F94C0               sete    al
+  00002CD6  0FB6C0               movzx   eax, al
+  00002CD9  4883C430             add     rsp, 0x30
+  00002CDD  5B                   pop     rbx
+  00002CDE  5E                   pop     rsi
+  00002CDF  5F                   pop     rdi
+  00002CE0  415E                 pop     r14
+  00002CE2  5D                   pop     rbp
+  00002CE3  C3                   ret
+  ; funclet 2  (0x00002CE4, 204 bytes)
+  00002CE4  55                   push    rbp
+  00002CE5  4156                 push    r14
+  00002CE7  57                   push    rdi
+  00002CE8  56                   push    rsi
+  00002CE9  53                   push    rbx
+  00002CEA  4883EC30             sub     rsp, 0x30
+  00002CEE  488B6920             mov     rbp, [rcx+0x20]
+  00002CF2  48896C2420           mov     [rsp+0x20], rbp
+  00002CF7  488DAD10010000       lea     rbp, [rbp+0x110]
+  00002CFE  0F57C0               xorps   xmm0, xmm0
+  00002D01  0F118570FFFFFF       movups  [rbp-0x90], xmm0
+  00002D08  0F118578FFFFFF       movups  [rbp-0x88], xmm0
+  00002D0F  488B8520FFFFFF       mov     rax, [rbp-0xE0]
+  00002D16  8B4008               mov     eax, [rax+8]
+  00002D19  488B8520FFFFFF       mov     rax, [rbp-0xE0]
+  00002D20  488B5810             mov     rbx, [rax+0x10]
+  00002D24  488B8520FFFFFF       mov     rax, [rbp-0xE0]
+  00002D2B  488B7018             mov     rsi, [rax+0x18]
+  00002D2F  FF15A3340000         call    qword ptr [0x61D8]
+  00002D35  0F1000               movups  xmm0, [rax]
+  00002D38  0F118548FFFFFF       movups  [rbp-0xB8], xmm0
+  00002D3F  488D9548FFFFFF       lea     rdx, [rbp-0xB8]
+  00002D46  488D8D70FFFFFF       lea     rcx, [rbp-0x90]
+  00002D4D  4533C0               xor     r8d, r8d
+  00002D50  FF1502360000         call    qword ptr [0x6358]
+  00002D56  FF1594340000         call    qword ptr [0x61F0]
+  00002D5C  488BF8               mov     rdi, rax
+  00002D5F  488BD3               mov     rdx, rbx
+  00002D62  4C8BC6               mov     r8, rsi
+  00002D65  0F108570FFFFFF       movups  xmm0, [rbp-0x90]
+  00002D6C  0F118530FFFFFF       movups  [rbp-0xD0], xmm0
+  00002D73  488B4D80             mov     rcx, [rbp-0x80]
+  00002D77  48898D40FFFFFF       mov     [rbp-0xC0], rcx
+  00002D7E  488BCF               mov     rcx, rdi
+  00002D81  4C8D8D30FFFFFF       lea     r9, [rbp-0xD0]
+  00002D88  FF15F2350000         call    qword ptr [0x6380]
+  00002D8E  488B8D28FFFFFF       mov     rcx, [rbp-0xD8]
+  00002D95  488BD7               mov     rdx, rdi
+  00002D98  FF15EA350000         call    qword ptr [0x6388]
+  00002D9E  488D0544FEFFFF       lea     rax, [0x2BE9]
+  00002DA5  4883C430             add     rsp, 0x30
+  00002DA9  5B                   pop     rbx
+  00002DAA  5E                   pop     rsi
+  00002DAB  5F                   pop     rdi
+  00002DAC  415E                 pop     r14
+  00002DAE  5D                   pop     rbp
+  00002DAF  C3                   ret
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x3BBC   Size: 60 bytes   Token: 0x06000024
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 144 bytes
+  00002DB0  57                   push    rdi
+  00002DB1  56                   push    rsi
+  00002DB2  55                   push    rbp
+  00002DB3  53                   push    rbx
+  00002DB4  4883EC28             sub     rsp, 0x28
+  00002DB8  488BD9               mov     rbx, rcx
+  00002DBB  FF15DF330000         call    qword ptr [0x61A0]
+  00002DC1  488BF0               mov     rsi, rax
+  00002DC4  488B7E08             mov     rdi, [rsi+8]
+  00002DC8  4885FF               test    rdi, rdi
+  00002DCB  7528                 jne     0x2DF5
+  00002DCD  488B3E               mov     rdi, [rsi]
+  00002DD0  FF156A340000         call    qword ptr [0x6240]
+  00002DD6  488BE8               mov     rbp, rax
+  00002DD9  488BCD               mov     rcx, rbp
+  00002DDC  488BD7               mov     rdx, rdi
+  00002DDF  FF157B340000         call    qword ptr [0x6260]
+  00002DE5  488D4E08             lea     rcx, [rsi+8]
+  00002DE9  488BD5               mov     rdx, rbp
+  00002DEC  FF1576330000         call    qword ptr [0x6168]
+  00002DF2  488BFD               mov     rdi, rbp
+  00002DF5  FF153D340000         call    qword ptr [0x6238]
+  00002DFB  488BF0               mov     rsi, rax
+  00002DFE  488BCE               mov     rcx, rsi
+  00002E01  488BD7               mov     rdx, rdi
+  00002E04  FF1596350000         call    qword ptr [0x63A0]
+  00002E0A  488D4B08             lea     rcx, [rbx+8]
+  00002E0E  488BD6               mov     rdx, rsi
+  00002E11  FF1551330000         call    qword ptr [0x6168]
+  00002E17  FF152B340000         call    qword ptr [0x6248]
+  00002E1D  488BF0               mov     rsi, rax
+  00002E20  488BCE               mov     rcx, rsi
+  00002E23  FF15FF340000         call    qword ptr [0x6328]
+  00002E29  488D4B10             lea     rcx, [rbx+0x10]
+  00002E2D  488BD6               mov     rdx, rsi
+  00002E30  FF1532330000         call    qword ptr [0x6168]
+  00002E36  90                   nop
+  00002E37  4883C428             add     rsp, 0x28
+  00002E3B  5B                   pop     rbx
+  00002E3C  5D                   pop     rbp
+  00002E3D  5E                   pop     rsi
+  00002E3E  5F                   pop     rdi
+  00002E3F  C3                   ret
+
+Type     : Ref.Library.Statistics
+
+Method   : T Max<T>(IEnumerable<T> values)
+Kind     : static, public, generic
+RVA      : 0x3BFC   Size: 90 bytes   Token: 0x06000025
+
+[Native]  x64, R2R, precompiled (R2R), 2 instantiation(s), ReadyToRun 9.1, 624 bytes
+  ; Max<Quantity>  (0x000031B0, 263 bytes)
+  000031B0  55                   push    rbp
+  000031B1  53                   push    rbx
+  000031B2  4883EC78             sub     rsp, 0x78
+  000031B6  488DAC2480000000     lea     rbp, [rsp+0x80]
+  000031BE  33C0                 xor     eax, eax
+  000031C0  488945C8             mov     [rbp-0x38], rax
+  000031C4  0F57E4               xorps   xmm4, xmm4
+  000031C7  0F2965D0             movaps  [rbp-0x30], xmm4
+  000031CB  0F2965E0             movaps  [rbp-0x20], xmm4
+  000031CF  488945F0             mov     [rbp-0x10], rax
+  000031D3  488965A0             mov     [rbp-0x60], rsp
+  000031D7  488BD9               mov     rbx, rcx
+  000031DA  488BCA               mov     rcx, rdx
+  000031DD  4C8D1DEC2E0000       lea     r11, [0x60D0]
+  000031E4  41FF13               call    qword ptr [r11]
+  000031E7  488BC8               mov     rcx, rax
+  000031EA  48894DA8             mov     [rbp-0x58], rcx
+  000031EE  4C8D1DD32E0000       lea     r11, [0x60C8]
+  000031F5  41FF13               call    qword ptr [r11]
+  000031F8  85C0                 test    eax, eax
+  000031FA  7436                 je      0x3232
+  000031FC  488D55E0             lea     rdx, [rbp-0x20]
+  00003200  488B4DA8             mov     rcx, [rbp-0x58]
+  00003204  4C8D1DCD2E0000       lea     r11, [0x60D8]
+  0000320B  41FF13               call    qword ptr [r11]
+  0000320E  488B4DA8             mov     rcx, [rbp-0x58]
+  00003212  4C8D1DAF2E0000       lea     r11, [0x60C8]
+  00003219  41FF13               call    qword ptr [r11]
+  0000321C  85C0                 test    eax, eax
+  0000321E  7537                 jne     0x3257
+  00003220  0F1045E0             movups  xmm0, [rbp-0x20]
+  00003224  0F1145C8             movups  [rbp-0x38], xmm0
+  00003228  488B4DF0             mov     rcx, [rbp-0x10]
+  0000322C  48894DD8             mov     [rbp-0x28], rcx
+  00003230  EB5E                 jmp     0x3290
+  00003232  FF15E82F0000         call    qword ptr [0x6220]
+  00003238  488BD8               mov     rbx, rax
+  0000323B  488B1576320000       mov     rdx, [0x64B8]
+  00003242  488B12               mov     rdx, [rdx]
+  00003245  488BCB               mov     rcx, rbx
+  00003248  FF159A300000         call    qword ptr [0x62E8]
+  0000324E  488BCB               mov     rcx, rbx
+  00003251  FF15092F0000         call    qword ptr [0x6160]
+  00003257  488D55C8             lea     rdx, [rbp-0x38]
+  0000325B  488B4DA8             mov     rcx, [rbp-0x58]
+  0000325F  4C8D1D722E0000       lea     r11, [0x60D8]
+  00003266  41FF13               call    qword ptr [r11]
+  00003269  0F1045E0             movups  xmm0, [rbp-0x20]
+  0000326D  0F1145B0             movups  [rbp-0x50], xmm0
+  00003271  488B55F0             mov     rdx, [rbp-0x10]
+  00003275  488955C0             mov     [rbp-0x40], rdx
+  00003279  488D55B0             lea     rdx, [rbp-0x50]
+  0000327D  488D4DC8             lea     rcx, [rbp-0x38]
+  00003281  FF15F1300000         call    qword ptr [0x6378]
+  00003287  85C0                 test    eax, eax
+  00003289  7E83                 jle     0x320E
+  0000328B  E96CFFFFFF           jmp     0x31FC
+  00003290  488B4DA8             mov     rcx, [rbp-0x58]
+  00003294  4C8D1D152E0000       lea     r11, [0x60B0]
+  0000329B  41FF13               call    qword ptr [r11]
+  0000329E  0F1045C8             movups  xmm0, [rbp-0x38]
+  000032A2  0F1103               movups  [rbx], xmm0
+  000032A5  488B45D8             mov     rax, [rbp-0x28]
+  000032A9  48894310             mov     [rbx+0x10], rax
+  000032AD  488BC3               mov     rax, rbx
+  000032B0  4883C478             add     rsp, 0x78
+  000032B4  5B                   pop     rbx
+  000032B5  5D                   pop     rbp
+  000032B6  C3                   ret
+  ; Max<Quantity> / funclet 1  (0x000032B7, 51 bytes)
+  000032B7  55                   push    rbp
+  000032B8  53                   push    rbx
+  000032B9  4883EC28             sub     rsp, 0x28
+  000032BD  488B6920             mov     rbp, [rcx+0x20]
+  000032C1  48896C2420           mov     [rsp+0x20], rbp
+  000032C6  488DAD80000000       lea     rbp, [rbp+0x80]
+  000032CD  48837DA800           cmp     qword ptr [rbp-0x58], 0
+  000032D2  740E                 je      0x32E2
+  000032D4  488B4DA8             mov     rcx, [rbp-0x58]
+  000032D8  4C8D1DD12D0000       lea     r11, [0x60B0]
+  000032DF  41FF13               call    qword ptr [r11]
+  000032E2  90                   nop
+  000032E3  4883C428             add     rsp, 0x28
+  000032E7  5B                   pop     rbx
+  000032E8  5D                   pop     rbp
+  000032E9  C3                   ret
+  ; Max<__Canon>  (0x000032F0, 250 bytes)
+  000032F0  55                   push    rbp
+  000032F1  4157                 push    r15
+  000032F3  4156                 push    r14
+  000032F5  57                   push    rdi
+  000032F6  56                   push    rsi
+  000032F7  53                   push    rbx
+  000032F8  4883EC38             sub     rsp, 0x38
+  000032FC  488D6C2460           lea     rbp, [rsp+0x60]
+  00003301  488965C0             mov     [rbp-0x40], rsp
+  00003305  48894DD0             mov     [rbp-0x30], rcx
+  00003309  488BD9               mov     rbx, rcx
+  0000330C  488BF2               mov     rsi, rdx
+  0000330F  488BCB               mov     rcx, rbx
+  00003312  FF15B02E0000         call    qword ptr [0x61C8]
+  00003318  488BCE               mov     rcx, rsi
+  0000331B  4C8BD8               mov     r11, rax
+  0000331E  FF10                 call    qword ptr [rax]
+  00003320  488BF0               mov     rsi, rax
+  00003323  488975C8             mov     [rbp-0x38], rsi
+  00003327  488BCE               mov     rcx, rsi
+  0000332A  4C8D1D972D0000       lea     r11, [0x60C8]
+  00003331  41FF13               call    qword ptr [r11]
+  00003334  85C0                 test    eax, eax
+  00003336  742B                 je      0x3363
+  00003338  488BCB               mov     rcx, rbx
+  0000333B  FF158F2E0000         call    qword ptr [0x61D0]
+  00003341  488BF8               mov     rdi, rax
+  00003344  4C8BDF               mov     r11, rdi
+  00003347  488BCE               mov     rcx, rsi
+  0000334A  41FF13               call    qword ptr [r11]
+  0000334D  4C8BF0               mov     r14, rax
+  00003350  488BCE               mov     rcx, rsi
+  00003353  4C8D1D6E2D0000       lea     r11, [0x60C8]
+  0000335A  41FF13               call    qword ptr [r11]
+  0000335D  85C0                 test    eax, eax
+  0000335F  746C                 je      0x33CD
+  00003361  EB25                 jmp     0x3388
+  00003363  FF15B72E0000         call    qword ptr [0x6220]
+  00003369  488BD8               mov     rbx, rax
+  0000336C  488B1545310000       mov     rdx, [0x64B8]
+  00003373  488B12               mov     rdx, [rdx]
+  00003376  488BCB               mov     rcx, rbx
+  00003379  FF15692F0000         call    qword ptr [0x62E8]
+  0000337F  488BCB               mov     rcx, rbx
+  00003382  FF15D82D0000         call    qword ptr [0x6160]
+  00003388  488BCB               mov     rcx, rbx
+  0000338B  FF152F2E0000         call    qword ptr [0x61C0]
+  00003391  488BD8               mov     rbx, rax
+  00003394  4C8BDF               mov     r11, rdi
+  00003397  488BCE               mov     rcx, rsi
+  0000339A  41FF13               call    qword ptr [r11]
+  0000339D  4C8BF8               mov     r15, rax
+  000033A0  4C8BDB               mov     r11, rbx
+  000033A3  498BCF               mov     rcx, r15
+  000033A6  498BD6               mov     rdx, r14
+  000033A9  41FF13               call    qword ptr [r11]
+  000033AC  85C0                 test    eax, eax
+  000033AE  7E0C                 jle     0x33BC
+  000033B0  4C8BDF               mov     r11, rdi
+  000033B3  488BCE               mov     rcx, rsi
+  000033B6  41FF13               call    qword ptr [r11]
+  000033B9  4C8BF0               mov     r14, rax
+  000033BC  488BCE               mov     rcx, rsi
+  000033BF  4C8D1D022D0000       lea     r11, [0x60C8]
+  000033C6  41FF13               call    qword ptr [r11]
+  000033C9  85C0                 test    eax, eax
+  000033CB  75C7                 jne     0x3394
+  000033CD  488BCE               mov     rcx, rsi
+  000033D0  4C8D1DD92C0000       lea     r11, [0x60B0]
+  000033D7  41FF13               call    qword ptr [r11]
+  000033DA  498BC6               mov     rax, r14
+  000033DD  4883C438             add     rsp, 0x38
+  000033E1  5B                   pop     rbx
+  000033E2  5E                   pop     rsi
+  000033E3  5F                   pop     rdi
+  000033E4  415E                 pop     r14
+  000033E6  415F                 pop     r15
+  000033E8  5D                   pop     rbp
+  000033E9  C3                   ret
+  ; Max<__Canon> / funclet 1  (0x000033EA, 60 bytes)
+  000033EA  55                   push    rbp
+  000033EB  4157                 push    r15
+  000033ED  4156                 push    r14
+  000033EF  57                   push    rdi
+  000033F0  56                   push    rsi
+  000033F1  53                   push    rbx
+  000033F2  4883EC28             sub     rsp, 0x28
+  000033F6  488B6920             mov     rbp, [rcx+0x20]
+  000033FA  48896C2420           mov     [rsp+0x20], rbp
+  000033FF  488D6D60             lea     rbp, [rbp+0x60]
+  00003403  48837DC800           cmp     qword ptr [rbp-0x38], 0
+  00003408  740E                 je      0x3418
+  0000340A  488B4DC8             mov     rcx, [rbp-0x38]
+  0000340E  4C8D1D9B2C0000       lea     r11, [0x60B0]
+  00003415  41FF13               call    qword ptr [r11]
+  00003418  90                   nop
+  00003419  4883C428             add     rsp, 0x28
+  0000341D  5B                   pop     rbx
+  0000341E  5E                   pop     rsi
+  0000341F  5F                   pop     rdi
+  00003420  415E                 pop     r14
+  00003422  415F                 pop     r15
+  00003424  5D                   pop     rbp
+  00003425  C3                   ret
+
+Method   : int MaxInt(List<int> values)
+Kind     : static, public
+RVA      : 0x3C74   Size: 7 bytes   Token: 0x06000026
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 10 bytes
+  00002E40  488D0509350000       lea     rax, [0x6350]
+  00002E47  48FF20               jmp     qword ptr [rax]
+
+Method   : Quantity MaxQuantity(Quantity[] values)
+Kind     : static, public
+RVA      : 0x3C7C   Size: 7 bytes   Token: 0x06000027
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 10 bytes
+  00002E50  488D0561350000       lea     rax, [0x63B8]
+  00002E57  48FF20               jmp     qword ptr [rax]
+
+Method   : string MaxString(List<string> values)
+Kind     : static, public
+RVA      : 0x3C84   Size: 7 bytes   Token: 0x06000028
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 20 bytes
+  00002E60  488BD1               mov     rdx, rcx
+  00002E63  488B0D5E350000       mov     rcx, [0x63C8]
+  00002E6A  488D054F350000       lea     rax, [0x63C0]
+  00002E71  48FF20               jmp     qword ptr [rax]
+
+Method   : double Mean(IReadOnlyList<double> values)
+Kind     : static, public
+RVA      : 0x3C8C   Size: 65 bytes   Token: 0x06000029
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 153 bytes
+  00002E80  56                   push    rsi
+  00002E81  53                   push    rbx
+  00002E82  4883EC38             sub     rsp, 0x38
+  00002E86  0F29742420           movaps  [rsp+0x20], xmm6
+  00002E8B  488BD9               mov     rbx, rcx
+  00002E8E  488BCB               mov     rcx, rbx
+  00002E91  4C8D1D78320000       lea     r11, [0x6110]
+  00002E98  41FF13               call    qword ptr [r11]
+  00002E9B  85C0                 test    eax, eax
+  00002E9D  7514                 jne     0x2EB3
+  00002E9F  F20F100591260000     movsd   xmm0, [0x5538]
+  00002EA7  0F28742420           movaps  xmm6, [rsp+0x20]
+  00002EAC  4883C438             add     rsp, 0x38
+  00002EB0  5B                   pop     rbx
+  00002EB1  5E                   pop     rsi
+  00002EB2  C3                   ret
+  00002EB3  0F57F6               xorps   xmm6, xmm6
+  00002EB6  33F6                 xor     esi, esi
+  00002EB8  488BCB               mov     rcx, rbx
+  00002EBB  4C8D1D4E320000       lea     r11, [0x6110]
+  00002EC2  41FF13               call    qword ptr [r11]
+  00002EC5  85C0                 test    eax, eax
+  00002EC7  7E26                 jle     0x2EEF
+  00002EC9  488BCB               mov     rcx, rbx
+  00002ECC  8BD6                 mov     edx, esi
+  00002ECE  4C8D1D43320000       lea     r11, [0x6118]
+  00002ED5  41FF13               call    qword ptr [r11]
+  00002ED8  F20F58F0             addsd   xmm6, xmm0
+  00002EDC  FFC6                 inc     esi
+  00002EDE  488BCB               mov     rcx, rbx
+  00002EE1  4C8D1D28320000       lea     r11, [0x6110]
+  00002EE8  41FF13               call    qword ptr [r11]
+  00002EEB  3BC6                 cmp     eax, esi
+  00002EED  7FDA                 jg      0x2EC9
+  00002EEF  488BCB               mov     rcx, rbx
+  00002EF2  4C8D1D17320000       lea     r11, [0x6110]
+  00002EF9  41FF13               call    qword ptr [r11]
+  00002EFC  0F57C0               xorps   xmm0, xmm0
+  00002EFF  F20F2AC0             cvtsi2sd xmm0, eax
+  00002F03  0F28CE               movaps  xmm1, xmm6
+  00002F06  F20F5EC8             divsd   xmm1, xmm0
+  00002F0A  0F28C1               movaps  xmm0, xmm1
+  00002F0D  0F28742420           movaps  xmm6, [rsp+0x20]
+  00002F12  4883C438             add     rsp, 0x38
+  00002F16  5B                   pop     rbx
+  00002F17  5E                   pop     rsi
+  00002F18  C3                   ret
+
+Type     : Ref.Library.Inventory+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x3CDC   Size: 11 bytes   Token: 0x0600002A
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 39 bytes
+  00002F20  53                   push    rbx
+  00002F21  4883EC20             sub     rsp, 0x20
+  00002F25  FF15D5320000         call    qword ptr [0x6200]
+  00002F2B  488BD8               mov     rbx, rax
+  00002F2E  FF156C320000         call    qword ptr [0x61A0]
+  00002F34  488BC8               mov     rcx, rax
+  00002F37  488BD3               mov     rdx, rbx
+  00002F3A  FF1528320000         call    qword ptr [0x6168]
+  00002F40  90                   nop
+  00002F41  4883C420             add     rsp, 0x20
+  00002F45  5B                   pop     rbx
+  00002F46  C3                   ret
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x3CE8   Size: 7 bytes   Token: 0x0600002B
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 1 bytes
+  00002F50  C3                   ret
+
+Method   : string <.ctor>b__9_0(Item i)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x3CF0   Size: 7 bytes   Token: 0x0600002C
+
+[Native]  x64, R2R, precompiled (R2R), ReadyToRun 9.1, 5 bytes
+  00002F60  488B4208             mov     rax, [rdx+8]
+  00002F64  C3                   ret

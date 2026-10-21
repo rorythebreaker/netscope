@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 2. Class library, .NET 8: the base case. Also published as ReadyToRun for assemblies 18 and 19. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Ref.Library</RootNamespace>
+  </PropertyGroup>
+</Project>
