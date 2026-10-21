@@ -48,7 +48,8 @@ jobs:
 
   # TZ-2 §5.5: the export-ghidra scripts are run in a real Ghidra (analyzeHeadless), Python (Jython) and Java.
   # Every function from --native must end up at its RVA with the expected name, and a second run must not add
-  # anything. Windows runner: its ReadyToRun images are plain PE files that Ghidra's loader reads.
+  # anything. TZ-3 §4.2: the ReadyToRun copies of reference assembly 2 for linux-arm64 (assembly 19), linux-x64
+  # and osx-arm64 have an OS-encoded Machine field; they are imported with the options the script header names.
   ghidra:
     needs: test
     runs-on: windows-latest
@@ -85,10 +86,11 @@ jobs:
           $root = if ($env:DOTNET_ROOT) { $env:DOTNET_ROOT } else { Split-Path (Get-Command dotnet).Source }
           # A framework ReadyToRun image with generic names that contain spaces (they once aborted the script).
           $linq = Get-ChildItem "$root/shared/Microsoft.NETCore.App/8.*/System.Linq.dll" | Select-Object -First 1
+          $r2r = 'linux-arm64', 'linux-x64', 'osx-arm64' | ForEach-Object { "tests/Reference/bin/r2r/Release/$_/Ref02.Library.dll" }
           ./tests/Ghidra/Check-Ghidra.ps1 `
             -GhidraDir (Join-Path $env:RUNNER_TEMP "ghidra/ghidra_${env:GHIDRA_VERSION}_PUBLIC") `
             -NetScopeDll src/NetScope/bin/Release/net8.0/netscope.dll `
-            -Targets tests/NetScope.Samples/bin/r2r/Release/NetScope.Samples.dll, $linq.FullName `
+            -Targets (@('tests/NetScope.Samples/bin/r2r/Release/NetScope.Samples.dll', $linq.FullName) + $r2r) `
             -WorkDir (Join-Path $env:RUNNER_TEMP 'ghidra-check')
       - uses: actions/upload-artifact@v7
         if: failure()
@@ -156,10 +158,11 @@ jobs:
         run: |
           $root = if ($env:DOTNET_ROOT) { $env:DOTNET_ROOT } else { Split-Path (Get-Command dotnet).Source }
           $linq = Get-ChildItem "$root/shared/Microsoft.NETCore.App/8.*/System.Linq.dll" | Select-Object -First 1
+          $r2r = 'linux-arm64', 'linux-x64', 'osx-arm64' | ForEach-Object { "tests/Reference/bin/r2r/Release/$_/Ref02.Library.dll" }
           ./tests/Ghidra/Check-Ghidra.ps1 `
             -GhidraDir (Join-Path $env:RUNNER_TEMP "ghidra-py3/ghidra_${env:GHIDRA_VERSION}_PUBLIC") `
             -NetScopeDll src/NetScope/bin/Release/net8.0/netscope.dll `
-            -Targets tests/NetScope.Samples/bin/r2r/Release/NetScope.Samples.dll, $linq.FullName `
+            -Targets (@('tests/NetScope.Samples/bin/r2r/Release/NetScope.Samples.dll', $linq.FullName) + $r2r) `
             -WorkDir (Join-Path $env:RUNNER_TEMP 'ghidra-check') -PythonMajor 3
       - uses: actions/upload-artifact@v7
         if: failure()

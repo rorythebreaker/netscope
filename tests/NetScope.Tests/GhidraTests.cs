@@ -160,6 +160,38 @@ public sealed class GhidraTests : IDisposable
         Assert.Contains("_name_function(4096, u\"\\u0421\\u0447\\u0451\\u0442\", None)", text);
     }
 
+    /// <summary>TZ-3 §4.2: Ghidra's PE loader does not recognize an R2R image for Linux (OS-encoded Machine). The
+    /// export warns and names the analyzeHeadless options that import the unmodified file (checked in CI).</summary>
+    [Theory]
+    [InlineData("19-Library-R2R-linux-arm64", "Linux", "-loader PeLoader -processor AARCH64:LE:64:v8A -cspec default")]
+    [InlineData("18-Library-R2R-win-x64", null, null)]
+    public void ReadyToRunForAnotherOsNamesTheGhidraImportOptions(string id, string? os, string? options)
+    {
+        var script = Path.Combine(_dir, "annotate.py");
+        var r = TestEnv.Run(ExportGhidraCommand.Name, ReferenceSet.Get(id).Path, "--out", script);
+        Assert.Equal(Analyzer.ExitOk, r.ExitCode);
+        var text = File.ReadAllText(script);
+        if (os == null)
+        {
+            Assert.DoesNotContain(GhidraScriptWriter.ImportOptionsLabel, text);
+            Assert.DoesNotContain("OS-encoded", r.Stderr);
+            return;
+        }
+        Assert.Contains("# " + GhidraScriptWriter.ImportOptionsLabel + options, text);
+        Assert.Contains($"(ReadyToRun for {os})", text);
+        Assert.Contains($"{os} ReadyToRun image", r.Stderr);
+        Assert.Contains(options!, r.Stderr);
+    }
+
+    [Theory]
+    [InlineData((ushort)0x8664, "Windows")]
+    [InlineData((ushort)(0xAA64 ^ 0x7B79), "Linux")]
+    [InlineData((ushort)(0x8664 ^ 0x7B79), "Linux")]
+    [InlineData((ushort)(0xAA64 ^ 0x4644), "macOS")]
+    [InlineData((ushort)(0x8664 ^ 0xADC4), "FreeBSD")]
+    public void ReadyToRunTargetOsIsDecodedFromTheMachineField(ushort machine, string os) =>
+        Assert.Equal(os, Native.R2RReader.TargetOs((System.Reflection.PortableExecutable.Machine)machine));
+
     /// <summary>TZ-3 §4.1: Ghidrathon exposes the script state as functions (currentProgram()), Jython as variables.
     /// The script must use neither form directly, and must report the interpreter it ran in.</summary>
     [Fact]

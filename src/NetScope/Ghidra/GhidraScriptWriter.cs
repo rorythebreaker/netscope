@@ -48,13 +48,26 @@ public static class GhidraScriptWriter
         return sb.Length == 0 ? "_" : sb.ToString();
     }
 
+    /// <summary>Header line with the analyzeHeadless import options; tests/Ghidra/Check-Ghidra.ps1 reads it.</summary>
+    public const string ImportOptionsLabel = "Ghidra import   : ";
+
     private static string[] HeaderLines(GhidraAnnotations ann) => new[]
     {
+        // Each line is prefixed with "# " (Python) or "// " (Java).
         "NetScope -> Ghidra annotation script.",
         "",
         "Source assembly : " + ann.AssemblyName,
-        "Architecture    : " + (ann.Architecture ?? "unknown"),
+        "Architecture    : " + (ann.Architecture ?? "unknown") + (ann.TargetOs != null ? " (ReadyToRun for " + ann.TargetOs + ")" : ""),
         "Ghidra version  : " + GhidraVersion + " (Python: Jython 2.7, or Ghidrathon " + GhidrathonVersion + " with Python 3)",
+    }.Concat(ann.TargetOs == null ? Array.Empty<string>() : new[]
+    {
+        "",
+        "Ghidra's PE loader does not recognize a ReadyToRun image for " + ann.TargetOs + ": its PE Machine field is",
+        "OS-encoded. Import the unmodified file with these analyzeHeadless options (or pick the same loader",
+        "and language in the GUI import dialog):",
+        ImportOptionsLabel + (ann.GhidraImportOptions ?? "(no Ghidra language known for this architecture)"),
+    }).Concat(new[]
+    {
         "",
         "This script ONLY does the following, and nothing else:",
         $"  - name {ann.Functions.Count} function(s) at their image-base-relative address",
@@ -66,7 +79,7 @@ public static class GhidraScriptWriter
         "It does NOT access the network, read other files, or run external commands.",
         "Addresses are offsets from the image base; Ghidra maps them onto its own base.",
         "Read it before running:  analyzeHeadless <proj> <name> -process <file> -postScript " + "<this script>",
-    };
+    }).ToArray();
 
     // ------------------------------------------------------------------ Python (Ghidrathon / Jython)
 

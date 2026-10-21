@@ -221,6 +221,15 @@ Run it in Ghidra, for example `analyzeHeadless <proj> <name> -import app.dll -po
 
 Both languages are checked in CI with `analyzeHeadless` on Ghidra 11.1.2. The Python script is run twice: by Jython 2.7, Ghidra's default for `.py`, and by Ghidrathon 4.0.0 (Python 3.12 through Jep 4.2.0) in a Ghidra copy without Jython. The same script works in both: it takes the script state as a variable (Jython) or as a function, `currentProgram()` (Ghidrathon), and its last line names the interpreter, e.g. `NetScope: annotations applied [Python 3.12]`. After the script runs, a verification script confirms that every function from `--native --format json` exists at its address with the expected name.
 
+**ReadyToRun images for Linux and macOS.** In such an image the PE `Machine` field is XOR-ed with an OS constant (for example `0xD11D` for linux-arm64). NetScope decodes it, but Ghidra's PE loader does not recognize the value and imports the file as an old-style DOS executable. Import the unmodified file by naming the loader and the language:
+
+| Image | analyzeHeadless options |
+| --- | --- |
+| linux-arm64, osx-arm64 | `-loader PeLoader -processor AARCH64:LE:64:v8A -cspec default` |
+| linux-x64, osx-x64 | `-loader PeLoader -processor x86:LE:64:default -cspec gcc` |
+
+`export-ghidra` detects these images, prints a warning with the options and writes them in the script header (`Ghidra import   : ...`). In the GUI, choose the same loader and language in the import dialog. Ghidra then reports `Exception Data unsupported architecture` because it cannot read the `.pdata` of an OS-encoded image; this does not matter, because the script creates the functions itself. CI checks the linux-arm64 (reference assembly 19), linux-x64 and osx-arm64 copies of reference assembly 2 this way, with Jython, Ghidrathon and Java, and checks that the file is not changed.
+
 To use Ghidrathon 4.0.0 with Ghidra 11.1.2: `pip install jep==4.2.0`, unpack the extension from the release into `<ghidra>/Ghidra/Extensions`, set `version=11.1.2` in its `extension.properties` (the release is marked 11.0, and Ghidra loads only extensions of its own version), and run `python ghidrathon_configure.py <ghidra>`. The CI job `ghidra-python3` does exactly this.
 
 The script:

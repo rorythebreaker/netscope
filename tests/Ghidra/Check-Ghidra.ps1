@@ -48,7 +48,7 @@ function Invoke-Ghidra([string] $target, [string] $name, [string[]] $scripts, [s
     $post = @()
     foreach ($s in $scripts) { $post += @('-postScript', $s) }
     $post += @('-postScript', 'NsVerify.java', $expected)
-    & $headless $proj $name -import $target -overwrite -noanalysis -scriptPath $WorkDir @post -deleteProject *> $log
+    & $headless $proj $name -import $target @script:ImportOptions -overwrite -noanalysis -scriptPath $WorkDir @post -deleteProject *> $log
     $text = Get-Content $log -Raw
     $m = [regex]::Match($text, 'NSVERIFY expected=(\d+) ok=(\d+) missing=(\d+) wrong=(\d+) userSymbols=(\d+) bookmarks=(\d+)')
     if (-not $m.Success) { throw "no NSVERIFY line in $log" }
@@ -96,6 +96,16 @@ foreach ($target in $Targets) {
     Invoke-NetScope @('export-ghidra', $target, '--out', (Join-Path $WorkDir $py), '--audit', '-q')
     Invoke-NetScope @('export-ghidra', $target, '--out', (Join-Path $WorkDir $java), '--lang', 'java', '--audit', '-q')
 
+    # TZ-3 §4.2: an R2R image for Linux or macOS is imported with the options the script header documents
+    # (the file itself is never changed). For Windows images the header has no such line.
+    $script:ImportOptions = @()
+    $line = Select-String -Path (Join-Path $WorkDir $py) -Pattern '^# Ghidra import   : (-loader .+)$' | Select-Object -First 1
+    if ($line) {
+        $script:ImportOptions = $line.Matches[0].Groups[1].Value -split ' '
+        Write-Host "  import options from the script header: $($script:ImportOptions -join ' ')"
+    }
+    $hash = (Get-FileHash $target -Algorithm SHA256).Hash
+
     foreach ($script in @($py, $java)) {
         $r = Invoke-Ghidra $target "$base-$([IO.Path]::GetExtension($script).TrimStart('.'))" @($script) $expected
         Assert-Check ($r.Expected -eq $rows.Count -and $r.Ok -eq $rows.Count) "$script names $($r.Ok)/$($rows.Count) functions at the --native RVAs (missing $($r.Missing), wrong $($r.Wrong))"
@@ -110,6 +120,7 @@ foreach ($target in $Targets) {
     # 4. Idempotency: a second run in the same session must not add anything.
     $twice = Invoke-Ghidra $target "$base-twice" @($py, $py) $expected
     Assert-Check ($twice.Symbols -eq $once.Symbols -and $twice.Bookmarks -eq $once.Bookmarks) "running $py twice keeps $($once.Symbols) user symbols and $($once.Bookmarks) bookmarks (got $($twice.Symbols), $($twice.Bookmarks))"
+    Assert-Check ((Get-FileHash $target -Algorithm SHA256).Hash -eq $hash) "the analyzed file is unchanged (TZ-2 section 5.1)"
 }
 
 if ($failures -gt 0) { Write-Host "$failures check(s) failed"; exit 1 }
