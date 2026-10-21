@@ -407,12 +407,12 @@ Method   : bool Contains(string item)
 Kind     : instance, public
 RVA      : 0x28B0   Size: 23 bytes   Token: 0x0600005F
 
-Type     : Ref.Modern.<Modern>FF489395A1E20E605643BF69014925D7A99F6E6157B8F353A6763F1BB93A3375D__Helper
+Type     : Ref.Modern.Helper
 
 Method   : string Normalize(string s)
-Kind     : static, public, compiler-generated
+Kind     : static, public
 RVA      : 0x28C8   Size: 12 bytes   Token: 0x06000060
 
 Method   : HashSet<string> Normalize(IEnumerable<string> items)
-Kind     : static, public, compiler-generated
+Kind     : static, public
 RVA      : 0x28D8   Size: 62 bytes   Token: 0x06000061

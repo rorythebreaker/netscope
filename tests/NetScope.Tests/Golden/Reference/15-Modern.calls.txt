@@ -1021,16 +1021,16 @@ Kind     : instance, public
 RVA      : 0x28B0   Size: 23 bytes   Token: 0x0600005F
 
 [Calls]
-  IL_0006  call      Ref.Modern.<Modern>FF489395A1E20E605643BF69014925D7A99F6E6157B8F353A6763F1BB93A3375D__Helper::Normalize(IEnumerable<string>)  internal
-  IL_000C  call      Ref.Modern.<Modern>FF489395A1E20E605643BF69014925D7A99F6E6157B8F353A6763F1BB93A3375D__Helper::Normalize(string)               internal
-  IL_0011  callvirt  System.Collections.Generic.HashSet<string>::Contains(string)                                                                  external System.Collections
+  IL_0006  call      Ref.Modern.Helper::Normalize(IEnumerable<string>)             internal
+  IL_000C  call      Ref.Modern.Helper::Normalize(string)                          internal
+  IL_0011  callvirt  System.Collections.Generic.HashSet<string>::Contains(string)  external System.Collections
 [Callers]
   (none in the input files)
 
-Type     : Ref.Modern.<Modern>FF489395A1E20E605643BF69014925D7A99F6E6157B8F353A6763F1BB93A3375D__Helper
+Type     : Ref.Modern.Helper
 
 Method   : string Normalize(string s)
-Kind     : static, public, compiler-generated
+Kind     : static, public
 RVA      : 0x28C8   Size: 12 bytes   Token: 0x06000060
 
 [Calls]
@@ -1038,20 +1038,20 @@ RVA      : 0x28C8   Size: 12 bytes   Token: 0x06000060
   IL_0006  callvirt  System.String::ToLowerInvariant()  external System.Runtime
 [Callers]
   Ref.Modern.Catalog::Contains  IL_000C  call  (Ref15.Modern.dll)
-  Ref.Modern.<Modern>FF489395A1E20E605643BF69014925D7A99F6E6157B8F353A6763F1BB93A3375D__Helper::Normalize  IL_001D  call  (Ref15.Modern.dll)
+  Ref.Modern.Helper::Normalize  IL_001D  call  (Ref15.Modern.dll)
 
 Method   : HashSet<string> Normalize(IEnumerable<string> items)
-Kind     : static, public, compiler-generated
+Kind     : static, public
 RVA      : 0x28D8   Size: 62 bytes   Token: 0x06000061
 
 [Calls]
-  IL_0000  call      System.StringComparer::get_Ordinal()                                                                             external System.Runtime
-  IL_0005  newobj    System.Collections.Generic.HashSet<string>::.ctor(IEqualityComparer<string>)                                     external System.Collections
-  IL_000C  callvirt  System.Collections.Generic.IEnumerable<string>::GetEnumerator()                                                  external System.Runtime
-  IL_0015  callvirt  System.Collections.Generic.IEnumerator<string>::get_Current()                                                    external System.Runtime
-  IL_001D  call      Ref.Modern.<Modern>FF489395A1E20E605643BF69014925D7A99F6E6157B8F353A6763F1BB93A3375D__Helper::Normalize(string)  internal
-  IL_0022  callvirt  System.Collections.Generic.HashSet<string>::Add(string)                                                          external System.Collections
-  IL_0029  callvirt  System.Collections.IEnumerator::MoveNext()                                                                       external System.Runtime
-  IL_0036  callvirt  System.IDisposable::Dispose()                                                                                    external System.Runtime
+  IL_0000  call      System.StringComparer::get_Ordinal()                                          external System.Runtime
+  IL_0005  newobj    System.Collections.Generic.HashSet<string>::.ctor(IEqualityComparer<string>)  external System.Collections
+  IL_000C  callvirt  System.Collections.Generic.IEnumerable<string>::GetEnumerator()               external System.Runtime
+  IL_0015  callvirt  System.Collections.Generic.IEnumerator<string>::get_Current()                 external System.Runtime
+  IL_001D  call      Ref.Modern.Helper::Normalize(string)                                          internal
+  IL_0022  callvirt  System.Collections.Generic.HashSet<string>::Add(string)                       external System.Collections
+  IL_0029  callvirt  System.Collections.IEnumerator::MoveNext()                                    external System.Runtime
+  IL_0036  callvirt  System.IDisposable::Dispose()                                                 external System.Runtime
 [Callers]
   Ref.Modern.Catalog::Contains  IL_0006  call  (Ref15.Modern.dll)
