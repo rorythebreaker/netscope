@@ -14,7 +14,7 @@ A command-line static analyzer for .NET assemblies. For each method it shows the
 Every release file is listed with its hash in `SHA256SUMS.txt` and has a GitHub build provenance attestation. To check that a binary was built by this repository's CI from the tagged commit:
 
 ```
-gh attestation verify netscope-win-x64-v1.1.0.zip -R rorythebreaker/netscope
+gh attestation verify netscope-win-x64-v1.2.0.zip -R rorythebreaker/netscope
 ```
 
 To publish a release, push a tag `vX.Y.Z`. CI builds the binaries and the `NetScope.Tool` package from that commit, attests them, and creates the GitHub release with the license files and checksums. If `.github/release-notes/vX.Y.Z.md` exists, it becomes the release notes. If the repository has the `NUGET_API_KEY` secret, the package is pushed to NuGet. If it has `SCOOP_BUCKET_TOKEN` (write access to `rorythebreaker/scoop-bucket`), the Scoop manifest is updated (`packaging/scoop/make-manifest.sh`).

@@ -270,7 +270,7 @@ jobs:
       - name: Pack NetScope.Tool
         shell: bash
         run: |
-          version=1.1.0-ci.${GITHUB_RUN_NUMBER}
+          version=1.2.0-ci.${GITHUB_RUN_NUMBER}
           if [[ $GITHUB_REF == refs/tags/v* ]]; then version=${GITHUB_REF_NAME#v}; fi
           dotnet pack src/NetScope -c Release -p:Version="$version" -o nupkg
           dotnet tool install NetScope.Tool --tool-path tool --add-source nupkg --version "$version"
