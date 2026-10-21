@@ -23,6 +23,29 @@ jobs:
       - name: Test (reference assemblies and golden output)
         run: dotnet test NetScope.sln -c Release
 
+  # TZ 4.2: the SARIF of --audit loads into GitHub Code Scanning. The samples contain insecure code on
+  # purpose (tests/NetScope.Samples/Audit.cs), so their alerts appear under the "netscope-samples" category.
+  sarif:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+          dotnet-version: 8.0.x
+      - name: Audit the samples
+        run: |
+          dotnet build NetScope.sln -c Release
+          dotnet src/NetScope/bin/Release/net8.0/netscope.dll tests/NetScope.Samples/bin/Release/net8.0/NetScope.Samples.dll tests/NetScope.Samples.Pdb/bin/Release/net8.0/NetScope.Samples.Pdb.dll --format sarif --out netscope.sarif
+      - uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: netscope.sarif
+          category: netscope-samples
+
   publish:
     needs: test
     strategy:

@@ -111,7 +111,7 @@ public class CatalogTests
         {
             var filter = new MethodFilter(Array.Empty<string>(), new[] { "async,pinvoke" });
             var selected = methods.Where(filter.Matches).Select(m => m.Name).ToList();
-            Assert.Equal(new[] { "ComputeAsync", "Ticks" }, selected);
+            Assert.Equal(new[] { "ComputeAsync", "Ticks", "VirtualAlloc", "LoadLibrary", "GetCurrentThreadId" }, selected);
             Assert.Throws<ArgumentException>(() => new MethodFilter(Array.Empty<string>(), new[] { "nonsense" }));
         }
     }

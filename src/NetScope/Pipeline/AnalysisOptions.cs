@@ -32,6 +32,14 @@ public sealed class AnalysisOptions
     public IReadOnlyList<string> SourcePaths { get; init; } = Array.Empty<string>();
     /// <summary>--uses, --find-string, --field-refs (empty: no cross-reference filter).</summary>
     public CrossRefs.CrossReferenceQuery Query { get; init; } = CrossRefs.CrossReferenceQuery.None;
+    /// <summary>--audit: rules to run (null: no audit). Methods without findings are not reported.</summary>
+    public IReadOnlyList<Audit.IRule>? AuditRules { get; init; }
+    /// <summary>--min-level: findings below it are dropped.</summary>
+    public Audit.Severity MinLevel { get; init; } = Audit.Severity.Note;
+    /// <summary>--fail-on: exit code 4 when a finding of this level or higher remains.</summary>
+    public Audit.Severity? FailOn { get; init; }
+    /// <summary>--detect-obfuscation: verdict and signs per assembly.</summary>
+    public bool DetectObfuscation { get; init; }
     /// <summary>Restrictions for processes that run analyzed code (--allow-run).</summary>
     public SandboxOptions Sandbox { get; init; } = new();
 }

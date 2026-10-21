@@ -7,6 +7,8 @@
     <!-- Test input for debug symbols: a separate Portable PDB, unoptimized so every local keeps its slot and name. -->
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
+    <!-- Fingerprint() uses MD5 on purpose: an audit finding with a source line. -->
+    <NoWarn>$(NoWarn);CA5351</NoWarn>
   </PropertyGroup>
 
 </Project>

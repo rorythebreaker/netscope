@@ -1,13 +1,13 @@
 Assembly : NetScope.Samples.dll
 Name     : NetScope.Samples, Version=1.0.0.0
 Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
-Methods  : 2
+Methods  : 14
 
 Type     : MyApp.Marker
 
 Method   : void OnLoad()
 Kind     : static, internal
-RVA      : 0x2058   Size: 31 bytes   Token: 0x06000002
+RVA      : 0x20A0   Size: 31 bytes   Token: 0x06000009
 
 [Matches]
   IL_0000  ldstr     "NETSCOPE_SAMPLE_MARKER"
@@ -17,9 +17,104 @@ Type     : MyApp.Flow.Branches
 
 Method   : string Switch(int code)
 Kind     : static, public
-RVA      : 0x20A9   Size: 54 bytes   Token: 0x06000004
+RVA      : 0x20F1   Size: 54 bytes   Token: 0x0600000B
 
 [Matches]
   IL_0018  ldstr     "zero"
   IL_001E  ldstr     "one"
   IL_002A  ldstr     "three"
+
+Type     : MyApp.Audit.Ns001
+
+Method   : void PositiveStartsShell()
+Kind     : static, public
+RVA      : 0x25FB   Size: 17 bytes   Token: 0x0600003C
+
+[Matches]
+  IL_0000  ldstr     "cmd.exe"
+
+Type     : MyApp.Audit.Ns007
+
+Method   : string PositiveConnectionString()
+Kind     : static, public
+RVA      : 0x2762   Size: 6 bytes   Token: 0x06000050
+
+[Matches]
+  IL_0000  ldstr     "Server=db;User Id=app;Password=Example-1;"
+
+Method   : string PositiveAwsKey()
+Kind     : static, public
+RVA      : 0x2769   Size: 6 bytes   Token: 0x06000051
+
+[Matches]
+  IL_0000  ldstr     "AKIAEXAMPLEEXAMPLE12"
+
+Method   : string PositivePrivateKey()
+Kind     : static, public
+RVA      : 0x2770   Size: 6 bytes   Token: 0x06000052
+
+[Matches]
+  IL_0000  ldstr     "-----BEGIN PRIVATE KEY-----\nMIIB...\n"
+
+Method   : string NegativeIntegratedSecurity()
+Kind     : static, public
+RVA      : 0x2777   Size: 6 bytes   Token: 0x06000053
+
+[Matches]
+  IL_0000  ldstr     "Server=db;Integrated Security=true;"
+
+Method   : string NegativePrompt()
+Kind     : static, public
+RVA      : 0x277E   Size: 6 bytes   Token: 0x06000054
+
+[Matches]
+  IL_0000  ldstr     "Enter your password:"
+
+Type     : MyApp.Audit.Ns009
+
+Method   : SqlCommand PositiveConcatenation(string name, object connection)
+Kind     : static, public
+RVA      : 0x2794   Size: 23 bytes   Token: 0x0600005A
+
+[Matches]
+  IL_0000  ldstr     "SELECT * FROM Users WHERE Name = '"
+
+Method   : void PositiveInterpolation(SqlCommand command, int id)
+Kind     : static, public
+RVA      : 0x27AC   Size: 44 bytes   Token: 0x0600005B
+
+[Matches]
+  IL_000D  ldstr     "DELETE FROM Orders WHERE Id = "
+
+Method   : SqlCommand NegativeParameters(object connection)
+Kind     : static, public
+RVA      : 0x27E4   Size: 12 bytes   Token: 0x0600005C
+
+[Matches]
+  IL_0000  ldstr     "SELECT * FROM Users WHERE Name = @name"
+
+Type     : MyApp.Audit.Ns010
+
+Method   : void PositiveAutorun(string path)
+Kind     : static, public
+RVA      : 0x27F1   Size: 27 bytes   Token: 0x0600005D
+
+[Matches]
+  IL_0005  ldstr     "Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+
+Method   : object NegativeReadsSetting()
+Kind     : static, public
+RVA      : 0x280D   Size: 32 bytes   Token: 0x0600005E
+
+[Matches]
+  IL_0005  ldstr     "Software\\MyApp"
+  IL_0015  ldstr     "Theme"
+
+Type     : MyApp.Audit.Suppressed
+
+Method   : void StartsToolOnPurpose()
+Kind     : static, public
+RVA      : 0x282E   Size: 12 bytes   Token: 0x0600005F
+
+[Matches]
+  IL_0000  ldstr     "notepad.exe"

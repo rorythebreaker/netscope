@@ -1,7 +1,7 @@
 Assembly : NetScope.Samples.dll
 Name     : NetScope.Samples, Version=1.0.0.0
 Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
-Methods  : 70
+Methods  : 117
 
 Type     : <Module>
 
@@ -9,315 +9,534 @@ Method   : void .cctor()
 Kind     : cctor, static, private, compiler-generated
 RVA      : 0x2050   Size: 6 bytes   Token: 0x06000001
 
+Type     : System.Data.SqlClient.SqlCommand
+
+Method   : void .ctor(string commandText, object connection)
+Kind     : ctor, instance, public
+RVA      : 0x2057   Size: 21 bytes   Token: 0x06000002
+
+Method   : string get_CommandText()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x206D   Size: 7 bytes   Token: 0x06000003
+
+Method   : void set_CommandText(string value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x2075   Size: 8 bytes   Token: 0x06000004
+
+Method   : object get_Connection()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x207E   Size: 7 bytes   Token: 0x06000005
+
+Type     : Newtonsoft.Json.JsonSerializerSettings
+
+Method   : TypeNameHandling get_TypeNameHandling()
+Kind     : property-get, instance, public, compiler-generated
+RVA      : 0x2086   Size: 7 bytes   Token: 0x06000006
+
+Method   : void set_TypeNameHandling(TypeNameHandling value)
+Kind     : property-set, instance, public, compiler-generated
+RVA      : 0x208E   Size: 8 bytes   Token: 0x06000007
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x2097   Size: 7 bytes   Token: 0x06000008
+
 Type     : MyApp.Marker
 
 Method   : void OnLoad()
 Kind     : static, internal
-RVA      : 0x2058   Size: 31 bytes   Token: 0x06000002
+RVA      : 0x20A0   Size: 31 bytes   Token: 0x06000009
 
 Type     : MyApp.Flow.Branches
 
 Method   : int Loop(int n)
 Kind     : static, public
-RVA      : 0x2084   Size: 25 bytes   Token: 0x06000003
+RVA      : 0x20CC   Size: 25 bytes   Token: 0x0600000A
 
 Method   : string Switch(int code)
 Kind     : static, public
-RVA      : 0x20A9   Size: 54 bytes   Token: 0x06000004
+RVA      : 0x20F1   Size: 54 bytes   Token: 0x0600000B
 
 Method   : int NestedTry(string s)
 Kind     : static, public
-RVA      : 0x20E0   Size: 63 bytes   Token: 0x06000005
+RVA      : 0x2128   Size: 63 bytes   Token: 0x0600000C
 
 Method   : void Throws(object o)
 Kind     : static, public
-RVA      : 0x2154   Size: 25 bytes   Token: 0x06000006
+RVA      : 0x219C   Size: 25 bytes   Token: 0x0600000D
 
 Type     : MyApp.Flow.Generic`1
 
 Method   : T get_Value()
 Kind     : property-get, instance, public, compiler-generated
-RVA      : 0x216E   Size: 7 bytes   Token: 0x06000007
+RVA      : 0x21B6   Size: 7 bytes   Token: 0x0600000E
 
 Method   : void set_Value(T value)
 Kind     : property-set, instance, private, compiler-generated
-RVA      : 0x2176   Size: 8 bytes   Token: 0x06000008
+RVA      : 0x21BE   Size: 8 bytes   Token: 0x0600000F
 
 Method   : TOut Map<TOut>(Func<T, TOut> map)
 Kind     : instance, public, generic
-RVA      : 0x217F   Size: 13 bytes   Token: 0x06000009
+RVA      : 0x21C7   Size: 13 bytes   Token: 0x06000010
 
 Method   : Generic<T> Create(T value)
 Kind     : static, public
-RVA      : 0x218D   Size: 13 bytes   Token: 0x0600000A
+RVA      : 0x21D5   Size: 13 bytes   Token: 0x06000011
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x219B   Size: 7 bytes   Token: 0x0600000B
+RVA      : 0x21E3   Size: 7 bytes   Token: 0x06000012
 
 Type     : MyApp.Flow.GenericUse
 
 Method   : int Length(string s)
 Kind     : static, public
-RVA      : 0x21A3   Size: 43 bytes   Token: 0x0600000C
+RVA      : 0x21EB   Size: 43 bytes   Token: 0x06000013
 
 Type     : MyApp.Flow.Features
 
 Method   : void .cctor()
 Kind     : cctor, static, private
-RVA      : 0x21CF   Size: 7 bytes   Token: 0x0600000D
+RVA      : 0x2217   Size: 7 bytes   Token: 0x06000014
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x21D7   Size: 19 bytes   Token: 0x0600000E
+RVA      : 0x221F   Size: 19 bytes   Token: 0x06000015
 
 Method   : void Finalize()
 Kind     : finalizer, instance, protected, override
-RVA      : 0x21EC   Size: 17 bytes   Token: 0x0600000F
+RVA      : 0x2234   Size: 17 bytes   Token: 0x06000016
 
 Method   : int get_Instances()
 Kind     : property-get, static, public, compiler-generated
-RVA      : 0x221C   Size: 6 bytes   Token: 0x06000010
+RVA      : 0x2264   Size: 6 bytes   Token: 0x06000017
 
 Method   : void set_Instances(int value)
 Kind     : property-set, static, private, compiler-generated
-RVA      : 0x2223   Size: 7 bytes   Token: 0x06000011
+RVA      : 0x226B   Size: 7 bytes   Token: 0x06000018
 
 Method   : void add_Changed(EventHandler value)
 Kind     : event-add, instance, public, compiler-generated
-RVA      : 0x222C   Size: 41 bytes   Token: 0x06000012
+RVA      : 0x2274   Size: 41 bytes   Token: 0x06000019
 
 Method   : void remove_Changed(EventHandler value)
 Kind     : event-remove, instance, public, compiler-generated
-RVA      : 0x2264   Size: 41 bytes   Token: 0x06000013
+RVA      : 0x22AC   Size: 41 bytes   Token: 0x0600001A
 
 Method   : Features op_Addition(Features a, Features b)
 Kind     : operator, static, public
-RVA      : 0x2299   Size: 25 bytes   Token: 0x06000014
+RVA      : 0x22E1   Size: 25 bytes   Token: 0x0600001B
 
 Method   : int op_Implicit(Features f)
 Kind     : conversion, static, public
-RVA      : 0x22B3   Size: 7 bytes   Token: 0x06000015
+RVA      : 0x22FB   Size: 7 bytes   Token: 0x0600001C
 
 Method   : Task<int> ComputeAsync(int x)
 Kind     : instance, public, async
-RVA      : 0x22BC   Size: 55 bytes   Token: 0x06000016
+RVA      : 0x2304   Size: 55 bytes   Token: 0x0600001D
 
 Method   : IEnumerable<int> Range(int n)
 Kind     : instance, public, iterator
-RVA      : 0x22FF   Size: 15 bytes   Token: 0x06000017
+RVA      : 0x2347   Size: 15 bytes   Token: 0x0600001E
 
 Method   : int Lambdas(int[] values)
 Kind     : instance, public
-RVA      : 0x2310   Size: 83 bytes   Token: 0x06000018
+RVA      : 0x2358   Size: 83 bytes   Token: 0x0600001F
 
 Method   : void Raise()
 Kind     : instance, public
-RVA      : 0x236F   Size: 23 bytes   Token: 0x06000019
+RVA      : 0x23B7   Size: 23 bytes   Token: 0x06000020
 
 Method   : void Dispose()
 Kind     : instance, public, virtual, sealed
-RVA      : 0x2387   Size: 7 bytes   Token: 0x0600001A
+RVA      : 0x23CF   Size: 7 bytes   Token: 0x06000021
 
 Method   : uint Ticks()
 Kind     : static, public, pinvoke, no-body
-RVA      : 0x0000   Token: 0x0600001B
+RVA      : 0x0000   Token: 0x06000022
 PInvoke  : kernel32.dll!GetTickCount
 
 Method   : int <Lambdas>g__Local|15_2(int v)
 Kind     : static, internal, local-function, compiler-generated
-RVA      : 0x238F   Size: 4 bytes   Token: 0x0600001C
+RVA      : 0x23D7   Size: 4 bytes   Token: 0x06000023
 
 Type     : MyApp.Flow.Overloaded
 
 Method   : int Foo(int x)
 Kind     : static, public
-RVA      : 0x2394   Size: 4 bytes   Token: 0x0600001D
+RVA      : 0x23DC   Size: 4 bytes   Token: 0x06000024
 
 Method   : int Foo(string s)
 Kind     : static, public
-RVA      : 0x239C   Size: 38 bytes   Token: 0x0600001E
+RVA      : 0x23E4   Size: 38 bytes   Token: 0x06000025
 
 Method   : int Foo<T>(T value)
 Kind     : static, public, generic
-RVA      : 0x23D0   Size: 98 bytes   Token: 0x0600001F
+RVA      : 0x2418   Size: 98 bytes   Token: 0x06000026
 
 Type     : MyApp.Flow.Shape
 
 Method   : double Area()
 Kind     : instance, public, abstract, no-body
-RVA      : 0x0000   Token: 0x06000020
+RVA      : 0x0000   Token: 0x06000027
 
 Method   : string Describe()
 Kind     : instance, public, virtual
-RVA      : 0x2440   Size: 36 bytes   Token: 0x06000021
+RVA      : 0x2488   Size: 36 bytes   Token: 0x06000028
 
 Method   : void .ctor()
 Kind     : ctor, instance, protected
-RVA      : 0x2470   Size: 7 bytes   Token: 0x06000022
+RVA      : 0x24B8   Size: 7 bytes   Token: 0x06000029
 
 Type     : MyApp.Flow.Circle
 
 Method   : double get_R()
 Kind     : property-get, instance, public, compiler-generated
-RVA      : 0x2478   Size: 7 bytes   Token: 0x06000023
+RVA      : 0x24C0   Size: 7 bytes   Token: 0x0600002A
 
 Method   : void set_R(double value)
 Kind     : property-set, instance, public, compiler-generated
-RVA      : 0x2480   Size: 8 bytes   Token: 0x06000024
+RVA      : 0x24C8   Size: 8 bytes   Token: 0x0600002B
 
 Method   : double Area()
 Kind     : instance, public, override
-RVA      : 0x2489   Size: 24 bytes   Token: 0x06000025
+RVA      : 0x24D1   Size: 24 bytes   Token: 0x0600002C
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x24A2   Size: 7 bytes   Token: 0x06000026
+RVA      : 0x24EA   Size: 7 bytes   Token: 0x0600002D
 
 Type     : MyApp.Auth.ILoginService
 
 Method   : bool Login(string user, string pass)
 Kind     : instance, public, abstract, no-body
-RVA      : 0x0000   Token: 0x06000027
+RVA      : 0x0000   Token: 0x0600002E
 
 Type     : MyApp.Auth.LoginService
 
 Method   : bool Login(string user, string pass)
 Kind     : instance, public, virtual
-RVA      : 0x24AC   Size: 36 bytes   Token: 0x06000028
+RVA      : 0x24F4   Size: 36 bytes   Token: 0x0600002F
 
 Method   : string Hash(string s)
 Kind     : static, public
-RVA      : 0x24DC   Size: 15 bytes   Token: 0x06000029
+RVA      : 0x2524   Size: 15 bytes   Token: 0x06000030
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x24F7   Size: 18 bytes   Token: 0x0600002A
+RVA      : 0x253F   Size: 18 bytes   Token: 0x06000031
 
 Type     : MyApp.Auth.AdminLoginService
 
 Method   : bool Login(string user, string pass)
 Kind     : instance, public, override
-RVA      : 0x250A   Size: 24 bytes   Token: 0x0600002B
+RVA      : 0x2552   Size: 24 bytes   Token: 0x06000032
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x2523   Size: 7 bytes   Token: 0x0600002C
+RVA      : 0x256B   Size: 7 bytes   Token: 0x06000033
 
 Type     : MyApp.Db.User
 
 Method   : string get_Name()
 Kind     : property-get, instance, public, compiler-generated
-RVA      : 0x252B   Size: 7 bytes   Token: 0x0600002D
+RVA      : 0x2573   Size: 7 bytes   Token: 0x06000034
 
 Method   : void set_Name(string value)
 Kind     : property-set, instance, public, compiler-generated
-RVA      : 0x2533   Size: 8 bytes   Token: 0x0600002E
+RVA      : 0x257B   Size: 8 bytes   Token: 0x06000035
 
 Method   : string get_Hash()
 Kind     : property-get, instance, public, compiler-generated
-RVA      : 0x253C   Size: 7 bytes   Token: 0x0600002F
+RVA      : 0x2584   Size: 7 bytes   Token: 0x06000036
 
 Method   : void set_Hash(string value)
 Kind     : property-set, instance, public, compiler-generated
-RVA      : 0x2544   Size: 8 bytes   Token: 0x06000030
+RVA      : 0x258C   Size: 8 bytes   Token: 0x06000037
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x254D   Size: 29 bytes   Token: 0x06000031
+RVA      : 0x2595   Size: 29 bytes   Token: 0x06000038
 
 Type     : MyApp.Db.Users
 
 Method   : User Find(string name)
 Kind     : instance, public, virtual
-RVA      : 0x256C   Size: 20 bytes   Token: 0x06000032
+RVA      : 0x25B4   Size: 20 bytes   Token: 0x06000039
 
 Method   : void Add(User user)
 Kind     : instance, public
-RVA      : 0x258C   Size: 19 bytes   Token: 0x06000033
+RVA      : 0x25D4   Size: 19 bytes   Token: 0x0600003A
 
 Method   : void .ctor()
 Kind     : ctor, instance, public
-RVA      : 0x25A0   Size: 18 bytes   Token: 0x06000034
+RVA      : 0x25E8   Size: 18 bytes   Token: 0x0600003B
+
+Type     : MyApp.Audit.Ns001
+
+Method   : void PositiveStartsShell()
+Kind     : static, public
+RVA      : 0x25FB   Size: 17 bytes   Token: 0x0600003C
+
+Method   : ProcessStartInfo PositiveBuildsStartInfo(string file)
+Kind     : static, public
+RVA      : 0x260D   Size: 14 bytes   Token: 0x0600003D
+
+Method   : int NegativeReadsOwnProcess()
+Kind     : static, public
+RVA      : 0x261C   Size: 22 bytes   Token: 0x0600003E
+
+Type     : MyApp.Audit.Ns002
+
+Method   : Assembly PositiveLoadsFromPath(string path)
+Kind     : static, public
+RVA      : 0x2633   Size: 7 bytes   Token: 0x0600003F
+
+Method   : object PositiveCreatesByName(string assembly, string type)
+Kind     : static, public
+RVA      : 0x263B   Size: 8 bytes   Token: 0x06000040
+
+Method   : object NegativeCreatesByType()
+Kind     : static, public
+RVA      : 0x2644   Size: 16 bytes   Token: 0x06000041
+
+Type     : MyApp.Audit.Ns003
+
+Method   : object PositiveInvokesByName(string typeName)
+Kind     : static, public
+RVA      : 0x2655   Size: 24 bytes   Token: 0x06000042
+
+Method   : string NegativeLooksUpWithoutInvoke()
+Kind     : static, public
+RVA      : 0x266E   Size: 31 bytes   Token: 0x06000043
+
+Type     : MyApp.Audit.Ns004
+
+Method   : object PositiveBinaryFormatter(Stream data)
+Kind     : static, public
+RVA      : 0x268E   Size: 12 bytes   Token: 0x06000044
+
+Method   : JsonSerializerSettings PositiveTypeNameHandling()
+Kind     : static, public
+RVA      : 0x269B   Size: 13 bytes   Token: 0x06000045
+
+Method   : JsonSerializerSettings NegativeTypeNameHandlingNone()
+Kind     : static, public
+RVA      : 0x26A9   Size: 13 bytes   Token: 0x06000046
+
+Method   : int[] NegativeSystemTextJson(string json)
+Kind     : static, public
+RVA      : 0x26B7   Size: 8 bytes   Token: 0x06000047
+
+Type     : MyApp.Audit.Ns005
+
+Method   : byte[] PositiveMd5(byte[] data)
+Kind     : static, public
+RVA      : 0x26C0   Size: 7 bytes   Token: 0x06000048
+
+Method   : void PositiveEcb(Aes aes)
+Kind     : static, public
+RVA      : 0x26C8   Size: 8 bytes   Token: 0x06000049
+
+Method   : string PositiveRandomToken()
+Kind     : static, public
+RVA      : 0x26D4   Size: 24 bytes   Token: 0x0600004A
+
+Method   : byte[] NegativeSha256(byte[] data)
+Kind     : static, public
+RVA      : 0x26F8   Size: 7 bytes   Token: 0x0600004B
+
+Method   : void NegativeCbc(Aes aes)
+Kind     : static, public
+RVA      : 0x2700   Size: 8 bytes   Token: 0x0600004C
+
+Method   : int NegativeShuffleCards(int count)
+Kind     : static, public
+RVA      : 0x2709   Size: 12 bytes   Token: 0x0600004D
+
+Type     : MyApp.Audit.Ns006
+
+Method   : void PositiveAcceptAnyCertificate()
+Kind     : static, public
+RVA      : 0x2716   Size: 37 bytes   Token: 0x0600004E
+
+Method   : void NegativeChecksErrors()
+Kind     : static, public
+RVA      : 0x273C   Size: 37 bytes   Token: 0x0600004F
+
+Type     : MyApp.Audit.Ns007
+
+Method   : string PositiveConnectionString()
+Kind     : static, public
+RVA      : 0x2762   Size: 6 bytes   Token: 0x06000050
+
+Method   : string PositiveAwsKey()
+Kind     : static, public
+RVA      : 0x2769   Size: 6 bytes   Token: 0x06000051
+
+Method   : string PositivePrivateKey()
+Kind     : static, public
+RVA      : 0x2770   Size: 6 bytes   Token: 0x06000052
+
+Method   : string NegativeIntegratedSecurity()
+Kind     : static, public
+RVA      : 0x2777   Size: 6 bytes   Token: 0x06000053
+
+Method   : string NegativePrompt()
+Kind     : static, public
+RVA      : 0x277E   Size: 6 bytes   Token: 0x06000054
+
+Type     : MyApp.Audit.Ns008
+
+Method   : nint VirtualAlloc(nint address, nuint size, uint type, uint protect)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000055
+PInvoke  : kernel32.dll!VirtualAlloc
+
+Method   : nint LoadLibrary(string name)
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000056
+PInvoke  : kernel32.dll!LoadLibraryW
+
+Method   : Action PositiveFunctionPointer(nint p)
+Kind     : static, public
+RVA      : 0x2785   Size: 7 bytes   Token: 0x06000057
+
+Method   : uint GetCurrentThreadId()
+Kind     : static, public, pinvoke, no-body
+RVA      : 0x0000   Token: 0x06000058
+PInvoke  : kernel32.dll!GetCurrentThreadId
+
+Method   : int NegativeSizeOf()
+Kind     : static, public
+RVA      : 0x278D   Size: 6 bytes   Token: 0x06000059
+
+Type     : MyApp.Audit.Ns009
+
+Method   : SqlCommand PositiveConcatenation(string name, object connection)
+Kind     : static, public
+RVA      : 0x2794   Size: 23 bytes   Token: 0x0600005A
+
+Method   : void PositiveInterpolation(SqlCommand command, int id)
+Kind     : static, public
+RVA      : 0x27AC   Size: 44 bytes   Token: 0x0600005B
+
+Method   : SqlCommand NegativeParameters(object connection)
+Kind     : static, public
+RVA      : 0x27E4   Size: 12 bytes   Token: 0x0600005C
+
+Type     : MyApp.Audit.Ns010
+
+Method   : void PositiveAutorun(string path)
+Kind     : static, public
+RVA      : 0x27F1   Size: 27 bytes   Token: 0x0600005D
+
+Method   : object NegativeReadsSetting()
+Kind     : static, public
+RVA      : 0x280D   Size: 32 bytes   Token: 0x0600005E
+
+Type     : MyApp.Audit.Suppressed
+
+Method   : void StartsToolOnPurpose()
+Kind     : static, public
+RVA      : 0x282E   Size: 12 bytes   Token: 0x0600005F
 
 Type     : MyApp.Flow.GenericUse+<>c
 
 Method   : void .cctor()
 Kind     : cctor, static, private, compiler-generated
-RVA      : 0x25B3   Size: 11 bytes   Token: 0x06000035
+RVA      : 0x283B   Size: 11 bytes   Token: 0x06000060
 
 Method   : void .ctor()
 Kind     : ctor, instance, public, compiler-generated
-RVA      : 0x25BF   Size: 7 bytes   Token: 0x06000036
+RVA      : 0x2847   Size: 7 bytes   Token: 0x06000061
 
 Method   : int <Length>b__0_0(string v)
 Kind     : instance, internal, lambda, compiler-generated
-RVA      : 0x25C7   Size: 7 bytes   Token: 0x06000037
+RVA      : 0x284F   Size: 7 bytes   Token: 0x06000062
 
 Type     : MyApp.Flow.Features+<>c
 
 Method   : void .cctor()
 Kind     : cctor, static, private, compiler-generated
-RVA      : 0x25CF   Size: 11 bytes   Token: 0x06000038
+RVA      : 0x2857   Size: 11 bytes   Token: 0x06000063
 
 Method   : void .ctor()
 Kind     : ctor, instance, public, compiler-generated
-RVA      : 0x25DB   Size: 7 bytes   Token: 0x06000039
+RVA      : 0x2863   Size: 7 bytes   Token: 0x06000064
 
 Method   : bool <Lambdas>b__15_1(int v)
 Kind     : instance, internal, lambda, compiler-generated
-RVA      : 0x25E3   Size: 5 bytes   Token: 0x0600003A
+RVA      : 0x286B   Size: 5 bytes   Token: 0x06000065
 
 Type     : MyApp.Flow.Features+<>c__DisplayClass15_0
 
 Method   : void .ctor()
 Kind     : ctor, instance, public, compiler-generated
-RVA      : 0x25E9   Size: 7 bytes   Token: 0x0600003B
+RVA      : 0x2871   Size: 7 bytes   Token: 0x06000066
 
 Method   : int <Lambdas>b__0(int v)
 Kind     : instance, internal, lambda, compiler-generated
-RVA      : 0x25F1   Size: 9 bytes   Token: 0x0600003C
+RVA      : 0x2879   Size: 9 bytes   Token: 0x06000067
 
 Type     : MyApp.Flow.Features+<ComputeAsync>d__13
 
 Method   : void MoveNext()
 Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
-RVA      : 0x25FC   Size: 153 bytes   Token: 0x0600003D
+RVA      : 0x2884   Size: 153 bytes   Token: 0x06000068
 
 Method   : void SetStateMachine(IAsyncStateMachine stateMachine)
 Kind     : instance, private, virtual, sealed, compiler-generated
-RVA      : 0x26B4   Size: 13 bytes   Token: 0x0600003E
+RVA      : 0x293C   Size: 13 bytes   Token: 0x06000069
 
 Type     : MyApp.Flow.Features+<Range>d__14
 
 Method   : void .ctor(int <>1__state)
 Kind     : ctor, instance, public, compiler-generated
-RVA      : 0x26C2   Size: 25 bytes   Token: 0x0600003F
+RVA      : 0x294A   Size: 25 bytes   Token: 0x0600006A
 
 Method   : void System.IDisposable.Dispose()
 Kind     : instance, private, virtual, sealed, compiler-generated
-RVA      : 0x26DC   Size: 9 bytes   Token: 0x06000040
+RVA      : 0x2964   Size: 9 bytes   Token: 0x0600006B
 
 Method   : bool MoveNext()
 Kind     : instance, private, virtual, sealed, state-machine, compiler-generated
-RVA      : 0x26E8   Size: 92 bytes   Token: 0x06000041
+RVA      : 0x2970   Size: 92 bytes   Token: 0x0600006C
 
 Method   : int System.Collections.Generic.IEnumerator<System.Int32>.get_Current()
 Kind     : property-get, instance, private, virtual, sealed, compiler-generated
-RVA      : 0x2750   Size: 7 bytes   Token: 0x06000042
+RVA      : 0x29D8   Size: 7 bytes   Token: 0x0600006D
 
 Method   : void System.Collections.IEnumerator.Reset()
 Kind     : instance, private, virtual, sealed, compiler-generated
-RVA      : 0x2758   Size: 6 bytes   Token: 0x06000043
+RVA      : 0x29E0   Size: 6 bytes   Token: 0x0600006E
 
 Method   : object System.Collections.IEnumerator.get_Current()
 Kind     : property-get, instance, private, virtual, sealed, compiler-generated
-RVA      : 0x275F   Size: 12 bytes   Token: 0x06000044
+RVA      : 0x29E7   Size: 12 bytes   Token: 0x0600006F
 
 Method   : IEnumerator<int> System.Collections.Generic.IEnumerable<System.Int32>.GetEnumerator()
 Kind     : instance, private, virtual, sealed, compiler-generated
-RVA      : 0x276C   Size: 55 bytes   Token: 0x06000045
+RVA      : 0x29F4   Size: 55 bytes   Token: 0x06000070
 
 Method   : IEnumerator System.Collections.IEnumerable.GetEnumerator()
 Kind     : instance, private, virtual, sealed, compiler-generated
-RVA      : 0x27AF   Size: 7 bytes   Token: 0x06000046
+RVA      : 0x2A37   Size: 7 bytes   Token: 0x06000071
+
+Type     : MyApp.Audit.Ns006+<>c
+
+Method   : void .cctor()
+Kind     : cctor, static, private, compiler-generated
+RVA      : 0x2A3F   Size: 11 bytes   Token: 0x06000072
+
+Method   : void .ctor()
+Kind     : ctor, instance, public, compiler-generated
+RVA      : 0x2A4B   Size: 7 bytes   Token: 0x06000073
+
+Method   : bool <PositiveAcceptAnyCertificate>b__0_0(object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors errors)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2A53   Size: 2 bytes   Token: 0x06000074
+
+Method   : bool <NegativeChecksErrors>b__1_0(object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors errors)
+Kind     : instance, internal, lambda, compiler-generated
+RVA      : 0x2A56   Size: 6 bytes   Token: 0x06000075

@@ -1,0 +1,7 @@
+﻿<project outputDir="../../../../out/nowatermark" baseDir="src/bin/Release/net472" xmlns="http://confuser.codeplex.com">
+  <!-- The same protections without the ConfusedBy watermark: detection must rely on the signs alone. -->
+  <rule pattern="true" preset="normal" inherit="false">
+    <protection id="watermark" action="remove" />
+  </rule>
+  <module path="ObfuscationSample.exe" />
+</project>
