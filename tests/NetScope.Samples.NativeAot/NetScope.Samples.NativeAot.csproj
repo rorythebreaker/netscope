@@ -14,4 +14,10 @@
     <StripSymbols>true</StripSymbols>
   </PropertyGroup>
 
+  <!-- The MSVC linker map lists every ILC symbol with its address: the independent reference for the addresses
+       export-ghidra reads from the image (tests/Ghidra/Check-NativeAot.ps1). -->
+  <ItemGroup Condition="'$(OS)' == 'Windows_NT'">
+    <LinkerArg Include="/MAP:&quot;$(MSBuildProjectDirectory)/$(IntermediateOutputPath)link.map&quot;" />
+  </ItemGroup>
+
 </Project>

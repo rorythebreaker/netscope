@@ -50,8 +50,9 @@ jobs:
   # Every function from --native must end up at its RVA with the expected name, and a second run must not add
   # anything. TZ-3 §4.2: the ReadyToRun copies of reference assembly 2 for linux-arm64 (assembly 19), linux-x64
   # and osx-arm64 have an OS-encoded Machine field; they are imported with the options the script header names.
+  # TZ-3 §4.3: the NativeAOT images from the nativeaot job are named from their stack trace metadata.
   ghidra:
-    needs: test
+    needs: [test, nativeaot]
     runs-on: windows-latest
     env:
       GHIDRA_VERSION: 11.1.2
@@ -78,6 +79,10 @@ jobs:
           $zip = Join-Path $env:RUNNER_TEMP 'ghidra.zip'
           Invoke-WebRequest "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_${env:GHIDRA_VERSION}_build/ghidra_${env:GHIDRA_BUILD}.zip" -OutFile $zip
           Expand-Archive $zip (Join-Path $env:RUNNER_TEMP 'ghidra')
+      - uses: actions/download-artifact@v8
+        with:
+          name: nativeaot-win-x64
+          path: aot
       - name: Build (also publishes the ReadyToRun sample)
         run: dotnet build NetScope.sln -c Release
       - name: Run the scripts in Ghidra
@@ -87,10 +92,11 @@ jobs:
           # A framework ReadyToRun image with generic names that contain spaces (they once aborted the script).
           $linq = Get-ChildItem "$root/shared/Microsoft.NETCore.App/8.*/System.Linq.dll" | Select-Object -First 1
           $r2r = 'linux-arm64', 'linux-x64', 'osx-arm64' | ForEach-Object { "tests/Reference/bin/r2r/Release/$_/Ref02.Library.dll" }
+          $aot = 'net8.0', 'net10.0' | ForEach-Object { "aot/$_/NetScope.Samples.NativeAot.exe" }
           ./tests/Ghidra/Check-Ghidra.ps1 `
             -GhidraDir (Join-Path $env:RUNNER_TEMP "ghidra/ghidra_${env:GHIDRA_VERSION}_PUBLIC") `
             -NetScopeDll src/NetScope/bin/Release/net8.0/netscope.dll `
-            -Targets (@('tests/NetScope.Samples/bin/r2r/Release/NetScope.Samples.dll', $linq.FullName) + $r2r) `
+            -Targets (@('tests/NetScope.Samples/bin/r2r/Release/NetScope.Samples.dll', $linq.FullName) + $r2r + $aot) `
             -WorkDir (Join-Path $env:RUNNER_TEMP 'ghidra-check')
       - uses: actions/upload-artifact@v7
         if: failure()
@@ -170,19 +176,13 @@ jobs:
           name: ghidra-python3-logs
           path: ${{ runner.temp }}/ghidra-check/*.log
 
-  # TZ-3 §4.3: NativeAOT images of tests/NetScope.Samples.NativeAot (they need the platform linker, so they are
-  # built here, not in NetScope.sln). The ILC map file is the reference for the method names and addresses.
+  # TZ-3 §4.3: export-ghidra names the methods of a NativeAOT image (a PE without a CLR header) from its stack
+  # trace metadata, without a PDB. The sample needs the platform linker, so it is published here, not in
+  # NetScope.sln, for .NET 8 and .NET 10 (the metadata encoding differs). The MSVC linker map of the same build
+  # is the independent reference for the addresses and names (tests/Ghidra/Check-NativeAot.ps1).
   nativeaot:
     needs: test
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - os: windows-latest
-            rid: win-x64
-          - os: ubuntu-latest
-            rid: linux-x64
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-dotnet@v5
@@ -190,16 +190,26 @@ jobs:
           global-json-file: global.json
           dotnet-version: 8.0.x
       - name: Publish the NativeAOT sample
-        shell: bash
+        shell: pwsh
         run: |
-          for tfm in net8.0 net10.0; do
-            dotnet publish tests/NetScope.Samples.NativeAot -c Release -f $tfm -r ${{ matrix.rid }} -p:IlcGenerateMapFile=true -o aot/$tfm
-            cp tests/NetScope.Samples.NativeAot/obj/Release/$tfm/${{ matrix.rid }}/native/*.map* aot/$tfm/ || true
-          done
-          ls -la aot/*
+          foreach ($tfm in 'net8.0', 'net10.0') {
+            dotnet publish tests/NetScope.Samples.NativeAot -c Release -f $tfm -r win-x64 -o aot/$tfm
+            if ($LASTEXITCODE -ne 0) { exit 1 }
+            Copy-Item tests/NetScope.Samples.NativeAot/obj/Release/$tfm/win-x64/link.map aot/$tfm/
+          }
+      - name: Build NetScope
+        run: dotnet build src/NetScope -c Release
+      - name: Check the names against the linker map
+        shell: pwsh
+        run: |
+          foreach ($tfm in 'net8.0', 'net10.0') {
+            ./tests/Ghidra/Check-NativeAot.ps1 -NetScopeDll src/NetScope/bin/Release/net8.0/netscope.dll `
+              -Image aot/$tfm/NetScope.Samples.NativeAot.exe -LinkerMap aot/$tfm/link.map -WorkDir (Join-Path $env:RUNNER_TEMP "aot-$tfm")
+            if ($LASTEXITCODE -ne 0) { exit 1 }
+          }
       - uses: actions/upload-artifact@v7
         with:
-          name: nativeaot-${{ matrix.rid }}
+          name: nativeaot-win-x64
           path: aot
 
   publish:
