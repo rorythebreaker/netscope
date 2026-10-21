@@ -50,6 +50,8 @@ public sealed unsafe class LoadedAssembly : IDisposable
     public bool IsAnyCpu { get; internal set; }
     public string Architecture => IsAnyCpu ? "anycpu" : Native.R2RReader.ArchitectureName(Machine);
     public List<string> Notes { get; } = new();
+    /// <summary>Portable PDB, when one was found and matches the assembly (and --no-pdb is not set).</summary>
+    public Symbols.DebugSymbols? Symbols { get; set; }
 
     /// <summary>ICSharpCode.Decompiler view over the same mapped image (created on demand).</summary>
     public PEFile DecompilerFile => _decompilerFile.Value;
@@ -65,6 +67,7 @@ public sealed unsafe class LoadedAssembly : IDisposable
     {
         if (_disposed) return;
         _disposed = true;
+        Symbols?.Dispose();
         PE.Dispose();
         _view.SafeMemoryMappedViewHandle.ReleasePointer();
         _view.Dispose();

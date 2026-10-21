@@ -3,6 +3,7 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using NetScope.Calls;
 using NetScope.Cfg;
+using NetScope.Symbols;
 
 namespace NetScope.Reporting;
 
@@ -19,9 +20,14 @@ public sealed class JsonReporter : IReporter
     };
 
     private readonly OutputGroups _groups;
+    private readonly SourceFiles? _sources;
     private bool _arrayClosed;
 
-    public JsonReporter(OutputGroups groups) => _groups = groups;
+    public JsonReporter(OutputGroups groups, SourceFiles? sources = null)
+    {
+        _groups = groups;
+        _sources = sources;
+    }
 
     public string Extension => "json";
 
@@ -36,7 +42,7 @@ public sealed class JsonReporter : IReporter
 
     public string RenderAssembly(AssemblyReport report, bool first)
     {
-        var json = Write(w => WriteAssembly(w, report));
+        var json = Write(w => WriteAssembly(w, report, _sources, _groups.Strings));
         return (first ? "" : ",") + Environment.NewLine + Indent(json, 4);
     }
 
@@ -62,7 +68,7 @@ public sealed class JsonReporter : IReporter
         return string.Join(Environment.NewLine, TextReporter.SplitLines(text).Select(l => pad + l));
     }
 
-    private static void WriteAssembly(Utf8JsonWriter w, AssemblyReport report)
+    private static void WriteAssembly(Utf8JsonWriter w, AssemblyReport report, SourceFiles? sources, bool writeStrings)
     {
         var asm = report.Assembly;
         w.WriteStartObject();
@@ -71,6 +77,7 @@ public sealed class JsonReporter : IReporter
         w.WriteString("assembly", asm.Name);
         if (asm.Version != null) w.WriteString("version", asm.Version.ToString());
         if (asm.TargetFramework != null) w.WriteString("targetFramework", asm.TargetFramework);
+        if (asm.Symbols != null) w.WriteString("symbols", asm.Symbols.Origin);
         w.WriteString("metadataVersion", asm.MetadataVersion);
         w.WriteString("machine", asm.Architecture);
         w.WriteBoolean("readyToRun", asm.IsReadyToRun);
@@ -78,12 +85,32 @@ public sealed class JsonReporter : IReporter
         WriteStrings(w, "notes", asm.Notes);
         WriteStrings(w, "errors", report.Errors);
         w.WriteStartArray("methods");
-        foreach (var m in report.Methods) WriteMethod(w, m);
+        foreach (var m in report.Methods) WriteMethod(w, m, sources);
         w.WriteEndArray();
+        if (writeStrings)
+        {
+            w.WriteStartArray("strings");
+            foreach (var s in report.StringIndex.Values.OrderBy(v => v.Value, StringComparer.Ordinal))
+            {
+                w.WriteStartObject();
+                w.WriteString("value", s.Value);
+                w.WriteStartArray("locations");
+                foreach (var (method, offset) in s.Locations)
+                {
+                    w.WriteStartObject();
+                    w.WriteString("method", method.FullName);
+                    w.WriteNumber("offset", offset);
+                    w.WriteEndObject();
+                }
+                w.WriteEndArray();
+                w.WriteEndObject();
+            }
+            w.WriteEndArray();
+        }
         w.WriteEndObject();
     }
 
-    private static void WriteMethod(Utf8JsonWriter w, MethodReport r)
+    private static void WriteMethod(Utf8JsonWriter w, MethodReport r, SourceFiles? sources)
     {
         var m = r.Method;
         w.WriteStartObject();
@@ -105,6 +132,35 @@ public sealed class JsonReporter : IReporter
             w.WriteEndObject();
         }
 
+        if (r.Matches != null)
+        {
+            w.WriteStartArray("matches");
+            foreach (var x in r.Matches)
+            {
+                w.WriteStartObject();
+                w.WriteString("query", x.Query);
+                w.WriteNumber("offset", x.Offset);
+                w.WriteString("kind", x.Kind);
+                w.WriteString("target", x.Target);
+                WriteSource(w, x.Source);
+                w.WriteEndObject();
+            }
+            w.WriteEndArray();
+        }
+        if (r.Fields != null)
+        {
+            w.WriteStartArray("fields");
+            foreach (var f in r.Fields)
+            {
+                w.WriteStartObject();
+                w.WriteNumber("offset", f.Offset);
+                w.WriteString("access", f.Access);
+                w.WriteString("field", f.FullName);
+                w.WriteString("fieldType", f.Field.FieldType);
+                w.WriteEndObject();
+            }
+            w.WriteEndArray();
+        }
         if (r.Calls != null)
         {
             w.WriteStartArray("calls");
@@ -140,7 +196,7 @@ public sealed class JsonReporter : IReporter
             }
             w.WriteEndArray();
         }
-        if (r.Cfg != null) WriteCfg(w, r.Cfg);
+        if (r.Cfg != null) WriteCfg(w, r.Cfg, r.BlockSources);
         if (r.Pseudo != null)
         {
             w.WriteString("pseudocode", r.Pseudo.Text.Replace("\r\n", "\n"));
@@ -156,6 +212,16 @@ public sealed class JsonReporter : IReporter
                 w.WriteNumber("offset", l.Offset);
                 w.WriteString("opcode", l.OpCode);
                 if (l.Operand.Length > 0) w.WriteString("operand", l.Operand);
+                if (l.Source != null)
+                {
+                    w.WriteStartObject("source");
+                    w.WriteString("file", l.Source.File);
+                    w.WriteNumber("line", l.Source.StartLine);
+                    if (l.Source.EndLine != l.Source.StartLine) w.WriteNumber("endLine", l.Source.EndLine);
+                    if (l.StartsSource && sources?.Lines(l.Source.Document, l.Source.StartLine, l.Source.EndLine) is { } text)
+                        w.WriteString("text", string.Join('\n', text));
+                    w.WriteEndObject();
+                }
                 w.WriteEndObject();
             }
             w.WriteEndArray();
@@ -212,7 +278,7 @@ public sealed class JsonReporter : IReporter
         w.WriteEndObject();
     }
 
-    private static void WriteCfg(Utf8JsonWriter w, ControlFlowGraph cfg)
+    private static void WriteCfg(Utf8JsonWriter w, ControlFlowGraph cfg, Dictionary<int, Reporting.SourceRange>? blockSources)
     {
         w.WriteNumber("complexity", cfg.CyclomaticComplexity);
         w.WriteStartArray("blocks");
@@ -226,6 +292,14 @@ public sealed class JsonReporter : IReporter
             w.WriteBoolean("loopHeader", b.IsLoopHeader);
             if (b.ExitKind != null) w.WriteString("exit", b.ExitKind);
             if (b.Region != null) w.WriteNumber("region", b.Region.Index);
+            if (blockSources != null && blockSources.TryGetValue(b.Index, out var range))
+            {
+                w.WriteStartObject("source");
+                w.WriteString("file", range.File);
+                w.WriteNumber("line", range.StartLine);
+                w.WriteNumber("endLine", range.EndLine);
+                w.WriteEndObject();
+            }
             w.WriteStartArray("instructions");
             foreach (var i in b.Instructions) w.WriteNumberValue(i.Offset);
             w.WriteEndArray();
@@ -300,6 +374,15 @@ public sealed class JsonReporter : IReporter
             w.WriteEndObject();
         }
         w.WriteEndArray();
+        w.WriteEndObject();
+    }
+
+    private static void WriteSource(Utf8JsonWriter w, SourcePoint? p)
+    {
+        if (p == null) return;
+        w.WriteStartObject("source");
+        w.WriteString("file", p.File);
+        w.WriteNumber("line", p.StartLine);
         w.WriteEndObject();
     }
 

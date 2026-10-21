@@ -7,6 +7,7 @@ using NetScope.Input;
 using NetScope.Native;
 using NetScope.Pipeline;
 using NetScope.Reporting;
+using NetScope.CrossRefs;
 using NetScope.Sandboxing;
 
 namespace NetScope;
@@ -86,6 +87,16 @@ public static class Program
         private readonly Option<int> _threads = new("--threads") { Description = "Number of files processed in parallel", DefaultValueFactory = _ => Environment.ProcessorCount };
         private readonly Option<int> _decompileTimeout = new("--decompile-timeout") { Description = "Time limit for decompiling one method, seconds", DefaultValueFactory = _ => 20 };
         private readonly Option<int> _maxAbandoned = new("--max-abandoned") { Description = "After this many decompilations exceed the time limit, the remaining methods get simplified pseudocode", DefaultValueFactory = _ => 4 };
+        private readonly Option<bool> _noPdb = new("--no-pdb") { Description = "Do not read debug symbols (PDB)" };
+        private readonly Option<string[]> _pdbPath = new("--pdb-path") { Description = "Directory searched for .pdb files after the assembly's directory (repeatable)" };
+        private readonly Option<bool> _source = new("--source") { Description = "Show source lines next to IL (needs a PDB)" };
+        private readonly Option<string[]> _sourcePath = new("--source-path") { Description = "Directory searched for source files not found at the path in the PDB (repeatable)" };
+        private readonly Option<string[]> _uses = new("--uses") { Description = "Select methods that call a method or type by mask, e.g. \"System.Diagnostics.Process::Start*\" (repeatable)" };
+        private readonly Option<string[]> _findString = new("--find-string") { Description = "Select methods with a string literal containing the text, or matching a mask with * and ? (repeatable)" };
+        private readonly Option<bool> _regex = new("--regex") { Description = "With --find-string: the text is a regular expression" };
+        private readonly Option<bool> _fields = new("--fields") { Description = "Fields each method reads and writes" };
+        private readonly Option<string[]> _fieldRefs = new("--field-refs") { Description = "Select methods that read or write a field by mask, e.g. \"MyApp.Db.User::<Name>k__BackingField\" (repeatable)" };
+        private readonly Option<bool> _strings = new("--strings") { Description = "Table of all string literals and where they occur" };
         private readonly Option<string> _runMemory = new("--run-memory") { Description = "Memory limit of processes that run analyzed code, e.g. 512M, 2G (number without a suffix: megabytes)", DefaultValueFactory = _ => "1G" };
         private readonly Option<int> _runTimeout = new("--run-timeout") { Description = "Time limit for the --allow-run helper process, seconds", DefaultValueFactory = _ => 30 };
 
@@ -93,7 +104,8 @@ public static class Program
         {
             _format.AcceptOnlyFromAmong("text", "json", "dot", "mermaid");
             Root.Arguments.Add(_files);
-            foreach (var o in new Option[] { _dir, _recursive, _inputList, _refPath, _methods, _calls, _callgraph, _cfg, _pseudo, _il, _native, _allowRun, _all, _filter, _type, _format, _out, _raw, _noColor, _quiet, _verbose, _threads, _decompileTimeout, _maxAbandoned, _runMemory, _runTimeout })
+            foreach (var o in new Option[] { _dir, _recursive, _inputList, _refPath, _methods, _calls, _callgraph, _cfg, _pseudo, _il, _native, _allowRun, _all, _filter, _type, _format, _out, _raw, _noColor, _quiet, _verbose, _threads, _decompileTimeout, _maxAbandoned, _runMemory, _runTimeout,
+                                             _noPdb, _pdbPath, _source, _sourcePath, _uses, _findString, _regex, _fields, _fieldRefs, _strings })
                 Root.Options.Add(o);
         }
 
@@ -131,9 +143,27 @@ public static class Program
             bool all = p.GetValue(_all);
             bool calls = all || p.GetValue(_calls), cfg = all || p.GetValue(_cfg), pseudo = all || p.GetValue(_pseudo);
             bool il = all || p.GetValue(_il), native = all || p.GetValue(_native), callgraph = all || p.GetValue(_callgraph);
-            bool anyGroup = calls || cfg || pseudo || il || native || callgraph;
+            bool fields = all || p.GetValue(_fields), strings = p.GetValue(_strings);
+            bool anyGroup = calls || cfg || pseudo || il || native || callgraph || fields || strings;
             bool methods = all || p.GetValue(_methods) || !anyGroup;
-            var groups = new OutputGroups(methods, calls, cfg, pseudo, il, native, callgraph);
+            var groups = new OutputGroups(methods, calls, cfg, pseudo, il, native, callgraph) { Fields = fields, Strings = strings };
+
+            CrossReferenceQuery query;
+            try
+            {
+                query = new CrossReferenceQuery(p.GetValue(_uses) ?? Array.Empty<string>(), p.GetValue(_findString) ?? Array.Empty<string>(),
+                                                p.GetValue(_regex), p.GetValue(_fieldRefs) ?? Array.Empty<string>());
+            }
+            catch (ArgumentException ex)
+            {
+                Console.Error.WriteLine("netscope: error: " + ex.Message);
+                return Analyzer.ExitBadArguments;
+            }
+            if (p.GetValue(_regex) && (p.GetValue(_findString) ?? Array.Empty<string>()).Length == 0)
+            {
+                Console.Error.WriteLine("netscope: error: --regex applies to --find-string");
+                return Analyzer.ExitBadArguments;
+            }
 
             if (!TryParseSize(p.GetValue(_runMemory) ?? "1G", out long runMemory))
             {
@@ -175,7 +205,14 @@ public static class Program
                 MaxAbandoned = maxAbandoned,
                 RunTimeout = TimeSpan.FromSeconds(runTimeout),
                 Sandbox = new SandboxOptions { MemoryLimitBytes = runMemory },
+                NoPdb = p.GetValue(_noPdb),
+                PdbPaths = (p.GetValue(_pdbPath) ?? Array.Empty<string>()).Select(Path.GetFullPath).ToList(),
+                ShowSource = p.GetValue(_source),
+                SourcePaths = (p.GetValue(_sourcePath) ?? Array.Empty<string>()).Select(Path.GetFullPath).ToList(),
+                Query = query,
             };
+            if (options.ShowSource && options.NoPdb)
+                Log.Warning("--source", "has no effect with --no-pdb");
             if (options.Groups.Native && !options.AllowRun)
                 Log.Info("--native without --allow-run: only ReadyToRun code is shown");
             return new Analyzer().Run(options, stdout);
@@ -187,6 +224,7 @@ public static class Program
             var valueOptions = new HashSet<string>(StringComparer.Ordinal)
             {
                 "--dir", "--input-list", "--ref-path", "--filter", "--type", "--format", "--out", "--threads", "--decompile-timeout", "--max-abandoned", "--run-memory", "--run-timeout",
+                "--pdb-path", "--source-path", "--uses", "--find-string", "--field-refs",
             };
             var items = new List<InputItem>();
             var pendingFiles = new Queue<string>(files);

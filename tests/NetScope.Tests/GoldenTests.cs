@@ -13,6 +13,9 @@ public class GoldenTests
     [InlineData("samples.calls-cfg.txt", "--calls", "--cfg")]
     [InlineData("samples.il.txt", "--il")]
     [InlineData("samples.pseudo.txt", "--pseudo")]
+    [InlineData("samples.uses.txt", "--uses", "MyApp.Db.Users::*", "--uses", "System.Linq.Enumerable")]
+    [InlineData("samples.find-string.txt", "--find-string", "e")]
+    [InlineData("samples.fields-strings.txt", "--fields", "--strings")]
     public void MatchesReference(string goldenFile, params string[] options)
     {
         var r = TestEnv.Run(new[] { TestEnv.SamplesPath, "--no-color" }.Concat(options).ToArray());

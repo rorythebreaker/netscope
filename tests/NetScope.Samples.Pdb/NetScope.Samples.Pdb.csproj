@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>PdbSample</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <!-- Test input for debug symbols: a separate Portable PDB, unoptimized so every local keeps its slot and name. -->
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+</Project>

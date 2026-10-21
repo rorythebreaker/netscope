@@ -1,0 +1,31 @@
+Assembly : NetScope.Samples.dll
+Name     : NetScope.Samples, Version=1.0.0.0
+Runtime  : .NETCoreApp,Version=v8.0   Machine: anycpu
+Methods  : 3
+
+Type     : MyApp.Flow.Features
+
+Method   : int Lambdas(int[] values)
+Kind     : instance, public
+RVA      : 0x2310   Size: 83 bytes   Token: 0x06000018
+
+[Matches]
+  IL_001F  call      System.Linq.Enumerable::Select<int, int>(IEnumerable<int>, Func<int, int>)
+  IL_0043  call      System.Linq.Enumerable::Where<int>(IEnumerable<int>, Func<int, bool>)
+  IL_0048  call      System.Linq.Enumerable::Sum(IEnumerable<int>)
+
+Type     : MyApp.Auth.LoginService
+
+Method   : bool Login(string user, string pass)
+Kind     : instance, public, virtual
+RVA      : 0x24AC   Size: 36 bytes   Token: 0x06000028
+
+[Matches]
+  IL_000C  callvirt  MyApp.Db.Users::Find(string)
+
+Method   : void .ctor()
+Kind     : ctor, instance, public
+RVA      : 0x24F7   Size: 18 bytes   Token: 0x0600002A
+
+[Matches]
+  IL_0001  newobj    MyApp.Db.Users::.ctor()

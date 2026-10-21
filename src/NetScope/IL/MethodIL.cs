@@ -97,6 +97,8 @@ public sealed class MethodIL
             }
             catch (BadImageFormatException) { }
         }
+        if (method.Assembly.Symbols is { } symbols && il.LocalTypes.Length > 0)
+            il.LocalNames = symbols.LocalNames(method.Handle, il.LocalTypes.Length);
         return il;
     }
 }
