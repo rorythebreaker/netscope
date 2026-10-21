@@ -1,4 +1,6 @@
+using System.Diagnostics;
 using System.Runtime.InteropServices;
+using NetScope.Native;
 using NetScope.Pipeline;
 using Xunit;
 
@@ -135,5 +137,37 @@ public sealed class DebugTests
         Assert.Contains("IL_0000", r.Stdout);                 // il
         Assert.Contains("complexity", r.Stdout);              // cfg
         Assert.Contains("int Add(int a, int b)", r.Stdout);   // pseudo (decompiled)
+    }
+
+    [Fact]
+    public async Task ConcurrentSessionsAllStopOnEntry()
+    {
+        // Regression: the attach used to run after the runtime-startup callback had returned, so on a loaded
+        // machine the target could run Main (or exit) before the entry breakpoint existed. Separate processes:
+        // TestEnv.Run redirects the global Console and cannot run in parallel.
+        if (!OperatingSystem.IsWindows() || RuntimeInformation.ProcessArchitecture != Architecture.X64)
+            return;
+
+        var script = Path.Combine(TestEnv.TempDir(), "steps.txt");
+        File.WriteAllText(script, "continue\n");
+        var netscope = Path.Combine(AppContext.BaseDirectory, "netscope.dll");
+        var processes = Enumerable.Range(0, 8).Select(_ =>
+        {
+            var psi = new ProcessStartInfo(SelfCommand.DotnetHost()) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false };
+            foreach (var a in new[] { netscope, Debug, TestEnv.DebugTargetPath, "--allow-run", "--i-know-running-as-admin", "--script", script, "--format", "json" })
+                psi.ArgumentList.Add(a);
+            return Process.Start(psi)!;
+        }).ToArray();
+
+        foreach (var p in processes)
+        {
+            var stdoutTask = p.StandardOutput.ReadToEndAsync();
+            var stderr = await p.StandardError.ReadToEndAsync();
+            var stdout = await stdoutTask;
+            Assert.True(p.WaitForExit(120_000), "a debug session did not finish");
+            Assert.True(p.ExitCode == Analyzer.ExitOk, $"exit {p.ExitCode}: {stderr}");
+            Assert.True(stdout.Contains("\"event\":\"stopped\""), "no stop on entry: " + stderr);
+            p.Dispose();
+        }
     }
 }

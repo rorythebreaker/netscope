@@ -197,6 +197,7 @@ public static class DebugCommand
         private MemberResolver? _resolver;
         private IReadOnlyList<MethodModel>? _methods;
         private bool _staticTried;
+        private bool _quitSent;
 
         private enum CommandResult { Prompt, Resume, Quit }
 
@@ -273,7 +274,11 @@ public static class DebugCommand
             try { return _events.Take(); } catch (InvalidOperationException) { return null; }
         }
 
-        private void Send(string cmd) => SendJson(DebugProtocol.Command(cmd));
+        private void Send(string cmd)
+        {
+            if (cmd == "quit") _quitSent = true;
+            SendJson(DebugProtocol.Command(cmd));
+        }
 
         private void SendJson(string json) { try { _host!.StandardInput.WriteLine(json); _host.StandardInput.Flush(); } catch { } }
 
@@ -286,7 +291,14 @@ public static class DebugCommand
             while (true)
             {
                 var ev = Wait();
-                if (ev == null) return Analyzer.ExitOk; // host closed without an explicit exit event
+                if (ev == null)
+                {
+                    // After quit the host may close without an exit event; otherwise it ended abnormally.
+                    if (_quitSent) return Analyzer.ExitOk;
+                    Console.Error.WriteLine("netscope debug: the debug host ended without reporting the program's exit");
+                    _audit.Line("error", "host ended without an exit event");
+                    return Analyzer.ExitPartial;
+                }
                 var e = ev.Value;
                 switch (e.Text("event"))
                 {
