@@ -1,10 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <!-- net48: the same program for the .NET Framework backend (TZ-NetScope-2 §4), built from reference assemblies. -->
+    <TargetFrameworks>net8.0;net48</TargetFrameworks>
     <AssemblyName>NetScope.Samples.DebugTarget</AssemblyName>
     <Nullable>enable</Nullable>
     <!-- A deterministic little program the debugger tests launch and stop at Main. -->
     <ImplicitUsings>disable</ImplicitUsings>
+    <!-- AnyCPU without the 32-bit preference: it runs with the bitness of the (64-bit) debug host. -->
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
 </Project>
