@@ -38,10 +38,13 @@ owning-type handle, which must be a `TypeDefinition`, `TypeReference` or `TypeSp
 
 `tests/NetScope.Samples.NativeAot`, published for win-x64 in CI (`nativeaot` job), without a PDB:
 
-| | Names recovered | Linker function symbols | Address check | Name check |
+| | Names recovered | Method bodies (ILC map, `MethodCode`) | Address check (MSVC linker map) | Name check |
 | --- | ---: | ---: | --- | --- |
-| .NET 8 | 3465 | 3950 | every address is a symbol in the MSVC linker map | every name matches the linker symbol |
-| .NET 10 | 2833 | 3004 | same | same |
+| .NET 8 | 3465 | 3950 | 3465/3465 addresses are symbols | 3465/3465 names match the symbol |
+| .NET 10 | 2833 | 3004 | 2833/2833 | 2833/2833 |
+
+ILC names some primitive types by their element type in symbols (`System.Boolean` is `Bool__GetHashCode`,
+`System.Byte` is `UInt8__...`); the check knows these aliases.
 
 The methods without a name are runtime stubs and helpers that ILC gives no stack trace entry (for example the
 `<Main>` wrapper), and methods whose identical code was folded into another one (Ghidra gets the first name at that
