@@ -1,0 +1,11 @@
+schema_version: "1.1"
+name: audit-third-party-library
+context:
+  scaffold_script: place-files.sh
+expected_outcome: |
+  The agent runs NetScope's security audit on the DLL (static analysis only) and reports the
+  error-level findings with method names and IL offsets: BinaryFormatter deserialization and
+  TypeNameHandling (NS004) in MyApp.Audit.Ns004, a TLS certificate callback that always returns
+  true (NS006) in MyApp.Audit.Ns006::PositiveAcceptAnyCertificate, and hard-coded secrets (NS007:
+  connection string password, AWS key ID, PEM private key) in MyApp.Audit.Ns007, without printing
+  the secret values. It does not execute the assembly.
