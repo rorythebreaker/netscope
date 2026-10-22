@@ -347,6 +347,10 @@ NETSCOPE_UPDATE_GOLDEN=1 dotnet test NetScope.sln
 
 CI (`.github/workflows/ci.yml`) runs the tests on Windows and Linux and publishes single-file binaries for win-x64, linux-x64, win-arm64 and linux-arm64.
 
+## AI agents
+
+[`skills/netscope`](skills/netscope/SKILL.md) is an Agent Skill that teaches an AI agent (Claude Code and other tools that read `SKILL.md`) to use NetScope: which command answers which question, how to narrow the output to the methods that matter, what the exit codes mean, and that `--allow-run` and `debug` execute the analyzed code and need the user's consent. To use it in Claude Code, copy the folder to `~/.claude/skills/netscope` or to `.claude/skills/netscope` in a project. `skills/netscope/evals` holds test cases in the format of `claude plugin eval`.
+
 ## License
 
 NetScope is released under the [MIT License](LICENSE). The binaries include ICSharpCode.Decompiler, Iced, Disarm, System.CommandLine and the .NET runtime, all under the MIT License. Their notices are in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md), which is also included in every release archive.
